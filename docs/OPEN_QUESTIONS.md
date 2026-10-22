@@ -29,10 +29,33 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 ## Process
 
-17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward Hevy-scale later or keep curated & cited?
+17. **Target library size** — Library grew with pull-up/dip families (~145 total). Grow toward a several-hundred-exercise catalog later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
+19. **Additional locale keys (en-GB/uk only in this PR)** — Another agent should translate these `exercise.*.name` keys beyond en-GB/uk:
+    - `exercise.archer_pull_up.name`
+    - `exercise.band_assisted_dip.name`
+    - `exercise.bench_dip.name`
+    - `exercise.close_grip_pull_up.name`
+    - `exercise.commando_pull_up.name`
+    - `exercise.korean_dip.name`
+    - `exercise.l_sit_pull_up.name`
+    - `exercise.machine_assisted_dip.name`
+    - `exercise.machine_assisted_pull_up.name`
+    - `exercise.negative_dip.name`
+    - `exercise.negative_pull_up.name`
+    - `exercise.neutral_grip_pull_up.name`
+    - `exercise.scapular_pull_up.name`
+    - `exercise.straight_bar_dip.name`
+    - `exercise.typewriter_pull_up.name`
+    - `exercise.weighted_dip.name`
+    - `exercise.wide_grip_pull_up.name`
+    Also refresh display strings for expanded existing keys (`pull_up`, `chin_up`, `inverted_row`, `weighted_pull_up`, `assisted_pull_up_band`, `ring_dip`, `dip_parallel_bar`, `chest_to_bar_pull_up`) if non-en/uk locales already exist elsewhere.
+20. **`bodyweightFraction` for dips** — No published GRF %BM study for parallel-bar dips was verified; current values are estimates from de Leva segmental logic. Prefer a measured study if one appears.
+21. **`loadModel` backfill** — Non pull/dip exercises received heuristic loadModel/fraction defaults; review edge cases (carries, swimming, holds) before treating proportions as analytics-grade.
 
-## Content plane (bundle-first) — decisions & questions
+## § Content server
+
+Bundle-first content plane (CDN updates / optional media / OFF packs / remote config). Decisions below are provisional; do not block merges.
 
 ### Decisions (provisional / owner-confirmed)
 
@@ -47,11 +70,11 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 ### Open questions
 
-19. **Video delivery** — Prefer plain CDN downloads + app cache, **iOS Background Assets**, **Android Play Asset Delivery**, or a hybrid? Affects billing and update UX.
-20. **HEIC vs WebP-only** — Bundle HEIC for iOS in addition to WebP, or WebP everywhere to simplify budgets?
-21. **Update check cadence** — On launch / daily / Wi-Fi only / manual? Default assumption: Wi-Fi + launch, remote-config gated.
-22. **Official minisign key ceremony** — Who generates the production key, and is dual-key overlap required for v1?
-23. **Bunny vs Hetzner Object Storage as origin** — Default IaC uses Bunny Storage; switch to Hetzner S3 origin if owner wants all data in Hetzner EU?
-24. **OFF pack licensing/attribution** — Confirm Open Food Facts dump licence + update frequency for signed packs.
-25. **Custom domain** — `content.omnigart.*` DNS + Bunny certificate when available?
-26. **Mirror baselines on CDN?** — Transparency only, or omit to save storage?
+22. **Video delivery** — Prefer plain CDN downloads + app cache, **iOS Background Assets**, **Android Play Asset Delivery**, or a hybrid? Affects billing and update UX.
+23. **HEIC vs WebP-only** — Bundle HEIC for iOS in addition to WebP, or WebP everywhere to simplify budgets?
+24. **Update check cadence** — On launch / daily / Wi-Fi only / manual? Default assumption: Wi-Fi + launch, remote-config gated.
+25. **Official minisign key ceremony** — Who generates the production key, and is dual-key overlap required for v1?
+26. **Bunny vs Hetzner Object Storage as origin** — Default IaC uses Bunny Storage; switch to Hetzner S3 origin if owner wants all data in Hetzner EU?
+27. **OFF pack licensing/attribution** — Confirm Open Food Facts dump licence + update frequency for signed packs.
+28. **Custom domain** — `content.omnigart.*` DNS + Bunny certificate when available?
+29. **Mirror baselines on CDN?** — Transparency only, or omit to save storage?

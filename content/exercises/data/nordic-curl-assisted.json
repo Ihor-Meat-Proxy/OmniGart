@@ -62,5 +62,13 @@
     "animationKey": "media/anim/nordic-curl-assisted"
   },
   "aliases": [],
-  "tags": []
+  "tags": [],
+  "loadModel": "bodyweight_minus_assistance",
+  "bodyweightFraction": {
+    "proportion": 0.97,
+    "basis": "estimate",
+    "rationale": "Feet free; almost all BM is supported through the upper limbs. Hands contact the bars (~1.2% BM per de Leva male hands), so estimate ~0.96–0.99. No published GRF %BM for dips found — estimate only."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": true
 }

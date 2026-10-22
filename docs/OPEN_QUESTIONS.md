@@ -29,22 +29,53 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 ## Process
 
-17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward a large commercial-scale library later or keep curated & cited?
+17. **Target library size** — Library grew with pull-up/dip families (~145 total). Grow toward a several-hundred-exercise catalog later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
+19. **Additional locale keys (en-GB/uk only in this PR)** — Another agent should translate these `exercise.*.name` keys beyond en-GB/uk:
+    - `exercise.archer_pull_up.name`
+    - `exercise.band_assisted_dip.name`
+    - `exercise.bench_dip.name`
+    - `exercise.close_grip_pull_up.name`
+    - `exercise.commando_pull_up.name`
+    - `exercise.korean_dip.name`
+    - `exercise.l_sit_pull_up.name`
+    - `exercise.machine_assisted_dip.name`
+    - `exercise.machine_assisted_pull_up.name`
+    - `exercise.negative_dip.name`
+    - `exercise.negative_pull_up.name`
+    - `exercise.neutral_grip_pull_up.name`
+    - `exercise.scapular_pull_up.name`
+    - `exercise.straight_bar_dip.name`
+    - `exercise.typewriter_pull_up.name`
+    - `exercise.weighted_dip.name`
+    - `exercise.wide_grip_pull_up.name`
+    Also refresh display strings for expanded existing keys (`pull_up`, `chin_up`, `inverted_row`, `weighted_pull_up`, `assisted_pull_up_band`, `ring_dip`, `dip_parallel_bar`, `chest_to_bar_pull_up`) if non-en/uk locales already exist elsewhere.
+20. **`bodyweightFraction` for dips** — No published GRF %BM study for parallel-bar dips was verified; current values are estimates from de Leva segmental logic. Prefer a measured study if one appears.
+21. **`loadModel` backfill** — Non pull/dip exercises received heuristic loadModel/fraction defaults; review edge cases (carries, swimming, holds) before treating proportions as analytics-grade.
+
+## Body map
+
+B1. **Figure fidelity** — Figures adapt MIT MuscleMap paths. Further refine subdivisions (pec heads / VL / soleus cuts), commission bespoke illustrations later, or keep iterating on the adapter?
+B2. **Unilateral highlighting** — Paths are L/R mirrored today; should unilateral sets tint only the working side once session laterality is logged?
+B3. **Secondary weight** — Default 0.5 follows Pelland et al. 2025 fractional counting. Keep global, or allow per-pattern overrides (e.g. rows → biceps < 0.5)?
+B4. **TVA / rotator-cuff proxies** — Surface proxies may overstate visible load. Drop from heatmap fills and keep taxonomy-only, or add dashed “deep” overlays?
+B5. **Sex figure default** — `UNSPECIFIED` currently falls back to the male figure. Prefer a neutral third silhouette, or require sex before showing heatmaps?
+B6. **Intensity binning** — Equal-width vs log / landmark-anchored bins for single workouts — confirm preference after first user tests.
+B7. **Path JSON packaging** — Ship JSON in both app bundles, or generate Swift/Compose path tables in `design/generated` like icons?
 
 ## Achievements (provisional)
 
-19. **Freeze token economy** — Default catalogue allows freezes on rest-tolerant streaks (`maxFreezePerStreak` 2–3). Confirm earn rate (e.g. one token per N honoured rest days) when the app layer wires inventory.
-20. **Weekly rest tolerance defaults** — Strength/run/swim/yoga use `restDayTolerancePerWeek: 1–2`. Confirm per-discipline defaults vs a single user setting.
-21. **Sleep consistency window** — Catalogue uses midpoint variance ≤ 60 minutes. Confirm clinical/product preference (45–90 min?).
-22. **Volume display units** — Engine stores `volume_kg`; UI should show tonnes for `strength.volume_tonnes`. Confirm rounding and localisation of unit labels.
-23. **Challenge calendar** — Monthly/weekly challenges use the evaluation timezone. Confirm whether “current month” follows the user’s home zone or the device zone after travel.
-24. **Secret achievements** — Several `hidden: true` entries exist. Confirm reveal copy and whether secrets appear greyed or omitted until unlock.
-25. **Icon authorship** — Provisional icons in `content/achievements/proposed-icons.json` (`challenge`, `discovery`, `freeze-token`, `personal-record`). Design follow-up to author SVGs into `design/icons`.
-26. **SQLDelight / persistence** — Engine is pure Kotlin state; table shapes for `EvaluationState` TBD when Phase 0 scaffold lands.
-27. **Notification copy for back-fill** — Key `achievement.backfill.summary` reserved; confirm en-GB/uk wording with product.
-28. **Ukrainian sports terminology for achievements** — Working drafts in `content/achievements/locales/uk.json`; confirm with native-speaking coach (same as exercise terminology Q4).
-29. **Remaining locale pack** — Achievements ship **en-GB + uk only**. Localisation follow-up should add other locales from the key list below (never `ru`).
+22. **Freeze token economy** — Default catalogue allows freezes on rest-tolerant streaks (`maxFreezePerStreak` 2–3). Confirm earn rate (e.g. one token per N honoured rest days) when the app layer wires inventory.
+23. **Weekly rest tolerance defaults** — Strength/run/swim/yoga use `restDayTolerancePerWeek: 1–2`. Confirm per-discipline defaults vs a single user setting.
+24. **Sleep consistency window** — Catalogue uses midpoint variance ≤ 60 minutes. Confirm clinical/product preference (45–90 min?).
+25. **Volume display units** — Engine stores `volume_kg`; UI should show tonnes for `strength.volume_tonnes`. Confirm rounding and localisation of unit labels.
+26. **Challenge calendar** — Monthly/weekly challenges use the evaluation timezone. Confirm whether “current month” follows the user’s home zone or the device zone after travel.
+27. **Secret achievements** — Several `hidden: true` entries exist. Confirm reveal copy and whether secrets appear greyed or omitted until unlock.
+28. **Icon authorship** — Provisional icons in `content/achievements/proposed-icons.json` (`challenge`, `discovery`, `freeze-token`, `personal-record`). Design follow-up to author SVGs into `design/icons`.
+29. **SQLDelight / persistence** — Engine is pure Kotlin state; table shapes for `EvaluationState` TBD when Phase 0 scaffold lands.
+30. **Notification copy for back-fill** — Key `achievement.backfill.summary` reserved; confirm en-GB/uk wording with product.
+31. **Ukrainian sports terminology for achievements** — Working drafts in `content/achievements/locales/uk.json`; confirm with native-speaking coach (same as exercise terminology Q4).
+32. **Remaining locale pack** — Achievements ship **en-GB + uk only**. Localisation follow-up should add other locales from the key list below (never `ru`).
 
 ### New achievement string keys (en-GB + uk shipped)
 

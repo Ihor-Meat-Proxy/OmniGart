@@ -1,0 +1,378 @@
+[
+  {
+    "id": "nutrition.first_log",
+    "category": "nutrition",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "food_days_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1
+    },
+    "iconId": "food-log",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.nutrition.first_log.title",
+    "descriptionKey": "achievement.nutrition.first_log.description",
+    "healthyNotes": "No calorie thresholds; logging presence only."
+  },
+  {
+    "id": "nutrition.days_logged",
+    "category": "nutrition",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 7
+      },
+      {
+        "id": "silver",
+        "threshold": 30
+      },
+      {
+        "id": "gold",
+        "threshold": 100
+      },
+      {
+        "id": "platinum",
+        "threshold": 365
+      }
+    ],
+    "rule": {
+      "metric": "food_days_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte"
+    },
+    "iconId": "food",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.nutrition.days_logged.title",
+    "descriptionKey": "achievement.nutrition.days_logged.description",
+    "healthyNotes": "Consistency of logging, not intake targets."
+  },
+  {
+    "id": "nutrition.streak",
+    "category": "nutrition",
+    "type": "streak",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 3
+      },
+      {
+        "id": "silver",
+        "threshold": 7
+      },
+      {
+        "id": "gold",
+        "threshold": 21
+      },
+      {
+        "id": "platinum",
+        "threshold": 60
+      }
+    ],
+    "rule": {
+      "metric": "food_days_logged",
+      "aggregation": "streak",
+      "window": {
+        "kind": "streak_days",
+        "qualify": "log",
+        "restDayTolerancePerWeek": 1,
+        "freezeTokensAllowed": true,
+        "maxFreezePerStreak": 3
+      },
+      "compare": "gte"
+    },
+    "iconId": "streak",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.nutrition.streak.title",
+    "descriptionKey": "achievement.nutrition.streak.description"
+  },
+  {
+    "id": "nutrition.week_complete",
+    "category": "nutrition",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 7
+      }
+    ],
+    "rule": {
+      "metric": "food_days_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "calendar",
+        "unit": "week",
+        "count": 1
+      },
+      "compare": "gte",
+      "threshold": 7
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.nutrition.week_complete.title",
+    "descriptionKey": "achievement.nutrition.week_complete.description"
+  },
+  {
+    "id": "nutrition.month_habit",
+    "category": "nutrition",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 10
+      },
+      {
+        "id": "silver",
+        "threshold": 20
+      },
+      {
+        "id": "gold",
+        "threshold": 25
+      },
+      {
+        "id": "platinum",
+        "threshold": 30
+      }
+    ],
+    "rule": {
+      "metric": "food_days_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "challenge_period",
+        "period": "current_month"
+      },
+      "compare": "gte"
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.nutrition.month_habit.title",
+    "descriptionKey": "achievement.nutrition.month_habit.description"
+  },
+  {
+    "id": "nutrition.balanced_plate_days",
+    "category": "nutrition",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 5
+      },
+      {
+        "id": "silver",
+        "threshold": 20
+      },
+      {
+        "id": "gold",
+        "threshold": 50
+      },
+      {
+        "id": "platinum",
+        "threshold": 100
+      }
+    ],
+    "rule": {
+      "metric": "food_days_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte"
+    },
+    "iconId": "food",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.nutrition.balanced_plate_days.title",
+    "descriptionKey": "achievement.nutrition.balanced_plate_days.description",
+    "healthyNotes": "Awareness via logging; never rewards restriction."
+  },
+  {
+    "id": "nutrition.secret_breakfast",
+    "category": "nutrition",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "food_days_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1
+    },
+    "iconId": "food-log",
+    "hidden": true,
+    "repeatable": false,
+    "titleKey": "achievement.nutrition.secret_breakfast.title",
+    "descriptionKey": "achievement.nutrition.secret_breakfast.description"
+  },
+  {
+    "id": "nutrition.rolling_30",
+    "category": "nutrition",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 20
+      }
+    ],
+    "rule": {
+      "metric": "food_days_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "rolling_days",
+        "days": 30
+      },
+      "compare": "gte",
+      "threshold": 20
+    },
+    "iconId": "food",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.nutrition.rolling_30.title",
+    "descriptionKey": "achievement.nutrition.rolling_30.description"
+  },
+  {
+    "id": "nutrition.variety_week",
+    "category": "nutrition",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 5
+      }
+    ],
+    "rule": {
+      "metric": "food_days_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "calendar",
+        "unit": "week",
+        "count": 1
+      },
+      "compare": "gte",
+      "threshold": 5
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.nutrition.variety_week.title",
+    "descriptionKey": "achievement.nutrition.variety_week.description"
+  },
+  {
+    "id": "nutrition.hundred_club",
+    "category": "nutrition",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 100
+      }
+    ],
+    "rule": {
+      "metric": "food_days_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 100
+    },
+    "iconId": "trophy",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.nutrition.hundred_club.title",
+    "descriptionKey": "achievement.nutrition.hundred_club.description"
+  },
+  {
+    "id": "nutrition.gentle_return",
+    "category": "nutrition",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 3
+      }
+    ],
+    "rule": {
+      "metric": "food_days_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "rolling_days",
+        "days": 7
+      },
+      "compare": "gte",
+      "threshold": 3
+    },
+    "iconId": "food-log",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.nutrition.gentle_return.title",
+    "descriptionKey": "achievement.nutrition.gentle_return.description",
+    "healthyNotes": "No punishment for gaps; rewards return."
+  },
+  {
+    "id": "nutrition.year_of_logs",
+    "category": "nutrition",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "level_1",
+        "threshold": 50
+      },
+      {
+        "id": "level_2",
+        "threshold": 100
+      },
+      {
+        "id": "level_3",
+        "threshold": 200
+      },
+      {
+        "id": "level_4",
+        "threshold": 300
+      },
+      {
+        "id": "level_5",
+        "threshold": 365
+      }
+    ],
+    "rule": {
+      "metric": "food_days_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "calendar",
+        "unit": "month",
+        "count": 12
+      },
+      "compare": "gte"
+    },
+    "iconId": "food",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.nutrition.year_of_logs.title",
+    "descriptionKey": "achievement.nutrition.year_of_logs.description"
+  }
+]

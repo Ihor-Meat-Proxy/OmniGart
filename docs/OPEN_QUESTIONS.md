@@ -29,5 +29,36 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 ## Process
 
-17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward Hevy-scale later or keep curated & cited?
+17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward a large commercial-scale library later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
+
+## Achievements (provisional)
+
+19. **Freeze token economy** — Default catalogue allows freezes on rest-tolerant streaks (`maxFreezePerStreak` 2–3). Confirm earn rate (e.g. one token per N honoured rest days) when the app layer wires inventory.
+20. **Weekly rest tolerance defaults** — Strength/run/swim/yoga use `restDayTolerancePerWeek: 1–2`. Confirm per-discipline defaults vs a single user setting.
+21. **Sleep consistency window** — Catalogue uses midpoint variance ≤ 60 minutes. Confirm clinical/product preference (45–90 min?).
+22. **Volume display units** — Engine stores `volume_kg`; UI should show tonnes for `strength.volume_tonnes`. Confirm rounding and localisation of unit labels.
+23. **Challenge calendar** — Monthly/weekly challenges use the evaluation timezone. Confirm whether “current month” follows the user’s home zone or the device zone after travel.
+24. **Secret achievements** — Several `hidden: true` entries exist. Confirm reveal copy and whether secrets appear greyed or omitted until unlock.
+25. **Icon authorship** — Provisional icons in `content/achievements/proposed-icons.json` (`challenge`, `discovery`, `freeze-token`, `personal-record`). Design agent to author SVGs into `design/icons`.
+26. **SQLDelight / persistence** — Engine is pure Kotlin state; table shapes for `EvaluationState` TBD when Phase 0 scaffold lands.
+27. **Notification copy for back-fill** — Key `achievement.backfill.summary` reserved; confirm en-GB/uk wording with product.
+28. **Ukrainian sports terminology for achievements** — Working drafts in `content/achievements/locales/uk.json`; confirm with native-speaking coach (same as exercise terminology Q4).
+29. **Remaining locale pack** — Achievements ship **en-GB + uk only**. Translation agent should add other locales from the key list below (never `ru`).
+
+### New achievement string keys (en-GB + uk shipped)
+
+Keys follow `achievement.<id>.title` and `achievement.<id>.description`. Full list is the union of keys in `content/achievements/locales/en-GB.json` (240 keys for 120 achievements). Categories and ids:
+
+- **general** (16): `first_workout`, `disciplines_explorer`, `weekly_consistency`, `logging_habit`, `workout_milestones`, `honour_rest`, `freeze_wise`, `morning_or_evening_rhythm`, `multi_discipline_week`, `session_minutes`, `early_consistency`, `balanced_month`, `secret_comeback`, `year_of_movement`, `share_ready`, `evidence_curious`
+- **strength** (20): `first_session`, `sessions`, `volume_tonnes`, `sets_logged`, `weekly_practice`, `pr_squat`, `pr_hinge`, `pr_press`, `pr_pull`, `long_session`, `session_volume`, `month_challenge`, `compound_focus`, `secret_pr_night`, `deload_honour`, `year_volume`, `three_week_block`, `unilateral_sets`, `upper_lower_week`, `bodyweight_base`
+- **running** (15): `first_run`, `distance_lifetime_km`, `sessions`, `5k`, `10k`, `half`, `marathon`, `easy_streak`, `week_distance`, `pace_pr`, `month_challenge`, `secret_sunrise`, `long_run`, `walk_run_start`, `trail_or_road`
+- **swimming** (12): `first_swim`, `distance_lifetime`, `sessions`, `stroke_variety`, `session_distance`, `rhythm`, `month_challenge`, `drill_focus`, `secret_flip`, `week_distance`, `butterfly_try`, `im_builder`
+- **yoga** (10): `first_practice`, `minutes`, `sessions`, `streak`, `long_flow`, `month_challenge`, `mobility_pair`, `secret_stillness`, `week_minutes`, `year_practice`
+- **pilates** (8): `first_session`, `minutes`, `sessions`, `streak`, `core_focus`, `month_challenge`, `secret_hundred`, `week_minutes`
+- **nutrition** (12): `first_log`, `days_logged`, `streak`, `week_complete`, `month_habit`, `balanced_plate_days`, `secret_breakfast`, `rolling_30`, `variety_week`, `hundred_club`, `gentle_return`, `year_of_logs`
+- **water** (8): `first_goal`, `streak`, `days`, `week_challenge`, `month_challenge`, `secret_sip`, `rolling_consistent`, `train_and_drink`
+- **recovery** (11): `first_sleep_import`, `sleep_consistency`, `sleep_days`, `rest_day_honour`, `month_sleep`, `readiness_listen`, `secret_nap_boundary`, `week_consistency`, `hrv_checkin`, `balance_block`, `stress_down_day`
+- **body** (8): `first_measurement`, `measurement_days`, `streak`, `month_checkins`, `kinds_variety`, `secret_tape`, `quarter_habit`, `year_of_checkins`
+
+Also reserved: `achievement.backfill.summary` (notification summary; not yet in locale files — confirm copy before adding).

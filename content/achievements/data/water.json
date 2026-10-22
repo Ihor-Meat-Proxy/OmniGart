@@ -1,0 +1,245 @@
+[
+  {
+    "id": "water.first_goal",
+    "category": "water",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "water_goal_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1
+    },
+    "iconId": "water",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.water.first_goal.title",
+    "descriptionKey": "achievement.water.first_goal.description",
+    "healthyNotes": "Personal goal met; never rewards under-drinking."
+  },
+  {
+    "id": "water.streak",
+    "category": "water",
+    "type": "streak",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 3
+      },
+      {
+        "id": "silver",
+        "threshold": 7
+      },
+      {
+        "id": "gold",
+        "threshold": 21
+      },
+      {
+        "id": "platinum",
+        "threshold": 60
+      }
+    ],
+    "rule": {
+      "metric": "water_goal_days",
+      "aggregation": "streak",
+      "window": {
+        "kind": "streak_days",
+        "qualify": "goal_met",
+        "restDayTolerancePerWeek": 1,
+        "freezeTokensAllowed": true,
+        "maxFreezePerStreak": 3
+      },
+      "compare": "gte"
+    },
+    "iconId": "streak",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.water.streak.title",
+    "descriptionKey": "achievement.water.streak.description"
+  },
+  {
+    "id": "water.days",
+    "category": "water",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 7
+      },
+      {
+        "id": "silver",
+        "threshold": 30
+      },
+      {
+        "id": "gold",
+        "threshold": 100
+      },
+      {
+        "id": "platinum",
+        "threshold": 300
+      }
+    ],
+    "rule": {
+      "metric": "water_goal_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte"
+    },
+    "iconId": "water",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.water.days.title",
+    "descriptionKey": "achievement.water.days.description"
+  },
+  {
+    "id": "water.week_challenge",
+    "category": "water",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 7
+      }
+    ],
+    "rule": {
+      "metric": "water_goal_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "calendar",
+        "unit": "week",
+        "count": 1
+      },
+      "compare": "gte",
+      "threshold": 7
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.water.week_challenge.title",
+    "descriptionKey": "achievement.water.week_challenge.description"
+  },
+  {
+    "id": "water.month_challenge",
+    "category": "water",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 10
+      },
+      {
+        "id": "silver",
+        "threshold": 20
+      },
+      {
+        "id": "gold",
+        "threshold": 25
+      },
+      {
+        "id": "platinum",
+        "threshold": 30
+      }
+    ],
+    "rule": {
+      "metric": "water_goal_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "challenge_period",
+        "period": "current_month"
+      },
+      "compare": "gte"
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.water.month_challenge.title",
+    "descriptionKey": "achievement.water.month_challenge.description"
+  },
+  {
+    "id": "water.secret_sip",
+    "category": "water",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "water_goal_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1
+    },
+    "iconId": "water",
+    "hidden": true,
+    "repeatable": false,
+    "titleKey": "achievement.water.secret_sip.title",
+    "descriptionKey": "achievement.water.secret_sip.description"
+  },
+  {
+    "id": "water.rolling_consistent",
+    "category": "water",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 20
+      }
+    ],
+    "rule": {
+      "metric": "water_goal_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "rolling_days",
+        "days": 30
+      },
+      "compare": "gte",
+      "threshold": 20
+    },
+    "iconId": "water",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.water.rolling_consistent.title",
+    "descriptionKey": "achievement.water.rolling_consistent.description"
+  },
+  {
+    "id": "water.train_and_drink",
+    "category": "water",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 3
+      }
+    ],
+    "rule": {
+      "metric": "water_goal_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "rolling_days",
+        "days": 7
+      },
+      "compare": "gte",
+      "threshold": 3
+    },
+    "iconId": "water",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.water.train_and_drink.title",
+    "descriptionKey": "achievement.water.train_and_drink.description"
+  }
+]

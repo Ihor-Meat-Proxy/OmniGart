@@ -40,11 +40,11 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 22. **Volume display units** — Engine stores `volume_kg`; UI should show tonnes for `strength.volume_tonnes`. Confirm rounding and localisation of unit labels.
 23. **Challenge calendar** — Monthly/weekly challenges use the evaluation timezone. Confirm whether “current month” follows the user’s home zone or the device zone after travel.
 24. **Secret achievements** — Several `hidden: true` entries exist. Confirm reveal copy and whether secrets appear greyed or omitted until unlock.
-25. **Icon authorship** — Provisional icons in `content/achievements/proposed-icons.json` (`challenge`, `discovery`, `freeze-token`, `personal-record`). Design agent to author SVGs into `design/icons`.
+25. **Icon authorship** — Provisional icons in `content/achievements/proposed-icons.json` (`challenge`, `discovery`, `freeze-token`, `personal-record`). Design follow-up to author SVGs into `design/icons`.
 26. **SQLDelight / persistence** — Engine is pure Kotlin state; table shapes for `EvaluationState` TBD when Phase 0 scaffold lands.
 27. **Notification copy for back-fill** — Key `achievement.backfill.summary` reserved; confirm en-GB/uk wording with product.
 28. **Ukrainian sports terminology for achievements** — Working drafts in `content/achievements/locales/uk.json`; confirm with native-speaking coach (same as exercise terminology Q4).
-29. **Remaining locale pack** — Achievements ship **en-GB + uk only**. Translation agent should add other locales from the key list below (never `ru`).
+29. **Remaining locale pack** — Achievements ship **en-GB + uk only**. Localisation follow-up should add other locales from the key list below (never `ru`).
 
 ### New achievement string keys (en-GB + uk shipped)
 

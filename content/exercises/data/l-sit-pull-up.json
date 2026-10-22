@@ -1,0 +1,115 @@
+{
+  "id": "l-sit-pull-up",
+  "nameKeys": {
+    "enGB": "exercise.l_sit_pull_up.name",
+    "uk": "exercise.l_sit_pull_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "hip_flexors",
+    "rectus_abdominis"
+  ],
+  "secondaryMuscles": [
+    "biceps",
+    "forearms",
+    "rhomboids"
+  ],
+  "equipment": [
+    "pull_up_bar"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "From a hang, raise straight legs to an L (hips ~90°) and hold that position while performing pull-ups.",
+    "Keep the lumbar spine from excessively rounding or swinging."
+  ],
+  "setup": [
+    "Needs solid hanging leg-raise control before loading pull-ups."
+  ],
+  "breathing": "Exhale on the pull; do not breath-hold the entire L.",
+  "commonMistakes": [
+    "Dropping the legs mid-set",
+    "Kipping out of the L"
+  ],
+  "safety": [
+    "Stop if hip-flexor cramping forces loss of shoulder position."
+  ],
+  "contraindications": [
+    "Acute lumbar disc flare with hip flexion"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "pull-up",
+      "note": "Remove L"
+    },
+    {
+      "exerciseId": "hanging-knee-raise",
+      "note": "Train the L separately"
+    },
+    {
+      "exerciseId": "chin-up",
+      "note": "Often slightly easier pull"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "weighted-pull-up",
+      "note": "Load after L mastery"
+    },
+    {
+      "exerciseId": "archer-pull-up",
+      "note": "Harder pull variant"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1016/0021-9290(95)00178-6",
+      "label": "de Leva 1996 — adjusted segmental mass proportions (Zatsiorsky–Seluyanov)",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1519/JSC.0b013e3181f1598c",
+      "label": "Youdas et al. 2010 — pull-up vs chin-up surface EMG (biceps/pec higher on chin-up)",
+      "supports": [
+        "emg",
+        "biomechanics",
+        "technique"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/l-sit-pull-up",
+    "videoKey": "media/video/l-sit-pull-up",
+    "animationKey": "media/anim/l-sit-pull-up"
+  },
+  "aliases": [],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
+}

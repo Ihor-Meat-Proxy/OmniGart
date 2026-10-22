@@ -62,6 +62,6 @@ Sources consulted: public marketing/help materials for strength-logging apps and
 
 ---
 
-## Benchmark takeaway for this PR
+## Market-review takeaway for this workstream
 
-Ship a **self-contained content pack + planning package** that merges beside Phase 0 scaffold/design-system PRs: schemas, ~120 original exercises, search/filter + equipment presets, ~15 templates, rule-based plan generator with interfaces for a future OpenRouter generator.
+Ship a **self-contained content pack + planning package** that merges beside Phase 0 scaffold/design-system PRs: schemas, ~120+ original exercises (expanded with pull-up/dip load-model families), search/filter + equipment presets, ~15 templates, rule-based plan generator with interfaces for a future OpenRouter generator.

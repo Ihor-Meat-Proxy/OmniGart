@@ -4,6 +4,10 @@ options:
   deploymentTarget:
     iOS: "18.0"
     watchOS: "11.0"
+  # In-project groups stay tidy. External design paths set createIntermediateGroups:
+  # false so XcodeGen does not nest design/generated under a parent that already
+  # resolves through ../design/generated (which produced
+  # design/generated/design/generated/... on OmniGartWatch).
   createIntermediateGroups: true
   groupSortPosition: top
 
@@ -22,13 +26,21 @@ targets:
     deploymentTarget: "18.0"
     sources:
       - path: OmniGart
-      - path: ../design/generated/ios/Sources
-        group: Design
+      - &designSwiftSources
+        path: ../design/generated/ios/Sources
+        name: Design
+        createIntermediateGroups: false
     resources:
-      - path: ../design/generated/ios/OmniGartColors.xcassets
+      - &designColorAssets
+        path: ../design/generated/ios/OmniGartColors.xcassets
         type: folder
-      - path: ../design/generated/ios/OmniGartIcons.xcassets
+        name: OmniGartColors
+        createIntermediateGroups: false
+      - &designIconAssets
+        path: ../design/generated/ios/OmniGartIcons.xcassets
         type: folder
+        name: OmniGartIcons
+        createIntermediateGroups: false
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios
@@ -81,13 +93,11 @@ targets:
     deploymentTarget: "11.0"
     sources:
       - path: ../watchApp/OmniGartWatch
-      - path: ../design/generated/ios/Sources
-        group: Design
+        createIntermediateGroups: false
+      - *designSwiftSources
     resources:
-      - path: ../design/generated/ios/OmniGartColors.xcassets
-        type: folder
-      - path: ../design/generated/ios/OmniGartIcons.xcassets
-        type: folder
+      - *designColorAssets
+      - *designIconAssets
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios.watchkitapp
@@ -109,6 +119,7 @@ targets:
     deploymentTarget: "11.0"
     sources:
       - path: ../watchApp/OmniGartWatchTests
+        createIntermediateGroups: false
     dependencies:
       - target: OmniGartWatch
     settings:

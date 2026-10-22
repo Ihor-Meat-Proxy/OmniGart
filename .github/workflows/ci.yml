@@ -18,8 +18,8 @@ jobs:
       run:
         working-directory: design/tools
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "22"
           cache: npm
@@ -31,13 +31,13 @@ jobs:
     name: KMP + Android + Wear
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
         with:
           distribution: temurin
           java-version: "21"
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
       - name: Unit tests and assemble
         run: |
           ./gradlew --stacktrace \
@@ -55,13 +55,13 @@ jobs:
     name: iOS + watchOS
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
         with:
           distribution: temurin
           java-version: "21"
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
       - name: Select newest available Xcode
         run: |
           ls /Applications | grep -i Xcode || true
@@ -83,6 +83,29 @@ jobs:
           xcodebuild -version
           xcrun --sdk iphonesimulator --show-sdk-version
           xcrun --sdk watchsimulator --show-sdk-version
+      - name: Verify design generated sources
+        run: |
+          set -euo pipefail
+          ROOT="$GITHUB_WORKSPACE"
+          SOURCES=(
+            "$ROOT/design/generated/ios/Sources/Color+OmniGart.swift"
+            "$ROOT/design/generated/ios/Sources/Font+OmniGart.swift"
+            "$ROOT/design/generated/ios/Sources/OmniGartMetrics.swift"
+          )
+          for f in "${SOURCES[@]}"; do
+            if [[ ! -f "$f" ]]; then
+              echo "::error::Missing design source: $f"
+              exit 1
+            fi
+            echo "ok $f"
+          done
+          test -d "$ROOT/design/generated/ios/OmniGartColors.xcassets"
+          test -d "$ROOT/design/generated/ios/OmniGartIcons.xcassets"
+          # Guard against the doubled-path XcodeGen bug.
+          if grep -R "design/generated/design/generated" iosApp --include='*.yml' --include='*.pbxproj' 2>/dev/null; then
+            echo "::error::Found doubled design/generated path under iosApp"
+            exit 1
+          fi
       - name: Install XcodeGen and SwiftLint
         run: |
           brew install xcodegen swiftlint
@@ -108,8 +131,20 @@ jobs:
           ls -la "shared/build/xcode-frameworks/Debug/watchsimulator${WATCH_SDK}"
       - name: Generate Xcode project
         run: |
+          set -euo pipefail
           cd iosApp
           xcodegen generate
+          # Fail fast if XcodeGen emitted the doubled path into the pbxproj.
+          if grep -R "design/generated/design/generated" OmniGart.xcodeproj 2>/dev/null; then
+            echo "::error::XcodeGen produced doubled design/generated path in OmniGart.xcodeproj"
+            exit 1
+          fi
+          # Expect SRCROOT-relative ../design/generated/... entries for Design sources.
+          if ! grep -q 'design/generated/ios/Sources' OmniGart.xcodeproj/project.pbxproj; then
+            echo "::error::OmniGart.xcodeproj missing design/generated/ios/Sources references"
+            exit 1
+          fi
+          echo "XcodeGen design paths look sane"
       - name: Build iOS + watchOS (simulator, arm64)
         run: |
           set -euo pipefail

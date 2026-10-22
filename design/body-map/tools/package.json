@@ -8,7 +8,7 @@
     "node": ">=20.9.0"
   },
   "scripts": {
-    "figures": "python3 generate_figures.py",
+    "figures": "python3 adapt_musclemap.py",
     "paths": "node export-paths.mjs",
     "previews": "node render-previews.mjs",
     "build": "npm run figures && npm run paths && npm run previews",

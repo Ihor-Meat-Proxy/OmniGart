@@ -38,7 +38,7 @@ function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
   const index = {
     version: 1,
-    viewBox: [0, 0, 200, 480],
+    viewBox: [0, 0, 1024, 1536],
     generatedAt: new Date().toISOString(),
     figures: {},
     renderingNotes: {
@@ -56,7 +56,7 @@ function main() {
       id: fig,
       sex: fig.startsWith('female') ? 'female' : 'male',
       view: fig.endsWith('front') ? 'front' : 'back',
-      viewBox: { x: 0, y: 0, width: 200, height: 480 },
+      viewBox: { x: 0, y: 0, width: 1024, height: 1536 },
       regionCount: Object.keys(regions).length,
       regions,
     };

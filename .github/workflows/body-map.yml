@@ -31,11 +31,17 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install SVG adapt dependencies
+        run: pip install shapely svgpathtools
       - name: Install body-map tools
         working-directory: design/body-map/tools
         run: npm ci
       - name: Check body maps (SVG, mapping, golden paths, previews)
         working-directory: design/body-map/tools
         run: npm run check
+
       - name: Unit tests (shared/bodymap)
         run: ./gradlew --no-daemon :shared:bodymap:jvmTest

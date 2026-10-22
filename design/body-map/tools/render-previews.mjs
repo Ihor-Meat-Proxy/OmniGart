@@ -251,16 +251,51 @@ async function main() {
   fs.mkdirSync(FIGURES_OUT, { recursive: true });
   fs.mkdirSync(path.join(OUT, '_tmp'), { recursive: true });
 
-  // Base figures
+  // Base figures (individual + large 2×2 untinted sheet)
+  const baseBufs = {};
   for (const sex of ['male', 'female']) {
     for (const view of ['front', 'back']) {
       for (const theme of ['light', 'dark']) {
         const themed = path.join(SVG_DIR, 'themed', `${sex}-${view}-${theme}.svg`);
         const svg = fs.readFileSync(themed, 'utf8');
-        renderPng(svg, path.join(FIGURES_OUT, `${sex}-${view}-${theme}.png`), 360);
+        const outPng = path.join(FIGURES_OUT, `${sex}-${view}-${theme}.png`);
+        renderPng(svg, outPng, theme === 'light' ? 480 : 360);
+        if (theme === 'light') {
+          baseBufs[`${sex}-${view}`] = await sharp(outPng)
+            .resize(420, 630, { fit: 'contain', background: { r: 248, g: 250, b: 252, alpha: 255 } })
+            .png()
+            .toBuffer();
+        }
       }
     }
   }
+  const sheetW = 420 * 2 + 48;
+  const sheetH = 630 * 2 + 72;
+  const label = (t) =>
+    Buffer.from(
+      `<svg width="420" height="28" xmlns="http://www.w3.org/2000/svg"><text x="8" y="20" font-family="sans-serif" font-size="14" fill="#334155">${t}</text></svg>`,
+    );
+  await sharp({
+    create: {
+      width: sheetW,
+      height: sheetH,
+      channels: 4,
+      background: { r: 248, g: 250, b: 252, alpha: 255 },
+    },
+  })
+    .composite([
+      { input: label('male · front'), left: 12, top: 8 },
+      { input: label('male · back'), left: 420 + 36, top: 8 },
+      { input: label('female · front'), left: 12, top: 630 + 40 },
+      { input: label('female · back'), left: 420 + 36, top: 630 + 40 },
+      { input: baseBufs['male-front'], left: 12, top: 36 },
+      { input: baseBufs['male-back'], left: 420 + 36, top: 36 },
+      { input: baseBufs['female-front'], left: 12, top: 630 + 68 },
+      { input: baseBufs['female-back'], left: 420 + 36, top: 630 + 68 },
+    ])
+    .png()
+    .toFile(path.join(FIGURES_OUT, 'base-figures-sheet.png'));
+  console.log('Base figures sheet → figures/base-figures-sheet.png');
 
   const exercises = loadExercises();
   const paths = [];

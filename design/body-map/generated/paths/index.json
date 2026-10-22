@@ -3,10 +3,10 @@
   "viewBox": [
     0,
     0,
-    200,
-    480
+    1024,
+    1536
   ],
-  "generatedAt": "2026-10-22T21:46:25.729Z",
+  "generatedAt": "2026-10-22T22:02:44.743Z",
   "figures": {
     "male-front": {
       "file": "male-front.json",
@@ -47,7 +47,7 @@
         "vastus_medialis_l",
         "vastus_medialis_r"
       ],
-      "contentSha256": "4e6a3b56852890765d9b7931ec3d4957b07507006fb90c901ae9a391349da31c"
+      "contentSha256": "4205dff7fd6cecb441acfd9527a0a709f1f98c8937311606895047fd26a138c7"
     },
     "male-back": {
       "file": "male-back.json",
@@ -84,7 +84,7 @@
         "triceps_l",
         "triceps_r"
       ],
-      "contentSha256": "869919944611899e61002cd207daf28c8127ef914835375586728f4696da0b2d"
+      "contentSha256": "d14a3556211ed8722c3f1393dfc58a04b7edd981108a34ca263a307a504df104"
     },
     "female-front": {
       "file": "female-front.json",
@@ -125,7 +125,7 @@
         "vastus_medialis_l",
         "vastus_medialis_r"
       ],
-      "contentSha256": "316f58053297147cd5af7a142930336cd4c3eb8d5ba66ae9b4b7719ce06b7fad"
+      "contentSha256": "fd917fe8d736ed1ff48443b03396416cb553a6f43c29e39520c1018ff93cc2eb"
     },
     "female-back": {
       "file": "female-back.json",
@@ -162,7 +162,7 @@
         "triceps_l",
         "triceps_r"
       ],
-      "contentSha256": "9ee948fd44d7b66f9e990a4bad20ccc6b16f1caa7a8507f5dee4b07b58f9b2c4"
+      "contentSha256": "64d04cdb3cfc2e36ee437bd87c80590bf0f7ab5c2c634839eae651fb249e4a9c"
     }
   },
   "renderingNotes": {

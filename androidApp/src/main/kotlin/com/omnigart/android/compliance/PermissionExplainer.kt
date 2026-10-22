@@ -22,13 +22,7 @@ import com.omnigart.design.theme.OmniGartSpacing
  * after [onContinue]; [onNotNow] leaves the app fully usable without the grant.
  */
 @Composable
-fun PermissionExplainer(
-    title: String,
-    body: String,
-    onContinue: () -> Unit,
-    onNotNow: () -> Unit,
-    modifier: Modifier = Modifier
-) {
+fun PermissionExplainer(title: String, body: String, onContinue: () -> Unit, onNotNow: () -> Unit, modifier: Modifier = Modifier) {
     Column(
         modifier =
         modifier

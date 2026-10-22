@@ -1,0 +1,66 @@
+{
+  "id": "tricep-pushdown",
+  "nameKeys": {
+    "enGB": "exercise.tricep_pushdown.name",
+    "uk": "exercise.tricep_pushdown.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "triceps"
+  ],
+  "secondaryMuscles": [],
+  "equipment": [
+    "cable"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Elbows fixed at sides; extend the elbows against a cable; return without flaring elbows."
+  ],
+  "setup": [
+    "Neutral ribs; light enough to feel triceps."
+  ],
+  "breathing": "Exhale to extend.",
+  "commonMistakes": [
+    "Elbows drifting forward",
+    "Shoulder pressing into the move"
+  ],
+  "safety": [
+    "Full extension without elbow pain."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "bench-dip-assisted",
+      "note": "Another triceps option"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "close-grip-bench-press",
+      "note": "Compound"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/tricep-pushdown",
+    "videoKey": "media/video/tricep-pushdown",
+    "animationKey": "media/anim/tricep-pushdown"
+  },
+  "aliases": [],
+  "tags": []
+}

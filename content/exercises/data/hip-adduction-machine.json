@@ -1,0 +1,57 @@
+{
+  "id": "hip-adduction-machine",
+  "nameKeys": {
+    "enGB": "exercise.hip_adduction_machine.name",
+    "uk": "exercise.hip_adduction_machine.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "other",
+  "primaryMuscles": [
+    "adductors"
+  ],
+  "secondaryMuscles": [],
+  "equipment": [
+    "machine"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Squeeze pads inward; control the return."
+  ],
+  "setup": [
+    "Comfortable ROM only."
+  ],
+  "breathing": "Exhale to adduct.",
+  "commonMistakes": [
+    "Forcing extreme stretch"
+  ],
+  "safety": [
+    "Useful accessory; not mandatory for all."
+  ],
+  "contraindications": [
+    "Acute groin strain"
+  ],
+  "regressions": [],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/hip-adduction-machine",
+    "videoKey": "media/video/hip-adduction-machine",
+    "animationKey": "media/anim/hip-adduction-machine"
+  },
+  "aliases": [],
+  "tags": []
+}

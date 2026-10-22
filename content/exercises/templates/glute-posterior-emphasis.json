@@ -1,0 +1,176 @@
+{
+  "id": "glute-posterior-emphasis",
+  "nameKeys": {
+    "enGB": "template.glute_posterior_emphasis.name",
+    "uk": "template.glute_posterior_emphasis.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "intermediate",
+  "goal": "hypertrophy",
+  "daysPerWeek": 3,
+  "sessionMinutes": 50,
+  "equipmentPreset": "commercial_gym",
+  "equipmentRequired": [
+    "barbell",
+    "dumbbell",
+    "bench"
+  ],
+  "rationale": "Hinge and hip-extension emphasis raises glute/hamstring weekly sets within established hypertrophy volume bands; hip thrust included given EMG comparisons versus squats.",
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1080/02640414.2016.1210197",
+      "label": "Schoenfeld et al. 2016 volume dose–response",
+      "supports": [
+        "hypertrophy",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1123/jab.2014-0301",
+      "label": "Contreras et al. 2015 hip thrust vs squat EMG",
+      "supports": [
+        "emg",
+        "biomechanics"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "g1",
+      "nameKeys": {
+        "enGB": "template.glute_posterior_emphasis.g1.name",
+        "uk": "template.glute_posterior_emphasis.g1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "romanian-deadlift-barbell",
+              "sets": 3,
+              "reps": "6-10",
+              "rir": "2-3",
+              "restSeconds": 150
+            },
+            {
+              "exerciseId": "hip-thrust",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "single-leg-rdl",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "leg-curl-machine",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "back-extension-roman",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g2",
+      "nameKeys": {
+        "enGB": "template.glute_posterior_emphasis.g2.name",
+        "uk": "template.glute_posterior_emphasis.g2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": 3,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 180
+            },
+            {
+              "exerciseId": "bulgarian-split-squat",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "hip-thrust",
+              "sets": 4,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "cable-woodchop",
+              "sets": 3,
+              "reps": "10/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g3",
+      "nameKeys": {
+        "enGB": "template.glute_posterior_emphasis.g3.name",
+        "uk": "template.glute_posterior_emphasis.g3.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "trap-bar-deadlift",
+              "sets": 3,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 180
+            },
+            {
+              "exerciseId": "kettlebell-swing",
+              "sets": 4,
+              "reps": "10",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "glute-bridge",
+              "sets": 3,
+              "reps": "12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "walking-lunge",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

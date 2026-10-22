@@ -1,0 +1,71 @@
+{
+  "id": "seated-cable-row",
+  "nameKeys": {
+    "enGB": "exercise.seated_cable_row.name",
+    "uk": "exercise.seated_cable_row.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "rhomboids"
+  ],
+  "secondaryMuscles": [
+    "biceps",
+    "rear_deltoid"
+  ],
+  "equipment": [
+    "cable",
+    "machine"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Sit tall; pull handle to torso; squeeze shoulder blades; return without rounding."
+  ],
+  "setup": [
+    "Feet on platform; slight knee bend."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Excessive layback",
+    "Protracted shoulders throughout"
+  ],
+  "safety": [
+    "Use a full stretch without lumbar flexion."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "one-arm-dumbbell-row",
+      "note": "Free weight"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "barbell-row",
+      "note": "Hinged row"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/seated-cable-row",
+    "videoKey": "media/video/seated-cable-row",
+    "animationKey": "media/anim/seated-cable-row"
+  },
+  "aliases": [],
+  "tags": []
+}

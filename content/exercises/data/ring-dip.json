@@ -1,0 +1,68 @@
+{
+  "id": "ring-dip",
+  "nameKeys": {
+    "enGB": "exercise.ring_dip.name",
+    "uk": "exercise.ring_dip.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "serratus_anterior",
+    "rectus_abdominis"
+  ],
+  "equipment": [
+    "suspension",
+    "bodyweight"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Stabilise rings, descend under control, press to support with rings turned out slightly."
+  ],
+  "setup": [
+    "Rings set appropriately; hollow body."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Losing ring stability",
+    "Excess depth"
+  ],
+  "safety": [
+    "Master parallel dips first."
+  ],
+  "contraindications": [
+    "Shoulder instability"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "dip-parallel-bar",
+      "note": "Stable bars"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/ring-dip",
+    "videoKey": "media/video/ring-dip",
+    "animationKey": "media/anim/ring-dip"
+  },
+  "aliases": [],
+  "tags": []
+}

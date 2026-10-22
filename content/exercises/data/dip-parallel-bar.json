@@ -1,0 +1,74 @@
+{
+  "id": "dip-parallel-bar",
+  "nameKeys": {
+    "enGB": "exercise.dip_parallel_bar.name",
+    "uk": "exercise.dip_parallel_bar.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps",
+    "front_deltoid"
+  ],
+  "secondaryMuscles": [],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Support on bars; descend by bending elbows until upper arms near parallel; press up."
+  ],
+  "setup": [
+    "Slight forward lean for chest; more upright for triceps."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Dumping into shoulder stretch painfully",
+    "Swinging"
+  ],
+  "safety": [
+    "Use assisted machine/bands if needed; stop with anterior shoulder pain."
+  ],
+  "contraindications": [
+    "Anterior shoulder instability"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "bench-dip-assisted",
+      "note": "Feet-assisted"
+    },
+    {
+      "exerciseId": "incline-push-up",
+      "note": "Regression"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "ring-dip",
+      "note": "Unstable progression"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/dip-parallel-bar",
+    "videoKey": "media/video/dip-parallel-bar",
+    "animationKey": "media/anim/dip-parallel-bar"
+  },
+  "aliases": [],
+  "tags": []
+}

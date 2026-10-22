@@ -1,0 +1,73 @@
+{
+  "id": "barbell-row",
+  "nameKeys": {
+    "enGB": "exercise.barbell_row.name",
+    "uk": "exercise.barbell_row.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "rhomboids",
+    "trapezius"
+  ],
+  "secondaryMuscles": [
+    "biceps",
+    "erector_spinae",
+    "rear_deltoid"
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Hinge to torso ~30–45°, pull bar to lower chest/upper abdomen, lower under control."
+  ],
+  "setup": [
+    "Soft knees; braced spine; overhand or underhand grip."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Using hip drive as a cheat if not intentional",
+    "Rounding lumbar spine"
+  ],
+  "safety": [
+    "Keep the hinge solid; stop if back rounds."
+  ],
+  "contraindications": [
+    "Acute lumbar pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "chest-supported-row",
+      "note": "Supported"
+    },
+    {
+      "exerciseId": "one-arm-dumbbell-row",
+      "note": "Unilateral"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/barbell-row",
+    "videoKey": "media/video/barbell-row",
+    "animationKey": "media/anim/barbell-row"
+  },
+  "aliases": [],
+  "tags": []
+}

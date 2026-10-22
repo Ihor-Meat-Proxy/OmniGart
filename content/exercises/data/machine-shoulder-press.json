@@ -1,0 +1,70 @@
+{
+  "id": "machine-shoulder-press",
+  "nameKeys": {
+    "enGB": "exercise.machine_shoulder_press.name",
+    "uk": "exercise.machine_shoulder_press.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "front_deltoid",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "lateral_deltoid",
+    "trapezius"
+  ],
+  "equipment": [
+    "machine"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Press overhead on a machine path; lower with control."
+  ],
+  "setup": [
+    "Seat height so handles start near shoulders."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Overarching lumbar spine"
+  ],
+  "safety": [
+    "Keep ribs down."
+  ],
+  "contraindications": [
+    "Shoulder pain overhead"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "landmine-press",
+      "note": "Angled free"
+    },
+    {
+      "exerciseId": "overhead-press-dumbbell",
+      "note": "Free"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/machine-shoulder-press",
+    "videoKey": "media/video/machine-shoulder-press",
+    "animationKey": "media/anim/machine-shoulder-press"
+  },
+  "aliases": [],
+  "tags": []
+}

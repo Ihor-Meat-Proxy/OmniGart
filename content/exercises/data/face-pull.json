@@ -1,0 +1,61 @@
+{
+  "id": "face-pull",
+  "nameKeys": {
+    "enGB": "exercise.face_pull.name",
+    "uk": "exercise.face_pull.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "rear_deltoid",
+    "rhomboids",
+    "rotator_cuff"
+  ],
+  "secondaryMuscles": [
+    "trapezius"
+  ],
+  "equipment": [
+    "cable",
+    "bands"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Pull rope toward face with elbows high; externally rotate slightly at the end; return slow."
+  ],
+  "setup": [
+    "Cable at upper-chest/face height; light load."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Turning it into a heavy row",
+    "Shrugging only"
+  ],
+  "safety": [
+    "Prioritise feel in rear delts/cuff over load."
+  ],
+  "contraindications": [],
+  "regressions": [],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/face-pull",
+    "videoKey": "media/video/face-pull",
+    "animationKey": "media/anim/face-pull"
+  },
+  "aliases": [],
+  "tags": []
+}

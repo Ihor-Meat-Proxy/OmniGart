@@ -23,7 +23,7 @@ Ship a usable strength workout logger on phone (Android + iOS shells), backed by
 
 **Volume load** = Σ (effective_load_kg × reps) over sets, displayed in **kg or lb** per user units.
 
-Rules (pure functions in `shared`, unit-tested):
+Rules (pure functions in `shared` — `VolumeLoad` / `VolumeLoadStats` / `BodyweightLoadCoefficients` / `MassUnits`, unit-tested):
 
 | Case | Effective load |
 |------|----------------|

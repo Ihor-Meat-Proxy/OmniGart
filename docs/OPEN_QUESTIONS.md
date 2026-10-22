@@ -139,3 +139,15 @@ Autopilot log (Phase 0 + merged design / planning). Each item: **context**, **ch
 - **Context:** Owner standing instruction after Phase 0 + health-integration PR.
 - **Choice:** Continue autonomously through `docs/plans/` phases 1→9 (strength → food/water → readiness → calc settings → encrypted backup → achievements → watch → running → swimming). One feature branch/PR per phase, stacked if prior is unmerged; write/update `docs/plans/phase-N.md` before implementing; never block — log questions here.
 - **Alternatives:** Pause after health for explicit go-ahead (rejected by standing instruction).
+
+## Phase 1 volume load — bodyweight coefficients
+
+- **Context:** Volume load for BW movements needs `bodyweightKg × loadCoefficient` (+ optional added weight). Literature values vary by variation and measurement method.
+- **Choice:** Provisional constants in `BodyweightLoadCoefficients` (push-up family **0.64**, pull-up / dip family **1.0**, inverted row **0.5**, else **1.0**). Flag BW-derived volume as **estimated**. No invented DOIs; refine when verified citations exist.
+- **Alternatives:** User-editable per-exercise coefficient; omit BW from volume until cited; treat all BW as 1.0× mass.
+
+## Phase 1 volume load — hard sets & previous match
+
+- **Context:** Summary needs hard-set count and vs-previous comparison.
+- **Choice:** Hard set = completed, non-warmup, reps ≥ 1. Previous same workout = same `workoutId` if present, else equal exercise-id multiset; pick latest earlier session.
+- **Alternatives:** RIR ≤ 2 as hard-set gate; fuzzy name matching for previous workout.

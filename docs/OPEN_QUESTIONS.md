@@ -62,3 +62,23 @@ B4. **TVA / rotator-cuff proxies** — Surface proxies may overstate visible loa
 B5. **Sex figure default** — `UNSPECIFIED` currently falls back to the male figure. Prefer a neutral third silhouette, or require sex before showing heatmaps?
 B6. **Intensity binning** — Equal-width vs log / landmark-anchored bins for single workouts — confirm preference after first user tests.
 B7. **Path JSON packaging** — Ship JSON in both app bundles, or generate Swift/Compose path tables in `design/generated` like icons?
+
+## § Running
+
+Provisional — do not block merges. IDs are `RN1`…`RNn`.
+
+- **RN1.** **Zone model** — Five HR zones + five pace labels are bundled. Align with a single user-facing zone chart when the algorithms module lands?
+- **RN2.** **Polarised vs pyramidal defaults** — Intermediate 10K/half use pyramidal targets; confirm product preference vs always-polarised.
+- **RN3.** **Plan duration** — 8/10/12/16-week templates only. Add advanced 18–20 week marathon later?
+- **RN4.** **Cross-link to exercise library** — Plans reference workout-type ids, not `content/exercises` run drills. Bridge or keep separate?
+- **RN5.** **Terrain tags** — Hill workouts assume outdoor hills; treadmill grade equivalents TBD.
+
+## § Swimming
+
+Provisional — do not block merges. IDs are `SW1`…`SWn`.
+
+- **SW1.** **CSS computation ownership** — Sessions mark `usesCriticalSwimSpeed`; confirm the algorithms module owns the 400/200 (or equivalent) test protocol.
+- **SW2.** **Pool length** — Content is distance-based without 25 m vs 50 m variants. Generate dual packs or parameterise in-app?
+- **SW3.** **Drill video keys** — Technique is text-only; add `media.*Key` placeholders to match the exercise library?
+- **SW4.** **Stroke legality notes** — Breaststroke/butterfly cues mention competition constraints lightly. Expand for masters vs fitness swimmers?
+- **SW5.** **IM order localisation** — Confirm uk terminology for individual medley stroke names with a coach.

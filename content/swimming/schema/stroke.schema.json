@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.dev/schemas/swim-stroke.schema.json",
+  "title": "OmniGartSwimStroke",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "nameKeys", "code", "summaryKey", "evidenceRefs"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "nameKeys": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enGB", "uk"],
+      "properties": {
+        "enGB": { "type": "string", "pattern": "^swim\\.stroke\\.[a-z0-9_]+\\.name$" },
+        "uk": { "type": "string", "pattern": "^swim\\.stroke\\.[a-z0-9_]+\\.name$" }
+      }
+    },
+    "code": {
+      "type": "string",
+      "enum": ["freestyle", "backstroke", "breaststroke", "butterfly", "individual_medley"]
+    },
+    "summaryKey": {
+      "type": "string",
+      "pattern": "^swim\\.stroke\\.[a-z0-9_]+\\.summary$"
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "id", "label", "supports"],
+        "properties": {
+          "kind": { "type": "string", "enum": ["doi", "pmid", "guideline", "textbook"] },
+          "id": { "type": "string", "minLength": 3 },
+          "label": { "type": "string", "minLength": 3 },
+          "supports": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

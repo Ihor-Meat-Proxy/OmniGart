@@ -18,3 +18,6 @@ project(":shared:planning").projectDir = file("shared/planning")
 
 include(":shared:bodymap")
 project(":shared:bodymap").projectDir = file("shared/bodymap")
+
+include(":shared:endurance-content")
+project(":shared:endurance-content").projectDir = file("shared/endurance-content")

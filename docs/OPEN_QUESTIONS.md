@@ -125,5 +125,11 @@ Autopilot log (Phase 0 + merged design / planning). Each item: **context**, **ch
 
 ## Process (from planning PR)
 
-17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward Hevy-scale or keep curated & cited?
+17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward a large commercial-logging scale or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
+
+## Naming: no competitor product names
+
+- **Context:** Owner rule for all current and future work.
+- **Choice:** Never mention competitor app/product names (examples include popular strength loggers, wearable brands, and recovery/coaching apps) in the repo, code, docs, commits, or PR titles/bodies. Use neutral descriptions of product categories and patterns instead. Platform APIs remain allowed: HealthKit, Health Connect, Google Health API, Polar BLE SDK.
+- **Alternatives:** Keep a private research notebook outside the repo if named product comparisons are needed.

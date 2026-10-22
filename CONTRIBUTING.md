@@ -13,6 +13,7 @@ License: **AGPL-3.0** (see `LICENSE`).
 - Shared business logic belongs in `shared/`, not in SwiftUI/Compose views.
 - No Kotlin `!!`, no `GlobalScope`, no force-unwraps in Swift for recoverable state.
 - Do not add a `ru` locale. Source/fallback is `en-GB`.
+- Do not name competitor apps or products in code, docs, commits, or PRs; describe categories and patterns neutrally. Platform APIs (HealthKit, Health Connect, Google Health API, Polar BLE SDK) are fine.
 - Prefer latest **stable** dependency versions; update `gradle/libs.versions.toml` and let Renovate/Dependabot assist.
 
 ## Checks to run

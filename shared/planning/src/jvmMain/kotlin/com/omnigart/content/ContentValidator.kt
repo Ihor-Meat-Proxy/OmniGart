@@ -199,7 +199,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
                 if (proportion != 0.0) {
                     issues += ValidationIssue(
                         file.toString(),
-                        "external_only exercises should use bodyweightFraction.proportion 0",
+                        "external_only exercises should use bodyweightFraction.proportion 0"
                     )
                 }
             }
@@ -207,7 +207,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
                 if (proportion <= 0.0) {
                     issues += ValidationIssue(
                         file.toString(),
-                        "$loadModel should have bodyweightFraction.proportion > 0",
+                        "$loadModel should have bodyweightFraction.proportion > 0"
                     )
                 }
             }
@@ -237,7 +237,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
                 if (!hasSeg && basis == "estimate") {
                     issues += ValidationIssue(
                         file.toString(),
-                        "pull-up-family estimate should cite de Leva segmental masses (10.1016/0021-9290(95)00178-6)",
+                        "pull-up-family estimate should cite de Leva segmental masses (10.1016/0021-9290(95)00178-6)"
                     )
                 }
             }
@@ -247,7 +247,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
                 ) {
                     issues += ValidationIssue(
                         file.toString(),
-                        "dip-family should cite dip shoulder-extension safety/kinematics evidence",
+                        "dip-family should cite dip shoulder-extension safety/kinematics evidence"
                     )
                 }
             }

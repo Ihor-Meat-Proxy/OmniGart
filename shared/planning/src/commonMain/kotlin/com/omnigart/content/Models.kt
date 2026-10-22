@@ -323,17 +323,18 @@ data class MediaPlaceholders(val illustrationKey: String? = null, val videoKey: 
 
 @Serializable
 enum class LoadModel {
-    @SerialName("bodyweight_plus_external") BODYWEIGHT_PLUS_EXTERNAL,
-    @SerialName("bodyweight_minus_assistance") BODYWEIGHT_MINUS_ASSISTANCE,
-    @SerialName("external_only") EXTERNAL_ONLY,
+    @SerialName("bodyweight_plus_external")
+    BODYWEIGHT_PLUS_EXTERNAL,
+
+    @SerialName("bodyweight_minus_assistance")
+    BODYWEIGHT_MINUS_ASSISTANCE,
+
+    @SerialName("external_only")
+    EXTERNAL_ONLY
 }
 
 @Serializable
-data class BodyweightFraction(
-    val proportion: Double,
-    val basis: String,
-    val rationale: String,
-)
+data class BodyweightFraction(val proportion: Double, val basis: String, val rationale: String)
 
 @Serializable
 data class Exercise(

@@ -71,16 +71,16 @@ class ContentValidatorTest {
             "pull-up", "chin-up", "neutral-grip-pull-up", "wide-grip-pull-up", "close-grip-pull-up",
             "commando-pull-up", "l-sit-pull-up", "archer-pull-up", "typewriter-pull-up",
             "scapular-pull-up", "negative-pull-up", "assisted-pull-up-band",
-            "machine-assisted-pull-up", "weighted-pull-up", "inverted-row",
+            "machine-assisted-pull-up", "weighted-pull-up", "inverted-row"
         )
         val dipExpected = listOf(
             "dip-parallel-bar", "bench-dip", "ring-dip", "straight-bar-dip", "korean-dip",
-            "band-assisted-dip", "machine-assisted-dip", "weighted-dip", "negative-dip",
+            "band-assisted-dip", "machine-assisted-dip", "weighted-dip", "negative-dip"
         )
         for (id in pullExpected + dipExpected) {
             assertTrue(
                 data.resolve("$id.json").toFile().exists(),
-                "missing exercise file $id.json",
+                "missing exercise file $id.json"
             )
         }
         val chin = data.resolve("chin-up.json").toFile().readText()

@@ -79,5 +79,13 @@
     "animationKey": "media/anim/plank"
   },
   "aliases": [],
-  "tags": []
+  "tags": [],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Bodyweight movement with negligible external implement; treat moved mass as ~full BM unless a measured study applies. Estimate."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
 }

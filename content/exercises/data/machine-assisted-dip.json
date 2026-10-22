@@ -1,0 +1,105 @@
+{
+  "id": "machine-assisted-dip",
+  "nameKeys": {
+    "enGB": "exercise.machine_assisted_dip.name",
+    "uk": "exercise.machine_assisted_dip.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid"
+  ],
+  "equipment": [
+    "machine"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Use an assisted dip/pull-up machine; select assistance; perform full controlled dips on the handles.",
+    "Reduce assistance over time."
+  ],
+  "setup": [
+    "Handles and pad adjusted; track assistance weight."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Excess depth under high assistance that teaches poor positions"
+  ],
+  "safety": [
+    "Limit end-range extension; progress assistance down gradually."
+  ],
+  "contraindications": [
+    "Anterior shoulder pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "bench-dip",
+      "note": "Bench"
+    },
+    {
+      "exerciseId": "tricep-pushdown",
+      "note": "Isolation"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "band-assisted-dip",
+      "note": "Less guided"
+    },
+    {
+      "exerciseId": "dip-parallel-bar",
+      "note": "Unassisted"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "mckenzie_dip_shoulder_2020",
+      "supports": [
+        "safety",
+        "technique"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/machine-assisted-dip",
+    "videoKey": "media/video/machine-assisted-dip",
+    "animationKey": "media/anim/machine-assisted-dip"
+  },
+  "aliases": [
+    "assisted dip machine"
+  ],
+  "tags": [
+    "dip-family"
+  ],
+  "loadModel": "bodyweight_minus_assistance",
+  "bodyweightFraction": {
+    "proportion": 0.97,
+    "basis": "estimate",
+    "rationale": "Feet free; almost all BM is supported through the upper limbs. Hands contact the bars (~1.2% BM per de Leva male hands), so estimate ~0.96–0.99. No published GRF %BM for dips found — estimate only."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": true
+}

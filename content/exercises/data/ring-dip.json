@@ -12,7 +12,9 @@
   ],
   "secondaryMuscles": [
     "serratus_anterior",
-    "rectus_abdominis"
+    "rectus_abdominis",
+    "front_deltoid",
+    "rotator_cuff"
   ],
   "equipment": [
     "suspension",
@@ -23,18 +25,18 @@
   "mechanics": "compound",
   "trackingType": "bodyweight_reps",
   "technique": [
-    "Stabilise rings, descend under control, press to support with rings turned out slightly."
+    "Stabilise the rings in support, descend under control, press to support with rings turned out slightly at the top."
   ],
   "setup": [
-    "Rings set appropriately; hollow body."
+    "Ring height appropriate; hollow body; master parallel-bar dips first."
   ],
   "breathing": "Exhale to press.",
   "commonMistakes": [
     "Losing ring stability",
-    "Excess depth"
+    "Excess depth under fatigue"
   ],
   "safety": [
-    "Master parallel dips first."
+    "Rings increase stability demand; kinematic work suggests ring dips may use less peak shoulder extension than bar dips for some athletes — still respect pain-free depth (McKenzie et al. 2022)."
   ],
   "contraindications": [
     "Shoulder instability"
@@ -43,10 +45,48 @@
     {
       "exerciseId": "dip-parallel-bar",
       "note": "Stable bars"
+    },
+    {
+      "exerciseId": "band-assisted-dip",
+      "note": "Assistance"
+    },
+    {
+      "exerciseId": "negative-dip",
+      "note": "Eccentrics"
     }
   ],
-  "progressions": [],
+  "progressions": [
+    {
+      "exerciseId": "weighted-dip",
+      "note": "Load on rings or return to bars"
+    },
+    {
+      "exerciseId": "korean-dip",
+      "note": "Only if prepared"
+    }
+  ],
   "evidenceRefs": [
+    {
+      "evidenceId": "mckenzie_dip_kinematics_2022",
+      "supports": [
+        "biomechanics",
+        "emg",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "mckenzie_dip_shoulder_2020",
+      "supports": [
+        "safety",
+        "technique"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    },
     {
       "evidenceId": "nsca_essentials_4e",
       "supports": [
@@ -62,5 +102,15 @@
     "animationKey": "media/anim/ring-dip"
   },
   "aliases": [],
-  "tags": []
+  "tags": [
+    "dip-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.97,
+    "basis": "estimate",
+    "rationale": "Feet free; almost all BM is supported through the upper limbs. Hands contact the bars (~1.2% BM per de Leva male hands), so estimate ~0.96–0.99. No published GRF %BM for dips found — estimate only."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
 }

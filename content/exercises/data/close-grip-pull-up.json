@@ -1,0 +1,107 @@
+{
+  "id": "close-grip-pull-up",
+  "nameKeys": {
+    "enGB": "exercise.close_grip_pull_up.name",
+    "uk": "exercise.close_grip_pull_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "biceps"
+  ],
+  "secondaryMuscles": [
+    "forearms",
+    "rhomboids",
+    "trapezius"
+  ],
+  "equipment": [
+    "pull_up_bar"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Pronated or neutral grip with hands closer than shoulder-width.",
+    "Pull with elbows tracking nearer the torso; clear the chin; lower fully."
+  ],
+  "setup": [
+    "Avoid ultra-narrow grips that crank the wrists."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Wrist collapse",
+    "Turning the set into a kip"
+  ],
+  "safety": [
+    "Watch wrist comfort; neutral close grips are a useful option."
+  ],
+  "contraindications": [
+    "Acute wrist pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "chin-up",
+      "note": "Supinated alternative"
+    },
+    {
+      "exerciseId": "assisted-pull-up-band",
+      "note": "Assistance"
+    },
+    {
+      "exerciseId": "inverted-row",
+      "note": "Regression"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "weighted-pull-up",
+      "note": "Load"
+    },
+    {
+      "exerciseId": "l-sit-pull-up",
+      "note": "Added core demand"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "dickie_pullup_grip_emg_2017",
+      "supports": [
+        "emg",
+        "biomechanics"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/close-grip-pull-up",
+    "videoKey": "media/video/close-grip-pull-up",
+    "animationKey": "media/anim/close-grip-pull-up"
+  },
+  "aliases": [],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
+}

@@ -65,6 +65,12 @@
         "safety",
         "strength"
       ]
+    },
+    {
+      "evidenceId": "suprak_pushup_load_2011",
+      "supports": [
+        "biomechanics"
+      ]
     }
   ],
   "media": {
@@ -73,5 +79,13 @@
     "animationKey": "media/anim/incline-push-up"
   },
   "aliases": [],
-  "tags": []
+  "tags": [],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.72,
+    "basis": "measured",
+    "rationale": "Suprak et al. 2011 reported ~69% BM at the top and ~75% BM at the bottom of a traditional push-up (static positions); 0.72 is the mid-range summary used here."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
 }

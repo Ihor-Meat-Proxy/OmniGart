@@ -1,0 +1,101 @@
+{
+  "id": "korean-dip",
+  "nameKeys": {
+    "enGB": "exercise.korean_dip.name",
+    "uk": "exercise.korean_dip.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid",
+    "rectus_abdominis",
+    "biceps"
+  ],
+  "equipment": [
+    "pull_up_bar",
+    "bodyweight"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "From a straight-bar support facing away from the direction of lean used in standard straight-bar dips, perform controlled dips with high shoulder and wrist demand.",
+    "Only attempt with established straight-bar support strength."
+  ],
+  "setup": [
+    "Advanced gymnastics-style variation; spot or mat as appropriate."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Rushing depth",
+    "Soft support position"
+  ],
+  "safety": [
+    "Very high shoulder-extension and wrist stress — prefer parallel-bar and ring progressions; omit if unsure.",
+    "Limit depth; stop immediately with anterior shoulder pain (McKenzie et al. 2020)."
+  ],
+  "contraindications": [
+    "Any symptomatic shoulder instability",
+    "Wrist pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "straight-bar-dip",
+      "note": "Less extreme straight-bar"
+    },
+    {
+      "exerciseId": "dip-parallel-bar",
+      "note": "Parallel bars"
+    },
+    {
+      "exerciseId": "ring-dip",
+      "note": "Rings if appropriate"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "evidenceId": "mckenzie_dip_shoulder_2020",
+      "supports": [
+        "safety",
+        "technique"
+      ]
+    },
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/korean-dip",
+    "videoKey": "media/video/korean-dip",
+    "animationKey": "media/anim/korean-dip"
+  },
+  "aliases": [],
+  "tags": [
+    "dip-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.97,
+    "basis": "estimate",
+    "rationale": "Feet free; almost all BM is supported through the upper limbs. Hands contact the bars (~1.2% BM per de Leva male hands), so estimate ~0.96–0.99. No published GRF %BM for dips found — estimate only."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": true
+}

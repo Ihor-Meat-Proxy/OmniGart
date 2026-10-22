@@ -12,7 +12,9 @@
   ],
   "secondaryMuscles": [
     "trapezius",
-    "rear_deltoid"
+    "rear_deltoid",
+    "rhomboids",
+    "forearms"
   ],
   "equipment": [
     "pull_up_bar"
@@ -22,7 +24,7 @@
   "mechanics": "compound",
   "trackingType": "bodyweight_reps",
   "technique": [
-    "Pull until chest contacts the bar; maintain control."
+    "Pull until the chest contacts the bar with control; lower fully."
   ],
   "setup": [
     "Requires strong standard pull-ups first."
@@ -32,16 +34,31 @@
     "Excessive kip if the goal is strength"
   ],
   "safety": [
-    "Treat as a skill/strength hybrid."
+    "Treat as a strength/skill hybrid; mind bar contact."
   ],
-  "contraindications": [],
+  "contraindications": [
+    "Shoulder pain at the top"
+  ],
   "regressions": [
     {
       "exerciseId": "pull-up",
       "note": "Chin-over-bar standard"
+    },
+    {
+      "exerciseId": "negative-pull-up",
+      "note": "Eccentrics"
     }
   ],
-  "progressions": [],
+  "progressions": [
+    {
+      "exerciseId": "typewriter-pull-up",
+      "note": "Top-position travel"
+    },
+    {
+      "exerciseId": "weighted-pull-up",
+      "note": "Load standard ROM"
+    }
+  ],
   "evidenceRefs": [
     {
       "evidenceId": "nsca_essentials_4e",
@@ -49,6 +66,20 @@
         "technique",
         "safety",
         "strength"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "evidenceId": "youdas_pullup_chinup_emg_2010",
+      "supports": [
+        "emg",
+        "biomechanics",
+        "technique"
       ]
     }
   ],
@@ -58,5 +89,15 @@
     "animationKey": "media/anim/chest-to-bar-pull-up"
   },
   "aliases": [],
-  "tags": []
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
 }

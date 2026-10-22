@@ -1,0 +1,109 @@
+{
+  "id": "scapular-pull-up",
+  "nameKeys": {
+    "enGB": "exercise.scapular_pull_up.name",
+    "uk": "exercise.scapular_pull_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "trapezius",
+    "latissimus_dorsi"
+  ],
+  "secondaryMuscles": [
+    "rhomboids",
+    "rotator_cuff",
+    "forearms"
+  ],
+  "equipment": [
+    "pull_up_bar"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "From a passive hang, depress and slightly retract the scapulae to lift the body a few centimetres without bending the elbows, then return to a passive hang."
+  ],
+  "setup": [
+    "Pronated or neutral grip; think “pockets” for the scapulae."
+  ],
+  "breathing": "Exhale on the depression.",
+  "commonMistakes": [
+    "Bending the elbows into a mini pull-up",
+    "Only shrugging the neck"
+  ],
+  "safety": [
+    "Excellent primer; stop with sharp shoulder pain in the hang."
+  ],
+  "contraindications": [
+    "Acute shoulder injury"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "inverted-row",
+      "note": "Feet-supported pull"
+    },
+    {
+      "exerciseId": "lat-pulldown",
+      "note": "Seated scapular depression practice"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "negative-pull-up",
+      "note": "Add elbow flexion eccentrics"
+    },
+    {
+      "exerciseId": "pull-up",
+      "note": "Full pull-up"
+    },
+    {
+      "exerciseId": "assisted-pull-up-band",
+      "note": "Assisted full ROM"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "evidenceId": "youdas_pullup_chinup_emg_2010",
+      "supports": [
+        "emg",
+        "biomechanics",
+        "technique"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/scapular-pull-up",
+    "videoKey": "media/video/scapular-pull-up",
+    "animationKey": "media/anim/scapular-pull-up"
+  },
+  "aliases": [
+    "scap pull-up"
+  ],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": true
+}

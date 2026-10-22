@@ -152,6 +152,20 @@ data class MediaPlaceholders(
 )
 
 @Serializable
+enum class LoadModel {
+    @SerialName("bodyweight_plus_external") BODYWEIGHT_PLUS_EXTERNAL,
+    @SerialName("bodyweight_minus_assistance") BODYWEIGHT_MINUS_ASSISTANCE,
+    @SerialName("external_only") EXTERNAL_ONLY,
+}
+
+@Serializable
+data class BodyweightFraction(
+    val proportion: Double,
+    val basis: String,
+    val rationale: String,
+)
+
+@Serializable
 data class Exercise(
     val id: String,
     val nameKeys: LocalizedNameKeys,
@@ -176,4 +190,12 @@ data class Exercise(
     val media: MediaPlaceholders = MediaPlaceholders(),
     val aliases: List<String> = emptyList(),
     val tags: List<String> = emptyList(),
+    val loadModel: LoadModel = LoadModel.EXTERNAL_ONLY,
+    val bodyweightFraction: BodyweightFraction = BodyweightFraction(
+        proportion = 0.0,
+        basis = "estimate",
+        rationale = "Default external-only placeholder; content JSON should override.",
+    ),
+    val allowsAddedWeight: Boolean = true,
+    val allowsAssistance: Boolean = false,
 )

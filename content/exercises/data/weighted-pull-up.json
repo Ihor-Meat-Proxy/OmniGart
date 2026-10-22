@@ -12,7 +12,8 @@
   ],
   "secondaryMuscles": [
     "forearms",
-    "rhomboids"
+    "rhomboids",
+    "trapezius"
   ],
   "equipment": [
     "pull_up_bar"
@@ -22,28 +23,47 @@
   "mechanics": "compound",
   "trackingType": "weight_reps",
   "technique": [
-    "Strict pull-up with a dip belt or held dumbbell; full ROM."
+    "Perform strict pull-ups with added load via dip belt, weighted vest, or a dumbbell held between the feet/ankles.",
+    "Use full ROM; load conservatively."
   ],
   "setup": [
-    "Only after solid bodyweight sets."
+    "Only after solid unassisted sets; secure belt/vest; soft-clamp dumbbell safely if used."
   ],
-  "breathing": "Exhale on the pull.",
+  "breathing": "Exhale on the pull; brace before heavier reps.",
   "commonMistakes": [
-    "Shortening ROM under load"
+    "Shortening ROM under load",
+    "Unsafe dumbbell clamping"
   ],
   "safety": [
-    "Add load conservatively."
+    "Prefer belt or vest for heavier loads; mind grip fatigue."
   ],
   "contraindications": [
-    "Same as pull-up"
+    "Same as pull-up; avoid if unassisted form fails"
   ],
   "regressions": [
     {
       "exerciseId": "pull-up",
       "note": "Unload"
+    },
+    {
+      "exerciseId": "chin-up",
+      "note": "Grip variant"
+    },
+    {
+      "exerciseId": "negative-pull-up",
+      "note": "Eccentrics"
     }
   ],
-  "progressions": [],
+  "progressions": [
+    {
+      "exerciseId": "chest-to-bar-pull-up",
+      "note": "Higher pull unloaded or light"
+    },
+    {
+      "exerciseId": "archer-pull-up",
+      "note": "Skill progression"
+    }
+  ],
   "evidenceRefs": [
     {
       "evidenceId": "nsca_essentials_4e",
@@ -52,6 +72,29 @@
         "safety",
         "strength"
       ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "evidenceId": "youdas_pullup_chinup_emg_2010",
+      "supports": [
+        "emg",
+        "biomechanics",
+        "technique"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy",
+        "safety"
+      ]
     }
   ],
   "media": {
@@ -59,6 +102,19 @@
     "videoKey": "media/video/weighted-pull-up",
     "animationKey": "media/anim/weighted-pull-up"
   },
-  "aliases": [],
-  "tags": []
+  "aliases": [
+    "belt weighted pull-up",
+    "vest pull-up"
+  ],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
 }

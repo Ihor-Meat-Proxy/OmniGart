@@ -44,7 +44,7 @@
     "journal": "BMJ Open",
     "doi": "10.1136/bmjopen-2015-010159",
     "pmid": "26975935",
-    "pmcid": "PMC4679911",
+    "pmcid": "PMC4800150",
     "openAccess": true,
     "population": "Adults in health-survey anthropometry analyses",
     "keyFinding": {
@@ -178,6 +178,63 @@
     "lastVerified": "2026-10-22",
     "usedBy": [
       "content.exercises.hip_thrust"
+    ]
+  },
+  {
+    "id": "de_leva_segmental_1996",
+    "type": "cohort",
+    "title": "Adjustments to Zatsiorsky-Seluyanov's segment inertia parameters",
+    "authors": [
+      "de Leva P"
+    ],
+    "year": 1996,
+    "journal": "Journal of Biomechanics",
+    "doi": "10.1016/0021-9290(95)00178-6",
+    "openAccess": false,
+    "population": "Anthropometric segmental mass proportions for biomechanical modelling",
+    "keyFinding": {
+      "enGB": "Provides adjusted segmental mass proportions used to estimate body-mass fractions supported in bodyweight exercises.",
+      "keys": {
+        "enGB": "evidence.de_leva_segmental_1996.key_finding",
+        "uk": "evidence.de_leva_segmental_1996.key_finding"
+      }
+    },
+    "evidenceStrength": "moderate",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "content.exercises.load_model"
+    ]
+  },
+  {
+    "id": "dickie_pullup_grip_emg_2017",
+    "type": "rct",
+    "title": "Electromyographic analysis of muscle activation during pull-up variations",
+    "authors": [
+      "Dickie JA",
+      "Faulkner JA",
+      "Barnes MJ",
+      "Lark SD"
+    ],
+    "year": 2017,
+    "journal": "Journal of Electromyography and Kinesiology",
+    "doi": "10.1016/j.jelekin.2016.11.004",
+    "openAccess": false,
+    "population": "Adults performing pronated, supinated, neutral, and rope pull-up grips",
+    "keyFinding": {
+      "enGB": "EMG patterns across pull-up grip variations show grip-specific differences useful for coaching grip choice.",
+      "keys": {
+        "enGB": "evidence.dickie_pullup_grip_emg_2017.key_finding",
+        "uk": "evidence.dickie_pullup_grip_emg_2017.key_finding"
+      }
+    },
+    "evidenceStrength": "low",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "content.exercises.pull_up_family"
     ]
   },
   {
@@ -354,7 +411,7 @@
     "journal": "Diabetes Care",
     "doi": "10.2337/dc11-1334",
     "pmid": "22179957",
-    "pmcid": "PMC3263917",
+    "pmcid": "PMC3263863",
     "openAccess": true,
     "sampleSize": 6510,
     "population": "Adults referred for body-composition assessment (CUN-BAE derivation/validation)",
@@ -457,6 +514,62 @@
     "lastVerified": "2026-10-22",
     "usedBy": [
       "calc.HeartRate.karvonenTarget"
+    ]
+  },
+  {
+    "id": "mckenzie_dip_kinematics_2022",
+    "type": "rct",
+    "title": "Bench, bar, and ring dips: kinematics and muscle activity",
+    "authors": [
+      "McKenzie A",
+      "et al."
+    ],
+    "year": 2022,
+    "journal": "International Journal of Environmental Research and Public Health",
+    "doi": "10.3390/ijerph192013211",
+    "openAccess": true,
+    "population": "Adults comparing bench, parallel-bar, and ring dip kinematics/EMG",
+    "keyFinding": {
+      "enGB": "Compares kinematics and muscle activity across bench, bar, and ring dips, informing progression and stability demands.",
+      "keys": {
+        "enGB": "evidence.mckenzie_dip_kinematics_2022.key_finding",
+        "uk": "evidence.mckenzie_dip_kinematics_2022.key_finding"
+      }
+    },
+    "evidenceStrength": "low",
+    "licenceNote": "Open-access or public-agency text: title and short finding may be shown; link out for full document. Do not paste copyrighted abstracts wholesale.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "content.exercises.dip_family"
+    ]
+  },
+  {
+    "id": "mckenzie_dip_shoulder_2020",
+    "type": "systematic-review",
+    "title": "Glenohumeral extension and the risk of shoulder injury in the dip",
+    "authors": [
+      "McKenzie A",
+      "et al."
+    ],
+    "year": 2020,
+    "journal": "Strength and Conditioning Journal",
+    "doi": "10.1519/SSC.0000000000000579",
+    "openAccess": false,
+    "population": "Athletes performing dip variations (shoulder-extension risk discussion)",
+    "keyFinding": {
+      "enGB": "Discusses glenohumeral extension demands in the dip and coaching considerations that may reduce shoulder-injury risk.",
+      "keys": {
+        "enGB": "evidence.mckenzie_dip_shoulder_2020.key_finding",
+        "uk": "evidence.mckenzie_dip_shoulder_2020.key_finding"
+      }
+    },
+    "evidenceStrength": "low",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "content.exercises.dip_family"
     ]
   },
   {
@@ -808,6 +921,35 @@
     ]
   },
   {
+    "id": "suprak_pushup_load_2011",
+    "type": "cohort",
+    "title": "The effect of position on the percentage of body mass supported during traditional and modified push-up variants",
+    "authors": [
+      "Suprak DN",
+      "Dawes J",
+      "Stephenson MD"
+    ],
+    "year": 2011,
+    "journal": "Journal of Strength and Conditioning Research",
+    "doi": "10.1519/JSC.0b013e3181bde2cf",
+    "openAccess": false,
+    "population": "Adults in traditional and modified push-up positions (force-plate % body mass)",
+    "keyFinding": {
+      "enGB": "Measured roughly 69–75% of body mass supported in traditional push-up positions, with lower fractions in modified variants.",
+      "keys": {
+        "enGB": "evidence.suprak_pushup_load_2011.key_finding",
+        "uk": "evidence.suprak_pushup_load_2011.key_finding"
+      }
+    },
+    "evidenceStrength": "moderate",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "content.exercises.push_up_family"
+    ]
+  },
+  {
     "id": "tanaka_hrmax_2001",
     "type": "meta-analysis",
     "title": "Age-predicted maximal heart rate revisited",
@@ -890,6 +1032,38 @@
     "lastVerified": "2026-10-22",
     "usedBy": [
       "calc.Anthropometry.waistToHipRatio"
+    ]
+  },
+  {
+    "id": "youdas_pullup_chinup_emg_2010",
+    "type": "rct",
+    "title": "Surface electromyographic activation patterns and elbow joint motion during a pull-up, chin-up, or perfect-pullup™ rotational exercise",
+    "authors": [
+      "Youdas JW",
+      "Amundson CL",
+      "Carlyle KS",
+      "Hollman JH",
+      "Lanzino DJ",
+      "Krause DA"
+    ],
+    "year": 2010,
+    "journal": "Journal of Strength and Conditioning Research",
+    "doi": "10.1519/JSC.0b013e3181f1598c",
+    "openAccess": false,
+    "population": "Adults performing pull-up and chin-up variations (surface EMG)",
+    "keyFinding": {
+      "enGB": "Surface EMG differed by grip: chin-ups emphasised biceps and pectoralis more than pronated pull-ups in the tested sample.",
+      "keys": {
+        "enGB": "evidence.youdas_pullup_chinup_emg_2010.key_finding",
+        "uk": "evidence.youdas_pullup_chinup_emg_2010.key_finding"
+      }
+    },
+    "evidenceStrength": "low",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "content.exercises.pull_up_family"
     ]
   }
 ]

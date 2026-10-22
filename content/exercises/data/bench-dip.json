@@ -1,0 +1,116 @@
+{
+  "id": "bench-dip",
+  "nameKeys": {
+    "enGB": "exercise.bench_dip.name",
+    "uk": "exercise.bench_dip.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid",
+    "pectoralis_major"
+  ],
+  "equipment": [
+    "bench",
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Hands on a bench behind you, feet on the floor (or elevated for harder variants); bend elbows to lower, then extend.",
+    "Keep hips close to the bench; use a modest ROM if shoulders complain."
+  ],
+  "setup": [
+    "Stable bench; shoulders away from ears."
+  ],
+  "breathing": "Exhale to extend.",
+  "commonMistakes": [
+    "Going too deep into shoulder extension",
+    "Flaring elbows without control"
+  ],
+  "safety": [
+    "Bench dips often use large shoulder extension — prefer shallow ROM or parallel-bar progressions if shoulders are irritable (McKenzie et al. 2020/2022)."
+  ],
+  "contraindications": [
+    "Anterior shoulder pain in extension"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "incline-push-up",
+      "note": "Pressing alternative"
+    },
+    {
+      "exerciseId": "tricep-pushdown",
+      "note": "Isolation"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "dip-parallel-bar",
+      "note": "Suspended bars"
+    },
+    {
+      "exerciseId": "negative-dip",
+      "note": "Eccentrics on bars"
+    },
+    {
+      "exerciseId": "weighted-dip",
+      "note": "Later"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "mckenzie_dip_shoulder_2020",
+      "supports": [
+        "safety",
+        "technique"
+      ]
+    },
+    {
+      "evidenceId": "mckenzie_dip_kinematics_2022",
+      "supports": [
+        "biomechanics",
+        "emg",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "suprak_pushup_load_2011",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/bench-dip",
+    "videoKey": "media/video/bench-dip",
+    "animationKey": "media/anim/bench-dip"
+  },
+  "aliases": [
+    "bench dips"
+  ],
+  "tags": [
+    "dip-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.55,
+    "basis": "estimate",
+    "rationale": "Feet remain on the floor, so net upper-limb load is well below a suspended dip. No dip-specific GRF study located; estimate informed by Suprak et al. modified push-up range (~54–62% BM) as an analogy for feet-supported upper-body pressing."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
+}

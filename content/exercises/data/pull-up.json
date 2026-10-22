@@ -7,10 +7,10 @@
   "discipline": "strength",
   "movementPattern": "pull",
   "primaryMuscles": [
-    "latissimus_dorsi",
-    "biceps"
+    "latissimus_dorsi"
   ],
   "secondaryMuscles": [
+    "biceps",
     "trapezius",
     "rhomboids",
     "rear_deltoid",
@@ -24,58 +24,99 @@
   "mechanics": "compound",
   "trackingType": "bodyweight_reps",
   "technique": [
-    "From dead hang, pull elbows down/back until chin clears bar; lower fully with control."
+    "Hang from a bar with a pronated (overhand) grip about shoulder-width or slightly wider.",
+    "Depress and retract the scapulae, then pull elbows down and back until the chin clears the bar.",
+    "Lower under control to a full hang without dumping into the shoulder capsule."
   ],
   "setup": [
-    "Shoulder-width or slightly wider overhand grip; brace lightly."
+    "Stable pull-up bar; wrists stacked; light brace; legs quiet or crossed."
   ],
-  "breathing": "Exhale on the pull.",
+  "breathing": "Exhale on the concentric pull; inhale on the descent.",
   "commonMistakes": [
-    "Kipping when aiming for strict strength",
-    "Shrugging without scapular depression"
+    "Kipping when the goal is strict strength",
+    "Starting with shrugged scapulae",
+    "Partial range without intent"
   ],
   "safety": [
-    "Use band/machine assistance; avoid shoulder pain at bottom by not forcing extreme hang."
+    "Stop with anterior shoulder pain in the hang",
+    "Build volume with assistance before max efforts"
   ],
   "contraindications": [
-    "Acute shoulder injury"
+    "Acute shoulder injury",
+    "Uncontrolled cuff tear symptoms"
   ],
   "regressions": [
     {
-      "exerciseId": "lat-pulldown",
-      "note": "Seated load control"
+      "exerciseId": "scapular-pull-up",
+      "note": "Learn scapular depression first"
+    },
+    {
+      "exerciseId": "negative-pull-up",
+      "note": "Eccentric-only strength"
     },
     {
       "exerciseId": "assisted-pull-up-band",
-      "note": "Band assist"
+      "note": "Reduce net load"
+    },
+    {
+      "exerciseId": "machine-assisted-pull-up",
+      "note": "Graded assistance"
+    },
+    {
+      "exerciseId": "inverted-row",
+      "note": "Australian/inverted row regression"
+    },
+    {
+      "exerciseId": "lat-pulldown",
+      "note": "Seated external-load alternative"
     }
   ],
   "progressions": [
     {
-      "exerciseId": "weighted-pull-up",
-      "note": "Add load"
-    },
-    {
       "exerciseId": "chest-to-bar-pull-up",
       "note": "Higher pull"
+    },
+    {
+      "exerciseId": "weighted-pull-up",
+      "note": "Add external load"
+    },
+    {
+      "exerciseId": "archer-pull-up",
+      "note": "Unilateral bias"
+    },
+    {
+      "exerciseId": "l-sit-pull-up",
+      "note": "Add hip-flexor/core demand"
     }
   ],
   "evidenceRefs": [
+    {
+      "evidenceId": "youdas_pullup_chinup_emg_2010",
+      "supports": [
+        "emg",
+        "biomechanics",
+        "technique"
+      ]
+    },
+    {
+      "evidenceId": "dickie_pullup_grip_emg_2017",
+      "supports": [
+        "emg",
+        "biomechanics"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    },
     {
       "evidenceId": "nsca_essentials_4e",
       "supports": [
         "technique",
         "safety",
         "strength"
-      ]
-    },
-    {
-      "evidenceId": "acsm_resistance_training_2026",
-      "supports": [
-        "programming",
-        "strength",
-        "hypertrophy",
-        "safety"
       ]
     }
   ],
@@ -84,6 +125,19 @@
     "videoKey": "media/video/pull-up",
     "animationKey": "media/anim/pull-up"
   },
-  "aliases": [],
-  "tags": []
+  "aliases": [
+    "pronated pull-up",
+    "overhand pull-up"
+  ],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
 }

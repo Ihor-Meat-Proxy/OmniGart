@@ -1,0 +1,107 @@
+{
+  "id": "archer-pull-up",
+  "nameKeys": {
+    "enGB": "exercise.archer_pull_up.name",
+    "uk": "exercise.archer_pull_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi"
+  ],
+  "secondaryMuscles": [
+    "biceps",
+    "rhomboids",
+    "forearms",
+    "obliques"
+  ],
+  "equipment": [
+    "pull_up_bar"
+  ],
+  "level": "advanced",
+  "unilateral": true,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Wide pronated grip; pull toward one hand while the opposite arm straightens (archer position).",
+    "Alternate sides; keep the working shoulder packed."
+  ],
+  "setup": [
+    "Only after consistent strict pull-ups; optional band under the straight-arm side."
+  ],
+  "breathing": "Exhale toward the working arm.",
+  "commonMistakes": [
+    "Losing scapular control on the working side",
+    "Excess lumbar twist"
+  ],
+  "safety": [
+    "High shoulder demand — progress gradually; use bands."
+  ],
+  "contraindications": [
+    "Shoulder instability"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "pull-up",
+      "note": "Bilateral"
+    },
+    {
+      "exerciseId": "typewriter-pull-up",
+      "note": "Top-position skill"
+    },
+    {
+      "exerciseId": "assisted-pull-up-band",
+      "note": "Assistance"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "typewriter-pull-up",
+      "note": "Travel across the bar"
+    },
+    {
+      "exerciseId": "weighted-pull-up",
+      "note": "If returning to bilateral load"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "evidenceId": "dickie_pullup_grip_emg_2017",
+      "supports": [
+        "emg",
+        "biomechanics"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/archer-pull-up",
+    "videoKey": "media/video/archer-pull-up",
+    "animationKey": "media/anim/archer-pull-up"
+  },
+  "aliases": [],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": true
+}

@@ -1,0 +1,113 @@
+{
+  "id": "machine-assisted-pull-up",
+  "nameKeys": {
+    "enGB": "exercise.machine_assisted_pull_up.name",
+    "uk": "exercise.machine_assisted_pull_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "biceps"
+  ],
+  "secondaryMuscles": [
+    "rhomboids",
+    "trapezius",
+    "forearms"
+  ],
+  "equipment": [
+    "machine",
+    "pull_up_bar"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Select assistance on a counterbalance/assisted pull-up machine; kneel or stand on the pad; perform full-ROM pull-ups.",
+    "Reduce assistance as strength improves (track the assistance load)."
+  ],
+  "setup": [
+    "Adjust pad/handles; choose grip (pronated/neutral/supinated)."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Using so much assistance that scapulae never engage",
+    "Partial ROM"
+  ],
+  "safety": [
+    "Keep knees/feet secure on the pad; controlled tempo."
+  ],
+  "contraindications": [
+    "Acute shoulder injury"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "lat-pulldown",
+      "note": "Seated alternative"
+    },
+    {
+      "exerciseId": "inverted-row",
+      "note": "Horizontal pull"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "assisted-pull-up-band",
+      "note": "Less stable assistance"
+    },
+    {
+      "exerciseId": "pull-up",
+      "note": "Unassisted"
+    },
+    {
+      "exerciseId": "negative-pull-up",
+      "note": "Eccentrics"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/machine-assisted-pull-up",
+    "videoKey": "media/video/machine-assisted-pull-up",
+    "animationKey": "media/anim/machine-assisted-pull-up"
+  },
+  "aliases": [
+    "gravitron pull-up",
+    "assisted pull-up machine"
+  ],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_minus_assistance",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": true
+}

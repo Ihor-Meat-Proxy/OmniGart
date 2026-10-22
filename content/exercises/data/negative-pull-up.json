@@ -1,0 +1,113 @@
+{
+  "id": "negative-pull-up",
+  "nameKeys": {
+    "enGB": "exercise.negative_pull_up.name",
+    "uk": "exercise.negative_pull_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "biceps"
+  ],
+  "secondaryMuscles": [
+    "trapezius",
+    "rhomboids",
+    "forearms"
+  ],
+  "equipment": [
+    "pull_up_bar"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "timed",
+  "technique": [
+    "Jump or step to the top chin-over-bar position, then lower for 3–5+ seconds to a full hang.",
+    "Reset at the top each rep; do not bounce out of the bottom."
+  ],
+  "setup": [
+    "Box or jump access to the top; choose pronated, neutral, or chin-up grip."
+  ],
+  "breathing": "Inhale or brace through the slow descent; avoid panic breath-holds.",
+  "commonMistakes": [
+    "Dropping the last third of the ROM",
+    "Excessive kip to the top"
+  ],
+  "safety": [
+    "High eccentric fatigue — low volume; recover between sessions."
+  ],
+  "contraindications": [
+    "Acute elbow tendinopathy"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "scapular-pull-up",
+      "note": "Smaller ROM"
+    },
+    {
+      "exerciseId": "inverted-row",
+      "note": "Feet supported"
+    },
+    {
+      "exerciseId": "machine-assisted-pull-up",
+      "note": "Assisted eccentrics"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "pull-up",
+      "note": "Add concentric"
+    },
+    {
+      "exerciseId": "chin-up",
+      "note": "Supinated variant"
+    },
+    {
+      "exerciseId": "weighted-pull-up",
+      "note": "Loaded eccentrics later"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "evidenceId": "dickie_pullup_grip_emg_2017",
+      "supports": [
+        "emg",
+        "biomechanics"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/negative-pull-up",
+    "videoKey": "media/video/negative-pull-up",
+    "animationKey": "media/anim/negative-pull-up"
+  },
+  "aliases": [
+    "eccentric pull-up"
+  ],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
+}

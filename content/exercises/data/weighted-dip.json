@@ -1,0 +1,113 @@
+{
+  "id": "weighted-dip",
+  "nameKeys": {
+    "enGB": "exercise.weighted_dip.name",
+    "uk": "exercise.weighted_dip.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Perform parallel-bar (or ring) dips with a dip belt, vest, or carefully held dumbbell between the legs.",
+    "Keep depth in a pain-free range; load only with solid unassisted form."
+  ],
+  "setup": [
+    "Secure belt; prefer parallel bars before heavy ring loading."
+  ],
+  "breathing": "Brace; exhale to press.",
+  "commonMistakes": [
+    "Chasing depth under heavy load",
+    "Unstable dumbbell hold"
+  ],
+  "safety": [
+    "Added load magnifies shoulder stress at end-range extension — prefer controlled depth (McKenzie et al. 2020)."
+  ],
+  "contraindications": [
+    "Shoulder pain; inability to perform clean unassisted dips"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "dip-parallel-bar",
+      "note": "Unload"
+    },
+    {
+      "exerciseId": "band-assisted-dip",
+      "note": "Assistance"
+    },
+    {
+      "exerciseId": "negative-dip",
+      "note": "Eccentrics"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "ring-dip",
+      "note": "Unstable bodyweight"
+    },
+    {
+      "exerciseId": "straight-bar-dip",
+      "note": "Skill variant"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "mckenzie_dip_shoulder_2020",
+      "supports": [
+        "safety",
+        "technique"
+      ]
+    },
+    {
+      "evidenceId": "mckenzie_dip_kinematics_2022",
+      "supports": [
+        "biomechanics",
+        "emg",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/weighted-dip",
+    "videoKey": "media/video/weighted-dip",
+    "animationKey": "media/anim/weighted-dip"
+  },
+  "aliases": [],
+  "tags": [
+    "dip-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.97,
+    "basis": "estimate",
+    "rationale": "Feet free; almost all BM is supported through the upper limbs. Hands contact the bars (~1.2% BM per de Leva male hands), so estimate ~0.96–0.99. No published GRF %BM for dips found — estimate only."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

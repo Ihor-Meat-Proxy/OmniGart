@@ -67,6 +67,7 @@ class ContentValidator(
             }
             checkNameKeys(node, localeEn, localeUk, file, issues)
             checkEvidence(node, file, issues)
+            checkLoadModel(node, file, issues)
         }
 
         val idSet = ids.toSet()
@@ -194,5 +195,78 @@ class ContentValidator(
         val root = mapper.readTree(catalog.readText())
         if (!root.isArray) return null
         return root.mapNotNull { it.path("id").asText().takeIf { id -> id.isNotBlank() } }.toSet()
+    }
+
+    private fun checkLoadModel(node: JsonNode, file: Path, issues: MutableList<ValidationIssue>) {
+        val loadModel = node.path("loadModel").asText()
+        val fraction = node.path("bodyweightFraction")
+        if (fraction.isMissingNode || fraction.isNull) {
+            issues += ValidationIssue(file.toString(), "Missing bodyweightFraction")
+            return
+        }
+        val proportion = fraction.path("proportion").asDouble(Double.NaN)
+        val basis = fraction.path("basis").asText()
+        val rationale = fraction.path("rationale").asText()
+        if (proportion.isNaN() || proportion < 0.0 || proportion > 1.5) {
+            issues += ValidationIssue(file.toString(), "bodyweightFraction.proportion out of range: $proportion")
+        }
+        if (basis !in setOf("measured", "estimate")) {
+            issues += ValidationIssue(file.toString(), "bodyweightFraction.basis must be measured|estimate")
+        }
+        if (rationale.length < 20) {
+            issues += ValidationIssue(file.toString(), "bodyweightFraction.rationale too short")
+        }
+        when (loadModel) {
+            "external_only" -> {
+                if (proportion != 0.0) {
+                    issues += ValidationIssue(
+                        file.toString(),
+                        "external_only exercises should use bodyweightFraction.proportion 0",
+                    )
+                }
+            }
+            "bodyweight_plus_external", "bodyweight_minus_assistance" -> {
+                if (proportion <= 0.0) {
+                    issues += ValidationIssue(
+                        file.toString(),
+                        "$loadModel should have bodyweightFraction.proportion > 0",
+                    )
+                }
+            }
+            else -> {
+                if (loadModel.isNotBlank()) {
+                    issues += ValidationIssue(file.toString(), "Unknown loadModel: $loadModel")
+                }
+            }
+        }
+        if (!node.has("allowsAddedWeight") || !node.path("allowsAddedWeight").isBoolean) {
+            issues += ValidationIssue(file.toString(), "allowsAddedWeight must be a boolean")
+        }
+        if (!node.has("allowsAssistance") || !node.path("allowsAssistance").isBoolean) {
+            issues += ValidationIssue(file.toString(), "allowsAssistance must be a boolean")
+        }
+        val tags = node.path("tags").map { it.asText() }.toSet()
+        if ("pull-up-family" in tags || "dip-family" in tags) {
+            val evidenceIds = node.path("evidenceRefs").map { it.path("evidenceId").asText() }.toSet()
+            if ("pull-up-family" in tags) {
+                val hasSeg = "de_leva_segmental_1996" in evidenceIds
+                if (!hasSeg && basis == "estimate") {
+                    issues += ValidationIssue(
+                        file.toString(),
+                        "pull-up-family estimate should cite de_leva_segmental_1996",
+                    )
+                }
+            }
+            if ("dip-family" in tags) {
+                if ("mckenzie_dip_shoulder_2020" !in evidenceIds &&
+                    "mckenzie_dip_kinematics_2022" !in evidenceIds
+                ) {
+                    issues += ValidationIssue(
+                        file.toString(),
+                        "dip-family should cite dip shoulder-extension safety/kinematics evidence",
+                    )
+                }
+            }
+        }
     }
 }

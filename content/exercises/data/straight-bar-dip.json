@@ -1,0 +1,104 @@
+{
+  "id": "straight-bar-dip",
+  "nameKeys": {
+    "enGB": "exercise.straight_bar_dip.name",
+    "uk": "exercise.straight_bar_dip.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid",
+    "rectus_abdominis"
+  ],
+  "equipment": [
+    "pull_up_bar",
+    "bodyweight"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Support on a single straight bar (as in a muscle-up support), lean the chest over the bar, dip by bending elbows, then press back to support."
+  ],
+  "setup": [
+    "Requires strong support hold; wrists stacked; bars at appropriate height."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Losing the lean and peeling off the bar",
+    "Excess depth"
+  ],
+  "safety": [
+    "High skill/shoulder demand — progress from parallel-bar dips."
+  ],
+  "contraindications": [
+    "Shoulder pain in support"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "dip-parallel-bar",
+      "note": "Parallel bars"
+    },
+    {
+      "exerciseId": "band-assisted-dip",
+      "note": "Assistance"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "ring-dip",
+      "note": "Unstable"
+    },
+    {
+      "exerciseId": "weighted-dip",
+      "note": "Load"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "mckenzie_dip_shoulder_2020",
+      "supports": [
+        "safety",
+        "technique"
+      ]
+    },
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/straight-bar-dip",
+    "videoKey": "media/video/straight-bar-dip",
+    "animationKey": "media/anim/straight-bar-dip"
+  },
+  "aliases": [
+    "bar dip (straight)"
+  ],
+  "tags": [
+    "dip-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.97,
+    "basis": "estimate",
+    "rationale": "Feet free; almost all BM is supported through the upper limbs. Hands contact the bars (~1.2% BM per de Leva male hands), so estimate ~0.96–0.99. No published GRF %BM for dips found — estimate only."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
+}

@@ -1,0 +1,109 @@
+{
+  "id": "band-assisted-dip",
+  "nameKeys": {
+    "enGB": "exercise.band_assisted_dip.name",
+    "uk": "exercise.band_assisted_dip.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid"
+  ],
+  "equipment": [
+    "bands",
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Loop a band over parallel bars and kneel or place feet on it; perform dips with reduced net load."
+  ],
+  "setup": [
+    "Secure band; stable bars; control depth."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Bouncing in the band",
+    "Excess shoulder extension"
+  ],
+  "safety": [
+    "Still respect pain-free depth; inspect bands."
+  ],
+  "contraindications": [
+    "Anterior shoulder pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "bench-dip",
+      "note": "Feet on floor"
+    },
+    {
+      "exerciseId": "machine-assisted-dip",
+      "note": "Machine"
+    },
+    {
+      "exerciseId": "incline-push-up",
+      "note": "Pressing"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "dip-parallel-bar",
+      "note": "Unassisted"
+    },
+    {
+      "exerciseId": "negative-dip",
+      "note": "Eccentrics"
+    },
+    {
+      "exerciseId": "ring-dip",
+      "note": "Later"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "mckenzie_dip_shoulder_2020",
+      "supports": [
+        "safety",
+        "technique"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/band-assisted-dip",
+    "videoKey": "media/video/band-assisted-dip",
+    "animationKey": "media/anim/band-assisted-dip"
+  },
+  "aliases": [],
+  "tags": [
+    "dip-family"
+  ],
+  "loadModel": "bodyweight_minus_assistance",
+  "bodyweightFraction": {
+    "proportion": 0.97,
+    "basis": "estimate",
+    "rationale": "Feet free; almost all BM is supported through the upper limbs. Hands contact the bars (~1.2% BM per de Leva male hands), so estimate ~0.96–0.99. No published GRF %BM for dips found — estimate only."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": true
+}

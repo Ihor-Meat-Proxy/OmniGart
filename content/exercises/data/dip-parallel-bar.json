@@ -8,10 +8,12 @@
   "movementPattern": "push",
   "primaryMuscles": [
     "pectoralis_major",
-    "triceps",
-    "front_deltoid"
+    "triceps"
   ],
-  "secondaryMuscles": [],
+  "secondaryMuscles": [
+    "front_deltoid",
+    "rhomboids"
+  ],
   "equipment": [
     "bodyweight"
   ],
@@ -20,39 +22,83 @@
   "mechanics": "compound",
   "trackingType": "bodyweight_reps",
   "technique": [
-    "Support on bars; descend by bending elbows until upper arms near parallel; press up."
+    "Support on parallel bars with locked elbows; lean slightly forward for chest emphasis or stay more upright for triceps.",
+    "Descend by bending the elbows until upper arms approach parallel to the floor (or a pain-free depth), then press to lockout."
   ],
   "setup": [
-    "Slight forward lean for chest; more upright for triceps."
+    "Bars stable; shoulders packed down; avoid end-range extension if symptomatic."
   ],
-  "breathing": "Exhale to press.",
+  "breathing": "Inhale on the descent; exhale to press.",
   "commonMistakes": [
-    "Dumping into shoulder stretch painfully",
-    "Swinging"
+    "Dumping into painful end-range shoulder extension",
+    "Swinging the legs for momentum"
   ],
   "safety": [
-    "Use assisted machine/bands if needed; stop with anterior shoulder pain."
+    "Limit depth to avoid end-range glenohumeral extension when irritable (McKenzie et al. 2020).",
+    "Use assistance before adding load; stop with anterior shoulder pain."
   ],
   "contraindications": [
-    "Anterior shoulder instability"
+    "Anterior shoulder instability",
+    "Acute pec strain"
   ],
   "regressions": [
     {
-      "exerciseId": "bench-dip-assisted",
-      "note": "Feet-assisted"
+      "exerciseId": "band-assisted-dip",
+      "note": "Band assistance"
+    },
+    {
+      "exerciseId": "machine-assisted-dip",
+      "note": "Machine assistance"
+    },
+    {
+      "exerciseId": "negative-dip",
+      "note": "Eccentric-only"
+    },
+    {
+      "exerciseId": "bench-dip",
+      "note": "Feet-supported regression"
     },
     {
       "exerciseId": "incline-push-up",
-      "note": "Regression"
+      "note": "Pressing regression"
     }
   ],
   "progressions": [
     {
+      "exerciseId": "weighted-dip",
+      "note": "Add load"
+    },
+    {
       "exerciseId": "ring-dip",
-      "note": "Unstable progression"
+      "note": "Unstable rings"
+    },
+    {
+      "exerciseId": "straight-bar-dip",
+      "note": "Straight-bar variation"
     }
   ],
   "evidenceRefs": [
+    {
+      "evidenceId": "mckenzie_dip_shoulder_2020",
+      "supports": [
+        "safety",
+        "technique"
+      ]
+    },
+    {
+      "evidenceId": "mckenzie_dip_kinematics_2022",
+      "supports": [
+        "biomechanics",
+        "emg",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    },
     {
       "evidenceId": "nsca_essentials_4e",
       "supports": [
@@ -67,6 +113,19 @@
     "videoKey": "media/video/dip-parallel-bar",
     "animationKey": "media/anim/dip-parallel-bar"
   },
-  "aliases": [],
-  "tags": []
+  "aliases": [
+    "parallel bar dip",
+    "bar dip"
+  ],
+  "tags": [
+    "dip-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.97,
+    "basis": "estimate",
+    "rationale": "Feet free; almost all BM is supported through the upper limbs. Hands contact the bars (~1.2% BM per de Leva male hands), so estimate ~0.96–0.99. No published GRF %BM for dips found — estimate only."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
 }

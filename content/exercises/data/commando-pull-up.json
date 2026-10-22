@@ -1,0 +1,109 @@
+{
+  "id": "commando-pull-up",
+  "nameKeys": {
+    "enGB": "exercise.commando_pull_up.name",
+    "uk": "exercise.commando_pull_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "biceps"
+  ],
+  "secondaryMuscles": [
+    "obliques",
+    "forearms",
+    "rhomboids"
+  ],
+  "equipment": [
+    "pull_up_bar"
+  ],
+  "level": "advanced",
+  "unilateral": true,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Stand side-on to the bar; grip with hands close, one palm facing each direction along the bar.",
+    "Pull so the head passes to one side of the bar, then alternate sides each rep or set."
+  ],
+  "setup": [
+    "Clear head path beside the bar; start from a controlled hang."
+  ],
+  "breathing": "Exhale on each pull.",
+  "commonMistakes": [
+    "Twisting the lumbar spine aggressively",
+    "Hitting the face on the bar"
+  ],
+  "safety": [
+    "Advanced asymmetry — master standard pull-ups first; mind neck clearance."
+  ],
+  "contraindications": [
+    "Acute shoulder or cervical injury"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "pull-up",
+      "note": "Bilateral standard"
+    },
+    {
+      "exerciseId": "neutral-grip-pull-up",
+      "note": "Friendlier grip"
+    },
+    {
+      "exerciseId": "assisted-pull-up-band",
+      "note": "Assistance"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "archer-pull-up",
+      "note": "Another unilateral bias"
+    },
+    {
+      "exerciseId": "typewriter-pull-up",
+      "note": "Isometric travel at the top"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "de_leva_segmental_1996",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "evidenceId": "dickie_pullup_grip_emg_2017",
+      "supports": [
+        "emg",
+        "biomechanics"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/commando-pull-up",
+    "videoKey": "media/video/commando-pull-up",
+    "animationKey": "media/anim/commando-pull-up"
+  },
+  "aliases": [
+    "cliffhanger pull-up"
+  ],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": true
+}

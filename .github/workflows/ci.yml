@@ -38,6 +38,12 @@ jobs:
           java-version: "21"
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
+      - name: Pack and verify offline content bundle
+        # Bundle-first: generated/content-bundle must match content/ + design sources.
+        run: |
+          python3 scripts/pack_bundled_content.py
+          python3 scripts/pack_bundled_content.py --verify
+          ./gradlew verifyBundledContent
       - name: Unit tests and assemble
         run: |
           ./gradlew --stacktrace \
@@ -48,8 +54,8 @@ jobs:
             :wearApp:assembleDebug \
             :wearApp:testDebugUnitTest
       - name: Lint and verify
-        # checkNoRuLocale is also a dependency of root `check` for local builds.
-        run: ./gradlew checkNoRuLocale ktlintCheck detekt
+        # checkNoRuLocale / verifyBundledContent also hang off root `check`.
+        run: ./gradlew checkNoRuLocale verifyBundledContent ktlintCheck detekt
 
   ios-watchos:
     name: iOS + watchOS

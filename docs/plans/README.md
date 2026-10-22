@@ -27,5 +27,6 @@ Standing owner instruction: after Phase 0 and the health-integration PR, continu
 - Never block: log open decisions in `docs/OPEN_QUESTIONS.md`.
 - en-GB + uk strings only; never Russian (`checkNoRuLocale`).
 - No competitor product names — neutral category language only. Platform APIs OK (HealthKit, Health Connect, Google Health API, Polar BLE SDK).
+- **Bundle-first content** — exercises, templates, locales, evidence, icons, body maps, achievements, exercise images ship in `generated/content-bundle/`; apps offline-capable; server only for signed updates / large media / food packs / remote config (`docs/CONTENT_BUNDLE.md`).
 - Real content: formulas, explanations, ⓘ evidence links to verified DOI/PMID only; never invent; log unverifiable claims in `docs/OPEN_QUESTIONS.md`.
 - Integrate `design/` tokens/icons and `content/exercises` + `shared/planning` (pull from their branches if still unmerged).

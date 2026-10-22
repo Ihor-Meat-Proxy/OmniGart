@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "grid": "24x24",
+  "strokeWidthPx": 1.75,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "style": "minimal-line",
+  "count": 40,
+  "icons": [
+    {
+      "name": "food",
+      "file": "svg/food.svg",
+      "category": "tab",
+      "keywords": [
+        "nutrition",
+        "meal",
+        "plate",
+        "tab"
+      ]
+    },
+    {
+      "name": "workouts",
+      "file": "svg/workouts.svg",
+      "category": "tab",
+      "keywords": [
+        "exercise",
+        "dumbbell",
+        "training",
+        "tab"
+      ]
+    },
+    {
+      "name": "recovery",
+      "file": "svg/recovery.svg",
+      "category": "tab",
+      "keywords": [
+        "heal",
+        "leaf",
+        "rest",
+        "tab"
+      ]
+    },
+    {
+      "name": "planner",
+      "file": "svg/planner.svg",
+      "category": "tab",
+      "keywords": [
+        "calendar",
+        "schedule",
+        "plan",
+        "tab"
+      ]
+    },
+    {
+      "name": "profile",
+      "file": "svg/profile.svg",
+      "category": "tab",
+      "keywords": [
+        "user",
+        "account",
+        "person",
+        "tab"
+      ]
+    },
+    {
+      "name": "water",
+      "file": "svg/water.svg",
+      "category": "quick-log",
+      "keywords": [
+        "hydrate",
+        "drop",
+        "drink"
+      ]
+    },
+    {
+      "name": "barcode",
+      "file": "svg/barcode.svg",
+      "category": "quick-log",
+      "keywords": [
+        "scan",
+        "upc",
+        "product"
+      ]
+    },
+    {
+      "name": "food-log",
+      "file": "svg/food-log.svg",
+      "category": "quick-log",
+      "keywords": [
+        "fork",
+        "meal",
+        "eat"
+      ]
+    },
+    {
+      "name": "add-set",
+      "file": "svg/add-set.svg",
+      "category": "quick-log",
+      "keywords": [
+        "plus",
+        "rep",
+        "strength",
+        "log"
+      ]
+    },
+    {
+      "name": "strength",
+      "file": "svg/strength.svg",
+      "category": "discipline",
+      "keywords": [
+        "weights",
+        "lift",
+        "gym"
+      ]
+    },
+    {
+      "name": "running",
+      "file": "svg/running.svg",
+      "category": "discipline",
+      "keywords": [
+        "run",
+        "cardio",
+        "jog"
+      ]
+    },
+    {
+      "name": "swimming",
+      "file": "svg/swimming.svg",
+      "category": "discipline",
+      "keywords": [
+        "swim",
+        "pool",
+        "laps"
+      ]
+    },
+    {
+      "name": "yoga",
+      "file": "svg/yoga.svg",
+      "category": "discipline",
+      "keywords": [
+        "stretch",
+        "pose",
+        "mindfulness"
+      ]
+    },
+    {
+      "name": "pilates",
+      "file": "svg/pilates.svg",
+      "category": "discipline",
+      "keywords": [
+        "core",
+        "mat",
+        "control"
+      ]
+    },
+    {
+      "name": "sleep",
+      "file": "svg/sleep.svg",
+      "category": "recovery",
+      "keywords": [
+        "moon",
+        "night",
+        "rest"
+      ]
+    },
+    {
+      "name": "hrv",
+      "file": "svg/hrv.svg",
+      "category": "recovery",
+      "keywords": [
+        "heart",
+        "variability",
+        "pulse"
+      ]
+    },
+    {
+      "name": "stress",
+      "file": "svg/stress.svg",
+      "category": "recovery",
+      "keywords": [
+        "tension",
+        "wave",
+        "load"
+      ]
+    },
+    {
+      "name": "heart-rate",
+      "file": "svg/heart-rate.svg",
+      "category": "recovery",
+      "keywords": [
+        "bpm",
+        "cardio",
+        "monitor"
+      ]
+    },
+    {
+      "name": "readiness",
+      "file": "svg/readiness.svg",
+      "category": "recovery",
+      "keywords": [
+        "gauge",
+        "status",
+        "morning"
+      ]
+    },
+    {
+      "name": "measurements",
+      "file": "svg/measurements.svg",
+      "category": "body",
+      "keywords": [
+        "tape",
+        "anthropometry",
+        "size"
+      ]
+    },
+    {
+      "name": "weight",
+      "file": "svg/weight.svg",
+      "category": "body",
+      "keywords": [
+        "scale",
+        "kg",
+        "mass"
+      ]
+    },
+    {
+      "name": "achievement",
+      "file": "svg/achievement.svg",
+      "category": "achievement",
+      "keywords": [
+        "medal",
+        "badge",
+        "award"
+      ]
+    },
+    {
+      "name": "streak",
+      "file": "svg/streak.svg",
+      "category": "achievement",
+      "keywords": [
+        "flame",
+        "days",
+        "consistency"
+      ]
+    },
+    {
+      "name": "trophy",
+      "file": "svg/trophy.svg",
+      "category": "achievement",
+      "keywords": [
+        "win",
+        "cup",
+        "goal"
+      ]
+    },
+    {
+      "name": "settings",
+      "file": "svg/settings.svg",
+      "category": "system",
+      "keywords": [
+        "gear",
+        "preferences",
+        "config"
+      ]
+    },
+    {
+      "name": "evidence",
+      "file": "svg/evidence.svg",
+      "category": "system",
+      "keywords": [
+        "info",
+        "citation",
+        "science",
+        "about"
+      ]
+    },
+    {
+      "name": "search",
+      "file": "svg/search.svg",
+      "category": "system",
+      "keywords": [
+        "find",
+        "lookup"
+      ]
+    },
+    {
+      "name": "check",
+      "file": "svg/check.svg",
+      "category": "system",
+      "keywords": [
+        "done",
+        "confirm",
+        "success"
+      ]
+    },
+    {
+      "name": "close",
+      "file": "svg/close.svg",
+      "category": "system",
+      "keywords": [
+        "dismiss",
+        "cancel",
+        "x"
+      ]
+    },
+    {
+      "name": "edit",
+      "file": "svg/edit.svg",
+      "category": "system",
+      "keywords": [
+        "pencil",
+        "modify"
+      ]
+    },
+    {
+      "name": "timer",
+      "file": "svg/timer.svg",
+      "category": "system",
+      "keywords": [
+        "clock",
+        "rest",
+        "interval"
+      ]
+    },
+    {
+      "name": "share",
+      "file": "svg/share.svg",
+      "category": "system",
+      "keywords": [
+        "export",
+        "send"
+      ]
+    },
+    {
+      "name": "chevron",
+      "file": "svg/chevron.svg",
+      "category": "system",
+      "keywords": [
+        "expand",
+        "disclosure",
+        "down"
+      ]
+    },
+    {
+      "name": "muscle-chest",
+      "file": "svg/muscle-chest.svg",
+      "category": "muscle",
+      "keywords": [
+        "pectoral",
+        "upper body"
+      ]
+    },
+    {
+      "name": "muscle-back",
+      "file": "svg/muscle-back.svg",
+      "category": "muscle",
+      "keywords": [
+        "lats",
+        "posterior"
+      ]
+    },
+    {
+      "name": "muscle-shoulders",
+      "file": "svg/muscle-shoulders.svg",
+      "category": "muscle",
+      "keywords": [
+        "delts",
+        "upper"
+      ]
+    },
+    {
+      "name": "muscle-arms",
+      "file": "svg/muscle-arms.svg",
+      "category": "muscle",
+      "keywords": [
+        "biceps",
+        "triceps"
+      ]
+    },
+    {
+      "name": "muscle-core",
+      "file": "svg/muscle-core.svg",
+      "category": "muscle",
+      "keywords": [
+        "abs",
+        "midsection"
+      ]
+    },
+    {
+      "name": "muscle-legs",
+      "file": "svg/muscle-legs.svg",
+      "category": "muscle",
+      "keywords": [
+        "quads",
+        "hamstrings",
+        "lower"
+      ]
+    },
+    {
+      "name": "muscle-glutes",
+      "file": "svg/muscle-glutes.svg",
+      "category": "muscle",
+      "keywords": [
+        "hips",
+        "posterior chain"
+      ]
+    }
+  ]
+}

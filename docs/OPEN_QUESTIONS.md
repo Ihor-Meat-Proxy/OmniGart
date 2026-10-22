@@ -155,6 +155,12 @@ Autopilot log (Phase 0 + merged design / planning). Each item: **context**, **ch
 - **Choice:** Never mention competitor app/product names (examples include popular strength loggers, wearable brands, and recovery/coaching apps) in the repo, code, docs, commits, or PR titles/bodies. Use neutral descriptions of product categories and patterns instead. Platform APIs remain allowed: HealthKit, Health Connect, Google Health API, Polar BLE SDK.
 - **Alternatives:** Keep a private research notebook outside the repo if named product comparisons are needed.
 
+## Bundle-first content (all phases)
+
+- **Context:** Owner decision: apps must work fully offline; server only for signed between-release updates, optional large media, food packs, and remote config.
+- **Choice:** Pack exercises, templates, locales, evidence, icons, body-map paths, achievements, and exercise images into `generated/content-bundle/` via `scripts/pack_bundled_content.py` (Gradle + Xcode pre-build). Shared `LayeredContentLoader` layers **bundled baseline &lt; verified newer update pack**. CI runs `--verify` so the committed bundle stays up to date. Docs: `docs/CONTENT_BUNDLE.md`.
+- **Alternatives:** On-demand CDN fetch for all content (rejected — breaks offline); commit only sources and generate exclusively in CI without a committed baseline (rejected — harder offline/dev reproducibility).
+
 ## Autopilot v1 roadmap
 
 - **Context:** Owner standing instruction after Phase 0 + health-integration PR.
@@ -169,4 +175,4 @@ B3. **Secondary weight** — Default 0.5 follows Pelland et al. 2025 fractional 
 B4. **TVA / rotator-cuff proxies** — Surface proxies may overstate visible load. Drop from heatmap fills and keep taxonomy-only, or add dashed “deep” overlays?
 B5. **Sex figure default** — `UNSPECIFIED` currently falls back to the male figure. Prefer a neutral third silhouette, or require sex before showing heatmaps?
 B6. **Intensity binning** — Equal-width vs log / landmark-anchored bins for single workouts — confirm preference after first user tests.
-B7. **Path JSON packaging** — Ship JSON in both app bundles, or generate Swift/Compose path tables in `design/generated` like icons?
+B7. **Path JSON packaging** — **Decided (bundle-first):** ship `design/body-map/generated/paths/*.json` inside `generated/content-bundle/body-maps/` on all apps. Optional Swift/Compose tables remain a future optimisation, not a requirement for offline.

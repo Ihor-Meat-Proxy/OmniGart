@@ -24,6 +24,22 @@ tasks.register<Exec>("checkNoRuLocale") {
     commandLine("bash", "./scripts/check_no_ru_locale.sh")
 }
 
+tasks.register<Exec>("packBundledContent") {
+    group = "build"
+    description =
+        "Generate generated/content-bundle from content/, docs/evidence, design icons/body-maps"
+    workingDir = rootDir
+    commandLine("python3", "./scripts/pack_bundled_content.py")
+}
+
+tasks.register<Exec>("verifyBundledContent") {
+    group = LifecycleBasePlugin.VERIFICATION_GROUP
+    description =
+        "Fail if generated/content-bundle is stale vs content sources"
+    workingDir = rootDir
+    commandLine("python3", "./scripts/pack_bundled_content.py", "--verify")
+}
+
 tasks.named("check") {
-    dependsOn("checkNoRuLocale")
+    dependsOn("checkNoRuLocale", "verifyBundledContent")
 }

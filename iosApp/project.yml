@@ -23,8 +23,20 @@ targets:
     type: application
     platform: iOS
     deploymentTarget: "18.0"
+    preBuildScripts:
+      - name: Pack OmniGart Content
+        basedOnDependencyAnalysis: false
+        script: |
+          set -euo pipefail
+          ROOT="${SRCROOT}/.."
+          /usr/bin/python3 "$ROOT/scripts/pack_bundled_content.py"
+          DEST="${SRCROOT}/OmniGart/ContentBundle"
+          rm -rf "$DEST"
+          cp -R "$ROOT/generated/content-bundle" "$DEST"
     sources:
       - path: OmniGart
+        excludes:
+          - ContentBundle/**
       - &designSwiftSources
         path: ../design/generated/ios/Sources
         name: Design
@@ -40,6 +52,10 @@ targets:
         type: folder
         name: OmniGartIcons
         createIntermediateGroups: false
+      - path: OmniGart/ContentBundle
+        type: folder
+        buildPhase: resources
+        optional: true
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios
@@ -93,13 +109,29 @@ targets:
     type: application
     platform: watchOS
     deploymentTarget: "11.0"
+    preBuildScripts:
+      - name: Pack OmniGart Content
+        basedOnDependencyAnalysis: false
+        script: |
+          set -euo pipefail
+          ROOT="${SRCROOT}/.."
+          /usr/bin/python3 "$ROOT/scripts/pack_bundled_content.py"
+          DEST="${SRCROOT}/../watchApp/OmniGartWatch/ContentBundle"
+          rm -rf "$DEST"
+          cp -R "$ROOT/generated/content-bundle" "$DEST"
     sources:
       - path: ../watchApp/OmniGartWatch
         createIntermediateGroups: false
+        excludes:
+          - ContentBundle/**
       - *designSwiftSources
     resources:
       - *designColorAssets
       - *designIconAssets
+      - path: ../watchApp/OmniGartWatch/ContentBundle
+        type: folder
+        buildPhase: resources
+        optional: true
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios.watchkitapp

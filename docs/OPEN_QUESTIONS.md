@@ -29,21 +29,7 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 ## Process
 
-<<<<<<< HEAD
-17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward a large commercial-library scale later or keep curated & cited?
-18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
-
-## Evidence registry
-
-19. **Watson sleep year** — Plan text said “Watson 2015 sleep”; the verifiable sports-medicine review seeded is Watson 2017 (`10.1249/JSR.0000000000000418`). Confirm whether a different 2015 paper was intended.
-20. **Schoenfeld 2016/2017 volume** — Seeded as one MA (`10.1080/02640414.2016.1210197`, Crossref year 2017) plus the 2018 SCJ volume guidelines. Confirm if a second distinct 2017 volume trial/MA should be listed.
-21. **Baevsky SI primary source** — English methods overview (`10.12710/cardiometry.2017.10.6676`) is seeded; prefer a specific primary methods monograph (without adding a `ru` locale)?
-22. **Karvonen / Foster DOIs** — Karvonen 1957 has PMID only; Foster 2001 has a Lippincott-style DOI that Crossref accepts. Confirm whether textbook-only technique refs (NSCA) should stay `unverified` forever or gain ISBN metadata.
-23. **Claim ↔ exercise binding** — Exercises still embed legacy `evidenceRefs`; claims cover formulas/planning. Should each exercise technique bullet get its own claim id in a follow-up, or is family-level mapping enough?
-24. **Retraction Watch feed** — Network job uses Crossref update/relation signals. Wire the Retraction Watch public data dump on a scheduled job, or keep Crossref-only?
-25. **Contact email for polite APIs** — Tooling uses `evidence@omnigart.app` in User-Agent. Confirm mailbox or replace via `OMNIGART_EVIDENCE_EMAIL`.
-=======
-17. **Target library size** — Library grew with pull-up/dip families (~145 total). Grow toward a several-hundred-exercise catalog later or keep curated & cited?
+17. **Target library size** — Library grew with pull-up/dip families (~145 total). Grow toward a large commercial-library scale later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
 19. **Additional locale keys (en-GB/uk only in this PR)** — Another agent should translate these `exercise.*.name` keys beyond en-GB/uk:
     - `exercise.archer_pull_up.name`
@@ -66,4 +52,13 @@ Owner is away — decisions below are provisional. Do not block merges on these.
     Also refresh display strings for expanded existing keys (`pull_up`, `chin_up`, `inverted_row`, `weighted_pull_up`, `assisted_pull_up_band`, `ring_dip`, `dip_parallel_bar`, `chest_to_bar_pull_up`) if non-en/uk locales already exist elsewhere.
 20. **`bodyweightFraction` for dips** — No published GRF %BM study for parallel-bar dips was verified; current values are estimates from de Leva segmental logic. Prefer a measured study if one appears.
 21. **`loadModel` backfill** — Non pull/dip exercises received heuristic loadModel/fraction defaults; review edge cases (carries, swimming, holds) before treating proportions as analytics-grade.
->>>>>>> origin/main
+
+## Evidence registry
+
+22. **Watson sleep year** — Plan text said “Watson 2015 sleep”; the verifiable sports-medicine review seeded is Watson 2017 (`10.1249/JSR.0000000000000418`). Confirm whether a different 2015 paper was intended.
+23. **Schoenfeld 2016/2017 volume** — Seeded as one MA (`10.1080/02640414.2016.1210197`, Crossref year 2017) plus the 2018 SCJ volume guidelines. Confirm if a second distinct 2017 volume trial/MA should be listed.
+24. **Baevsky SI primary source** — English methods overview (`10.12710/cardiometry.2017.10.6676`) is seeded; prefer a specific primary methods monograph (without adding a `ru` locale)?
+25. **Karvonen / Foster DOIs** — Karvonen 1957 has PMID only; Foster 2001 has a Lippincott-style DOI that Crossref accepts. Confirm whether textbook-only technique refs (NSCA) should stay `unverified` forever or gain ISBN metadata.
+26. **Claim ↔ exercise binding** — Exercises still embed legacy `evidenceRefs`; claims cover formulas/planning. Should each exercise technique bullet get its own claim id in a follow-up, or is family-level mapping enough?
+27. **Retraction Watch feed** — Network job uses Crossref update/relation signals. Wire the Retraction Watch public data dump on a scheduled job, or keep Crossref-only?
+28. **Contact email for polite APIs** — Tooling uses `evidence@omnigart.app` in User-Agent. Confirm mailbox or replace via `OMNIGART_EVIDENCE_EMAIL`.

@@ -29,19 +29,40 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 ## Process
 
-17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward a larger commercial-library scale later or keep curated & cited?
+17. **Target library size** — Library grew with pull-up/dip families (~145 total). Grow toward a several-hundred-exercise catalog later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
+19. **Additional locale keys (en-GB/uk only in this PR)** — Another agent should translate these `exercise.*.name` keys beyond en-GB/uk:
+    - `exercise.archer_pull_up.name`
+    - `exercise.band_assisted_dip.name`
+    - `exercise.bench_dip.name`
+    - `exercise.close_grip_pull_up.name`
+    - `exercise.commando_pull_up.name`
+    - `exercise.korean_dip.name`
+    - `exercise.l_sit_pull_up.name`
+    - `exercise.machine_assisted_dip.name`
+    - `exercise.machine_assisted_pull_up.name`
+    - `exercise.negative_dip.name`
+    - `exercise.negative_pull_up.name`
+    - `exercise.neutral_grip_pull_up.name`
+    - `exercise.scapular_pull_up.name`
+    - `exercise.straight_bar_dip.name`
+    - `exercise.typewriter_pull_up.name`
+    - `exercise.weighted_dip.name`
+    - `exercise.wide_grip_pull_up.name`
+    Also refresh display strings for expanded existing keys (`pull_up`, `chin_up`, `inverted_row`, `weighted_pull_up`, `assisted_pull_up_band`, `ring_dip`, `dip_parallel_bar`, `chest_to_bar_pull_up`) if non-en/uk locales already exist elsewhere.
+20. **`bodyweightFraction` for dips** — No published GRF %BM study for parallel-bar dips was verified; current values are estimates from de Leva segmental logic. Prefer a measured study if one appears.
+21. **`loadModel` backfill** — Non pull/dip exercises received heuristic loadModel/fraction defaults; review edge cases (carries, swimming, holds) before treating proportions as analytics-grade.
 
-## Achievements (this PR)
+## Achievements
 
-19. **SQLDelight / persistence** — Engine uses `AchievementStore`; confirm table shapes (processed event ids, progress JSON, challenge instances) when Phase 0 scaffold lands. No app wiring in the achievements PR.
-20. **Streak freeze UX** — Default `maxFreezeDaysPer30Days = 2`. Confirm product copy and whether freezes are manual, automatic on planned rest, or both.
-21. **Notification batching** — Backfill returns `batchSummaryCount` only. Confirm toast/inbox copy and whether secret unlocks are listed inside the summary.
-22. **Protein target source** — `protein_target_day` assumes a user-set target from nutrition settings (hydration agent / food tab). Confirm default target algorithm.
-23. **Measurement “week streak”** — `measurements.streak.4_weeks` uses daily streak metric with weekly logging intent; confirm whether engine should switch to week-grain streak helper.
-24. **Challenge expiry notifications** — Local challenges expire silently today; confirm whether to emit a single local notification.
-25. **Icon set** — Achievements reuse existing `design/icons` ids (`strength`, `streak`, `trophy`, …). Add tier-specific glyphs (bronze/silver/gold/platinum) via the icon pipeline?
-26. **Translation hand-off** — New keys shipped for **en-GB** + **uk** only. Translation agent should add other locales for the key list below. Never add `ru`.
+A1. **SQLDelight / persistence** — Engine uses `AchievementStore`; confirm table shapes (processed event ids, progress JSON, challenge instances) when Phase 0 scaffold lands. No app wiring in the achievements PR.
+A2. **Streak freeze UX** — Default `maxFreezeDaysPer30Days = 2`. Confirm product copy and whether freezes are manual, automatic on planned rest, or both.
+A3. **Notification batching** — Backfill returns `batchSummaryCount` only. Confirm toast/inbox copy and whether secret unlocks are listed inside the summary.
+A4. **Protein target source** — `protein_target_day` assumes a user-set target from nutrition settings (hydration / food tab). Confirm default target algorithm.
+A5. **Measurement “week streak”** — `measurements.streak.4_weeks` uses daily streak metric with weekly logging intent; confirm whether engine should switch to week-grain streak helper.
+A6. **Challenge expiry notifications** — Local challenges expire silently today; confirm whether to emit a single local notification.
+A7. **Icon set** — Achievements reuse existing `design/icons` ids (`strength`, `streak`, `trophy`, …). Add tier-specific glyphs (bronze/silver/gold/platinum) via the icon pipeline?
+A8. **Translation hand-off** — New keys shipped for **en-GB** + **uk** only. Translation agent should add other locales for the key list below. Never add `ru`.
 
 ### New i18n keys (achievements + challenges)
 

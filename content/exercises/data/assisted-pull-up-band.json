@@ -11,7 +11,9 @@
     "biceps"
   ],
   "secondaryMuscles": [
-    "rhomboids"
+    "rhomboids",
+    "trapezius",
+    "forearms"
   ],
   "equipment": [
     "pull_up_bar",
@@ -22,29 +24,49 @@
   "mechanics": "compound",
   "trackingType": "bodyweight_reps",
   "technique": [
-    "Loop a band on the bar and kneel/step into it; perform a controlled pull-up."
+    "Anchor a band on the bar and kneel or step into it; perform a full-ROM pull-up while the band reduces net load.",
+    "Progress by using a thinner band over time."
   ],
   "setup": [
-    "Secure band carefully; stable setup."
+    "Secure band carefully; stable footing when stepping in."
   ],
   "breathing": "Exhale on the pull.",
   "commonMistakes": [
-    "Using too much bounce from the band"
+    "Bouncing out of the band stretch",
+    "Incomplete hang"
   ],
   "safety": [
-    "Progress by using a thinner band."
+    "Inspect bands for wear; set up so a snap cannot cause a fall onto equipment."
   ],
-  "contraindications": [],
+  "contraindications": [
+    "Acute shoulder injury"
+  ],
   "regressions": [
     {
-      "exerciseId": "lat-pulldown",
-      "note": "Alternative"
+      "exerciseId": "inverted-row",
+      "note": "Australian row"
+    },
+    {
+      "exerciseId": "scapular-pull-up",
+      "note": "Scapular strength"
+    },
+    {
+      "exerciseId": "machine-assisted-pull-up",
+      "note": "More precise assistance"
     }
   ],
   "progressions": [
     {
       "exerciseId": "pull-up",
       "note": "Unassisted"
+    },
+    {
+      "exerciseId": "negative-pull-up",
+      "note": "Eccentrics"
+    },
+    {
+      "exerciseId": "chin-up",
+      "note": "Grip variant"
     }
   ],
   "evidenceRefs": [
@@ -60,13 +82,20 @@
     },
     {
       "kind": "doi",
-      "id": "10.1249/MSS.0b013e318213fefb",
-      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "id": "10.1016/0021-9290(95)00178-6",
+      "label": "de Leva 1996 — adjusted segmental mass proportions (Zatsiorsky–Seluyanov)",
       "supports": [
-        "programming",
-        "endurance",
-        "mobility",
-        "safety"
+        "biomechanics"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1519/JSC.0b013e3181f1598c",
+      "label": "Youdas et al. 2010 — pull-up vs chin-up surface EMG (biceps/pec higher on chin-up)",
+      "supports": [
+        "emg",
+        "biomechanics",
+        "technique"
       ]
     }
   ],
@@ -75,6 +104,18 @@
     "videoKey": "media/video/assisted-pull-up-band",
     "animationKey": "media/anim/assisted-pull-up-band"
   },
-  "aliases": [],
-  "tags": []
+  "aliases": [
+    "band pull-up"
+  ],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_minus_assistance",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": true
 }

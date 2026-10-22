@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.dev/schemas/pilates-exercise.schema.json",
+  "title": "OmniGartPilatesExercise",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "nameKeys",
+    "apparatus",
+    "level",
+    "primaryMuscles",
+    "secondaryMuscles",
+    "equipment",
+    "technique",
+    "cues",
+    "breathing",
+    "safetyNotes",
+    "contraindicationNotes",
+    "evidenceEntryIds",
+    "trackingType",
+    "bundled"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "minLength": 3,
+      "maxLength": 80
+    },
+    "nameKeys": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enGB", "uk"],
+      "properties": {
+        "enGB": { "type": "string", "pattern": "^pilates\\.exercise\\.[a-z0-9_]+\\.name$" },
+        "uk": { "type": "string", "pattern": "^pilates\\.exercise\\.[a-z0-9_]+\\.name$" }
+      }
+    },
+    "apparatus": {
+      "type": "string",
+      "enum": ["mat", "reformer", "mat_or_reformer"]
+    },
+    "level": {
+      "type": "string",
+      "enum": ["beginner", "intermediate", "advanced"]
+    },
+    "primaryMuscles": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/muscleTaxonomyId" }
+    },
+    "secondaryMuscles": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/muscleTaxonomyId" }
+    },
+    "equipment": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "pilates_mat",
+          "yoga_mat",
+          "pilates_reformer",
+          "pilates_box",
+          "pilates_strap",
+          "magic_circle",
+          "small_ball",
+          "bodyweight",
+          "none"
+        ]
+      }
+    },
+    "technique": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 12 }
+    },
+    "cues": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 8 }
+    },
+    "breathing": { "type": "string", "minLength": 8 },
+    "safetyNotes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 12 }
+    },
+    "contraindicationNotes": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 12 }
+    },
+    "evidenceEntryIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "trackingType": {
+      "type": "string",
+      "enum": ["reps", "timed", "hold", "breaths"]
+    },
+    "defaultReps": { "type": "integer", "minimum": 1, "maximum": 100 },
+    "defaultSeconds": { "type": "integer", "minimum": 5, "maximum": 600 },
+    "unilateral": { "type": "boolean", "default": false },
+    "bundled": { "type": "boolean", "const": true },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "$defs": {
+    "muscleTaxonomyId": {
+      "type": "string",
+      "enum": [
+        "quadriceps",
+        "hamstrings",
+        "gluteus_maximus",
+        "gluteus_medius",
+        "calves",
+        "hip_flexors",
+        "adductors",
+        "pectoralis_major",
+        "latissimus_dorsi",
+        "trapezius",
+        "rhomboids",
+        "rear_deltoid",
+        "front_deltoid",
+        "lateral_deltoid",
+        "biceps",
+        "triceps",
+        "forearms",
+        "rectus_abdominis",
+        "obliques",
+        "transverse_abdominis",
+        "erector_spinae",
+        "full_body",
+        "rotator_cuff",
+        "serratus_anterior",
+        "tibialis_anterior",
+        "neck"
+      ]
+    }
+  }
+}

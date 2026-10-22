@@ -52,3 +52,20 @@ Owner is away — decisions below are provisional. Do not block merges on these.
     Also refresh display strings for expanded existing keys (`pull_up`, `chin_up`, `inverted_row`, `weighted_pull_up`, `assisted_pull_up_band`, `ring_dip`, `dip_parallel_bar`, `chest_to_bar_pull_up`) if non-en/uk locales already exist elsewhere.
 20. **`bodyweightFraction` for dips** — No published GRF %BM study for parallel-bar dips was verified; current values are estimates from de Leva segmental logic. Prefer a measured study if one appears.
 21. **`loadModel` backfill** — Non pull/dip exercises received heuristic loadModel/fraction defaults; review edge cases (carries, swimming, holds) before treating proportions as analytics-grade.
+
+## Yoga & Pilates
+
+Y1. **Discipline-specific evidence** — Poses/exercises cite ACSM quantity/quality + RT overview via the evidence registry (`garber-acsm-2011`, `acsm-rt-2026`). Prefer adding verified yoga/pilates systematic reviews when available (ties to item 2).
+Y2. **Sanskrit orthography** — Transliteration is IAST-ish ASCII (e.g. `Adho Mukha Svanasana`). Confirm preferred diacritics / Ukrainian Sanskrit spelling conventions.
+Y3. **Overlap with `content/exercises`** — Some yoga/pilates movements also exist in the general exercise library. Keep dual records (discipline packs vs planner library) or converge ids later?
+Y4. **Media stills** — Bundle-first packs ship without illustration binaries yet (`bundled: true` data only). Confirm still/webp pipeline with the content-plane PR.
+P1. **Reformer spring prescriptions** — Sessions omit spring colours/tensions (studio-specific). Add optional spring metadata, or keep coach-adjustable?
+P2. **Classical vs contemporary naming** — Mat names follow common classical vocabulary; confirm if a contemporary alias map is needed.
+P3. **Translation hand-off** — New keys are **en-GB** + **uk** only under `content/yoga/locales` and `content/pilates/locales`. Translation agent should cover other locales; never add `ru`.
+
+### New i18n key families (yoga + pilates)
+
+- `yoga.pose.<id>.{english,sanskrit}` for each pose in `content/yoga/data/poses/`
+- `yoga.flow.<id>.{name,description}` for each flow in `content/yoga/data/flows/`
+- `pilates.exercise.<id>.name` for each exercise in `content/pilates/data/exercises/`
+- `pilates.session.<id>.{name,description,block_*}` for each session in `content/pilates/data/sessions/`

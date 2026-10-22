@@ -34,7 +34,7 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 ## Body maps & heatmaps
 
-19. **Figure fidelity** — Current SVGs are original geometric silhouettes. Commission refined illustrations later, or iterate in-repo toward more anatomical detail while staying original?
+19. **Figure fidelity** — Figures now adapt MIT MuscleMap paths. Further refine subdivisions (pec heads / VL / soleus cuts), commission bespoke illustrations later, or keep iterating on the adapter?
 20. **Unilateral highlighting** — Paths are L/R mirrored today; should unilateral sets tint only the working side once session laterality is logged?
 21. **Secondary weight** — Default 0.5 follows Pelland et al. 2025 fractional counting. Keep global, or allow per-pattern overrides (e.g. rows → biceps < 0.5)?
 22. **TVA / rotator-cuff proxies** — Surface proxies may overstate visible load. Drop from heatmap fills and keep taxonomy-only, or add dashed “deep” overlays?

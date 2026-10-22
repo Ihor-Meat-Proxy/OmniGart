@@ -519,10 +519,13 @@
   {
     "id": "mckenzie_dip_kinematics_2022",
     "type": "rct",
-    "title": "Bench, bar, and ring dips: kinematics and muscle activity",
+    "title": "Bench, Bar, and Ring Dips: Do Kinematics and Muscle Activity Differ?",
     "authors": [
       "McKenzie A",
-      "et al."
+      "Crowley-McHattan Z",
+      "Meir R",
+      "Whitting J",
+      "Volschenk W"
     ],
     "year": 2022,
     "journal": "International Journal of Environmental Research and Public Health",
@@ -547,12 +550,15 @@
   {
     "id": "mckenzie_dip_shoulder_2020",
     "type": "systematic-review",
-    "title": "Glenohumeral extension and the risk of shoulder injury in the dip",
+    "title": "Glenohumeral Extension and the Dip: Considerations for the Strength and Conditioning Professional",
     "authors": [
       "McKenzie A",
-      "et al."
+      "Crowley-McHattan Z",
+      "Meir R",
+      "Whitting J",
+      "Volschenk W"
     ],
-    "year": 2020,
+    "year": 2021,
     "journal": "Strength and Conditioning Journal",
     "doi": "10.1519/SSC.0000000000000579",
     "openAccess": false,
@@ -1041,10 +1047,10 @@
     "authors": [
       "Youdas JW",
       "Amundson CL",
-      "Carlyle KS",
-      "Hollman JH",
-      "Lanzino DJ",
-      "Krause DA"
+      "Cicero KS",
+      "Hahn J",
+      "Harezlak D",
+      "Hollman JH"
     ],
     "year": 2010,
     "journal": "Journal of Strength and Conditioning Research",

@@ -31,19 +31,6 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 17. **Target library size** — Library grew with pull-up/dip families (~145 total). Grow toward a several-hundred-exercise catalog later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
-<<<<<<< HEAD
-
-## Sensors / Polar (this PR)
-
-19. **H10 offline RR payload shape** — SDK API exposes `SampleType.RR` (interval ignored). Product docs emphasise HR @ 1 s and “only one recording”. Confirm on a real H10 whether RR offline returns RR intervals vs derived HR, and how timestamps are encoded in `PolarExerciseData`.
-20. **Artefact filter thresholds** — Shared module uses a Lipponen & Tarvainen (2019)-inspired relative median filter (default 20 %, RR 300–2000 ms). Confirm Kubios-equivalent preset (soft/medium/strong) for readiness vs workout HRV.
-21. **Baevsky SI units in product UI** — Implemented as AMo% / (2·Mo_s·MxDMn_s) with 50 ms bins. Confirm display rounding and whether we expose Mo/AMo/MxDMn alongside SI.
-22. **Swim merge conflict policy** — Prefer strap within 750 ms of a watch sample. Confirm window and whether optical watch HR should ever win (e.g. strap contact loss).
-23. **Health write schema** — `HeartRateSink` writes bpm samples only. Should RR / HRV metrics also land in HealthKit / Health Connect in v1?
-24. **Android Polar API surface** — Adapter assumes SDK 8.4.0 coroutine/Flow methods (`startRecording`, `listExercises`, …). Confirm exact suspend vs Flow return types when compiling against the published AAR after AGP lands.
-25. **Verity Sense swim path** — Stubbed. Prefer H10 for pool ECG; enable Verity Sense `PolarOfflineRecordingApi` only if owner wants optical swim HR.
-26. **PR #2 wiring** — `ios/Packages/Sensors` and `android/sensors` are standalone. Confirm XcodeGen package path and `:android:sensors` include once Phase 0 merges.
-=======
 19. **Additional locale keys (en-GB/uk only in this PR)** — Another agent should translate these `exercise.*.name` keys beyond en-GB/uk:
     - `exercise.archer_pull_up.name`
     - `exercise.band_assisted_dip.name`
@@ -65,4 +52,16 @@ Owner is away — decisions below are provisional. Do not block merges on these.
     Also refresh display strings for expanded existing keys (`pull_up`, `chin_up`, `inverted_row`, `weighted_pull_up`, `assisted_pull_up_band`, `ring_dip`, `dip_parallel_bar`, `chest_to_bar_pull_up`) if non-en/uk locales already exist elsewhere.
 20. **`bodyweightFraction` for dips** — No published GRF %BM study for parallel-bar dips was verified; current values are estimates from de Leva segmental logic. Prefer a measured study if one appears.
 21. **`loadModel` backfill** — Non pull/dip exercises received heuristic loadModel/fraction defaults; review edge cases (carries, swimming, holds) before treating proportions as analytics-grade.
->>>>>>> origin/main
+
+## § Sensors
+
+IDs use `S#` so they do not clash with other PRs’ numeric lists (e.g. process/content items #19–26).
+
+- **S1. H10 offline RR payload shape** — SDK API exposes `SampleType.RR` (interval ignored). Product docs emphasise HR @ 1 s and “only one recording”. Confirm on a real H10 whether RR offline returns RR intervals vs derived HR, and how timestamps are encoded in `PolarExerciseData`.
+- **S2. Artefact filter thresholds** — Shared module uses a Lipponen & Tarvainen (2019)-inspired relative median filter (default 20 %, RR 300–2000 ms). Confirm Kubios-equivalent preset (soft/medium/strong) for readiness vs workout HRV.
+- **S3. Baevsky SI units in product UI** — Implemented as AMo% / (2·Mo_s·MxDMn_s) with 50 ms bins. Confirm display rounding and whether we expose Mo/AMo/MxDMn alongside SI.
+- **S4. Swim merge conflict policy** — Prefer strap within 750 ms of a watch sample. Confirm window and whether optical watch HR should ever win (e.g. strap contact loss).
+- **S5. Health write schema** — `HeartRateSink` writes bpm samples only. Should RR / HRV metrics also land in HealthKit / Health Connect in v1?
+- **S6. Android Polar API surface** — Adapter assumes SDK 8.4.0 coroutine/Flow methods (`startRecording`, `listExercises`, …). Confirm exact suspend vs Flow return types when compiling against the published AAR after AGP lands.
+- **S7. Verity Sense swim path** — Stubbed. Prefer H10 for pool ECG; enable Verity Sense `PolarOfflineRecordingApi` only if owner wants optical swim HR.
+- **S8. Phase 0 wiring** — `ios/Packages/Sensors` and `android/sensors` are standalone. Confirm XcodeGen package path and `:android:sensors` include once the Phase 0 scaffold merges.

@@ -52,3 +52,15 @@ Owner is away — decisions below are provisional. Do not block merges on these.
     Also refresh display strings for expanded existing keys (`pull_up`, `chin_up`, `inverted_row`, `weighted_pull_up`, `assisted_pull_up_band`, `ring_dip`, `dip_parallel_bar`, `chest_to_bar_pull_up`) if non-en/uk locales already exist elsewhere.
 20. **`bodyweightFraction` for dips** — No published GRF %BM study for parallel-bar dips was verified; current values are estimates from de Leva segmental logic. Prefer a measured study if one appears.
 21. **`loadModel` backfill** — Non pull/dip exercises received heuristic loadModel/fraction defaults; review edge cases (carries, swimming, holds) before treating proportions as analytics-grade.
+
+## § Body
+
+Provisional — do not block merges. IDs are `B1`…`Bn` so they do not collide with numeric items or other feature prefixes.
+
+- **B1.** **Default body-fat method** — CUN-BAE is the product default (height/weight/age/sex only). Confirm vs U.S. Navy for users who already tape-measure.
+- **B2.** **Siri vs Brozek** — Skinfold density currently uses Siri. Offer Brozek as an option for older adults / different assumptions?
+- **B3.** **Extra girths in Health** — Only waist has a stable cross-platform Health type today; keep hip/neck/arms OmniGart-only or map via vendor extensions?
+- **B4.** **Progress photo cloud backup** — Contract is local-only. If encrypted private backup is added later, keep Health export forbidden?
+- **B5.** **EWMA alpha** — Default 0.3 for weight/girth series. Expose per-metric alphas in settings?
+- **B6.** **Ethnicity adjustments** — BMI/WHtR wellness bands are population averages; any locale-specific screening copy beyond en-GB/uk?
+- **B7.** **Navy abdomen vs waist** — Male equation prefers abdomen, falls back to waist. Confirm landmark copy in the app shell.

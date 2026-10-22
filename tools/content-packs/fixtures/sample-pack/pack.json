@@ -1,0 +1,9 @@
+{
+  "id": "exercises",
+  "version": "1.0.0",
+  "channel": "baseline",
+  "minAppVersion": "0.1.0",
+  "description": "Sample exercise library slice for pipeline tests",
+  "bundlePath": "Content/Packs/exercises",
+  "sizeBudgetBytes": 5242880
+}

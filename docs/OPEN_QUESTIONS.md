@@ -31,3 +31,27 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward Hevy-scale later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
+
+## Content plane (bundle-first) — decisions & questions
+
+### Decisions (provisional / owner-confirmed)
+
+| ID | Topic | Decision |
+|----|-------|----------|
+| C1 | Distribution model | **Bundle-first** — library, templates, translations, evidence, icons/body maps/achievements, exercise stills, formulas ship in binaries |
+| C2 | CDN scope | Only signed **updates**, optional **videos**, **Open Food Facts** packs, optional **remote config** |
+| C3 | Hosted architecture | **Object storage + CDN** (Bunny DE + Pull Zone); CAX11 VM **optional / off** |
+| C4 | Self-host object store | **Garage** (not MinIO CE — archived/unmaintained as of 2026) |
+| C5 | Signing | **minisign**; offline key preferred; CI Environment approval if CI signs |
+| C6 | Apply semantics | Verify signature + schema + min-app-version; **rollback** to baseline/last-good on failure |
+
+### Open questions
+
+19. **Video delivery** — Prefer plain CDN downloads + app cache, **iOS Background Assets**, **Android Play Asset Delivery**, or a hybrid? Affects billing and update UX.
+20. **HEIC vs WebP-only** — Bundle HEIC for iOS in addition to WebP, or WebP everywhere to simplify budgets?
+21. **Update check cadence** — On launch / daily / Wi-Fi only / manual? Default assumption: Wi-Fi + launch, remote-config gated.
+22. **Official minisign key ceremony** — Who generates the production key, and is dual-key overlap required for v1?
+23. **Bunny vs Hetzner Object Storage as origin** — Default IaC uses Bunny Storage; switch to Hetzner S3 origin if owner wants all data in Hetzner EU?
+24. **OFF pack licensing/attribution** — Confirm Open Food Facts dump licence + update frequency for signed packs.
+25. **Custom domain** — `content.omnigart.*` DNS + Bunny certificate when available?
+26. **Mirror baselines on CDN?** — Transparency only, or omit to save storage?

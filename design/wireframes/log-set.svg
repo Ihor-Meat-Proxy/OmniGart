@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844" width="390" height="844">
+  <rect width="390" height="844" rx="40" fill="#F8FAFC"/>
+  <text x="24" y="72" font-family="system-ui,sans-serif" font-size="15" fill="#64748B">Workout · Bench press</text>
+  <text x="24" y="110" font-family="system-ui,sans-serif" font-size="28" font-weight="600" fill="#0F172A">Log set</text>
+  <rect x="24" y="140" width="342" height="72" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="40" y="184" font-size="14" fill="#64748B" font-family="system-ui,sans-serif">Previous 60 kg × 8</text>
+  <!-- large steppers in thumb reach -->
+  <rect x="0" y="520" width="390" height="324" fill="#0F766E10"/>
+  <text x="16" y="548" font-size="10" fill="#0F766E" font-family="system-ui,sans-serif">thumb zone</text>
+  <text x="48" y="590" font-size="13" fill="#475569" font-family="system-ui,sans-serif">Weight (kg)</text>
+  <text x="240" y="590" font-size="13" fill="#475569" font-family="system-ui,sans-serif">Reps</text>
+  <rect x="24" y="610" width="52" height="52" rx="14" fill="#FFF" stroke="#E2E8F0"/>
+  <text x="50" y="644" text-anchor="middle" font-size="22" font-family="system-ui,sans-serif"></text>
+  <text x="120" y="646" text-anchor="middle" font-size="32" font-weight="600" fill="#0F172A" font-family="system-ui,sans-serif">60</text>
+  <rect x="160" y="610" width="52" height="52" rx="14" fill="#FFF" stroke="#E2E8F0"/>
+  <text x="186" y="644" text-anchor="middle" font-size="22" font-family="system-ui,sans-serif">+</text>
+  <rect x="230" y="610" width="52" height="52" rx="14" fill="#FFF" stroke="#E2E8F0"/>
+  <text x="256" y="644" text-anchor="middle" font-size="22" font-family="system-ui,sans-serif"></text>
+  <text x="310" y="646" text-anchor="middle" font-size="32" font-weight="600" fill="#0F172A" font-family="system-ui,sans-serif">8</text>
+  <rect x="334" y="610" width="32" height="52" rx="12" fill="#FFF" stroke="#E2E8F0"/>
+  <text x="350" y="644" text-anchor="middle" font-size="18" font-family="system-ui,sans-serif">+</text>
+  <rect x="24" y="690" width="342" height="56" rx="16" fill="#0F766E"/>
+  <text x="195" y="726" text-anchor="middle" fill="#fff" font-size="17" font-weight="600" font-family="system-ui,sans-serif">Save set</text>
+  <text x="195" y="780" text-anchor="middle" fill="#64748B" font-size="14" font-family="system-ui,sans-serif">Rest timer 90s</text>
+</svg>

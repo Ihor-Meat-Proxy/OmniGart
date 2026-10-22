@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from design/tokens/omnigart.tokens.json — do not edit. -->
+<resources>
+    <dimen name="og_space_0">0dp</dimen>
+    <dimen name="og_space_1">4dp</dimen>
+    <dimen name="og_space_2">8dp</dimen>
+    <dimen name="og_space_3">12dp</dimen>
+    <dimen name="og_space_4">16dp</dimen>
+    <dimen name="og_space_5">20dp</dimen>
+    <dimen name="og_space_6">24dp</dimen>
+    <dimen name="og_space_7">32dp</dimen>
+    <dimen name="og_space_8">40dp</dimen>
+    <dimen name="og_space_9">48dp</dimen>
+    <dimen name="og_space_10">64dp</dimen>
+    <dimen name="og_space_thumbzone">120dp</dimen>
+    <dimen name="og_space_hitmin">44dp</dimen>
+    <dimen name="og_space_hitcomfort">48dp</dimen>
+    <dimen name="og_radius_none">0dp</dimen>
+    <dimen name="og_radius_sm">8dp</dimen>
+    <dimen name="og_radius_md">12dp</dimen>
+    <dimen name="og_radius_lg">16dp</dimen>
+    <dimen name="og_radius_xl">24dp</dimen>
+    <dimen name="og_radius_sheet">28dp</dimen>
+    <dimen name="og_radius_pill">999dp</dimen>
+    <dimen name="og_layout_contentmax">680dp</dimen>
+    <dimen name="og_layout_gutter">16dp</dimen>
+    <dimen name="og_layout_tabbarheight">64dp</dimen>
+    <dimen name="og_layout_quicklogfab">56dp</dimen>
+    <dimen name="og_layout_watchpadding">6dp</dimen>
+</resources>

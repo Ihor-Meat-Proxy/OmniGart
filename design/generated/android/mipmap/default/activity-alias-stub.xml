@@ -1,0 +1,7 @@
+<!-- activity-alias for set of launcher icon "default"
+     android:name=".LauncherAlias_default"
+     android:enabled="true"
+     android:icon="@mipmap/ic_launcher_default"
+     android:roundIcon="@mipmap/ic_launcher_default"
+     android:targetActivity=".MainActivity"
+-->

@@ -1,0 +1,7 @@
+<!-- activity-alias for set of launcher icon "graphite"
+     android:name=".LauncherAlias_graphite"
+     android:enabled="false"
+     android:icon="@mipmap/ic_launcher_graphite"
+     android:roundIcon="@mipmap/ic_launcher_graphite"
+     android:targetActivity=".MainActivity"
+-->

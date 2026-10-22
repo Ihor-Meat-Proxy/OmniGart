@@ -73,6 +73,8 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios.tests
         GENERATE_INFOPLIST_FILE: YES
+        FRAMEWORK_SEARCH_PATHS: "$(inherited) $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)"
+        OTHER_LDFLAGS: "$(inherited) -framework Shared -lsqlite3"
 
   OmniGartUITests:
     type: bundle.ui-testing
@@ -126,4 +128,6 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios.watchkitapp.tests
         GENERATE_INFOPLIST_FILE: YES
+        FRAMEWORK_SEARCH_PATHS: "$(inherited) $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)"
+        OTHER_LDFLAGS: "$(inherited) -framework Shared -lsqlite3"
         EXCLUDED_ARCHS[sdk=watchsimulator*]: "x86_64 i386"

@@ -1,0 +1,780 @@
+#!/usr/bin/env python3
+"""Build content/evidence entries, locales, catalog, and legacy id map. Run from repo root."""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+EV = ROOT / "content/evidence"
+ENTRIES = EV / "entries"
+LOCALES = EV / "locales"
+VERIFIED = "2026-10-22"
+
+LICENCE_FAIR = (
+    "Title and short finding quoted under fair dealing for criticism/review; "
+    "link out for full text. Do not reproduce abstracts or tables."
+)
+LICENCE_OA = (
+    "Open-access or public-agency text: title and short finding may be shown; "
+    "link out for full document. Do not paste copyrighted abstracts wholesale."
+)
+LICENCE_BOOK = (
+    "Textbook citation for technique norms only; do not quote substantial passages."
+)
+
+
+def finding(eid: str, text: str) -> dict:
+    key = f"evidence.{eid}.key_finding"
+    return {"enGB": text, "keys": {"enGB": key, "uk": key}}
+
+
+def entry(**kwargs) -> dict:
+    eid = kwargs["id"]
+    assert "keyFinding" in kwargs
+    return kwargs
+
+
+# fmt: off
+ENTRIES_DATA: list[dict] = [
+    entry(
+        id="garber_acsm_quantity_2011",
+        type="guideline",
+        title="Quantity and quality of exercise for developing and maintaining cardiorespiratory, musculoskeletal, and neuromotor fitness in apparently healthy adults: guidance for prescribing exercise",
+        authors=["Garber CE", "Blissmer B", "Deschenes MR", "Franklin BA", "Lamonte MJ", "Lee IM", "Nieman DC", "Swain DP"],
+        year=2011,
+        journal="Medicine & Science in Sports & Exercise",
+        doi="10.1249/MSS.0b013e318213fefb",
+        pmid="21694556",
+        openAccess=False,
+        sampleSize=None,
+        population="Apparently healthy adults (ACSM position stand)",
+        keyFinding=finding(
+            "garber_acsm_quantity_2011",
+            "ACSM guidance summarises dose ranges for cardiorespiratory, resistance, flexibility, and neuromotor exercise in apparently healthy adults.",
+        ),
+        evidenceStrength="high",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["content.exercises", "content.templates", "planning"],
+    ),
+    entry(
+        id="acsm_resistance_training_2026",
+        type="guideline",
+        title="American College of Sports Medicine Position Stand. Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults: An Overview of Reviews",
+        authors=["Currier BS", "D'Souza AC", "Singh MAF", "American College of Sports Medicine"],
+        year=2026,
+        journal="Medicine & Science in Sports & Exercise",
+        doi="10.1249/MSS.0000000000003897",
+        pmid="41843416",
+        openAccess=False,
+        population="Healthy adults; resistance-training prescription overview of reviews",
+        keyFinding=finding(
+            "acsm_resistance_training_2026",
+            "Position stand overview of reviews for resistance-training prescription for muscle function, hypertrophy, and performance in healthy adults.",
+        ),
+        evidenceStrength="high",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["content.exercises", "content.templates", "planning"],
+    ),
+    entry(
+        id="seiler_intensity_distribution_2010",
+        type="systematic-review",
+        title="What is best practice for training intensity and duration distribution in endurance athletes?",
+        authors=["Seiler S"],
+        year=2010,
+        journal="International Journal of Sports Physiology and Performance",
+        doi="10.1123/ijspp.5.3.276",
+        pmid="20861519",
+        openAccess=False,
+        population="Endurance athletes (descriptive intensity-distribution synthesis)",
+        keyFinding=finding(
+            "seiler_intensity_distribution_2010",
+            "Describes a common ~80/20 easy-to-hard intensity distribution among endurance athletes as a training-organisation pattern, not a universal prescription.",
+        ),
+        evidenceStrength="moderate",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["content.exercises", "content.templates", "planning"],
+    ),
+    entry(
+        id="escamilla_squat_biomechanics_2001",
+        type="systematic-review",
+        title="Knee biomechanics of the dynamic squat exercise",
+        authors=["Escamilla RF"],
+        year=2001,
+        journal="Medicine & Science in Sports & Exercise",
+        doi="10.1097/00005768-200101000-00020",
+        pmid="11194098",
+        openAccess=False,
+        population="Healthy adults performing squat variations (biomechanical synthesis)",
+        keyFinding=finding(
+            "escamilla_squat_biomechanics_2001",
+            "Reviews knee-joint loading and technique factors across squat styles relevant to safe coaching cues.",
+        ),
+        evidenceStrength="moderate",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["content.exercises.squat"],
+    ),
+    entry(
+        id="contreras_hip_thrust_emg_2015",
+        type="rct",
+        title="A comparison of gluteus maximus, biceps femoris, and vastus lateralis electromyographic activity in the back squat and barbell hip thrust exercises",
+        authors=["Contreras B", "Vigotsky AD", "Schoenfeld BJ", "Beardsley C", "Cronin J"],
+        year=2015,
+        journal="Journal of Applied Biomechanics",
+        doi="10.1123/jab.2014-0301",
+        pmid="26214739",
+        openAccess=False,
+        sampleSize=13,
+        population="Resistance-trained men (acute EMG comparison)",
+        keyFinding=finding(
+            "contreras_hip_thrust_emg_2015",
+            "In a small acute EMG study, the barbell hip thrust produced higher gluteus maximus activity than the back squat under the tested loads.",
+        ),
+        evidenceStrength="low",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["content.exercises.hip_thrust"],
+    ),
+    entry(
+        id="schoenfeld_volume_2016",
+        type="meta-analysis",
+        title="Dose-response relationship between weekly resistance training volume and increases in muscle mass: A systematic review and meta-analysis",
+        authors=["Schoenfeld BJ", "Ogborn D", "Krieger JW"],
+        year=2016,
+        journal="Journal of Sports Sciences",
+        doi="10.1080/02640414.2016.1210197",
+        pmid="27433992",
+        openAccess=False,
+        population="Healthy adults in resistance-training trials (hypertrophy volume dose–response)",
+        keyFinding=finding(
+            "schoenfeld_volume_2016",
+            "Meta-analysis reported greater hypertrophy with higher weekly set volumes, with diminishing returns at the upper end of studied ranges.",
+        ),
+        evidenceStrength="high",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["content.templates", "planning"],
+    ),
+    entry(
+        id="schoenfeld_frequency_2016",
+        type="meta-analysis",
+        title="Effects of resistance training frequency on measures of muscle hypertrophy: a systematic review and meta-analysis",
+        authors=["Schoenfeld BJ", "Ogborn D", "Krieger JW"],
+        year=2016,
+        journal="Sports Medicine",
+        doi="10.1007/s40279-016-0543-8",
+        pmid="27102172",
+        openAccess=False,
+        population="Healthy adults in resistance-training frequency trials",
+        keyFinding=finding(
+            "schoenfeld_frequency_2016",
+            "When weekly volume is not equated, training a muscle group at least twice weekly tends to favour hypertrophy versus once weekly.",
+        ),
+        evidenceStrength="high",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["content.templates", "planning"],
+    ),
+    entry(
+        id="schoenfeld_frequency_2019",
+        type="meta-analysis",
+        title="Dose-response relationship between weekly resistance training volume and increases in muscle mass: A systematic review and meta-analysis — frequency update with volume equated",
+        authors=["Schoenfeld BJ", "Grgic J", "Krieger J"],
+        year=2019,
+        journal="Journal of Sports Sciences",
+        doi="10.1080/02640414.2018.1555906",
+        pmid="30558493",
+        openAccess=False,
+        population="Trained adults; resistance-training frequency for hypertrophy",
+        keyFinding=finding(
+            "schoenfeld_frequency_2019",
+            "With weekly volume equated, resistance-training frequency effects on hypertrophy are small to null in the pooled analyses.",
+        ),
+        evidenceStrength="high",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["planning"],
+    ),
+    entry(
+        id="pelland_rt_dose_2025",
+        type="meta-analysis",
+        title="The Resistance Training Dose Response: Meta-Regressions Exploring the Effects of Weekly Volume and Frequency on Muscle Hypertrophy and Strength Gains",
+        authors=["Pelland JC", "Remmert JF", "Robinson ZP", "Hinson SR", "Zourdos MC"],
+        year=2026,
+        journal="Sports Medicine",
+        doi="10.1007/s40279-025-02344-w",
+        pmid="41343037",
+        openAccess=False,
+        population="Healthy adults in resistance-training dose–response literature",
+        keyFinding=finding(
+            "pelland_rt_dose_2025",
+            "Meta-regressions relate weekly set volume and frequency to hypertrophy and strength, including fractional-set modelling of overlapping muscle work.",
+        ),
+        evidenceStrength="high",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["content.templates", "planning"],
+    ),
+    entry(
+        id="munoz_polarized_runners_2014",
+        type="rct",
+        title="Does polarized training improve performance in recreational runners?",
+        authors=["Muñoz I", "Seiler S", "Bautista J", "España J", "Larumbe E", "Esteve-Lanao J"],
+        year=2014,
+        journal="International Journal of Sports Physiology and Performance",
+        pmid="23752040",
+        doi="10.1123/ijspp.2012-0350",
+        openAccess=False,
+        population="Recreational runners comparing polarized vs between-thresholds distributions",
+        keyFinding=finding(
+            "munoz_polarized_runners_2014",
+            "In recreational runners, a polarized intensity distribution improved performance markers relative to a between-thresholds emphasis in this trial.",
+        ),
+        evidenceStrength="moderate",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["planning"],
+    ),
+    entry(
+        id="nsca_essentials_4e",
+        type="textbook",
+        title="Essentials of Strength Training and Conditioning (4th edition)",
+        authors=["Haff GG", "Triplett NT", "National Strength and Conditioning Association"],
+        year=2016,
+        journal="Human Kinetics",
+        url="https://us.humankinetics.com/products/essentials-of-strength-training-and-conditioning-4th-edition-with-web-resource",
+        openAccess=False,
+        population="Coaching and strength-conditioning education (technique and safety norms)",
+        keyFinding=finding(
+            "nsca_essentials_4e",
+            "Standard coaching reference for resistance-exercise technique, spotting, and programme design conventions used as technique/safety norms.",
+        ),
+        evidenceStrength="low",
+        licenceNote=LICENCE_BOOK,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["content.exercises"],
+    ),
+    entry(
+        id="omnigart_mileage_caveat",
+        type="consensus",
+        title="OmniGart product caveat: fixed weekly mileage progression heuristics",
+        authors=["OmniGart"],
+        year=2026,
+        journal="OmniGart planning notes",
+        openAccess=True,
+        population="Endurance planning heuristics inside OmniGart",
+        keyFinding=finding(
+            "omnigart_mileage_caveat",
+            "A fixed ~10% weekly mileage increase is a common coach heuristic without strong RCT support; readiness and injury signals should override it.",
+        ),
+        evidenceStrength="very-low",
+        licenceNote="Product-authored caveat; may be shown verbatim.",
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["planning"],
+    ),
+    # --- Formulas / calculations (main + Phase 0 scaffold + planned hydration/protein/HRV) ---
+    entry(
+        id="mifflin_st_jeor_1990",
+        type="cohort",
+        title="A new predictive equation for resting energy expenditure in healthy individuals",
+        authors=["Mifflin MD", "St Jeor ST", "Hill LA", "Scott BJ", "Daugherty SA", "Koh YO"],
+        year=1990,
+        journal="The American Journal of Clinical Nutrition",
+        doi="10.1093/ajcn/51.2.241",
+        pmid="2305711",
+        openAccess=False,
+        sampleSize=498,
+        population="Healthy adults (indirect calorimetry derivation sample)",
+        keyFinding=finding(
+            "mifflin_st_jeor_1990",
+            "Derived sex-specific linear equations predicting resting energy expenditure from weight, height, and age in healthy adults.",
+        ),
+        evidenceStrength="moderate",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.Bmr.mifflinStJeor"],
+    ),
+    entry(
+        id="who_bmi_2000",
+        type="guideline",
+        title="Obesity: preventing and managing the global epidemic. Report of a WHO consultation",
+        authors=["World Health Organization"],
+        year=2000,
+        journal="WHO Technical Report Series",
+        url="https://apps.who.int/iris/handle/10665/42330",
+        openAccess=True,
+        population="Global adult BMI classification guidance",
+        keyFinding=finding(
+            "who_bmi_2000",
+            "Defines widely used adult BMI cut-points for underweight, normal weight, overweight, and obesity categories.",
+        ),
+        evidenceStrength="high",
+        licenceNote=LICENCE_OA,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.Bmi.whoCategory"],
+    ),
+    entry(
+        id="gomez_ambrosi_cun_bae_2012",
+        type="cohort",
+        title="Clinical usefulness of a new equation for estimating body fat",
+        authors=["Gómez-Ambrosi J", "Silva C", "Galofre JC", "Escalada J", "Santos S", "Gil MJ", "Valenti V", "Rotellar F", "Ramírez B", "Salvador J", "Frühbeck P"],
+        year=2012,
+        journal="Diabetes Care",
+        doi="10.2337/dc11-1334",
+        pmid="22179957",
+        pmcid="PMC3263863",
+        openAccess=True,
+        sampleSize=6510,
+        population="Adults referred for body-composition assessment (CUN-BAE derivation/validation)",
+        keyFinding=finding(
+            "gomez_ambrosi_cun_bae_2012",
+            "Proposes the CUN-BAE equation estimating percent body fat from age, sex, and BMI, with clinic-population validation.",
+        ),
+        evidenceStrength="moderate",
+        licenceNote=LICENCE_OA,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.BodyFatCunBae.percent"],
+    ),
+    entry(
+        id="tanaka_hrmax_2001",
+        type="meta-analysis",
+        title="Age-predicted maximal heart rate revisited",
+        authors=["Tanaka H", "Monahan KD", "Seals DR"],
+        year=2001,
+        journal="Journal of the American College of Cardiology",
+        doi="10.1016/S0735-1097(00)01054-8",
+        pmid="11153730",
+        openAccess=False,
+        sampleSize=18712,
+        population="Healthy adults across ages (meta-analytic HRmax prediction)",
+        keyFinding=finding(
+            "tanaka_hrmax_2001",
+            "Supports the 208 − 0.7×age prediction of maximal heart rate as an improvement over 220 − age in healthy adults.",
+        ),
+        evidenceStrength="high",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.HeartRate.tanakaMax"],
+    ),
+    entry(
+        id="karvonen_hr_reserve_1957",
+        type="cohort",
+        title="The effects of training on heart rate; a longitudinal study",
+        authors=["Karvonen MJ", "Kentala E", "Mustala O"],
+        year=1957,
+        journal="Annales Medicinae Experimentalis et Biologiae Fenniae",
+        pmid="13470504",
+        openAccess=False,
+        population="Young men in a longitudinal training study (HR-reserve method origin)",
+        keyFinding=finding(
+            "karvonen_hr_reserve_1957",
+            "Classic source for prescribing intensity as a fraction of heart-rate reserve between resting and maximal heart rate.",
+        ),
+        evidenceStrength="low",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.HeartRate.karvonenTarget"],
+    ),
+    entry(
+        id="karvonen_hr_practical_1988",
+        type="systematic-review",
+        title="Heart rate and exercise intensity during sports activities: practical application",
+        authors=["Karvonen J", "Vuorimaa T"],
+        year=1988,
+        journal="Sports Medicine",
+        doi="10.2165/00007256-198805050-00002",
+        pmid="3387734",
+        openAccess=False,
+        population="Sport and exercise settings using HR-based intensity",
+        keyFinding=finding(
+            "karvonen_hr_practical_1988",
+            "Practical review of applying heart-rate methods, including reserve-based targets, during sports activities.",
+        ),
+        evidenceStrength="low",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.HeartRate.karvonenTarget"],
+    ),
+    entry(
+        id="epley_1rm_1985",
+        type="consensus",
+        title="Poundage chart",
+        authors=["Epley B"],
+        year=1985,
+        journal="Boyd Epley Workout (Body Enterprises)",
+        openAccess=False,
+        population="Strength trainees estimating 1RM from submaximal reps",
+        keyFinding=finding(
+            "epley_1rm_1985",
+            "Presents the widely used Epley repetition-based estimate of one-repetition maximum from load and reps completed.",
+        ),
+        evidenceStrength="very-low",
+        licenceNote=LICENCE_BOOK,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.OneRepMax.epley"],
+    ),
+    entry(
+        id="brzycki_1rm_1993",
+        type="consensus",
+        title="Strength testing—predicting a one-rep max from reps-to-fatigue",
+        authors=["Brzycki M"],
+        year=1993,
+        journal="Journal of Physical Education, Recreation & Dance",
+        doi="10.1080/07303084.1993.10606684",
+        openAccess=False,
+        population="Physical education / strength testing contexts",
+        keyFinding=finding(
+            "brzycki_1rm_1993",
+            "Describes the Brzycki formula estimating one-repetition maximum from repetitions to fatigue at a submaximal load.",
+        ),
+        evidenceStrength="low",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.OneRepMax.brzycki"],
+    ),
+    entry(
+        id="efsa_water_2010",
+        type="guideline",
+        title="Scientific Opinion on Dietary Reference Values for water",
+        authors=["EFSA Panel on Dietetic Products, Nutrition and Allergies (NDA)"],
+        year=2010,
+        journal="EFSA Journal",
+        doi="10.2903/j.efsa.2010.1459",
+        openAccess=True,
+        population="European general population dietary reference values for water",
+        keyFinding=finding(
+            "efsa_water_2010",
+            "Sets adequate total water intakes for European age/sex groups from dietary reference value evidence.",
+        ),
+        evidenceStrength="high",
+        licenceNote=LICENCE_OA,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.WaterTarget.litresPerDay"],
+    ),
+    entry(
+        id="iom_water_2005",
+        type="guideline",
+        title="Dietary Reference Intakes for Water, Potassium, Sodium, Chloride, and Sulfate",
+        authors=["Institute of Medicine"],
+        year=2005,
+        journal="National Academies Press",
+        doi="10.17226/10925",
+        url="https://nap.nationalacademies.org/catalog/10925/dietary-reference-intakes-for-water-potassium-sodium-chloride-and-sulfate",
+        openAccess=True,
+        population="US/Canada DRI population for water and electrolytes",
+        keyFinding=finding(
+            "iom_water_2005",
+            "Establishes Adequate Intake values for total water for the US/Canada DRI population by life stage and sex.",
+        ),
+        evidenceStrength="high",
+        licenceNote=LICENCE_OA,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.WaterTarget"],
+    ),
+    entry(
+        id="ashwell_wth_2016",
+        type="cohort",
+        title="Waist-to-height ratio as an indicator of early health risk: simpler and more predictive than using a matrix based on BMI and waist circumference",
+        authors=["Ashwell M", "Gibson S"],
+        year=2016,
+        journal="BMJ Open",
+        doi="10.1136/bmjopen-2015-010159",
+        pmid="26975935",
+        pmcid="PMC4800150",
+        openAccess=True,
+        population="Adults in health-survey anthropometry analyses",
+        keyFinding=finding(
+            "ashwell_wth_2016",
+            "Supports waist-to-height ratio as a simple central-adiposity marker that can flag elevated risk earlier than BMI alone in the studied cohorts.",
+        ),
+        evidenceStrength="moderate",
+        licenceNote=LICENCE_OA,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.Anthropometry.waistToHeightRatio"],
+    ),
+    entry(
+        id="who_whr_2008",
+        type="guideline",
+        title="Waist Circumference and Waist–Hip Ratio: Report of a WHO Expert Consultation",
+        authors=["World Health Organization"],
+        year=2008,
+        journal="WHO",
+        url="https://www.who.int/publications/i/item/9789241501491",
+        openAccess=True,
+        population="Global anthropometric cut-point guidance",
+        keyFinding=finding(
+            "who_whr_2008",
+            "Expert consultation report on measuring and interpreting waist circumference and waist–hip ratio for health risk screening.",
+        ),
+        evidenceStrength="moderate",
+        licenceNote=LICENCE_OA,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.Anthropometry.waistToHipRatio"],
+    ),
+    entry(
+        id="buchheit_hrv_monitoring_2014",
+        type="systematic-review",
+        title="Monitoring training status with HR measures: do all roads lead to Rome?",
+        authors=["Buchheit M"],
+        year=2014,
+        journal="Frontiers in Physiology",
+        doi="10.3389/fphys.2014.00073",
+        pmid="24578692",
+        pmcid="PMC3939688",
+        openAccess=True,
+        population="Athletes using heart-rate and HRV monitoring",
+        keyFinding=finding(
+            "buchheit_hrv_monitoring_2014",
+            "Reviews practical HR/HRV monitoring, including smallest worthwhile change framing for interpreting day-to-day variation.",
+        ),
+        evidenceStrength="moderate",
+        licenceNote=LICENCE_OA,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.Readiness.evaluate"],
+    ),
+    entry(
+        id="morton_protein_2018",
+        type="meta-analysis",
+        title="A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults",
+        authors=["Morton RW", "Murphy KT", "McKellar SR", "Schoenfeld BJ", "Henselmans M", "Helms E", "Aragon AA", "Devries MC", "Banfield L", "Krieger JW", "Phillips SM"],
+        year=2018,
+        journal="British Journal of Sports Medicine",
+        doi="10.1136/bjsports-2017-097608",
+        pmid="28698222",
+        pmcid="PMC5867436",
+        openAccess=True,
+        population="Healthy adults performing resistance training with or without protein supplementation",
+        keyFinding=finding(
+            "morton_protein_2018",
+            "Meta-regression supports diminishing returns for hypertrophy beyond roughly 1.6 g protein per kg body mass per day in healthy adults who lift.",
+        ),
+        evidenceStrength="high",
+        licenceNote=LICENCE_OA,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.ProteinTarget"],
+    ),
+    entry(
+        id="plews_hrv_adaptation_2013",
+        type="systematic-review",
+        title="Training adaptation and heart rate variability in elite endurance athletes: opening the door to effective monitoring",
+        authors=["Plews DJ", "Laursen PB", "Stanley J", "Kilding AE", "Buchheit M"],
+        year=2013,
+        journal="Sports Medicine",
+        doi="10.1007/s40279-013-0071-8",
+        pmid="23852425",
+        openAccess=False,
+        population="Elite endurance athletes (HRV monitoring narrative/systematic synthesis)",
+        keyFinding=finding(
+            "plews_hrv_adaptation_2013",
+            "Summarises how resting HRV trends can reflect training adaptation and overload risk when interpreted with context in elite endurance sport.",
+        ),
+        evidenceStrength="moderate",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.Readiness.hrv"],
+    ),
+    entry(
+        id="baevsky_hrv_method_2017",
+        type="consensus",
+        title="Heart rate variability analysis: physiological foundations and main methods",
+        authors=["Baevsky RM", "Chernikova AG"],
+        year=2017,
+        journal="Cardiometry",
+        doi="10.12710/cardiometry.2017.10.6676",
+        openAccess=True,
+        url="https://www.cardiometry.net/issues/no10-may-2017/heart-rate-variability-analysis",
+        population="Clinical and applied physiology contexts using Baevsky HRV indices",
+        keyFinding=finding(
+            "baevsky_hrv_method_2017",
+            "Describes physiological rationale and computational methods for Baevsky-style heart-rate variability and stress-index measures.",
+        ),
+        evidenceStrength="low",
+        licenceNote=LICENCE_OA,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.Readiness.baevsky"],
+    ),
+    entry(
+        id="foster_srpe_2001",
+        type="cohort",
+        title="A new approach to monitoring exercise training",
+        authors=["Foster C", "Florhaug JA", "Franklin J", "Gottschall L", "Hrovatin LA", "Parker S", "Doleshal P", "Dodge C"],
+        year=2001,
+        journal="Journal of Strength and Conditioning Research",
+        doi="10.1519/00124278-200102000-00019",
+        pmid="11708692",
+        openAccess=False,
+        population="Athletes using session rating of perceived exertion (sRPE) load monitoring",
+        keyFinding=finding(
+            "foster_srpe_2001",
+            "Validates session-RPE × duration as a practical internal training-load metric across exercise modes.",
+        ),
+        evidenceStrength="moderate",
+        licenceNote=LICENCE_FAIR,
+        retracted=False,
+        lastVerified=VERIFIED,
+        usedBy=["calc.TrainingLoad.srpe"],
+    ),
+]
+# fmt: on
+
+for e in ENTRIES_DATA:
+    if e["id"] == "schoenfeld_frequency_2019":
+        e["title"] = (
+            "How many times per week should a muscle be trained to maximize muscle hypertrophy? "
+            "A systematic review and meta-analysis of evidence involving trained participants"
+        )
+
+
+LEGACY_MAP = {
+    "doi:10.1249/MSS.0b013e318213fefb": "garber_acsm_quantity_2011",
+    "doi:10.1249/MSS.0000000000003897": "acsm_resistance_training_2026",
+    "doi:10.1123/ijspp.5.3.276": "seiler_intensity_distribution_2010",
+    "doi:10.1097/00005768-200101000-00020": "escamilla_squat_biomechanics_2001",
+    "doi:10.1123/jab.2014-0301": "contreras_hip_thrust_emg_2015",
+    "doi:10.1080/02640414.2016.1210197": "schoenfeld_volume_2016",
+    "doi:10.1007/s40279-016-0543-8": "schoenfeld_frequency_2016",
+    "doi:10.1007/s40279-025-02344-w": "pelland_rt_dose_2025",
+    "doi:10.1080/02640414.2018.1555906": "schoenfeld_frequency_2019",
+    "pmid:23752040": "munoz_polarized_runners_2014",
+    "pmid:20861519": "seiler_intensity_distribution_2010",
+    "textbook:nsca-essentials-4e": "nsca_essentials_4e",
+    "guideline:omnigart-mileage-caveat": "omnigart_mileage_caveat",
+    # bare ids as stored in exercise JSON
+    "10.1249/MSS.0b013e318213fefb": "garber_acsm_quantity_2011",
+    "10.1249/MSS.0000000000003897": "acsm_resistance_training_2026",
+    "10.1123/ijspp.5.3.276": "seiler_intensity_distribution_2010",
+    "10.1097/00005768-200101000-00020": "escamilla_squat_biomechanics_2001",
+    "10.1123/jab.2014-0301": "contreras_hip_thrust_emg_2015",
+    "10.1080/02640414.2016.1210197": "schoenfeld_volume_2016",
+    "10.1007/s40279-016-0543-8": "schoenfeld_frequency_2016",
+    "10.1007/s40279-025-02344-w": "pelland_rt_dose_2025",
+    "10.1080/02640414.2018.1555906": "schoenfeld_frequency_2019",
+    "23752040": "munoz_polarized_runners_2014",
+    "20861519": "seiler_intensity_distribution_2010",
+    "nsca-essentials-4e": "nsca_essentials_4e",
+    "omnigart-mileage-caveat": "omnigart_mileage_caveat",
+}
+
+
+UK_FINDINGS = {
+    "garber_acsm_quantity_2011": "Настанови ACSM підсумовують діапазони обсягу кардіореспіраторних, силових, гнучкості та нейромоторних вправ для практично здорових дорослих.",
+    "acsm_resistance_training_2026": "Позиційний документ з оглядом оглядів щодо призначення силових тренувань для здоров’я та результативності.",
+    "seiler_intensity_distribution_2010": "Описує поширений розподіл інтенсивності близько 80/20 (легке/важке) у спортсменів на витривалість як організаційний патерн, а не універсальну формулу.",
+    "escamilla_squat_biomechanics_2001": "Огляд навантаження на колінний суглоб і факторів техніки в різних варіантах присіду для безпечних тренерських підказок.",
+    "contreras_hip_thrust_emg_2015": "У невеликому гострому ЕМГ-дослідженні гіп-траст з грифом дав вищу активність великого сідничного м’яза, ніж присід зі штангою, за тестованих навантажень.",
+    "schoenfeld_volume_2016": "Метааналіз показав більшу гіпертрофію за вищого тижневого обсягу підходів, із зменшенням приросту на верхній межі вивчених діапазонів.",
+    "schoenfeld_frequency_2016": "Якщо тижневий обсяг не вирівняно, тренування м’язової групи щонайменше двічі на тиждень зазвичай краще для гіпертрофії, ніж раз на тиждень.",
+    "schoenfeld_frequency_2019": "За вирівняного тижневого обсягу вплив частоти силових тренувань на гіпертрофію в об’єднаних аналізах малий або відсутній.",
+    "pelland_rt_dose_2025": "Метарегресії пов’язують тижневий обсяг і частоту з гіпертрофією та силою, зокрема з урахуванням дробових підходів для перекриття м’язів.",
+    "munoz_polarized_runners_2014": "У бігунів-аматорів поляризований розподіл інтенсивності покращив показники результативності порівняно з акцентом «між порогами» в цьому дослідженні.",
+    "nsca_essentials_4e": "Стандартний тренерський довідник з техніки силових вправ, страховки та програмування, що використовується як норми техніки/безпеки.",
+    "omnigart_mileage_caveat": "Фіксоване збільшення тижневого обсягу бігу приблизно на 10% є поширеною евристикою без сильної підтримки РКД; готовність і сигнали травм мають пріоритет.",
+    "mifflin_st_jeor_1990": "Виведено статево-специфічні лінійні рівняння прогнозу спокою енерговитрат за масою, зростом і віком у здорових дорослих.",
+    "who_bmi_2000": "Визначає широко вживані порогові значення ІМТ для дорослих: недостатня, нормальна, надмірна маса та ожиріння.",
+    "gomez_ambrosi_cun_bae_2012": "Пропонує рівняння CUN-BAE для оцінки відсотка жиру за віком, статтю та ІМТ із клінічною валідацією.",
+    "tanaka_hrmax_2001": "Підтримує прогноз максимальної ЧСС 208 − 0,7×вік як покращення порівняно з 220 − вік у здорових дорослих.",
+    "karvonen_hr_reserve_1957": "Класичне джерело призначення інтенсивності як частки резерву ЧСС між спокійною та максимальною ЧСС.",
+    "karvonen_hr_practical_1988": "Практичний огляд застосування методів ЧСС, зокрема цілей за резервом, під час спортивної активності.",
+    "epley_1rm_1985": "Наводить широко вживану оцінку Epley одноповторного максимуму за навантаженням і кількістю повторень.",
+    "brzycki_1rm_1993": "Описує формулу Brzycki для оцінки одноповторного максимуму за повтореннями до втоми з субмаксимальним навантаженням.",
+    "efsa_water_2010": "Встановлює адекватне загальне споживання води для європейських вікових/статевих груп на основі довідкових значень харчування.",
+    "iom_water_2005": "Встановлює значення Adequate Intake для загальної води для популяції DRI США/Канади за життєвим етапом і статтю.",
+    "ashwell_wth_2016": "Підтримує співвідношення талія/зріст як простий маркер центрального ожиріння, що може раніше сигналізувати про підвищений ризик, ніж лише ІМТ.",
+    "who_whr_2008": "Звіт експертної консультації щодо вимірювання та інтерпретації обхвату талії й співвідношення талія–стегна для скринінгу ризику.",
+    "buchheit_hrv_monitoring_2014": "Огляд практичного моніторингу ЧСС/ВСР, зокрема рамки найменшої значущої зміни для денної варіації.",
+    "morton_protein_2018": "Метарегресія підтримує зменшення приросту гіпертрофії понад приблизно 1,6 г білка на кг маси тіла на добу у здорових дорослих, які тренуються з опором.",
+    "plews_hrv_adaptation_2013": "Узагальнює, як тренди ВСР у спокої можуть відображати адаптацію до тренувань і ризик перевантаження в контексті елітного спорту на витривалість.",
+    "baevsky_hrv_method_2017": "Описує фізіологічне обґрунтування та методи обчислення показників ВСР і індексу напруження за Баєвським.",
+    "foster_srpe_2001": "Валідує session-RPE × тривалість як практичну метрику внутрішнього тренувального навантаження для різних видів активності.",
+}
+
+
+def strip_none(obj: dict) -> dict:
+    return {k: v for k, v in obj.items() if v is not None}
+
+
+def main() -> None:
+    ENTRIES.mkdir(parents=True, exist_ok=True)
+    LOCALES.mkdir(parents=True, exist_ok=True)
+
+    catalog: list[dict] = []
+    en_gb: dict[str, str] = {}
+    uk: dict[str, str] = {}
+
+    for raw in ENTRIES_DATA:
+        e = strip_none(raw)
+        eid = e["id"]
+        key = e["keyFinding"]["keys"]["enGB"]
+        en_gb[key] = e["keyFinding"]["enGB"]
+        uk[key] = UK_FINDINGS[eid]
+        path = ENTRIES / f"{eid}.json"
+        path.write_text(json.dumps(e, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        catalog.append(e)
+        print(f"wrote {path.relative_to(ROOT)}")
+
+    catalog.sort(key=lambda x: x["id"])
+    (EV / "catalog.json").write_text(
+        json.dumps(catalog, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    (EV / "legacy-id-map.json").write_text(
+        json.dumps(
+            {
+                "$comment": "Maps legacy content kinds/ids and planning refIds to stable evidence ids.",
+                "map": dict(sorted(LEGACY_MAP.items())),
+            },
+            indent=2,
+            ensure_ascii=False,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    (LOCALES / "en-GB.json").write_text(
+        json.dumps(dict(sorted(en_gb.items())), indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    (LOCALES / "uk.json").write_text(
+        json.dumps(dict(sorted(uk.items())), indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+    by_type: dict[str, int] = {}
+    for e in catalog:
+        by_type[e["type"]] = by_type.get(e["type"], 0) + 1
+    print(f"catalog entries: {len(catalog)}")
+    print("by type:", json.dumps(by_type, indent=2))
+
+
+if __name__ == "__main__":
+    main()

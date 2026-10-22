@@ -1,0 +1,30 @@
+{
+  "id": "schoenfeld_frequency_2019",
+  "type": "meta-analysis",
+  "title": "How many times per week should a muscle be trained to maximize muscle hypertrophy? A systematic review and meta-analysis of evidence involving trained participants",
+  "authors": [
+    "Schoenfeld BJ",
+    "Grgic J",
+    "Krieger J"
+  ],
+  "year": 2019,
+  "journal": "Journal of Sports Sciences",
+  "doi": "10.1080/02640414.2018.1555906",
+  "pmid": "30558493",
+  "openAccess": false,
+  "population": "Trained adults; resistance-training frequency for hypertrophy",
+  "keyFinding": {
+    "enGB": "With weekly volume equated, resistance-training frequency effects on hypertrophy are small to null in the pooled analyses.",
+    "keys": {
+      "enGB": "evidence.schoenfeld_frequency_2019.key_finding",
+      "uk": "evidence.schoenfeld_frequency_2019.key_finding"
+    }
+  },
+  "evidenceStrength": "high",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "planning"
+  ]
+}

@@ -50,9 +50,7 @@
   "progressions": [],
   "evidenceRefs": [
     {
-      "kind": "textbook",
-      "id": "nsca-essentials-4e",
-      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "evidenceId": "nsca_essentials_4e",
       "supports": [
         "technique",
         "safety",

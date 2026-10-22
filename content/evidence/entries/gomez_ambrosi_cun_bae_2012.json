@@ -1,0 +1,40 @@
+{
+  "id": "gomez_ambrosi_cun_bae_2012",
+  "type": "cohort",
+  "title": "Clinical usefulness of a new equation for estimating body fat",
+  "authors": [
+    "Gómez-Ambrosi J",
+    "Silva C",
+    "Galofre JC",
+    "Escalada J",
+    "Santos S",
+    "Gil MJ",
+    "Valenti V",
+    "Rotellar F",
+    "Ramírez B",
+    "Salvador J",
+    "Frühbeck P"
+  ],
+  "year": 2012,
+  "journal": "Diabetes Care",
+  "doi": "10.2337/dc11-1334",
+  "pmid": "22179957",
+  "pmcid": "PMC3263917",
+  "openAccess": true,
+  "sampleSize": 6510,
+  "population": "Adults referred for body-composition assessment (CUN-BAE derivation/validation)",
+  "keyFinding": {
+    "enGB": "Proposes the CUN-BAE equation estimating percent body fat from age, sex, and BMI, with clinic-population validation.",
+    "keys": {
+      "enGB": "evidence.gomez_ambrosi_cun_bae_2012.key_finding",
+      "uk": "evidence.gomez_ambrosi_cun_bae_2012.key_finding"
+    }
+  },
+  "evidenceStrength": "moderate",
+  "licenceNote": "Open-access or public-agency text: title and short finding may be shown; link out for full document. Do not paste copyrighted abstracts wholesale.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.BodyFatCunBae.percent"
+  ]
+}

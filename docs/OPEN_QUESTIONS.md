@@ -29,5 +29,14 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 ## Process
 
-17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward Hevy-scale later or keep curated & cited?
+17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward a large commercial-library scale later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
+
+## Evidence catalog
+
+19. **ACSM 2026 position-stand authors** — Catalog lists lead authors + society; confirm preferred short citation line for the ⓘ sheet.
+20. **Foster sRPE DOI variants** — Catalog uses `10.1519/00124278-200102000-00019` (also registered as `10.1519/1533-4287(2001)015<0109:anatme>2.0.co;2`). Confirm preferred canonical DOI string.
+21. **Karvonen 1957 vs 1988** — Both catalogued; confirm which the HR-zone UI should surface by default.
+22. **Phase 0 `docs/evidence/citations.json`** — When the foundation PR merges, migrate/replace with `content/evidence` ids (legacy map already covers formula keys).
+23. **Retraction Watch bulk feed** — Verifier uses Crossref `update-to` / `updated-by` today; optional scheduled ingest of Retraction Watch via Crossref relation data if owner wants stricter coverage.
+24. **UK key-finding review** — Working translations in `content/evidence/locales/uk.json`; native coach pass pending (same as exercise strings).

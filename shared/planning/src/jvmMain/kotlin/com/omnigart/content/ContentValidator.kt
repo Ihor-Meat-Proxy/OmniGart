@@ -111,6 +111,8 @@ class ContentValidator(
             }
             if (node.path("evidenceRefs").isEmpty) {
                 issues += ValidationIssue(file.toString(), "Template missing evidenceRefs")
+            } else {
+                checkEvidence(node, file, issues)
             }
         }
 
@@ -164,18 +166,33 @@ class ContentValidator(
         if (refs.isEmpty) {
             issues += ValidationIssue(
                 file.toString(),
-                "Exercise has technique/safety claims but no evidenceRefs (log in OPEN_QUESTIONS if intentionally omitted)",
+                "Content has claims but no evidenceRefs (log in OPEN_QUESTIONS if intentionally omitted)",
             )
         }
+        val knownIds = loadEvidenceIds()
         refs.forEach { ref ->
-            val kind = ref.path("kind").asText()
-            val id = ref.path("id").asText()
-            if (kind == "doi" && !id.matches(Regex("""^10\.\d{4,9}/\S+$"""))) {
-                issues += ValidationIssue(file.toString(), "DOI looks malformed: $id")
+            val evidenceId = ref.path("evidenceId").asText()
+            if (evidenceId.isBlank()) {
+                issues += ValidationIssue(file.toString(), "evidenceRefs entry missing evidenceId")
+                return@forEach
             }
-            if (kind == "pmid" && !id.matches(Regex("""^\d+$"""))) {
-                issues += ValidationIssue(file.toString(), "PMID looks malformed: $id")
+            if (!evidenceId.matches(Regex("""^[a-z][a-z0-9]*(_[a-z0-9]+)*$"""))) {
+                issues += ValidationIssue(file.toString(), "evidenceId looks malformed: $evidenceId")
+            }
+            if (knownIds != null && evidenceId !in knownIds) {
+                issues += ValidationIssue(
+                    file.toString(),
+                    "evidenceId not found in content/evidence catalog: $evidenceId",
+                )
             }
         }
+    }
+
+    private fun loadEvidenceIds(): Set<String>? {
+        val catalog = contentRoot.parent?.resolve("evidence/catalog.json") ?: return null
+        if (!Files.isRegularFile(catalog)) return null
+        val root = mapper.readTree(catalog.readText())
+        if (!root.isArray) return null
+        return root.mapNotNull { it.path("id").asText().takeIf { id -> id.isNotBlank() } }.toSet()
     }
 }

@@ -140,9 +140,7 @@ data class ExerciseLink(
 
 @Serializable
 data class EvidenceRef(
-    val kind: String,
-    val id: String,
-    val label: String,
+    val evidenceId: String,
     val supports: List<String>,
 )
 

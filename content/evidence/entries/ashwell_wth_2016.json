@@ -1,0 +1,30 @@
+{
+  "id": "ashwell_wth_2016",
+  "type": "cohort",
+  "title": "Waist-to-height ratio as an indicator of early health risk: simpler and more predictive than using a matrix based on BMI and waist circumference",
+  "authors": [
+    "Ashwell M",
+    "Gibson S"
+  ],
+  "year": 2016,
+  "journal": "BMJ Open",
+  "doi": "10.1136/bmjopen-2015-010159",
+  "pmid": "26975935",
+  "pmcid": "PMC4679911",
+  "openAccess": true,
+  "population": "Adults in health-survey anthropometry analyses",
+  "keyFinding": {
+    "enGB": "Supports waist-to-height ratio as a simple central-adiposity marker that can flag elevated risk earlier than BMI alone in the studied cohorts.",
+    "keys": {
+      "enGB": "evidence.ashwell_wth_2016.key_finding",
+      "uk": "evidence.ashwell_wth_2016.key_finding"
+    }
+  },
+  "evidenceStrength": "moderate",
+  "licenceNote": "Open-access or public-agency text: title and short finding may be shown; link out for full document. Do not paste copyrighted abstracts wholesale.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.Anthropometry.waistToHeightRatio"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "acsm_resistance_training_2026",
+  "type": "guideline",
+  "title": "American College of Sports Medicine Position Stand. Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults: An Overview of Reviews",
+  "authors": [
+    "Currier BS",
+    "D'Souza AC",
+    "Singh MAF",
+    "American College of Sports Medicine"
+  ],
+  "year": 2026,
+  "journal": "Medicine & Science in Sports & Exercise",
+  "doi": "10.1249/MSS.0000000000003897",
+  "pmid": "41843416",
+  "openAccess": false,
+  "population": "Healthy adults; resistance-training prescription overview of reviews",
+  "keyFinding": {
+    "enGB": "Position stand overview of reviews for resistance-training prescription for muscle function, hypertrophy, and performance in healthy adults.",
+    "keys": {
+      "enGB": "evidence.acsm_resistance_training_2026.key_finding",
+      "uk": "evidence.acsm_resistance_training_2026.key_finding"
+    }
+  },
+  "evidenceStrength": "high",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "content.exercises",
+    "content.templates",
+    "planning"
+  ]
+}

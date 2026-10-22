@@ -8,6 +8,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.12.0")
+            api(project(":shared:evidence"))
         }
         commonTest.dependencies {
             implementation(kotlin("test"))

@@ -29,16 +29,29 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 ## Process
 
-17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward Hevy-scale later or keep curated & cited?
+17. **Target library size** — Library grew with pull-up/dip families (~145 total). Grow toward a several-hundred-exercise catalog later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
+20. **`bodyweightFraction` for dips** — No published GRF %BM study for parallel-bar dips was verified; current values are estimates from de Leva segmental logic. Prefer a measured study if one appears.
+21. **`loadModel` backfill** — Non pull/dip exercises received heuristic loadModel/fraction defaults; review edge cases (carries, swimming, holds) before treating proportions as analytics-grade.
+
+## Body map
+
+B1. **Figure fidelity** — Figures adapt MIT MuscleMap paths. Further refine subdivisions (pec heads / VL / soleus cuts), commission bespoke illustrations later, or keep iterating on the adapter?
+B2. **Unilateral highlighting** — Paths are L/R mirrored today; should unilateral sets tint only the working side once session laterality is logged?
+B3. **Secondary weight** — Default 0.5 follows Pelland et al. 2025 fractional counting. Keep global, or allow per-pattern overrides (e.g. rows → biceps < 0.5)?
+B4. **TVA / rotator-cuff proxies** — Surface proxies may overstate visible load. Drop from heatmap fills and keep taxonomy-only, or add dashed “deep” overlays?
+B5. **Sex figure default** — `UNSPECIFIED` currently falls back to the male figure. Prefer a neutral third silhouette, or require sex before showing heatmaps?
+B6. **Intensity binning** — Equal-width vs log / landmark-anchored bins for single workouts — confirm preference after first user tests.
+B7. **Path JSON packaging** — Ship JSON in both app bundles, or generate Swift/Compose path tables in `design/generated` like icons?
 
 ## Translation / i18n (content catalogs)
 
-19. **Native-speaker review queue** — All new `pl`/`be`/`kk`/`ka`/`es`/`fr`/`de`/`cs`/`zh-Hans` strings (and expanded `uk` body copy) are `machine-drafted`. Who owns first-pass review per language?
-20. **Kazakh gym loans** — Some `kk` strength names still use international/gym loans that overlap Russian orthography (e.g. присед). Prefer fully nativised Kazakh sports-federation forms when a reviewer supplies them?
-21. **Belarusian orthography** — Confirm Narkamaŭka standard throughout vs any classical (taraškievica) preference for public copy.
-22. **Georgian strength loans** — Confirm whether სკუატი / დედლიფტი-style loans are preferred over fully calqued Georgian for gym UX.
-23. **Pilates naming** — Keep English PMA names in European locales (common in studios) or always localise (e.g. PL “Setka” for The Hundred)?
-24. **App UI locales** — When Phase 0 scaffold merges, should the Translations job also require Android `values-*` / iOS xcstrings parity for every required locale immediately, or gate platform mirrors behind a follow-up?
-25. **Required check** — Confirm GitHub branch protection adds the exact job name `Translations`.
-26. **Glossary term least-certain set** — See PR description; especially `uk` hip-thrust loan, `kk`/`ka` press/pull nomenclature, `zh-Hans` face-pull / hip-thrust gym slang.
+T1. **Native-speaker review queue** — All new `pl`/`be`/`kk`/`ka`/`es`/`fr`/`de`/`cs`/`zh-Hans` strings (and expanded `uk` body copy) are `machine-drafted`. Who owns first-pass review per language?
+T2. **Kazakh gym loans** — Some `kk` strength names still use international/gym loans that overlap Russian orthography (e.g. присед). Prefer fully nativised Kazakh sports-federation forms when a reviewer supplies them?
+T3. **Belarusian orthography** — Confirm Narkamaŭka standard throughout vs any classical (taraškievica) preference for public copy.
+T4. **Georgian strength loans** — Confirm whether სკუატი / დედლიფტი-style loans are preferred over fully calqued Georgian for gym UX.
+T5. **Pilates naming** — Keep English PMA names in European locales (common in studios) or always localise (e.g. PL “Setka” for The Hundred)?
+T6. **App UI locales** — When Phase 0 scaffold merges, should the Translations job also require Android `values-*` / iOS xcstrings parity for every required locale immediately, or gate platform mirrors behind a follow-up?
+T7. **Required check** — Confirm GitHub branch protection adds the exact job name `Translations`.
+T8. **Pull-up/dip grip glossary** — Machine-drafted translations for PR #5 keys are in all required locales; confirm preferred local forms for chin-up, neutral grip, archer, Korean dip, typewriter, commando with native reviewers.
+T9. **Glossary term least-certain set** — Especially `uk` hip-thrust loan, `kk`/`ka` press/pull nomenclature, `zh-Hans` face-pull / hip-thrust gym slang; plus new pull/dip variation names.

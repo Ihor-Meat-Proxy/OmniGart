@@ -2,37 +2,75 @@
 
 ## Goal
 
-Ship a usable strength workout logger on phone (Android + iOS shells), backed by the shared domain + SQLDelight, with templates from the exercise library, history, RIR, 1RM via formula strategies, and workout writes into the health integration layer.
+Ship a usable strength workout logger on phone (Android + iOS shells), backed by the shared domain + SQLDelight, with templates from the exercise library, history, RIR, 1RM via formula strategies, workout writes into the health layer, and a **workout summary with volume load** (kg/lb per user units).
 
 ## In scope
 
-- Start / end workout session; add exercises from `content/exercises` (search/filter via planning module APIs or a thin shared wrapper).
-- Sets: weight × reps, warmup / drop / failure flags, **RIR**, rest timer state (local).
-- Templates: load starter templates; save current session as user template.
-- History: list past sessions; open detail; basic edit/delete.
-- **1RM** estimates using the formula-strategy catalog (user default; Phase 4 will expand settings UX).
-- Write completed workouts to HealthKit / Health Connect / Google Health API through the Phase H adapters (best-effort; fail soft with user-visible status).
-- en-GB + uk strings; design-system icons for workouts / add-set / timer.
-- Unit tests for repositories, 1RM strategy selection, and fake health write paths.
+### Logging
+
+- Start / end workout session; add exercises from `content/exercises` (search/filter via planning APIs or a thin shared wrapper).
+- Sets: weight × reps, **warmup / working** flag, drop / failure flags, **RIR**, rest timer (local).
+- Assisted sets: log assistance mass (kg) to subtract from effective load.
+- Weighted bodyweight (e.g. dips/pull-ups): log added external weight on top of BW × coefficient.
+- Unilateral: honour exercise library `unilateral`; when logged **per hand**, volume counts **both sides**.
+- Templates: load starters; save session as user template.
+- History: list / detail / basic edit/delete.
+- **1RM** via formula-strategy catalog (default until Phase 4 settings UX).
+- Write completed workouts through health adapters (best-effort).
+- en-GB + uk; design icons (workouts / add-set / timer).
+
+### Workout summary — volume load
+
+**Volume load** = Σ (effective_load_kg × reps) over sets, displayed in **kg or lb** per user units.
+
+Rules (pure functions in `shared`, unit-tested):
+
+| Case | Effective load |
+|------|----------------|
+| External load (barbell/DB machine) | logged weight |
+| Warm-up sets | **excluded by default**; include when user toggles “count warm-ups” |
+| Bodyweight (`bodyweight_reps` / BW movements) | `bodyweightKg × loadCoefficient` (+ optional added weight); mark **estimated** |
+| Assisted | `max(0, baseLoad − assistanceKg)` |
+| Unilateral + logged per hand | multiply set contribution by **2** (both sides), driven by library `unilateral` |
+
+Summary must also show:
+
+- **Per-exercise** volume
+- **Per-muscle** volume (feeds body-map heatmap in `shared/bodymap` once that package merges; emit stable muscle keys matching the exercise schema)
+- **Hard sets** count (working sets; definition aligned with planning volume landmarks — non-warmup completed sets)
+- **vs previous** same workout/template (delta volume, hard sets)
+- **PRs** (best e1RM / best set volume / best session volume for that exercise — pure helpers)
+- Roll into **weekly / monthly** stats aggregates
+
+### Tests
+
+- Repositories, 1RM strategy selection, fake health writes.
+- Volume edge cases: warm-up toggle, BW coefficient, assisted floor at 0, unilateral ×2, unit conversion display, previous-session diff, PR detection.
 
 ## Out of scope
 
-- Full periodisation UI (planning engine may be called but not a planner screen yet).
-- Barcode food, water reminders, readiness card, backup, achievements.
+- Full periodisation UI; barcode food; water reminders; readiness card; backup; achievements.
 - Deep watch workout UI (Phase 7).
+- Body-map UI itself (consume volume maps when `shared/bodymap` lands).
 
 ## Dependencies
 
-- Phase 0 foundation + design + exercise/planning packages.
-- Health integration layer (adapters + fakes).
+- Phase 0 + design + exercise/planning.
+- Health integration layer.
+- Optional later: `shared/bodymap` for heatmap rendering.
 
 ## Verification
 
-- `./gradlew checkNoRuLocale :shared:testAndroidHostTest :shared:planning:jvmTest :androidApp:testDebugUnitTest ktlintCheck detekt`
-- Apple simulator build/test on CI for shells that gain new screens.
-- Manual: log a 3-exercise session, see history, confirm fake health client received a workout write.
+```bash
+./gradlew checkNoRuLocale \
+  :shared:testAndroidHostTest :shared:planning:jvmTest \
+  :androidApp:testDebugUnitTest ktlintCheck detekt
+```
 
-## Open questions to log if blocking
+Manual: log a mixed session (warmup + BW + assisted + unilateral DB), toggle warm-ups, switch kg/lb, confirm summary + weekly stats.
 
-- Default 1RM formula when user has not chosen one yet.
-- Whether templates live only in SQLDelight or also as exportable JSON packs.
+## Provisional decisions (also in OPEN_QUESTIONS)
+
+- Default BW **load coefficients** by movement family (e.g. push-up ≈ 0.64, pull-up ≈ 1.0, dip ≈ 1.0) — documented constants; refine with verified citations when available.
+- Hard set = completed, non-warmup strength set with reps ≥ 1.
+- Previous “same workout” match key = template/workout id if present, else fuzzy exercise-id multiset.

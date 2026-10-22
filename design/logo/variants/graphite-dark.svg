@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <rect width="1024" height="1024" rx="228" fill="#0F172A"/>
+  
+  <!-- tempered ring -->
+  <circle cx="512" cy="512" r="312" fill="none" stroke="#E2E8F0" stroke-width="88" stroke-linecap="round"/>
+  <!-- grit cut / G aperture -->
+  <path d="M620 392 L780 552" fill="none" stroke="#E2E8F0" stroke-width="88" stroke-linecap="round"/>
+  <!-- temper spark -->
+  <circle cx="700" cy="340" r="48" fill="#94A3B8"/>
+
+</svg>

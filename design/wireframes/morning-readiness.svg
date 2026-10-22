@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844" width="390" height="844">
+  <rect width="390" height="844" rx="40" fill="#F8FAFC"/>
+  <text x="24" y="72" font-family="system-ui,sans-serif" font-size="15" fill="#64748B">Good morning</text>
+  <text x="24" y="108" font-family="system-ui,sans-serif" font-size="28" font-weight="600" fill="#0F172A">Recovery</text>
+  <!-- readiness card -->
+  <rect x="24" y="140" width="342" height="200" rx="20" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <circle cx="72" cy="200" r="28" fill="#05966933"/>
+  <text x="72" y="206" text-anchor="middle" font-size="14" font-weight="600" fill="#059669" font-family="system-ui,sans-serif">Go</text>
+  <text x="120" y="190" font-size="20" font-weight="600" fill="#0F172A" font-family="system-ui,sans-serif">Ready to push</text>
+  <text x="120" y="218" font-size="13" fill="#64748B" font-family="system-ui,sans-serif">HRV ‘ sleep 7h22</text>
+  <text x="48" y="280" font-size="12" fill="#64748B" font-family="system-ui,sans-serif">Tap for detail · progressive disclosure</text>
+  <circle cx="330" cy="168" r="12" fill="none" stroke="#64748B" stroke-width="1.5"/>
+  <text x="330" y="173" text-anchor="middle" font-size="12" fill="#64748B" font-family="system-ui,sans-serif">i</text>
+  <!-- secondary -->
+  <rect x="24" y="360" width="164" height="100" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="40" y="400" font-size="13" fill="#64748B" font-family="system-ui,sans-serif">Sleep</text>
+  <text x="40" y="430" font-size="22" font-weight="600" fill="#0F172A" font-family="system-ui,sans-serif">7h22</text>
+  <rect x="202" y="360" width="164" height="100" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="218" y="400" font-size="13" fill="#64748B" font-family="system-ui,sans-serif">Stress</text>
+  <text x="218" y="430" font-size="22" font-weight="600" fill="#0F172A" font-family="system-ui,sans-serif">Low</text>
+  <rect x="0" y="724" width="390" height="120" fill="#0F766E10"/>
+  <rect x="16" y="760" width="358" height="64" rx="20" fill="#FFFFFFCC" stroke="#E2E8F0"/>
+  <text x="195" y="798" text-anchor="middle" font-size="11" fill="#64748B" font-family="system-ui,sans-serif">Food · Workouts · Recovery · Planner · Profile</text>
+</svg>

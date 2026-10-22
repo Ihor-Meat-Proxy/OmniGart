@@ -1,0 +1,22 @@
+{
+  "name": "omnigart-design-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "OmniGart design token, icon, and logo generators",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "tokens": "node style-dictionary.config.mjs",
+    "icons": "node generate-icons.mjs",
+    "logo": "node generate-logo.mjs",
+    "build": "npm run tokens && npm run icons && npm run logo",
+    "check": "node check.mjs"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "sharp": "0.35.5",
+    "style-dictionary": "5.7.0"
+  }
+}

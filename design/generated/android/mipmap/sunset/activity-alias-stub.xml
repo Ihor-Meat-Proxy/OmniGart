@@ -1,0 +1,7 @@
+<!-- activity-alias for set of launcher icon "sunset"
+     android:name=".LauncherAlias_sunset"
+     android:enabled="false"
+     android:icon="@mipmap/ic_launcher_sunset"
+     android:roundIcon="@mipmap/ic_launcher_sunset"
+     android:targetActivity=".MainActivity"
+-->

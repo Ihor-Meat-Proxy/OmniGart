@@ -1,0 +1,20 @@
+{
+  "colors": [
+    {
+      "idiom": "universal",
+      "color": {
+        "color-space": "srgb",
+        "components": {
+          "red": "0.008",
+          "green": "0.024",
+          "blue": "0.090",
+          "alpha": "0.702"
+        }
+      }
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  }
+}

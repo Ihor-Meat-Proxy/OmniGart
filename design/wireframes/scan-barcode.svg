@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844" width="390" height="844">
+  <rect width="390" height="844" rx="40" fill="#0B1220"/>
+  <text x="24" y="72" font-family="system-ui,sans-serif" font-size="16" fill="#F8FAFC">Scan barcode</text>
+  <rect x="48" y="160" width="294" height="294" rx="24" fill="none" stroke="#5EEAD4" stroke-width="3" stroke-dasharray="12 10"/>
+  <rect x="90" y="280" width="210" height="54" rx="8" fill="#F8FAFC22"/>
+  <text x="195" y="314" text-anchor="middle" fill="#E2E8F0" font-size="13" font-family="system-ui,sans-serif">Align barcode</text>
+  <!-- thumb zone -->
+  <rect x="0" y="700" width="390" height="144" fill="#0F766E22"/>
+  <rect x="24" y="720" width="342" height="52" rx="16" fill="#1E293B"/>
+  <text x="195" y="752" text-anchor="middle" fill="#F8FAFC" font-size="15" font-family="system-ui,sans-serif">Enter code manually</text>
+  <rect x="24" y="784" width="342" height="40" rx="12" fill="none"/>
+  <text x="195" y="810" text-anchor="middle" fill="#94A3B8" font-size="13" font-family="system-ui,sans-serif">Cancel</text>
+</svg>

@@ -1,0 +1,21 @@
+{
+  "exerciseCount": 129,
+  "samples": [
+    "samples/back-squat.png",
+    "samples/barbell-bench-press.png",
+    "samples/conventional-deadlift.png",
+    "samples/pull-up.png"
+  ],
+  "contactSheet": "contact-sheet-all-exercises.png",
+  "figures": [
+    "figures/base-figures-sheet.png",
+    "figures/female-back-dark.png",
+    "figures/female-back-light.png",
+    "figures/female-front-dark.png",
+    "figures/female-front-light.png",
+    "figures/male-back-dark.png",
+    "figures/male-back-light.png",
+    "figures/male-front-dark.png",
+    "figures/male-front-light.png"
+  ]
+}

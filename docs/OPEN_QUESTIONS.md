@@ -62,3 +62,13 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 26. **Claim ↔ exercise binding** — Exercises still embed legacy `evidenceRefs`; claims cover formulas/planning. Should each exercise technique bullet get its own claim id in a follow-up, or is family-level mapping enough?
 27. **Retraction Watch feed** — Network job uses Crossref update/relation signals. Wire the Retraction Watch public data dump on a scheduled job, or keep Crossref-only?
 28. **Contact email for polite APIs** — Tooling uses `evidence@omnigart.app` in User-Agent. Confirm mailbox or replace via `OMNIGART_EVIDENCE_EMAIL`.
+
+## Body map
+
+B1. **Figure fidelity** — Figures adapt MIT MuscleMap paths. Further refine subdivisions (pec heads / VL / soleus cuts), commission bespoke illustrations later, or keep iterating on the adapter?
+B2. **Unilateral highlighting** — Paths are L/R mirrored today; should unilateral sets tint only the working side once session laterality is logged?
+B3. **Secondary weight** — Default 0.5 follows Pelland et al. 2025 fractional counting. Keep global, or allow per-pattern overrides (e.g. rows → biceps < 0.5)?
+B4. **TVA / rotator-cuff proxies** — Surface proxies may overstate visible load. Drop from heatmap fills and keep taxonomy-only, or add dashed “deep” overlays?
+B5. **Sex figure default** — `UNSPECIFIED` currently falls back to the male figure. Prefer a neutral third silhouette, or require sex before showing heatmaps?
+B6. **Intensity binning** — Equal-width vs log / landmark-anchored bins for single workouts — confirm preference after first user tests.
+B7. **Path JSON packaging** — Ship JSON in both app bundles, or generate Swift/Compose path tables in `design/generated` like icons?

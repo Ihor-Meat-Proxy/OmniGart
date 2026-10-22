@@ -62,3 +62,13 @@ B4. **TVA / rotator-cuff proxies** — Surface proxies may overstate visible loa
 B5. **Sex figure default** — `UNSPECIFIED` currently falls back to the male figure. Prefer a neutral third silhouette, or require sex before showing heatmaps?
 B6. **Intensity binning** — Equal-width vs log / landmark-anchored bins for single workouts — confirm preference after first user tests.
 B7. **Path JSON packaging** — Ship JSON in both app bundles, or generate Swift/Compose path tables in `design/generated` like icons?
+
+## § Activity algorithms
+
+IDs use `A#` so they do not clash with numeric process items or other lettered sections.
+
+- **A1. Swim accel thresholds** — Stroke/turn thresholds validated on synthetic fixtures only. Confirm after pool sessions with watch IMU logs (axis choice, refractory, quiet window).
+- **A2. Default HR zone model** — Ship %HRmax five-zone bands, or prefer Karvonen %HRR when resting HR is known?
+- **A3. Running power Cr** — Default Cr = 3.8 J·kg⁻¹·m⁻¹ (di Prampero range 3.6–4.0). Expose as user setting, or lock for v1?
+- **A4. ACSM VO₂ labelling** — ACSM running equation is oxygen *cost* at a speed/grade; show as “estimated VO₂” vs “VO₂max” unless the bout is maximal?
+- **A5. Cooper surface** — Accept treadmill @ 1 % as equivalent to outdoor track for Cooper distance input?

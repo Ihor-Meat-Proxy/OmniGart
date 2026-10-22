@@ -33,5 +33,6 @@ fun DebugMenu(modifier: Modifier = Modifier) {
 }
 
 /** True only for debuggable installs; use before requesting debug UI. */
-fun isDebugBuild(context: android.content.Context): Boolean =
-    (context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0
+fun isDebugBuild(context: android.content.Context): Boolean {
+    return (context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0
+}

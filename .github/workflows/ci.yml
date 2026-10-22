@@ -49,9 +49,8 @@ jobs:
             :wearApp:testDebugUnitTest
       - name: App Review compliance (copy, permissions, debug gates)
         # Runs inside this existing job (not a separate required check).
-        run: |
-          python3 -m pip install --user pyyaml
-          python3 scripts/check_app_review_compliance.py
+        # Pure stdlib Python — no pip/PyYAML (macOS runners are PEP 668 managed).
+        run: python3 scripts/check_app_review_compliance.py
       - name: Lint and verify
         # checkNoRuLocale / checkAppReviewCompliance also hang off root `check`.
         run: ./gradlew checkNoRuLocale checkAppReviewCompliance ktlintCheck detekt
@@ -116,9 +115,7 @@ jobs:
           brew install xcodegen swiftlint
       - name: App Review compliance (copy, permissions, privacy manifest)
         # Same gates as the Linux job; keeps iOS-only plist/PrivacyInfo regressions visible here.
-        run: |
-          python3 -m pip install --user pyyaml
-          python3 scripts/check_app_review_compliance.py
+        run: python3 scripts/check_app_review_compliance.py
       - name: SwiftLint
         run: swiftlint lint --config .swiftlint.yml --strict
       - name: Link and sync Shared frameworks (simulator)

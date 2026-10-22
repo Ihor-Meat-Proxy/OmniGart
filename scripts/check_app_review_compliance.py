@@ -21,14 +21,75 @@ import sys
 from pathlib import Path
 from typing import Any
 
-try:
-    import yaml
-except ImportError:  # pragma: no cover
-    print("ERROR: PyYAML is required (pip install pyyaml)", file=sys.stderr)
-    sys.exit(2)
-
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG = ROOT / ".github" / "ci" / "banned-terms.yml"
+
+
+def _parse_scalar(raw: str) -> Any:
+    text = raw.strip()
+    if not text or text == "~" or text == "null":
+        return None
+    if text in ("true", "True"):
+        return True
+    if text in ("false", "False"):
+        return False
+    if re.fullmatch(r"-?\d+", text):
+        return int(text)
+    if (text.startswith('"') and text.endswith('"')) or (
+        text.startswith("'") and text.endswith("'")
+    ):
+        return text[1:-1]
+    return text
+
+
+def load_simple_yaml(text: str) -> dict[str, Any]:
+    """Minimal YAML subset loader (maps/lists/scalars) — no PyYAML needed in CI."""
+    result: dict[str, Any] = {}
+    # stack entries: (indent, container, parent_key_or_None)
+    stack: list[tuple[int, Any, str | None]] = [(-1, result, None)]
+    lines = text.splitlines()
+
+    def peek_container(idx: int, current_indent: int) -> Any:
+        for nxt in lines[idx + 1 :]:
+            if not nxt.strip() or nxt.lstrip().startswith("#"):
+                continue
+            nxt_indent = len(nxt) - len(nxt.lstrip(" "))
+            if nxt_indent <= current_indent:
+                break
+            if nxt.strip().startswith("- "):
+                return []
+            return {}
+        return {}
+
+    for idx, raw_line in enumerate(lines):
+        if not raw_line.strip() or raw_line.lstrip().startswith("#"):
+            continue
+        indent = len(raw_line) - len(raw_line.lstrip(" "))
+        line = raw_line.strip()
+        while len(stack) > 1 and indent <= stack[-1][0]:
+            stack.pop()
+        parent = stack[-1][1]
+
+        if line.startswith("- "):
+            if not isinstance(parent, list):
+                raise SystemExit(f"YAML list item without list parent: {line!r}")
+            parent.append(_parse_scalar(line[2:].strip()))
+            continue
+
+        if ":" not in line:
+            raise SystemExit(f"Unsupported YAML: {line!r}")
+        key, _, rest = line.partition(":")
+        key = key.strip()
+        rest = rest.strip()
+        if not isinstance(parent, dict):
+            raise SystemExit(f"YAML key under non-map: {key!r}")
+        if rest == "":
+            container = peek_container(idx, indent)
+            parent[key] = container
+            stack.append((indent, container, key))
+        else:
+            parent[key] = _parse_scalar(rest)
+    return result
 
 USAGE_KEY_RE = re.compile(
     r"<(key)>(NS[A-Za-z]+UsageDescription)</\1>\s*<string>(.*?)</string>",
@@ -44,8 +105,8 @@ FEATURE_FLAG_DEFAULT_RE = re.compile(
 
 
 def load_config(path: Path) -> dict[str, Any]:
-    with path.open(encoding="utf-8") as fh:
-        data = yaml.safe_load(fh)
+    text = path.read_text(encoding="utf-8")
+    data = load_simple_yaml(text)
     if not isinstance(data, dict):
         raise SystemExit(f"Invalid config: {path}")
     return data

@@ -31,3 +31,15 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward Hevy-scale later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
+
+## Sensors / BLE / Polar (this PR)
+
+19. **Polar licence acceptance** — Polar SDK Limited License is proprietary (not AGPL). Confirm owner acceptance for shipping Android/iOS binaries that link Polar 8.4.0, and whether NOTICE text must appear in-app.
+20. **Android minSdk vs Polar** — Phone shell targets minSdk 26; Polar getting-started recommends 33. Keep 26 until AAR merge forces a bump?
+21. **Multi-sensor simultaneous connections** — Façade currently one active strap; allow N concurrent GATT sessions for dual-strap experiments?
+22. **Baevsky detrending** — Kubios applies smoothness-priors VLF removal before √SI. Implement detrending in a follow-up, or ship raw SI + √SI only?
+23. **H10 offline sample type default for swimming** — Prefer RR (richer HRV) vs HR 1 Hz (smaller, easier merge)? Provisional: RR when battery/memory allows.
+24. **watchOS product policy** — Show strap HR in-app only, or also write mirrored samples to a non-workout HealthKit type? Health layer owns writes; confirm UX.
+25. **Remembered-device storage** — SharedPreferences / UserDefaults now; migrate into SQLDelight when Phase 0 DB lands?
+26. **iOS Polar SPM in CI** — `OmniGartSensorsPolar` pulls Polar SPM; run on macOS only after Phase 0 iOS job exists, or keep Polar target optional in XcodeGen?
+27. **Smoothness of Lipponen constants** — Using paper defaults (c1=0.13, c2=0.17, α=5.2). Tune for swimming artefact profiles?

@@ -101,9 +101,9 @@ jobs:
           done
           test -d "$ROOT/design/generated/ios/OmniGartColors.xcassets"
           test -d "$ROOT/design/generated/ios/OmniGartIcons.xcassets"
-          # Guard against the doubled-path XcodeGen bug.
-          if grep -R "design/generated/design/generated" iosApp --include='*.yml' --include='*.pbxproj' 2>/dev/null; then
-            echo "::error::Found doubled design/generated path under iosApp"
+          # Spec must keep design sources as ../design/generated/... from iosApp/.
+          if ! grep -q 'path: ../design/generated/ios/Sources' iosApp/project.yml; then
+            echo "::error::iosApp/project.yml missing ../design/generated/ios/Sources"
             exit 1
           fi
       - name: Install XcodeGen and SwiftLint
@@ -134,14 +134,15 @@ jobs:
           set -euo pipefail
           cd iosApp
           xcodegen generate
-          # Fail fast if XcodeGen emitted the doubled path into the pbxproj.
-          if grep -R "design/generated/design/generated" OmniGart.xcodeproj 2>/dev/null; then
-            echo "::error::XcodeGen produced doubled design/generated path in OmniGart.xcodeproj"
+          PBX=OmniGart.xcodeproj/project.pbxproj
+          # Fail fast if XcodeGen nested design under an already-design-relative group.
+          if grep -E 'design/generated/.+/design/generated' "$PBX" 2>/dev/null; then
+            echo "::error::XcodeGen produced a nested design/generated path in $PBX"
             exit 1
           fi
           # Expect SRCROOT-relative ../design/generated/... entries for Design sources.
-          if ! grep -q 'design/generated/ios/Sources' OmniGart.xcodeproj/project.pbxproj; then
-            echo "::error::OmniGart.xcodeproj missing design/generated/ios/Sources references"
+          if ! grep -q '\.\./design/generated/ios/Sources' "$PBX"; then
+            echo "::error::$PBX missing ../design/generated/ios/Sources references"
             exit 1
           fi
           echo "XcodeGen design paths look sane"

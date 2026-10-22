@@ -5,9 +5,8 @@ options:
     iOS: "18.0"
     watchOS: "11.0"
   # In-project groups stay tidy. External design paths set createIntermediateGroups:
-  # false so XcodeGen does not nest design/generated under a parent that already
-  # resolves through ../design/generated (which produced
-  # design/generated/design/generated/... on OmniGartWatch).
+  # false so XcodeGen does not nest the design tree under a parent that already
+  # resolves through ../design/generated (that previously doubled the path on Watch).
   createIntermediateGroups: true
   groupSortPosition: top
 

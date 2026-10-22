@@ -6,30 +6,25 @@ import android.content.res.AssetManager
  * Reads the offline content bundle from Android / Wear `assets/`
  * (typically `generated/content-bundle` mounted at the assets root).
  */
-class AssetContentStore(
-    private val assets: AssetManager,
-    private val rootPrefix: String = ""
-) : ContentStore {
+class AssetContentStore(private val assets: AssetManager, private val rootPrefix: String = "") : ContentStore {
     private fun full(path: String): String {
         val trimmed = path.trim('/')
         val root = rootPrefix.trim('/')
         return if (root.isEmpty()) trimmed else "$root/$trimmed"
     }
 
-    override fun exists(relativePath: String): Boolean =
-        try {
-            assets.open(full(relativePath)).close()
-            true
-        } catch (_: Exception) {
-            false
-        }
+    override fun exists(relativePath: String): Boolean = try {
+        assets.open(full(relativePath)).close()
+        true
+    } catch (_: Exception) {
+        false
+    }
 
-    override fun readBytes(relativePath: String): ByteArray? =
-        try {
-            assets.open(full(relativePath)).use { it.readBytes() }
-        } catch (_: Exception) {
-            null
-        }
+    override fun readBytes(relativePath: String): ByteArray? = try {
+        assets.open(full(relativePath)).use { it.readBytes() }
+    } catch (_: Exception) {
+        null
+    }
 
     override fun list(prefix: String): List<String> {
         val start = full(prefix).trim('/')

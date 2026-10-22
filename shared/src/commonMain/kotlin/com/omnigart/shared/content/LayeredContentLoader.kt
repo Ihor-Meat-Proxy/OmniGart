@@ -87,7 +87,7 @@ class LayeredContentLoader(
         val fromBundled = bundled.list(prefix)
         val update = activeUpdate?.second ?: return fromBundled
         val fromUpdate = update.list(prefix)
-        return (fromBundled + fromUpdate).toSortedSet().toList()
+        return (fromBundled + fromUpdate).distinct().sorted()
     }
 
     /**

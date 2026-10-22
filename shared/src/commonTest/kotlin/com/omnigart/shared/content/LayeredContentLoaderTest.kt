@@ -9,10 +9,7 @@ import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class LayeredContentLoaderTest {
-    private fun baselineStore(
-        packVersion: Int = 1,
-        extraFiles: Map<String, String> = emptyMap()
-    ): MapContentStore {
+    private fun baselineStore(packVersion: Int = 1, extraFiles: Map<String, String> = emptyMap()): MapContentStore {
         val manifest =
             """
             {

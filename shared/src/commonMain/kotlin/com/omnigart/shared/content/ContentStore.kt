@@ -9,17 +9,14 @@ interface ContentStore {
 
     fun readBytes(relativePath: String): ByteArray?
 
-    fun readText(relativePath: String): String? =
-        readBytes(relativePath)?.decodeToString()
+    fun readText(relativePath: String): String? = readBytes(relativePath)?.decodeToString()
 
     /** List file paths under [prefix] (inclusive of nested files). */
     fun list(prefix: String = ""): List<String>
 }
 
 /** In-memory store for tests and for verified update packs loaded into RAM/disk cache. */
-class MapContentStore(
-    private val files: Map<String, ByteArray>
-) : ContentStore {
+class MapContentStore(private val files: Map<String, ByteArray>) : ContentStore {
     override fun exists(relativePath: String): Boolean = relativePath in files
 
     override fun readBytes(relativePath: String): ByteArray? = files[relativePath]
@@ -31,7 +28,6 @@ class MapContentStore(
     }
 
     companion object {
-        fun ofText(entries: Map<String, String>): MapContentStore =
-            MapContentStore(entries.mapValues { it.value.encodeToByteArray() })
+        fun ofText(entries: Map<String, String>): MapContentStore = MapContentStore(entries.mapValues { it.value.encodeToByteArray() })
     }
 }

@@ -20,10 +20,7 @@ data class ContentManifest(
 )
 
 @Serializable
-data class ContentSectionMeta(
-    val fileCount: Int,
-    val sha256: String
-)
+data class ContentSectionMeta(val fileCount: Int, val sha256: String)
 
 @Serializable
 data class LocalePolicy(

@@ -19,8 +19,7 @@ fun interface PackSignatureVerifier {
  * Never use for server-downloaded packs.
  */
 object BundledTrustVerifier : PackSignatureVerifier {
-    override fun verify(manifest: ContentManifest, store: ContentStore): PackVerificationResult =
-        PackVerificationResult.Accepted
+    override fun verify(manifest: ContentManifest, store: ContentStore): PackVerificationResult = PackVerificationResult.Accepted
 }
 
 /**
@@ -32,9 +31,7 @@ object BundledTrustVerifier : PackSignatureVerifier {
  * `test-ok:<manifest.sha256>` — enough for unit tests and local dry-runs until the
  * real key material is wired.
  */
-class UpdatePackSignatureVerifier(
-    private val requireSignatureFile: Boolean = true
-) : PackSignatureVerifier {
+class UpdatePackSignatureVerifier(private val requireSignatureFile: Boolean = true) : PackSignatureVerifier {
     override fun verify(manifest: ContentManifest, store: ContentStore): PackVerificationResult {
         if (!requireSignatureFile) {
             return PackVerificationResult.Rejected("Update packs must present a signature")

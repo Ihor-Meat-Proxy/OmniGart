@@ -1,0 +1,77 @@
+{
+  "id": "pause-back-squat",
+  "nameKeys": {
+    "enGB": "exercise.pause_back_squat.name",
+    "uk": "exercise.pause_back_squat.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "squat",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "hamstrings",
+    "erector_spinae"
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Descend to depth, pause 1–3 s without losing brace, then stand without bouncing."
+  ],
+  "setup": [
+    "Identical to back squat setup; use lighter load than touch-and-go."
+  ],
+  "breathing": "Hold breath briefly during pause if braced; exhale near lockout.",
+  "commonMistakes": [
+    "Softening brace in the pause",
+    "Rising onto toes"
+  ],
+  "safety": [
+    "Reduce load 10–20% versus normal squat."
+  ],
+  "contraindications": [
+    "Same as back squat"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "back-squat",
+      "note": "Remove pause"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1097/00005768-200101000-00020",
+      "label": "Escamilla 2001 — knee biomechanics of the dynamic squat",
+      "supports": [
+        "biomechanics",
+        "technique",
+        "safety"
+      ]
+    },
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/pause-back-squat",
+    "videoKey": "media/video/pause-back-squat",
+    "animationKey": "media/anim/pause-back-squat"
+  },
+  "aliases": [],
+  "tags": []
+}

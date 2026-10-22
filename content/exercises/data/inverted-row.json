@@ -1,0 +1,84 @@
+{
+  "id": "inverted-row",
+  "nameKeys": {
+    "enGB": "exercise.inverted_row.name",
+    "uk": "exercise.inverted_row.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "rhomboids"
+  ],
+  "secondaryMuscles": [
+    "biceps",
+    "rear_deltoid",
+    "rectus_abdominis"
+  ],
+  "equipment": [
+    "suspension",
+    "pull_up_bar",
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Body straight under a bar/rings; pull chest to bar; lower."
+  ],
+  "setup": [
+    "Bar height sets difficulty; heels down."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Hips sagging",
+    "Partial pulls"
+  ],
+  "safety": [
+    "Raise feet or lower bar to progress."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "seated-cable-row",
+      "note": "Machine"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "pull-up",
+      "note": "Vertical pull"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/inverted-row",
+    "videoKey": "media/video/inverted-row",
+    "animationKey": "media/anim/inverted-row"
+  },
+  "aliases": [],
+  "tags": []
+}

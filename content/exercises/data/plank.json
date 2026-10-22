@@ -1,0 +1,87 @@
+{
+  "id": "plank",
+  "nameKeys": {
+    "enGB": "exercise.plank.name",
+    "uk": "exercise.plank.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "core_brace",
+  "primaryMuscles": [
+    "transverse_abdominis",
+    "rectus_abdominis"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid",
+    "gluteus_maximus"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isometric",
+  "trackingType": "hold",
+  "technique": [
+    "Forearms and toes on floor; body straight; ribs down; squeeze glutes; hold."
+  ],
+  "setup": [
+    "Elbows under shoulders; neutral neck."
+  ],
+  "breathing": "Steady breathing — do not hold breath the entire time.",
+  "commonMistakes": [
+    "Hips sagging or piking",
+    "Shrugging shoulders to ears"
+  ],
+  "safety": [
+    "Stop if lumbar pain; regress to knees or shorter holds."
+  ],
+  "contraindications": [
+    "Acute lumbar pain with extension bias"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "dead-bug",
+      "note": "Dynamic brace with less load"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "side-plank",
+      "note": "Lateral"
+    },
+    {
+      "exerciseId": "ab-wheel-rollout",
+      "note": "Harder anti-extension"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/plank",
+    "videoKey": "media/video/plank",
+    "animationKey": "media/anim/plank"
+  },
+  "aliases": [],
+  "tags": []
+}

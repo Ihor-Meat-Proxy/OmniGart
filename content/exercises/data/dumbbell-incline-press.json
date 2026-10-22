@@ -1,0 +1,70 @@
+{
+  "id": "dumbbell-incline-press",
+  "nameKeys": {
+    "enGB": "exercise.dumbbell_incline_press.name",
+    "uk": "exercise.dumbbell_incline_press.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "front_deltoid",
+    "triceps"
+  ],
+  "secondaryMuscles": [],
+  "equipment": [
+    "dumbbell",
+    "bench"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Bench ~15–30°; press dumbbells up and slightly together; lower to outer chest."
+  ],
+  "setup": [
+    "Set incline; scapulae supported."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Too steep becoming a shoulder press",
+    "Wrists collapsing"
+  ],
+  "safety": [
+    "Keep incline modest for pectoralis emphasis."
+  ],
+  "contraindications": [
+    "Anterior shoulder irritation"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "dumbbell-bench-press",
+      "note": "Flat"
+    },
+    {
+      "exerciseId": "push-up",
+      "note": "Regression"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/dumbbell-incline-press",
+    "videoKey": "media/video/dumbbell-incline-press",
+    "animationKey": "media/anim/dumbbell-incline-press"
+  },
+  "aliases": [],
+  "tags": []
+}

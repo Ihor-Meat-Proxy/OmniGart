@@ -1,0 +1,90 @@
+{
+  "id": "goblet-squat",
+  "nameKeys": {
+    "enGB": "exercise.goblet_squat.name",
+    "uk": "exercise.goblet_squat.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "squat",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "rectus_abdominis",
+    "hamstrings"
+  ],
+  "equipment": [
+    "dumbbell",
+    "kettlebell"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Hold a dumbbell or kettlebell at the chest with elbows under the weight.",
+    "Sit hips down and back to a comfortable depth with chest tall.",
+    "Stand tall without shifting onto the toes."
+  ],
+  "setup": [
+    "Feet roughly shoulder-width; toes slightly out; weight held at sternum."
+  ],
+  "breathing": "Inhale down, exhale up.",
+  "commonMistakes": [
+    "Collapsing chest",
+    "Knees drifting far inside toes"
+  ],
+  "safety": [
+    "Choose a depth you can control; elevate heels slightly only if needed for mobility."
+  ],
+  "contraindications": [
+    "Acute knee effusion"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "sit-to-stand",
+      "note": "Chair-assisted squat pattern"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "back-squat",
+      "note": "Barbell loading"
+    },
+    {
+      "exerciseId": "front-squat",
+      "note": "Front-loaded barbell"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/goblet-squat",
+    "videoKey": "media/video/goblet-squat",
+    "animationKey": "media/anim/goblet-squat"
+  },
+  "aliases": [],
+  "tags": []
+}

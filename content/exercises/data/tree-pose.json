@@ -1,0 +1,69 @@
+{
+  "id": "tree-pose",
+  "nameKeys": {
+    "enGB": "exercise.tree_pose.name",
+    "uk": "exercise.tree_pose.name"
+  },
+  "discipline": "yoga",
+  "movementPattern": "balance",
+  "primaryMuscles": [
+    "gluteus_medius",
+    "calves"
+  ],
+  "secondaryMuscles": [
+    "full_body"
+  ],
+  "equipment": [
+    "yoga_mat",
+    "bodyweight"
+  ],
+  "level": "intermediate",
+  "unilateral": true,
+  "mechanics": "skill",
+  "trackingType": "hold",
+  "technique": [
+    "Stand on one leg; place other foot on ankle/calf/inner thigh (not the knee); hands at heart or overhead."
+  ],
+  "setup": [
+    "Near a wall if needed."
+  ],
+  "breathing": "Steady breaths.",
+  "commonMistakes": [
+    "Pressing into the side of the knee joint"
+  ],
+  "safety": [
+    "Use wall support; gaze fixed."
+  ],
+  "contraindications": [
+    "Acute ankle sprain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "mountain-pose",
+      "note": "Two feet"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/tree-pose",
+    "videoKey": "media/video/tree-pose",
+    "animationKey": "media/anim/tree-pose"
+  },
+  "aliases": [],
+  "tags": [
+    "yoga"
+  ]
+}

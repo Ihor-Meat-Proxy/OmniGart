@@ -1,0 +1,63 @@
+{
+  "id": "hip-abduction-machine",
+  "nameKeys": {
+    "enGB": "exercise.hip_abduction_machine.name",
+    "uk": "exercise.hip_abduction_machine.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "other",
+  "primaryMuscles": [
+    "gluteus_medius"
+  ],
+  "secondaryMuscles": [
+    "gluteus_maximus"
+  ],
+  "equipment": [
+    "machine"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Push the pads outward against resistance; return slow."
+  ],
+  "setup": [
+    "Upright torso; controlled ROM."
+  ],
+  "breathing": "Exhale to abduct.",
+  "commonMistakes": [
+    "Using momentum",
+    "Excess lumbar movement"
+  ],
+  "safety": [
+    "Accessory for hip stability."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "side-plank",
+      "note": "Anti-gravity lateral"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/hip-abduction-machine",
+    "videoKey": "media/video/hip-abduction-machine",
+    "animationKey": "media/anim/hip-abduction-machine"
+  },
+  "aliases": [],
+  "tags": []
+}

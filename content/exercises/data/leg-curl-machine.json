@@ -1,0 +1,70 @@
+{
+  "id": "leg-curl-machine",
+  "nameKeys": {
+    "enGB": "exercise.leg_curl_machine.name",
+    "uk": "exercise.leg_curl_machine.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "hamstrings"
+  ],
+  "secondaryMuscles": [
+    "calves"
+  ],
+  "equipment": [
+    "machine"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Curl the pad by flexing the knees; control the return."
+  ],
+  "setup": [
+    "Adjust machine to fit limb length."
+  ],
+  "breathing": "Exhale on the curl.",
+  "commonMistakes": [
+    "Lifting hips to cheat",
+    "Partial ROM without intent"
+  ],
+  "safety": [
+    "Full controlled ROM preferred."
+  ],
+  "contraindications": [
+    "Acute hamstring strain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "romanian-deadlift-dumbbell",
+      "note": "Hip-dominant hamstrings"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "nordic-curl-assisted",
+      "note": "Eccentric-biased"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/leg-curl-machine",
+    "videoKey": "media/video/leg-curl-machine",
+    "animationKey": "media/anim/leg-curl-machine"
+  },
+  "aliases": [],
+  "tags": []
+}

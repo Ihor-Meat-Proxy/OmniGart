@@ -1,0 +1,83 @@
+{
+  "id": "leg-press",
+  "nameKeys": {
+    "enGB": "exercise.leg_press.name",
+    "uk": "exercise.leg_press.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "squat",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "hamstrings"
+  ],
+  "equipment": [
+    "machine"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Place feet mid-platform; unlock knees slightly; lower until thighs approach torso without rounding lumbar spine.",
+    "Press through mid-foot to near lockout without slamming the sled."
+  ],
+  "setup": [
+    "Adjust seat so hips and knees stay comfortable; safety stops set."
+  ],
+  "breathing": "Exhale on the press.",
+  "commonMistakes": [
+    "Lumbar rounding at the bottom",
+    "Locking out aggressively"
+  ],
+  "safety": [
+    "Do not allow the lower back to peel off the pad."
+  ],
+  "contraindications": [
+    "Uncontrolled hypertension for heavy isometric straining"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "goblet-squat",
+      "note": "Free squat pattern"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "back-squat",
+      "note": "Axial loading progression"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand (overview of reviews)",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/leg-press",
+    "videoKey": "media/video/leg-press",
+    "animationKey": "media/anim/leg-press"
+  },
+  "aliases": [],
+  "tags": []
+}

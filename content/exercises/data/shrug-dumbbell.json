@@ -1,0 +1,60 @@
+{
+  "id": "shrug-dumbbell",
+  "nameKeys": {
+    "enGB": "exercise.shrug_dumbbell.name",
+    "uk": "exercise.shrug_dumbbell.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "trapezius"
+  ],
+  "secondaryMuscles": [
+    "forearms"
+  ],
+  "equipment": [
+    "dumbbell"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Stand tall; elevate shoulders toward ears; lower slow; minimal elbow bend."
+  ],
+  "setup": [
+    "Arms long; neck neutral."
+  ],
+  "breathing": "Exhale to shrug.",
+  "commonMistakes": [
+    "Rolling the shoulders aggressively",
+    "Jutting the chin"
+  ],
+  "safety": [
+    "Simple vertical shrug is enough."
+  ],
+  "contraindications": [
+    "Neck pain"
+  ],
+  "regressions": [],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/shrug-dumbbell",
+    "videoKey": "media/video/shrug-dumbbell",
+    "animationKey": "media/anim/shrug-dumbbell"
+  },
+  "aliases": [],
+  "tags": []
+}

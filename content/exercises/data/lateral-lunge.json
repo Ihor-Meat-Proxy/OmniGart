@@ -1,0 +1,68 @@
+{
+  "id": "lateral-lunge",
+  "nameKeys": {
+    "enGB": "exercise.lateral_lunge.name",
+    "uk": "exercise.lateral_lunge.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "lunge",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_maximus",
+    "adductors"
+  ],
+  "secondaryMuscles": [
+    "gluteus_medius"
+  ],
+  "equipment": [
+    "bodyweight",
+    "dumbbell"
+  ],
+  "level": "beginner",
+  "unilateral": true,
+  "mechanics": "compound",
+  "trackingType": "reps",
+  "technique": [
+    "Step to the side, sit into that hip with the other leg straight, then push back to centre."
+  ],
+  "setup": [
+    "Toes forward; chest tall."
+  ],
+  "breathing": "Exhale to return.",
+  "commonMistakes": [
+    "The straight leg's toe turning out wildly",
+    "Rounding the back"
+  ],
+  "safety": [
+    "Useful for frontal-plane strength."
+  ],
+  "contraindications": [
+    "Acute groin strain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "goblet-squat",
+      "note": "Sagittal pattern"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/lateral-lunge",
+    "videoKey": "media/video/lateral-lunge",
+    "animationKey": "media/anim/lateral-lunge"
+  },
+  "aliases": [],
+  "tags": []
+}

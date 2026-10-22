@@ -1,0 +1,62 @@
+{
+  "id": "dumbbell-curl",
+  "nameKeys": {
+    "enGB": "exercise.dumbbell_curl.name",
+    "uk": "exercise.dumbbell_curl.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "biceps"
+  ],
+  "secondaryMuscles": [
+    "forearms"
+  ],
+  "equipment": [
+    "dumbbell"
+  ],
+  "level": "beginner",
+  "unilateral": true,
+  "mechanics": "isolation",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Curl one or both dumbbells; optional supination through the ROM."
+  ],
+  "setup": [
+    "Standing or seated."
+  ],
+  "breathing": "Exhale on the curl.",
+  "commonMistakes": [
+    "Swinging torso"
+  ],
+  "safety": [
+    "Unilateral work can fix side-to-side gaps."
+  ],
+  "contraindications": [],
+  "regressions": [],
+  "progressions": [
+    {
+      "exerciseId": "barbell-curl",
+      "note": "Bilateral bar"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/dumbbell-curl",
+    "videoKey": "media/video/dumbbell-curl",
+    "animationKey": "media/anim/dumbbell-curl"
+  },
+  "aliases": [],
+  "tags": []
+}

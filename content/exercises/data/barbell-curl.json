@@ -1,0 +1,61 @@
+{
+  "id": "barbell-curl",
+  "nameKeys": {
+    "enGB": "exercise.barbell_curl.name",
+    "uk": "exercise.barbell_curl.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "biceps"
+  ],
+  "secondaryMuscles": [
+    "forearms"
+  ],
+  "equipment": [
+    "barbell",
+    "ez_bar"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Elbows near sides; curl the bar without swinging; lower fully."
+  ],
+  "setup": [
+    "Standing tall; optional EZ bar for wrists."
+  ],
+  "breathing": "Exhale on the curl.",
+  "commonMistakes": [
+    "Hip thrust cheat",
+    "Elbows drifting far forward"
+  ],
+  "safety": [
+    "Control the eccentric."
+  ],
+  "contraindications": [
+    "Acute biceps tendinopathy"
+  ],
+  "regressions": [],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/barbell-curl",
+    "videoKey": "media/video/barbell-curl",
+    "animationKey": "media/anim/barbell-curl"
+  },
+  "aliases": [],
+  "tags": []
+}

@@ -1,0 +1,99 @@
+{
+  "id": "conventional-deadlift",
+  "nameKeys": {
+    "enGB": "exercise.conventional_deadlift.name",
+    "uk": "exercise.conventional_deadlift.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "hamstrings",
+    "gluteus_maximus",
+    "erector_spinae"
+  ],
+  "secondaryMuscles": [
+    "quadriceps",
+    "trapezius",
+    "forearms",
+    "latissimus_dorsi"
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Hip-hinge to the bar with shins close, spine neutral, lats engaged.",
+    "Push the floor away, keep the bar close, and lock hips and knees together at the top.",
+    "Return by hinging hips back first while keeping the bar over mid-foot."
+  ],
+  "setup": [
+    "Bar over mid-foot; grip just outside legs; brace before pull."
+  ],
+  "breathing": "Big brace before the pull; exhale at lockout or between reps.",
+  "commonMistakes": [
+    "Rounding the lumbar spine",
+    "Jerking the bar",
+    "Hyperextending at lockout"
+  ],
+  "safety": [
+    "Use mixed/hook grip carefully; stop if sharp back pain."
+  ],
+  "contraindications": [
+    "Acute lumbar injury without clearance"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "romanian-deadlift-dumbbell",
+      "note": "Learn hinge with less load from floor"
+    },
+    {
+      "exerciseId": "trap-bar-deadlift",
+      "note": "More neutral grip"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "deficit-deadlift",
+      "note": "Increase range"
+    },
+    {
+      "exerciseId": "pause-deadlift",
+      "note": "Positional strength"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand (overview of reviews)",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/conventional-deadlift",
+    "videoKey": "media/video/conventional-deadlift",
+    "animationKey": "media/anim/conventional-deadlift"
+  },
+  "aliases": [
+    "deadlift"
+  ],
+  "tags": []
+}

@@ -1,0 +1,58 @@
+{
+  "id": "wrist-curl",
+  "nameKeys": {
+    "enGB": "exercise.wrist_curl.name",
+    "uk": "exercise.wrist_curl.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "forearms"
+  ],
+  "secondaryMuscles": [],
+  "equipment": [
+    "dumbbell",
+    "barbell"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Forearms on thighs/bench; curl the load using the wrists; lower to stretch."
+  ],
+  "setup": [
+    "Light load; controlled tempo."
+  ],
+  "breathing": "Exhale to curl.",
+  "commonMistakes": [
+    "Using the arms to swing"
+  ],
+  "safety": [
+    "Stop with tendon pain."
+  ],
+  "contraindications": [
+    "Acute wrist tendinopathy"
+  ],
+  "regressions": [],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/wrist-curl",
+    "videoKey": "media/video/wrist-curl",
+    "animationKey": "media/anim/wrist-curl"
+  },
+  "aliases": [],
+  "tags": []
+}

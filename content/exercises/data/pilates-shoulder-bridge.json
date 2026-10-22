@@ -1,0 +1,73 @@
+{
+  "id": "pilates-shoulder-bridge",
+  "nameKeys": {
+    "enGB": "exercise.pilates_shoulder_bridge.name",
+    "uk": "exercise.pilates_shoulder_bridge.name"
+  },
+  "discipline": "pilates",
+  "movementPattern": "core_brace",
+  "primaryMuscles": [
+    "gluteus_maximus",
+    "hamstrings"
+  ],
+  "secondaryMuscles": [
+    "erector_spinae"
+  ],
+  "equipment": [
+    "pilates_mat",
+    "yoga_mat",
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "reps",
+  "technique": [
+    "Articulate hips up into bridge; optional leg lifts; roll down."
+  ],
+  "setup": [
+    "Feet hip-width; arms long."
+  ],
+  "breathing": "Inhale to prepare; exhale to articulate up.",
+  "commonMistakes": [
+    "Dumping into lumbar"
+  ],
+  "safety": [
+    "Similar to glute bridge with articulation focus."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "glute-bridge",
+      "note": "Strength cueing"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "bridge-pose-yoga",
+      "note": "Yoga hold"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/pilates-shoulder-bridge",
+    "videoKey": "media/video/pilates-shoulder-bridge",
+    "animationKey": "media/anim/pilates-shoulder-bridge"
+  },
+  "aliases": [],
+  "tags": [
+    "pilates"
+  ]
+}

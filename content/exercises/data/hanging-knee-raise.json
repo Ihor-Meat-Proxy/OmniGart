@@ -1,0 +1,66 @@
+{
+  "id": "hanging-knee-raise",
+  "nameKeys": {
+    "enGB": "exercise.hanging_knee_raise.name",
+    "uk": "exercise.hanging_knee_raise.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "core_brace",
+  "primaryMuscles": [
+    "rectus_abdominis",
+    "hip_flexors"
+  ],
+  "secondaryMuscles": [
+    "forearms"
+  ],
+  "equipment": [
+    "pull_up_bar"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "reps",
+  "technique": [
+    "Hang; tilt pelvis slightly; raise knees toward chest; lower without swinging wildly."
+  ],
+  "setup": [
+    "Active hang; avoid excessive swing."
+  ],
+  "breathing": "Exhale to raise.",
+  "commonMistakes": [
+    "Pure swinging momentum",
+    "Shrugging into neck pain"
+  ],
+  "safety": [
+    "Use arm straps only if grip limits you and grip is not the goal."
+  ],
+  "contraindications": [
+    "Shoulder pain in hang"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "dead-bug",
+      "note": "Floor regression"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/hanging-knee-raise",
+    "videoKey": "media/video/hanging-knee-raise",
+    "animationKey": "media/anim/hanging-knee-raise"
+  },
+  "aliases": [],
+  "tags": []
+}

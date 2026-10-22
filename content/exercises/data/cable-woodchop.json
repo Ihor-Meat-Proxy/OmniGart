@@ -1,0 +1,66 @@
+{
+  "id": "cable-woodchop",
+  "nameKeys": {
+    "enGB": "exercise.cable_woodchop.name",
+    "uk": "exercise.cable_woodchop.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "rotation",
+  "primaryMuscles": [
+    "obliques"
+  ],
+  "secondaryMuscles": [
+    "gluteus_maximus",
+    "front_deltoid"
+  ],
+  "equipment": [
+    "cable"
+  ],
+  "level": "beginner",
+  "unilateral": true,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Pull the handle across the body in a diagonal while rotating through the hips/torso with controlled arms."
+  ],
+  "setup": [
+    "High-to-low or low-to-high; feet stable."
+  ],
+  "breathing": "Exhale on the chop.",
+  "commonMistakes": [
+    "Twisting only the lumbar spine",
+    "Using arms alone"
+  ],
+  "safety": [
+    "Rotate through thoracic/hips; keep knees soft."
+  ],
+  "contraindications": [
+    "Acute discogenic pain with rotation"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "pallof-press",
+      "note": "Anti-rotation"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/cable-woodchop",
+    "videoKey": "media/video/cable-woodchop",
+    "animationKey": "media/anim/cable-woodchop"
+  },
+  "aliases": [],
+  "tags": []
+}

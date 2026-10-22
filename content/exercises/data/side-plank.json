@@ -1,0 +1,67 @@
+{
+  "id": "side-plank",
+  "nameKeys": {
+    "enGB": "exercise.side_plank.name",
+    "uk": "exercise.side_plank.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "core_brace",
+  "primaryMuscles": [
+    "obliques",
+    "gluteus_medius"
+  ],
+  "secondaryMuscles": [
+    "transverse_abdominis"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": true,
+  "mechanics": "isometric",
+  "trackingType": "hold",
+  "technique": [
+    "On one forearm/side of foot, lift hips to a straight line; hold; switch."
+  ],
+  "setup": [
+    "Elbow under shoulder; stacked feet or staggered."
+  ],
+  "breathing": "Breathe steadily.",
+  "commonMistakes": [
+    "Hips rotating forward/back",
+    "Collapsed shoulder"
+  ],
+  "safety": [
+    "Regress from knees if needed."
+  ],
+  "contraindications": [
+    "Shoulder pain on the support side"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "plank",
+      "note": "Front plank"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/side-plank",
+    "videoKey": "media/video/side-plank",
+    "animationKey": "media/anim/side-plank"
+  },
+  "aliases": [],
+  "tags": []
+}

@@ -1,0 +1,94 @@
+{
+  "id": "barbell-bench-press",
+  "nameKeys": {
+    "enGB": "exercise.barbell_bench_press.name",
+    "uk": "exercise.barbell_bench_press.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps",
+    "front_deltoid"
+  ],
+  "secondaryMuscles": [
+    "serratus_anterior"
+  ],
+  "equipment": [
+    "barbell",
+    "bench"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Eyes under bar; set shoulder blades; gentle arch; feet planted.",
+    "Unrack, lower bar to lower chest/sternum with forearms vertical at bottom, press to lockout."
+  ],
+  "setup": [
+    "Spotter or safety arms; wrists stacked; consistent grip width."
+  ],
+  "breathing": "Inhale/brace on descent; exhale near lockout.",
+  "commonMistakes": [
+    "Flaring elbows excessively",
+    "Bouncing off chest",
+    "Uneven lockout"
+  ],
+  "safety": [
+    "Never bench heavy without safeties/spotter; keep wrists neutral."
+  ],
+  "contraindications": [
+    "Acute shoulder impingement without modification"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "push-up",
+      "note": "Bodyweight"
+    },
+    {
+      "exerciseId": "dumbbell-bench-press",
+      "note": "More shoulder freedom"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "pause-bench-press",
+      "note": "Pause"
+    },
+    {
+      "exerciseId": "close-grip-bench-press",
+      "note": "Triceps emphasis"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand (overview of reviews)",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/barbell-bench-press",
+    "videoKey": "media/video/barbell-bench-press",
+    "animationKey": "media/anim/barbell-bench-press"
+  },
+  "aliases": [],
+  "tags": []
+}

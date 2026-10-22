@@ -1,0 +1,66 @@
+{
+  "id": "pause-bench-press",
+  "nameKeys": {
+    "enGB": "exercise.pause_bench_press.name",
+    "uk": "exercise.pause_bench_press.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid"
+  ],
+  "equipment": [
+    "barbell",
+    "bench"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Lower to chest, pause 1 s without losing tension, press."
+  ],
+  "setup": [
+    "Same as bench; reduce load."
+  ],
+  "breathing": "Hold brace through pause.",
+  "commonMistakes": [
+    "Relaxing on the chest"
+  ],
+  "safety": [
+    "Use safeties."
+  ],
+  "contraindications": [
+    "Shoulder pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "barbell-bench-press",
+      "note": "Touch and go"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/pause-bench-press",
+    "videoKey": "media/video/pause-bench-press",
+    "animationKey": "media/anim/pause-bench-press"
+  },
+  "aliases": [],
+  "tags": []
+}

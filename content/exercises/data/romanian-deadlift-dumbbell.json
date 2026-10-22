@@ -1,0 +1,87 @@
+{
+  "id": "romanian-deadlift-dumbbell",
+  "nameKeys": {
+    "enGB": "exercise.romanian_deadlift_dumbbell.name",
+    "uk": "exercise.romanian_deadlift_dumbbell.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "hamstrings",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "erector_spinae",
+    "forearms"
+  ],
+  "equipment": [
+    "dumbbell"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Hold dumbbells at thighs; hinge hips back; keep weights close to legs; stand by driving hips forward."
+  ],
+  "setup": [
+    "Soft knees; neutral neck."
+  ],
+  "breathing": "Inhale hinge, exhale stand.",
+  "commonMistakes": [
+    "Reaching weights far forward",
+    "Locking knees hard"
+  ],
+  "safety": [
+    "Use light loads to groove the pattern."
+  ],
+  "contraindications": [
+    "Acute low-back flare"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "hip-hinge-dowel",
+      "note": "Unload"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "romanian-deadlift-barbell",
+      "note": "Barbell load"
+    },
+    {
+      "exerciseId": "single-leg-rdl",
+      "note": "Unilateral"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/romanian-deadlift-dumbbell",
+    "videoKey": "media/video/romanian-deadlift-dumbbell",
+    "animationKey": "media/anim/romanian-deadlift-dumbbell"
+  },
+  "aliases": [],
+  "tags": []
+}

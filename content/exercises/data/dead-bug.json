@@ -1,0 +1,79 @@
+{
+  "id": "dead-bug",
+  "nameKeys": {
+    "enGB": "exercise.dead_bug.name",
+    "uk": "exercise.dead_bug.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "core_brace",
+  "primaryMuscles": [
+    "transverse_abdominis",
+    "rectus_abdominis"
+  ],
+  "secondaryMuscles": [
+    "hip_flexors"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": true,
+  "mechanics": "isolation",
+  "trackingType": "reps",
+  "technique": [
+    "Supine; opposite arm and leg extend while low back stays gently pressed toward floor; alternate."
+  ],
+  "setup": [
+    "Knees over hips to start; exhale on extension."
+  ],
+  "breathing": "Exhale as limbs extend; inhale to return.",
+  "commonMistakes": [
+    "Arching the low back",
+    "Moving both limbs on the same side unintentionally"
+  ],
+  "safety": [
+    "Reduce ROM to keep spine quiet."
+  ],
+  "contraindications": [],
+  "regressions": [],
+  "progressions": [
+    {
+      "exerciseId": "plank",
+      "note": "Isometric"
+    },
+    {
+      "exerciseId": "bird-dog",
+      "note": "Quadruped"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/dead-bug",
+    "videoKey": "media/video/dead-bug",
+    "animationKey": "media/anim/dead-bug"
+  },
+  "aliases": [],
+  "tags": []
+}

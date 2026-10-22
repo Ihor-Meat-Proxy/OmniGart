@@ -78,5 +78,13 @@
     "animationKey": "media/anim/smith-machine-squat"
   },
   "aliases": [],
-  "tags": []
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
 }

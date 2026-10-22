@@ -29,5 +29,11 @@
   "claim.exercise_programming_volume.text": "Programme templates place weekly set targets in ranges supported by hypertrophy dose–response evidence.",
   "claim.exercise_mobility_flexibility.text": "Flexibility and neuromotor work are included per ACSM quantity/quality guidance for healthy adults.",
   "claim.squat_knee_biomechanics.text": "Squat depth and technique are coached with reference to published knee-biomechanics analyses.",
-  "claim.hip_thrust_glute_emg.text": "Hip-thrust variations are offered for glute-focused work based on comparative EMG evidence."
+  "claim.hip_thrust_glute_emg.text": "Hip-thrust variations are offered for glute-focused work based on comparative EMG evidence.",
+  "claim.segment_inertia_load_model.text": "Body-segment mass estimates for load models use adjusted anthropometric inertia parameters.",
+  "claim.pullup_variation_emg.text": "Pull-up grip and technique variations change measured upper-body muscle activation.",
+  "claim.pullup_chinup_emg.text": "Pull-up and chin-up variants differ in surface EMG and elbow motion patterns.",
+  "claim.dip_shoulder_extension_safety.text": "Dip depth and shoulder extension are coached with caution for glenohumeral stress.",
+  "claim.dip_apparatus_kinematics.text": "Bench, bar and ring dips differ in kinematics and muscle activity.",
+  "claim.bodyweight_support_fraction.text": "Closed-chain push-up-family positions change the percentage of body mass supported."
 }

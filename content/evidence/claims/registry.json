@@ -348,6 +348,72 @@
       "evidenceIds": [
         "contreras-hip-thrust-emg-2015"
       ]
+    },
+    {
+      "id": "claim-segment-inertia-load-model",
+      "category": "technique",
+      "textKeys": {
+        "enGB": "claim.segment_inertia_load_model.text",
+        "uk": "claim.segment_inertia_load_model.text"
+      },
+      "evidenceIds": [
+        "de-leva-segment-inertia-1996"
+      ]
+    },
+    {
+      "id": "claim-pullup-variation-emg",
+      "category": "technique",
+      "textKeys": {
+        "enGB": "claim.pullup_variation_emg.text",
+        "uk": "claim.pullup_variation_emg.text"
+      },
+      "evidenceIds": [
+        "dickie-pullup-emg-2017"
+      ]
+    },
+    {
+      "id": "claim-pullup-chinup-emg",
+      "category": "technique",
+      "textKeys": {
+        "enGB": "claim.pullup_chinup_emg.text",
+        "uk": "claim.pullup_chinup_emg.text"
+      },
+      "evidenceIds": [
+        "youdas-pullup-emg-2010"
+      ]
+    },
+    {
+      "id": "claim-dip-shoulder-extension-safety",
+      "category": "safety",
+      "textKeys": {
+        "enGB": "claim.dip_shoulder_extension_safety.text",
+        "uk": "claim.dip_shoulder_extension_safety.text"
+      },
+      "evidenceIds": [
+        "mckenzie-dip-extension-2021"
+      ]
+    },
+    {
+      "id": "claim-dip-apparatus-kinematics",
+      "category": "technique",
+      "textKeys": {
+        "enGB": "claim.dip_apparatus_kinematics.text",
+        "uk": "claim.dip_apparatus_kinematics.text"
+      },
+      "evidenceIds": [
+        "mckenzie-dip-kinematics-2022"
+      ]
+    },
+    {
+      "id": "claim-bodyweight-support-fraction",
+      "category": "technique",
+      "textKeys": {
+        "enGB": "claim.bodyweight_support_fraction.text",
+        "uk": "claim.bodyweight_support_fraction.text"
+      },
+      "evidenceIds": [
+        "suprak-pushup-body-mass-2011"
+      ]
     }
   ]
 }

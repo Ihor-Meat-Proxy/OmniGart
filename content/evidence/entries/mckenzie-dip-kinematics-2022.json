@@ -1,0 +1,39 @@
+{
+  "id": "mckenzie-dip-kinematics-2022",
+  "type": "cohort",
+  "title": "Bench, Bar, and Ring Dips: Do Kinematics and Muscle Activity Differ?",
+  "authors": [
+    "McKenzie AK",
+    "Crowley-McHattan ZJ",
+    "Meir R",
+    "Whitting JW",
+    "Volschenk W"
+  ],
+  "year": 2022,
+  "journal": "International Journal of Environmental Research and Public Health",
+  "doi": "10.3390/ijerph192013211",
+  "url": "https://doi.org/10.3390/ijerph192013211",
+  "openAccess": true,
+  "population": "Adults performing bench, bar and ring dips",
+  "keyFinding": {
+    "enGB": "Bench, bar and ring dips differ in kinematics and muscle activity, so apparatus choice changes the training stimulus and joint demands.",
+    "uk": "Віджимання на лаві, брусах і кільцях різняться за кінематикою та активністю м’язів, тож вибір снаряда змінює стимул і вимоги до суглобів."
+  },
+  "evidenceGrade": {
+    "level": "low",
+    "rationale": "Acute kinematics/EMG comparison across dip apparatus."
+  },
+  "limitations": [
+    "Acute laboratory comparison",
+    "Not a long-term hypertrophy trial"
+  ],
+  "usedByClaimIds": [
+    "claim-dip-apparatus-kinematics"
+  ],
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "contentRefKeys": [
+    "doi:10.3390/ijerph192013211"
+  ]
+}

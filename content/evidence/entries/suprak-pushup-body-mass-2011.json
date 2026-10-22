@@ -1,0 +1,37 @@
+{
+  "id": "suprak-pushup-body-mass-2011",
+  "type": "cohort",
+  "title": "The Effect of Position on the Percentage of Body Mass Supported During Traditional and Modified Push-up Variants",
+  "authors": [
+    "Suprak DN",
+    "Dawes J",
+    "Stephenson MD"
+  ],
+  "year": 2011,
+  "journal": "Journal of Strength and Conditioning Research",
+  "doi": "10.1519/JSC.0b013e3181bde2cf",
+  "url": "https://doi.org/10.1519/JSC.0b013e3181bde2cf",
+  "openAccess": false,
+  "population": "Adults in traditional and modified push-up positions",
+  "keyFinding": {
+    "enGB": "Push-up and related closed-chain positions change the percentage of body mass supported, informing scaled loading estimates.",
+    "uk": "Положення в класичних і модифікованих віджиманнях змінює частку маси тіла, що підтримується, що допомагає оцінювати масштабоване навантаження."
+  },
+  "evidenceGrade": {
+    "level": "moderate",
+    "rationale": "Direct measurement of supported body-mass fraction across positions."
+  },
+  "limitations": [
+    "Push-up family focus",
+    "Dip fractions may still need separate measurement"
+  ],
+  "usedByClaimIds": [
+    "claim-bodyweight-support-fraction"
+  ],
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "contentRefKeys": [
+    "doi:10.1519/JSC.0b013e3181bde2cf"
+  ]
+}

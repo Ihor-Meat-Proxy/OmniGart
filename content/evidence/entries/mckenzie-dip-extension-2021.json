@@ -1,0 +1,39 @@
+{
+  "id": "mckenzie-dip-extension-2021",
+  "type": "systematic-review",
+  "title": "Glenohumeral Extension and the Dip: Considerations for the Strength and Conditioning Professional",
+  "authors": [
+    "McKenzie AK",
+    "Crowley-McHattan ZJ",
+    "Meir R",
+    "Whitting JW",
+    "Volschenk W"
+  ],
+  "year": 2021,
+  "journal": "Strength and Conditioning Journal",
+  "doi": "10.1519/SSC.0000000000000579",
+  "url": "https://doi.org/10.1519/SSC.0000000000000579",
+  "openAccess": false,
+  "population": "Strength and conditioning practice guidance for dips",
+  "keyFinding": {
+    "enGB": "Dip depth and glenohumeral extension warrant coaching caution for shoulder-stress management in strength programmes.",
+    "uk": "Глибина віджимань на брусах і розгинання в плечовому суглобі потребують обережного тренерського контролю навантаження на плече."
+  },
+  "evidenceGrade": {
+    "level": "low",
+    "rationale": "Practice-oriented synthesis; limited trial evidence for specific depth cut-offs."
+  },
+  "limitations": [
+    "Narrative/practice paper",
+    "Individual shoulder history matters"
+  ],
+  "usedByClaimIds": [
+    "claim-dip-shoulder-extension-safety"
+  ],
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "contentRefKeys": [
+    "doi:10.1519/SSC.0000000000000579"
+  ]
+}

@@ -110,8 +110,9 @@ class BodyFatStrategiesTest {
         assertNotNull(result.bodyMassIndex)
         assertEquals(80.0 / 170.0, result.waistToHeightRatio!!, absoluteTolerance = 1e-9)
         assertTrue(result.notesEnGb.any { it.contains("not diagnoses", ignoreCase = true) })
-        assertTrue(result.wellnessBandKey!!.contains("body.wellness.bmi_mid"))
-        assertTrue(result.wellnessBandKey!!.contains("whtr_below_half"))
+        val band = assertNotNull(result.wellnessBandKey)
+        assertTrue(band.contains("body.wellness.bmi_mid"))
+        assertTrue(band.contains("whtr_below_half"))
     }
 
     @Test

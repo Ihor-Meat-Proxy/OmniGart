@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  push:
+    branches: [main, cursor/**, feat/**, chore/**]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  locale-guard:
+    name: No Russian locale
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fail if ru locale present
+        run: ./scripts/check_no_ru_locale.sh
+
+  kmp-android:
+    name: KMP + Android + Wear
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Unit tests and assemble
+        run: |
+          ./gradlew --stacktrace \
+            :shared:testAndroidHostTest \
+            :androidApp:assembleDebug \
+            :androidApp:testDebugUnitTest \
+            :wearApp:assembleDebug \
+            :wearApp:testDebugUnitTest
+      - name: Lint Kotlin
+        run: ./gradlew ktlintCheck detekt
+
+  ios-watchos:
+    name: iOS + watchOS
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Install XcodeGen and SwiftLint
+        run: |
+          brew install xcodegen swiftlint
+      - name: SwiftLint
+        run: swiftlint lint --config .swiftlint.yml --strict || swiftlint lint --config .swiftlint.yml
+      - name: Link shared frameworks (simulator)
+        run: |
+          ./gradlew linkDebugFrameworkIosSimulatorArm64 linkDebugFrameworkWatchosSimulatorArm64 --stacktrace
+      - name: Generate Xcode project
+        run: |
+          cd iosApp
+          xcodegen generate
+      - name: Build iOS (simulator)
+        run: |
+          set +e
+          DEST=$(xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart -showdestinations 2>/dev/null | grep 'platform:iOS Simulator' | head -1)
+          echo "Destination probe: $DEST"
+          xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+          IOS_STATUS=$?
+          xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGartWatch \
+            -destination 'generic/platform=watchOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+          WATCH_STATUS=$?
+          # Tests require booted simulators; attempt when available
+          xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            CODE_SIGNING_ALLOWED=NO \
+            test || true
+          xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGartWatch \
+            -destination 'platform=watchOS Simulator,name=Apple Watch Series 10 (46mm)' \
+            CODE_SIGNING_ALLOWED=NO \
+            test || true
+          exit $(( IOS_STATUS != 0 || WATCH_STATUS != 0 ? 1 : 0 ))

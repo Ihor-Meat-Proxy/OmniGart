@@ -1,0 +1,55 @@
+# Build
+.gradle/
+build/
+**/build/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+*.iml
+.idea/
+.DS_Store
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Kotlin / Native
+.kotlin/
+kotlin-js-store/
+
+# Xcode / Apple
+iosApp/*.xcodeproj/**
+!iosApp/*.xcodeproj/project.pbxproj
+iosApp/*.xcworkspace/
+**/xcuserdata/
+**/DerivedData/
+*.xcuserstate
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Keep XcodeGen as source of truth; ignore generated project if present
+iosApp/OmniGart.xcodeproj/
+
+# Android SDK (local cloud agent install)
+.android-sdk/
+
+# Node / tooling
+node_modules/
+
+# Python
+__pycache__/
+
+# Env / secrets
+.env
+.env.*
+*.jks
+*.keystore
+
+# Test / coverage
+coverage/
+*.exec
+.rapid/

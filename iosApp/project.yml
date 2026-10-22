@@ -1,0 +1,93 @@
+name: OmniGart
+options:
+  bundleIdPrefix: com.omnigart
+  deploymentTarget:
+    iOS: "26.0"
+    watchOS: "26.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  SWIFT_VERSION: "6.0"
+  DEVELOPMENT_TEAM: ""
+
+targets:
+  OmniGart:
+    type: application
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: OmniGart
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios
+        INFOPLIST_FILE: OmniGart/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks"
+        FRAMEWORK_SEARCH_PATHS: "$(inherited) $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)"
+        OTHER_LDFLAGS: "$(inherited) -framework Shared"
+        ENABLE_PREVIEWS: YES
+    dependencies:
+      - target: OmniGartWatch
+        embed: true
+    scheme:
+      testTargets:
+        - OmniGartTests
+        - OmniGartUITests
+
+  OmniGartTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: OmniGartTests
+    dependencies:
+      - target: OmniGart
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios.tests
+        GENERATE_INFOPLIST_FILE: YES
+
+  OmniGartUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: OmniGartUITests
+    dependencies:
+      - target: OmniGart
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios.uitests
+        GENERATE_INFOPLIST_FILE: YES
+
+  OmniGartWatch:
+    type: application
+    platform: watchOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: ../watchApp/OmniGartWatch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios.watchkitapp
+        INFOPLIST_FILE: ../watchApp/OmniGartWatch/Info.plist
+        TARGETED_DEVICE_FAMILY: "4"
+        FRAMEWORK_SEARCH_PATHS: "$(inherited) $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)"
+        OTHER_LDFLAGS: "$(inherited) -framework Shared"
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks"
+    scheme:
+      testTargets:
+        - OmniGartWatchTests
+
+  OmniGartWatchTests:
+    type: bundle.unit-test
+    platform: watchOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: ../watchApp/OmniGartWatchTests
+    dependencies:
+      - target: OmniGartWatch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios.watchkitapp.tests
+        GENERATE_INFOPLIST_FILE: YES

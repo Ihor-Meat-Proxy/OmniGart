@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OmniGart</string>
+    <string name="watch_start">Start</string>
+    <string name="watch_subtitle">Phase 0 — shared core</string>
+</resources>

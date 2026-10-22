@@ -3,6 +3,7 @@
 
 Default: mark all target-locale keys as machine-drafted with current source_hash.
 Does not downgrade keys already marked reviewed unless --force.
+Scans every discovered content/*/locales catalog.
 """
 from __future__ import annotations
 
@@ -14,6 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from content_i18n.catalogs import discover_locale_dirs  # noqa: E402
 from content_i18n.config import (  # noqa: E402
     REPO_ROOT,
     load_locales_config,
@@ -29,11 +31,20 @@ def _sha(text: str) -> str:
 def build(force: bool = False, status_value: str = "machine-drafted") -> None:
     cfg = load_locales_config()
     paths = cfg.get("paths") or {}
-    locales_dir = REPO_ROOT / paths.get("content_locales", "content/exercises/locales")
     status_dir = REPO_ROOT / paths.get("status", "content/i18n/status")
     status_dir.mkdir(parents=True, exist_ok=True)
     src = source_locale(cfg)
-    source = json.loads((locales_dir / f"{src}.json").read_text(encoding="utf-8"))
+
+    source: dict[str, str] = {}
+    for locales_dir in discover_locale_dirs(cfg):
+        src_path = locales_dir / f"{src}.json"
+        data = json.loads(src_path.read_text(encoding="utf-8"))
+        overlap = set(source) & set(data)
+        if overlap:
+            raise SystemExit(
+                f"Duplicate i18n keys across catalogs near {sorted(overlap)[:5]}"
+            )
+        source.update(data)
 
     for loc in target_locales(cfg):
         path = status_dir / f"{loc}.json"
@@ -44,7 +55,6 @@ def build(force: bool = False, status_value: str = "machine-drafted") -> None:
         for key, src_val in source.items():
             prev = out.get(key) or {}
             if prev.get("status") == "reviewed" and not force:
-                # keep reviewed; refresh hash only if unchanged translation intent
                 out[key] = {
                     "status": "reviewed",
                     "source_hash": prev.get("source_hash") or _sha(src_val),
@@ -54,7 +64,6 @@ def build(force: bool = False, status_value: str = "machine-drafted") -> None:
                     "status": status_value,
                     "source_hash": _sha(src_val),
                 }
-        # drop status for keys removed from source
         out = {k: v for k, v in out.items() if k in source}
         path.write_text(
             json.dumps(dict(sorted(out.items())), ensure_ascii=False, indent=2) + "\n",

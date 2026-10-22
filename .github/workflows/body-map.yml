@@ -1,0 +1,41 @@
+name: Body map
+
+on:
+  push:
+    paths:
+      - 'design/body-map/**'
+      - 'shared/bodymap/**'
+      - 'content/exercises/**'
+      - 'settings.gradle.kts'
+      - '.github/workflows/body-map.yml'
+  pull_request:
+    paths:
+      - 'design/body-map/**'
+      - 'shared/bodymap/**'
+      - 'content/exercises/**'
+      - 'settings.gradle.kts'
+      - '.github/workflows/body-map.yml'
+
+jobs:
+  body-map:
+    name: Body map
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: design/body-map/tools/package-lock.json
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install body-map tools
+        working-directory: design/body-map/tools
+        run: npm ci
+      - name: Check body maps (SVG, mapping, golden paths, previews)
+        working-directory: design/body-map/tools
+        run: npm run check
+      - name: Unit tests (shared/bodymap)
+        run: ./gradlew --no-daemon :shared:bodymap:jvmTest

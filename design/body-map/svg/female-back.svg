@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 480" width="200" height="480" role="img" aria-label="OmniGart female back body map" data-sex="female" data-view="back" data-theme="light">
+  <title>OmniGart female back body map</title>
+  <desc>Original geometric anatomical regions for workout highlighting. Naming follows Terminologia Anatomica. Not traced from copyrighted atlases.</desc>
+  <rect id="canvas" x="0" y="0" width="200" height="480" fill="#F8FAFC"/>
+  <g id="silhouette">
+    <path id="body_outline" class="outline" d="M 100.00 18.00 L 104.40 28.00 L 108.00 48.00 L 132.00 72.00 L 138.00 92.00 L 130.00 130.00 L 124.00 168.00 L 128.00 210.00 L 134.00 248.00 L 123.00 168.00 L 119.00 200.00 L 131.00 236.00 L 129.00 268.00 L 117.64 320.00 L 113.72 360.00 L 110.45 400.00 L 108.55 430.00 L 110.00 455.00 L 114.00 468.00 L 100.00 470.00 L 100.00 470.00 L 86.00 468.00 L 90.00 455.00 L 91.45 430.00 L 89.55 400.00 L 86.28 360.00 L 82.36 320.00 L 71.00 268.00 L 69.00 236.00 L 81.00 200.00 L 77.00 168.00 L 66.00 248.00 L 72.00 210.00 L 76.00 168.00 L 70.00 130.00 L 62.00 92.00 L 68.00 72.00 L 92.00 48.00 L 95.60 28.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.2" stroke-linejoin="round" opacity="0.35"/>
+  </g>
+  <g id="muscles">
+  <path id="neck_back" class="muscle" data-region="neck_back" d="M 92.00 48.00 L 108.00 48.00 L 106.00 64.00 L 94.00 64.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="trapezius_upper_r" class="muscle" data-region="trapezius_upper_r" d="M 102.00 58.00 L 118.00 62.00 L 128.00 78.00 L 116.00 92.00 L 102.00 88.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="trapezius_upper_l" class="muscle" data-region="trapezius_upper_l" d="M 98.00 58.00 L 82.00 62.00 L 72.00 78.00 L 84.00 92.00 L 98.00 88.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="trapezius_middle" class="muscle" data-region="trapezius_middle" d="M 86.00 88.00 L 114.00 88.00 L 112.00 130.00 L 88.00 130.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="rhomboids_r" class="muscle" data-region="rhomboids_r" d="M 104.00 95.00 L 116.00 98.00 L 114.00 128.00 L 104.00 132.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="rhomboids_l" class="muscle" data-region="rhomboids_l" d="M 96.00 95.00 L 84.00 98.00 L 86.00 128.00 L 96.00 132.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="rear_deltoid_r" class="muscle" data-region="rear_deltoid_r" d="M 124.00 74.00 L 136.00 78.00 L 134.00 100.00 L 120.00 104.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="rear_deltoid_l" class="muscle" data-region="rear_deltoid_l" d="M 76.00 74.00 L 64.00 78.00 L 66.00 100.00 L 80.00 104.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="lateral_deltoid_back_r" class="muscle" data-region="lateral_deltoid_back_r" d="M 133.00 80.00 L 139.00 90.00 L 136.00 112.00 L 128.00 114.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="lateral_deltoid_back_l" class="muscle" data-region="lateral_deltoid_back_l" d="M 67.00 80.00 L 61.00 90.00 L 64.00 112.00 L 72.00 114.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="rotator_cuff_r" class="muscle" data-region="rotator_cuff_r" d="M 118.00 90.00 L 128.00 94.00 L 126.00 112.00 L 116.00 110.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="rotator_cuff_l" class="muscle" data-region="rotator_cuff_l" d="M 82.00 90.00 L 72.00 94.00 L 74.00 112.00 L 84.00 110.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="triceps_r" class="muscle" data-region="triceps_r" d="M 120.00 108.00 L 134.00 112.00 L 132.92 155.00 L 122.00 168.00 L 116.00 140.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="triceps_l" class="muscle" data-region="triceps_l" d="M 80.00 108.00 L 66.00 112.00 L 67.08 155.00 L 78.00 168.00 L 84.00 140.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="forearm_extensors_r" class="muscle" data-region="forearm_extensors_r" d="M 120.00 172.00 L 131.00 170.00 L 133.00 208.00 L 124.00 222.00 L 118.00 198.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="forearm_extensors_l" class="muscle" data-region="forearm_extensors_l" d="M 80.00 172.00 L 69.00 170.00 L 67.00 208.00 L 76.00 222.00 L 82.00 198.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="latissimus_dorsi_r" class="muscle" data-region="latissimus_dorsi_r" d="M 114.00 118.00 L 124.00 112.00 L 126.00 160.00 L 125.00 200.00 L 112.00 195.00 L 110.00 150.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="latissimus_dorsi_l" class="muscle" data-region="latissimus_dorsi_l" d="M 86.00 118.00 L 76.00 112.00 L 74.00 160.00 L 75.00 200.00 L 88.00 195.00 L 90.00 150.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="erector_spinae_r" class="muscle" data-region="erector_spinae_r" d="M 102.00 130.00 L 110.00 132.00 L 110.00 220.00 L 102.00 230.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="erector_spinae_l" class="muscle" data-region="erector_spinae_l" d="M 98.00 130.00 L 90.00 132.00 L 90.00 220.00 L 98.00 230.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="gluteus_medius_r" class="muscle" data-region="gluteus_medius_r" d="M 108.00 220.00 L 129.00 218.00 L 131.00 245.00 L 114.00 250.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="gluteus_medius_l" class="muscle" data-region="gluteus_medius_l" d="M 92.00 220.00 L 71.00 218.00 L 69.00 245.00 L 86.00 250.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="gluteus_maximus_r" class="muscle" data-region="gluteus_maximus_r" d="M 104.00 235.00 L 120.16 240.00 L 122.40 275.00 L 108.00 285.00 L 102.00 260.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="gluteus_maximus_l" class="muscle" data-region="gluteus_maximus_l" d="M 96.00 235.00 L 79.84 240.00 L 77.60 275.00 L 92.00 285.00 L 98.00 260.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="hamstrings_r" class="muscle" data-region="hamstrings_r" d="M 106.00 285.00 L 117.64 288.00 L 115.68 350.00 L 108.00 360.00 L 104.00 320.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="hamstrings_l" class="muscle" data-region="hamstrings_l" d="M 94.00 285.00 L 82.36 288.00 L 84.32 350.00 L 92.00 360.00 L 96.00 320.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="gastrocnemius_r" class="muscle" data-region="gastrocnemius_r" d="M 106.00 360.00 L 113.30 362.00 L 112.35 410.00 L 107.00 420.00 L 104.00 385.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="gastrocnemius_l" class="muscle" data-region="gastrocnemius_l" d="M 94.00 360.00 L 86.70 362.00 L 87.65 410.00 L 93.00 420.00 L 96.00 385.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="soleus_r" class="muscle" data-region="soleus_r" d="M 107.00 400.00 L 112.00 402.00 L 110.00 438.00 L 106.00 442.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  <path id="soleus_l" class="muscle" data-region="soleus_l" d="M 93.00 400.00 L 88.00 402.00 L 90.00 438.00 L 94.00 442.00 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.55" stroke-linejoin="round"/>
+  </g>
+</svg>

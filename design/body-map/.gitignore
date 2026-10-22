@@ -1,0 +1,3 @@
+tools/node_modules/
+generated/previews/_tmp/
+*.log

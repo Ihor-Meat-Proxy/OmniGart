@@ -1,0 +1,116 @@
+{
+  "id": "negative-dip",
+  "nameKeys": {
+    "enGB": "exercise.negative_dip.name",
+    "uk": "exercise.negative_dip.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "timed",
+  "technique": [
+    "Start at the top support (jump or step), lower for 3–5+ seconds to a chosen depth, then step down to reset."
+  ],
+  "setup": [
+    "Parallel bars preferred; define a pain-free bottom position before starting."
+  ],
+  "breathing": "Controlled breath through the descent.",
+  "commonMistakes": [
+    "Dropping into end-range extension",
+    "Soft lockout at the start"
+  ],
+  "safety": [
+    "Eccentrics are fatiguing; keep depth conservative for shoulders."
+  ],
+  "contraindications": [
+    "Anterior shoulder pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "bench-dip",
+      "note": "Feet supported"
+    },
+    {
+      "exerciseId": "machine-assisted-dip",
+      "note": "Assisted"
+    },
+    {
+      "exerciseId": "band-assisted-dip",
+      "note": "Band"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "dip-parallel-bar",
+      "note": "Add concentric"
+    },
+    {
+      "exerciseId": "weighted-dip",
+      "note": "Later"
+    },
+    {
+      "exerciseId": "ring-dip",
+      "note": "Unstable"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1519/SSC.0000000000000579",
+      "label": "McKenzie et al. 2020 — glenohumeral extension risk considerations in the dip",
+      "supports": [
+        "safety",
+        "technique"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1016/0021-9290(95)00178-6",
+      "label": "de Leva 1996 — adjusted segmental mass proportions (Zatsiorsky–Seluyanov)",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/negative-dip",
+    "videoKey": "media/video/negative-dip",
+    "animationKey": "media/anim/negative-dip"
+  },
+  "aliases": [
+    "eccentric dip"
+  ],
+  "tags": [
+    "dip-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.97,
+    "basis": "estimate",
+    "rationale": "Feet free; almost all BM is supported through the upper limbs. Hands contact the bars (~1.2% BM per de Leva male hands), so estimate ~0.96–0.99. No published GRF %BM for dips found — estimate only."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
+}

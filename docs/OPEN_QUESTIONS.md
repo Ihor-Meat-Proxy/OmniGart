@@ -133,3 +133,9 @@ Autopilot log (Phase 0 + merged design / planning). Each item: **context**, **ch
 - **Context:** Owner rule for all current and future work.
 - **Choice:** Never mention competitor app/product names (examples include popular strength loggers, wearable brands, and recovery/coaching apps) in the repo, code, docs, commits, or PR titles/bodies. Use neutral descriptions of product categories and patterns instead. Platform APIs remain allowed: HealthKit, Health Connect, Google Health API, Polar BLE SDK.
 - **Alternatives:** Keep a private research notebook outside the repo if named product comparisons are needed.
+
+## Autopilot v1 roadmap
+
+- **Context:** Owner standing instruction after Phase 0 + health-integration PR.
+- **Choice:** Continue autonomously through `docs/plans/` phases 1→9 (strength → food/water → readiness → calc settings → encrypted backup → achievements → watch → running → swimming). One feature branch/PR per phase, stacked if prior is unmerged; write/update `docs/plans/phase-N.md` before implementing; never block — log questions here.
+- **Alternatives:** Pause after health for explicit go-ahead (rejected by standing instruction).

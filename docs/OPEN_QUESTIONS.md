@@ -29,17 +29,48 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 ## Process
 
-17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward Hevy-scale later or keep curated & cited?
+17. **Target library size** — Library grew with pull-up/dip families (~145 total). Grow toward a several-hundred-exercise catalog later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
+19. **Additional locale keys (en-GB/uk only in this PR)** — Another agent should translate these `exercise.*.name` keys beyond en-GB/uk:
+    - `exercise.archer_pull_up.name`
+    - `exercise.band_assisted_dip.name`
+    - `exercise.bench_dip.name`
+    - `exercise.close_grip_pull_up.name`
+    - `exercise.commando_pull_up.name`
+    - `exercise.korean_dip.name`
+    - `exercise.l_sit_pull_up.name`
+    - `exercise.machine_assisted_dip.name`
+    - `exercise.machine_assisted_pull_up.name`
+    - `exercise.negative_dip.name`
+    - `exercise.negative_pull_up.name`
+    - `exercise.neutral_grip_pull_up.name`
+    - `exercise.scapular_pull_up.name`
+    - `exercise.straight_bar_dip.name`
+    - `exercise.typewriter_pull_up.name`
+    - `exercise.weighted_dip.name`
+    - `exercise.wide_grip_pull_up.name`
+    Also refresh display strings for expanded existing keys (`pull_up`, `chin_up`, `inverted_row`, `weighted_pull_up`, `assisted_pull_up_band`, `ring_dip`, `dip_parallel_bar`, `chest_to_bar_pull_up`) if non-en/uk locales already exist elsewhere.
+20. **`bodyweightFraction` for dips** — No published GRF %BM study for parallel-bar dips was verified; current values are estimates from de Leva segmental logic. Prefer a measured study if one appears.
+21. **`loadModel` backfill** — Non pull/dip exercises received heuristic loadModel/fraction defaults; review edge cases (carries, swimming, holds) before treating proportions as analytics-grade.
 
-## Sensors / BLE / Polar (this PR)
+## Body map
 
-19. **Polar licence acceptance** — Polar SDK Limited License is proprietary (not AGPL). Confirm owner acceptance for shipping Android/iOS binaries that link Polar 8.4.0, and whether NOTICE text must appear in-app.
-20. **Android minSdk vs Polar** — Phone shell targets minSdk 26; Polar getting-started recommends 33. Keep 26 until AAR merge forces a bump?
-21. **Multi-sensor simultaneous connections** — Façade currently one active strap; allow N concurrent GATT sessions for dual-strap experiments?
-22. **Baevsky detrending** — Kubios applies smoothness-priors VLF removal before √SI. Implement detrending in a follow-up, or ship raw SI + √SI only?
-23. **H10 offline sample type default for swimming** — Prefer RR (richer HRV) vs HR 1 Hz (smaller, easier merge)? Provisional: RR when battery/memory allows.
-24. **watchOS product policy** — Show strap HR in-app only, or also write mirrored samples to a non-workout HealthKit type? Health layer owns writes; confirm UX.
-25. **Remembered-device storage** — SharedPreferences / UserDefaults now; migrate into SQLDelight when Phase 0 DB lands?
-26. **iOS Polar SPM in CI** — `OmniGartSensorsPolar` pulls Polar SPM; run on macOS only after Phase 0 iOS job exists, or keep Polar target optional in XcodeGen?
-27. **Smoothness of Lipponen constants** — Using paper defaults (c1=0.13, c2=0.17, α=5.2). Tune for swimming artefact profiles?
+B1. **Figure fidelity** — Figures adapt MIT MuscleMap paths. Further refine subdivisions (pec heads / VL / soleus cuts), commission bespoke illustrations later, or keep iterating on the adapter?
+B2. **Unilateral highlighting** — Paths are L/R mirrored today; should unilateral sets tint only the working side once session laterality is logged?
+B3. **Secondary weight** — Default 0.5 follows Pelland et al. 2025 fractional counting. Keep global, or allow per-pattern overrides (e.g. rows → biceps < 0.5)?
+B4. **TVA / rotator-cuff proxies** — Surface proxies may overstate visible load. Drop from heatmap fills and keep taxonomy-only, or add dashed “deep” overlays?
+B5. **Sex figure default** — `UNSPECIFIED` currently falls back to the male figure. Prefer a neutral third silhouette, or require sex before showing heatmaps?
+B6. **Intensity binning** — Equal-width vs log / landmark-anchored bins for single workouts — confirm preference after first user tests.
+B7. **Path JSON packaging** — Ship JSON in both app bundles, or generate Swift/Compose path tables in `design/generated` like icons?
+
+## Sensors / BLE / Polar
+
+S1. **Polar licence acceptance** — Polar SDK Limited License is proprietary (not AGPL). Confirm owner acceptance for shipping Android/iOS binaries that link Polar 8.4.0, and whether NOTICE text must appear in-app.
+S2. **Android minSdk vs Polar** — Phone shell targets minSdk 26; Polar getting-started recommends 33. Keep 26 until AAR merge forces a bump?
+S3. **Multi-sensor simultaneous connections** — Façade currently one active strap; allow N concurrent GATT sessions for dual-strap experiments?
+S4. **Baevsky detrending** — Kubios applies smoothness-priors VLF removal before √SI. Implement detrending in a follow-up, or ship raw SI + √SI only?
+S5. **H10 offline sample type default for swimming** — Prefer RR (richer HRV) vs HR 1 Hz (smaller, easier merge)? Provisional: RR when battery/memory allows.
+S6. **watchOS product policy** — Show strap HR in-app only, or also write mirrored samples to a non-workout HealthKit type? Health layer owns writes; confirm UX.
+S7. **Remembered-device storage** — SharedPreferences / UserDefaults now; migrate into SQLDelight when Phase 0 DB lands?
+S8. **iOS Polar SPM in CI** — `OmniGartSensorsPolar` pulls Polar SPM; run on macOS only after Phase 0 iOS job exists, or keep Polar target optional in XcodeGen?
+S9. **Smoothness of Lipponen constants** — Using paper defaults (c1=0.13, c2=0.17, α=5.2). Tune for swimming artefact profiles?

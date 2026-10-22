@@ -1,0 +1,41 @@
+{
+  "journal": "British Journal of Nutrition",
+  "doi": "10.1079/BJN19910073",
+  "pmid": "2043597",
+  "pmcid": null,
+  "url": "https://doi.org/10.1079/BJN19910073",
+  "openAccess": false,
+  "population": "Adults with densitometry body-fat reference",
+  "sampleSize": null,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "Densitometry-era reference",
+    "Ethnic generalisability limited"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "deurenberg-bf-bmi-1991",
+  "type": "cohort",
+  "title": "Body mass index as a measure of body fatness: age- and sex-specific prediction formulas",
+  "authors": [
+    "Deurenberg P",
+    "Weststrate JA",
+    "Seidell JC"
+  ],
+  "year": 1991,
+  "keyFinding": {
+    "enGB": "Percent body fat can be estimated from BMI with age- and sex-specific formulas, acknowledging BMI alone is an imperfect adiposity marker.",
+    "uk": "Відсоток жиру тіла можна оцінити з ІМТ за віково- та статево-специфічними формулами, визнаючи що сам ІМТ є недосконалим маркером адипозності."
+  },
+  "evidenceGrade": {
+    "level": "moderate",
+    "rationale": "Classic prediction formulas vs densitometry; older methods and populations."
+  },
+  "usedByClaimIds": [
+    "formula-bodyfat-deurenberg"
+  ]
+}

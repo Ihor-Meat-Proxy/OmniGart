@@ -1,0 +1,41 @@
+{
+  "journal": "Journal of Health and Social Behavior",
+  "doi": "10.2307/2136404",
+  "pmid": "6668417",
+  "pmcid": null,
+  "url": "https://doi.org/10.2307/2136404",
+  "openAccess": false,
+  "population": null,
+  "sampleSize": null,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "Self-report",
+    "Not a clinical diagnosis tool"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "pss10-cohen-1983",
+  "type": "cohort",
+  "title": "A global measure of perceived stress",
+  "authors": [
+    "Cohen S",
+    "Kamarck T",
+    "Mermelstein R"
+  ],
+  "year": 1983,
+  "keyFinding": {
+    "enGB": "The 10-item Perceived Stress Scale (PSS-10) is a validated self-report measure of the degree to which situations are appraised as stressful.",
+    "uk": "10-пунктова Шкала сприйнятого стресу (PSS-10) — валідований самозвітний інструмент оцінки того, наскільки ситуації сприймаються як стресові."
+  },
+  "evidenceGrade": {
+    "level": "high",
+    "rationale": "Foundational psychometric validation widely replicated across populations."
+  },
+  "usedByClaimIds": [
+    "recovery-pss10-stress"
+  ]
+}

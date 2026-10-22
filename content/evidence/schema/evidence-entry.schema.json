@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.app/schemas/evidence-entry.json",
+  "title": "OmniGartEvidenceEntry",
+  "description": "A single cited source backing one or more app claims.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "title",
+    "authors",
+    "year",
+    "keyFinding",
+    "evidenceGrade",
+    "usedByClaimIds",
+    "retracted",
+    "lastVerified",
+    "verificationStatus"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "minLength": 3,
+      "maxLength": 96,
+      "description": "Stable kebab-case evidence id."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "meta-analysis",
+        "systematic-review",
+        "rct",
+        "cohort",
+        "guideline",
+        "consensus-statement",
+        "book-coaching-source",
+        "report"
+      ]
+    },
+    "title": { "type": "string", "minLength": 3 },
+    "authors": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 1900,
+      "maximum": 2100
+    },
+    "journal": { "type": ["string", "null"] },
+    "doi": {
+      "type": ["string", "null"],
+      "description": "Crossref DOI without url prefix. Null when no DOI exists; never invent."
+    },
+    "pmid": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]+$"
+    },
+    "pmcid": {
+      "type": ["string", "null"],
+      "pattern": "^PMC[0-9]+$"
+    },
+    "url": {
+      "type": ["string", "null"],
+      "format": "uri"
+    },
+    "openAccess": { "type": "boolean" },
+    "population": { "type": ["string", "null"] },
+    "sampleSize": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Participants when a single study; optional."
+    },
+    "studyCount": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Included studies for reviews/meta-analyses."
+    },
+    "keyFinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enGB", "uk"],
+      "properties": {
+        "enGB": { "type": "string", "minLength": 8 },
+        "uk": { "type": "string", "minLength": 8 }
+      }
+    },
+    "effectSize": {
+      "type": ["string", "null"],
+      "description": "Plain-language effect size note when reported."
+    },
+    "evidenceGrade": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "rationale"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["high", "moderate", "low", "very-low"]
+        },
+        "rationale": { "type": "string", "minLength": 8 }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "usedByClaimIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "uniqueItems": true
+    },
+    "retracted": { "type": "boolean" },
+    "retractionNotes": { "type": ["string", "null"] },
+    "lastVerified": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date (YYYY-MM-DD) of last successful metadata check."
+    },
+    "verificationStatus": {
+      "type": "string",
+      "enum": ["verified", "unverified", "mismatched", "retracted"],
+      "description": "verified = DOI/PMID metadata matches; unverified = no resolvable identifier or check pending."
+    },
+    "contentRefKeys": {
+      "type": "array",
+      "description": "Legacy content evidenceRef kind:id keys this entry satisfies.",
+      "items": { "type": "string" },
+      "uniqueItems": true,
+      "default": []
+    }
+  }
+}

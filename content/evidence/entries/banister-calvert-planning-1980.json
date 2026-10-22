@@ -1,0 +1,40 @@
+{
+  "journal": "Canadian Journal of Applied Sport Sciences",
+  "doi": null,
+  "pmid": "6778623",
+  "pmcid": null,
+  "url": "https://pubmed.ncbi.nlm.nih.gov/6778623/",
+  "openAccess": false,
+  "population": null,
+  "sampleSize": null,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "No DOI indexed",
+    "Conceptual era methods"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "banister-calvert-planning-1980",
+  "type": "report",
+  "title": "Planning for future performance: implications for long term training",
+  "authors": [
+    "Banister EW",
+    "Calvert TW"
+  ],
+  "year": 1980,
+  "keyFinding": {
+    "enGB": "Long-term training can be planned by treating training impulses as inputs to fitness and fatigue systems that shape future performance.",
+    "uk": "Довгострокові тренування можна планувати, розглядаючи тренувальні імпульси як входи до систем форми та втоми, що формують майбутню продуктивність."
+  },
+  "evidenceGrade": {
+    "level": "low",
+    "rationale": "Seminal conceptual/planning paper; limited modern trial confirmation of specific parameterisations."
+  },
+  "usedByClaimIds": [
+    "load-trimp"
+  ]
+}

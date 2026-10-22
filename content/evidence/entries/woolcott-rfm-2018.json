@@ -1,0 +1,40 @@
+{
+  "journal": "Scientific Reports",
+  "doi": "10.1038/s41598-018-29362-1",
+  "pmid": "30030479",
+  "pmcid": "PMC6054651",
+  "url": "https://doi.org/10.1038/s41598-018-29362-1",
+  "openAccess": true,
+  "population": "US adults (NHANES) with DXA reference",
+  "sampleSize": null,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "Cross-sectional",
+    "Waist measurement quality matters"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "woolcott-rfm-2018",
+  "type": "cohort",
+  "title": "Relative fat mass (RFM) as a new estimator of whole-body fat percentage — A cross-sectional study in American adult individuals",
+  "authors": [
+    "Woolcott OO",
+    "Bergman RN"
+  ],
+  "year": 2018,
+  "keyFinding": {
+    "enGB": "Relative fat mass from height and waist circumference estimates whole-body fat percentage more accurately than BMI in US adults.",
+    "uk": "Відносна жирова маса (RFM) зі зросту та обхвату талії точніше оцінює відсоток жиру всього тіла, ніж ІМТ, у дорослих США."
+  },
+  "evidenceGrade": {
+    "level": "moderate",
+    "rationale": "Large DXA-referenced cross-sectional derivation/validation; not a prospective outcomes trial."
+  },
+  "usedByClaimIds": [
+    "formula-bodyfat-rfm"
+  ]
+}

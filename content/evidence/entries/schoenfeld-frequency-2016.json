@@ -1,0 +1,42 @@
+{
+  "journal": "Sports Medicine",
+  "doi": "10.1007/s40279-016-0543-8",
+  "pmid": "27102172",
+  "pmcid": null,
+  "url": "https://doi.org/10.1007/s40279-016-0543-8",
+  "openAccess": false,
+  "population": null,
+  "sampleSize": null,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "Volume confounding in non-equated designs"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [
+    "doi:10.1007/s40279-016-0543-8"
+  ],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "schoenfeld-frequency-2016",
+  "type": "meta-analysis",
+  "title": "Effects of resistance training frequency on measures of muscle hypertrophy: a systematic review and meta-analysis",
+  "authors": [
+    "Schoenfeld BJ",
+    "Ogborn D",
+    "Krieger JW"
+  ],
+  "year": 2016,
+  "keyFinding": {
+    "enGB": "When weekly volume is not equated, training a muscle at least twice per week tends to favour hypertrophy versus once weekly.",
+    "uk": "Коли тижневий обсяг не зрівняний, тренування м’яза щонайменше двічі на тиждень зазвичай сприяє гіпертрофії порівняно з одним разом."
+  },
+  "evidenceGrade": {
+    "level": "moderate",
+    "rationale": "Systematic review/meta-analysis; frequency effects partly confounded by volume."
+  },
+  "usedByClaimIds": [
+    "prog-muscle-frequency-twice-weekly"
+  ]
+}

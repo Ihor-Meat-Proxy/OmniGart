@@ -1,0 +1,41 @@
+{
+  "journal": "International Journal of Sports Physiology and Performance",
+  "doi": "10.1123/ijspp.5.3.276",
+  "pmid": "20861519",
+  "pmcid": null,
+  "url": "https://doi.org/10.1123/ijspp.5.3.276",
+  "openAccess": false,
+  "population": null,
+  "sampleSize": null,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "Largely descriptive elite patterns",
+    "Recreational transfer uncertain"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [
+    "doi:10.1123/ijspp.5.3.276"
+  ],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "seiler-polarized-2010",
+  "type": "systematic-review",
+  "title": "What is best practice for training intensity and duration distribution in endurance athletes?",
+  "authors": [
+    "Seiler S"
+  ],
+  "year": 2010,
+  "keyFinding": {
+    "enGB": "Many successful endurance athletes accumulate most training time at low intensity with a smaller fraction of high-intensity work (a polarised pattern).",
+    "uk": "Багато успішних спортсменів на витривалість накопичують більшість часу тренувань на низькій інтенсивності з меншою часткою високоінтенсивної роботи (поляризований розподіл)."
+  },
+  "evidenceGrade": {
+    "level": "moderate",
+    "rationale": "Influential synthesis of observational elite distributions plus applied evidence; not proof of universal superiority."
+  },
+  "usedByClaimIds": [
+    "cardio-polarized-distribution"
+  ]
+}

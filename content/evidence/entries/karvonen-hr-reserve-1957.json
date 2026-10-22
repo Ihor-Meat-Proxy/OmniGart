@@ -1,0 +1,42 @@
+{
+  "journal": "Annales Medicinae Experimentalis et Biologiae Fenniae",
+  "doi": null,
+  "pmid": "13470504",
+  "pmcid": null,
+  "url": "https://pubmed.ncbi.nlm.nih.gov/13470504/",
+  "openAccess": false,
+  "population": "Young men in a training study",
+  "sampleSize": null,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "Historical sample",
+    "No DOI in major indexes",
+    "Methodological detail limited by era"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "karvonen-hr-reserve-1957",
+  "type": "cohort",
+  "title": "The effects of training on heart rate; a longitudinal study",
+  "authors": [
+    "Karvonen MJ",
+    "Kentala E",
+    "Mustala O"
+  ],
+  "year": 1957,
+  "keyFinding": {
+    "enGB": "Training intensity expressed relative to heart-rate reserve (between resting and maximal HR) tracks the training stimulus more usefully than absolute heart rate alone.",
+    "uk": "Інтенсивність тренування, виражена відносно резерву ЧСС (між спокійною та максимальною), краще відображає тренувальний стимул, ніж абсолютна ЧСС."
+  },
+  "evidenceGrade": {
+    "level": "low",
+    "rationale": "Foundational longitudinal observation that underpins HR-reserve targeting; small historical sample and no modern RCT of the formula itself."
+  },
+  "usedByClaimIds": [
+    "formula-hr-zone-karvonen"
+  ]
+}

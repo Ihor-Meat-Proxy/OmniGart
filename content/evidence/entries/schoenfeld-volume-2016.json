@@ -1,0 +1,45 @@
+{
+  "journal": "Journal of Sports Sciences",
+  "doi": "10.1080/02640414.2016.1210197",
+  "pmid": "27433992",
+  "pmcid": null,
+  "url": "https://doi.org/10.1080/02640414.2016.1210197",
+  "openAccess": false,
+  "population": null,
+  "sampleSize": null,
+  "studyCount": 15,
+  "effectSize": "Each additional weekly set associated with a small increase in hypertrophic effect size",
+  "limitations": [
+    "Set definitions vary",
+    "Mostly young adults",
+    "Diminishing returns not fully modelled here"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [
+    "doi:10.1080/02640414.2016.1210197"
+  ],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "schoenfeld-volume-2016",
+  "type": "meta-analysis",
+  "title": "Dose-response relationship between weekly resistance training volume and increases in muscle mass",
+  "authors": [
+    "Schoenfeld BJ",
+    "Ogborn D",
+    "Krieger JW"
+  ],
+  "year": 2017,
+  "keyFinding": {
+    "enGB": "Higher weekly resistance-training set volume is associated with greater hypertrophy on average, with a graded dose–response.",
+    "uk": "Більший тижневий обсяг підходів силових тренувань у середньому пов’язаний із більшою гіпертрофією, з градованою дозовою відповіддю."
+  },
+  "evidenceGrade": {
+    "level": "moderate",
+    "rationale": "Meta-analysis of RT trials; heterogeneity and set-counting definitions limit certainty."
+  },
+  "usedByClaimIds": [
+    "prog-weekly-set-volume-hypertrophy",
+    "claim-exercise-programming-volume"
+  ]
+}

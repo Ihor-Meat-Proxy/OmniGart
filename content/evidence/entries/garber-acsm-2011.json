@@ -1,0 +1,48 @@
+{
+  "journal": "Medicine & Science in Sports & Exercise",
+  "doi": "10.1249/MSS.0b013e318213fefb",
+  "pmid": "21694556",
+  "pmcid": null,
+  "url": "https://doi.org/10.1249/MSS.0b013e318213fefb",
+  "openAccess": false,
+  "population": null,
+  "sampleSize": null,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "Broad population guidance",
+    "Clinical conditions need specialised prescriptions"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [
+    "doi:10.1249/MSS.0b013e318213fefb"
+  ],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "garber-acsm-2011",
+  "type": "guideline",
+  "title": "Quantity and quality of exercise for developing and maintaining cardiorespiratory, musculoskeletal, and neuromotor fitness in apparently healthy adults: guidance for prescribing exercise",
+  "authors": [
+    "Garber CE",
+    "Blissmer B",
+    "Deschenes MR",
+    "Franklin BA",
+    "Lamonte MJ",
+    "Lee IM",
+    "et al."
+  ],
+  "year": 2011,
+  "keyFinding": {
+    "enGB": "Apparently healthy adults should accumulate regular aerobic, resistance, flexibility and neuromotor exercise with dose guidance for fitness and health.",
+    "uk": "Умовно здорові дорослі мають регулярно поєднувати аеробні, силові, гнучкісні та нейромоторні вправи з орієнтирами дози для форми й здоров’я."
+  },
+  "evidenceGrade": {
+    "level": "high",
+    "rationale": "ACSM quantity/quality position stand synthesising extensive evidence."
+  },
+  "usedByClaimIds": [
+    "prog-acsm-quantity-quality",
+    "claim-exercise-mobility-flexibility"
+  ]
+}

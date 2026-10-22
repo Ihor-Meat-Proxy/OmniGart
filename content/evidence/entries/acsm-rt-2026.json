@@ -1,0 +1,43 @@
+{
+  "journal": "Medicine & Science in Sports & Exercise",
+  "doi": "10.1249/MSS.0000000000003897",
+  "pmid": "41843416",
+  "pmcid": "PMC12965823",
+  "url": "https://doi.org/10.1249/MSS.0000000000003897",
+  "openAccess": true,
+  "population": null,
+  "sampleSize": null,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "Healthy-adult focus",
+    "Individual medical clearance still required"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [
+    "doi:10.1249/MSS.0000000000003897"
+  ],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "acsm-rt-2026",
+  "type": "guideline",
+  "title": "American College of Sports Medicine Position Stand. Resistance Training Prescription for Muscle Strength and Hypertrophy in Healthy Adults: An Overview of Reviews",
+  "authors": [
+    "ACSM"
+  ],
+  "year": 2026,
+  "keyFinding": {
+    "enGB": "ACSM summarises review-level evidence for prescribing resistance training to improve strength and hypertrophy in healthy adults.",
+    "uk": "ACSM узагальнює докази рівня оглядів щодо призначення силових тренувань для сили та гіпертрофії у здорових дорослих."
+  },
+  "evidenceGrade": {
+    "level": "high",
+    "rationale": "Position stand overview of reviews from a major sports-medicine society."
+  },
+  "usedByClaimIds": [
+    "prog-acsm-rt-prescription",
+    "claim-exercise-programming-volume",
+    "claim-exercise-technique-safety"
+  ]
+}

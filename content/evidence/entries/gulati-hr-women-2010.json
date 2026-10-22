@@ -1,0 +1,44 @@
+{
+  "journal": "Circulation",
+  "doi": "10.1161/circulationaha.110.939249",
+  "pmid": "20585008",
+  "pmcid": null,
+  "url": "https://doi.org/10.1161/circulationaha.110.939249",
+  "openAccess": false,
+  "population": "Asymptomatic women referred for exercise testing",
+  "sampleSize": 5437,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "Referral/exercise-test population",
+    "Prognostic framing rather than training prescription trial"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "gulati-hr-women-2010",
+  "type": "cohort",
+  "title": "Heart rate response to exercise stress testing in asymptomatic women: the St. James Women Take Heart Project",
+  "authors": [
+    "Gulati M",
+    "Shaw LJ",
+    "Thisted RA",
+    "Black HR",
+    "Merz CNB",
+    "Arnsdorf MF"
+  ],
+  "year": 2010,
+  "keyFinding": {
+    "enGB": "Among asymptomatic women, failure to reach 85% of age-predicted maximal heart rate and a blunted chronotropic response relate to higher risk; the study also informs sex-specific HR expectations.",
+    "uk": "Серед безсимптомних жінок недосягнення 85% вікової передбаченої максимальної ЧСС і притуплена хронотропна відповідь пов’язані з вищим ризиком; дослідження також уточнює статево-специфічні очікування ЧСС."
+  },
+  "evidenceGrade": {
+    "level": "moderate",
+    "rationale": "Large prospective female cohort with prognostic endpoints; not a training-zone RCT."
+  },
+  "usedByClaimIds": [
+    "formula-hrmax-gulati-women"
+  ]
+}

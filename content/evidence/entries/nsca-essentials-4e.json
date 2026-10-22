@@ -1,0 +1,43 @@
+{
+  "journal": null,
+  "doi": null,
+  "pmid": null,
+  "pmcid": null,
+  "url": "https://www.nsca.com/",
+  "openAccess": false,
+  "population": null,
+  "sampleSize": null,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "Secondary source",
+    "Edition-bound"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [
+    "textbook:nsca-essentials-4e"
+  ],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "unverified",
+  "id": "nsca-essentials-4e",
+  "type": "book-coaching-source",
+  "title": "Essentials of Strength Training and Conditioning (4th ed.)",
+  "authors": [
+    "Haff GG",
+    "Triplett NT",
+    "NSCA"
+  ],
+  "year": 2016,
+  "keyFinding": {
+    "enGB": "NSCA essentials compile consensus coaching standards for resistance-exercise technique, spotting and programme design.",
+    "uk": "Підручник NSCA узагальнює консенсусні тренерські стандарти техніки силових вправ, страхування та побудови програм."
+  },
+  "evidenceGrade": {
+    "level": "low",
+    "rationale": "Authoritative coaching textbook synthesising practice standards; not primary research."
+  },
+  "usedByClaimIds": [
+    "claim-exercise-technique-safety"
+  ]
+}

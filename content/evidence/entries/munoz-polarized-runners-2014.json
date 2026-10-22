@@ -1,0 +1,46 @@
+{
+  "journal": "International Journal of Sports Physiology and Performance",
+  "doi": "10.1123/ijspp.2012-0350",
+  "pmid": "23752040",
+  "pmcid": null,
+  "url": "https://doi.org/10.1123/ijspp.2012-0350",
+  "openAccess": false,
+  "population": "Recreational runners",
+  "sampleSize": null,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "Modest sample",
+    "Not all recreational contexts"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [
+    "pmid:23752040"
+  ],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "munoz-polarized-runners-2014",
+  "type": "rct",
+  "title": "Does polarized training improve performance in recreational runners?",
+  "authors": [
+    "Muñoz I",
+    "Seiler S",
+    "Bautista J",
+    "España J",
+    "Larumbe E",
+    "Esteve-Lanao J"
+  ],
+  "year": 2014,
+  "keyFinding": {
+    "enGB": "A polarised intensity distribution can improve performance in recreational runners compared with a more threshold-heavy distribution in this trial.",
+    "uk": "Поляризований розподіл інтенсивності може покращити результати в аматорських бігунів порівняно з більш «пороговим» розподілом у цьому дослідженні."
+  },
+  "evidenceGrade": {
+    "level": "moderate",
+    "rationale": "RCT in recreational runners; single study size limits certainty."
+  },
+  "usedByClaimIds": [
+    "cardio-polarized-distribution"
+  ]
+}

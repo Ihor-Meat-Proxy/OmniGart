@@ -1,0 +1,39 @@
+{
+  "journal": "EFSA Journal",
+  "doi": "10.2903/j.efsa.2010.1459",
+  "pmid": null,
+  "pmcid": null,
+  "url": "https://doi.org/10.2903/j.efsa.2010.1459",
+  "openAccess": true,
+  "population": null,
+  "sampleSize": null,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "Not an athlete-specific prescription",
+    "Climate and sweat losses require individualisation"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "efsa-water-2010",
+  "type": "guideline",
+  "title": "Scientific Opinion on Dietary Reference Values for water",
+  "authors": [
+    "EFSA Panel on Dietetic Products, Nutrition, and Allergies (NDA)"
+  ],
+  "year": 2010,
+  "keyFinding": {
+    "enGB": "Adequate total water intakes are about 2.5 L/day for adult men and 2.0 L/day for adult women from all beverages and food moisture, with higher needs in heat or heavy exercise.",
+    "uk": "Адекватне загальне споживання води становить близько 2,5 л/день для дорослих чоловіків і 2,0 л/день для дорослих жінок з усіх напоїв і вологи їжі, з вищими потребами в спеку чи за інтенсивних навантажень."
+  },
+  "evidenceGrade": {
+    "level": "moderate",
+    "rationale": "Authoritative dietary reference values synthesising physiological and observational evidence."
+  },
+  "usedByClaimIds": [
+    "nutrition-water-adequate-intake"
+  ]
+}

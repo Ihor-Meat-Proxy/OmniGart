@@ -1,0 +1,45 @@
+{
+  "journal": "Diabetes Care",
+  "doi": "10.2337/dc11-1334",
+  "pmid": "22179957",
+  "pmcid": "PMC3263863",
+  "url": "https://doi.org/10.2337/dc11-1334",
+  "openAccess": true,
+  "population": "Adults assessed for adiposity (clinical usefulness study)",
+  "sampleSize": null,
+  "studyCount": null,
+  "effectSize": null,
+  "limitations": [
+    "Equation error vs imaging reference remains",
+    "Population calibration may differ elsewhere"
+  ],
+  "retracted": false,
+  "retractionNotes": null,
+  "contentRefKeys": [],
+  "lastVerified": "2026-10-22",
+  "verificationStatus": "verified",
+  "id": "cun-bae-2012",
+  "type": "cohort",
+  "title": "Clinical usefulness of a new equation for estimating body fat",
+  "authors": [
+    "Gómez-Ambrosi J",
+    "Silva C",
+    "Catalán V",
+    "Rodríguez A",
+    "Galofre JC",
+    "Escalada J",
+    "et al."
+  ],
+  "year": 2012,
+  "keyFinding": {
+    "enGB": "The Clínica Universidad de Navarra–Body Adiposity Estimator (CUN-BAE) estimates percent body fat from age, sex and BMI better than BMI alone for clinical classification.",
+    "uk": "Оцінювач жирової маси Clínica Universidad de Navarra (CUN-BAE) оцінює відсоток жиру тіла за віком, статтю та ІМТ краще, ніж сам ІМТ, для клінічної класифікації."
+  },
+  "evidenceGrade": {
+    "level": "moderate",
+    "rationale": "Validated estimating equation against reference adiposity measures; still an estimate, not DXA."
+  },
+  "usedByClaimIds": [
+    "formula-bodyfat-cun-bae"
+  ]
+}

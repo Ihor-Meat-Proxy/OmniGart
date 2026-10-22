@@ -41,4 +41,47 @@ class ContentValidatorTest {
         }.map { it.name }
         assertEquals(emptyList(), missing)
     }
+
+    @Test
+    fun everyExerciseDeclaresLoadModelAndBodyweightFraction() {
+        val data = contentRoot().resolve("data").toFile()
+        val missing = data.listFiles { f -> f.extension == "json" }.orEmpty().mapNotNull { file ->
+            val text = file.readText()
+            when {
+                "\"loadModel\"" !in text -> file.name to "loadModel"
+                "\"bodyweightFraction\"" !in text -> file.name to "bodyweightFraction"
+                "\"allowsAddedWeight\"" !in text -> file.name to "allowsAddedWeight"
+                "\"allowsAssistance\"" !in text -> file.name to "allowsAssistance"
+                else -> null
+            }
+        }
+        assertEquals(emptyList(), missing)
+    }
+
+    @Test
+    fun pullUpAndDipFamiliesArePresentWithLinkedProgressions() {
+        val data = contentRoot().resolve("data")
+        val pullExpected = listOf(
+            "pull-up", "chin-up", "neutral-grip-pull-up", "wide-grip-pull-up", "close-grip-pull-up",
+            "commando-pull-up", "l-sit-pull-up", "archer-pull-up", "typewriter-pull-up",
+            "scapular-pull-up", "negative-pull-up", "assisted-pull-up-band",
+            "machine-assisted-pull-up", "weighted-pull-up", "inverted-row",
+        )
+        val dipExpected = listOf(
+            "dip-parallel-bar", "bench-dip", "ring-dip", "straight-bar-dip", "korean-dip",
+            "band-assisted-dip", "machine-assisted-dip", "weighted-dip", "negative-dip",
+        )
+        for (id in pullExpected + dipExpected) {
+            assertTrue(
+                data.resolve("$id.json").toFile().exists(),
+                "missing exercise file $id.json",
+            )
+        }
+        val chin = data.resolve("chin-up.json").toFile().readText()
+        assertTrue("\"biceps\"" in chin && chin.indexOf("\"primaryMuscles\"") < chin.indexOf("\"biceps\""))
+        assertTrue("10.1519/JSC.0b013e3181f1598c" in chin, "chin-up should cite Youdas 2010")
+        val dip = data.resolve("dip-parallel-bar.json").toFile().readText()
+        assertTrue("10.1519/SSC.0000000000000579" in dip, "parallel-bar dip should cite shoulder-extension safety")
+        assertTrue("\"loadModel\"" in dip)
+    }
 }

@@ -197,9 +197,27 @@ jobs:
           echo "watchOS destination name: ${WATCH_DEST}"
           test -n "${IOS_DEST}"
           test -n "${WATCH_DEST}"
+
+          # Boot and wait so XCUITest does not race a cold simulator
+          # (flake: "Timed out while acquiring background assertion").
+          IOS_UDID=$(xcrun simctl list devices available | grep -F "${IOS_DEST}" | grep -oE '[0-9A-F-]{36}' | head -1 || true)
+          if [[ -n "${IOS_UDID}" ]]; then
+            xcrun simctl boot "${IOS_UDID}" 2>/dev/null || true
+            xcrun simctl bootstatus "${IOS_UDID}" -b
+          fi
+
+          # Unit tests first (no UI launch), then UI tests with retry for CI flakes.
           xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart \
             -destination "platform=iOS Simulator,name=${IOS_DEST},arch=arm64" \
             CODE_SIGNING_ALLOWED=NO \
+            -only-testing:OmniGartTests \
+            test
+          xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart \
+            -destination "platform=iOS Simulator,name=${IOS_DEST},arch=arm64" \
+            CODE_SIGNING_ALLOWED=NO \
+            -only-testing:OmniGartUITests \
+            -retry-tests-on-failure \
+            -test-iterations 3 \
             test
           xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGartWatch \
             -destination "platform=watchOS Simulator,name=${WATCH_DEST},arch=arm64" \

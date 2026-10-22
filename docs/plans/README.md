@@ -26,6 +26,7 @@ Standing owner instruction: after Phase 0 and the health-integration PR, continu
 - Latest **stable** libraries as of implementation date.
 - Never block: log open decisions in `docs/OPEN_QUESTIONS.md`.
 - en-GB + uk strings only; never Russian (`checkNoRuLocale`).
-- No competitor product names — neutral category language only. Platform APIs OK (HealthKit, Health Connect, Google Health API, Polar BLE SDK).
+- No competitor product names — neutral category language only. Platform APIs OK (HealthKit, Health Connect, Google Health API, Polar BLE SDK). Ban list: `.github/ci/banned-terms.yml`.
+- App Review / health-app compliance: wellness (not medical) copy, JIT permission explainers, PrivacyInfo, no debug/placeholder dead ends in release — see `docs/RELEASE_CHECKLIST.md` and `scripts/check_app_review_compliance.py`.
 - Real content: formulas, explanations, ⓘ evidence links to verified DOI/PMID only; never invent; log unverifiable claims in `docs/OPEN_QUESTIONS.md`.
 - Integrate `design/` tokens/icons and `content/exercises` + `shared/planning` (pull from their branches if still unmerged).

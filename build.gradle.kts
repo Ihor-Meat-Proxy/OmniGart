@@ -24,6 +24,15 @@ tasks.register<Exec>("checkNoRuLocale") {
     commandLine("bash", "./scripts/check_no_ru_locale.sh")
 }
 
+tasks.register<Exec>("checkAppReviewCompliance") {
+    group = LifecycleBasePlugin.VERIFICATION_GROUP
+    description =
+        "Fail on banned medical/competitor copy, empty usage descriptions, " +
+            "release debug menus, or incomplete PrivacyInfo"
+    workingDir = rootDir
+    commandLine("python3", "./scripts/check_app_review_compliance.py")
+}
+
 tasks.named("check") {
-    dependsOn("checkNoRuLocale")
+    dependsOn("checkNoRuLocale", "checkAppReviewCompliance")
 }

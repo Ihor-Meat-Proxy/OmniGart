@@ -5,7 +5,13 @@
   "tab_recovery": "Recovery",
   "tab_planner": "Planner",
   "tab_profile": "Profile",
-  "shell_placeholder": "Phase 0 shell — data from shared core",
+  "shell_intro": "Wellness estimates from your shared OmniGart profile",
   "watch_start": "Start",
-  "watch_subtitle": "Phase 0 — shared core"
+  "watch_subtitle": "Wellness estimates on your wrist",
+  "wellness_disclaimer": "OmniGart provides wellness estimates only. Readiness, stress, HRV, Baevsky index, body-fat estimates, hydration targets, and training plans are not medical advice. Consult a qualified professional for health concerns.",
+  "info_sheet_not_medical_advice": "Not medical advice. Consult a professional.",
+  "health_warning_chest_pain": "Stop and seek emergency help if you feel chest pain, severe dizziness, or unusual shortness of breath during activity.",
+  "onboarding_wellness_title": "Wellness, not medical care",
+  "info_sheet_title": "About this estimate",
+  "info_sheet_body": "Figures such as readiness, stress, HRV, Baevsky index, body fat, and hydration are wellness estimates based on your inputs and device samples. Plans are coaching suggestions, not prescriptions."
 }

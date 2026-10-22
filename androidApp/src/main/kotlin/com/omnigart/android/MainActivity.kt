@@ -8,7 +8,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -19,16 +22,20 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import com.omnigart.android.compliance.WellnessInfoSheet
+import com.omnigart.android.debug.MaybeDebugMenu
 import com.omnigart.design.icons.OmniGartIcons
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.design.theme.OmniGartSpacing
 import com.omnigart.shared.OmniGartCore
+import com.omnigart.shared.compliance.FeatureFlags
 import com.omnigart.shared.data.DatabaseDriverFactory
 
 class MainActivity : ComponentActivity() {
@@ -76,6 +83,7 @@ private enum class PhoneTab(val labelRes: Int, val testTag: String, val icon: Im
 @Composable
 fun OmniGartPhoneShell(summaryLines: List<String>) {
     var selected by remember { mutableIntStateOf(PhoneTab.Profile.ordinal) }
+    var showInfoSheet by remember { mutableStateOf(false) }
     val tabs = PhoneTab.entries
     Scaffold(
         modifier = Modifier.testTag("phone_shell"),
@@ -114,7 +122,8 @@ fun OmniGartPhoneShell(summaryLines: List<String>) {
             Modifier
                 .fillMaxSize()
                 .padding(padding)
-                .padding(OmniGartSpacing.space6),
+                .padding(OmniGartSpacing.space6)
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space2)
         ) {
             Text(
@@ -124,7 +133,7 @@ fun OmniGartPhoneShell(summaryLines: List<String>) {
                 modifier = Modifier.testTag("brand_title")
             )
             Text(
-                text = stringResource(R.string.shell_placeholder),
+                text = stringResource(R.string.shell_intro),
                 color = OmniGartColors.colorTextLightSecondary
             )
             Text(
@@ -135,6 +144,37 @@ fun OmniGartPhoneShell(summaryLines: List<String>) {
             summaryLines.forEach { line ->
                 Text(text = line, style = MaterialTheme.typography.bodyLarge)
             }
+            if (selected == PhoneTab.Profile.ordinal || selected == PhoneTab.Recovery.ordinal) {
+                Text(
+                    text = stringResource(R.string.onboarding_wellness_title),
+                    style = MaterialTheme.typography.titleSmall
+                )
+                Text(
+                    text = stringResource(R.string.wellness_disclaimer),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = OmniGartColors.colorTextLightSecondary,
+                    modifier = Modifier.testTag("wellness_disclaimer")
+                )
+                Text(
+                    text = stringResource(R.string.health_warning_chest_pain),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = OmniGartColors.colorTextLightSecondary
+                )
+                IconButton(
+                    onClick = { showInfoSheet = !showInfoSheet },
+                    modifier = Modifier.testTag("info_sheet_toggle")
+                ) {
+                    Text(stringResource(R.string.info_sheet_title))
+                }
+                if (showInfoSheet) {
+                    WellnessInfoSheet()
+                }
+            }
+            // Unfinished surfaces stay behind flags that are off in release.
+            if (FeatureFlags.healthSyncEnabled) {
+                Text(text = stringResource(R.string.perm_explainer_health_body))
+            }
+            MaybeDebugMenu()
         }
     }
 }

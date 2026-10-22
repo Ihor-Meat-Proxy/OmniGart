@@ -6,5 +6,27 @@
     <string name="tab_recovery">Відновлення</string>
     <string name="tab_planner">Планувальник</string>
     <string name="tab_profile">Профіль</string>
-    <string name="shell_placeholder">Оболонка Phase 0 — дані зі спільного ядра</string>
+    <string name="shell_intro">Оцінки самопочуття з вашого спільного профілю OmniGart</string>
+
+    <string name="wellness_disclaimer">OmniGart надає лише оцінки самопочуття. Готовність, стрес, ВСР, індекс Баєвського, оцінка жиру в тілі, цілі гідратації та плани тренувань не є медичною консультацією. Звертайтеся до кваліфікованого фахівця щодо питань здоров’я.</string>
+    <string name="info_sheet_not_medical_advice">Це не медична консультація. Зверніться до фахівця.</string>
+    <string name="health_warning_chest_pain">Зупиніться і зверніться по екстрену допомогу, якщо під час активності відчуваєте біль у грудях, сильне запаморочення або незвичну задишку.</string>
+    <string name="onboarding_wellness_title">Самопочуття, не медицина</string>
+    <string name="info_sheet_title">Про цю оцінку</string>
+    <string name="info_sheet_body">Показники на кшталт готовності, стресу, ВСР, індексу Баєвського, жиру в тілі та гідратації — це оцінки самопочуття на основі ваших даних і зразків із пристрою. Плани — тренерські пропозиції, а не приписи лікаря.</string>
+
+    <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
+    <string name="perm_explainer_health_body">OmniGart може читати й записувати зразки самопочуття (пульс, ВСР, сон, тренування, маса тіла, гідратація), щоб покращувати оцінки на пристрої. Дані не використовуються для реклами і не надсилаються стороннім сервісам. Можна продовжити без доступу.</string>
+    <string name="perm_explainer_bluetooth_title">Bluetooth-аксесуари</string>
+    <string name="perm_explainer_bluetooth_body">Підключіть пульсометр або подібний фітнес-аксесуар для живих зразків. OmniGart повністю працює без Bluetooth.</string>
+    <string name="perm_explainer_camera_title">Камера для штрихкодів</string>
+    <string name="perm_explainer_camera_body">Камера використовується лише для сканування штрихкодів продуктів. Їжу можна додавати вручну, якщо відмовите в доступі.</string>
+    <string name="perm_explainer_notifications_title">Нагадування</string>
+    <string name="perm_explainer_notifications_body">Необов’язкові нагадування про тренування, гідратацію та ранкові перевірки самопочуття. Додаток працює зі вимкненими сповіщеннями.</string>
+    <string name="perm_continue">Продовжити</string>
+    <string name="perm_not_now">Не зараз</string>
+
+    <string name="hc_rationale_title">Використання даних Health Connect</string>
+    <string name="hc_rationale_body">OmniGart запитує доступ до Health Connect, щоб читати й записувати обрані вами фітнес-дані та дані самопочуття — пульс, ВСР, сон, тренування, масу тіла, гідратацію — для точніших оцінок готовності й тренувань на пристрої.\n\nМи не продаємо дані здоров’я, не використовуємо їх для реклами і не передаємо третім сторонам для маркетингу. Можна відмовити в доступі й користуватися OmniGart із ручним введенням.</string>
+    <string name="hc_rationale_privacy_policy">Політика конфіденційності</string>
 </resources>

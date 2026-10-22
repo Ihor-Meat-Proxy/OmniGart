@@ -18,11 +18,11 @@ interface HealthDataSource {
     suspend fun latestHrvLnRmssd(): Double?
 }
 
-/** Placeholder for Phase 1+ HealthKit bridging. */
+/** HealthKit bridging (platform module; gated by FeatureFlags.healthSyncEnabled). */
 interface HealthKitAdapter : HealthDataSource
 
-/** Placeholder for Phase 1+ Health Connect bridging. */
+/** Health Connect bridging (platform module; gated by FeatureFlags.healthSyncEnabled). */
 interface HealthConnectAdapter : HealthDataSource
 
-/** Placeholder for Phase 1+ Google Health API bridging (not Google Fit). */
+/** Google Health API bridging (not Google Fit; gated by FeatureFlags.healthSyncEnabled). */
 interface GoogleHealthApiAdapter : HealthDataSource

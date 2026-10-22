@@ -25,6 +25,9 @@ targets:
     deploymentTarget: "18.0"
     sources:
       - path: OmniGart
+        excludes:
+          - PrivacyInfo.xcprivacy
+          - "**/*.lproj/**"
       - &designSwiftSources
         path: ../design/generated/ios/Sources
         name: Design
@@ -40,6 +43,10 @@ targets:
         type: folder
         name: OmniGartIcons
         createIntermediateGroups: false
+      - path: OmniGart/PrivacyInfo.xcprivacy
+        buildPhase: resources
+      - path: OmniGart/en-GB.lproj
+      - path: OmniGart/uk.lproj
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios
@@ -100,6 +107,8 @@ targets:
     resources:
       - *designColorAssets
       - *designIconAssets
+      - path: ../watchApp/OmniGartWatch/en-GB.lproj
+      - path: ../watchApp/OmniGartWatch/uk.lproj
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios.watchkitapp

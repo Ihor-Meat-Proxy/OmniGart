@@ -152,8 +152,14 @@ Autopilot log (Phase 0 + merged design / planning). Each item: **context**, **ch
 ## Naming: no competitor product names
 
 - **Context:** Owner rule for all current and future work.
-- **Choice:** Never mention competitor app/product names (examples include popular strength loggers, wearable brands, and recovery/coaching apps) in the repo, code, docs, commits, or PR titles/bodies. Use neutral descriptions of product categories and patterns instead. Platform APIs remain allowed: HealthKit, Health Connect, Google Health API, Polar BLE SDK.
+- **Choice:** Never mention competitor app/product names (examples include popular strength loggers, wearable brands, and recovery/coaching apps) in the repo, code, docs, commits, or PR titles/bodies. Use neutral descriptions of product categories and patterns instead. Platform APIs remain allowed: HealthKit, Health Connect, Google Health API, Polar BLE SDK. The CI scan list is `.github/ci/banned-terms.yml` only.
 - **Alternatives:** Keep a private research notebook outside the repo if named product comparisons are needed.
+
+## App Review / health-app compliance
+
+- **Context:** Owner-mandated rules for all app code and copy going forward (wellness framing, JIT permissions, no debug dead ends in release, accurate PrivacyInfo).
+- **Choice:** Enforce via `scripts/check_app_review_compliance.py` inside existing CI jobs; human store steps in `docs/RELEASE_CHECKLIST.md`. Privacy policy URL currently points at `https://omnigart.com/privacy` until the live policy is published.
+- **Alternatives:** Separate required CI job (rejected — keep gates inside existing jobs).
 
 ## Autopilot v1 roadmap
 

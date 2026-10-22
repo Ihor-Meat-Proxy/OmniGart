@@ -1,35 +1,44 @@
 import SwiftUI
 
-/// Phase 0 phone shell: Food / Workouts / Recovery / Planner / Profile.
+/// Phone shell: Food / Workouts / Recovery / Planner / Profile.
 /// Colours and tab icons come from design/generated (DTCG → Swift / asset catalog).
 struct PhoneRootView: View {
     let summaryLines: [String]
     @State private var selectedTab: PhoneTab = .profile
+    @State private var showInfoSheet = false
 
     var body: some View {
         TabView(selection: $selectedTab) {
             ForEach(PhoneTab.allCases) { tab in
-                TabContent(tab: tab, summaryLines: summaryLines)
-                    .tabItem {
-                        Label {
-                            Text(tab.titleKey)
-                        } icon: {
-                            Image(tab.iconAssetName)
-                                .renderingMode(.template)
-                        }
+                TabContent(
+                    tab: tab,
+                    summaryLines: summaryLines,
+                    showInfoSheet: $showInfoSheet
+                )
+                .tabItem {
+                    Label {
+                        Text(tab.titleKey)
+                    } icon: {
+                        Image(tab.iconAssetName)
+                            .renderingMode(.template)
                     }
-                    .tag(tab)
-                    .accessibilityIdentifier(tab.accessibilityId)
+                }
+                .tag(tab)
+                .accessibilityIdentifier(tab.accessibilityId)
             }
         }
         .tint(Color.OmniGart.colorBrandAccent)
         .accessibilityIdentifier("phone_shell")
+        .sheet(isPresented: $showInfoSheet) {
+            WellnessInfoSheet()
+        }
     }
 }
 
 private struct TabContent: View {
     let tab: PhoneTab
     let summaryLines: [String]
+    @Binding var showInfoSheet: Bool
 
     var body: some View {
         NavigationStack {
@@ -39,7 +48,7 @@ private struct TabContent: View {
                         .font(.largeTitle.bold())
                         .foregroundStyle(Color.OmniGart.colorBrandAccent)
                         .accessibilityIdentifier("brand_title")
-                    Text("shell_placeholder")
+                    Text("shell_intro")
                         .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
                 }
                 Section(tab.titleKey) {
@@ -47,6 +56,22 @@ private struct TabContent: View {
                         Text(line)
                     }
                 }
+                if tab == .profile || tab == .recovery {
+                    Section {
+                        WellnessDisclaimerBanner()
+                        Button {
+                            showInfoSheet = true
+                        } label: {
+                            Label("info_sheet_title", systemImage: "info.circle")
+                        }
+                        .accessibilityIdentifier("info_sheet_toggle")
+                    }
+                }
+                #if DEBUG
+                Section {
+                    DebugMenu()
+                }
+                #endif
             }
             .navigationTitle(Text(tab.titleKey))
             .scrollContentBackground(.hidden)

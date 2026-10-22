@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "description": "Five-level colourblind-safe sequential scale for workout heatmaps. References design tokens (Okabe–Ito-inspired HR zones) so apps stay in sync with the design system.",
+  "levels": [
+    {
+      "level": 1,
+      "token": "color.hrZone.z1",
+      "hex": { "light": "#0072B2", "dark": "#4BA3D0" },
+      "label": "Very low"
+    },
+    {
+      "level": 2,
+      "token": "color.hrZone.z2",
+      "hex": { "light": "#009E73", "dark": "#33B892" },
+      "label": "Low"
+    },
+    {
+      "level": 3,
+      "token": "color.hrZone.z3",
+      "hex": { "light": "#F0E442", "dark": "#F5EB6E" },
+      "label": "Moderate",
+      "labelColorToken": "color.text.light.primary"
+    },
+    {
+      "level": 4,
+      "token": "color.hrZone.z4",
+      "hex": { "light": "#E69F00", "dark": "#F0B333" },
+      "label": "High"
+    },
+    {
+      "level": 5,
+      "token": "color.hrZone.z5",
+      "hex": { "light": "#D55E00", "dark": "#E87A26" },
+      "label": "Very high"
+    }
+  ],
+  "idle": {
+    "token": "color.neutral.200",
+    "hex": { "light": "#E2E8F0", "dark": "#334155" }
+  },
+  "outline": {
+    "token": "color.neutral.400",
+    "hex": { "light": "#94A3B8", "dark": "#64748B" }
+  },
+  "primaryHighlight": {
+    "token": "color.brand.accent",
+    "hex": { "light": "#0F766E", "dark": "#2DD4BF" },
+    "opacity": 1.0
+  },
+  "secondaryHighlight": {
+    "token": "color.brand.accent",
+    "hex": { "light": "#0F766E", "dark": "#2DD4BF" },
+    "opacity": 0.35
+  }
+}

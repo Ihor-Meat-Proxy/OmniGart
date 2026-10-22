@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "templates": [
+    {
+      "id": "challenge.mobility_30_day",
+      "challengeType": "mobility_30_day",
+      "durationDays": 30,
+      "iconId": "yoga",
+      "titleKey": "challenge.mobility_30_day.title",
+      "descriptionKey": "challenge.mobility_30_day.description",
+      "goal": {
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 20,
+        "filters": {
+          "discipline": "yoga"
+        },
+        "window": {
+          "unit": "challenge",
+          "count": 1
+        }
+      },
+      "localOnly": true,
+      "social": false
+    },
+    {
+      "id": "challenge.run_100km_month",
+      "challengeType": "run_100km_month",
+      "durationDays": 31,
+      "iconId": "running",
+      "titleKey": "challenge.run_100km_month.title",
+      "descriptionKey": "challenge.run_100km_month.description",
+      "goal": {
+        "metric": "distance_m",
+        "comparator": "gte",
+        "value": 100000,
+        "filters": {
+          "discipline": "running"
+        },
+        "window": {
+          "unit": "challenge",
+          "count": 1
+        }
+      },
+      "localOnly": true,
+      "social": false
+    },
+    {
+      "id": "challenge.hydration_21_day",
+      "challengeType": "hydration_21_day",
+      "durationDays": 21,
+      "iconId": "water",
+      "titleKey": "challenge.hydration_21_day.title",
+      "descriptionKey": "challenge.hydration_21_day.description",
+      "goal": {
+        "metric": "water_goal_day",
+        "comparator": "gte",
+        "value": 18,
+        "window": {
+          "unit": "challenge",
+          "count": 1
+        }
+      },
+      "localOnly": true,
+      "social": false
+    },
+    {
+      "id": "challenge.sleep_logging_14_day",
+      "challengeType": "sleep_logging_14_day",
+      "durationDays": 14,
+      "iconId": "sleep",
+      "titleKey": "challenge.sleep_logging_14_day.title",
+      "descriptionKey": "challenge.sleep_logging_14_day.description",
+      "goal": {
+        "metric": "sleep_logged_day",
+        "comparator": "gte",
+        "value": 12,
+        "window": {
+          "unit": "challenge",
+          "count": 1
+        }
+      },
+      "localOnly": true,
+      "social": false
+    },
+    {
+      "id": "challenge.strength_adherence_28_day",
+      "challengeType": "strength_adherence_28_day",
+      "durationDays": 28,
+      "iconId": "strength",
+      "titleKey": "challenge.strength_adherence_28_day.title",
+      "descriptionKey": "challenge.strength_adherence_28_day.description",
+      "goal": {
+        "metric": "training_or_rest_day",
+        "comparator": "gte",
+        "value": 24,
+        "filters": {
+          "discipline": "strength"
+        },
+        "window": {
+          "unit": "challenge",
+          "count": 1
+        }
+      },
+      "localOnly": true,
+      "social": false
+    }
+  ]
+}

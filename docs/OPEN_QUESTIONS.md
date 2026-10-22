@@ -29,5 +29,26 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 
 ## Process
 
-17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward Hevy-scale later or keep curated & cited?
+17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward a larger commercial-library scale later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
+
+## Achievements (this PR)
+
+19. **SQLDelight / persistence** — Engine uses `AchievementStore`; confirm table shapes (processed event ids, progress JSON, challenge instances) when Phase 0 scaffold lands. No app wiring in the achievements PR.
+20. **Streak freeze UX** — Default `maxFreezeDaysPer30Days = 2`. Confirm product copy and whether freezes are manual, automatic on planned rest, or both.
+21. **Notification batching** — Backfill returns `batchSummaryCount` only. Confirm toast/inbox copy and whether secret unlocks are listed inside the summary.
+22. **Protein target source** — `protein_target_day` assumes a user-set target from nutrition settings (hydration agent / food tab). Confirm default target algorithm.
+23. **Measurement “week streak”** — `measurements.streak.4_weeks` uses daily streak metric with weekly logging intent; confirm whether engine should switch to week-grain streak helper.
+24. **Challenge expiry notifications** — Local challenges expire silently today; confirm whether to emit a single local notification.
+25. **Icon set** — Achievements reuse existing `design/icons` ids (`strength`, `streak`, `trophy`, …). Add tier-specific glyphs (bronze/silver/gold/platinum) via the icon pipeline?
+26. **Translation hand-off** — New keys shipped for **en-GB** + **uk** only. Translation agent should add other locales for the key list below. Never add `ru`.
+
+### New i18n keys (achievements + challenges)
+
+Locale files: `content/achievements/locales/en-GB.json`, `content/achievements/locales/uk.json`.
+
+- Category labels: `achievement.category.{strength,running,swimming,yoga,pilates,nutrition,water,recovery,body_measurements,consistency}`
+- Tier labels: `achievement.tier.{bronze,silver,gold,platinum}`
+- UI helpers: `achievement.progress.next_tier`, `achievement.backfill.summary`, `achievement.secret.unlocked`
+- Per-achievement `achievement.<id_with_underscores>.{title,description}` for all 80 ids in `data/achievements.json` (e.g. `achievement.strength_first_session.title`)
+- Challenge templates: `challenge.{mobility_30_day,run_100km_month,hydration_21_day,sleep_logging_14_day,strength_adherence_28_day}.{title,description}`

@@ -37,6 +37,16 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    sourceSets {
+        getByName("main") {
+            res.srcDirs(
+                "src/main/res",
+                rootProject.file("design/generated/android/values"),
+                rootProject.file("design/generated/android/drawable")
+            )
+        }
+    }
 }
 
 kotlin {
@@ -72,10 +82,17 @@ ktlint {
     filter {
         exclude("**/generated/**")
         exclude("**/build/**")
+        exclude { it.file.path.contains("/design/") }
+        exclude { it.file.path.contains("/com/omnigart/design/") }
     }
 }
 
 detekt {
     buildUponDefaultConfig = true
     config.setFrom(files("${rootProject.projectDir}/config/detekt/detekt.yml"))
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    // Synced from design/generated/compose — skip generated ImageVectors / tokens.
+    exclude("**/com/omnigart/design/**")
 }

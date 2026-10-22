@@ -1,0 +1,68 @@
+{
+  "id": "high-knees-drill",
+  "nameKeys": {
+    "enGB": "exercise.high_knees_drill.name",
+    "uk": "exercise.high_knees_drill.name"
+  },
+  "discipline": "running",
+  "movementPattern": "run_drill",
+  "primaryMuscles": [
+    "hip_flexors",
+    "quadriceps",
+    "calves"
+  ],
+  "secondaryMuscles": [],
+  "equipment": [
+    "track",
+    "road",
+    "none"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "skill",
+  "trackingType": "timed",
+  "technique": [
+    "March/run in place or travel with exaggerated knee drive and quick ground contacts."
+  ],
+  "setup": [
+    "Short bursts."
+  ],
+  "breathing": "Rhythmic breathing.",
+  "commonMistakes": [
+    "Leaning back",
+    "Slamming feet"
+  ],
+  "safety": [
+    "Keep posture tall."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "a-skip",
+      "note": "Skip pattern"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/high-knees-drill",
+    "videoKey": "media/video/high-knees-drill",
+    "animationKey": "media/anim/high-knees-drill"
+  },
+  "aliases": [],
+  "tags": [
+    "run"
+  ]
+}

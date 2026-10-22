@@ -1,0 +1,69 @@
+{
+  "id": "cable-chest-fly",
+  "nameKeys": {
+    "enGB": "exercise.cable_chest_fly.name",
+    "uk": "exercise.cable_chest_fly.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid"
+  ],
+  "equipment": [
+    "cable"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "weight_reps",
+  "technique": [
+    "With a soft elbow, bring handles together in an arc; reverse slowly."
+  ],
+  "setup": [
+    "Cables at roughly chest height; stagger stance optional."
+  ],
+  "breathing": "Exhale on the squeeze.",
+  "commonMistakes": [
+    "Straight-arm shoulder stress",
+    "Using momentum"
+  ],
+  "safety": [
+    "Keep elbows soft; modest stretch."
+  ],
+  "contraindications": [
+    "Acute pec strain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "push-up",
+      "note": "Compound"
+    },
+    {
+      "exerciseId": "dumbbell-bench-press",
+      "note": "Compound load"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/cable-chest-fly",
+    "videoKey": "media/video/cable-chest-fly",
+    "animationKey": "media/anim/cable-chest-fly"
+  },
+  "aliases": [],
+  "tags": []
+}

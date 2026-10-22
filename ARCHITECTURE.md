@@ -50,11 +50,13 @@ flowchart TB
 | Path | Role |
 |------|------|
 | `shared/` | KMP core: domain, calcs, SQLDelight, i18n keys, health interfaces |
-| `androidApp/` | Phone UI (Jetpack Compose, Material 3) |
+| `shared/planning/` | Rule-based planning + content validation (JVM/common; content under `content/exercises/`) |
+| `androidApp/` | Phone UI (Jetpack Compose, Material 3 + design tokens/icons) |
 | `wearApp/` | Wear OS UI (Compose for Wear OS Material 3) |
 | `iosApp/` | XcodeGen project: iOS app + schemes; embeds watch app |
 | `watchApp/` | watchOS SwiftUI sources (referenced by XcodeGen) |
-| `content/packs/` | Versioned exercise/content JSON (separate from UI strings) |
+| `design/` | DTCG tokens, icons, app icon, generated Swift/Android/Compose outputs |
+| `content/exercises/` | Versioned exercise JSON, templates, locales, schemas |
 | `docs/evidence/` | Citation JSON + schema for formula references |
 
 ## Persistence
@@ -76,7 +78,8 @@ Defined in `shared/.../health/HealthAdapters.kt`:
 
 ## watchOS KMP notes
 
-Targets enabled: `watchosArm64`, `watchosSimulatorArm64`, `watchosX64`.
+Targets enabled: `watchosArm64`, `watchosSimulatorArm64` (`watchosX64` deprecated).
+Frameworks are synced into `shared/build/xcode-frameworks/<Config>/<SDK_NAME>/` via `:shared:syncXcodeFrameworks` for XcodeGen `FRAMEWORK_SEARCH_PATHS`.
 
 Supported in Phase 0: Kotlin/Native stdlib, coroutines, kotlinx-datetime, kotlinx-serialization, SQLDelight native driver.
 

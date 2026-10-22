@@ -1,0 +1,82 @@
+{
+  "id": "smith-machine-squat",
+  "nameKeys": {
+    "enGB": "exercise.smith_machine_squat.name",
+    "uk": "exercise.smith_machine_squat.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "squat",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "hamstrings"
+  ],
+  "equipment": [
+    "machine"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Bar on a fixed path; squat with feet placed so knees track well; use safeties."
+  ],
+  "setup": [
+    "Feet slightly forward of a free squat for many users."
+  ],
+  "breathing": "Inhale down, exhale up.",
+  "commonMistakes": [
+    "Feet too far under bar causing awkward path"
+  ],
+  "safety": [
+    "Fixed path ≠ free squat transfer; still useful."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "goblet-squat",
+      "note": "Free pattern"
+    },
+    {
+      "exerciseId": "leg-press",
+      "note": "Machine legs"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "back-squat",
+      "note": "Free barbell"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1097/00005768-200101000-00020",
+      "label": "Escamilla 2001 — knee biomechanics of the dynamic squat",
+      "supports": [
+        "biomechanics",
+        "technique",
+        "safety"
+      ]
+    },
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/smith-machine-squat",
+    "videoKey": "media/video/smith-machine-squat",
+    "animationKey": "media/anim/smith-machine-squat"
+  },
+  "aliases": [],
+  "tags": []
+}

@@ -1,0 +1,267 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "OmniGart design tokens — single source of truth for iOS, Android, and watchOS.",
+  "color": {
+    "brand": {
+      "accent": {
+        "$type": "color",
+        "$value": "#0F766E",
+        "$description": "Primary brand accent (teal). Use sparingly for CTAs and key emphasis."
+      },
+      "accentMuted": {
+        "$type": "color",
+        "$value": "#CCFBF1"
+      },
+      "accentOn": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      }
+    },
+    "neutral": {
+      "0": { "$type": "color", "$value": "#FFFFFF" },
+      "50": { "$type": "color", "$value": "#F8FAFC" },
+      "100": { "$type": "color", "$value": "#F1F5F9" },
+      "200": { "$type": "color", "$value": "#E2E8F0" },
+      "300": { "$type": "color", "$value": "#CBD5E1" },
+      "400": { "$type": "color", "$value": "#94A3B8" },
+      "500": { "$type": "color", "$value": "#64748B" },
+      "600": { "$type": "color", "$value": "#475569" },
+      "700": { "$type": "color", "$value": "#334155" },
+      "800": { "$type": "color", "$value": "#1E293B" },
+      "900": { "$type": "color", "$value": "#0F172A" },
+      "950": { "$type": "color", "$value": "#020617" }
+    },
+    "semantic": {
+      "success": { "$type": "color", "$value": "#15803D" },
+      "successMuted": { "$type": "color", "$value": "#DCFCE7" },
+      "warning": { "$type": "color", "$value": "#B45309" },
+      "warningMuted": { "$type": "color", "$value": "#FEF3C7" },
+      "danger": { "$type": "color", "$value": "#B91C1C" },
+      "dangerMuted": { "$type": "color", "$value": "#FEE2E2" },
+      "info": { "$type": "color", "$value": "#1D4ED8" },
+      "infoMuted": { "$type": "color", "$value": "#DBEAFE" }
+    },
+    "readiness": {
+      "go": {
+        "$type": "color",
+        "$value": "#059669",
+        "$description": "Ready to train hard. Colourblind-safe green."
+      },
+      "moderate": {
+        "$type": "color",
+        "$value": "#D97706",
+        "$description": "Train with caution / moderated intensity."
+      },
+      "easy": {
+        "$type": "color",
+        "$value": "#2563EB",
+        "$description": "Easy / recovery-biased session recommended."
+      },
+      "rest": {
+        "$type": "color",
+        "$value": "#7C3AED",
+        "$description": "Prioritise rest. Distinct from HR zones."
+      }
+    },
+    "hrZone": {
+      "z1": {
+        "$type": "color",
+        "$value": "#0072B2",
+        "$description": "Zone 1 — recovery. Okabe–Ito blue."
+      },
+      "z2": {
+        "$type": "color",
+        "$value": "#009E73",
+        "$description": "Zone 2 — aerobic base. Okabe–Ito bluish green."
+      },
+      "z3": {
+        "$type": "color",
+        "$value": "#F0E442",
+        "$description": "Zone 3 — tempo. Okabe–Ito yellow (pair with dark label)."
+      },
+      "z4": {
+        "$type": "color",
+        "$value": "#E69F00",
+        "$description": "Zone 4 — threshold. Okabe–Ito orange."
+      },
+      "z5": {
+        "$type": "color",
+        "$value": "#D55E00",
+        "$description": "Zone 5 — max. Okabe–Ito vermillion."
+      }
+    },
+    "surface": {
+      "light": {
+        "canvas": { "$type": "color", "$value": "#F8FAFC" },
+        "raised": { "$type": "color", "$value": "#FFFFFF" },
+        "sunken": { "$type": "color", "$value": "#F1F5F9" },
+        "overlay": { "$type": "color", "$value": "#0F172A99" },
+        "glass": { "$type": "color", "$value": "#FFFFFFB8" },
+        "glassBorder": { "$type": "color", "$value": "#FFFFFF80" },
+        "hairline": { "$type": "color", "$value": "#E2E8F0" }
+      },
+      "dark": {
+        "canvas": { "$type": "color", "$value": "#0B1220" },
+        "raised": { "$type": "color", "$value": "#151C2C" },
+        "sunken": { "$type": "color", "$value": "#070B14" },
+        "overlay": { "$type": "color", "$value": "#020617B3" },
+        "glass": { "$type": "color", "$value": "#1E293B99" },
+        "glassBorder": { "$type": "color", "$value": "#FFFFFF26" },
+        "hairline": { "$type": "color", "$value": "#334155" }
+      }
+    },
+    "text": {
+      "light": {
+        "primary": { "$type": "color", "$value": "#0F172A" },
+        "secondary": { "$type": "color", "$value": "#475569" },
+        "tertiary": { "$type": "color", "$value": "#64748B" },
+        "inverse": { "$type": "color", "$value": "#F8FAFC" },
+        "onAccent": { "$type": "color", "$value": "#FFFFFF" },
+        "onGlass": { "$type": "color", "$value": "#0F172A" }
+      },
+      "dark": {
+        "primary": { "$type": "color", "$value": "#F8FAFC" },
+        "secondary": { "$type": "color", "$value": "#CBD5E1" },
+        "tertiary": { "$type": "color", "$value": "#94A3B8" },
+        "inverse": { "$type": "color", "$value": "#0F172A" },
+        "onAccent": { "$type": "color", "$value": "#FFFFFF" },
+        "onGlass": { "$type": "color", "$value": "#F8FAFC" }
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "sans": {
+        "$type": "fontFamily",
+        "$value": ["OmniGart Sans", "SF Pro Text", "Roboto", "system-ui", "sans-serif"],
+        "$description": "UI sans. Platforms map to SF Pro / Roboto until custom face ships."
+      },
+      "display": {
+        "$type": "fontFamily",
+        "$value": ["OmniGart Display", "SF Pro Display", "Roboto", "system-ui", "sans-serif"]
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": ["SF Mono", "Roboto Mono", "ui-monospace", "monospace"],
+        "$description": "Numeric logging (weights, reps, HR)."
+      }
+    },
+    "size": {
+      "caption": { "$type": "dimension", "$value": "12px" },
+      "footnote": { "$type": "dimension", "$value": "13px" },
+      "body": { "$type": "dimension", "$value": "16px" },
+      "callout": { "$type": "dimension", "$value": "17px" },
+      "title3": { "$type": "dimension", "$value": "20px" },
+      "title2": { "$type": "dimension", "$value": "24px" },
+      "title1": { "$type": "dimension", "$value": "28px" },
+      "largeTitle": { "$type": "dimension", "$value": "34px" },
+      "heroMetric": { "$type": "dimension", "$value": "40px" }
+    },
+    "weight": {
+      "regular": { "$type": "fontWeight", "$value": 400 },
+      "medium": { "$type": "fontWeight", "$value": 500 },
+      "semibold": { "$type": "fontWeight", "$value": 600 },
+      "bold": { "$type": "fontWeight", "$value": 700 }
+    },
+    "lineHeight": {
+      "tight": { "$type": "number", "$value": 1.15 },
+      "snug": { "$type": "number", "$value": 1.25 },
+      "normal": { "$type": "number", "$value": 1.4 },
+      "relaxed": { "$type": "number", "$value": 1.55 }
+    }
+  },
+  "space": {
+    "0": { "$type": "dimension", "$value": "0px" },
+    "1": { "$type": "dimension", "$value": "4px" },
+    "2": { "$type": "dimension", "$value": "8px" },
+    "3": { "$type": "dimension", "$value": "12px" },
+    "4": { "$type": "dimension", "$value": "16px" },
+    "5": { "$type": "dimension", "$value": "20px" },
+    "6": { "$type": "dimension", "$value": "24px" },
+    "7": { "$type": "dimension", "$value": "32px" },
+    "8": { "$type": "dimension", "$value": "40px" },
+    "9": { "$type": "dimension", "$value": "48px" },
+    "10": { "$type": "dimension", "$value": "64px" },
+    "thumbZone": {
+      "$type": "dimension",
+      "$value": "120px",
+      "$description": "Bottom safe band for primary one-hand actions."
+    },
+    "hitMin": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "Minimum interactive target (44pt iOS / 48dp Android prefers space.hitComfort)."
+    },
+    "hitComfort": {
+      "$type": "dimension",
+      "$value": "48px",
+      "$description": "Preferred Android / comfort hit target."
+    }
+  },
+  "radius": {
+    "none": { "$type": "dimension", "$value": "0px" },
+    "sm": { "$type": "dimension", "$value": "8px" },
+    "md": { "$type": "dimension", "$value": "12px" },
+    "lg": { "$type": "dimension", "$value": "16px" },
+    "xl": { "$type": "dimension", "$value": "24px" },
+    "sheet": { "$type": "dimension", "$value": "28px" },
+    "pill": { "$type": "dimension", "$value": "999px" }
+  },
+  "elevation": {
+    "0": {
+      "$type": "shadow",
+      "$value": { "x": "0px", "y": "0px", "blur": "0px", "spread": "0px", "color": "#00000000" }
+    },
+    "1": {
+      "$type": "shadow",
+      "$value": { "x": "0px", "y": "1px", "blur": "2px", "spread": "0px", "color": "#0F172A14" }
+    },
+    "2": {
+      "$type": "shadow",
+      "$value": { "x": "0px", "y": "4px", "blur": "12px", "spread": "0px", "color": "#0F172A1A" }
+    },
+    "3": {
+      "$type": "shadow",
+      "$value": { "x": "0px", "y": "8px", "blur": "24px", "spread": "0px", "color": "#0F172A24" }
+    }
+  },
+  "motion": {
+    "duration": {
+      "instant": { "$type": "duration", "$value": "80ms" },
+      "fast": { "$type": "duration", "$value": "160ms" },
+      "base": { "$type": "duration", "$value": "240ms" },
+      "slow": { "$type": "duration", "$value": "360ms" },
+      "sheet": { "$type": "duration", "$value": "420ms" }
+    },
+    "easing": {
+      "standard": {
+        "$type": "cubicBezier",
+        "$value": [0.2, 0.0, 0.0, 1.0]
+      },
+      "emphasized": {
+        "$type": "cubicBezier",
+        "$value": [0.2, 0.0, 0.0, 1.0]
+      },
+      "decelerate": {
+        "$type": "cubicBezier",
+        "$value": [0.0, 0.0, 0.0, 1.0]
+      },
+      "accelerate": {
+        "$type": "cubicBezier",
+        "$value": [0.3, 0.0, 1.0, 1.0]
+      }
+    },
+    "reduceMotion": {
+      "$type": "boolean",
+      "$value": true,
+      "$description": "When accessibility Reduce Motion is on, collapse to opacity/instant only."
+    }
+  },
+  "layout": {
+    "contentMax": { "$type": "dimension", "$value": "680px" },
+    "gutter": { "$type": "dimension", "$value": "16px" },
+    "tabBarHeight": { "$type": "dimension", "$value": "64px" },
+    "quickLogFab": { "$type": "dimension", "$value": "56px" },
+    "watchPadding": { "$type": "dimension", "$value": "6px" }
+  }
+}

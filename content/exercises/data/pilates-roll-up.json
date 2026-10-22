@@ -1,0 +1,70 @@
+{
+  "id": "pilates-roll-up",
+  "nameKeys": {
+    "enGB": "exercise.pilates_roll_up.name",
+    "uk": "exercise.pilates_roll_up.name"
+  },
+  "discipline": "pilates",
+  "movementPattern": "core_brace",
+  "primaryMuscles": [
+    "rectus_abdominis"
+  ],
+  "secondaryMuscles": [
+    "hip_flexors"
+  ],
+  "equipment": [
+    "pilates_mat",
+    "yoga_mat",
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "reps",
+  "technique": [
+    "From supine, articulate spine up to seated reach, then roll down with control."
+  ],
+  "setup": [
+    "Arms overhead to start; legs long or soft knees."
+  ],
+  "breathing": "Exhale to roll up; inhale at top; exhale to roll down.",
+  "commonMistakes": [
+    "Using momentum",
+    "Yanking the neck"
+  ],
+  "safety": [
+    "Bend knees / use a strap if needed."
+  ],
+  "contraindications": [
+    "Acute discogenic pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "pilates-hundred",
+      "note": "Less ROM"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/pilates-roll-up",
+    "videoKey": "media/video/pilates-roll-up",
+    "animationKey": "media/anim/pilates-roll-up"
+  },
+  "aliases": [],
+  "tags": [
+    "pilates"
+  ]
+}

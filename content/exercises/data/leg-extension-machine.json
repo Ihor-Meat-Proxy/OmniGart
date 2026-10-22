@@ -1,0 +1,68 @@
+{
+  "id": "leg-extension-machine",
+  "nameKeys": {
+    "enGB": "exercise.leg_extension_machine.name",
+    "uk": "exercise.leg_extension_machine.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "squat",
+  "primaryMuscles": [
+    "quadriceps"
+  ],
+  "secondaryMuscles": [],
+  "equipment": [
+    "machine"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Extend the knees against the pad; lower under control."
+  ],
+  "setup": [
+    "Align knee joint with machine axis."
+  ],
+  "breathing": "Exhale to extend.",
+  "commonMistakes": [
+    "Using momentum",
+    "Hyperextending painfully"
+  ],
+  "safety": [
+    "Useful accessory; not a full substitute for squats."
+  ],
+  "contraindications": [
+    "Painful PF joint loading — reduce ROM/load"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "sit-to-stand",
+      "note": "Functional pattern"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "back-squat",
+      "note": "Compound"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/leg-extension-machine",
+    "videoKey": "media/video/leg-extension-machine",
+    "animationKey": "media/anim/leg-extension-machine"
+  },
+  "aliases": [],
+  "tags": []
+}

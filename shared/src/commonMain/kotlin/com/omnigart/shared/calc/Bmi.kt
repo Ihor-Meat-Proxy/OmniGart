@@ -35,6 +35,5 @@ object Bmi {
         }
     }
 
-    fun whoCategory(weightKg: Double, heightCm: Double): WhoBmiCategory =
-        whoCategory(value(weightKg, heightCm))
+    fun whoCategory(weightKg: Double, heightCm: Double): WhoBmiCategory = whoCategory(value(weightKg, heightCm))
 }

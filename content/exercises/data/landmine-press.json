@@ -1,0 +1,71 @@
+{
+  "id": "landmine-press",
+  "nameKeys": {
+    "enGB": "exercise.landmine_press.name",
+    "uk": "exercise.landmine_press.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "front_deltoid",
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "serratus_anterior"
+  ],
+  "equipment": [
+    "landmine",
+    "barbell"
+  ],
+  "level": "beginner",
+  "unilateral": true,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Press the angled bar forward-up from shoulder height; can be single-arm."
+  ],
+  "setup": [
+    "Bar anchored in landmine; athletic stance."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Twisting the torso unintentionally",
+    "Shrugging into the neck"
+  ],
+  "safety": [
+    "Useful when vertical pressing bothers the shoulder."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "overhead-press-dumbbell",
+      "note": "More vertical"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "overhead-press-barbell",
+      "note": "Vertical barbell"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/landmine-press",
+    "videoKey": "media/video/landmine-press",
+    "animationKey": "media/anim/landmine-press"
+  },
+  "aliases": [],
+  "tags": []
+}

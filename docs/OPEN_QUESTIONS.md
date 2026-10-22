@@ -1,6 +1,6 @@
 # Open questions, assumptions, and decisions needing review
 
-Phase 0 autopilot log. Each item: **context**, **choice**, **alternatives**.
+Autopilot log (Phase 0 + merged design / planning). Each item: **context**, **choice**, **alternatives**. Do not block merges on these.
 
 ## Branch naming vs cloud agent prefix
 
@@ -58,36 +58,72 @@ Phase 0 autopilot log. Each item: **context**, **choice**, **alternatives**.
 
 ## watchOS KMP framework linking
 
-- **Context:** Both iOS and watchOS consume `Shared.framework` from Gradle.
-- **Choice:** Separate Apple targets produce `Shared` for ios* and watchos*; XcodeGen points `FRAMEWORK_SEARCH_PATHS` at `shared/build/xcode-frameworks/...`.
-- **Alternatives:** Fat XCFramework via `./gradlew assembleXCFramework` (preferred once verified on macOS).
+- **Context:** Both iOS and watchOS consume `Shared.framework` from Gradle. CI failed with `No such module 'Shared'` because XcodeGen searched `shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)` while Gradle only wrote `shared/build/bin/<target>/debugFramework/`.
+- **Choice:** Add `syncXcodeFrameworks` Gradle task + CI rsync into the exact `$(SDK_NAME)` folders; exclude `x86_64` on watch simulator (no `watchosX64` target).
+- **Alternatives:** Fat XCFramework via `./gradlew assembleXCFramework`; Xcode Run Script calling `embedAndSignAppleFrameworkForXcode`.
 
-## iOS 26 / watchOS 26 / Liquid Glass
+## iOS / watchOS deployment vs GitHub Actions Xcode
 
-- **Context:** Owner has iOS 27.2 / watchOS 27.2 simulators; deployment target set to 26.0.
-- **Choice:** Deployment target **26.0**; rely on system Liquid Glass appearance without custom glass APIs in Phase 0.
-- **Alternatives:** Require 27.0; add explicit glass modifiers when public API is confirmed.
+- **Context:** Product intent is iOS 26+ / watchOS 26+ (Liquid Glass). GitHub `macos-15` currently exposes Xcode 16.4 (iOS 18.5 / watchOS 11.5 SDKs). Setting deployment target 26.0 made xcodebuild warn that the supported range tops out at 11.5.99 for watchOS.
+- **Choice:** Set XcodeGen deployment targets to **iOS 18.0 / watchOS 11.0** so CI can compile; CI prefers Xcode 26+ when installed. Document product floor remains 26+ once runners catch up.
+- **Alternatives:** Require a self-hosted macOS runner with Xcode 26; keep 26.0 and accept CI red until GHA images update.
 
 ## In-memory SQLDelight tests location
 
 - **Context:** `JdbcSqliteDriver` is JVM-only.
-- **Choice:** Repository tests in `androidUnitTest` (runs on Linux CI).
+- **Choice:** Repository tests in `androidHostTest` (runs on Linux CI).
 - **Alternatives:** Add a `jvm()` KMP target solely for tests.
 
 ## Wear applicationId
 
 - **Context:** Wear apps often share the phone applicationId for Play packaging; Robolectric also needs a distinct package for reliable activity resolution.
 - **Choice:** `com.omnigart.wear` for the Wear module in Phase 0.
-- **Alternatives:** Share `com.omnigart.android` for Play multi-APK when packaging is wired.
-
-## compileSdk 37
-
-- **Context:** Compose BOM 2026.09.00 / Compose UI 1.12.1 requires compileSdk ≥ 37.
-- **Choice:** `compileSdk = 37`, `targetSdk = 37`, platforms `android-37.0` / `android-37.2`.
-- **Alternatives:** Pin an older Compose BOM that still supports compileSdk 36.
+- **Alternatives:** Same applicationId as phone with a different activity; instrumentation tests on device.
 
 ## AGP 9 KMP Android library plugin
 
 - **Context:** AGP 9 rejects pairing `com.android.library` with `org.jetbrains.kotlin.multiplatform`.
 - **Choice:** `com.android.kotlin.multiplatform.library` with `kotlin { android { ... } }` and `androidHostTest`.
 - **Alternatives:** Temporary `android.builtInKotlin=false` / `android.newDsl=false` flags.
+
+## Design package integration
+
+- **Context:** PR #1 shipped `design/` self-contained; Phase 0 shells previously used Material defaults / SF Symbols.
+- **Choice:** Wire generated Compose theme/icons into `androidApp`, Swift colour helpers + icon asset catalogs into iOS/watch shells, default launcher / App Icon from design outputs. Design check runs on every CI push (not only path-filtered).
+- **Alternatives:** Keep design as a docs-only package until a dedicated UI polish PR.
+
+## Planning module shape
+
+- **Context:** PR #3 ships `shared/planning` as a JVM(+common) KMP module with content under `content/exercises/`.
+- **Choice:** Include `:shared:planning` beside `:shared` (foundation). Planning stays **JVM-first** for schema validation; not yet a dependency of the Apple/Android `Shared` framework. CI runs `:shared:planning:jvmTest`.
+- **Alternatives:** Promote planning to full apple/android targets and `api`-link from `:shared` once content loading on device is required.
+
+## Content & citations (from planning PR)
+
+1. **Exercise-specific EMG/biomechanics refs** — Many movements currently cite NSCA essentials + ACSM RT overview rather than movement-specific trials. Prefer adding verified meta-analyses/EMG papers per pattern family later; omit rather than invent DOIs.
+2. **Yoga / pilates evidence bar** — Technique-accurate but mostly ACSM flexibility/neuromotor guidance. Require discipline-specific systematic reviews before marking a claim “supported”?
+3. **Swim stroke coaching cues** — Confirm preferred cue dialect for freestyle catch and breaststroke kick legality notes.
+4. **Ukrainian terminology** — Confirm preferred sports terms with a native-speaking coach; current strings are drafts.
+5. **“Russian twist” naming** — English exercise name retained; no `ru` locale. Rename to “seated rotation” for neutrality?
+
+## Schema & product (from planning PR)
+
+6. **Media pipeline** — `media.*Key` placeholders assume a future CDN layout.
+7. **SQLDelight mapping** — Planning ships JSON + Kotlin models; table shapes land with persistence work.
+8. **Equipment model** — Is `none` vs `bodyweight` redundant for filters?
+9. **Tracking types** — Need richer swim-specific tracking than `laps`/`distance`?
+10. **Contraindications severity** — Free-text tags now; structured codes later?
+
+## Planning engine (from planning PR)
+
+11. **Sex as input** — Included for future norms; unused in v1 rules beyond profile plumbing.
+12. **Health/readiness sources** — Apple Health / Health Connect field mapping TBD.
+13. **Deload every 6 weeks** — Heuristic vs readiness-only deloads.
+14. **AI model allow-list** — Re-verify OpenRouter ZDR endpoints at ship time.
+15. **EU in-region** — `eu.openrouter.ai` needs Business/Enterprise confirmation.
+16. **Concurrent training interference** — Lift+run template exists; engine does not yet model interference quantitatively.
+
+## Process (from planning PR)
+
+17. **Target library size** — Shipped ~129 exercises (≈89 strength). Grow toward Hevy-scale or keep curated & cited?
+18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.

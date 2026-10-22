@@ -1,0 +1,68 @@
+{
+  "id": "push-press",
+  "nameKeys": {
+    "enGB": "exercise.push_press.name",
+    "uk": "exercise.push_press.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "front_deltoid",
+    "triceps",
+    "quadriceps"
+  ],
+  "secondaryMuscles": [
+    "gluteus_maximus",
+    "trapezius"
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Dip with legs, drive up, and press the bar overhead as legs extend; lock out; lower."
+  ],
+  "setup": [
+    "Front rack; athletic stance."
+  ],
+  "breathing": "Exhale on the drive.",
+  "commonMistakes": [
+    "Pressing before the drive",
+    "Soft lockout"
+  ],
+  "safety": [
+    "Coordinate legs and arms; use for overload carefully."
+  ],
+  "contraindications": [
+    "Same as overhead press"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "overhead-press-barbell",
+      "note": "Strict"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/push-press",
+    "videoKey": "media/video/push-press",
+    "animationKey": "media/anim/push-press"
+  },
+  "aliases": [],
+  "tags": []
+}

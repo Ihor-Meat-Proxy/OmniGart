@@ -1,0 +1,66 @@
+{
+  "id": "nordic-curl-assisted",
+  "nameKeys": {
+    "enGB": "exercise.nordic_curl_assisted.name",
+    "uk": "exercise.nordic_curl_assisted.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "hamstrings"
+  ],
+  "secondaryMuscles": [
+    "gluteus_maximus"
+  ],
+  "equipment": [
+    "bodyweight",
+    "bands"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "reps",
+  "technique": [
+    "Kneel, ankles fixed; lower torso forward slowly using hamstrings; assist with hands/band to return."
+  ],
+  "setup": [
+    "Pad knees; partner or stable anchor for ankles."
+  ],
+  "breathing": "Steady breath; brace lightly.",
+  "commonMistakes": [
+    "Losing hip extension and folding at the hips",
+    "Dropping uncontrolled"
+  ],
+  "safety": [
+    "High eccentric demand — progress cautiously."
+  ],
+  "contraindications": [
+    "Hamstring tendinopathy acute"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "leg-curl-machine",
+      "note": "Machine isolation"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/nordic-curl-assisted",
+    "videoKey": "media/video/nordic-curl-assisted",
+    "animationKey": "media/anim/nordic-curl-assisted"
+  },
+  "aliases": [],
+  "tags": []
+}

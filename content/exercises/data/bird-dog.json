@@ -1,0 +1,70 @@
+{
+  "id": "bird-dog",
+  "nameKeys": {
+    "enGB": "exercise.bird_dog.name",
+    "uk": "exercise.bird_dog.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "core_brace",
+  "primaryMuscles": [
+    "erector_spinae",
+    "gluteus_maximus",
+    "transverse_abdominis"
+  ],
+  "secondaryMuscles": [
+    "rear_deltoid"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": true,
+  "mechanics": "isolation",
+  "trackingType": "reps",
+  "technique": [
+    "Quadruped; extend opposite arm and leg without rotating hips; return and switch."
+  ],
+  "setup": [
+    "Hands under shoulders; knees under hips."
+  ],
+  "breathing": "Exhale on extension.",
+  "commonMistakes": [
+    "Lumbar sag",
+    "Hiking the hip"
+  ],
+  "safety": [
+    "Move slowly; think long spine."
+  ],
+  "contraindications": [],
+  "regressions": [],
+  "progressions": [
+    {
+      "exerciseId": "dead-bug",
+      "note": "Supine"
+    },
+    {
+      "exerciseId": "plank",
+      "note": "Hold"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/bird-dog",
+    "videoKey": "media/video/bird-dog",
+    "animationKey": "media/anim/bird-dog"
+  },
+  "aliases": [],
+  "tags": []
+}

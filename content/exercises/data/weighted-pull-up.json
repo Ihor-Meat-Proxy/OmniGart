@@ -1,0 +1,66 @@
+{
+  "id": "weighted-pull-up",
+  "nameKeys": {
+    "enGB": "exercise.weighted_pull_up.name",
+    "uk": "exercise.weighted_pull_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "biceps"
+  ],
+  "secondaryMuscles": [
+    "forearms",
+    "rhomboids"
+  ],
+  "equipment": [
+    "pull_up_bar"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Strict pull-up with a dip belt or held dumbbell; full ROM."
+  ],
+  "setup": [
+    "Only after solid bodyweight sets."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Shortening ROM under load"
+  ],
+  "safety": [
+    "Add load conservatively."
+  ],
+  "contraindications": [
+    "Same as pull-up"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "pull-up",
+      "note": "Unload"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/weighted-pull-up",
+    "videoKey": "media/video/weighted-pull-up",
+    "animationKey": "media/anim/weighted-pull-up"
+  },
+  "aliases": [],
+  "tags": []
+}

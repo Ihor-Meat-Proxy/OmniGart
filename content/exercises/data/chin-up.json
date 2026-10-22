@@ -1,0 +1,80 @@
+{
+  "id": "chin-up",
+  "nameKeys": {
+    "enGB": "exercise.chin_up.name",
+    "uk": "exercise.chin_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "biceps"
+  ],
+  "secondaryMuscles": [
+    "rhomboids",
+    "forearms"
+  ],
+  "equipment": [
+    "pull_up_bar"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Underhand grip pull-up; same full ROM standards."
+  ],
+  "setup": [
+    "Hands roughly shoulder-width."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Partial ROM",
+    "Excess swing"
+  ],
+  "safety": [
+    "Often slightly easier than pull-ups for many beginners."
+  ],
+  "contraindications": [
+    "Elbow tendinopathy flare"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "lat-pulldown",
+      "note": "Machine"
+    },
+    {
+      "exerciseId": "assisted-pull-up-band",
+      "note": "Assist"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "pull-up",
+      "note": "Overhand"
+    },
+    {
+      "exerciseId": "weighted-pull-up",
+      "note": "Load"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/chin-up",
+    "videoKey": "media/video/chin-up",
+    "animationKey": "media/anim/chin-up"
+  },
+  "aliases": [],
+  "tags": []
+}

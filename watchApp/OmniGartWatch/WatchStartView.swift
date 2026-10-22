@@ -5,13 +5,14 @@ struct WatchStartView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 8) {
+            VStack(spacing: OmniGartMetrics.space2) {
                 Text("app_name")
                     .font(.headline)
+                    .foregroundStyle(Color.OmniGart.colorBrandAccent)
                     .accessibilityIdentifier("watch_brand")
                 Text("watch_subtitle")
                     .font(.caption2)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
                     .multilineTextAlignment(.center)
                 ForEach(summaryLines.prefix(2), id: \.self) { line in
                     Text(line)
@@ -19,9 +20,10 @@ struct WatchStartView: View {
                         .multilineTextAlignment(.center)
                 }
                 Button("watch_start") {}
+                    .tint(Color.OmniGart.colorBrandAccent)
                     .accessibilityIdentifier("watch_start_button")
             }
-            .padding()
+            .padding(OmniGartMetrics.space2)
             .accessibilityIdentifier("wear_start")
         }
     }

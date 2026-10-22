@@ -11,13 +11,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  locale-guard:
-    name: No Russian locale
+  design-check:
+    name: Design check
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: design/tools
     steps:
       - uses: actions/checkout@v4
-      - name: Fail if ru locale present
-        run: ./scripts/check_no_ru_locale.sh
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: design/tools/package-lock.json
+      - run: npm ci
+      - run: npm run check
 
   kmp-android:
     name: KMP + Android + Wear
@@ -34,12 +42,14 @@ jobs:
         run: |
           ./gradlew --stacktrace \
             :shared:testAndroidHostTest \
+            :shared:planning:jvmTest \
             :androidApp:assembleDebug \
             :androidApp:testDebugUnitTest \
             :wearApp:assembleDebug \
             :wearApp:testDebugUnitTest
-      - name: Lint Kotlin
-        run: ./gradlew ktlintCheck detekt
+      - name: Lint and verify
+        # checkNoRuLocale is also a dependency of root `check` for local builds.
+        run: ./gradlew checkNoRuLocale ktlintCheck detekt
 
   ios-watchos:
     name: iOS + watchOS
@@ -52,40 +62,100 @@ jobs:
           java-version: "21"
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
+      - name: Select newest available Xcode
+        run: |
+          ls /Applications | grep -i Xcode || true
+          # Prefer Xcode 26+ when present; otherwise keep the runner default (16.4 on macos-15).
+          for candidate in \
+            /Applications/Xcode_26.2.app \
+            /Applications/Xcode_26.1.app \
+            /Applications/Xcode_26.0.app \
+            /Applications/Xcode_26.app \
+            /Applications/Xcode_16.4.app \
+            /Applications/Xcode.app
+          do
+            if [ -d "$candidate" ]; then
+              sudo xcode-select -s "$candidate/Contents/Developer"
+              echo "Selected $candidate"
+              break
+            fi
+          done
+          xcodebuild -version
+          xcrun --sdk iphonesimulator --show-sdk-version
+          xcrun --sdk watchsimulator --show-sdk-version
       - name: Install XcodeGen and SwiftLint
         run: |
           brew install xcodegen swiftlint
       - name: SwiftLint
-        run: swiftlint lint --config .swiftlint.yml --strict || swiftlint lint --config .swiftlint.yml
-      - name: Link shared frameworks (simulator)
+        run: swiftlint lint --config .swiftlint.yml --strict
+      - name: Link and sync Shared frameworks (simulator)
         run: |
-          ./gradlew linkDebugFrameworkIosSimulatorArm64 linkDebugFrameworkWatchosSimulatorArm64 --stacktrace
+          ./gradlew \
+            linkDebugFrameworkIosSimulatorArm64 \
+            linkDebugFrameworkWatchosSimulatorArm64 \
+            syncXcodeFrameworks \
+            --stacktrace
+          # Ensure the exact SDK_NAME folders Xcode will request also exist.
+          IOS_SDK=$(xcrun --sdk iphonesimulator --show-sdk-version)
+          WATCH_SDK=$(xcrun --sdk watchsimulator --show-sdk-version)
+          mkdir -p "shared/build/xcode-frameworks/Debug/iphonesimulator${IOS_SDK}"
+          mkdir -p "shared/build/xcode-frameworks/Debug/watchsimulator${WATCH_SDK}"
+          rsync -a shared/build/bin/iosSimulatorArm64/debugFramework/Shared.framework \
+            "shared/build/xcode-frameworks/Debug/iphonesimulator${IOS_SDK}/"
+          rsync -a shared/build/bin/watchosSimulatorArm64/debugFramework/Shared.framework \
+            "shared/build/xcode-frameworks/Debug/watchsimulator${WATCH_SDK}/"
+          ls -la "shared/build/xcode-frameworks/Debug/iphonesimulator${IOS_SDK}"
+          ls -la "shared/build/xcode-frameworks/Debug/watchsimulator${WATCH_SDK}"
       - name: Generate Xcode project
         run: |
           cd iosApp
           xcodegen generate
-      - name: Build iOS (simulator)
+      - name: Build iOS + watchOS (simulator, arm64)
         run: |
-          set +e
-          DEST=$(xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart -showdestinations 2>/dev/null | grep 'platform:iOS Simulator' | head -1)
-          echo "Destination probe: $DEST"
+          set -euo pipefail
+          # Force arm64 so we do not need the deprecated watchosX64 slice.
           xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart \
             -destination 'generic/platform=iOS Simulator' \
+            ARCHS=arm64 ONLY_ACTIVE_ARCH=YES \
+            EXCLUDED_ARCHS=x86_64 \
             CODE_SIGNING_ALLOWED=NO \
             build
-          IOS_STATUS=$?
           xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGartWatch \
             -destination 'generic/platform=watchOS Simulator' \
+            ARCHS=arm64 ONLY_ACTIVE_ARCH=YES \
+            EXCLUDED_ARCHS=x86_64 \
             CODE_SIGNING_ALLOWED=NO \
             build
-          WATCH_STATUS=$?
-          # Tests require booted simulators; attempt when available
+      - name: Test iOS + watchOS (booted simulators)
+        run: |
+          set -euo pipefail
+          IOS_DEST=$(
+            xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart -showdestinations 2>/dev/null \
+              | grep 'platform:iOS Simulator' \
+              | grep 'arch:arm64' \
+              | grep -v 'placeholder' \
+              | head -1 \
+              | sed -n 's/.*name:\([^,}]*\).*/\1/p' \
+              | xargs
+          )
+          WATCH_DEST=$(
+            xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGartWatch -showdestinations 2>/dev/null \
+              | grep 'platform:watchOS Simulator' \
+              | grep 'arch:arm64' \
+              | grep -v 'placeholder' \
+              | head -1 \
+              | sed -n 's/.*name:\([^,}]*\).*/\1/p' \
+              | xargs
+          )
+          echo "iOS destination name: ${IOS_DEST}"
+          echo "watchOS destination name: ${WATCH_DEST}"
+          test -n "${IOS_DEST}"
+          test -n "${WATCH_DEST}"
           xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart \
-            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -destination "platform=iOS Simulator,name=${IOS_DEST},arch=arm64" \
             CODE_SIGNING_ALLOWED=NO \
-            test || true
+            test
           xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGartWatch \
-            -destination 'platform=watchOS Simulator,name=Apple Watch Series 10 (46mm)' \
+            -destination "platform=watchOS Simulator,name=${WATCH_DEST},arch=arm64" \
             CODE_SIGNING_ALLOWED=NO \
-            test || true
-          exit $(( IOS_STATUS != 0 || WATCH_STATUS != 0 ? 1 : 0 ))
+            test

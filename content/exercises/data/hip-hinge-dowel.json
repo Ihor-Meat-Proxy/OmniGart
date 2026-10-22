@@ -1,0 +1,64 @@
+{
+  "id": "hip-hinge-dowel",
+  "nameKeys": {
+    "enGB": "exercise.hip_hinge_dowel.name",
+    "uk": "exercise.hip_hinge_dowel.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "hamstrings",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "erector_spinae"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "skill",
+  "trackingType": "reps",
+  "technique": [
+    "Hold a dowel along head–thoracic–sacrum contact; push hips back keeping all three points; return tall."
+  ],
+  "setup": [
+    "Barefoot or flat shoes; soft knees."
+  ],
+  "breathing": "Quiet nasal breathing fine.",
+  "commonMistakes": [
+    "Losing dowel contact at low back",
+    "Bending only the spine"
+  ],
+  "safety": [
+    "Teaching drill — no heavy load."
+  ],
+  "contraindications": [],
+  "regressions": [],
+  "progressions": [
+    {
+      "exerciseId": "romanian-deadlift-dumbbell",
+      "note": "Add load"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/hip-hinge-dowel",
+    "videoKey": "media/video/hip-hinge-dowel",
+    "animationKey": "media/anim/hip-hinge-dowel"
+  },
+  "aliases": [],
+  "tags": []
+}

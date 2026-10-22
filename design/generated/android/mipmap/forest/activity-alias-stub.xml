@@ -1,0 +1,7 @@
+<!-- activity-alias for set of launcher icon "forest"
+     android:name=".LauncherAlias_forest"
+     android:enabled="false"
+     android:icon="@mipmap/ic_launcher_forest"
+     android:roundIcon="@mipmap/ic_launcher_forest"
+     android:targetActivity=".MainActivity"
+-->

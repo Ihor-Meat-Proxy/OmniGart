@@ -6,6 +6,8 @@ ktlint_function_naming_ignore_when_annotated_with = Composable, Test
 ij_kotlin_imports_layout = *
 ij_kotlin_allow_trailing_comma = false
 ij_kotlin_allow_trailing_comma_on_call_site = false
+# Align with SwiftLint (140); planning evidence strings and citations need headroom.
+max_line_length = 140
 
 [**/build/generated/**]
 ktlint = disabled

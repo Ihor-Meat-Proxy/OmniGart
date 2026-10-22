@@ -17,5 +17,6 @@ dependencyResolutionManagement {
 rootProject.name = "OmniGart"
 
 include(":shared")
+include(":shared:planning")
 include(":androidApp")
 include(":wearApp")

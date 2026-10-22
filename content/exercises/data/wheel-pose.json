@@ -1,0 +1,74 @@
+{
+  "id": "wheel-pose",
+  "nameKeys": {
+    "enGB": "exercise.wheel_pose.name",
+    "uk": "exercise.wheel_pose.name"
+  },
+  "discipline": "yoga",
+  "movementPattern": "mobility",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "hip_flexors",
+    "erector_spinae"
+  ],
+  "secondaryMuscles": [
+    "triceps",
+    "gluteus_maximus"
+  ],
+  "equipment": [
+    "yoga_mat",
+    "bodyweight"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "skill",
+  "trackingType": "hold",
+  "technique": [
+    "From bridge preparation, press into hands by ears and lift into a full backbend if appropriate."
+  ],
+  "setup": [
+    "Only with adequate shoulder/spine preparation."
+  ],
+  "breathing": "Do not breath-hold; exit carefully.",
+  "commonMistakes": [
+    "Forcing into lumbar pain",
+    "Collapsed shoulders"
+  ],
+  "safety": [
+    "Advanced; skip if unsure — use bridge instead."
+  ],
+  "contraindications": [
+    "Uncontrolled hypertension",
+    "Shoulder instability",
+    "Pregnancy without specialist advice"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "bridge-pose-yoga",
+      "note": "Regression"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/wheel-pose",
+    "videoKey": "media/video/wheel-pose",
+    "animationKey": "media/anim/wheel-pose"
+  },
+  "aliases": [],
+  "tags": [
+    "yoga"
+  ]
+}

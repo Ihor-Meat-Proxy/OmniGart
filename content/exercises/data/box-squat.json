@@ -1,0 +1,84 @@
+{
+  "id": "box-squat",
+  "nameKeys": {
+    "enGB": "exercise.box_squat.name",
+    "uk": "exercise.box_squat.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "squat",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "hamstrings",
+    "erector_spinae"
+  ],
+  "equipment": [
+    "barbell",
+    "box"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Sit back to a box at parallel while keeping the trunk braced.",
+    "Touch lightly without fully relaxing the spine, then stand."
+  ],
+  "setup": [
+    "Set box height to target depth; same walkout as back squat."
+  ],
+  "breathing": "Brace before sitting; exhale to stand.",
+  "commonMistakes": [
+    "Plopping onto the box",
+    "Rocking forward to stand"
+  ],
+  "safety": [
+    "Use a stable box; spot heavy attempts."
+  ],
+  "contraindications": [
+    "Acute lumbar pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "goblet-squat",
+      "note": "Unload the spine"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "back-squat",
+      "note": "Free squat without box"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1097/00005768-200101000-00020",
+      "label": "Escamilla 2001 — knee biomechanics of the dynamic squat",
+      "supports": [
+        "biomechanics",
+        "technique",
+        "safety"
+      ]
+    },
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/box-squat",
+    "videoKey": "media/video/box-squat",
+    "animationKey": "media/anim/box-squat"
+  },
+  "aliases": [],
+  "tags": []
+}

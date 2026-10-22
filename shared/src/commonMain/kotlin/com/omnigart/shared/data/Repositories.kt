@@ -26,11 +26,9 @@ class UserProfileRepository(private val db: OmniGartDatabase) {
         )
     }
 
-    fun get(id: String): UserProfile? =
-        db.omniGartQueries.selectProfile(id).executeAsOneOrNull()?.toDomain()
+    fun get(id: String): UserProfile? = db.omniGartQueries.selectProfile(id).executeAsOneOrNull()?.toDomain()
 
-    fun getAll(): List<UserProfile> =
-        db.omniGartQueries.selectAllProfiles().executeAsList().map { it.toDomain() }
+    fun getAll(): List<UserProfile> = db.omniGartQueries.selectAllProfiles().executeAsList().map { it.toDomain() }
 
     fun delete(id: String) {
         db.omniGartQueries.deleteProfile(id)
@@ -47,11 +45,9 @@ class ExerciseRepository(private val db: OmniGartDatabase) {
         )
     }
 
-    fun get(id: String): Exercise? =
-        db.omniGartQueries.selectExercise(id).executeAsOneOrNull()?.toDomain()
+    fun get(id: String): Exercise? = db.omniGartQueries.selectExercise(id).executeAsOneOrNull()?.toDomain()
 
-    fun getAll(): List<Exercise> =
-        db.omniGartQueries.selectAllExercises().executeAsList().map { it.toDomain() }
+    fun getAll(): List<Exercise> = db.omniGartQueries.selectAllExercises().executeAsList().map { it.toDomain() }
 }
 
 class WorkoutRepository(private val db: OmniGartDatabase) {
@@ -64,11 +60,9 @@ class WorkoutRepository(private val db: OmniGartDatabase) {
         )
     }
 
-    fun get(id: String): Workout? =
-        db.omniGartQueries.selectWorkout(id).executeAsOneOrNull()?.toDomain()
+    fun get(id: String): Workout? = db.omniGartQueries.selectWorkout(id).executeAsOneOrNull()?.toDomain()
 
-    fun getAll(): List<Workout> =
-        db.omniGartQueries.selectAllWorkouts().executeAsList().map { it.toDomain() }
+    fun getAll(): List<Workout> = db.omniGartQueries.selectAllWorkouts().executeAsList().map { it.toDomain() }
 }
 
 class SessionRepository(private val db: OmniGartDatabase) {
@@ -107,18 +101,16 @@ class SessionRepository(private val db: OmniGartDatabase) {
         return row.toDomain(sets)
     }
 
-    fun getAll(): List<Session> =
-        db.omniGartQueries.selectAllSessions().executeAsList().map { row ->
-            val sets =
-                db.omniGartQueries.selectSetsForSession(row.id).executeAsList().map {
-                    it.toDomain()
-                }
-            row.toDomain(sets)
-        }
+    fun getAll(): List<Session> = db.omniGartQueries.selectAllSessions().executeAsList().map { row ->
+        val sets =
+            db.omniGartQueries.selectSetsForSession(row.id).executeAsList().map {
+                it.toDomain()
+            }
+        row.toDomain(sets)
+    }
 }
 
-fun createDatabase(driverFactory: DatabaseDriverFactory): OmniGartDatabase =
-    OmniGartDatabase(driverFactory.createDriver())
+fun createDatabase(driverFactory: DatabaseDriverFactory): OmniGartDatabase = OmniGartDatabase(driverFactory.createDriver())
 
 private fun com.omnigart.shared.db.User_profile.toDomain(): UserProfile = UserProfile(
     id = id,

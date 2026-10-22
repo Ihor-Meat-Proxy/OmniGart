@@ -32,10 +32,6 @@ object BodyFatCunBae {
             (0.00021 * bmi2 * age)
     }
 
-    fun percentClamped(
-        weightKg: Double,
-        heightCm: Double,
-        ageYears: Int,
-        sex: BiologicalSex
-    ): Double = percent(weightKg, heightCm, ageYears, sex).coerceIn(1.0, 75.0)
+    fun percentClamped(weightKg: Double, heightCm: Double, ageYears: Int, sex: BiologicalSex): Double =
+        percent(weightKg, heightCm, ageYears, sex).coerceIn(1.0, 75.0)
 }

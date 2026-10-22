@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// Phase 0 phone shell: Food / Workouts / Recovery / Planner / Profile.
-/// Targets iOS 26+ Liquid Glass; appearance is system-driven on supported SDKs.
+/// Colours and tab icons come from design/generated (DTCG → Swift / asset catalog).
 struct PhoneRootView: View {
     let summaryLines: [String]
     @State private var selectedTab: PhoneTab = .profile
@@ -11,12 +11,18 @@ struct PhoneRootView: View {
             ForEach(PhoneTab.allCases) { tab in
                 TabContent(tab: tab, summaryLines: summaryLines)
                     .tabItem {
-                        Label(tab.titleKey, systemImage: tab.systemImage)
+                        Label {
+                            Text(tab.titleKey)
+                        } icon: {
+                            Image(tab.iconAssetName)
+                                .renderingMode(.template)
+                        }
                     }
                     .tag(tab)
                     .accessibilityIdentifier(tab.accessibilityId)
             }
         }
+        .tint(Color.OmniGart.colorBrandAccent)
         .accessibilityIdentifier("phone_shell")
     }
 }
@@ -31,9 +37,10 @@ private struct TabContent: View {
                 Section {
                     Text("app_name")
                         .font(.largeTitle.bold())
+                        .foregroundStyle(Color.OmniGart.colorBrandAccent)
                         .accessibilityIdentifier("brand_title")
                     Text("shell_placeholder")
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
                 }
                 Section(tab.titleKey) {
                     ForEach(summaryLines, id: \.self) { line in
@@ -42,6 +49,8 @@ private struct TabContent: View {
                 }
             }
             .navigationTitle(Text(tab.titleKey))
+            .scrollContentBackground(.hidden)
+            .background(Color.OmniGart.colorSurfaceLightCanvas.ignoresSafeArea())
         }
     }
 }
@@ -65,13 +74,14 @@ enum PhoneTab: String, CaseIterable, Identifiable {
         }
     }
 
-    var systemImage: String {
+    /// Imageset names from design/generated/ios/OmniGartIcons.xcassets.
+    var iconAssetName: String {
         switch self {
-        case .food: "fork.knife"
-        case .workouts: "dumbbell"
-        case .recovery: "heart.text.square"
-        case .planner: "calendar"
-        case .profile: "person.crop.circle"
+        case .food: "food"
+        case .workouts: "workouts"
+        case .recovery: "recovery"
+        case .planner: "planner"
+        case .profile: "profile"
         }
     }
 

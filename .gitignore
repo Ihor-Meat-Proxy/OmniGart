@@ -13,6 +13,7 @@ local.properties
 *.aab
 *.ap_
 *.dex
+*.log
 
 # Kotlin / Native
 .kotlin/

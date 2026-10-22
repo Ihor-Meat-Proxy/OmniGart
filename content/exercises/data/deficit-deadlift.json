@@ -1,0 +1,67 @@
+{
+  "id": "deficit-deadlift",
+  "nameKeys": {
+    "enGB": "exercise.deficit_deadlift.name",
+    "uk": "exercise.deficit_deadlift.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "hamstrings",
+    "gluteus_maximus",
+    "erector_spinae"
+  ],
+  "secondaryMuscles": [
+    "quadriceps",
+    "forearms"
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Stand on a low plate/deficit; pull with the same cues as conventional, emphasising posture off the floor."
+  ],
+  "setup": [
+    "Small deficit (2–5 cm) first; perfect conventional form required."
+  ],
+  "breathing": "Brace hard before the pull.",
+  "commonMistakes": [
+    "Rounding off the floor"
+  ],
+  "safety": [
+    "Use only with solid conventional technique."
+  ],
+  "contraindications": [
+    "Same as conventional deadlift"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "conventional-deadlift",
+      "note": "Remove deficit"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/deficit-deadlift",
+    "videoKey": "media/video/deficit-deadlift",
+    "animationKey": "media/anim/deficit-deadlift"
+  },
+  "aliases": [],
+  "tags": []
+}

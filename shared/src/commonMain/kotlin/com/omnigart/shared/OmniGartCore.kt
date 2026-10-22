@@ -45,10 +45,7 @@ class OmniGartCore(driverFactory: DatabaseDriverFactory) {
         return demo
     }
 
-    fun ageYears(
-        profile: UserProfile,
-        today: LocalDate = Clock.System.todayIn(TimeZone.currentSystemDefault())
-    ): Int {
+    fun ageYears(profile: UserProfile, today: LocalDate = Clock.System.todayIn(TimeZone.currentSystemDefault())): Int {
         var age = today.year - profile.dateOfBirth.year
         val birthdayThisYear =
             LocalDate(today.year, profile.dateOfBirth.month, profile.dateOfBirth.day)

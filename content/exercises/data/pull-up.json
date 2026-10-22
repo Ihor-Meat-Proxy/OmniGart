@@ -1,0 +1,93 @@
+{
+  "id": "pull-up",
+  "nameKeys": {
+    "enGB": "exercise.pull_up.name",
+    "uk": "exercise.pull_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "biceps"
+  ],
+  "secondaryMuscles": [
+    "trapezius",
+    "rhomboids",
+    "rear_deltoid",
+    "forearms"
+  ],
+  "equipment": [
+    "pull_up_bar"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "From dead hang, pull elbows down/back until chin clears bar; lower fully with control."
+  ],
+  "setup": [
+    "Shoulder-width or slightly wider overhand grip; brace lightly."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Kipping when aiming for strict strength",
+    "Shrugging without scapular depression"
+  ],
+  "safety": [
+    "Use band/machine assistance; avoid shoulder pain at bottom by not forcing extreme hang."
+  ],
+  "contraindications": [
+    "Acute shoulder injury"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "lat-pulldown",
+      "note": "Seated load control"
+    },
+    {
+      "exerciseId": "assisted-pull-up-band",
+      "note": "Band assist"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "weighted-pull-up",
+      "note": "Add load"
+    },
+    {
+      "exerciseId": "chest-to-bar-pull-up",
+      "note": "Higher pull"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand (overview of reviews)",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/pull-up",
+    "videoKey": "media/video/pull-up",
+    "animationKey": "media/anim/pull-up"
+  },
+  "aliases": [],
+  "tags": []
+}

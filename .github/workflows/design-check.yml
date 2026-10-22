@@ -1,0 +1,27 @@
+name: Design check
+
+on:
+  push:
+    paths:
+      - 'design/**'
+      - '.github/workflows/design-check.yml'
+  pull_request:
+    paths:
+      - 'design/**'
+      - '.github/workflows/design-check.yml'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: design/tools
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: design/tools/package-lock.json
+      - run: npm ci
+      - run: npm run check

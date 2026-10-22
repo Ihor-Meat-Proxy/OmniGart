@@ -1,0 +1,64 @@
+{
+  "id": "chest-to-bar-pull-up",
+  "nameKeys": {
+    "enGB": "exercise.chest_to_bar_pull_up.name",
+    "uk": "exercise.chest_to_bar_pull_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "biceps"
+  ],
+  "secondaryMuscles": [
+    "trapezius",
+    "rear_deltoid"
+  ],
+  "equipment": [
+    "pull_up_bar"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Pull until chest contacts the bar; maintain control."
+  ],
+  "setup": [
+    "Requires strong standard pull-ups first."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Excessive kip if the goal is strength"
+  ],
+  "safety": [
+    "Treat as a skill/strength hybrid."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "pull-up",
+      "note": "Chin-over-bar standard"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/chest-to-bar-pull-up",
+    "videoKey": "media/video/chest-to-bar-pull-up",
+    "animationKey": "media/anim/chest-to-bar-pull-up"
+  },
+  "aliases": [],
+  "tags": []
+}

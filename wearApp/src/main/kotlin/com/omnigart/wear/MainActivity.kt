@@ -13,10 +13,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material3.Button
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.Text
+import com.omnigart.design.theme.OmniGartColors
+import com.omnigart.design.theme.OmniGartSpacing
 import com.omnigart.shared.OmniGartCore
 import com.omnigart.shared.data.DatabaseDriverFactory
 
@@ -40,7 +41,7 @@ fun WearStartScreen(lines: List<String>) {
         modifier =
         Modifier
             .fillMaxSize()
-            .padding(12.dp)
+            .padding(OmniGartSpacing.space3)
             .testTag("wear_start"),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -49,13 +50,15 @@ fun WearStartScreen(lines: List<String>) {
             text = stringResource(R.string.app_name),
             style = MaterialTheme.typography.titleLarge,
             textAlign = TextAlign.Center,
+            color = OmniGartColors.colorBrandAccent,
             modifier = Modifier.testTag("wear_brand")
         )
         Text(
             text = stringResource(R.string.watch_subtitle),
             style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center,
-            modifier = Modifier.padding(vertical = 8.dp)
+            color = OmniGartColors.colorTextLightSecondary,
+            modifier = Modifier.padding(vertical = OmniGartSpacing.space2)
         )
         lines.forEach { line ->
             Text(text = line, textAlign = TextAlign.Center)
@@ -64,7 +67,7 @@ fun WearStartScreen(lines: List<String>) {
             onClick = {},
             modifier =
             Modifier
-                .padding(top = 12.dp)
+                .padding(top = OmniGartSpacing.space3)
                 .testTag("wear_start_button")
         ) {
             Text(text = stringResource(R.string.watch_start))

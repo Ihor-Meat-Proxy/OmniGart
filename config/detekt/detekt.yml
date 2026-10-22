@@ -10,6 +10,10 @@ complexity:
   TooManyFunctions:
     thresholdInClasses: 25
     thresholdInFiles: 30
+  LargeClass:
+    # Generated OmniGartIcons ImageVector object is intentionally large.
+    excludes:
+      - '**/com/omnigart/design/**'
 
 style:
   MagicNumber:

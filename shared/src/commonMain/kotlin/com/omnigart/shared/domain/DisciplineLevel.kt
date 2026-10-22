@@ -70,11 +70,7 @@ object DisciplineClassifier {
      * When both pace and 5 km time are provided and disagree, the lower (more conservative) level wins.
      * When only volume is known, volume alone is used.
      */
-    fun classifyRunning(
-        weeklyKm: Double,
-        easyPaceMinPerKm: Double? = null,
-        fiveKmTimeMinutes: Double? = null
-    ): RunningLevel {
+    fun classifyRunning(weeklyKm: Double, easyPaceMinPerKm: Double? = null, fiveKmTimeMinutes: Double? = null): RunningLevel {
         require(weeklyKm >= 0) { "weeklyKm must be non-negative" }
         val fromVolume = runningLevelFromWeeklyKm(weeklyKm)
         val fromPace = easyPaceMinPerKm?.let { runningLevelFromEasyPace(it) }

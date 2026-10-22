@@ -1,0 +1,75 @@
+{
+  "id": "back-extension-roman",
+  "nameKeys": {
+    "enGB": "exercise.back_extension_roman.name",
+    "uk": "exercise.back_extension_roman.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "erector_spinae",
+    "gluteus_maximus",
+    "hamstrings"
+  ],
+  "secondaryMuscles": [],
+  "equipment": [
+    "machine",
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "reps",
+  "technique": [
+    "From hinged position, extend hips/trunk to a neutral finish without hyperextending; lower with control."
+  ],
+  "setup": [
+    "Pad at hips; arms across chest."
+  ],
+  "breathing": "Exhale to extend.",
+  "commonMistakes": [
+    "Overarching at the top",
+    "Using arms to yank"
+  ],
+  "safety": [
+    "Think hip extension more than lumbar cranking."
+  ],
+  "contraindications": [
+    "Acute lumbar pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "bird-dog",
+      "note": "Lower load"
+    },
+    {
+      "exerciseId": "glute-bridge",
+      "note": "Floor"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "good-morning",
+      "note": "Loaded hinge"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/back-extension-roman",
+    "videoKey": "media/video/back-extension-roman",
+    "animationKey": "media/anim/back-extension-roman"
+  },
+  "aliases": [],
+  "tags": []
+}

@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -95,4 +96,75 @@ ktlint {
 detekt {
     buildUponDefaultConfig = true
     config.setFrom(files("${rootProject.projectDir}/config/detekt/detekt.yml"))
+}
+
+/**
+ * Copy already-linked Shared.frameworks into the XcodeGen search path:
+ * shared/build/xcode-frameworks/<Configuration>/<sdkName>/Shared.framework
+ *
+ * Root cause of CI "No such module 'Shared'": Gradle writes frameworks under
+ * build/bin/<target>/<debug|release>Framework/, while project.yml looks under
+ * build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)/.
+ */
+tasks.register("syncXcodeFrameworks") {
+    group = "build"
+    description =
+        "Sync linked Shared.framework into xcode-frameworks/\$(CONFIGURATION)/\$(SDK_NAME)"
+    doLast {
+        val outRoot = layout.buildDirectory.get().asFile.resolve("xcode-frameworks")
+
+        fun sync(targetName: String, buildType: NativeBuildType, sdkPrefixes: List<String>) {
+            val typeDir =
+                if (buildType == NativeBuildType.DEBUG) "debugFramework" else "releaseFramework"
+            val configDir = if (buildType == NativeBuildType.DEBUG) "Debug" else "Release"
+            val framework =
+                layout.buildDirectory
+                    .get()
+                    .asFile
+                    .resolve("bin/$targetName/$typeDir/Shared.framework")
+            if (!framework.isDirectory) return
+            sdkPrefixes.forEach { prefix ->
+                val destParent = outRoot.resolve("$configDir/$prefix")
+                destParent.mkdirs()
+                val dest = destParent.resolve("Shared.framework")
+                if (dest.exists()) dest.deleteRecursively()
+                framework.copyRecursively(dest, overwrite = true)
+            }
+        }
+
+        val iosSimSdks =
+            listOf(
+                "iphonesimulator",
+                "iphonesimulator18.0",
+                "iphonesimulator18.1",
+                "iphonesimulator18.2",
+                "iphonesimulator18.4",
+                "iphonesimulator18.5",
+                "iphonesimulator26.0",
+                "iphonesimulator26.1",
+                "iphonesimulator26.2"
+            )
+        val iosDeviceSdks =
+            listOf("iphoneos", "iphoneos18.0", "iphoneos18.5", "iphoneos26.0", "iphoneos26.2")
+        val watchSimSdks =
+            listOf(
+                "watchsimulator",
+                "watchsimulator11.0",
+                "watchsimulator11.2",
+                "watchsimulator11.5",
+                "watchsimulator26.0",
+                "watchsimulator26.1",
+                "watchsimulator26.2"
+            )
+        val watchDeviceSdks =
+            listOf("watchos", "watchos11.0", "watchos11.5", "watchos26.0", "watchos26.2")
+
+        listOf(NativeBuildType.DEBUG, NativeBuildType.RELEASE).forEach { type ->
+            sync("iosSimulatorArm64", type, iosSimSdks)
+            sync("iosArm64", type, iosDeviceSdks)
+            sync("iosX64", type, iosSimSdks)
+            sync("watchosSimulatorArm64", type, watchSimSdks)
+            sync("watchosArm64", type, watchDeviceSdks)
+        }
+    }
 }

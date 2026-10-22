@@ -52,12 +52,7 @@ data class WorkoutSet(
  * A planned or template workout (ordered exercises / sets).
  */
 @Serializable
-data class Workout(
-    val id: String,
-    val name: String,
-    val notes: String? = null,
-    val exerciseIds: List<String> = emptyList()
-)
+data class Workout(val id: String, val name: String, val notes: String? = null, val exerciseIds: List<String> = emptyList())
 
 /**
  * A performed training session (logged execution of a workout or ad-hoc sets).

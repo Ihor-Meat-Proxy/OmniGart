@@ -1,0 +1,115 @@
+{
+  "id": "band-assisted-dip",
+  "nameKeys": {
+    "enGB": "exercise.band_assisted_dip.name",
+    "uk": "exercise.band_assisted_dip.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid"
+  ],
+  "equipment": [
+    "bands",
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Loop a band over parallel bars and kneel or place feet on it; perform dips with reduced net load."
+  ],
+  "setup": [
+    "Secure band; stable bars; control depth."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Bouncing in the band",
+    "Excess shoulder extension"
+  ],
+  "safety": [
+    "Still respect pain-free depth; inspect bands."
+  ],
+  "contraindications": [
+    "Anterior shoulder pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "bench-dip",
+      "note": "Feet on floor"
+    },
+    {
+      "exerciseId": "machine-assisted-dip",
+      "note": "Machine"
+    },
+    {
+      "exerciseId": "incline-push-up",
+      "note": "Pressing"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "dip-parallel-bar",
+      "note": "Unassisted"
+    },
+    {
+      "exerciseId": "negative-dip",
+      "note": "Eccentrics"
+    },
+    {
+      "exerciseId": "ring-dip",
+      "note": "Later"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1519/SSC.0000000000000579",
+      "label": "McKenzie et al. 2020 — glenohumeral extension risk considerations in the dip",
+      "supports": [
+        "safety",
+        "technique"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1016/0021-9290(95)00178-6",
+      "label": "de Leva 1996 — adjusted segmental mass proportions (Zatsiorsky–Seluyanov)",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/band-assisted-dip",
+    "videoKey": "media/video/band-assisted-dip",
+    "animationKey": "media/anim/band-assisted-dip"
+  },
+  "aliases": [],
+  "tags": [
+    "dip-family"
+  ],
+  "loadModel": "bodyweight_minus_assistance",
+  "bodyweightFraction": {
+    "proportion": 0.97,
+    "basis": "estimate",
+    "rationale": "Feet free; almost all BM is supported through the upper limbs. Hands contact the bars (~1.2% BM per de Leva male hands), so estimate ~0.96–0.99. No published GRF %BM for dips found — estimate only."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": true
+}

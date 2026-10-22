@@ -12,7 +12,9 @@
   ],
   "secondaryMuscles": [
     "rhomboids",
-    "forearms"
+    "trapezius",
+    "forearms",
+    "pectoralis_major"
   ],
   "equipment": [
     "pull_up_bar"
@@ -22,43 +24,82 @@
   "mechanics": "compound",
   "trackingType": "bodyweight_reps",
   "technique": [
-    "Underhand grip pull-up; same full ROM standards."
+    "Use a supinated (underhand) grip about shoulder-width.",
+    "Pull until the chin clears the bar, emphasising elbow flexion with the lats still driving the elbows down.",
+    "Lower fully with control."
   ],
   "setup": [
-    "Hands roughly shoulder-width."
+    "Underhand grip; braced trunk; avoid excessive lumbar swing."
   ],
-  "breathing": "Exhale on the pull.",
+  "breathing": "Exhale on the pull; inhale on the descent.",
   "commonMistakes": [
-    "Partial ROM",
-    "Excess swing"
+    "Turning it into a pure biceps curl with lost scapular control",
+    "Incomplete hang"
   ],
   "safety": [
-    "Often slightly easier than pull-ups for many beginners."
+    "Elbow tendinopathy — reduce volume or switch grips",
+    "Same hang-care as pull-ups"
   ],
   "contraindications": [
-    "Elbow tendinopathy flare"
+    "Acute medial elbow tendinopathy flare",
+    "Acute shoulder injury"
   ],
   "regressions": [
     {
-      "exerciseId": "lat-pulldown",
-      "note": "Machine"
+      "exerciseId": "assisted-pull-up-band",
+      "note": "Assistance"
     },
     {
-      "exerciseId": "assisted-pull-up-band",
-      "note": "Assist"
+      "exerciseId": "negative-pull-up",
+      "note": "Eccentrics with chin-up grip"
+    },
+    {
+      "exerciseId": "inverted-row",
+      "note": "Horizontal pull regression"
+    },
+    {
+      "exerciseId": "lat-pulldown",
+      "note": "Machine alternative"
     }
   ],
   "progressions": [
     {
-      "exerciseId": "pull-up",
-      "note": "Overhand"
+      "exerciseId": "weighted-pull-up",
+      "note": "Add load with chin-up grip"
     },
     {
-      "exerciseId": "weighted-pull-up",
-      "note": "Load"
+      "exerciseId": "l-sit-pull-up",
+      "note": "Harder core demand"
     }
   ],
   "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1519/JSC.0b013e3181f1598c",
+      "label": "Youdas et al. 2010 — pull-up vs chin-up surface EMG (biceps/pec higher on chin-up)",
+      "supports": [
+        "emg",
+        "biomechanics",
+        "technique"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1016/j.jelekin.2016.11.004",
+      "label": "Dickie et al. 2017 — EMG across pronated/supinated/neutral/rope pull-up grips",
+      "supports": [
+        "emg",
+        "biomechanics"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1016/0021-9290(95)00178-6",
+      "label": "de Leva 1996 — adjusted segmental mass proportions (Zatsiorsky–Seluyanov)",
+      "supports": [
+        "biomechanics"
+      ]
+    },
     {
       "kind": "textbook",
       "id": "nsca-essentials-4e",
@@ -75,6 +116,18 @@
     "videoKey": "media/video/chin-up",
     "animationKey": "media/anim/chin-up"
   },
-  "aliases": [],
-  "tags": []
+  "aliases": [
+    "supinated pull-up"
+  ],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
 }

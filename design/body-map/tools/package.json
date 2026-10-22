@@ -1,0 +1,22 @@
+{
+  "name": "omnigart-bodymap-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "OmniGart body-map SVG generators, path exporters, and preview renderers",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "figures": "python3 adapt_musclemap.py",
+    "paths": "node export-paths.mjs",
+    "previews": "node render-previews.mjs",
+    "build": "npm run figures && npm run paths && npm run previews",
+    "check": "node check.mjs",
+    "test": "node check.mjs --golden"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "sharp": "0.35.5"
+  }
+}

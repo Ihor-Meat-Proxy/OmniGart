@@ -14,7 +14,7 @@ class RuleBasedPlanGeneratorTest {
         days: Int = 3,
         goal: TrainingGoal = TrainingGoal.HYPERTROPHY,
         readiness: ReadinessBand = ReadinessBand.NORMAL,
-        hardWeeks: Int = 1,
+        hardWeeks: Int = 1
     ) = UserTrainingProfile(
         ageYears = 30,
         levels = listOf(DisciplineLevel(Discipline.STRENGTH, Level.INTERMEDIATE)),
@@ -23,7 +23,7 @@ class RuleBasedPlanGeneratorTest {
         sessionMinutes = 60,
         equipment = EquipmentProfile.HOME_GYM,
         readiness = readiness,
-        hardWeeksSinceDeload = hardWeeks,
+        hardWeeksSinceDeload = hardWeeks
     )
 
     @Test
@@ -44,7 +44,7 @@ class RuleBasedPlanGeneratorTest {
     @Test
     fun readinessLowRaisesRir() {
         val plan = RuleBasedPlanGenerator().generate(
-            PlanGenerationInput(profile(readiness = ReadinessBand.LOW, hardWeeks = 1)),
+            PlanGenerationInput(profile(readiness = ReadinessBand.LOW, hardWeeks = 1))
         )
         assertTrue(plan.sessions.first().prescriptions.first().rir.contains("3-5"))
     }
@@ -52,7 +52,7 @@ class RuleBasedPlanGeneratorTest {
     @Test
     fun endurancePlanIncludesPolarizedCaveat() {
         val plan = RuleBasedPlanGenerator().generate(
-            PlanGenerationInput(profile(goal = TrainingGoal.ENDURANCE, days = 3)),
+            PlanGenerationInput(profile(goal = TrainingGoal.ENDURANCE, days = 3))
         )
         assertTrue(plan.explanations.any { it.code == "endurance.polarized" })
         assertTrue(plan.explanations.any { it.code == "endurance.mileage_caveat" })
@@ -85,12 +85,18 @@ class RuleBasedPlanGeneratorTest {
                     title = "Test",
                     focus = "test",
                     prescriptions = listOf(
-                        PlannedSetPrescription("goblet-squat", sets = 20, reps = "10", rir = "1", restSeconds = 60),
+                        PlannedSetPrescription(
+                            "goblet-squat",
+                            sets = 20,
+                            reps = "10",
+                            rir = "1",
+                            restSeconds = 60
+                        )
                     ),
-                    explanations = emptyList(),
-                ),
+                    explanations = emptyList()
+                )
             ),
-            claimedVolume = emptyList(),
+            claimedVolume = emptyList()
         )
         val (clamped, notes) = PlanSafetyValidator().validateAndClamp(proposal, profile)
         assertEquals(6, clamped.sessions.first().prescriptions.first().sets)

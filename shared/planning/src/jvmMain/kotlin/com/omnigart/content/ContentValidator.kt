@@ -12,16 +12,9 @@ import kotlin.io.path.isRegularFile
 import kotlin.io.path.name
 import kotlin.io.path.readText
 
-data class ValidationIssue(
-    val path: String,
-    val message: String,
-)
+data class ValidationIssue(val path: String, val message: String)
 
-data class ValidationReport(
-    val exerciseCount: Int,
-    val templateCount: Int,
-    val issues: List<ValidationIssue>,
-) {
+data class ValidationReport(val exerciseCount: Int, val templateCount: Int, val issues: List<ValidationIssue>) {
     val ok: Boolean get() = issues.isEmpty()
 }
 
@@ -29,10 +22,7 @@ data class ValidationReport(
  * Validates on-disk exercise/template JSON against schemas and content rules:
  * unique ids, locale keys present (en-GB + uk only — no ru), cross-refs, evidence refs.
  */
-class ContentValidator(
-    private val contentRoot: Path,
-    private val mapper: ObjectMapper = ObjectMapper(),
-) {
+class ContentValidator(private val contentRoot: Path, private val mapper: ObjectMapper = ObjectMapper()) {
     private val registry: SchemaRegistry =
         SchemaRegistry.withDefaultDialect(SpecificationVersion.DRAFT_2020_12)
 
@@ -105,7 +95,11 @@ class ContentValidator(
                     block.path("items").forEach { item ->
                         val eid = item.path("exerciseId").asText()
                         if (eid.isNotBlank() && eid !in idSet) {
-                            issues += ValidationIssue(file.toString(), "Template references missing exercise $eid")
+                            issues +=
+                                ValidationIssue(
+                                    file.toString(),
+                                    "Template references missing exercise $eid"
+                                )
                         }
                     }
                 }
@@ -139,7 +133,8 @@ class ContentValidator(
             stream.forEach { path ->
                 val n = path.fileName.toString().lowercase()
                 if (n == "ru.json" || n.startsWith("ru-") || n.contains(".ru.")) {
-                    issues += ValidationIssue(path.toString(), "Russian locale files are not allowed")
+                    issues +=
+                        ValidationIssue(path.toString(), "Russian locale files are not allowed")
                 }
             }
         }
@@ -150,7 +145,7 @@ class ContentValidator(
         en: Map<String, String>,
         uk: Map<String, String>,
         file: Path,
-        issues: MutableList<ValidationIssue>,
+        issues: MutableList<ValidationIssue>
     ) {
         val enKey = node.path("nameKeys").path("enGB").asText()
         val ukKey = node.path("nameKeys").path("uk").asText()
@@ -168,6 +163,7 @@ class ContentValidator(
             issues += ValidationIssue(
                 file.toString(),
                 "Content has claims but no evidenceRefs (log in OPEN_QUESTIONS if intentionally omitted)",
+
             )
         }
         val knownIds = loadEvidenceIds()
@@ -221,7 +217,7 @@ class ContentValidator(
                 if (proportion != 0.0) {
                     issues += ValidationIssue(
                         file.toString(),
-                        "external_only exercises should use bodyweightFraction.proportion 0",
+                        "external_only exercises should use bodyweightFraction.proportion 0"
                     )
                 }
             }
@@ -229,7 +225,7 @@ class ContentValidator(
                 if (proportion <= 0.0) {
                     issues += ValidationIssue(
                         file.toString(),
-                        "$loadModel should have bodyweightFraction.proportion > 0",
+                        "$loadModel should have bodyweightFraction.proportion > 0"
                     )
                 }
             }
@@ -254,6 +250,7 @@ class ContentValidator(
                     issues += ValidationIssue(
                         file.toString(),
                         "pull-up-family estimate should cite de_leva_segmental_1996",
+
                     )
                 }
             }
@@ -263,7 +260,7 @@ class ContentValidator(
                 ) {
                     issues += ValidationIssue(
                         file.toString(),
-                        "dip-family should cite dip shoulder-extension safety/kinematics evidence",
+                        "dip-family should cite dip shoulder-extension safety/kinematics evidence"
                     )
                 }
             }

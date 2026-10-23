@@ -1,0 +1,11 @@
+{
+  "app_name": "OmniGart",
+  "tab_food": "Food",
+  "tab_workouts": "Workouts",
+  "tab_recovery": "Recovery",
+  "tab_planner": "Planner",
+  "tab_profile": "Profile",
+  "shell_placeholder": "Phase 0 shell — data from shared core",
+  "watch_start": "Start",
+  "watch_subtitle": "Phase 0 — shared core"
+}

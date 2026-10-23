@@ -1,0 +1,129 @@
+[
+  {
+    "id": "mifflin_st_jeor_1990",
+    "title": "A new predictive equation for resting energy expenditure in healthy individuals",
+    "authors": ["Mifflin MD", "St Jeor ST", "Hill LA", "Scott BJ", "Daugherty SA", "Koh YO"],
+    "year": 1990,
+    "type": "journal",
+    "journal": "The American Journal of Clinical Nutrition",
+    "volume": "51",
+    "issue": "2",
+    "pages": "241-247",
+    "doi": "10.1093/ajcn/51.2.241",
+    "usedBy": ["calc.Bmr.mifflinStJeor"]
+  },
+  {
+    "id": "who_bmi_2000",
+    "title": "Obesity: preventing and managing the global epidemic. Report of a WHO consultation",
+    "authors": ["World Health Organization"],
+    "year": 2000,
+    "type": "report",
+    "journal": "WHO Technical Report Series",
+    "volume": "894",
+    "usedBy": ["calc.Bmi.whoCategory"]
+  },
+  {
+    "id": "gomez_ambrosi_cun_bae_2012",
+    "title": "Clinical usefulness of a new equation for estimating body fat",
+    "authors": ["Gómez-Ambrosi J", "Silva C", "Galofre JC", "Escalada J", "Santos S", "Frühbeck P"],
+    "year": 2012,
+    "type": "journal",
+    "journal": "Diabetes Care",
+    "volume": "35",
+    "issue": "2",
+    "pages": "383-388",
+    "doi": "10.2337/dc11-1334",
+    "usedBy": ["calc.BodyFatCunBae.percent"]
+  },
+  {
+    "id": "tanaka_hrmax_2001",
+    "title": "Age-predicted maximal heart rate revisited",
+    "authors": ["Tanaka H", "Monahan KD", "Seals DR"],
+    "year": 2001,
+    "type": "journal",
+    "journal": "Journal of the American College of Cardiology",
+    "volume": "37",
+    "issue": "1",
+    "pages": "153-156",
+    "doi": "10.1016/S0735-1097(00)01054-8",
+    "usedBy": ["calc.HeartRate.tanakaMax"]
+  },
+  {
+    "id": "karvonen_1988",
+    "title": "Heart rate and exercise intensity during sports activities: practical application",
+    "authors": ["Karvonen J", "Vuorimaa T"],
+    "year": 1988,
+    "type": "journal",
+    "journal": "Sports Medicine",
+    "volume": "5",
+    "issue": "5",
+    "pages": "303-311",
+    "usedBy": ["calc.HeartRate.karvonenTarget"]
+  },
+  {
+    "id": "epley_1985",
+    "title": "Poundage chart",
+    "authors": ["Epley B"],
+    "year": 1985,
+    "type": "book",
+    "notes": "Boyd Epley Workout, Body Enterprises, Lincoln NE",
+    "usedBy": ["calc.OneRepMax.epley"]
+  },
+  {
+    "id": "brzycki_1993",
+    "title": "Strength testing — predicting a one-rep max from reps-to-fatigue",
+    "authors": ["Brzycki M"],
+    "year": 1993,
+    "type": "journal",
+    "journal": "Journal of Physical Education, Recreation & Dance",
+    "volume": "64",
+    "issue": "1",
+    "pages": "88-90",
+    "usedBy": ["calc.OneRepMax.brzycki"]
+  },
+  {
+    "id": "efsa_water_2010",
+    "title": "Scientific Opinion on Dietary Reference Values for water",
+    "authors": ["EFSA Panel on Dietetic Products, Nutrition and Allergies (NDA)"],
+    "year": 2010,
+    "type": "guideline",
+    "journal": "EFSA Journal",
+    "volume": "8",
+    "issue": "3",
+    "pages": "1459",
+    "doi": "10.2903/j.efsa.2010.1459",
+    "usedBy": ["calc.WaterTarget.litresPerDay"]
+  },
+  {
+    "id": "ashwell_wth_2016",
+    "title": "Waist-to-height ratio as an indicator of early health risk: simpler and more predictive than using a matrix based on BMI and waist circumference",
+    "authors": ["Ashwell M", "Gibson S"],
+    "year": 2016,
+    "type": "journal",
+    "journal": "BMJ Open",
+    "volume": "6",
+    "doi": "10.1136/bmjopen-2015-010159",
+    "usedBy": ["calc.Anthropometry.waistToHeightRatio"]
+  },
+  {
+    "id": "who_whr_2008",
+    "title": "Waist Circumference and Waist–Hip Ratio: Report of a WHO Expert Consultation",
+    "authors": ["World Health Organization"],
+    "year": 2008,
+    "type": "report",
+    "usedBy": ["calc.Anthropometry.waistToHipRatio"]
+  },
+  {
+    "id": "buchheit_hrv_2014",
+    "title": "Monitoring training status with HR measures: do all roads lead to Rome?",
+    "authors": ["Buchheit M"],
+    "year": 2014,
+    "type": "journal",
+    "journal": "Frontiers in Physiology",
+    "volume": "5",
+    "pages": "73",
+    "doi": "10.3389/fphys.2014.00073",
+    "usedBy": ["calc.Readiness.evaluate"],
+    "notes": "Supports HRV SWC framing; OmniGart readiness bands are product rules."
+  }
+]

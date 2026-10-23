@@ -46,6 +46,7 @@ enum HealthKitWorkoutRestorer {
         }
     }
 
+    @MainActor
     static func restoreAll(core: OmniGartCore) async -> (ok: Int, failed: Int) {
         var ok = 0
         var failed = 0

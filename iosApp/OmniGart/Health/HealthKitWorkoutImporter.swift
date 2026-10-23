@@ -111,6 +111,7 @@ enum HealthKitWorkoutImporter {
         )
     }
 
+    @MainActor
     static func syncIntoLocalStore(core: OmniGartCore) async {
         let previous = UserDefaults.standard.data(forKey: anchorDefaultsKey)
         do {

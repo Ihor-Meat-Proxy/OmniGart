@@ -9,6 +9,12 @@ struct StrengthHealthSaveRequest {
 }
 
 enum StrengthWorkoutHealthSave {
+    private struct SessionWindow {
+        var start: Date
+        var end: Date
+        var hours: Double
+    }
+
     static func saveEstimate(_ request: StrengthHealthSaveRequest) async -> HealthKitWorkoutWriter.Result? {
         guard let profile = request.core.profiles.get(id: request.profileId) else { return nil }
         let window = sessionWindow(core: request.core, sessionId: request.sessionId)
@@ -35,7 +41,7 @@ enum StrengthWorkoutHealthSave {
     }
 
     private struct PersistInput {
-        var window: (start: Date, end: Date, hours: Double)
+        var window: SessionWindow
         var energy: HealthKitWorkoutWriter.EnergyInput
         var sessionId: String
         var strengthMeta: HealthKitWorkoutWriter.StrengthMetadata
@@ -45,14 +51,18 @@ enum StrengthWorkoutHealthSave {
     private static func sessionWindow(
         core: OmniGartCore,
         sessionId: String
-    ) -> (start: Date, end: Date, hours: Double) {
+    ) -> SessionWindow {
         let start = dateFromEpochMillis(
             core.strengthLogging.sessionStartEpochMillis(sessionId: sessionId)
         )
         let end = dateFromEpochMillis(
             core.strengthLogging.sessionEndEpochMillis(sessionId: sessionId)
         )
-        return (start, end, max(0, end.timeIntervalSince(start) / 3600.0))
+        return SessionWindow(
+            start: start,
+            end: end,
+            hours: max(0, end.timeIntervalSince(start) / 3600.0)
+        )
     }
 
     private static func estimatedEnergy(

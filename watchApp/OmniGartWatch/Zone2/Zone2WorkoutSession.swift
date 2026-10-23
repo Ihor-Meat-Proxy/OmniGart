@@ -59,13 +59,15 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
         }
     }
 
-    private func zone2QuantityTypes() -> (
-        heart: HKQuantityType,
-        distance: HKQuantityType,
-        step: HKQuantityType,
-        active: HKQuantityType,
-        basal: HKQuantityType
-    )? {
+    private struct Zone2QuantityTypes {
+        var heart: HKQuantityType
+        var distance: HKQuantityType
+        var step: HKQuantityType
+        var active: HKQuantityType
+        var basal: HKQuantityType
+    }
+
+    private func zone2QuantityTypes() -> Zone2QuantityTypes? {
         guard
             let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate),
             let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning),
@@ -75,18 +77,16 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
         else {
             return nil
         }
-        return (heartRateType, distanceType, stepType, activeEnergyType, basalEnergyType)
+        return Zone2QuantityTypes(
+            heart: heartRateType,
+            distance: distanceType,
+            step: stepType,
+            active: activeEnergyType,
+            basal: basalEnergyType
+        )
     }
 
-    private func beginLiveRun(
-        quantityTypes: (
-            heart: HKQuantityType,
-            distance: HKQuantityType,
-            step: HKQuantityType,
-            active: HKQuantityType,
-            basal: HKQuantityType
-        )
-    ) async throws {
+    private func beginLiveRun(quantityTypes: Zone2QuantityTypes) async throws {
         let types: Set<HKSampleType> = [
             quantityTypes.heart,
             quantityTypes.distance,

@@ -381,28 +381,16 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "kind",
-        "id",
-        "label",
+        "evidenceId",
         "supports"
       ],
+      "description": "Pointer into content/evidence catalog (stable id). Legacy DOI/PMID/textbook ids are mapped via content/evidence/legacy-id-map.json.",
       "properties": {
-        "kind": {
+        "evidenceId": {
           "type": "string",
-          "enum": [
-            "doi",
-            "pmid",
-            "guideline",
-            "textbook"
-          ]
-        },
-        "id": {
-          "type": "string",
-          "minLength": 4
-        },
-        "label": {
-          "type": "string",
-          "minLength": 8
+          "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$",
+          "minLength": 4,
+          "maxLength": 80
         },
         "supports": {
           "type": "array",

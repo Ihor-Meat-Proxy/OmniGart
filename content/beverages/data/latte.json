@@ -1,0 +1,57 @@
+{
+  "id": "latte",
+  "category": "coffee",
+  "defaultServingMl": 240,
+  "caffeineMgPerServing": 63,
+  "macrosPer100ml": {
+    "energyKcal": 45,
+    "proteinG": 2.4,
+    "carbohydrateG": 3.5,
+    "fatG": 2.4,
+    "sugarsG": 3.5,
+    "sodiumMg": 45
+  },
+  "hydrationFactor": 1.25,
+  "hydrationFactorEstimated": true,
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.3945/ajcn.115.114769",
+      "label": "Maughan et al. 2016 AJCN — Beverage Hydration Index",
+      "supports": [
+        "hydration_factor"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1371/journal.pone.0084154",
+      "label": "Killer et al. 2014 PLOS ONE — coffee and hydration in habituated drinkers",
+      "supports": [
+        "hydration_factor",
+        "caffeine"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.2903/j.efsa.2015.4102",
+      "label": "EFSA 2015 Scientific Opinion on the safety of caffeine",
+      "supports": [
+        "caffeine"
+      ]
+    },
+    {
+      "kind": "database",
+      "id": "usda-fdc",
+      "label": "USDA FoodData Central (typical values per 100 ml / serving)",
+      "supports": [
+        "macros",
+        "caffeine"
+      ]
+    }
+  ],
+  "notes": "Higher milk fraction than cappuccino; BHI estimated.",
+  "nameKeys": {
+    "enGB": "beverage.latte.name",
+    "uk": "beverage.latte.name"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "id": "bulgarian-split-squat",
+  "nameKeys": {
+    "enGB": "exercise.bulgarian_split_squat.name",
+    "uk": "exercise.bulgarian_split_squat.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "lunge",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "hamstrings",
+    "gluteus_medius"
+  ],
+  "equipment": [
+    "dumbbell",
+    "bench"
+  ],
+  "level": "intermediate",
+  "unilateral": true,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Rear foot elevated on a bench; descend on the front leg; stand without pushing mostly off the back foot."
+  ],
+  "setup": [
+    "Front foot far enough to keep heel down."
+  ],
+  "breathing": "Exhale to stand.",
+  "commonMistakes": [
+    "Front foot too close causing heel rise",
+    "Holding breath excessively"
+  ],
+  "safety": [
+    "Start unloaded; pad the rear foot."
+  ],
+  "contraindications": [
+    "Rear-knee pain on the bench contact"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "reverse-lunge-dumbbell",
+      "note": "Less stretch"
+    },
+    {
+      "exerciseId": "split-squat-bodyweight",
+      "note": "Both feet on floor"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/bulgarian-split-squat",
+    "videoKey": "media/video/bulgarian-split-squat",
+    "animationKey": "media/anim/bulgarian-split-squat"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

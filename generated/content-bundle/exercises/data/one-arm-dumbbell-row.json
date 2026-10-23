@@ -1,0 +1,95 @@
+{
+  "id": "one-arm-dumbbell-row",
+  "nameKeys": {
+    "enGB": "exercise.one_arm_dumbbell_row.name",
+    "uk": "exercise.one_arm_dumbbell_row.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "rhomboids"
+  ],
+  "secondaryMuscles": [
+    "biceps",
+    "rear_deltoid",
+    "erector_spinae"
+  ],
+  "equipment": [
+    "dumbbell",
+    "bench"
+  ],
+  "level": "beginner",
+  "unilateral": true,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Hand and knee on bench; pull dumbbell to hip/pocket; lower with control."
+  ],
+  "setup": [
+    "Spine neutral; neck long."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Rotating the torso to yank the weight",
+    "Shrugging to the ear"
+  ],
+  "safety": [
+    "Think elbow to hip."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "seated-cable-row",
+      "note": "Bilateral machine"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "chest-supported-row",
+      "note": "Less lumbar demand"
+    },
+    {
+      "exerciseId": "barbell-row",
+      "note": "Bilateral barbell"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/one-arm-dumbbell-row",
+    "videoKey": "media/video/one-arm-dumbbell-row",
+    "animationKey": "media/anim/one-arm-dumbbell-row"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

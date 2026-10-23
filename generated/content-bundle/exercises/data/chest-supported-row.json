@@ -1,0 +1,90 @@
+{
+  "id": "chest-supported-row",
+  "nameKeys": {
+    "enGB": "exercise.chest_supported_row.name",
+    "uk": "exercise.chest_supported_row.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "rhomboids",
+    "latissimus_dorsi",
+    "rear_deltoid"
+  ],
+  "secondaryMuscles": [
+    "biceps",
+    "trapezius"
+  ],
+  "equipment": [
+    "dumbbell",
+    "bench"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Chest on incline bench; row dumbbells without yanking; squeeze at the top."
+  ],
+  "setup": [
+    "Bench ~30°; head neutral."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Lifting chest off pad to cheat"
+  ],
+  "safety": [
+    "Great when you want less lower-back fatigue."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "seated-cable-row",
+      "note": "Seated"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "barbell-row",
+      "note": "Unsupported"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/chest-supported-row",
+    "videoKey": "media/video/chest-supported-row",
+    "animationKey": "media/anim/chest-supported-row"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

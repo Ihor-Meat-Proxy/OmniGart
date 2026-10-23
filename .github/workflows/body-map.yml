@@ -2,6 +2,7 @@ name: Body map
 
 on:
   push:
+    branches: [main]
     paths:
       - 'design/body-map/**'
       - 'shared/bodymap/**'
@@ -16,13 +17,18 @@ on:
       - 'settings.gradle.kts'
       - '.github/workflows/body-map.yml'
 
+concurrency:
+  group: body-map-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   body-map:
     name: Body map
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '22'
           cache: npm
@@ -31,7 +37,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
         with:
           python-version: '3.12'
       - name: Install SVG adapt dependencies
@@ -42,6 +48,5 @@ jobs:
       - name: Check body maps (SVG, mapping, golden paths, previews)
         working-directory: design/body-map/tools
         run: npm run check
-
       - name: Unit tests (shared/bodymap)
         run: ./gradlew --no-daemon :shared:bodymap:jvmTest

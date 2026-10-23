@@ -1,0 +1,29 @@
+{
+  "id": "karvonen_hr_reserve_1957",
+  "type": "cohort",
+  "title": "The effects of training on heart rate; a longitudinal study",
+  "authors": [
+    "Karvonen MJ",
+    "Kentala E",
+    "Mustala O"
+  ],
+  "year": 1957,
+  "journal": "Annales Medicinae Experimentalis et Biologiae Fenniae",
+  "pmid": "13470504",
+  "openAccess": false,
+  "population": "Young men in a longitudinal training study (HR-reserve method origin)",
+  "keyFinding": {
+    "enGB": "Classic source for prescribing intensity as a fraction of heart-rate reserve between resting and maximal heart rate.",
+    "keys": {
+      "enGB": "evidence.karvonen_hr_reserve_1957.key_finding",
+      "uk": "evidence.karvonen_hr_reserve_1957.key_finding"
+    }
+  },
+  "evidenceStrength": "low",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.HeartRate.karvonenTarget"
+  ]
+}

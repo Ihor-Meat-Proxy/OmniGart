@@ -11,7 +11,6 @@ import kotlin.io.path.name
 import kotlin.io.path.readText
 import tools.jackson.databind.JsonNode
 import tools.jackson.databind.ObjectMapper
-import tools.jackson.databind.json.JsonMapper
 
 data class ValidationIssue(val path: String, val message: String)
 
@@ -23,7 +22,7 @@ data class ValidationReport(val exerciseCount: Int, val templateCount: Int, val 
  * Validates on-disk exercise/template JSON against schemas and content rules:
  * unique ids, locale keys present (en-GB + uk only — no ru), cross-refs, evidence refs.
  */
-class ContentValidator(private val contentRoot: Path, private val mapper: ObjectMapper = JsonMapper.builder().build()) {
+class ContentValidator(private val contentRoot: Path, private val mapper: ObjectMapper = ObjectMapper()) {
     private val registry: SchemaRegistry =
         SchemaRegistry.withDefaultDialect(SpecificationVersion.DRAFT_2020_12)
 
@@ -107,6 +106,8 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
             }
             if (node.path("evidenceRefs").isEmpty) {
                 issues += ValidationIssue(file.toString(), "Template missing evidenceRefs")
+            } else {
+                checkEvidence(node, file, issues)
             }
         }
 
@@ -161,19 +162,35 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         if (refs.isEmpty) {
             issues += ValidationIssue(
                 file.toString(),
-                "Exercise has technique/safety claims but no evidenceRefs (log in OPEN_QUESTIONS if intentionally omitted)"
+                "Content has claims but no evidenceRefs (log in OPEN_QUESTIONS if intentionally omitted)"
+
             )
         }
-        refs.forEach { ref ->
-            val kind = ref.path("kind").asString()
-            val id = ref.path("id").asString()
-            if (kind == "doi" && !id.matches(Regex("""^10\.\d{4,9}/\S+$"""))) {
-                issues += ValidationIssue(file.toString(), "DOI looks malformed: $id")
+        val knownIds = loadEvidenceIds()
+        refs.values().forEach { ref ->
+            val evidenceId = ref.path("evidenceId").asString()
+            if (evidenceId.isBlank()) {
+                issues += ValidationIssue(file.toString(), "evidenceRefs entry missing evidenceId")
+                return@forEach
             }
-            if (kind == "pmid" && !id.matches(Regex("""^\d+$"""))) {
-                issues += ValidationIssue(file.toString(), "PMID looks malformed: $id")
+            if (!evidenceId.matches(Regex("""^[a-z][a-z0-9]*(_[a-z0-9]+)*$"""))) {
+                issues += ValidationIssue(file.toString(), "evidenceId looks malformed: $evidenceId")
+            }
+            if (knownIds != null && evidenceId !in knownIds) {
+                issues += ValidationIssue(
+                    file.toString(),
+                    "evidenceId not found in content/evidence catalog: $evidenceId"
+                )
             }
         }
+    }
+
+    private fun loadEvidenceIds(): Set<String>? {
+        val catalog = contentRoot.parent?.resolve("evidence/catalog.json") ?: return null
+        if (!Files.isRegularFile(catalog)) return null
+        val root = mapper.readTree(catalog.readText())
+        if (!root.isArray) return null
+        return root.values().mapNotNull { it.path("id").asString().takeIf { id -> id.isNotBlank() } }.toSet()
     }
 
     private fun checkLoadModel(node: JsonNode, file: Path, issues: MutableList<ValidationIssue>) {
@@ -224,28 +241,22 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         if (!node.has("allowsAssistance") || !node.path("allowsAssistance").isBoolean) {
             issues += ValidationIssue(file.toString(), "allowsAssistance must be a boolean")
         }
-        // JsonNode.map(Function) in Jackson 3 shadows Kotlin Iterable.map — use values().
         val tags = node.path("tags").values().map { it.asString() }.toSet()
         if ("pull-up-family" in tags || "dip-family" in tags) {
-            val refIds = node.path("evidenceRefs").values().map { it.path("id").asString() }.toSet()
+            val evidenceIds = node.path("evidenceRefs").values().map { it.path("evidenceId").asString() }.toSet()
             if ("pull-up-family" in tags) {
-                val hasEmg = refIds.any {
-                    it == "10.1519/JSC.0b013e3181f1598c" || it == "10.1016/j.jelekin.2016.11.004"
-                }
-                val hasSeg = "10.1016/0021-9290(95)00178-6" in refIds
-                if (!hasEmg && node.path("id").asString() !in setOf("typewriter-pull-up", "commando-pull-up")) {
-                    // advanced skill variants may only have technique refs; still prefer segmental mass
-                }
+                val hasSeg = "de_leva_segmental_1996" in evidenceIds
                 if (!hasSeg && basis == "estimate") {
                     issues += ValidationIssue(
                         file.toString(),
-                        "pull-up-family estimate should cite de Leva segmental masses (10.1016/0021-9290(95)00178-6)"
+                        "pull-up-family estimate should cite de_leva_segmental_1996"
+
                     )
                 }
             }
             if ("dip-family" in tags) {
-                if ("10.1519/SSC.0000000000000579" !in refIds &&
-                    "10.3390/ijerph192013211" !in refIds
+                if ("mckenzie_dip_shoulder_2020" !in evidenceIds &&
+                    "mckenzie_dip_kinematics_2022" !in evidenceIds
                 ) {
                     issues += ValidationIssue(
                         file.toString(),

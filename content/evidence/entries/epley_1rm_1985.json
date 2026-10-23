@@ -1,0 +1,26 @@
+{
+  "id": "epley_1rm_1985",
+  "type": "consensus",
+  "title": "Poundage chart",
+  "authors": [
+    "Epley B"
+  ],
+  "year": 1985,
+  "journal": "Boyd Epley Workout (Body Enterprises)",
+  "openAccess": false,
+  "population": "Strength trainees estimating 1RM from submaximal reps",
+  "keyFinding": {
+    "enGB": "Presents the widely used Epley repetition-based estimate of one-repetition maximum from load and reps completed.",
+    "keys": {
+      "enGB": "evidence.epley_1rm_1985.key_finding",
+      "uk": "evidence.epley_1rm_1985.key_finding"
+    }
+  },
+  "evidenceStrength": "very-low",
+  "licenceNote": "Textbook citation for technique norms only; do not quote substantial passages.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.OneRepMax.epley"
+  ]
+}

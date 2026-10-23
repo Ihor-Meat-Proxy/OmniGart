@@ -19,18 +19,14 @@
   "rationale": "Three full-body sessions spread weekly hard-set volume so major muscles are trained ~2–3×/week, matching frequency evidence when volume is accumulated and ACSM guidance for multi-joint work.",
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1007/s40279-016-0543-8",
-      "label": "Schoenfeld et al. 2016 frequency meta-analysis",
+      "evidenceId": "schoenfeld_frequency_2016",
       "supports": [
         "programming",
         "hypertrophy"
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0000000000003897",
-      "label": "ACSM 2026 RT Position Stand",
+      "evidenceId": "acsm_resistance_training_2026",
       "supports": [
         "programming",
         "strength",
@@ -38,9 +34,7 @@
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1080/02640414.2016.1210197",
-      "label": "Schoenfeld et al. 2016 volume dose–response",
+      "evidenceId": "schoenfeld_volume_2016",
       "supports": [
         "hypertrophy",
         "programming"

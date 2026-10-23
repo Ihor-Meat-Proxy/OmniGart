@@ -222,12 +222,24 @@ class FoodLoggingService(
         idFactory = { e -> "food-copy-${e.id}-${toStart.toEpochMilliseconds()}" }
     )
 
-    fun copyDayEpoch(profileId: String, fromStartEpochMs: Long, fromEndEpochMs: Long, toStartEpochMs: Long): List<FoodLogEntry> = copyDay(
-        profileId,
-        Instant.fromEpochMilliseconds(fromStartEpochMs),
-        Instant.fromEpochMilliseconds(fromEndEpochMs),
-        Instant.fromEpochMilliseconds(toStartEpochMs)
-    )
+    /**
+     * Swift-friendly copy-day: epoch millis only, returns count (avoids Instant List bridging).
+     * Prefer this from SwiftUI; Kotlin callers may use [copyDay].
+     */
+    fun copyDayByEpochMs(profileId: String, fromStartEpochMs: Long, fromEndEpochMs: Long, toStartEpochMs: Long): Int {
+        val copied =
+            copyDay(
+                profileId = profileId,
+                fromStart = Instant.fromEpochMilliseconds(fromStartEpochMs),
+                fromEnd = Instant.fromEpochMilliseconds(fromEndEpochMs),
+                toStart = Instant.fromEpochMilliseconds(toStartEpochMs)
+            )
+        return copied.size
+    }
+
+    /** @deprecated Prefer [copyDayByEpochMs] from Swift. */
+    fun copyDayEpoch(profileId: String, fromStartEpochMs: Long, fromEndEpochMs: Long, toStartEpochMs: Long): Int =
+        copyDayByEpochMs(profileId, fromStartEpochMs, fromEndEpochMs, toStartEpochMs)
 
     fun exportJson(profileId: String): String = FoodImportExport.exportJson(
         profileId = profileId,

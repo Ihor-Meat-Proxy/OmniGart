@@ -1300,5 +1300,22 @@
   "template.strength_focus_3x.rationale": "Бастауыштың присед/бүгу/көтеру/тарту кешендеріндегі сызықтық прогрессиясы консервативті қосымшалармен — ACSM күш жаттығуы шолуындағы көпбуынды жүктемеге басымдыққа сәйкес.",
   "template.swim_technique_3x.rationale": "Метраждан бұрын жаттығу тығыздығын басым етіңіз — аэробтық көлем нашар механиканы бекітпесін; кондициялауда жеңіл аэроб басымдығы әлі қолданылады.",
   "template.upper_lower_4x.rationale": "Төрт күндік жоғары/төмен бұлшықетке ~2× апталық жиілікті сақтайды, Шоэнфельд/Пелланд доза–жауап жолақтарында сеанс көлемін жоғарылатуға мүмкіндік береді.",
-  "template.yoga_mobility_flow.rationale": "Икемділік және нейромоторлық практика ≥2–3 күн/апта ACSM мөлшер/сапа нұсқауына сәйкес; қалыптар бастауыштарға қолжетімді қалады."
+  "template.yoga_mobility_flow.rationale": "Икемділік және нейромоторлық практика ≥2–3 күн/апта ACSM мөлшер/сапа нұсқауына сәйкес; қалыптар бастауыштарға қолжетімді қалады.",
+  "exercise.archer_pull_up.name": "Archer pull-up",
+  "exercise.band_assisted_dip.name": "Band-assisted dip",
+  "exercise.bench_dip.name": "Bench dip",
+  "exercise.close_grip_pull_up.name": "Close-grip pull-up",
+  "exercise.commando_pull_up.name": "Commando pull-up",
+  "exercise.korean_dip.name": "Korean dip",
+  "exercise.l_sit_pull_up.name": "L-sit pull-up",
+  "exercise.machine_assisted_dip.name": "Machine-assisted dip",
+  "exercise.machine_assisted_pull_up.name": "Machine-assisted pull-up",
+  "exercise.negative_dip.name": "Negative dip (eccentric)",
+  "exercise.negative_pull_up.name": "Negative pull-up (eccentric)",
+  "exercise.neutral_grip_pull_up.name": "Neutral-grip pull-up",
+  "exercise.scapular_pull_up.name": "Scapular pull-up",
+  "exercise.straight_bar_dip.name": "Straight-bar dip",
+  "exercise.typewriter_pull_up.name": "Typewriter pull-up",
+  "exercise.weighted_dip.name": "Weighted dip",
+  "exercise.wide_grip_pull_up.name": "Wide-grip pull-up"
 }

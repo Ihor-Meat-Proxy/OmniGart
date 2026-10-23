@@ -1300,5 +1300,22 @@
   "template.strength_focus_3x.rationale": "Lineární progrese začátečníka na vícekloubových dřep/kyvadlo/tlak/tah s konzervativními doplňky — v souladu s ACSM RT důrazem na vícekloubové zatížení.",
   "template.swim_technique_3x.rationale": "Upřednostni hustotu drilů před metráží, aby aerobní objem neupevňoval špatnou mechaniku; při kondici stále platí dominance snadné aerobní práce.",
   "template.upper_lower_4x.rationale": "Čtyřdenní horní/dolní drží ~2× týdenní frekvenci na sval při vyšším objemu na jednotku v pásmech dávka–odpověď Schoenfeld/Pelland.",
-  "template.yoga_mobility_flow.rationale": "Procvičování flexibility a neuromotoriky ≥2–3 dny/týden odpovídá ACSM doporučením quantity/quality; pozice zůstávají přístupné začátečníkům."
+  "template.yoga_mobility_flow.rationale": "Procvičování flexibility a neuromotoriky ≥2–3 dny/týden odpovídá ACSM doporučením quantity/quality; pozice zůstávají přístupné začátečníkům.",
+  "exercise.archer_pull_up.name": "Archer pull-up",
+  "exercise.band_assisted_dip.name": "Band-assisted dip",
+  "exercise.bench_dip.name": "Bench dip",
+  "exercise.close_grip_pull_up.name": "Close-grip pull-up",
+  "exercise.commando_pull_up.name": "Commando pull-up",
+  "exercise.korean_dip.name": "Korean dip",
+  "exercise.l_sit_pull_up.name": "L-sit pull-up",
+  "exercise.machine_assisted_dip.name": "Machine-assisted dip",
+  "exercise.machine_assisted_pull_up.name": "Machine-assisted pull-up",
+  "exercise.negative_dip.name": "Negative dip (eccentric)",
+  "exercise.negative_pull_up.name": "Negative pull-up (eccentric)",
+  "exercise.neutral_grip_pull_up.name": "Neutral-grip pull-up",
+  "exercise.scapular_pull_up.name": "Scapular pull-up",
+  "exercise.straight_bar_dip.name": "Straight-bar dip",
+  "exercise.typewriter_pull_up.name": "Typewriter pull-up",
+  "exercise.weighted_dip.name": "Weighted dip",
+  "exercise.wide_grip_pull_up.name": "Wide-grip pull-up"
 }

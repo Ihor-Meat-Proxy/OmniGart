@@ -34,7 +34,11 @@ enum HealthKitWorkoutImporter {
         previousAnchor: Data?
     ) async throws -> AnchoredImportResult {
         guard HKHealthStore.isHealthDataAvailable() else {
-            return AnchoredImportResult(workouts: [], deletedUUIDs: [], newAnchor: previousAnchor)
+            return AnchoredImportResult(
+                workouts: [],
+                deletedUUIDs: [],
+                newAnchor: previousAnchor
+            )
         }
         let store = HKHealthStore()
         let workoutType = HealthKitPlatformBridge.workoutType()

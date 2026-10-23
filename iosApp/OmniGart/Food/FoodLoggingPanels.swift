@@ -55,7 +55,7 @@ struct FoodCatalogueRow: View {
 
     private func servingButton(_ key: LocalizedStringKey, _ serving: QuickServing) -> some View {
         Button(key) {
-            _ = core.foodLogging.logQuickServing(
+            _ = core.foodLogging.logQuickServingNow(
                 profileId: profileId,
                 foodId: food.id,
                 serving: serving,
@@ -90,7 +90,7 @@ struct FoodRecentsFavouritesPanel: View {
                 ForEach(recents, id: \.id) { entry in
                     HStack {
                         Button {
-                            _ = core.foodLogging.repeatRecent(
+                            _ = core.foodLogging.repeatRecentNow(
                                 profileId: profileId,
                                 entryId: entry.id,
                                 mealGroup: entry.mealGroup

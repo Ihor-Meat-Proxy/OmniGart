@@ -58,7 +58,7 @@ struct FoodToolsPanel: View {
         NavigationStack {
             FoodBarcodeScannerView { code in
                 if let food = core.foodLogging.findBarcode(profileId: profileId, barcode: code) {
-                    _ = core.foodLogging.logFromCatalogue(
+                    _ = core.foodLogging.logFromCatalogueNow(
                         profileId: profileId,
                         foodId: food.id,
                         grams: 100.0,
@@ -74,7 +74,7 @@ struct FoodToolsPanel: View {
     private var labelSheet: some View {
         NavigationStack {
             FoodLabelScannerView { nutrients in
-                _ = core.foodLogging.quickAdd(
+                _ = core.foodLogging.quickAddNow(
                     profileId: profileId,
                     add: QuickMacroAdd(
                         name: String(localized: "food_label_entry_name"),
@@ -160,13 +160,11 @@ private struct FoodCustomAndOverrideFields: View {
     private func saveCustom() {
         let name = customName.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !name.isEmpty else { return }
-        core.foodLogging.upsertCustomFood(
-            food: CustomFood(
-                id: "custom-\(Int(Date().timeIntervalSince1970))",
-                profileId: profileId,
-                name: name,
-                energyKcalPer100g: Double(customKcal) ?? 0
-            )
+        core.foodLogging.upsertCustomFoodSimple(
+            id: "custom-\(Int(Date().timeIntervalSince1970))",
+            profileId: profileId,
+            name: name,
+            energyKcalPer100g: Double(customKcal) ?? 0
         )
         customName = ""
         tick += 1

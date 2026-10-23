@@ -104,6 +104,10 @@ class FoodLoggingService(
         return entry
     }
 
+    /** Swift-friendly (no Instant / default-arg bridging). */
+    fun quickAddNow(profileId: String, add: QuickMacroAdd, mealGroup: MealGroup): FoodLogEntry =
+        quickAdd(profileId, add, mealGroup, clock.now())
+
     fun logFromCatalogue(
         profileId: String,
         foodId: String,
@@ -218,7 +222,7 @@ class FoodLoggingService(
         idFactory = { e -> "food-copy-${e.id}-${toStart.toEpochMilliseconds()}" }
     )
 
-    fun copyDayEpoch(profileId: String, fromStartEpochMs: Long, fromEndEpochMs: Long, toStartEpochMs: Long) = copyDay(
+    fun copyDayEpoch(profileId: String, fromStartEpochMs: Long, fromEndEpochMs: Long, toStartEpochMs: Long): List<FoodLogEntry> = copyDay(
         profileId,
         Instant.fromEpochMilliseconds(fromStartEpochMs),
         Instant.fromEpochMilliseconds(fromEndEpochMs),
@@ -341,7 +345,23 @@ class FoodLoggingService(
         )
     }
 
+    /** Swift-friendly (no Instant bridging). */
+    fun repeatRecentNow(profileId: String, entryId: String, mealGroup: MealGroup): FoodLogEntry? =
+        repeatRecent(profileId, entryId, mealGroup, clock.now())
+
     fun upsertCustomFood(food: CustomFood) = store.upsertCustomFood(food)
+
+    /** Swift-friendly CustomFood constructor (Kotlin defaults are not exported). */
+    fun upsertCustomFoodSimple(id: String, profileId: String, name: String, energyKcalPer100g: Double) {
+        upsertCustomFood(
+            CustomFood(
+                id = id,
+                profileId = profileId,
+                name = name,
+                energyKcalPer100g = energyKcalPer100g
+            )
+        )
+    }
 
     fun customFoods(profileId: String): List<CustomFood> = store.customFoods(profileId)
 
@@ -364,6 +384,13 @@ class FoodLoggingService(
             at = at
         )
     }
+
+    /** Swift-friendly (no Instant / default-arg bridging). */
+    fun logQuickServingNow(profileId: String, foodId: String, serving: QuickServing, mealGroup: MealGroup, locale: String): FoodLogEntry? =
+        logQuickServing(profileId, foodId, serving, mealGroup, locale, 100.0, clock.now())
+
+    fun logFromCatalogueNow(profileId: String, foodId: String, grams: Double, mealGroup: MealGroup, locale: String): FoodLogEntry? =
+        logFromCatalogue(profileId, foodId, grams, mealGroup, locale, clock.now())
 
     fun bestSources(
         profileId: String,

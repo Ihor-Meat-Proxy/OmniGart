@@ -1,0 +1,73 @@
+{
+  "id": "pallof-press",
+  "nameKeys": {
+    "enGB": "exercise.pallof_press.name",
+    "uk": "exercise.pallof_press.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "rotation",
+  "primaryMuscles": [
+    "obliques",
+    "transverse_abdominis"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid"
+  ],
+  "equipment": [
+    "cable",
+    "bands"
+  ],
+  "level": "beginner",
+  "unilateral": true,
+  "mechanics": "isolation",
+  "trackingType": "reps",
+  "technique": [
+    "Stand side-on to a cable/band; press the handle straight out, resisting rotation; hold briefly; return."
+  ],
+  "setup": [
+    "Handle at sternum; athletic stance."
+  ],
+  "breathing": "Exhale as you press out.",
+  "commonMistakes": [
+    "Letting the cable turn the hips",
+    "Shrugging"
+  ],
+  "safety": [
+    "Anti-rotation > chasing heavy loads."
+  ],
+  "contraindications": [],
+  "regressions": [],
+  "progressions": [
+    {
+      "exerciseId": "cable-woodchop",
+      "note": "Dynamic rotation"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/pallof-press",
+    "videoKey": "media/video/pallof-press",
+    "animationKey": "media/anim/pallof-press"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

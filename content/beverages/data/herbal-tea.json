@@ -1,0 +1,40 @@
+{
+  "id": "herbal-tea",
+  "category": "tea",
+  "defaultServingMl": 240,
+  "caffeineMgPerServing": 0,
+  "macrosPer100ml": {
+    "energyKcal": 1,
+    "proteinG": 0,
+    "carbohydrateG": 0.2,
+    "fatG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 2
+  },
+  "hydrationFactor": 1.0,
+  "hydrationFactorEstimated": true,
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.3945/ajcn.115.114769",
+      "label": "Maughan et al. 2016 AJCN — Beverage Hydration Index",
+      "supports": [
+        "hydration_factor"
+      ]
+    },
+    {
+      "kind": "database",
+      "id": "usda-fdc",
+      "label": "USDA FoodData Central (typical values per 100 ml / serving)",
+      "supports": [
+        "macros",
+        "caffeine"
+      ]
+    }
+  ],
+  "notes": "Typically caffeine-free; BHI assumed = water (not in Maughan panel).",
+  "nameKeys": {
+    "enGB": "beverage.herbal_tea.name",
+    "uk": "beverage.herbal_tea.name"
+  }
+}

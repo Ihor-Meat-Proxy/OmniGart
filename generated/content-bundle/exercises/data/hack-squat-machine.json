@@ -1,0 +1,83 @@
+{
+  "id": "hack-squat-machine",
+  "nameKeys": {
+    "enGB": "exercise.hack_squat_machine.name",
+    "uk": "exercise.hack_squat_machine.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "squat",
+  "primaryMuscles": [
+    "quadriceps"
+  ],
+  "secondaryMuscles": [
+    "gluteus_maximus",
+    "calves"
+  ],
+  "equipment": [
+    "machine"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Shoulders under pads; descend with knees tracking over toes; drive up without hips shooting back early."
+  ],
+  "setup": [
+    "Feet shoulder-width on platform; safeties engaged."
+  ],
+  "breathing": "Inhale down, exhale up.",
+  "commonMistakes": [
+    "Heels lifting",
+    "Partial reps without intent"
+  ],
+  "safety": [
+    "Control depth; avoid knee valgus crash."
+  ],
+  "contraindications": [
+    "Acute knee pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "leg-press",
+      "note": "More supported"
+    },
+    {
+      "exerciseId": "goblet-squat",
+      "note": "Free pattern"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "back-squat",
+      "note": "Barbell loading"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/hack-squat-machine",
+    "videoKey": "media/video/hack-squat-machine",
+    "animationKey": "media/anim/hack-squat-machine"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

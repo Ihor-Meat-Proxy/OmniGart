@@ -44,6 +44,13 @@ node_modules/
 # Python
 __pycache__/
 
+# Content bundle verify scratch (committed baseline lives in generated/content-bundle/)
+generated/.content-bundle-verify/
+
+# Xcode staged copies of the content bundle (rebuilt by pre-build script)
+iosApp/OmniGart/ContentBundle/
+watchApp/OmniGartWatch/ContentBundle/
+
 # Env / secrets
 .env
 .env.*

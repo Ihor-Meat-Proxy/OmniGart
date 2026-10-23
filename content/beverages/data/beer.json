@@ -1,0 +1,40 @@
+{
+  "id": "beer",
+  "category": "beer",
+  "defaultServingMl": 330,
+  "caffeineMgPerServing": 0,
+  "macrosPer100ml": {
+    "energyKcal": 43,
+    "proteinG": 0.5,
+    "carbohydrateG": 3.6,
+    "fatG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 4
+  },
+  "hydrationFactor": 1.0,
+  "hydrationFactorEstimated": false,
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.3945/ajcn.115.114769",
+      "label": "Maughan et al. 2016 AJCN — Beverage Hydration Index",
+      "supports": [
+        "hydration_factor"
+      ]
+    },
+    {
+      "kind": "database",
+      "id": "usda-fdc",
+      "label": "USDA FoodData Central (typical values per 100 ml / serving)",
+      "supports": [
+        "macros",
+        "caffeine"
+      ]
+    }
+  ],
+  "notes": "Maughan lager BHI not different from water at the test dose.",
+  "nameKeys": {
+    "enGB": "beverage.beer.name",
+    "uk": "beverage.beer.name"
+  }
+}

@@ -1,5 +1,6 @@
 import Foundation
 import HealthKit
+import SwiftUI
 
 /// Indoor / Zone 2 workout kinds the watch can run as live `HKWorkoutSession`s.
 enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable {

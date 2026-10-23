@@ -1,3 +1,5 @@
+import Foundation
+
 struct OmniGartLiveWorkoutSummary: Equatable, Sendable {
     var kind: OmniGartWorkoutKind
     var elapsed: TimeInterval

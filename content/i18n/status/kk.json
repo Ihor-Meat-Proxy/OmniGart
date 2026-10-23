@@ -9646,5 +9646,21 @@
   "swim.stroke.individual_medley.summary": {
     "status": "machine-drafted",
     "source_hash": "761e5c5b7647ca63"
+  },
+  "claim.cardio_zone2_easy_distribution.text": {
+    "status": "machine-drafted",
+    "source_hash": "100b54d4d955a572"
+  },
+  "claim.formula_zone2_hrr_karvonen.text": {
+    "status": "machine-drafted",
+    "source_hash": "40603ed9f5dcec8f"
+  },
+  "claim.formula_zone2_lthr_band.text": {
+    "status": "machine-drafted",
+    "source_hash": "6684339d756504ba"
+  },
+  "claim.formula_zone2_percent_hrmax.text": {
+    "status": "machine-drafted",
+    "source_hash": "e47e9b88e6f77f8c"
   }
 }

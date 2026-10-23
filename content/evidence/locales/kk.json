@@ -88,5 +88,9 @@
   "evidence.kaminsky_friend_vo2_2015.key_finding": "Age- and sex-specific VO2 reference percentiles from the FRIEND registry provide norms for cardiorespiratory fitness interpretation.",
   "evidence.loe_hunt_vo2_2016.key_finding": "Population fitness models from HUNT support estimating VO2peak for wellness fitness comparisons when direct CPET is unavailable.",
   "evidence.van_dongen_sleep_debt_2003.key_finding": "Cumulative sleep restriction produces dose-dependent neurobehavioral deficits, supporting the concept of accumulating sleep debt.",
-  "evidence.watson_sleep_performance_2017.key_finding": "Insufficient sleep impairs athletic performance, cognition and injury risk markers; extending sleep and protecting sleep opportunity support recovery."
+  "evidence.watson_sleep_performance_2017.key_finding": "Insufficient sleep impairs athletic performance, cognition and injury risk markers; extending sleep and protecting sleep opportunity support recovery.",
+  "claim.formula_zone2_hrr_karvonen.text": "2-аймақ (жеңіл аэробты қарқын) әдепкі бойынша жүрек соғысы қорының шамамен 60–70%-ін құрайды (Карвонен әдісі) — тыныштық және максималды жүрек соғысыңызды пайдалана отырып.",
+  "claim.formula_zone2_percent_hrmax.text": "2-аймақты жүрек соғысы қорының орнына %HRmax жолақтарын қаласаңыз, максималды жүрек соғысының шамамен 60–70%-і ретінде қоюға болады.",
+  "claim.cardio_zone2_easy_distribution.text": "Шыдамдылық жаттығу көлемінің едәуір бөлігі жиі жеңіл аэробты қарқында (2-аймаққа ұқсас) орындалады, ал ауыр жұмыс сеанстардың кішірек үлесін құрайды.",
+  "claim.formula_zone2_lthr_band.text": "Нұсқа ретінде 2-аймақты өлшенген немесе бағаланған LTHR болғанда лактат шегіндегі жүрек соғысының шамамен 80–90%-і деп бағалауға болады."
 }

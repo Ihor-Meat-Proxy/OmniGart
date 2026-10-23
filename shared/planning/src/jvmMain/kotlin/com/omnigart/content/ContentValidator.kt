@@ -162,7 +162,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         if (refs.isEmpty) {
             issues += ValidationIssue(
                 file.toString(),
-                "Content has claims but no evidenceRefs (log in OPEN_QUESTIONS if intentionally omitted)",
+                "Content has claims but no evidenceRefs (log in OPEN_QUESTIONS if intentionally omitted)"
 
             )
         }
@@ -179,7 +179,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
             if (knownIds != null && evidenceId !in knownIds) {
                 issues += ValidationIssue(
                     file.toString(),
-                    "evidenceId not found in content/evidence catalog: $evidenceId",
+                    "evidenceId not found in content/evidence catalog: $evidenceId"
                 )
             }
         }
@@ -249,7 +249,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
                 if (!hasSeg && basis == "estimate") {
                     issues += ValidationIssue(
                         file.toString(),
-                        "pull-up-family estimate should cite de_leva_segmental_1996",
+                        "pull-up-family estimate should cite de_leva_segmental_1996"
 
                     )
                 }

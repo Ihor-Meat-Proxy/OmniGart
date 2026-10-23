@@ -89,7 +89,7 @@ class ContentValidatorTest {
         val dip = data.resolve("dip-parallel-bar.json").toFile().readText()
         assertTrue(
             "mckenzie_dip_shoulder_2020" in dip || "mckenzie_dip_kinematics_2022" in dip,
-            "parallel-bar dip should cite shoulder-extension safety/kinematics evidence id",
+            "parallel-bar dip should cite shoulder-extension safety/kinematics evidence id"
         )
         assertTrue("\"loadModel\"" in dip)
     }

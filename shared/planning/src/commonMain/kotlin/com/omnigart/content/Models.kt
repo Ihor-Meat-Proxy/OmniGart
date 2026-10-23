@@ -316,10 +316,7 @@ data class LocalizedNameKeys(val enGB: String, val uk: String)
 data class ExerciseLink(val exerciseId: String, val note: String)
 
 @Serializable
-data class EvidenceRef(
-    val evidenceId: String,
-    val supports: List<String>,
-)
+data class EvidenceRef(val evidenceId: String, val supports: List<String>)
 
 @Serializable
 data class MediaPlaceholders(val illustrationKey: String? = null, val videoKey: String? = null, val animationKey: String? = null)

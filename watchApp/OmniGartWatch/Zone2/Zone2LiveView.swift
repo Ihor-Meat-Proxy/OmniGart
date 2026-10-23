@@ -94,7 +94,13 @@ struct Zone2LiveView: View {
                         }
                     }
                 } label: {
-                    Text(session.isRunning ? "watch.zone2.stop" : "watch.zone2.start")
+                    // Ternary of String uses Text.init(String) (no localization).
+                    // Use LocalizedStringKey so the watch String Catalog resolves.
+                    Text(
+                        session.isRunning
+                            ? LocalizedStringKey("watch.zone2.stop")
+                            : LocalizedStringKey("watch.zone2.start")
+                    )
                 }
                 .tint(Color.OmniGart.colorBrandAccent)
 

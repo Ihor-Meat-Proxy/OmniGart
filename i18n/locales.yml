@@ -51,7 +51,12 @@ plurals:
 
 # Where translation catalogs live (checked when present).
 paths:
+  # Primary exercise/template catalog (always expected once content i18n lands).
   content_locales: content/exercises/locales
+  # Additional domain catalogs under content/<domain>/locales/ — auto-discovered
+  # when en-GB.json exists. Listed here for documentation; discovery is recursive.
+  content_locale_globs:
+    - content/*/locales
   glossary: content/i18n/glossary/glossary.csv
   status: content/i18n/status
   # App UI (PR #2 scaffold). Validator skips gracefully if absent;

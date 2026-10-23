@@ -4,6 +4,7 @@ import Shared
 
 /// User-initiated restore of a local workout that was removed from Apple Health.
 /// Append-only: exist-check → insert with bumped `HKMetadataKeySyncVersion` → never delete/update.
+@MainActor
 enum HealthKitWorkoutRestorer {
     enum Outcome: Sendable {
         case restored(UUID)

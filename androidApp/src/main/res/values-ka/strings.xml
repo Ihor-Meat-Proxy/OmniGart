@@ -219,4 +219,26 @@
     <string name="health_restore_failed">ამ ვარჯიშის აღდგენა ვერ მოხერხდა.</string>
     <string name="health_restore_permission_needed">აღდგენისთვის საჭიროა Health-ზე ჩაწერის ნებართვა.</string>
     <string name="health_restore_all_result">აღდგენილია %1$d · ვერ მოხერხდა %2$d</string>
+    <string name="food_search_title">საკვების ძებნა</string>
+    <string name="food_search_placeholder">სახელი ან ბრენდი</string>
+    <string name="food_meal_group">კვება</string>
+    <string name="food_meal_breakfast">საუზმე</string>
+    <string name="food_meal_lunch">სადილი</string>
+    <string name="food_meal_dinner">ვახშამი</string>
+    <string name="food_meal_snacks">სნეკები</string>
+    <string name="food_gaps_title">შეავსე ხარვეზები</string>
+    <string name="food_gaps_none">დღეს საცნობარო მიღებასთან დიდი ხარვეზი არ ჩანს.</string>
+    <string name="food_gaps_hint">რჩევები ეყრდნობა საცნობარო მიღებას და თქვენს ჟურნალს. მხოლოდ კეთილდღეობა — არა სამედიცინო რჩევა.</string>
+    <string name="food_review_title">დილის საკვების მიმოხილვა</string>
+    <string name="food_review_run">გუშინდელის მიმოხილვა</string>
+    <string name="food_review_footer">ეს კეთილდღეობის შეჯამებაა, არა სამედიცინო რჩევა.</string>
+    <string name="food_review_ai_toggle">დილის მიმოხილვა მოწყობილობაზე</string>
+    <string name="food_review_ai_ready">მოწყობილობაზე მიმოხილვა ხელმისაწვდომია.</string>
+    <string name="food_ai_unavailable">მოწყობილობაზე მიმოხილვა მიუწვდომელია. გამოიყენება მარტივი შეჯამება.</string>
+    <string name="food_ai_model_not_ready">მოწყობილობის მოდელი ჯერ მზად არ არის.</string>
+    <string name="food_review_failed">დილის მიმოხილვის შექმნა ვერ მოხერხდა.</string>
+    <string name="food_attribution_short">საკვების მონაცემები: USDA FoodData Central (საჯარო დომენი) და Open Food Facts (ODbL).</string>
+    <string name="food_totals_line">%1$d კკალ · ც %2$d · ნ %3$d · ცხ %4$d</string>
+    <string name="food_offline_only">მხოლოდ ოფლაინ ძებნა</string>
+    <string name="food_online_privacy_note">ონლაინ ძებნა თქვენს მოთხოვნას Open Food Facts-ს უგზავნის.</string>
 </resources>

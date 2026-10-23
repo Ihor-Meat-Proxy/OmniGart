@@ -84,6 +84,15 @@ struct FoodTabView: View {
                     }
                 }
             }
+            FoodSearchPanel(core: core, profileId: profileId, tick: $tick)
+            FoodGapsPanel()
+            FoodMorningReviewPanel(core: core, profileId: profileId)
+            Section {
+                Text("food_attribution_short")
+                    .font(.caption2)
+                    .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                    .accessibilityIdentifier("food_attribution")
+            }
         }
         .navigationTitle(Text("tab_food"))
         .scrollContentBackground(.hidden)

@@ -219,4 +219,26 @@
     <string name="health_restore_failed">Бұл жаттығуды қалпына келтіру мүмкін болмады.</string>
     <string name="health_restore_permission_needed">Қалпына келтіру үшін Health жазу рұқсаты қажет.</string>
     <string name="health_restore_all_result">Қалпына келтірілді %1$d · сәтсіз %2$d</string>
+    <string name="food_search_title">Тамақ іздеу</string>
+    <string name="food_search_placeholder">Атауы немесе бренд</string>
+    <string name="food_meal_group">Тамақ</string>
+    <string name="food_meal_breakfast">Таңғы ас</string>
+    <string name="food_meal_lunch">Түскі ас</string>
+    <string name="food_meal_dinner">Кешкі ас</string>
+    <string name="food_meal_snacks">Тіскебасар</string>
+    <string name="food_gaps_title">Бос орындарды толтыру</string>
+    <string name="food_gaps_none">Бүгін анықтамалық тұтынуға қатысты үлкен олқылық жоқ.</string>
+    <string name="food_gaps_hint">Ұсыныстар анықтамалық тұтыну мен журналыңызға негізделген. Тек сауықтыру — медициналық кеңес емес.</string>
+    <string name="food_review_title">Таңғы тамақ шолуы</string>
+    <string name="food_review_run">Кешені қарау</string>
+    <string name="food_review_footer">Бұл сауықтыру қорытындысы, медициналық кеңес емес.</string>
+    <string name="food_review_ai_toggle">Құрылғыдағы таңғы шолу</string>
+    <string name="food_review_ai_ready">Құрылғыдағы шолу қолжетімді.</string>
+    <string name="food_ai_unavailable">Құрылғыдағы шолу қолжетімсіз. Қарапайым қорытынды қолданылады.</string>
+    <string name="food_ai_model_not_ready">Құрылғыдағы модель әлі дайын емес.</string>
+    <string name="food_review_failed">Таңғы шолуды жасау мүмкін болмады.</string>
+    <string name="food_attribution_short">Тамақ деректері: USDA FoodData Central (қоғамдық игілік) және Open Food Facts (ODbL).</string>
+    <string name="food_totals_line">%1$d ккал · А %2$d · К %3$d · М %4$d</string>
+    <string name="food_offline_only">Тек офлайн тамақ іздеу</string>
+    <string name="food_online_privacy_note">Онлайн тамақ іздеу сұрауыңызды Open Food Facts-қа жібереді.</string>
 </resources>

@@ -21,6 +21,13 @@ object FeatureFlags {
     /** Barcode food logging camera flow. */
     val foodBarcodeEnabled: Boolean = false
 
+    /**
+     * Optional on-device AI morning food review toggle in Settings.
+     * Stays false until Foundation Models / Gemini Nano paths are product-ready.
+     * Rule-based morning summary remains available without this flag.
+     */
+    val morningFoodReviewEnabled: Boolean = false
+
     /** Morning readiness check-in surface. */
     val readinessCheckInEnabled: Boolean = false
 

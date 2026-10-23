@@ -219,4 +219,26 @@ Wir verkaufen keine Gesundheitsdaten und nutzen sie nicht für Werbung. Sie kön
     <string name="health_restore_failed">Dieses Workout konnte nicht wiederhergestellt werden.</string>
     <string name="health_restore_permission_needed">Zum Wiederherstellen ist die Schreibberechtigung für Health erforderlich.</string>
     <string name="health_restore_all_result">Wiederhergestellt %1$d · fehlgeschlagen %2$d</string>
+    <string name="food_search_title">Lebensmittel suchen</string>
+    <string name="food_search_placeholder">Name oder Marke</string>
+    <string name="food_meal_group">Mahlzeit</string>
+    <string name="food_meal_breakfast">Frühstück</string>
+    <string name="food_meal_lunch">Mittagessen</string>
+    <string name="food_meal_dinner">Abendessen</string>
+    <string name="food_meal_snacks">Snacks</string>
+    <string name="food_gaps_title">Lücken füllen</string>
+    <string name="food_gaps_none">Heute keine großen Lücken gegenüber den Referenzzufuhren.</string>
+    <string name="food_gaps_hint">Vorschläge nutzen Referenzzufuhren und Ihr Protokoll. Nur Wellness — keine medizinische Beratung.</string>
+    <string name="food_review_title">Morgen-Essensrückblick</string>
+    <string name="food_review_run">Gestern prüfen</string>
+    <string name="food_review_footer">Dies ist eine Wellness-Zusammenfassung, keine medizinische Beratung.</string>
+    <string name="food_review_ai_toggle">Morgenrückblick auf dem Gerät</string>
+    <string name="food_review_ai_ready">Gerätseitiger Rückblick ist verfügbar.</string>
+    <string name="food_ai_unavailable">Gerätseitiger Rückblick nicht verfügbar. Es wird eine einfache Zusammenfassung genutzt.</string>
+    <string name="food_ai_model_not_ready">Das gerätseitige Modell ist noch nicht bereit.</string>
+    <string name="food_review_failed">Morgenrückblick konnte nicht erstellt werden.</string>
+    <string name="food_attribution_short">Lebensmitteldaten: USDA FoodData Central (Gemeinfreiheit) und Open Food Facts (ODbL).</string>
+    <string name="food_totals_line">%1$d kcal · E %2$d · KH %3$d · F %4$d</string>
+    <string name="food_offline_only">Nur Offline-Lebensmittelsuche</string>
+    <string name="food_online_privacy_note">Online-Suche sendet Ihre Anfrage an Open Food Facts.</string>
 </resources>

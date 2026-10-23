@@ -219,4 +219,26 @@ Zdravotní data neprodáváme a nepoužíváme k reklamě. Můžete přístup od
     <string name="health_restore_failed">Tento trénink se nepodařilo obnovit.</string>
     <string name="health_restore_permission_needed">K obnovení je potřeba oprávnění k zápisu do Health.</string>
     <string name="health_restore_all_result">Obnoveno %1$d · selhalo %2$d</string>
+    <string name="food_search_title">Hledat potraviny</string>
+    <string name="food_search_placeholder">Název nebo značka</string>
+    <string name="food_meal_group">Jídlo</string>
+    <string name="food_meal_breakfast">Snídaně</string>
+    <string name="food_meal_lunch">Oběd</string>
+    <string name="food_meal_dinner">Večeře</string>
+    <string name="food_meal_snacks">Svačiny</string>
+    <string name="food_gaps_title">Doplnit mezery</string>
+    <string name="food_gaps_none">Dnes nejsou velké mezery vůči referenčním příjmům.</string>
+    <string name="food_gaps_hint">Návrhy vycházejí z referenčních příjmů a vašeho deníku. Jen wellness — ne lékařská rada.</string>
+    <string name="food_review_title">Ranní přehled jídla</string>
+    <string name="food_review_run">Zkontrolovat včerejšek</string>
+    <string name="food_review_footer">Toto je wellness shrnutí, ne lékařská rada.</string>
+    <string name="food_review_ai_toggle">Ranní přehled v zařízení</string>
+    <string name="food_review_ai_ready">Přehled v zařízení je k dispozici.</string>
+    <string name="food_ai_unavailable">Přehled v zařízení není k dispozici. Použije se jednoduché shrnutí.</string>
+    <string name="food_ai_model_not_ready">Model v zařízení ještě není připraven.</string>
+    <string name="food_review_failed">Nepodařilo se vytvořit ranní přehled.</string>
+    <string name="food_attribution_short">Data o potravinách: USDA FoodData Central (volné dílo) a Open Food Facts (ODbL).</string>
+    <string name="food_totals_line">%1$d kcal · B %2$d · S %3$d · T %4$d</string>
+    <string name="food_offline_only">Pouze offline vyhledávání potravin</string>
+    <string name="food_online_privacy_note">Online hledání odesílá váš dotaz do Open Food Facts.</string>
 </resources>

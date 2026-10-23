@@ -219,4 +219,26 @@
     <string name="health_restore_failed">Не ўдалося аднавіць гэтую трэніроўку.</string>
     <string name="health_restore_permission_needed">Для аднаўлення патрэбны дазвол на запіс у Health.</string>
     <string name="health_restore_all_result">Адноўлена %1$d · не ўдалося %2$d</string>
+    <string name="food_search_title">Пошук ежы</string>
+    <string name="food_search_placeholder">Назва або бренд</string>
+    <string name="food_meal_group">Прыём ежы</string>
+    <string name="food_meal_breakfast">Сніданак</string>
+    <string name="food_meal_lunch">Абед</string>
+    <string name="food_meal_dinner">Вячэра</string>
+    <string name="food_meal_snacks">Перакусы</string>
+    <string name="food_gaps_title">Закрыць прабелы</string>
+    <string name="food_gaps_none">Сёння няма вялікіх прабелаў адносна рэферэнснага ўжывання.</string>
+    <string name="food_gaps_hint">Прапановы заснаваны на рэферэнсным ужыванні і вашым журнале. Толькі wellness — не медыцынская парада.</string>
+    <string name="food_review_title">Ранішні агляд ежы</string>
+    <string name="food_review_run">Прагледзець учора</string>
+    <string name="food_review_footer">Гэта wellness-вынік, не медыцынская парада.</string>
+    <string name="food_review_ai_toggle">Ранішні агляд на прыладзе</string>
+    <string name="food_review_ai_ready">Агляд на прыладзе даступны.</string>
+    <string name="food_ai_unavailable">Агляд на прыладзе недаступны. Выкарыстоўваецца просты вынік.</string>
+    <string name="food_ai_model_not_ready">Мадэль на прыладзе яшчэ не гатовая.</string>
+    <string name="food_review_failed">Не ўдалося стварыць ранішні агляд.</string>
+    <string name="food_attribution_short">Дадзеныя пра ежу: USDA FoodData Central (грамадскі набытак) і Open Food Facts (ODbL).</string>
+    <string name="food_totals_line">%1$d ккал · Б %2$d · В %3$d · Т %4$d</string>
+    <string name="food_offline_only">Толькі афлайн-пошук ежы</string>
+    <string name="food_online_privacy_note">Анлайн-пошук ежы дасылае ваш запыт у Open Food Facts.</string>
 </resources>

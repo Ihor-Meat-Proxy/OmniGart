@@ -219,4 +219,26 @@ No vendemos datos de salud ni los usamos para publicidad. Puedes denegar el acce
     <string name="health_restore_failed">No se pudo restaurar este entrenamiento.</string>
     <string name="health_restore_permission_needed">Se necesita permiso de escritura de Health para restaurar.</string>
     <string name="health_restore_all_result">Restaurados %1$d · fallidos %2$d</string>
+    <string name="food_search_title">Buscar alimentos</string>
+    <string name="food_search_placeholder">Nombre o marca</string>
+    <string name="food_meal_group">Comida</string>
+    <string name="food_meal_breakfast">Desayuno</string>
+    <string name="food_meal_lunch">Almuerzo</string>
+    <string name="food_meal_dinner">Cena</string>
+    <string name="food_meal_snacks">Tentempiés</string>
+    <string name="food_gaps_title">Cubrir carencias</string>
+    <string name="food_gaps_none">Hoy no hay grandes carencias frente a las ingestas de referencia.</string>
+    <string name="food_gaps_hint">Las sugerencias usan ingestas de referencia y tu registro. Solo bienestar — no consejo médico.</string>
+    <string name="food_review_title">Resumen matutino de comidas</string>
+    <string name="food_review_run">Revisar ayer</string>
+    <string name="food_review_footer">Esto es un resumen de bienestar, no consejo médico.</string>
+    <string name="food_review_ai_toggle">Resumen matutino en el dispositivo</string>
+    <string name="food_review_ai_ready">El resumen en el dispositivo está disponible.</string>
+    <string name="food_ai_unavailable">El resumen en el dispositivo no está disponible. Se usa un resumen sencillo.</string>
+    <string name="food_ai_model_not_ready">El modelo en el dispositivo aún no está listo.</string>
+    <string name="food_review_failed">No se pudo crear el resumen matutino.</string>
+    <string name="food_attribution_short">Datos de alimentos: USDA FoodData Central (dominio público) y Open Food Facts (ODbL).</string>
+    <string name="food_totals_line">%1$d kcal · P %2$d · C %3$d · G %4$d</string>
+    <string name="food_offline_only">Búsqueda de alimentos solo sin conexión</string>
+    <string name="food_online_privacy_note">La búsqueda en línea envía tu consulta a Open Food Facts.</string>
 </resources>

@@ -229,4 +229,26 @@ We do not sell health data, use it for advertising, or share it with third parti
     <string name="health_restore_failed">Could not restore this workout.</string>
     <string name="health_restore_permission_needed">Health write permission is required to restore.</string>
     <string name="health_restore_all_result">Restored %1$d · failed %2$d</string>
+    <string name="food_search_title">Search foods</string>
+    <string name="food_search_placeholder">Name or brand</string>
+    <string name="food_meal_group">Meal</string>
+    <string name="food_meal_breakfast">Breakfast</string>
+    <string name="food_meal_lunch">Lunch</string>
+    <string name="food_meal_dinner">Dinner</string>
+    <string name="food_meal_snacks">Snacks</string>
+    <string name="food_gaps_title">Fill my gaps</string>
+    <string name="food_gaps_none">No large nutrient gaps versus reference intakes today.</string>
+    <string name="food_gaps_hint">Suggestions use reference intakes and your log. Wellness coaching only — not medical advice.</string>
+    <string name="food_review_title">Morning food review</string>
+    <string name="food_review_run">Review yesterday</string>
+    <string name="food_review_footer">This is a wellness summary, not medical advice.</string>
+    <string name="food_review_ai_toggle">On-device morning review</string>
+    <string name="food_review_ai_ready">On-device review is available on this device.</string>
+    <string name="food_ai_unavailable">On-device review is not available. A simple totals summary is used instead.</string>
+    <string name="food_ai_model_not_ready">The on-device model is not ready yet.</string>
+    <string name="food_review_failed">Could not build a morning review.</string>
+    <string name="food_attribution_short">Food data: USDA FoodData Central (public domain) and Open Food Facts (ODbL).</string>
+    <string name="food_totals_line">%1$d kcal · P %2$d · C %3$d · F %4$d</string>
+    <string name="food_offline_only">Offline-only food search</string>
+    <string name="food_online_privacy_note">Online food search sends your query to Open Food Facts.</string>
 </resources>

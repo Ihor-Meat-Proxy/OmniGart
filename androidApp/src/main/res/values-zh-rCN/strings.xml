@@ -219,4 +219,26 @@
     <string name="health_restore_failed">无法恢复此训练。</string>
     <string name="health_restore_permission_needed">恢复需要健康数据写入权限。</string>
     <string name="health_restore_all_result">已恢复 %1$d · 失败 %2$d</string>
+    <string name="food_search_title">搜索食物</string>
+    <string name="food_search_placeholder">名称或品牌</string>
+    <string name="food_meal_group">餐次</string>
+    <string name="food_meal_breakfast">早餐</string>
+    <string name="food_meal_lunch">午餐</string>
+    <string name="food_meal_dinner">晚餐</string>
+    <string name="food_meal_snacks">零食</string>
+    <string name="food_gaps_title">补足不足</string>
+    <string name="food_gaps_none">今日相对参考摄入量无明显缺口。</string>
+    <string name="food_gaps_hint">建议基于参考摄入量与您的记录。仅供健康参考，不是医疗建议。</string>
+    <string name="food_review_title">晨间饮食回顾</string>
+    <string name="food_review_run">回顾昨日</string>
+    <string name="food_review_footer">这是健康摘要，不是医疗建议。</string>
+    <string name="food_review_ai_toggle">设备端晨间回顾</string>
+    <string name="food_review_ai_ready">此设备支持设备端回顾。</string>
+    <string name="food_ai_unavailable">设备端回顾不可用，将改用简单合计摘要。</string>
+    <string name="food_ai_model_not_ready">设备端模型尚未就绪。</string>
+    <string name="food_review_failed">无法生成晨间回顾。</string>
+    <string name="food_attribution_short">食物数据：USDA FoodData Central（公有领域）与 Open Food Facts（ODbL）。</string>
+    <string name="food_totals_line">%1$d 千卡 · 蛋白 %2$d · 碳水 %3$d · 脂肪 %4$d</string>
+    <string name="food_offline_only">仅离线搜索食物</string>
+    <string name="food_online_privacy_note">在线食物搜索会将您的查询发送至 Open Food Facts。</string>
 </resources>

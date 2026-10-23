@@ -224,4 +224,26 @@
     <string name="health_restore_failed">Не вдалося відновити це тренування.</string>
     <string name="health_restore_permission_needed">Для відновлення потрібен дозвіл на запис у Health.</string>
     <string name="health_restore_all_result">Відновлено %1$d · не вдалося %2$d</string>
+    <string name="food_search_title">Пошук їжі</string>
+    <string name="food_search_placeholder">Назва або бренд</string>
+    <string name="food_meal_group">Прийом їжі</string>
+    <string name="food_meal_breakfast">Сніданок</string>
+    <string name="food_meal_lunch">Обід</string>
+    <string name="food_meal_dinner">Вечеря</string>
+    <string name="food_meal_snacks">Перекуси</string>
+    <string name="food_gaps_title">Закрити прогалини</string>
+    <string name="food_gaps_none">Сьогодні немає великих прогалин відносно референсного споживання.</string>
+    <string name="food_gaps_hint">Пропозиції базуються на референсному споживанні та вашому журналі. Лише wellness — не медична порада.</string>
+    <string name="food_review_title">Ранковий огляд їжі</string>
+    <string name="food_review_run">Оглянути вчора</string>
+    <string name="food_review_footer">Це wellness-підсумок, не медична порада.</string>
+    <string name="food_review_ai_toggle">Ранковий огляд на пристрої</string>
+    <string name="food_review_ai_ready">Огляд на пристрої доступний на цьому пристрої.</string>
+    <string name="food_ai_unavailable">Огляд на пристрої недоступний. Натомість використовується простий підсумок.</string>
+    <string name="food_ai_model_not_ready">Модель на пристрої ще не готова.</string>
+    <string name="food_review_failed">Не вдалося створити ранковий огляд.</string>
+    <string name="food_attribution_short">Дані про їжу: USDA FoodData Central (суспільне надбання) та Open Food Facts (ODbL).</string>
+    <string name="food_totals_line">%1$d ккал · Б %2$d · В %3$d · Ж %4$d</string>
+    <string name="food_offline_only">Лише офлайн-пошук їжі</string>
+    <string name="food_online_privacy_note">Онлайн-пошук їжі надсилає ваш запит до Open Food Facts.</string>
 </resources>

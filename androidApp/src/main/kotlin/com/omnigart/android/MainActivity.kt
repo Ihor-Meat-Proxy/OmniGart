@@ -31,6 +31,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import com.omnigart.android.compliance.WellnessInfoSheet
 import com.omnigart.android.debug.MaybeDebugMenu
+import com.omnigart.android.food.FoodLoggingSection
 import com.omnigart.design.icons.OmniGartIcons
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.design.theme.OmniGartSpacing
@@ -132,6 +133,9 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
                     showInfoSheet = showInfoSheet,
                     onToggleInfoSheet = { showInfoSheet = !showInfoSheet }
                 )
+            }
+            if (selected == PhoneTab.Food.ordinal) {
+                FoodLoggingSection(core = core, profileId = profileId)
             }
             if (selected == PhoneTab.Workouts.ordinal) {
                 StrengthLoggingSection(core = core, profileId = profileId)

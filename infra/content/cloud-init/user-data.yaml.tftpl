@@ -1,0 +1,108 @@
+#cloud-config
+# OmniGart optional content origin — hardening baseline (Ubuntu 24.04).
+# Serves static content via Caddy; no app server, no user DB.
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - unattended-upgrades
+  - fail2ban
+  - ufw
+  - curl
+  - ca-certificates
+  - debian-keyring
+  - debian-archive-keyring
+  - apt-transport-https
+
+users:
+  - name: omnigart
+    groups: [sudo]
+    shell: /bin/bash
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    lock_passwd: true
+
+ssh_pwauth: false
+disable_root: true
+
+write_files:
+  - path: /etc/ssh/sshd_config.d/99-omnigart.conf
+    permissions: "0644"
+    content: |
+      PasswordAuthentication no
+      KbdInteractiveAuthentication no
+      PermitRootLogin no
+      X11Forwarding no
+      AllowTcpForwarding no
+      ClientAliveInterval 120
+      ClientAliveCountMax 2
+      MaxAuthTries 3
+      AllowUsers omnigart
+
+  - path: /etc/caddy/Caddyfile
+    permissions: "0644"
+    content: |
+      {
+        email ${admin_email}
+        admin off
+        log {
+          output file /var/log/caddy/access.log {
+            roll_size 10mb
+            roll_keep 5
+          }
+          format filter {
+            wrap json
+            fields {
+              request>client_ip ip_mask 16 32
+              request>remote_ip ip_mask 16 32
+              request>headers>Cookie delete
+              request>headers>Authorization delete
+            }
+          }
+        }
+      }
+
+      ${origin_hostname} {
+        encode zstd gzip
+        header {
+          Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+          X-Content-Type-Options "nosniff"
+          X-Frame-Options "DENY"
+          Referrer-Policy "no-referrer"
+          Permissions-Policy "geolocation=(), microphone=(), camera=()"
+          Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'none'"
+          Cross-Origin-Resource-Policy "cross-origin"
+          Access-Control-Allow-Origin "*"
+          Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+          -Server
+        }
+        @options method OPTIONS
+        respond @options 204
+        root * /var/www/content
+        file_server
+        try_files {path} {path}/ =404
+      }
+
+  - path: /etc/apt/apt.conf.d/20auto-upgrades
+    content: |
+      APT::Periodic::Update-Package-Lists "1";
+      APT::Periodic::Unattended-Upgrade "1";
+      APT::Periodic::AutocleanInterval "7";
+
+runcmd:
+  - mkdir -p /var/www/content /var/log/caddy
+  - chown -R omnigart:omnigart /var/www/content
+  - curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+  - curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' > /etc/apt/sources.list.d/caddy-stable.list
+  - apt-get update
+  - apt-get install -y caddy
+  - ufw default deny incoming
+  - ufw default allow outgoing
+  - ufw allow 80/tcp
+  - ufw allow 443/tcp
+  - ufw allow ${ssh_port}/tcp
+  - ufw --force enable
+  - systemctl enable --now caddy
+  - systemctl restart ssh
+  - systemctl enable --now fail2ban
+  - systemctl enable --now unattended-upgrades

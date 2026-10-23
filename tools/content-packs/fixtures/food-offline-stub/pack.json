@@ -1,0 +1,7 @@
+{
+  "id": "food-offline",
+  "version": "1.0.0",
+  "channel": "off",
+  "minAppVersion": "0.1.0",
+  "description": "Stub Open Food Facts offline pack pointer (CDN only)"
+}

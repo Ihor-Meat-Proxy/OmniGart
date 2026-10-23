@@ -152,6 +152,7 @@ targets:
         ONLY_ACTIVE_ARCH: YES
         # KMP ships watchosSimulatorArm64 only (watchosX64 deprecated).
         EXCLUDED_ARCHS[sdk=watchsimulator*]: "x86_64 i386"
+        CODE_SIGN_ENTITLEMENTS: ../watchApp/OmniGartWatch/OmniGartWatch.entitlements
     scheme:
       testTargets:
         - OmniGartWatchTests

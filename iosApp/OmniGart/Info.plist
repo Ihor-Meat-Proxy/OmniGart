@@ -48,5 +48,8 @@
 	<array>
 		<string>processing</string>
 	</array>
+	<!-- Set to 0 on Personal Team if WorkoutKit signing fails (see docs/WORKOUTKIT.md). -->
+	<key>OMNIGART_ENABLE_WORKOUTKIT</key>
+	<string>1</string>
 </dict>
 </plist>

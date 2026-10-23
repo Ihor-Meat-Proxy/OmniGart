@@ -1,0 +1,55 @@
+{
+  "id": "dolphin-pose",
+  "englishNameKeys": {
+    "enGB": "yoga.pose.dolphin_pose.english",
+    "uk": "yoga.pose.dolphin_pose.english"
+  },
+  "sanskritNameKeys": {
+    "enGB": "yoga.pose.dolphin_pose.sanskrit",
+    "uk": "yoga.pose.dolphin_pose.sanskrit"
+  },
+  "family": "inversion",
+  "level": "intermediate",
+  "primaryMuscles": [
+    "front_deltoid",
+    "transverse_abdominis"
+  ],
+  "secondaryMuscles": [
+    "hamstrings",
+    "calves"
+  ],
+  "equipment": [
+    "yoga_mat",
+    "bodyweight"
+  ],
+  "technique": [
+    "Enter Dolphin pose with steady footing and an even pelvis; lengthen the spine without forcing end range.",
+    "Distribute load through the feet or support points; soften the jaw and keep the neck long."
+  ],
+  "cues": [
+    "Breathe steadily; ease out of the shape if sharp pain appears.",
+    "Use blocks or a strap to keep joints stacked and comfortable."
+  ],
+  "breathing": "Inhale to lengthen; exhale to settle into the shape without collapsing.",
+  "safetyNotes": [
+    "Move within a comfortable range; props are encouraged rather than forcing depth.",
+    "Stop and rest if you feel dizziness, numbness, or joint locking."
+  ],
+  "contraindicationNotes": [
+    "General safety: seek clinician guidance for recent injury, uncontrolled hypertension, or acute illness before practising.",
+    "General safety: deeper backbends and inversions may be unsuitable during pregnancy or with unmanaged glaucoma, cervical issues, or uncontrolled blood pressure—choose a regression."
+  ],
+  "evidenceEntryIds": [
+    "garber-acsm-2011",
+    "acsm-rt-2026"
+  ],
+  "holdSecondsDefault": 30,
+  "unilateral": false,
+  "bundled": true,
+  "aliases": [],
+  "tags": [
+    "yoga",
+    "inversion",
+    "intermediate"
+  ]
+}

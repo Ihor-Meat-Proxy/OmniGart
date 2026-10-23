@@ -34,6 +34,14 @@ tasks.named<Test>("jvmTest") {
         "omnigart.content.root",
         rootProject.projectDir.resolve("content/exercises").absolutePath
     )
+    systemProperty(
+        "omnigart.yoga.root",
+        rootProject.projectDir.resolve("content/yoga").absolutePath
+    )
+    systemProperty(
+        "omnigart.pilates.root",
+        rootProject.projectDir.resolve("content/pilates").absolutePath
+    )
 }
 
 ktlint {

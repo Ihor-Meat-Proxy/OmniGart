@@ -1,0 +1,83 @@
+{
+  "id": "morning-sun-salutations",
+  "nameKeys": {
+    "enGB": "yoga.flow.morning_sun_salutations.name",
+    "uk": "yoga.flow.morning_sun_salutations.name"
+  },
+  "descriptionKeys": {
+    "enGB": "yoga.flow.morning_sun_salutations.description",
+    "uk": "yoga.flow.morning_sun_salutations.description"
+  },
+  "level": "beginner",
+  "durationMinutes": 20,
+  "focus": "morning_energy",
+  "poseIds": [
+    "mountain-pose",
+    "forward-fold",
+    "half-forward-fold",
+    "plank-pose",
+    "cobra-pose",
+    "downward-dog",
+    "low-lunge",
+    "warrior-i",
+    "child-pose"
+  ],
+  "sequence": [
+    {
+      "poseId": "mountain-pose",
+      "holdSeconds": 30,
+      "side": "none"
+    },
+    {
+      "poseId": "forward-fold",
+      "holdSeconds": 40,
+      "side": "none"
+    },
+    {
+      "poseId": "half-forward-fold",
+      "holdSeconds": 20,
+      "side": "none"
+    },
+    {
+      "poseId": "plank-pose",
+      "holdSeconds": 30,
+      "side": "none"
+    },
+    {
+      "poseId": "cobra-pose",
+      "holdSeconds": 25,
+      "side": "none"
+    },
+    {
+      "poseId": "downward-dog",
+      "holdSeconds": 40,
+      "side": "none"
+    },
+    {
+      "poseId": "low-lunge",
+      "holdSeconds": 35,
+      "side": "both"
+    },
+    {
+      "poseId": "warrior-i",
+      "holdSeconds": 35,
+      "side": "both"
+    },
+    {
+      "poseId": "child-pose",
+      "holdSeconds": 60,
+      "side": "none"
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber-acsm-2011",
+    "acsm-rt-2026"
+  ],
+  "bundled": true,
+  "equipmentSuggested": [
+    "yoga_mat",
+    "yoga_block",
+    "yoga_strap",
+    "bodyweight"
+  ]
+}

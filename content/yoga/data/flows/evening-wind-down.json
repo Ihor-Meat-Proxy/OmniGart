@@ -1,0 +1,77 @@
+{
+  "id": "evening-wind-down",
+  "nameKeys": {
+    "enGB": "yoga.flow.evening_wind_down.name",
+    "uk": "yoga.flow.evening_wind_down.name"
+  },
+  "descriptionKeys": {
+    "enGB": "yoga.flow.evening_wind_down.description",
+    "uk": "yoga.flow.evening_wind_down.description"
+  },
+  "level": "beginner",
+  "durationMinutes": 20,
+  "focus": "evening_wind_down",
+  "poseIds": [
+    "easy-pose",
+    "cat-cow",
+    "child-pose",
+    "seated-forward-fold",
+    "seated-twist",
+    "legs-up-wall",
+    "knee-to-chest",
+    "corpse-pose"
+  ],
+  "sequence": [
+    {
+      "poseId": "easy-pose",
+      "holdSeconds": 60,
+      "side": "none"
+    },
+    {
+      "poseId": "cat-cow",
+      "holdSeconds": 60,
+      "side": "none"
+    },
+    {
+      "poseId": "child-pose",
+      "holdSeconds": 60,
+      "side": "none"
+    },
+    {
+      "poseId": "seated-forward-fold",
+      "holdSeconds": 45,
+      "side": "none"
+    },
+    {
+      "poseId": "seated-twist",
+      "holdSeconds": 35,
+      "side": "both"
+    },
+    {
+      "poseId": "legs-up-wall",
+      "holdSeconds": 90,
+      "side": "none"
+    },
+    {
+      "poseId": "knee-to-chest",
+      "holdSeconds": 40,
+      "side": "none"
+    },
+    {
+      "poseId": "corpse-pose",
+      "holdSeconds": 90,
+      "side": "none"
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber-acsm-2011",
+    "acsm-rt-2026"
+  ],
+  "bundled": true,
+  "equipmentSuggested": [
+    "yoga_mat",
+    "yoga_block",
+    "yoga_strap",
+    "bodyweight"
+  ]
+}

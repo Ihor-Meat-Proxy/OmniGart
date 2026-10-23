@@ -1,0 +1,101 @@
+{
+  "id": "full-body-vinyasa",
+  "nameKeys": {
+    "enGB": "yoga.flow.full_body_vinyasa.name",
+    "uk": "yoga.flow.full_body_vinyasa.name"
+  },
+  "descriptionKeys": {
+    "enGB": "yoga.flow.full_body_vinyasa.description",
+    "uk": "yoga.flow.full_body_vinyasa.description"
+  },
+  "level": "intermediate",
+  "durationMinutes": 40,
+  "focus": "full_body",
+  "poseIds": [
+    "mountain-pose",
+    "forward-fold",
+    "plank-pose",
+    "chaturanga",
+    "upward-dog",
+    "downward-dog",
+    "warrior-i",
+    "warrior-ii",
+    "triangle-pose",
+    "boat-pose",
+    "bridge-pose",
+    "corpse-pose"
+  ],
+  "sequence": [
+    {
+      "poseId": "mountain-pose",
+      "holdSeconds": 30,
+      "side": "none"
+    },
+    {
+      "poseId": "forward-fold",
+      "holdSeconds": 40,
+      "side": "none"
+    },
+    {
+      "poseId": "plank-pose",
+      "holdSeconds": 30,
+      "side": "none"
+    },
+    {
+      "poseId": "chaturanga",
+      "holdSeconds": 10,
+      "side": "none"
+    },
+    {
+      "poseId": "upward-dog",
+      "holdSeconds": 20,
+      "side": "none"
+    },
+    {
+      "poseId": "downward-dog",
+      "holdSeconds": 40,
+      "side": "none"
+    },
+    {
+      "poseId": "warrior-i",
+      "holdSeconds": 35,
+      "side": "both"
+    },
+    {
+      "poseId": "warrior-ii",
+      "holdSeconds": 40,
+      "side": "both"
+    },
+    {
+      "poseId": "triangle-pose",
+      "holdSeconds": 35,
+      "side": "both"
+    },
+    {
+      "poseId": "boat-pose",
+      "holdSeconds": 20,
+      "side": "none"
+    },
+    {
+      "poseId": "bridge-pose",
+      "holdSeconds": 35,
+      "side": "none"
+    },
+    {
+      "poseId": "corpse-pose",
+      "holdSeconds": 90,
+      "side": "none"
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber-acsm-2011",
+    "acsm-rt-2026"
+  ],
+  "bundled": true,
+  "equipmentSuggested": [
+    "yoga_mat",
+    "yoga_block",
+    "yoga_strap",
+    "bodyweight"
+  ]
+}

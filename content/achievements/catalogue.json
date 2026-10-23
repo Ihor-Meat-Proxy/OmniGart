@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "count": 120,
+  "categories": {
+    "body": 8,
+    "general": 16,
+    "nutrition": 12,
+    "pilates": 8,
+    "recovery": 11,
+    "running": 15,
+    "strength": 20,
+    "swimming": 12,
+    "water": 8,
+    "yoga": 10
+  },
+  "files": [
+    "data/body.json",
+    "data/general.json",
+    "data/nutrition.json",
+    "data/pilates.json",
+    "data/recovery.json",
+    "data/running.json",
+    "data/strength.json",
+    "data/swimming.json",
+    "data/water.json",
+    "data/yoga.json"
+  ]
+}

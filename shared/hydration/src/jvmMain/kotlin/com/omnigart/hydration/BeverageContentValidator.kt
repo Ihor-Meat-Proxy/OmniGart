@@ -1,7 +1,7 @@
 package com.omnigart.hydration
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.ObjectMapper
+import tools.jackson.databind.JsonNode
+import tools.jackson.databind.ObjectMapper
 import com.networknt.schema.Schema
 import com.networknt.schema.SchemaRegistry
 import com.networknt.schema.SpecificationVersion
@@ -79,7 +79,7 @@ class BeverageContentValidator(
     private fun loadLocale(relative: String): Map<String, String> {
         val node = mapper.readTree(contentRoot.resolve(relative).readText())
         val out = mutableMapOf<String, String>()
-        node.fields().forEachRemaining { (k, v) -> out[k] = v.asText() }
+        node.properties().forEach { (k, v) -> out[k] = v.asText() }
         return out
     }
 

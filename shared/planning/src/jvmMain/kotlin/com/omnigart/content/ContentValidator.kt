@@ -48,7 +48,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
             exerciseSchema.validate(node).forEach { err ->
                 issues += ValidationIssue(file.toString(), err.message)
             }
-            val id = node.path("id").asText()
+            val id = node.path("id").asString()
             if (!ids.add(id)) {
                 issues += ValidationIssue(file.toString(), "Duplicate exercise id: $id")
             }
@@ -64,7 +64,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         for ((file, node) in nodes) {
             for (field in listOf("regressions", "progressions")) {
                 node.path(field).forEach { link ->
-                    val ref = link.path("exerciseId").asText()
+                    val ref = link.path("exerciseId").asString()
                     if (ref.isNotBlank() && ref !in idSet) {
                         issues += ValidationIssue(file.toString(), "Broken $field link to $ref")
                     }
@@ -86,14 +86,14 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
             templateSchema.validate(node).forEach { err ->
                 issues += ValidationIssue(file.toString(), err.message)
             }
-            val id = node.path("id").asText()
+            val id = node.path("id").asString()
             if (!templateIds.add(id)) {
                 issues += ValidationIssue(file.toString(), "Duplicate template id: $id")
             }
             node.path("sessions").forEach { session ->
                 session.path("blocks").forEach { block ->
                     block.path("items").forEach { item ->
-                        val eid = item.path("exerciseId").asText()
+                        val eid = item.path("exerciseId").asString()
                         if (eid.isNotBlank() && eid !in idSet) {
                             issues +=
                                 ValidationIssue(
@@ -123,7 +123,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         val file = contentRoot.resolve(relative)
         if (!Files.exists(file)) return emptyMap()
         val node = mapper.readTree(file.readText())
-        return node.properties().associate { it.key to it.value.asText() }
+        return node.properties().associate { it.key to it.value.asString() }
     }
 
     private fun assertNoRuLocale(issues: MutableList<ValidationIssue>) {
@@ -147,8 +147,8 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         file: Path,
         issues: MutableList<ValidationIssue>
     ) {
-        val enKey = node.path("nameKeys").path("enGB").asText()
-        val ukKey = node.path("nameKeys").path("uk").asText()
+        val enKey = node.path("nameKeys").path("enGB").asString()
+        val ukKey = node.path("nameKeys").path("uk").asString()
         if (enKey.isNotBlank() && enKey !in en) {
             issues += ValidationIssue(file.toString(), "Missing en-GB string for $enKey")
         }
@@ -168,7 +168,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         }
         val knownIds = loadEvidenceIds()
         refs.forEach { ref ->
-            val evidenceId = ref.path("evidenceId").asText()
+            val evidenceId = ref.path("evidenceId").asString()
             if (evidenceId.isBlank()) {
                 issues += ValidationIssue(file.toString(), "evidenceRefs entry missing evidenceId")
                 return@forEach
@@ -190,19 +190,19 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         if (!Files.isRegularFile(catalog)) return null
         val root = mapper.readTree(catalog.readText())
         if (!root.isArray) return null
-        return root.mapNotNull { it.path("id").asText().takeIf { id -> id.isNotBlank() } }.toSet()
+        return root.values().mapNotNull { it.path("id").asString().takeIf { id -> id.isNotBlank() } }.toSet()
     }
 
     private fun checkLoadModel(node: JsonNode, file: Path, issues: MutableList<ValidationIssue>) {
-        val loadModel = node.path("loadModel").asText()
+        val loadModel = node.path("loadModel").asString()
         val fraction = node.path("bodyweightFraction")
         if (fraction.isMissingNode || fraction.isNull) {
             issues += ValidationIssue(file.toString(), "Missing bodyweightFraction")
             return
         }
         val proportion = fraction.path("proportion").asDouble(Double.NaN)
-        val basis = fraction.path("basis").asText()
-        val rationale = fraction.path("rationale").asText()
+        val basis = fraction.path("basis").asString()
+        val rationale = fraction.path("rationale").asString()
         if (proportion.isNaN() || proportion < 0.0 || proportion > 1.5) {
             issues += ValidationIssue(file.toString(), "bodyweightFraction.proportion out of range: $proportion")
         }
@@ -241,9 +241,9 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         if (!node.has("allowsAssistance") || !node.path("allowsAssistance").isBoolean) {
             issues += ValidationIssue(file.toString(), "allowsAssistance must be a boolean")
         }
-        val tags = node.path("tags").map { it.asText() }.toSet()
+        val tags = node.path("tags").values().map { it.asString() }.toSet()
         if ("pull-up-family" in tags || "dip-family" in tags) {
-            val evidenceIds = node.path("evidenceRefs").map { it.path("evidenceId").asText() }.toSet()
+            val evidenceIds = node.path("evidenceRefs").values().map { it.path("evidenceId").asString() }.toSet()
             if ("pull-up-family" in tags) {
                 val hasSeg = "de_leva_segmental_1996" in evidenceIds
                 if (!hasSeg && basis == "estimate") {

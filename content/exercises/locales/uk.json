@@ -1300,5 +1300,22 @@
   "template.strength_focus_3x.rationale": "Лінійна прогресія новачка на комплексах присід/шарнір/жим/тяга з консервативними допоміжними, відповідно до огляду силових тренувань ACSM з акцентом на багатосуглобове навантаження.",
   "template.swim_technique_3x.rationale": "Спочатку щільність дрилів, потім метраж, щоб аеробний обсяг не закріплював погану механіку; домінування легкого аеробу зберігається під час кондиціонування.",
   "template.upper_lower_4x.rationale": "Чотириденний верх/низ зберігає ~2× тижневу частоту на м'яз, дозволяючи вищий обсяг за сесію в межах дозово-відповідних діапазонів Schoenfeld/Pelland.",
-  "template.yoga_mobility_flow.rationale": "Гнучкість і нейромоторна практика ≥2–3 днів/тиждень узгоджуються з рекомендаціями ACSM щодо кількості/якості; пози залишаються доступними початківцям."
+  "template.yoga_mobility_flow.rationale": "Гнучкість і нейромоторна практика ≥2–3 днів/тиждень узгоджуються з рекомендаціями ACSM щодо кількості/якості; пози залишаються доступними початківцям.",
+  "exercise.archer_pull_up.name": "Підтягування лучника",
+  "exercise.band_assisted_dip.name": "Відтискання на брусах з гумою",
+  "exercise.bench_dip.name": "Зворотні відтискання від лави",
+  "exercise.close_grip_pull_up.name": "Підтягування вузьким хватом",
+  "exercise.commando_pull_up.name": "Командос-підтягування",
+  "exercise.korean_dip.name": "Корейські відтискання на перекладині",
+  "exercise.l_sit_pull_up.name": "Підтягування в L-sit",
+  "exercise.machine_assisted_dip.name": "Відтискання з противагою (тренажер)",
+  "exercise.machine_assisted_pull_up.name": "Підтягування в гравітроні / з противагою",
+  "exercise.negative_dip.name": "Негативні відтискання (ексцентрика)",
+  "exercise.negative_pull_up.name": "Негативні підтягування (ексцентрика)",
+  "exercise.neutral_grip_pull_up.name": "Підтягування нейтральним хватом",
+  "exercise.scapular_pull_up.name": "Лопаткові підтягування",
+  "exercise.straight_bar_dip.name": "Відтискання на прямій перекладині",
+  "exercise.typewriter_pull_up.name": "Підтягування «друкарська машинка»",
+  "exercise.weighted_dip.name": "Відтискання на брусах з обтяженням",
+  "exercise.wide_grip_pull_up.name": "Підтягування широким хватом"
 }

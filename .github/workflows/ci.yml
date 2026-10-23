@@ -1,0 +1,215 @@
+name: CI
+
+on:
+  push:
+    branches: [main, cursor/**, feat/**, chore/**]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  design-check:
+    name: Design check
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: design/tools
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: design/tools/package-lock.json
+      - run: npm ci
+      - run: npm run check
+
+  kmp-android:
+    name: KMP + Android + Wear
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
+      - name: Unit tests and assemble
+        run: |
+          ./gradlew --stacktrace \
+            :shared:testAndroidHostTest \
+            :shared:planning:jvmTest \
+            :androidApp:assembleDebug \
+            :androidApp:testDebugUnitTest \
+            :wearApp:assembleDebug \
+            :wearApp:testDebugUnitTest
+      - name: Lint and verify
+        # checkNoRuLocale is also a dependency of root `check` for local builds.
+        run: ./gradlew checkNoRuLocale ktlintCheck detekt
+
+  ios-watchos:
+    name: iOS + watchOS
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
+      - name: Select newest available Xcode
+        run: |
+          ls /Applications | grep -i Xcode || true
+          # Prefer Xcode 26+ when present; otherwise keep the runner default (16.4 on macos-15).
+          for candidate in \
+            /Applications/Xcode_26.2.app \
+            /Applications/Xcode_26.1.app \
+            /Applications/Xcode_26.0.app \
+            /Applications/Xcode_26.app \
+            /Applications/Xcode_16.4.app \
+            /Applications/Xcode.app
+          do
+            if [ -d "$candidate" ]; then
+              sudo xcode-select -s "$candidate/Contents/Developer"
+              echo "Selected $candidate"
+              break
+            fi
+          done
+          xcodebuild -version
+          xcrun --sdk iphonesimulator --show-sdk-version
+          xcrun --sdk watchsimulator --show-sdk-version
+      - name: Verify design generated sources
+        run: |
+          set -euo pipefail
+          ROOT="$GITHUB_WORKSPACE"
+          SOURCES=(
+            "$ROOT/design/generated/ios/Sources/Color+OmniGart.swift"
+            "$ROOT/design/generated/ios/Sources/Font+OmniGart.swift"
+            "$ROOT/design/generated/ios/Sources/OmniGartMetrics.swift"
+          )
+          for f in "${SOURCES[@]}"; do
+            if [[ ! -f "$f" ]]; then
+              echo "::error::Missing design source: $f"
+              exit 1
+            fi
+            echo "ok $f"
+          done
+          test -d "$ROOT/design/generated/ios/OmniGartColors.xcassets"
+          test -d "$ROOT/design/generated/ios/OmniGartIcons.xcassets"
+          # Spec must keep design sources as ../design/generated/... from iosApp/.
+          if ! grep -q 'path: ../design/generated/ios/Sources' iosApp/project.yml; then
+            echo "::error::iosApp/project.yml missing ../design/generated/ios/Sources"
+            exit 1
+          fi
+      - name: Install XcodeGen and SwiftLint
+        run: |
+          brew install xcodegen swiftlint
+      - name: SwiftLint
+        run: swiftlint lint --config .swiftlint.yml --strict
+      - name: Link and sync Shared frameworks (simulator)
+        run: |
+          ./gradlew \
+            linkDebugFrameworkIosSimulatorArm64 \
+            linkDebugFrameworkWatchosSimulatorArm64 \
+            syncXcodeFrameworks \
+            --stacktrace
+          # Ensure the exact SDK_NAME folders Xcode will request also exist.
+          IOS_SDK=$(xcrun --sdk iphonesimulator --show-sdk-version)
+          WATCH_SDK=$(xcrun --sdk watchsimulator --show-sdk-version)
+          mkdir -p "shared/build/xcode-frameworks/Debug/iphonesimulator${IOS_SDK}"
+          mkdir -p "shared/build/xcode-frameworks/Debug/watchsimulator${WATCH_SDK}"
+          rsync -a shared/build/bin/iosSimulatorArm64/debugFramework/Shared.framework \
+            "shared/build/xcode-frameworks/Debug/iphonesimulator${IOS_SDK}/"
+          rsync -a shared/build/bin/watchosSimulatorArm64/debugFramework/Shared.framework \
+            "shared/build/xcode-frameworks/Debug/watchsimulator${WATCH_SDK}/"
+          ls -la "shared/build/xcode-frameworks/Debug/iphonesimulator${IOS_SDK}"
+          ls -la "shared/build/xcode-frameworks/Debug/watchsimulator${WATCH_SDK}"
+      - name: Generate Xcode project
+        run: |
+          set -euo pipefail
+          cd iosApp
+          xcodegen generate
+          PBX=OmniGart.xcodeproj/project.pbxproj
+          # Fail fast if XcodeGen nested design under an already-design-relative group.
+          if grep -E 'design/generated/.+/design/generated' "$PBX" 2>/dev/null; then
+            echo "::error::XcodeGen produced a nested design/generated path in $PBX"
+            exit 1
+          fi
+          # Expect SRCROOT-relative ../design/generated/... entries for Design sources.
+          if ! grep -q '\.\./design/generated/ios/Sources' "$PBX"; then
+            echo "::error::$PBX missing ../design/generated/ios/Sources references"
+            exit 1
+          fi
+          echo "XcodeGen design paths look sane"
+      - name: Build iOS + watchOS (simulator, arm64)
+        run: |
+          set -euo pipefail
+          # Force arm64 so we do not need the deprecated watchosX64 slice.
+          xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart \
+            -destination 'generic/platform=iOS Simulator' \
+            ARCHS=arm64 ONLY_ACTIVE_ARCH=YES \
+            EXCLUDED_ARCHS=x86_64 \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+          xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGartWatch \
+            -destination 'generic/platform=watchOS Simulator' \
+            ARCHS=arm64 ONLY_ACTIVE_ARCH=YES \
+            EXCLUDED_ARCHS=x86_64 \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+      - name: Test iOS + watchOS (booted simulators)
+        run: |
+          set -euo pipefail
+          IOS_DEST=$(
+            xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart -showdestinations 2>/dev/null \
+              | grep 'platform:iOS Simulator' \
+              | grep 'arch:arm64' \
+              | grep -v 'placeholder' \
+              | head -1 \
+              | sed -n 's/.*name:\([^,}]*\).*/\1/p' \
+              | xargs
+          )
+          WATCH_DEST=$(
+            xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGartWatch -showdestinations 2>/dev/null \
+              | grep 'platform:watchOS Simulator' \
+              | grep 'arch:arm64' \
+              | grep -v 'placeholder' \
+              | head -1 \
+              | sed -n 's/.*name:\([^,}]*\).*/\1/p' \
+              | xargs
+          )
+          echo "iOS destination name: ${IOS_DEST}"
+          echo "watchOS destination name: ${WATCH_DEST}"
+          test -n "${IOS_DEST}"
+          test -n "${WATCH_DEST}"
+
+          # Boot and wait so XCUITest does not race a cold simulator
+          # (flake: "Timed out while acquiring background assertion").
+          IOS_UDID=$(xcrun simctl list devices available | grep -F "${IOS_DEST}" | grep -oE '[0-9A-F-]{36}' | head -1 || true)
+          if [[ -n "${IOS_UDID}" ]]; then
+            xcrun simctl boot "${IOS_UDID}" 2>/dev/null || true
+            xcrun simctl bootstatus "${IOS_UDID}" -b
+          fi
+
+          # Unit tests first (no UI launch), then UI tests with retry for CI flakes.
+          xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart \
+            -destination "platform=iOS Simulator,name=${IOS_DEST},arch=arm64" \
+            CODE_SIGNING_ALLOWED=NO \
+            -only-testing:OmniGartTests \
+            test
+          xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart \
+            -destination "platform=iOS Simulator,name=${IOS_DEST},arch=arm64" \
+            CODE_SIGNING_ALLOWED=NO \
+            -only-testing:OmniGartUITests \
+            -retry-tests-on-failure \
+            -test-iterations 3 \
+            test
+          xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGartWatch \
+            -destination "platform=watchOS Simulator,name=${WATCH_DEST},arch=arm64" \
+            CODE_SIGNING_ALLOWED=NO \
+            test

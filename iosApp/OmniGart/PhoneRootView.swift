@@ -12,10 +12,11 @@ struct PhoneRootView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             ForEach(PhoneTab.allCases) { tab in
-                NavigationStack {
-                    tabRoot(tab)
-                }
-                .tabItem {
+                Tab(value: tab) {
+                    NavigationStack {
+                        tabRoot(tab)
+                    }
+                } label: {
                     Label {
                         Text(tab.titleKey)
                     } icon: {
@@ -23,7 +24,8 @@ struct PhoneRootView: View {
                             .renderingMode(.template)
                     }
                 }
-                .tag(tab)
+                // Identifier must live on `Tab` so XCTest sees it on the tab bar button
+                // (putting it on the page root only exposes the selected tab's content).
                 .accessibilityIdentifier(tab.accessibilityId)
             }
         }

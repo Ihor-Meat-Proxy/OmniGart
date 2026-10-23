@@ -25,8 +25,7 @@ enum WorkoutPdfDrawing {
             pageRect: pageRect,
             margin: margin,
             width: width,
-            pageIndex: pageIndex,
-            pageCount: pageCount
+            pageLabel: "\(pageIndex + 1) / \(pageCount)"
         )
         return cursorY + 8
     }
@@ -52,8 +51,7 @@ enum WorkoutPdfDrawing {
             cursorY: cursorY,
             margin: margin,
             width: width,
-            document: document,
-            body: fonts.body
+            document: document
         )
         cursorY = drawCardioSection(
             workout.cardio,
@@ -139,8 +137,7 @@ private extension WorkoutPdfDrawing {
         pageRect: CGRect,
         margin: CGFloat,
         width: CGFloat,
-        pageIndex: Int,
-        pageCount: Int
+        pageLabel: String
     ) {
         let footer = document.disclaimer as NSString
         let footerFont = WorkoutPdfRenderer.bodyFont(size: 8, spec: document.fontSpec)
@@ -157,9 +154,8 @@ private extension WorkoutPdfDrawing {
             color: .gray,
             width: width
         )
-        let pageLabel = "\(pageIndex + 1) / \(pageCount)" as NSString
         WorkoutPdfRenderer.drawText(
-            pageLabel,
+            pageLabel as NSString,
             at: CGPoint(x: pageRect.width - margin - 40, y: pageRect.height - 24),
             font: WorkoutPdfRenderer.bodyFont(size: 9, spec: document.fontSpec),
             color: .gray,
@@ -167,4 +163,3 @@ private extension WorkoutPdfDrawing {
         )
     }
 }
-

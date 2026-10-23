@@ -46,8 +46,7 @@ extension WorkoutPdfDrawing {
         cursorY startY: CGFloat,
         margin: CGFloat,
         width: CGFloat,
-        document: WorkoutPdfDocument,
-        body: UIFont
+        document: WorkoutPdfDocument
     ) -> CGFloat {
         guard let heartRate else { return startY }
         var cursorY = startY + 8
@@ -58,6 +57,7 @@ extension WorkoutPdfDrawing {
             width: width,
             document: document
         )
+        let body = WorkoutPdfRenderer.bodyFont(size: 11, spec: document.fontSpec)
         for line in heartRate.timeInZoneLines {
             WorkoutPdfRenderer.drawText(
                 line as NSString,

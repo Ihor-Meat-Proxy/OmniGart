@@ -18,6 +18,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,6 +32,12 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import com.omnigart.android.compliance.WellnessInfoSheet
 import com.omnigart.android.debug.MaybeDebugMenu
+import com.omnigart.android.nutrition.BodyMeasurementsSection
+import com.omnigart.android.nutrition.NutritionGoalSettingsSection
+import com.omnigart.android.nutrition.NutritionPrefsStore
+import com.omnigart.android.nutrition.NutritionReminderScheduler
+import com.omnigart.android.nutrition.NutritionReminderSettingsSection
+import com.omnigart.android.nutrition.NutritionTargetSection
 import com.omnigart.design.icons.OmniGartIcons
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.design.theme.OmniGartSpacing
@@ -43,6 +50,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        NutritionPrefsStore.init(applicationContext)
+        NutritionReminderScheduler.reschedule(applicationContext)
         val core =
             OmniGartCore(
                 DatabaseDriverFactory(applicationContext),
@@ -88,6 +97,7 @@ private enum class PhoneTab(val labelRes: Int, val testTag: String, val icon: Im
 fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
     var selected by remember { mutableIntStateOf(PhoneTab.Profile.ordinal) }
     var showInfoSheet by remember { mutableStateOf(false) }
+    var showMeasurements by remember { mutableStateOf(false) }
     val tabs = PhoneTab.entries
     var formulaEpoch by remember { mutableIntStateOf(0) }
     val profile = remember(profileId) { core.profiles.get(profileId) }
@@ -133,6 +143,20 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
                     onToggleInfoSheet = { showInfoSheet = !showInfoSheet }
                 )
             }
+            if (selected == PhoneTab.Food.ordinal) {
+                if (showMeasurements) {
+                    BodyMeasurementsSection()
+                    TextButton(onClick = { showMeasurements = false }) {
+                        Text(stringResource(R.string.tab_food))
+                    }
+                } else {
+                    NutritionTargetSection(
+                        core = core,
+                        profileId = profileId,
+                        onOpenMeasurements = { showMeasurements = true },
+                    )
+                }
+            }
             if (selected == PhoneTab.Workouts.ordinal) {
                 StrengthLoggingSection(core = core, profileId = profileId)
             }
@@ -142,6 +166,8 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
                     profileId = profileId,
                     onSelectionChanged = { formulaEpoch += 1 }
                 )
+                NutritionGoalSettingsSection()
+                NutritionReminderSettingsSection()
                 DataPrivacySection(core = core)
             }
             // Unfinished surfaces stay behind flags that are off in release.

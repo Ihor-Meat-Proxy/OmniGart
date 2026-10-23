@@ -30,6 +30,7 @@ struct FoodTabView: View {
                     .font(.footnote)
                     .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
             }
+            NutritionTargetCard(core: core, profileId: profileId)
             Section("food_totals_title") {
                 labeled("food_energy_kcal", value: String(format: "%.0f", totals.energyKcal))
                 labeled("food_protein_g", value: String(format: "%.0f", totals.proteinG))

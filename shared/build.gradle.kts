@@ -57,6 +57,8 @@ kotlin {
             implementation(libs.ktor.serialization.json)
             // Zone 2 HR bands for WorkoutKit schedule plans (pure algorithms).
             implementation(project(":shared:activity-algorithms"))
+            // Adaptive calorie / macro targets (exported for phone Food tab).
+            api(project(":shared:nutrition"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

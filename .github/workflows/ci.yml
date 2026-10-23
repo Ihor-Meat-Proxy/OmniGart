@@ -135,6 +135,7 @@ jobs:
             :shared:planning:jvmTest \
             :shared:hydration:jvmTest \
             :shared:body:jvmTest \
+            :shared:nutrition:jvmTest \
             :androidApp:assembleDebug \
             :androidApp:testDebugUnitTest \
             :wearApp:assembleDebug \

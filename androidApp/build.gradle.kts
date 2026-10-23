@@ -64,6 +64,7 @@ kotlin {
 
 dependencies {
     implementation(project(":shared"))
+    implementation(project(":shared:nutrition"))
     implementation(libs.appauth)
     implementation(libs.health.connect.client)
     implementation(libs.play.services.wearable)

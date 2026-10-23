@@ -1,0 +1,51 @@
+# Nutrition CI — adaptive calorie/macro model unit tests + docs gate.
+# Action SHAs aligned with ci.yml / hydration.yml (Oct 2026).
+name: Nutrition
+
+on:
+  push:
+    branches: [main, cursor/**, feat/**, chore/**]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: nutrition-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  nutrition:
+    name: Nutrition
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Java
+        uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
+
+      - name: Verify nutrition docs present
+        run: |
+          set -euo pipefail
+          for p in \
+            docs/NUTRITION_MODEL.md \
+            shared/nutrition/build.gradle.kts \
+            shared/nutrition/README.md
+          do
+            if [[ ! -f "$p" ]]; then
+              echo "::error::Missing $p"
+              exit 1
+            fi
+            echo "ok $p"
+          done
+
+      - name: No HealthKit/Health Connect delete or rewrite APIs
+        run: bash ./scripts/check_no_health_platform_mutate.sh
+
+      - name: Nutrition unit tests (shared/nutrition)
+        run: ./gradlew --stacktrace :shared:nutrition:jvmTest

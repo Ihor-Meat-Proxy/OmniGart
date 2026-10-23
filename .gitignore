@@ -43,7 +43,16 @@ node_modules/
 **/node_modules/
 
 # Python
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
 __pycache__/
+
+# i18n tooling scratch
+.i18n-work/
+scripts/content_i18n/_mt_cache/
+scripts/content_i18n/data/
+content/i18n/weblate/
 
 # Content bundle verify scratch (committed baseline lives in generated/content-bundle/)
 generated/.content-bundle-verify/

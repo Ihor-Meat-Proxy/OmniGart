@@ -1,10 +1,11 @@
 package com.omnigart.content
 
-import tools.jackson.databind.JsonNode
-import tools.jackson.databind.ObjectMapper
 import com.networknt.schema.Schema
 import com.networknt.schema.SchemaRegistry
 import com.networknt.schema.SpecificationVersion
+import tools.jackson.databind.JsonNode
+import tools.jackson.databind.ObjectMapper
+import tools.jackson.databind.json.JsonMapper
 import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.io.path.extension
@@ -22,7 +23,10 @@ data class ValidationReport(val exerciseCount: Int, val templateCount: Int, val 
  * Validates on-disk exercise/template JSON against schemas and content rules:
  * unique ids, locale keys present (en-GB + uk only — no ru), cross-refs, evidence refs.
  */
-class ContentValidator(private val contentRoot: Path, private val mapper: ObjectMapper = ObjectMapper()) {
+class ContentValidator(
+    private val contentRoot: Path,
+    private val mapper: ObjectMapper = JsonMapper.builder().build()
+) {
     private val registry: SchemaRegistry =
         SchemaRegistry.withDefaultDialect(SpecificationVersion.DRAFT_2020_12)
 
@@ -48,7 +52,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
             exerciseSchema.validate(node).forEach { err ->
                 issues += ValidationIssue(file.toString(), err.message)
             }
-            val id = node.path("id").asText()
+            val id = node.path("id").asString()
             if (!ids.add(id)) {
                 issues += ValidationIssue(file.toString(), "Duplicate exercise id: $id")
             }
@@ -64,7 +68,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         for ((file, node) in nodes) {
             for (field in listOf("regressions", "progressions")) {
                 node.path(field).forEach { link ->
-                    val ref = link.path("exerciseId").asText()
+                    val ref = link.path("exerciseId").asString()
                     if (ref.isNotBlank() && ref !in idSet) {
                         issues += ValidationIssue(file.toString(), "Broken $field link to $ref")
                     }
@@ -86,14 +90,14 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
             templateSchema.validate(node).forEach { err ->
                 issues += ValidationIssue(file.toString(), err.message)
             }
-            val id = node.path("id").asText()
+            val id = node.path("id").asString()
             if (!templateIds.add(id)) {
                 issues += ValidationIssue(file.toString(), "Duplicate template id: $id")
             }
             node.path("sessions").forEach { session ->
                 session.path("blocks").forEach { block ->
                     block.path("items").forEach { item ->
-                        val eid = item.path("exerciseId").asText()
+                        val eid = item.path("exerciseId").asString()
                         if (eid.isNotBlank() && eid !in idSet) {
                             issues +=
                                 ValidationIssue(
@@ -121,7 +125,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         val file = contentRoot.resolve(relative)
         if (!Files.exists(file)) return emptyMap()
         val node = mapper.readTree(file.readText())
-        return node.properties().associate { it.key to it.value.asText() }
+        return node.properties().associate { it.key to it.value.asString() }
     }
 
     private fun assertNoRuLocale(issues: MutableList<ValidationIssue>) {
@@ -145,8 +149,8 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         file: Path,
         issues: MutableList<ValidationIssue>
     ) {
-        val enKey = node.path("nameKeys").path("enGB").asText()
-        val ukKey = node.path("nameKeys").path("uk").asText()
+        val enKey = node.path("nameKeys").path("enGB").asString()
+        val ukKey = node.path("nameKeys").path("uk").asString()
         if (enKey.isNotBlank() && enKey !in en) {
             issues += ValidationIssue(file.toString(), "Missing en-GB string for $enKey")
         }
@@ -164,8 +168,8 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
             )
         }
         refs.forEach { ref ->
-            val kind = ref.path("kind").asText()
-            val id = ref.path("id").asText()
+            val kind = ref.path("kind").asString()
+            val id = ref.path("id").asString()
             if (kind == "doi" && !id.matches(Regex("""^10\.\d{4,9}/\S+$"""))) {
                 issues += ValidationIssue(file.toString(), "DOI looks malformed: $id")
             }
@@ -176,15 +180,15 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
     }
 
     private fun checkLoadModel(node: JsonNode, file: Path, issues: MutableList<ValidationIssue>) {
-        val loadModel = node.path("loadModel").asText()
+        val loadModel = node.path("loadModel").asString()
         val fraction = node.path("bodyweightFraction")
         if (fraction.isMissingNode || fraction.isNull) {
             issues += ValidationIssue(file.toString(), "Missing bodyweightFraction")
             return
         }
         val proportion = fraction.path("proportion").asDouble(Double.NaN)
-        val basis = fraction.path("basis").asText()
-        val rationale = fraction.path("rationale").asText()
+        val basis = fraction.path("basis").asString()
+        val rationale = fraction.path("rationale").asString()
         if (proportion.isNaN() || proportion < 0.0 || proportion > 1.5) {
             issues += ValidationIssue(file.toString(), "bodyweightFraction.proportion out of range: $proportion")
         }
@@ -223,16 +227,16 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         if (!node.has("allowsAssistance") || !node.path("allowsAssistance").isBoolean) {
             issues += ValidationIssue(file.toString(), "allowsAssistance must be a boolean")
         }
-        // Jackson 3 JsonNode.map(Function) shadows Kotlin Iterable.map — use values().
-        val tags = node.path("tags").values().map { it.asText() }.toSet()
+        // JsonNode.map(Function) in Jackson 3 shadows Kotlin Iterable.map — use values().
+        val tags = node.path("tags").values().map { it.asString() }.toSet()
         if ("pull-up-family" in tags || "dip-family" in tags) {
-            val refIds = node.path("evidenceRefs").values().map { it.path("id").asText() }.toSet()
+            val refIds = node.path("evidenceRefs").values().map { it.path("id").asString() }.toSet()
             if ("pull-up-family" in tags) {
                 val hasEmg = refIds.any {
                     it == "10.1519/JSC.0b013e3181f1598c" || it == "10.1016/j.jelekin.2016.11.004"
                 }
                 val hasSeg = "10.1016/0021-9290(95)00178-6" in refIds
-                if (!hasEmg && node.path("id").asText() !in setOf("typewriter-pull-up", "commando-pull-up")) {
+                if (!hasEmg && node.path("id").asString() !in setOf("typewriter-pull-up", "commando-pull-up")) {
                     // advanced skill variants may only have technique refs; still prefer segmental mass
                 }
                 if (!hasSeg && basis == "estimate") {

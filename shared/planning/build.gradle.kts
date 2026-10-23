@@ -35,11 +35,11 @@ tasks.named<Test>("jvmTest") {
     )
     systemProperty(
         "omnigart.yoga.root",
-        rootProject.projectDir.resolve("content/yoga").absolutePath,
+        rootProject.projectDir.resolve("content/yoga").absolutePath
     )
     systemProperty(
         "omnigart.pilates.root",
-        rootProject.projectDir.resolve("content/pilates").absolutePath,
+        rootProject.projectDir.resolve("content/pilates").absolutePath
     )
 }
 

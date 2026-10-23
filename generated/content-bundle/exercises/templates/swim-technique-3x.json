@@ -1,0 +1,158 @@
+{
+  "id": "swim-technique-3x",
+  "nameKeys": {
+    "enGB": "template.swim_technique_3x.name",
+    "uk": "template.swim_technique_3x.name"
+  },
+  "disciplines": [
+    "swimming"
+  ],
+  "level": "beginner",
+  "goal": "technique",
+  "daysPerWeek": 3,
+  "sessionMinutes": 45,
+  "equipmentPreset": "pool",
+  "equipmentRequired": [
+    "pool",
+    "kickboard",
+    "pull_buoy"
+  ],
+  "rationale": "Prioritise drill density before yardage so aerobic volume does not entrench poor mechanics; easy aerobic dominance still applies when conditioning.",
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "sw1",
+      "nameKeys": {
+        "enGB": "template.swim_technique_3x.sw1.name",
+        "uk": "template.swim_technique_3x.sw1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "kickboard-kick",
+              "sets": 4,
+              "reps": "25-50m",
+              "rir": "2-3",
+              "restSeconds": 30,
+              "distanceMeters": 50
+            },
+            {
+              "exerciseId": "catch-up-drill",
+              "sets": 6,
+              "reps": "25m",
+              "rir": "2-3",
+              "restSeconds": 30,
+              "distanceMeters": 25
+            },
+            {
+              "exerciseId": "freestyle-stroke",
+              "sets": 4,
+              "reps": "50m easy",
+              "rir": "2-3",
+              "restSeconds": 40,
+              "distanceMeters": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sw2",
+      "nameKeys": {
+        "enGB": "template.swim_technique_3x.sw2.name",
+        "uk": "template.swim_technique_3x.sw2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "pull-buoy-pull",
+              "sets": 6,
+              "reps": "50m",
+              "rir": "2-3",
+              "restSeconds": 30,
+              "distanceMeters": 50
+            },
+            {
+              "exerciseId": "freestyle-stroke",
+              "sets": 4,
+              "reps": "50m",
+              "rir": "2-3",
+              "restSeconds": 40,
+              "distanceMeters": 50
+            },
+            {
+              "exerciseId": "backstroke",
+              "sets": 2,
+              "reps": "50m",
+              "rir": "2-3",
+              "restSeconds": 40,
+              "distanceMeters": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sw3",
+      "nameKeys": {
+        "enGB": "template.swim_technique_3x.sw3.name",
+        "uk": "template.swim_technique_3x.sw3.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "breaststroke",
+              "sets": 4,
+              "reps": "50m",
+              "rir": "2-3",
+              "restSeconds": 45,
+              "distanceMeters": 50
+            },
+            {
+              "exerciseId": "freestyle-stroke",
+              "sets": 4,
+              "reps": "50m",
+              "rir": "2-3",
+              "restSeconds": 40,
+              "distanceMeters": 50
+            },
+            {
+              "exerciseId": "kickboard-kick",
+              "sets": 3,
+              "reps": "50m",
+              "rir": "2-3",
+              "restSeconds": 30,
+              "distanceMeters": 50
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

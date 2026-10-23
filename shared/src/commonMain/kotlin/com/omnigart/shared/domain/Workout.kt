@@ -28,7 +28,7 @@ data class WorkoutSet(
     val setIndex: Int,
     /** Repetitions performed; null for timed / distance cardio. */
     val reps: Int? = null,
-    /** Load in kilograms (canonical). */
+    /** Load in kilograms (canonical): implement / added external mass. */
     val weightKg: Double? = null,
     /** Duration in seconds. */
     val durationSeconds: Int? = null,
@@ -36,7 +36,15 @@ data class WorkoutSet(
     val distanceMetres: Double? = null,
     /** Reps in reserve (RIR), if logged. */
     val rir: Double? = null,
-    val completed: Boolean = true
+    val completed: Boolean = true,
+    /** Warm-up sets are excluded from volume by default. */
+    val isWarmup: Boolean = false,
+    /** Assistance mass (kg) subtracted from effective load. */
+    val assistanceKg: Double? = null,
+    /**
+     * When true and the exercise is unilateral, volume counts both sides (×2).
+     */
+    val loggedPerHand: Boolean = false
 ) {
     init {
         require(setIndex >= 0) { "setIndex must be non-negative" }
@@ -45,6 +53,7 @@ data class WorkoutSet(
         durationSeconds?.let { require(it >= 0) { "durationSeconds must be non-negative" } }
         distanceMetres?.let { require(it >= 0) { "distanceMetres must be non-negative" } }
         rir?.let { require(it in 0.0..10.0) { "rir must be between 0 and 10" } }
+        assistanceKg?.let { require(it >= 0) { "assistanceKg must be non-negative" } }
     }
 }
 

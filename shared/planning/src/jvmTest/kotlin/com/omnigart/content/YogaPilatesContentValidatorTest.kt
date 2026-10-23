@@ -6,11 +6,9 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class YogaPilatesContentValidatorTest {
-    private fun yogaRoot(): Path =
-        Path.of(System.getProperty("omnigart.yoga.root") ?: error("omnigart.yoga.root required"))
+    private fun yogaRoot(): Path = Path.of(System.getProperty("omnigart.yoga.root") ?: error("omnigart.yoga.root required"))
 
-    private fun pilatesRoot(): Path =
-        Path.of(System.getProperty("omnigart.pilates.root") ?: error("omnigart.pilates.root required"))
+    private fun pilatesRoot(): Path = Path.of(System.getProperty("omnigart.pilates.root") ?: error("omnigart.pilates.root required"))
 
     @Test
     fun bundledLibrariesValidateWithExpectedCounts() {
@@ -43,7 +41,7 @@ class YogaPilatesContentValidatorTest {
             if ("contraindicationNotes" in file.readText()) {
                 assertTrue(
                     file.readText().lowercase().contains("general safety"),
-                    "${file.name} missing general safety framing",
+                    "${file.name} missing general safety framing"
                 )
             }
         }

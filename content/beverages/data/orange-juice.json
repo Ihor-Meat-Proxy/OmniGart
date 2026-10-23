@@ -1,0 +1,40 @@
+{
+  "id": "orange-juice",
+  "category": "juice",
+  "defaultServingMl": 200,
+  "caffeineMgPerServing": 0,
+  "macrosPer100ml": {
+    "energyKcal": 45,
+    "proteinG": 0.7,
+    "carbohydrateG": 10.4,
+    "fatG": 0.2,
+    "sugarsG": 8.4,
+    "sodiumMg": 1
+  },
+  "hydrationFactor": 1.39,
+  "hydrationFactorEstimated": false,
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.3945/ajcn.115.114769",
+      "label": "Maughan et al. 2016 AJCN — Beverage Hydration Index",
+      "supports": [
+        "hydration_factor"
+      ]
+    },
+    {
+      "kind": "database",
+      "id": "usda-fdc",
+      "label": "USDA FoodData Central (typical values per 100 ml / serving)",
+      "supports": [
+        "macros",
+        "caffeine"
+      ]
+    }
+  ],
+  "notes": "Maughan orange juice uncorrected BHI ~1.39 (NS after water-content correction).",
+  "nameKeys": {
+    "enGB": "beverage.orange_juice.name",
+    "uk": "beverage.orange_juice.name"
+  }
+}

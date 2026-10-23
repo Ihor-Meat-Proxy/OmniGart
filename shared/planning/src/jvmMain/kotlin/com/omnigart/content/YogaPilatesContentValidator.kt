@@ -18,7 +18,7 @@ data class MovementValidationReport(
     val yogaFlowCount: Int,
     val pilatesExerciseCount: Int,
     val pilatesSessionCount: Int,
-    val issues: List<ValidationIssue>,
+    val issues: List<ValidationIssue>
 ) {
     val ok: Boolean get() = issues.isEmpty()
 }
@@ -31,7 +31,7 @@ class YogaPilatesContentValidator(
     private val yogaRoot: Path,
     private val pilatesRoot: Path,
     private val repoRoot: Path = yogaRoot.parent?.parent ?: yogaRoot,
-    private val mapper: ObjectMapper = ObjectMapper(),
+    private val mapper: ObjectMapper = ObjectMapper()
 ) {
     private val registry: SchemaRegistry =
         SchemaRegistry.withDefaultDialect(SpecificationVersion.DRAFT_2020_12)
@@ -149,7 +149,7 @@ class YogaPilatesContentValidator(
             yogaFlowCount = flowFiles.size,
             pilatesExerciseCount = exerciseFiles.size,
             pilatesSessionCount = sessionFiles.size,
-            issues = issues,
+            issues = issues
         )
     }
 
@@ -159,7 +159,7 @@ class YogaPilatesContentValidator(
             if (text.isNotBlank() && !text.lowercase().contains("general safety")) {
                 issues += ValidationIssue(
                     file.toString(),
-                    "Contraindication notes must be framed as general safety (got: ${text.take(48)}…)",
+                    "Contraindication notes must be framed as general safety (got: ${text.take(48)}…)"
                 )
             }
         }
@@ -170,7 +170,7 @@ class YogaPilatesContentValidator(
         allow: Set<String>,
         onDisk: Set<String>?,
         file: Path,
-        issues: MutableList<ValidationIssue>,
+        issues: MutableList<ValidationIssue>
     ) {
         val refs = node.path("evidenceEntryIds")
         if (refs.isEmpty) {
@@ -185,7 +185,7 @@ class YogaPilatesContentValidator(
             if (onDisk != null && id !in onDisk) {
                 issues += ValidationIssue(
                     file.toString(),
-                    "evidenceEntryId missing from content/evidence/entries: $id",
+                    "evidenceEntryId missing from content/evidence/entries: $id"
                 )
             }
         }
@@ -197,7 +197,7 @@ class YogaPilatesContentValidator(
         en: Map<String, String>,
         uk: Map<String, String>,
         file: Path,
-        issues: MutableList<ValidationIssue>,
+        issues: MutableList<ValidationIssue>
     ) {
         for (field in fields) {
             val obj = node.path(field)

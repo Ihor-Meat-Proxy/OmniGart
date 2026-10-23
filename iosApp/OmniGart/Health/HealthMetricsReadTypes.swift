@@ -21,7 +21,7 @@ enum HealthMetricsReadTypes {
             .dietaryCarbohydrates,
             .dietaryFatTotal,
             .bloodPressureSystolic,
-            .bloodPressureDiastolic,
+            .bloodPressureDiastolic
         ]
         for id in quantityIds {
             if let type = HKQuantityType.quantityType(forIdentifier: id) {

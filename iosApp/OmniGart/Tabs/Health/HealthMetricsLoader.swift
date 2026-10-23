@@ -440,8 +440,16 @@ enum HealthMetricsLoader {
                     } else {
                         asleep += minutes
                     }
-                    if start == nil || sample.startDate < start! { start = sample.startDate }
-                    if end == nil || sample.endDate > end! { end = sample.endDate }
+                    if let existingStart = start {
+                        if sample.startDate < existingStart { start = sample.startDate }
+                    } else {
+                        start = sample.startDate
+                    }
+                    if let existingEnd = end {
+                        if sample.endDate > existingEnd { end = sample.endDate }
+                    } else {
+                        end = sample.endDate
+                    }
                     source = sample.sourceRevision.source.name
                 }
                 let fmt = DateFormatter()

@@ -5,10 +5,12 @@ final class HealthKitEnergyEstimateTests: XCTestCase {
     func testEffortScoreScalesWithAverageHeartRate() {
         let low = HealthKitWorkoutWriter.estimateEffortScore(averageBpm: 90, ageYears: 30)
         let high = HealthKitWorkoutWriter.estimateEffortScore(averageBpm: 160, ageYears: 30)
-        XCTAssertNotNil(low)
-        XCTAssertNotNil(high)
-        XCTAssertLessThan(low!, high!)
-        XCTAssertLessThanOrEqual(high!, 10)
+        guard let low, let high else {
+            XCTFail("Expected effort scores")
+            return
+        }
+        XCTAssertLessThan(low, high)
+        XCTAssertLessThanOrEqual(high, 10)
     }
 
     func testHeartRateRecoveryRequiresAfterSamples() {

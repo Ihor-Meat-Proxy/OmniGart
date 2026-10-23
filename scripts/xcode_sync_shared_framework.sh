@@ -45,7 +45,9 @@ esac
 
 link_task="link${link_kind}Framework${target}"
 echo "Linking Shared via :shared:${link_task} → ${CONFIGURATION}/${PLATFORM_NAME}"
-./gradlew ":shared:${link_task}" :shared:syncXcodeFrameworks --stacktrace
+# Link then sync in separate invocations so sync never races ahead of link.
+./gradlew ":shared:${link_task}" --stacktrace
+./gradlew :shared:syncXcodeFrameworks --stacktrace
 
 if [[ ! -d "$OUT" ]]; then
   echo "error: expected Shared.framework at $OUT after sync" >&2

@@ -338,16 +338,15 @@ struct InsightsTabView: View {
         loading = true
         let profile = core.profiles.get(id: profileId)
         let maxHr = max(120.0, 220.0 - Double(profileAgeYears(profile)))
-        let weight = profile.map { KotlinDouble(value: $0.weightKg) }
-        let built = await Task.detached(priority: .userInitiated) {
-            let anchors = InsightsDashboardBuilder.ProfileAnchors(
-                restingHrBpm: 60,
-                maxHrBpm: maxHr,
-                weightKg: weight
-            )
-            return builder.build(anchors: anchors)
-        }.value
-        dashboard = built
+        let anchors = InsightsDashboardBuilder.ProfileAnchors(
+            restingHrBpm: 60,
+            maxHrBpm: maxHr,
+            weightKg: profile.map { KotlinDouble(value: $0.weightKg) }
+        )
+        // Yield so the progress indicator can paint. Aggregates are cached in-process;
+        // avoid Task.detached with non-Sendable KMP types under Swift 6 strict concurrency.
+        await Task.yield()
+        dashboard = builder.build(anchors: anchors)
         loading = false
     }
 

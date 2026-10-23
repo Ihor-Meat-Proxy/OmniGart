@@ -85,17 +85,17 @@ class OnboardingCoreTest {
         profiles.upsert(profile)
         assertEquals(profile, profiles.get("local-profile"))
     }
-}
 
-@Test
-fun foodLog_totalsForToday() {
-    val core = OmniGartCore.forTesting(createInMemoryDatabase())
-    val profile = core.ensureUiTestProfile()
-    core.logFood(profile.id, "Oats", 350.0, 12.0, 55.0, 8.0)
-    core.logFood(profile.id, "Yogurt", 120.0, 10.0, 12.0, 3.0)
-    val totals = core.foodDayTotals(profile.id)
-    assertEquals(470.0, totals.energyKcal)
-    assertEquals(22.0, totals.proteinG)
-    assertEquals(2, totals.entryCount)
-    assertEquals(2, core.foodEntriesForToday(profile.id).size)
+    @Test
+    fun foodLog_totalsForToday() {
+        val core = OmniGartCore.forTesting(createInMemoryDatabase())
+        val profile = core.ensureUiTestProfile()
+        core.logFood(profile.id, "Oats", 350.0, 12.0, 55.0, 8.0)
+        core.logFood(profile.id, "Yogurt", 120.0, 10.0, 12.0, 3.0)
+        val totals = core.foodDayTotals(profile.id)
+        assertEquals(470.0, totals.energyKcal)
+        assertEquals(22.0, totals.proteinG)
+        assertEquals(2, totals.entryCount)
+        assertEquals(2, core.foodEntriesForToday(profile.id).size)
+    }
 }

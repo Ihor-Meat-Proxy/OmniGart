@@ -8,7 +8,6 @@ struct HealthTabView: View {
     let profileId: String
 
     @State private var dashboard: HealthMetricsDashboard = HealthMetricsAssembler.shared.emptyPermissionDashboard()
-    @State private var authorized = false
     @State private var loading = true
 
     var body: some View {
@@ -178,9 +177,7 @@ struct HealthTabView: View {
     @MainActor
     private func reload() async {
         loading = true
-        let loaded = await HealthMetricsLoader.loadToday()
-        dashboard = loaded.dashboard
-        authorized = loaded.authorized
+        dashboard = await HealthMetricsLoader.loadToday().dashboard
         loading = false
     }
 }

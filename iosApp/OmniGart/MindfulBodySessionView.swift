@@ -32,6 +32,7 @@ struct MindfulBodySessionView: View {
     @AppStorage("omnigart.yoga.mindful_minutes.enabled") private var mindfulMinutesEnabled = false
     @State private var running = false
     @State private var startedAt: Date?
+    @State private var syncSessionId: String?
     @State private var summaryLines: [String] = []
     @State private var watchStatus: String?
     @State private var saving = false
@@ -59,6 +60,7 @@ struct MindfulBodySessionView: View {
                 Button(catalog("workout_start_iphone_estimate")) {
                     running = true
                     startedAt = Date()
+                    syncSessionId = UUID().uuidString
                     summaryLines = []
                 }
                 .accessibilityIdentifier("\(kind.rawValue)_start_iphone")
@@ -86,12 +88,6 @@ struct MindfulBodySessionView: View {
                 ForEach(summaryLines, id: \.self) { line in
                     Text(line).font(.footnote)
                 }
-                Button("pdf_export_button") {
-                    if let id = core.localHealth.latestWorkoutId() {
-                        WorkoutPdfExport.shareSingle(core: core, workoutId: id)
-                    }
-                }
-                .accessibilityIdentifier("pdf_export_button")
             }
         }
     }
@@ -113,6 +109,7 @@ struct MindfulBodySessionView: View {
 
     private func endAndSave() {
         guard let start = startedAt else { return }
+        let sessionKey = syncSessionId ?? UUID().uuidString
         let end = Date()
         running = false
         saving = true
@@ -120,106 +117,31 @@ struct MindfulBodySessionView: View {
             saving = false
             return
         }
-        let durationHours = max(0, end.timeIntervalSince(start) / 3600.0)
-        let age = Int(core.ageYears(profile: profile))
-        let breakdown: WorkoutEnergyBreakdown =
-            kind == .yoga
-            ? WorkoutEnergyEstimate.shared.yogaBreakdown(
-                weightKg: profile.weightKg,
-                heightCm: profile.heightCm,
-                ageYears: Int32(age),
-                sex: profile.biologicalSex,
-                durationHours: durationHours
-            )
-            : WorkoutEnergyEstimate.shared.pilatesBreakdown(
-                weightKg: profile.weightKg,
-                heightCm: profile.heightCm,
-                ageYears: Int32(age),
-                sex: profile.biologicalSex,
-                durationHours: durationHours
-            )
-        let energy = HealthKitWorkoutWriter.EnergyInput(
-            activeKcal: breakdown.activeKcal,
-            basalKcal: breakdown.basalKcal,
-            isEstimate: true
-        )
         let saveMindful = kind == .yoga && mindfulMinutesEnabled
-
-        Task {
+        Task { @MainActor in
             defer { saving = false }
-            do {
-                let recoveryEnd = end.addingTimeInterval(90)
-                let hrSamples =
-                    (try? await HealthKitWorkoutWriter.fetchHeartRate(from: start, to: recoveryEnd)) ?? []
-                let during = hrSamples.filter { $0.date <= end }
-                let avg = during.map(\.bpm).filter { $0 > 0 }
-                let avgBpm = avg.isEmpty ? nil : avg.reduce(0, +) / Double(avg.count)
-                let recovery = HealthKitWorkoutWriter.estimateHeartRateRecoveryBpm(
-                    samples: hrSamples,
-                    workoutEnd: end
+            let saved = await MindfulBodyHealthSave.saveEstimate(
+                MindfulBodySaveRequest(
+                    kind: kind,
+                    profile: profile,
+                    core: core,
+                    start: start,
+                    end: end,
+                    sessionKey: sessionKey,
+                    saveMindfulMinutes: saveMindful
                 )
-                let effort = HealthKitWorkoutWriter.estimateEffortScore(
-                    averageBpm: avgBpm,
-                    ageYears: age
-                )
-                let maxBpm = avg.max()
-                let localId = "mindful-\(kind.rawValue)-\(Int(start.timeIntervalSince1970))"
-                let activityName = kind == .yoga ? "YOGA" : "PILATES"
-                let syncId = core.localHealth.recordOmniGartWorkout(
-                    localId: localId,
-                    activityTypeName: activityName,
-                    startEpochMs: Int64(start.timeIntervalSince1970 * 1000),
-                    endEpochMs: Int64(end.timeIntervalSince1970 * 1000),
-                    activeEnergyKcal: KotlinDouble(value: energy.activeKcal),
-                    basalEnergyKcal: KotlinDouble(value: energy.basalKcal),
-                    distanceMetres: nil,
-                    averageHeartRateBpm: avgBpm.map { KotlinDouble(value: $0) },
-                    maxHeartRateBpm: maxBpm.map { KotlinDouble(value: $0) },
-                    sessionId: nil,
-                    planId: nil,
-                    heartRateEpochMs: during.map { Int64($0.date.timeIntervalSince1970 * 1000) },
-                    heartRateBpm: during.map(\.bpm),
-                    syncVersion: 1
-                )
-                let saved = try await HealthKitWorkoutWriter.save(
-                    options: .init(
-                        activityType: kind.activityType,
-                        start: start,
-                        end: end,
-                        energy: energy,
-                        heartRate: during,
-                        indoor: true,
-                        saveMindfulMinutes: saveMindful,
-                        estimatedEffortScore: effort,
-                        heartRateRecoveryBpm: recovery,
-                        syncIdentifier: syncId,
-                        syncVersion: 1
-                    )
-                )
-                if let saved {
-                    core.localHealth.markPlatformLinked(
-                        localId: localId,
-                        platformRecordId: saved.workoutUUID.uuidString
-                    )
-                }
-                await MainActor.run {
-                    summaryLines = makeSummaryLines(
-                        start: start,
-                        end: end,
-                        result: saved,
-                        estimate: energy
-                    )
-                }
-            } catch {
-                await MainActor.run {
-                    summaryLines = makeSummaryLines(
-                        start: start,
-                        end: end,
-                        result: nil,
-                        estimate: energy
-                    )
-                }
-            }
+            )
+            let estimate = HealthKitWorkoutWriter.EnergyInput(
+                activeKcal: saved?.activeKcal ?? 0,
+                basalKcal: saved?.basalKcal ?? 0,
+                isEstimate: true
+            )
+            summaryLines = makeSummaryLines(
+                start: start,
+                end: end,
+                result: saved,
+                estimate: estimate
+            )
         }
     }
 

@@ -104,11 +104,11 @@ enum HealthKitWorkoutRestorer {
                     start: start,
                     end: end,
                     energy: .init(activeKcal: active, basalKcal: basal, isEstimate: false),
+                    syncIdentifier: syncId,
                     heartRate: heartRate,
                     pauseResumeDates: pauses,
                     segments: segments,
                     indoor: true,
-                    syncIdentifier: syncId,
                     syncVersion: syncVersion
                 )
             )

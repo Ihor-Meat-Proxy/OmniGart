@@ -25,6 +25,8 @@ Programme framing for easy aerobic volume: `cardio-zone2-easy-distribution` → 
 
 - `shared/activity-algorithms/.../hr/HeartRateZones.kt` — general zones + time-in-zone
 - `shared/activity-algorithms/.../hr/Zone2.kt` — Zone 2 profile helpers
+- watchOS live session: `watchApp/OmniGartWatch/Zone2/` (`Zone2LiveView`, haptics, `HKWorkoutSession`)
+- **Post-run summary:** after a successful stop, `Zone2SummaryView` shows time in zone, distance, average cadence, and an HR series chart (Swift Charts when available; sparkline fallback). Wellness copy only.
 - WorkoutKit scheduling of a Zone 2 session: follow-up PR (uses `EndurancePlanFactory` + HR alert)
 
 ## Locales

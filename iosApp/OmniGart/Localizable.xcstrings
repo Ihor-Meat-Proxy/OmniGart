@@ -3138,6 +3138,90 @@
         }
       },
       "comment": "Error when HealthKit missing. maxLength=22"
+    },
+    "watch.zone2.summary.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Summary"
+          }
+        }
+      },
+      "comment": "Post-run Zone 2 summary title. maxLength=10"
+    },
+    "watch.zone2.summary.wellness": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Easy aerobic session — training guidance only."
+          }
+        }
+      },
+      "comment": "Post-run wellness framing (not medical advice). maxLength=48"
+    },
+    "watch.zone2.summary.time_in_zone": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In zone"
+          }
+        }
+      },
+      "comment": "Summary row: time spent in Zone 2. maxLength=10"
+    },
+    "watch.zone2.summary.distance": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Distance"
+          }
+        }
+      },
+      "comment": "Summary row: run distance. maxLength=10"
+    },
+    "watch.zone2.summary.avg_cadence": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avg cad"
+          }
+        }
+      },
+      "comment": "Summary row: average cadence (spm). maxLength=8"
+    },
+    "watch.zone2.summary.hr_chart": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heart rate"
+          }
+        }
+      },
+      "comment": "HR series chart caption / a11y. maxLength=12"
+    },
+    "watch.zone2.summary.done": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
+          }
+        }
+      },
+      "comment": "Dismiss post-run summary. maxLength=6"
     }
   },
   "version": "1.0"

@@ -1,0 +1,43 @@
+{
+  email {$EMAIL}
+  admin off
+}
+
+{$DOMAIN} {
+  encode zstd gzip
+
+  header {
+    Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+    X-Content-Type-Options "nosniff"
+    X-Frame-Options "DENY"
+    Referrer-Policy "no-referrer"
+    Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'none'"
+    Cross-Origin-Resource-Policy "cross-origin"
+    Access-Control-Allow-Origin "*"
+    Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+    -Server
+  }
+
+  @options method OPTIONS
+  respond @options 204
+
+  log {
+    output stdout
+    format filter {
+      wrap json
+      fields {
+        request>client_ip ip_mask 16 32
+        request>remote_ip ip_mask 16 32
+        request>headers>Cookie delete
+        request>headers>Authorization delete
+      }
+    }
+  }
+
+  # Static mirror of published packs (upload release artefacts into ./public)
+  root * /srv/public
+  file_server
+
+  # Optionally reverse_proxy Garage S3 website mode — keep public/ sync simple for v1.
+}

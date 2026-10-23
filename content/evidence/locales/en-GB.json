@@ -33,5 +33,14 @@
   "evidence.tanaka_hrmax_2001.key_finding": "Supports the 208 − 0.7×age prediction of maximal heart rate as an improvement over 220 − age in healthy adults.",
   "evidence.who_bmi_2000.key_finding": "Defines widely used adult BMI cut-points for underweight, normal weight, overweight, and obesity categories.",
   "evidence.who_whr_2008.key_finding": "Expert consultation report on measuring and interpreting waist circumference and waist–hip ratio for health risk screening.",
-  "evidence.youdas_pullup_chinup_emg_2010.key_finding": "Surface EMG differed by grip: chin-ups emphasised biceps and pectoralis more than pronated pull-ups in the tested sample."
+  "evidence.youdas_pullup_chinup_emg_2010.key_finding": "Surface EMG differed by grip: chin-ups emphasised biceps and pectoralis more than pronated pull-ups in the tested sample.",
+  "evidence.al_haddad_hr_reliability_2011.key_finding": "Resting and post-exercise heart-rate and HRV-related measures show quantifiable reliability that informs day-to-day monitoring thresholds.",
+  "evidence.banister_trimp_1990.key_finding": "Impulse–response (TRIMP-style) modelling relates training dose over time to performance fitness and fatigue components.",
+  "evidence.bellenger_hrv_status_2016.key_finding": "Pooled evidence links autonomic heart-rate regulation markers, including HRV, with changes in athletic training status.",
+  "evidence.hirshkowitz_sleep_duration_2015.key_finding": "Recommended sleep duration ranges by age band guide how much nightly sleep most healthy adults need.",
+  "evidence.impellizzeri_acwr_2021.key_finding": "The acute:chronic workload ratio rests on shaky causal assumptions; chronic load terms do not justify using ACWR as a universal injury predictor.",
+  "evidence.kaminsky_friend_vo2_2015.key_finding": "Age- and sex-specific VO2 reference percentiles from the FRIEND registry provide norms for cardiorespiratory fitness interpretation.",
+  "evidence.loe_hunt_vo2_2016.key_finding": "Population fitness models from HUNT support estimating VO2peak for wellness fitness comparisons when direct CPET is unavailable.",
+  "evidence.van_dongen_sleep_debt_2003.key_finding": "Cumulative sleep restriction produces dose-dependent neurobehavioral deficits, supporting the concept of accumulating sleep debt.",
+  "evidence.watson_sleep_performance_2017.key_finding": "Insufficient sleep impairs athletic performance, cognition and injury risk markers; extending sleep and protecting sleep opportunity support recovery."
 }

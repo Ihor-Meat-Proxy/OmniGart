@@ -46,4 +46,16 @@ Expected block kinds: `WARM_UP`, `WORK`, `RECOVERY`, `COOL_DOWN`.
 
 Alerts: `HEART_RATE_ZONE` (bpm band), with room for pace/cadence in later iterations.
 
-Zone 2 running (follow-up PR) reuses this path with a Zone 2 HR alert on the work block.
+## Zone 2 dual path
+
+The same Zone 2 continuous-run session can be done two ways:
+
+| Path | Where | HR guidance |
+|------|--------|-------------|
+| In-app watch session | OmniGart watchOS live workout | Zone colour + haptics (`docs/ZONE2.md`) |
+| System Workout | Apple Workout app via WorkoutKit | Zone 2 `HEART_RATE_ZONE` alert on the work block |
+
+Shared factory: `Zone2WorkoutKitPlans.continuousRun` (uses `Zone2.profile` / Karvonen for alert bpm).  
+iOS bridge: `Zone2WorkoutKitScheduler` → `WorkoutKitSchedulerBridge` when flags / `OMNIGART_ENABLE_WORKOUTKIT` allow.
+
+`FeatureFlags.workoutKitSchedulingEnabled` stays **false** until product-ready.

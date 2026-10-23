@@ -27,7 +27,17 @@ Programme framing for easy aerobic volume: `cardio-zone2-easy-distribution` → 
 - `shared/activity-algorithms/.../hr/Zone2.kt` — Zone 2 profile helpers
 - watchOS live session: `watchApp/OmniGartWatch/Zone2/` (`Zone2LiveView`, haptics, `HKWorkoutSession`)
 - **Post-run summary:** after a successful stop, `Zone2SummaryView` shows time in zone, distance, average cadence, and an HR series chart (Swift Charts when available; sparkline fallback). Wellness copy only.
-- WorkoutKit scheduling of a Zone 2 session: follow-up PR (uses `EndurancePlanFactory` + HR alert)
+- `Zone2WorkoutKitPlans` + `EndurancePlanFactory.continuousRun` — WorkoutKit plan with Zone 2 HR alert
+- `Zone2WorkoutKitScheduler` (iOS) — schedules that plan when WorkoutKit flags / Personal Team gate allow
+
+## Dual path (in-app vs system Workout)
+
+| Path | Surface | Guidance |
+|------|---------|----------|
+| In-app | watchOS Zone 2 live session + post-run summary | Glanceable HR / zone / haptics; summary after stop |
+| System | WorkoutKit → Apple Workout app | Same Zone 2 bpm band as a `HEART_RATE_ZONE` alert |
+
+Both use the Karvonen default (60–70% HRR) unless the user picks %HRmax or LTHR. See `docs/WORKOUTKIT.md`.
 
 ## Locales
 

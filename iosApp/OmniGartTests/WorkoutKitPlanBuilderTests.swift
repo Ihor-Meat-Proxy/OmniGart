@@ -37,6 +37,37 @@ final class WorkoutKitPlanBuilderTests: XCTestCase {
         XCTAssertEqual(draft.blocks[1].alertKind, "HEART_RATE_ZONE")
     }
 
+    /// Parses the dictionary shape produced by `Zone2WorkoutKitScheduler` / shared factory.
+    func testDraftParsesZone2WorkoutKitSchedulerFactoryShape() throws {
+        let start = Date(timeIntervalSince1970: 1_700_000_000)
+        let json = Zone2WorkoutKitScheduler.planJSON(
+            id: "zone2-factory-1",
+            hrMax: 180,
+            hrRest: 60,
+            workSeconds: 1800,
+            scheduledStart: start
+        )
+        let draft = try WorkoutKitPlanBuilder.draft(from: json)
+        XCTAssertEqual(draft.id, "zone2-factory-1")
+        XCTAssertEqual(draft.blocks.count, 3)
+        XCTAssertEqual(draft.blocks[0].kind, "WARM_UP")
+        XCTAssertEqual(draft.blocks[1].kind, "WORK")
+        XCTAssertEqual(draft.blocks[2].kind, "COOL_DOWN")
+        XCTAssertEqual(draft.blocks[1].goalKind, "TIME_SECONDS")
+        XCTAssertEqual(draft.blocks[1].goalValue, 1800.0)
+        XCTAssertEqual(draft.blocks[1].alertKind, "HEART_RATE_ZONE")
+        // Karvonen 60–70% HRR: rest 60, max 180 → 132–144 (matches Zone2.karvonen)
+        XCTAssertEqual(draft.blocks[1].alertLower, 132.0)
+        XCTAssertEqual(draft.blocks[1].alertUpper, 144.0)
+        XCTAssertNotNil(draft.scheduledStart)
+    }
+
+    func testZone2BandMatchesKarvonenDefaults() {
+        let band = Zone2WorkoutKitScheduler.zone2Band(hrMax: 180, hrRest: 60)
+        XCTAssertEqual(band.lowerBpm, 132)
+        XCTAssertEqual(band.upperBpm, 144)
+    }
+
     func testRejectsStrength() {
         let json: [String: Any] = [
             "id": "s1",

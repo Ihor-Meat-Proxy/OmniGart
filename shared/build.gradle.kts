@@ -55,6 +55,8 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.json)
+            // Zone 2 HR bands for WorkoutKit schedule plans (pure algorithms).
+            implementation(project(":shared:activity-algorithms"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

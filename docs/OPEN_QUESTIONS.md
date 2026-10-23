@@ -287,6 +287,12 @@ IDs use `A#` so they do not clash with numeric process items or other lettered s
 - **A4. ACSM VO₂ labelling** — ACSM running equation is oxygen *cost* at a speed/grade; show as “estimated VO₂” vs “VO₂max” unless the bout is maximal?
 - **A5. Cooper surface** — Accept treadmill @ 1 % as equivalent to outdoor track for Cooper distance input?
 
+## Zone 2 / watch workout copy
+
+Z1. **Watch string budget** — Confirm max characters for Zone 2 single-screen labels (HR, zone, time in zone, cadence, distance) before truncating translations.
+Z2. **Zone model default** — Prefer %HRR (Karvonen), LTHR-based, or %HRmax as the default Zone 2 definition in settings copy?
+Z3. **Wellness tone** — Keep permission/onboarding text free of diagnostic/medical claims; confirm legal review wording.
+
 ## § Watch WorkoutKit + Zone 2
 
 IDs use `W#`. Plan: `docs/plans/watch-workoutkit-zone2.md`.

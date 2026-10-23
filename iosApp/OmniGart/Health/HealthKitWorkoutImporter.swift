@@ -85,8 +85,10 @@ enum HealthKitWorkoutImporter {
             return imported.uuid.uuidString
         }()
         let syncId = imported.syncIdentifier ?? "omnigart.workout.\(localId)"
-        let hrEpoch = imported.heartRate.map { Int64($0.date.timeIntervalSince1970 * 1000) }
-        let hrBpm = imported.heartRate.map(\.bpm)
+        let hrEpoch = KotlinPrimitiveArrays.longArray(
+            imported.heartRate.map { Int64($0.date.timeIntervalSince1970 * 1000) }
+        )
+        let hrBpm = KotlinPrimitiveArrays.doubleArray(imported.heartRate.map(\.bpm))
         core.localHealth.importPlatformWorkout(
             localId: localId,
             syncIdentifier: syncId,

@@ -203,7 +203,9 @@ enum StrengthWorkoutHealthSave {
             )
         }
     }
+}
 
+extension StrengthWorkoutHealthSave {
     private static func recordLocalWorkout(
         _ input: PersistInput,
         energy: HealthKitWorkoutWriter.EnergyInput,
@@ -221,18 +223,28 @@ enum StrengthWorkoutHealthSave {
             maxHeartRateBpm: heartRate.maxBpm.map { KotlinDouble(value: $0) },
             sessionId: input.sessionId,
             planId: nil,
-            heartRateEpochMs: heartRate.during.map { Int64($0.date.timeIntervalSince1970 * 1000) },
-            heartRateBpm: heartRate.during.map(\.bpm),
-            setIds: input.sets.map(\.id),
-            setExerciseKeys: input.sets.map(\.exerciseId),
-            setIndexes: input.sets.map { $0.setIndex },
-            setReps: input.sets.map { $0.reps?.int32Value ?? Int32(-1) },
-            setLoadKg: input.sets.map { $0.weightKg?.doubleValue ?? -1.0 },
-            setIsWarmup: input.sets.map(\.isWarmup),
-            setRir: input.sets.map { $0.rir?.doubleValue ?? -1.0 },
-            setRpe: input.sets.map { $0.rpe?.doubleValue ?? -1.0 },
-            setIsDrop: input.sets.map(\.isDropSet),
-            setIsFailure: input.sets.map(\.isFailure),
+            heartRateEpochMs: KotlinPrimitiveArrays.longArray(
+                heartRate.during.map { Int64($0.date.timeIntervalSince1970 * 1000) }
+            ),
+            heartRateBpm: KotlinPrimitiveArrays.doubleArray(heartRate.during.map(\.bpm)),
+            setIds: KotlinPrimitiveArrays.stringArray(input.sets.map(\.id)),
+            setExerciseKeys: KotlinPrimitiveArrays.stringArray(input.sets.map(\.exerciseId)),
+            setIndexes: KotlinPrimitiveArrays.intArray(input.sets.map { $0.setIndex }),
+            setReps: KotlinPrimitiveArrays.intArray(
+                input.sets.map { $0.reps?.int32Value ?? Int32(-1) }
+            ),
+            setLoadKg: KotlinPrimitiveArrays.doubleArray(
+                input.sets.map { $0.weightKg?.doubleValue ?? -1.0 }
+            ),
+            setIsWarmup: KotlinPrimitiveArrays.booleanArray(input.sets.map(\.isWarmup)),
+            setRir: KotlinPrimitiveArrays.doubleArray(
+                input.sets.map { $0.rir?.doubleValue ?? -1.0 }
+            ),
+            setRpe: KotlinPrimitiveArrays.doubleArray(
+                input.sets.map { $0.rpe?.doubleValue ?? -1.0 }
+            ),
+            setIsDrop: KotlinPrimitiveArrays.booleanArray(input.sets.map(\.isDropSet)),
+            setIsFailure: KotlinPrimitiveArrays.booleanArray(input.sets.map(\.isFailure)),
             syncVersion: 1
         )
     }

@@ -94,7 +94,13 @@ extension StrengthLoggingView {
             unit: massUnit
         )
         _ = core.strengthLogging.updateSet(sessionId: id, set: StrengthSetOps.apply(patch, to: set))
-        let rest = Int(core.strengthLogging.completeSet(sessionId: id, setId: set.id))
+        let rest = Int(
+            core.strengthLogging.completeSet(
+                sessionId: id,
+                setId: set.id,
+                defaultRestSeconds: Int32(defaultRest)
+            )
+        )
         restRemaining = max(rest, 0)
         restRunning = restRemaining > 0
         refreshSummary(id: id)

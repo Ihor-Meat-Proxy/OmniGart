@@ -52,7 +52,7 @@ enum WorkoutPdfExport {
             return
         }
         let scene = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first
-        let root = scene?.windows.first(where: \.isKeyWindow)?.rootViewController
+        let root = scene?.windows.first(where: { $0.isKeyWindow })?.rootViewController
         guard let presenter = topController(from: root) else { return }
         let activity = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         if let pop = activity.popoverPresentationController {

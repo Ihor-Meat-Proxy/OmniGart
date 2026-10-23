@@ -2,6 +2,7 @@ import Foundation
 import UserNotifications
 
 /// Schedules local-only nutrition reminders (no remote push).
+@MainActor
 final class NutritionReminderScheduler {
     static let shared = NutritionReminderScheduler()
 

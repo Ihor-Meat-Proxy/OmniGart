@@ -1,6 +1,7 @@
 import Foundation
 
 /// On-device preferences and measurement samples for the nutrition target card.
+@MainActor
 final class NutritionLocalStore: ObservableObject {
     static let shared = NutritionLocalStore()
 

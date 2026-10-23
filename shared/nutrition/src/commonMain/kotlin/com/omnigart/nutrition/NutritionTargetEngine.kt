@@ -244,7 +244,10 @@ object NutritionTargetEngine {
         return NutritionTargetResult(
             estimatedTdeeKcal = tdee,
             suggestedDailyKcal = suggested,
-            weekdayTargetsKcal = weekdayGuarded,
+            weekdayTargets =
+                weekdayGuarded.entries
+                    .sortedBy { it.key }
+                    .map { WeekdayEnergyTarget(weekday = it.key, kcal = it.value) },
             proteinG = macros.proteinG,
             fatG = macros.fatG,
             carbsG = macros.carbsG,

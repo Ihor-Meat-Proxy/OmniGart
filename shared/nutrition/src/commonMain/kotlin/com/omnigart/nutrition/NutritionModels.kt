@@ -125,10 +125,16 @@ data class ChangeReason(
     val detail: String? = null,
 )
 
+/** Per-weekday energy row — List (not Map) so the type exports cleanly to Swift/ObjC. */
+data class WeekdayEnergyTarget(
+    val weekday: Int,
+    val kcal: Double,
+)
+
 data class NutritionTargetResult(
     val estimatedTdeeKcal: Double?,
     val suggestedDailyKcal: Double?,
-    val weekdayTargetsKcal: Map<Int, Double> = emptyMap(),
+    val weekdayTargets: List<WeekdayEnergyTarget> = emptyList(),
     val proteinG: Double? = null,
     val fatG: Double? = null,
     val carbsG: Double? = null,
@@ -145,7 +151,10 @@ data class NutritionTargetResult(
     val loggingBreak: Boolean = false,
     val pausedKeepingLastEstimate: Boolean = false,
     val labelRoughEstimate: Boolean = false,
-)
+) {
+    /** Kotlin hosts that prefer a map can rebuild it from [weekdayTargets]. */
+    fun weekdayTargetsKcalMap(): Map<Int, Double> = weekdayTargets.associate { it.weekday to it.kcal }
+}
 
 data class FloorWarning(
     val belowFloor: Boolean,

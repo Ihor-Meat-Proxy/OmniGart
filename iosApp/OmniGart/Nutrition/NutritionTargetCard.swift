@@ -70,11 +70,42 @@ struct NutritionTargetCard: View {
     private func refresh() {
         guard let profile = core.profiles.get(id: profileId) else { return }
         let store = NutritionLocalStore.shared
-        let result = computeTarget(profile: profile, store: store)
-        applyResult(result, store: store)
+        let snap = NutritionTargetCardSnapshot.build(core: core, profile: profile, store: store)
+        suggestedText = snap.suggestedText
+        waterText = snap.waterText
+        confidenceKey = snap.confidenceKey
+        reasonKeys = snap.reasonKeys
+        floorWarn = snap.floorWarn
+        showSupportive = snap.showSupportive
+        if let kcal = snap.kcalToPersist {
+            store.saveLastTargetKcal(kcal)
+        }
+    }
+}
+
+/// Keeps `NutritionTargetCard.refresh` under SwiftLint function_body_length.
+private struct NutritionTargetCardSnapshot {
+    var suggestedText: String
+    var waterText: String
+    var confidenceKey: String
+    var reasonKeys: [String]
+    var floorWarn: Bool
+    var showSupportive: Bool
+    var kcalToPersist: Double?
+
+    @MainActor
+    static func build(
+        core: OmniGartCore,
+        profile: UserProfile,
+        store: NutritionLocalStore
+    ) -> NutritionTargetCardSnapshot {
+        let result = compute(core: core, profile: profile, store: store)
+        return format(result: result)
     }
 
-    private func computeTarget(
+    @MainActor
+    private static func compute(
+        core: OmniGartCore,
         profile: UserProfile,
         store: NutritionLocalStore
     ) -> NutritionTargetResult {
@@ -116,30 +147,39 @@ struct NutritionTargetCard: View {
         )
     }
 
-    private func applyResult(_ result: NutritionTargetResult, store: NutritionLocalStore) {
+    private static func format(result: NutritionTargetResult) -> NutritionTargetCardSnapshot {
         let kcal = NutritionFacade.shared.suggestedKcalOrNull(result: result)
+        let suggested: String
+        let persist: Double?
         if kcal > 0 {
-            suggestedText = String(
+            suggested = String(
                 format: "%.0f %@",
                 kcal,
                 String(localized: "nutrition_kcal_unit")
             )
-            store.saveLastTargetKcal(kcal)
+            persist = kcal
         } else {
-            suggestedText = "—"
+            suggested = "—"
+            persist = nil
         }
-        if let water = result.waterLitres?.doubleValue, water > 0 {
-            waterText = String(
+        let water: String
+        if let litres = result.waterLitres?.doubleValue, litres > 0 {
+            water = String(
                 format: "%@ %.1f L",
                 String(localized: "nutrition_water_goal"),
-                water
+                litres
             )
         } else {
-            waterText = "—"
+            water = "—"
         }
-        confidenceKey = NutritionFacade.shared.confidenceLabelKey(level: result.confidence)
-        reasonKeys = NutritionFacade.shared.changeReasonKeys(result: result).map { $0 as String }
-        floorWarn = result.floorWarning?.belowFloor == true
-        showSupportive = result.lowIntakeSupportive
+        return NutritionTargetCardSnapshot(
+            suggestedText: suggested,
+            waterText: water,
+            confidenceKey: NutritionFacade.shared.confidenceLabelKey(level: result.confidence),
+            reasonKeys: NutritionFacade.shared.changeReasonKeys(result: result).map { $0 as String },
+            floorWarn: result.floorWarning?.belowFloor == true,
+            showSupportive: result.lowIntakeSupportive,
+            kcalToPersist: persist
+        )
     }
 }

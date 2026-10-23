@@ -32,14 +32,14 @@ object Zone2WorkoutKitPlans {
         lthrBpm: Int? = null,
         displayNameKey: String = DEFAULT_DISPLAY_NAME_KEY,
         warmUpSeconds: Long = 300,
-        coolDownSeconds: Long = 300,
+        coolDownSeconds: Long = 300
     ): ScheduledWorkoutPlan {
         val profile =
             Zone2.profile(
                 method = method,
                 hrMax = hrMax,
                 hrRest = hrRest,
-                lthrBpm = lthrBpm,
+                lthrBpm = lthrBpm
             )
         return EndurancePlanFactory.continuousRun(
             id = id,
@@ -49,7 +49,7 @@ object Zone2WorkoutKitPlans {
             coolDownSeconds = coolDownSeconds,
             hrAlertLowerBpm = profile.lowerBpm.toDouble(),
             hrAlertUpperBpm = profile.upperBpm.toDouble(),
-            scheduledStartEpochMillis = scheduledStartEpochMillis,
+            scheduledStartEpochMillis = scheduledStartEpochMillis
         )
     }
 }

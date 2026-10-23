@@ -21,7 +21,7 @@ class Zone2WorkoutKitPlansTest {
                 hrMax = hrMax,
                 hrRest = hrRest,
                 workSeconds = 1800,
-                scheduledStartEpochMillis = 1_700_000_000_000L,
+                scheduledStartEpochMillis = 1_700_000_000_000L
             )
 
         assertEquals(WorkoutActivityType.RUNNING, plan.activityType)
@@ -46,7 +46,7 @@ class Zone2WorkoutKitPlansTest {
             Zone2.profile(
                 method = Zone2Method.PERCENT_HR_MAX,
                 hrMax = 200,
-                hrRest = 50,
+                hrRest = 50
             )
         val plan =
             Zone2WorkoutKitPlans.continuousRun(
@@ -54,7 +54,7 @@ class Zone2WorkoutKitPlansTest {
                 hrMax = 200,
                 hrRest = 50,
                 workSeconds = 1200,
-                method = Zone2Method.PERCENT_HR_MAX,
+                method = Zone2Method.PERCENT_HR_MAX
             )
         val alert = plan.blocks[1].alerts.single()
         assertEquals(expected.lowerBpm.toDouble(), alert.lower)
@@ -68,7 +68,7 @@ class Zone2WorkoutKitPlansTest {
                 id = "zone2-time",
                 hrMax = 180,
                 hrRest = 60,
-                workSeconds = 2400,
+                workSeconds = 2400
             )
         val workGoal = assertNotNull(plan.blocks[1].goal)
         assertEquals(WorkoutGoalKind.TIME_SECONDS, workGoal.kind)

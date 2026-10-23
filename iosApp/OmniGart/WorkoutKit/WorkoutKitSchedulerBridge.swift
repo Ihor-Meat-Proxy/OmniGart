@@ -11,7 +11,8 @@ final class WorkoutKitSchedulerBridge {
     static let shared = WorkoutKitSchedulerBridge()
 
     /// Mirrors `ScheduledWorkoutValidator.MAX_SCHEDULED_WORKOUTS` in shared Kotlin.
-    static let maxScheduledWorkouts = 50
+    /// nonisolated so the off-MainActor scheduler helper can read it (Swift 6).
+    nonisolated static let maxScheduledWorkouts = 50
 
     struct ScheduleOutcome: Sendable {
         let ok: Bool
@@ -95,8 +96,12 @@ final class WorkoutKitSchedulerBridge {
         }
 
         let scheduler = WorkoutScheduler.shared
-        // Xcode 26.2: non-throwing; ignore authorization state for soft-fail scheduling.
-        _ = await scheduler.requestAuthorization()
+        // Soft-fail auth: some SDKs return a state (26.2), others may throw (27.x).
+        do {
+            _ = try await scheduler.requestAuthorization()
+        } catch {
+            // Already-authorized / denied — still attempt schedule below.
+        }
         await scheduler.schedule(plan, at: components)
         let afterCount = await scheduledWorkoutCount()
         return ScheduleOutcome(

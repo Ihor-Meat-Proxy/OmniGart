@@ -51,7 +51,7 @@ struct Zone2LiveView: View {
                 if let err = session.lastError {
                     Text(err)
                         .font(.caption2)
-                        .foregroundStyle(Color.OmniGart.colorStateError)
+                        .foregroundStyle(Color.OmniGart.colorSemanticDanger)
                         .lineLimit(2)
                 }
 

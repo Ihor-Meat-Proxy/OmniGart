@@ -137,6 +137,7 @@ targets:
       - *designIconAssets
       - path: ../watchApp/OmniGartWatch/en-GB.lproj
       - path: ../watchApp/OmniGartWatch/uk.lproj
+      - path: OmniGart/Localizable.xcstrings
       - path: ../watchApp/OmniGartWatch/ContentBundle
         type: folder
         buildPhase: resources

@@ -107,8 +107,13 @@ class FakeHealthClient :
         mutex.withLock { workouts.filter { overlaps(it.start, it.end, range) } }
 
     override suspend fun writeWorkouts(workouts: List<HealthWorkout>) = mutex.withLock {
-        this.workouts += workouts
-        bumpChange()
+        // Append-only: never replace/delete; skip ids that already exist.
+        val existing = this.workouts.map { it.id }.toSet()
+        val fresh = workouts.filter { it.id.isNotBlank() && it.id !in existing }
+        if (fresh.isNotEmpty()) {
+            this.workouts += fresh
+            bumpChange()
+        }
     }
 
     override suspend fun changes(types: Set<HealthDataType>, previous: HealthChangeToken?): HealthChanges = mutex.withLock {

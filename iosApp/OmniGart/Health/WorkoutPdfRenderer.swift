@@ -1,3 +1,4 @@
+// swiftlint:disable type_body_length identifier_name function_body_length cyclomatic_complexity
 import CoreText
 import Shared
 import UIKit
@@ -348,3 +349,5 @@ enum WorkoutPdfRenderer {
         }
     }
 }
+
+// swiftlint:enable type_body_length identifier_name function_body_length cyclomatic_complexity

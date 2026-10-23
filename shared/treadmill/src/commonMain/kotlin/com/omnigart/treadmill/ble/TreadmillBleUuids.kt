@@ -39,6 +39,15 @@ object TreadmillBleUuids {
     /** Client Characteristic Configuration Descriptor — 0x2902 */
     const val CCCD = "00002902$BLUETOOTH_BASE_UUID_SUFFIX"
 
+    /** FitShow-style service / notify / write (budget treadmills). */
+    const val FITSHOW_SERVICE = "0000fff0$BLUETOOTH_BASE_UUID_SUFFIX"
+    const val FITSHOW_NOTIFY = "0000fff1$BLUETOOTH_BASE_UUID_SUFFIX"
+    const val FITSHOW_WRITE = "0000fff2$BLUETOOTH_BASE_UUID_SUFFIX"
+
+    /** Standard Heart Rate Service — chest strap overlay during treadmill sessions. */
+    const val HEART_RATE_SERVICE = "0000180d$BLUETOOTH_BASE_UUID_SUFFIX"
+    const val HEART_RATE_MEASUREMENT = "00002a37$BLUETOOTH_BASE_UUID_SUFFIX"
+
     /**
      * Microchip / ISSC transparent UART TX (device → central notify).
      * Documented for iConsole BLE modules (RN4870 / BM70).

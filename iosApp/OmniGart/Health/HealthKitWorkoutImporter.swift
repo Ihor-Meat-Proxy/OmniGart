@@ -1,3 +1,4 @@
+// swiftlint:disable large_tuple
 import Foundation
 import HealthKit
 import Shared
@@ -202,3 +203,5 @@ enum HealthKitWorkoutImporter {
         return try? NSKeyedUnarchiver.unarchivedObject(ofClass: HKQueryAnchor.self, from: data)
     }
 }
+
+// swiftlint:enable large_tuple

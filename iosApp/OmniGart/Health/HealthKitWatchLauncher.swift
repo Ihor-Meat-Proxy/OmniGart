@@ -19,7 +19,7 @@ enum HealthKitWatchLauncher {
         do {
             try await HealthKitWorkoutWriter.requestWorkoutAuthorization()
             try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-                store.startWatchApp(toHandle: configuration) { success, error in
+                store.startWatchApp(with: configuration) { success, error in
                     if let error {
                         continuation.resume(throwing: error)
                     } else if success {

@@ -5,9 +5,16 @@ import kotlin.math.round
 /** Which wire protocol produced the latest sample. */
 enum class TreadmillProtocol {
     FTMS,
+    FITSHOW,
     RSC,
     ICONSOLE,
     NONE
+}
+
+/** Indoor treadmill session flavour — maps to HK running/walking + HC equivalents. */
+enum class TreadmillSessionKind {
+    RUN,
+    WALK
 }
 
 /** Remembered treadmill for auto-reconnect. */

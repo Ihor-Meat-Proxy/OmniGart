@@ -1,3 +1,4 @@
+// swiftlint:disable function_parameter_count identifier_name
 import Foundation
 import WatchConnectivity
 
@@ -164,3 +165,5 @@ enum WatchWorkoutTransferBuilder {
         return "{" + fields.joined(separator: ",") + "}"
     }
 }
+
+// swiftlint:enable function_parameter_count identifier_name

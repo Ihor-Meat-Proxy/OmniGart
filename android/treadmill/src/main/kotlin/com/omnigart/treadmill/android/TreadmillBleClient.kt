@@ -15,6 +15,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.omnigart.treadmill.ble.TreadmillBleUuids
 import com.omnigart.treadmill.diagnostics.TreadmillDiagnosticsLog
+import com.omnigart.treadmill.fitshow.FitShowStatusParser
 import com.omnigart.treadmill.ftms.FtmsControlPoint
 import com.omnigart.treadmill.ftms.FtmsTreadmillDataParser
 import com.omnigart.treadmill.iconsole.IConsoleProtocol
@@ -37,7 +38,8 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
 /**
- * Android BLE central for FTMS / RSC / iConsole treadmills.
+ * Android BLE central for FTMS / FitShow / RSC / iConsole treadmills.
+ * Discovery preference: FTMS → FitShow → RSC → iConsole.
  * Requires BLUETOOTH_SCAN + BLUETOOTH_CONNECT (API 31+).
  */
 class TreadmillBleClient(
@@ -68,11 +70,14 @@ class TreadmillBleClient(
 
     private var gatt: BluetoothGatt? = null
     private var controlPoint: BluetoothGattCharacteristic? = null
+    private var fitShowWrite: BluetoothGattCharacteristic? = null
     private var iconsoleRx: BluetoothGattCharacteristic? = null
     private var preferredAddress: String? = prefs.getString(KEY_REMEMBERED, null)
     private var reconnectAttempt = 0
     private var reconnectJob: Job? = null
     private var iconsolePollJob: Job? = null
+    private var fitShowPollJob: Job? = null
+    private var activeProtocol: TreadmillProtocol = TreadmillProtocol.NONE
     private val scanning = AtomicBoolean(false)
 
     private val scanCallback =
@@ -102,6 +107,8 @@ class TreadmillBleClient(
                 } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
                     diagnostics.info("disconnected")
                     iconsolePollJob?.cancel()
+                    fitShowPollJob?.cancel()
+                    activeProtocol = TreadmillProtocol.NONE
                     _metrics.value = _metrics.value.copy(connected = false, protocol = TreadmillProtocol.NONE)
                     if (preferredAddress != null) scheduleReconnect() else _state.value = State.Idle
                 }
@@ -109,6 +116,11 @@ class TreadmillBleClient(
 
             @SuppressLint("MissingPermission")
             override fun onServicesDiscovered(g: BluetoothGatt, status: Int) {
+                var hasFtms = false
+                var hasFitShow = false
+                var hasRsc = false
+                var hasIConsole = false
+                var fitShowNotify: BluetoothGattCharacteristic? = null
                 for (service in g.services) {
                     diagnostics.service(service.uuid.toString())
                     for (ch in service.characteristics) {
@@ -117,18 +129,54 @@ class TreadmillBleClient(
                             ch.uuid.toString(),
                             ch.properties.toString()
                         )
-                        val u = ch.uuid.toString().lowercase()
+                        val uuid = ch.uuid.toString().lowercase()
                         when {
-                            u.contains("2acd") || u.contains("2a53") -> enableNotify(g, ch)
-                            u.contains("2ad9") -> controlPoint = ch
-                            u == TreadmillBleUuids.ICONSOLE_UART_TX -> enableNotify(g, ch)
-                            u == TreadmillBleUuids.ICONSOLE_UART_RX -> {
-                                iconsoleRx = ch
-                                startIConsolePoll(g, ch)
+                            uuid.contains("2acd") -> {
+                                hasFtms = true
+                                enableNotify(g, ch)
                             }
+                            uuid.contains("2ad9") -> controlPoint = ch
+                            uuid == TreadmillBleUuids.FITSHOW_NOTIFY || uuid.contains("fff1") -> {
+                                hasFitShow = true
+                                fitShowNotify = ch
+                            }
+                            uuid == TreadmillBleUuids.FITSHOW_WRITE || uuid.contains("fff2") ->
+                                fitShowWrite = ch
+                            uuid.contains("2a53") -> hasRsc = true
+                            uuid == TreadmillBleUuids.ICONSOLE_UART_TX -> {
+                                hasIConsole = true
+                                enableNotify(g, ch)
+                            }
+                            uuid == TreadmillBleUuids.ICONSOLE_UART_RX -> iconsoleRx = ch
                         }
                     }
                 }
+                when {
+                    hasFtms -> {
+                        activeProtocol = TreadmillProtocol.FTMS
+                    }
+                    hasFitShow -> {
+                        activeProtocol = TreadmillProtocol.FITSHOW
+                        fitShowNotify?.let { enableNotify(g, it) }
+                        fitShowWrite?.let { startFitShowPoll(g, it) }
+                    }
+                    hasRsc -> {
+                        activeProtocol = TreadmillProtocol.RSC
+                        for (service in g.services) {
+                            for (ch in service.characteristics) {
+                                if (ch.uuid.toString().lowercase().contains("2a53")) {
+                                    enableNotify(g, ch)
+                                }
+                            }
+                        }
+                    }
+                    hasIConsole -> {
+                        activeProtocol = TreadmillProtocol.ICONSOLE
+                        iconsoleRx?.let { startIConsolePoll(g, it) }
+                    }
+                    else -> activeProtocol = TreadmillProtocol.NONE
+                }
+                diagnostics.info("active protocol $activeProtocol")
             }
 
             @Deprecated("Deprecated in Java")
@@ -196,7 +244,9 @@ class TreadmillBleClient(
     fun disconnect() {
         reconnectJob?.cancel()
         iconsolePollJob?.cancel()
+        fitShowPollJob?.cancel()
         preferredAddress = null
+        activeProtocol = TreadmillProtocol.NONE
         gatt?.disconnect()
         gatt?.close()
         gatt = null
@@ -204,13 +254,31 @@ class TreadmillBleClient(
         _metrics.value = TreadmillLiveMetrics()
     }
 
+    /** True when FTMS or FitShow can accept remote speed/incline writes. */
+    fun controlAvailable(): Boolean =
+        allowRemoteControl &&
+            (
+                (activeProtocol == TreadmillProtocol.FTMS && controlPoint != null) ||
+                    (activeProtocol == TreadmillProtocol.FITSHOW && fitShowWrite != null)
+            )
+
     @SuppressLint("MissingPermission")
     fun setTargetSpeedKmh(speed: Double) {
         if (!allowRemoteControl) return
         val g = gatt ?: return
-        val cp = controlPoint ?: return
-        write(g, cp, FtmsControlPoint.requestControl())
-        write(g, cp, FtmsControlPoint.setTargetSpeedKmh(speed))
+        when (activeProtocol) {
+            TreadmillProtocol.FTMS -> {
+                val cp = controlPoint ?: return
+                write(g, cp, FtmsControlPoint.requestControl())
+                write(g, cp, FtmsControlPoint.setTargetSpeedKmh(speed))
+            }
+            TreadmillProtocol.FITSHOW -> {
+                val tx = fitShowWrite ?: return
+                val incline = _metrics.value.inclinePercent ?: 0.0
+                write(g, tx, FitShowStatusParser.buildSetTarget(speed, incline))
+            }
+            else -> return
+        }
         diagnostics.info("control set speed $speed")
     }
 
@@ -218,9 +286,19 @@ class TreadmillBleClient(
     fun setTargetInclinePercent(incline: Double) {
         if (!allowRemoteControl) return
         val g = gatt ?: return
-        val cp = controlPoint ?: return
-        write(g, cp, FtmsControlPoint.requestControl())
-        write(g, cp, FtmsControlPoint.setTargetInclinePercent(incline))
+        when (activeProtocol) {
+            TreadmillProtocol.FTMS -> {
+                val cp = controlPoint ?: return
+                write(g, cp, FtmsControlPoint.requestControl())
+                write(g, cp, FtmsControlPoint.setTargetInclinePercent(incline))
+            }
+            TreadmillProtocol.FITSHOW -> {
+                val tx = fitShowWrite ?: return
+                val speed = _metrics.value.speedKmh ?: 0.0
+                write(g, tx, FitShowStatusParser.buildSetTarget(speed, incline))
+            }
+            else -> return
+        }
         diagnostics.info("control set incline $incline")
     }
 
@@ -229,15 +307,21 @@ class TreadmillBleClient(
         val lower = uuid.lowercase()
         val merged =
             when {
-                lower.contains("2acd") ->
+                lower.contains("2acd") && activeProtocol == TreadmillProtocol.FTMS ->
                     FtmsTreadmillDataParser.parse(value).getOrNull()?.let {
                         TreadmillMetricsMerger.fromFtms(it, watchHeartRateBpm, hrMax)
                     }
-                lower.contains("2a53") ->
+                (lower == TreadmillBleUuids.FITSHOW_NOTIFY || lower.contains("fff1")) &&
+                    activeProtocol == TreadmillProtocol.FITSHOW ->
+                    FitShowStatusParser.parseNotification(value).getOrNull()?.let {
+                        TreadmillMetricsMerger.fromFitShow(it, watchHeartRateBpm, hrMax)
+                    }
+                lower.contains("2a53") && activeProtocol == TreadmillProtocol.RSC ->
                     RscMeasurementParser.parse(value).getOrNull()?.let {
                         TreadmillMetricsMerger.fromRsc(it, watchHeartRateBpm, hrMax)
                     }
-                lower == TreadmillBleUuids.ICONSOLE_UART_TX ->
+                lower == TreadmillBleUuids.ICONSOLE_UART_TX &&
+                    activeProtocol == TreadmillProtocol.ICONSOLE ->
                     IConsoleProtocol.parseTelemetry(value).getOrNull()?.let {
                         TreadmillMetricsMerger.fromIConsole(it, watchHeartRateBpm, hrMax)
                     }
@@ -274,6 +358,18 @@ class TreadmillBleClient(
                     write(g, rx, IConsoleProtocol.read())
                     delay(500)
                     write(g, rx, IConsoleProtocol.ping())
+                }
+            }
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun startFitShowPoll(g: BluetoothGatt, writeChar: BluetoothGattCharacteristic) {
+        fitShowPollJob?.cancel()
+        fitShowPollJob =
+            scope.launch(Dispatchers.IO) {
+                while (isActive) {
+                    write(g, writeChar, FitShowStatusParser.buildPollStatus())
+                    delay(1000)
                 }
             }
     }

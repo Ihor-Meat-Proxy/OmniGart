@@ -585,6 +585,891 @@ def upsert_android(path: Path, locale_key: str, folder_is_default: bool) -> None
     path.write_text(text, encoding="utf-8")
 
 
+t(
+    "treadmill_walk_title",
+    **{
+        "en-GB": "Treadmill walk",
+        "uk": "Ходьба на доріжці",
+        "pl": "Chód na bieżni",
+        "be": "Хадзьба на дарожцы",
+        "kk": "Жүгіру жолында жүру",
+        "ka": "სიარული სარბენ ბილიკზე",
+        "es": "Caminata en cinta",
+        "fr": "Marche tapis",
+        "de": "Laufband-Gehen",
+        "cs": "Chůze na pásu",
+        "zh-Hans": "跑步机步行",
+    },
+)
+
+t(
+    "treadmill_walk_body",
+    **{
+        "en-GB": "Indoor walk with or without a Bluetooth treadmill. Pace and distance come from the machine when linked, otherwise from watch or phone motion — calibrate after if needed.",
+        "uk": "Кімнатна ходьба з Bluetooth-доріжкою або без неї. Темп і дистанція з машини, інакше з годинника чи телефону — можна відкалібрувати.",
+        "pl": "Chód indoor z bieżnią Bluetooth lub bez. Tempo i dystans z urządzenia albo z zegarka/telefonu — możesz skalibrować później.",
+        "be": "Хадзьба ў памяшканні з Bluetooth-дарожкай або без. Тэмп і дыстанцыя з машыны, інакш з гадзінніка ці тэлефона — можна адкалібраваць.",
+        "kk": "Bluetooth жүгіру жолымен немесе онсыз ішкі жүру. Қадам мен қашықтық құрылғыдан, әйтпесе сағат/телефоннан — кейін калибрлеуге болады.",
+        "ka": "შიდა სიარული Bluetooth სარბენი ბილიკით ან მის გარეშე. ტემპი და დისტანცია აპარატიდან, სხვა შემთხვევაში საათიდან ან ტელეფონიდან — შემდეგ შეგიძლიათ დააკალიბროთ.",
+        "es": "Caminata indoor con o sin cinta Bluetooth. Ritmo y distancia de la máquina o del reloj/teléfono; puedes calibrar después.",
+        "fr": "Marche indoor avec ou sans tapis Bluetooth. Allure et distance viennent de la machine, sinon de la montre ou du téléphone — calibrage possible.",
+        "de": "Indoor-Gehen mit oder ohne Bluetooth-Laufband. Tempo und Distanz vom Gerät, sonst von Watch oder Phone — danach kalibrierbar.",
+        "cs": "Chůze indoor s Bluetooth pásem nebo bez. Tempo a vzdálenost ze stroje, jinak z hodinek nebo telefonu — lze kalibrovat.",
+        "zh-Hans": "可在有或无蓝牙跑步机时进行室内步行。配速与距离来自器械，否则来自手表或手机运动估算，结束后可校准。",
+    },
+)
+
+t(
+    "treadmill_program_section",
+    **{
+        "en-GB": "Programs",
+        "uk": "Програми",
+        "pl": "Programy",
+        "be": "Праграмы",
+        "kk": "Бағдарламалар",
+        "ka": "პროგრამები",
+        "es": "Programas",
+        "fr": "Programmes",
+        "de": "Programme",
+        "cs": "Programy",
+        "zh-Hans": "课程",
+    },
+)
+
+t(
+    "treadmill_mode_title",
+    **{
+        "en-GB": "Mode",
+        "uk": "Режим",
+        "pl": "Tryb",
+        "be": "Рэжым",
+        "kk": "Режим",
+        "ka": "რეჟიმი",
+        "es": "Modo",
+        "fr": "Mode",
+        "de": "Modus",
+        "cs": "Režim",
+        "zh-Hans": "模式",
+    },
+)
+
+t(
+    "treadmill_program_easy_run_title",
+    **{
+        "en-GB": "Easy run",
+        "uk": "Легкий біг",
+        "pl": "Łatwy bieg",
+        "be": "Лёгкі бег",
+        "kk": "Жеңіл жүгіру",
+        "ka": "მარტივი სირბილი",
+        "es": "Carrera suave",
+        "fr": "Course facile",
+        "de": "Lockerer Lauf",
+        "cs": "Lehký běh",
+        "zh-Hans": "轻松跑",
+    },
+)
+
+t(
+    "treadmill_program_easy_run_body",
+    **{
+        "en-GB": "Steady easy pace.",
+        "uk": "Рівний легкий темп.",
+        "pl": "Równe łatwe tempo.",
+        "be": "Роўны лёгкі тэмп.",
+        "kk": "Тегіс жеңіл қарқын.",
+        "ka": "თანაბარი მარტივი ტემპი.",
+        "es": "Ritmo fácil constante.",
+        "fr": "Allure facile régulière.",
+        "de": "Gleichmäßiges lockeres Tempo.",
+        "cs": "Rovnoměrné lehké tempo.",
+        "zh-Hans": "稳定轻松配速。",
+    },
+)
+
+t(
+    "treadmill_program_intervals_title",
+    **{
+        "en-GB": "Intervals",
+        "uk": "Інтервали",
+        "pl": "Interwały",
+        "be": "Інтэрвалы",
+        "kk": "Интервалдар",
+        "ka": "ინტერვალები",
+        "es": "Intervalos",
+        "fr": "Intervalles",
+        "de": "Intervalle",
+        "cs": "Intervaly",
+        "zh-Hans": "间歇",
+    },
+)
+
+t(
+    "treadmill_program_intervals_body",
+    **{
+        "en-GB": "Hard repeats with recoveries.",
+        "uk": "Важкі повтори з відновленням.",
+        "pl": "Ciężkie powtórzenia z odpoczynkiem.",
+        "be": "Цяжкія паўторы з аднаўленнем.",
+        "kk": "Қалпына келумен ауыр қайталаулар.",
+        "ka": "მძიმე გამეორებები აღდგენით.",
+        "es": "Repeticiones duras con recuperación.",
+        "fr": "Répétitions dures avec récupération.",
+        "de": "Harte Wiederholungen mit Erholung.",
+        "cs": "Tvrdé opakování s odpočinkem.",
+        "zh-Hans": "高强度重复与恢复。",
+    },
+)
+
+t(
+    "treadmill_program_hill_title",
+    **{
+        "en-GB": "Hill / incline",
+        "uk": "Пагорби / нахил",
+        "pl": "Wzgórza / nachylenie",
+        "be": "Пагоркі / нахіл",
+        "kk": "Төбе / еңіс",
+        "ka": "ბორცვი / დახრა",
+        "es": "Colinas / inclinación",
+        "fr": "Côtes / pente",
+        "de": "Hügel / Steigung",
+        "cs": "Kopce / sklon",
+        "zh-Hans": "爬坡",
+    },
+)
+
+t(
+    "treadmill_program_hill_body",
+    **{
+        "en-GB": "Incline-focused hills.",
+        "uk": "Фокус на нахилі.",
+        "pl": "Skupienie na nachyleniu.",
+        "be": "Фокус на нахіле.",
+        "kk": "Еңіске бағытталған.",
+        "ka": "დახრაზე ფოკუსი.",
+        "es": "Enfoque en inclinación.",
+        "fr": "Accent sur la pente.",
+        "de": "Fokus auf Steigung.",
+        "cs": "Zaměření na sklon.",
+        "zh-Hans": "以坡度为主。",
+    },
+)
+
+t(
+    "treadmill_program_tempo_title",
+    **{
+        "en-GB": "Tempo",
+        "uk": "Темпо",
+        "pl": "Tempo",
+        "be": "Тэмпа",
+        "kk": "Темпо",
+        "ka": "ტემპო",
+        "es": "Tempo",
+        "fr": "Tempo",
+        "de": "Tempo",
+        "cs": "Tempo",
+        "zh-Hans": "节奏跑",
+    },
+)
+
+t(
+    "treadmill_program_tempo_body",
+    **{
+        "en-GB": "Sustained comfortably hard pace.",
+        "uk": "Стійкий комфортно-важкий темп.",
+        "pl": "Utrzymane komfortowo ciężkie tempo.",
+        "be": "Устойлівы камфортна-цяжкі тэмп.",
+        "kk": "Тұрақты ыңғайлы-ауыр қарқын.",
+        "ka": "მდგრადი კომფორტულად რთული ტემპი.",
+        "es": "Ritmo sostenido cómodamente duro.",
+        "fr": "Allure soutenue confortablement dure.",
+        "de": "Dauerhaft angenehm hartes Tempo.",
+        "cs": "Udržované příjemně těžké tempo.",
+        "zh-Hans": "持续稍吃力的配速。",
+    },
+)
+
+t(
+    "treadmill_program_fartlek_title",
+    **{
+        "en-GB": "Fartlek",
+        "uk": "Фартлек",
+        "pl": "Fartlek",
+        "be": "Фартлек",
+        "kk": "Фартлек",
+        "ka": "ფარტლეკი",
+        "es": "Fartlek",
+        "fr": "Fartlek",
+        "de": "Fartlek",
+        "cs": "Fartlek",
+        "zh-Hans": "法特莱克",
+    },
+)
+
+t(
+    "treadmill_program_fartlek_body",
+    **{
+        "en-GB": "Playful speed changes.",
+        "uk": "Грайливі зміни швидкості.",
+        "pl": "Zabawne zmiany tempa.",
+        "be": "Гульнявыя змены хуткасці.",
+        "kk": "Ойыншыл жылдамдық өзгерістері.",
+        "ka": "სათამაშო სიჩქარის ცვლილებები.",
+        "es": "Cambios de ritmo jugados.",
+        "fr": "Changements d’allure ludiques.",
+        "de": "Spielerische Tempowechsel.",
+        "cs": "Hravé změny tempa.",
+        "zh-Hans": "趣味变速。",
+    },
+)
+
+t(
+    "treadmill_program_progression_title",
+    **{
+        "en-GB": "Progression",
+        "uk": "Прогресія",
+        "pl": "Progresja",
+        "be": "Прагрэсія",
+        "kk": "Прогрессия",
+        "ka": "პროგრესია",
+        "es": "Progresión",
+        "fr": "Progression",
+        "de": "Steigerung",
+        "cs": "Progrese",
+        "zh-Hans": "渐进",
+    },
+)
+
+t(
+    "treadmill_program_progression_body",
+    **{
+        "en-GB": "Build pace across the session.",
+        "uk": "Нарощуйте темп протягом сесії.",
+        "pl": "Buduj tempo w trakcie sesji.",
+        "be": "Нарошчвайце тэмп цягам сесіі.",
+        "kk": "Сессия бойы қарқынды арттырыңыз.",
+        "ka": "ტემპის აწევა სესიის განმავლობაში.",
+        "es": "Sube el ritmo a lo largo.",
+        "fr": "Augmentez l’allure au fil de la séance.",
+        "de": "Tempo über die Einheit steigern.",
+        "cs": "Zvyšujte tempo v průběhu.",
+        "zh-Hans": "全程逐步提速。",
+    },
+)
+
+t(
+    "treadmill_program_walk_run_title",
+    **{
+        "en-GB": "Walk–run (beginner)",
+        "uk": "Ходьба–біг (початківці)",
+        "pl": "Chód–bieg (początkujący)",
+        "be": "Хадзьба–бег (пачаткоўцы)",
+        "kk": "Жүру–жүгіру (бастаушы)",
+        "ka": "სიარული–სირბილი (დამწყები)",
+        "es": "Caminar–correr (principiante)",
+        "fr": "Marche–course (débutant)",
+        "de": "Gehen–Laufen (Einsteiger)",
+        "cs": "Chůze–běh (začátečník)",
+        "zh-Hans": "走跑结合（初学）",
+    },
+)
+
+t(
+    "treadmill_program_walk_run_body",
+    **{
+        "en-GB": "Short jogs with walk recoveries.",
+        "uk": "Короткі пробіжки з ходьбою.",
+        "pl": "Krótkie truchty z chodem.",
+        "be": "Кароткія прабежкі з хадзьбой.",
+        "kk": "Қысқа жүгірістер жүрумен.",
+        "ka": "მოკლე სირბილები სიარულით.",
+        "es": "Troteos cortos con caminatas.",
+        "fr": "Courtes foulées avec marches.",
+        "de": "Kurze Trababschnitte mit Gehen.",
+        "cs": "Krátké klusy s chůzí.",
+        "zh-Hans": "短慢跑与步行恢复。",
+    },
+)
+
+t(
+    "treadmill_program_recovery_walk_title",
+    **{
+        "en-GB": "Recovery walk",
+        "uk": "Відновлювальна ходьба",
+        "pl": "Chód regeneracyjny",
+        "be": "Аднаўленчая хадзьба",
+        "kk": "Қалпына келтіру жүрісі",
+        "ka": "აღდგენითი სიარული",
+        "es": "Caminata de recuperación",
+        "fr": "Marche de récupération",
+        "de": "Regenerationsgehen",
+        "cs": "Regenerační chůze",
+        "zh-Hans": "恢复步行",
+    },
+)
+
+t(
+    "treadmill_program_recovery_walk_body",
+    **{
+        "en-GB": "Easy indoor walk.",
+        "uk": "Легка кімнатна ходьба.",
+        "pl": "Łatwy chód indoor.",
+        "be": "Лёгкая хадзьба ў памяшканні.",
+        "kk": "Жеңіл ішкі жүру.",
+        "ka": "მარტივი შიდა სიარული.",
+        "es": "Caminata indoor fácil.",
+        "fr": "Marche indoor facile.",
+        "de": "Leichtes Indoor-Gehen.",
+        "cs": "Lehká indoor chůze.",
+        "zh-Hans": "轻松室内步行。",
+    },
+)
+
+t(
+    "treadmill_hr_alert_high",
+    **{
+        "en-GB": "Heart rate is very high — consider slowing down or stopping",
+        "uk": "Пульс дуже високий — варто сповільнитися або зупинитися",
+        "pl": "Tętno jest bardzo wysokie — rozważ zwolnienie lub zatrzymanie",
+        "be": "Пульс вельмі высокі — варта прыцішыцца ці спыніцца",
+        "kk": "Жүрек соғысы өте жоғары — баяулатыңыз немесе тоқтаңыз",
+        "ka": "გულისცემა ძალიან მაღალია — შეანელეთ ან გაჩერდით",
+        "es": "La frecuencia es muy alta — plantéate ralentizar o parar",
+        "fr": "Fréquence très élevée — envisagez de ralentir ou d’arrêter",
+        "de": "Herzfrequenz sehr hoch — Tempo drosseln oder stoppen",
+        "cs": "Tep je velmi vysoký — zvažte zpomalení nebo zastavení",
+        "zh-Hans": "心率很高 — 请考虑放慢或停止",
+    },
+)
+
+t(
+    "treadmill_hr_alert_low",
+    **{
+        "en-GB": "Heart rate looks unusually low for this effort",
+        "uk": "Пульс незвично низький для цього навантаження",
+        "pl": "Tętno wygląda nietypowo nisko jak na ten wysiłek",
+        "be": "Пульс незвычайна нізкі для гэтай нагрузкі",
+        "kk": "Бұл жүктеме үшін жүрек соғысы әдеттен тыс төмен",
+        "ka": "გულისცემა უჩვეულოდ დაბალია ამ დატვირთვისთვის",
+        "es": "La FC parece baja para este esfuerzo",
+        "fr": "FC inhabituellement basse pour cet effort",
+        "de": "HF ungewöhnlich niedrig für diese Belastung",
+        "cs": "Tep je pro tuto zátěž nezvykle nízký",
+        "zh-Hans": "以当前强度看心率偏低",
+    },
+)
+
+t(
+    "treadmill_hr_alert_dropout",
+    **{
+        "en-GB": "Heart-rate sensor signal lost",
+        "uk": "Сигнал пульсометра втрачено",
+        "pl": "Utracono sygnał czujnika tętna",
+        "be": "Сігнал пульсометра страчаны",
+        "kk": "Жүрек соғысы сенсорының сигналы жоғалды",
+        "ka": "გულისცემის სენსორის სიგნალი დაიკარგა",
+        "es": "Se perdió la señal del sensor de FC",
+        "fr": "Signal du capteur FC perdu",
+        "de": "HF-Sensor-Signal verloren",
+        "cs": "Signál tepového senzoru ztracen",
+        "zh-Hans": "心率传感器信号丢失",
+    },
+)
+
+t(
+    "treadmill_hr_alert_above_zone",
+    **{
+        "en-GB": "Above the target heart-rate zone",
+        "uk": "Вище цільової пульсової зони",
+        "pl": "Powyżej docelowej strefy tętna",
+        "be": "Вышэй мэтавай пульсавой зоны",
+        "kk": "Мақсатты жүрек соғысы аймағынан жоғары",
+        "ka": "სამიზნე გულისცემის ზონაზე მაღლა",
+        "es": "Por encima de la zona objetivo",
+        "fr": "Au-dessus de la zone cible",
+        "de": "Über der Ziel-HF-Zone",
+        "cs": "Nad cílovou tepovou zónou",
+        "zh-Hans": "高于目标心率区间",
+    },
+)
+
+t(
+    "treadmill_hr_alert_below_zone",
+    **{
+        "en-GB": "Below the target heart-rate zone",
+        "uk": "Нижче цільової пульсової зони",
+        "pl": "Poniżej docelowej strefy tętna",
+        "be": "Ніжэй мэтавай пульсавой зоны",
+        "kk": "Мақсатты жүрек соғысы аймағынан төмен",
+        "ka": "სამიზნე გულისცემის ზონაზე დაბლა",
+        "es": "Por debajo de la zona objetivo",
+        "fr": "En dessous de la zone cible",
+        "de": "Unter der Ziel-HF-Zone",
+        "cs": "Pod cílovou tepovou zónou",
+        "zh-Hans": "低于目标心率区间",
+    },
+)
+
+t(
+    "treadmill_program_auto_step",
+    **{
+        "en-GB": "Setting speed and incline on the treadmill.",
+        "uk": "Setting speed and incline on the treadmill.",
+        "pl": "Setting speed and incline on the treadmill.",
+        "be": "Setting speed and incline on the treadmill.",
+        "kk": "Setting speed and incline on the treadmill.",
+        "ka": "Setting speed and incline on the treadmill.",
+        "es": "Setting speed and incline on the treadmill.",
+        "fr": "Setting speed and incline on the treadmill.",
+        "de": "Setting speed and incline on the treadmill.",
+        "cs": "Setting speed and incline on the treadmill.",
+        "zh-Hans": "Setting speed and incline on the treadmill.",
+    },
+)
+
+t(
+    "treadmill_program_prompt_step",
+    **{
+        "en-GB": "Adjust speed / incline to match the step.",
+        "uk": "Adjust speed / incline to match the step.",
+        "pl": "Adjust speed / incline to match the step.",
+        "be": "Adjust speed / incline to match the step.",
+        "kk": "Adjust speed / incline to match the step.",
+        "ka": "Adjust speed / incline to match the step.",
+        "es": "Adjust speed / incline to match the step.",
+        "fr": "Adjust speed / incline to match the step.",
+        "de": "Adjust speed / incline to match the step.",
+        "cs": "Adjust speed / incline to match the step.",
+        "zh-Hans": "Adjust speed / incline to match the step.",
+    },
+)
+
+t(
+    "treadmill_program_complete",
+    **{
+        "en-GB": "Program complete.",
+        "uk": "Program complete.",
+        "pl": "Program complete.",
+        "be": "Program complete.",
+        "kk": "Program complete.",
+        "ka": "Program complete.",
+        "es": "Program complete.",
+        "fr": "Program complete.",
+        "de": "Program complete.",
+        "cs": "Program complete.",
+        "zh-Hans": "Program complete.",
+    },
+)
+
+t(
+    "treadmill_step_warmup",
+    **{
+        "en-GB": "Warm-up",
+        "uk": "Warm-up",
+        "pl": "Warm-up",
+        "be": "Warm-up",
+        "kk": "Warm-up",
+        "ka": "Warm-up",
+        "es": "Warm-up",
+        "fr": "Warm-up",
+        "de": "Warm-up",
+        "cs": "Warm-up",
+        "zh-Hans": "Warm-up",
+    },
+)
+
+t(
+    "treadmill_step_easy",
+    **{
+        "en-GB": "Easy",
+        "uk": "Easy",
+        "pl": "Easy",
+        "be": "Easy",
+        "kk": "Easy",
+        "ka": "Easy",
+        "es": "Easy",
+        "fr": "Easy",
+        "de": "Easy",
+        "cs": "Easy",
+        "zh-Hans": "Easy",
+    },
+)
+
+t(
+    "treadmill_step_cooldown",
+    **{
+        "en-GB": "Cool-down",
+        "uk": "Cool-down",
+        "pl": "Cool-down",
+        "be": "Cool-down",
+        "kk": "Cool-down",
+        "ka": "Cool-down",
+        "es": "Cool-down",
+        "fr": "Cool-down",
+        "de": "Cool-down",
+        "cs": "Cool-down",
+        "zh-Hans": "Cool-down",
+    },
+)
+
+t(
+    "treadmill_step_hard",
+    **{
+        "en-GB": "Hard",
+        "uk": "Hard",
+        "pl": "Hard",
+        "be": "Hard",
+        "kk": "Hard",
+        "ka": "Hard",
+        "es": "Hard",
+        "fr": "Hard",
+        "de": "Hard",
+        "cs": "Hard",
+        "zh-Hans": "Hard",
+    },
+)
+
+t(
+    "treadmill_step_recover",
+    **{
+        "en-GB": "Recover",
+        "uk": "Recover",
+        "pl": "Recover",
+        "be": "Recover",
+        "kk": "Recover",
+        "ka": "Recover",
+        "es": "Recover",
+        "fr": "Recover",
+        "de": "Recover",
+        "cs": "Recover",
+        "zh-Hans": "Recover",
+    },
+)
+
+t(
+    "treadmill_step_hill",
+    **{
+        "en-GB": "Hill",
+        "uk": "Hill",
+        "pl": "Hill",
+        "be": "Hill",
+        "kk": "Hill",
+        "ka": "Hill",
+        "es": "Hill",
+        "fr": "Hill",
+        "de": "Hill",
+        "cs": "Hill",
+        "zh-Hans": "Hill",
+    },
+)
+
+t(
+    "treadmill_step_tempo",
+    **{
+        "en-GB": "Tempo",
+        "uk": "Tempo",
+        "pl": "Tempo",
+        "be": "Tempo",
+        "kk": "Tempo",
+        "ka": "Tempo",
+        "es": "Tempo",
+        "fr": "Tempo",
+        "de": "Tempo",
+        "cs": "Tempo",
+        "zh-Hans": "Tempo",
+    },
+)
+
+t(
+    "treadmill_step_surge",
+    **{
+        "en-GB": "Surge",
+        "uk": "Surge",
+        "pl": "Surge",
+        "be": "Surge",
+        "kk": "Surge",
+        "ka": "Surge",
+        "es": "Surge",
+        "fr": "Surge",
+        "de": "Surge",
+        "cs": "Surge",
+        "zh-Hans": "Surge",
+    },
+)
+
+t(
+    "treadmill_step_build",
+    **{
+        "en-GB": "Build",
+        "uk": "Build",
+        "pl": "Build",
+        "be": "Build",
+        "kk": "Build",
+        "ka": "Build",
+        "es": "Build",
+        "fr": "Build",
+        "de": "Build",
+        "cs": "Build",
+        "zh-Hans": "Build",
+    },
+)
+
+t(
+    "treadmill_step_warmup_walk",
+    **{
+        "en-GB": "Warm-up walk",
+        "uk": "Warm-up walk",
+        "pl": "Warm-up walk",
+        "be": "Warm-up walk",
+        "kk": "Warm-up walk",
+        "ka": "Warm-up walk",
+        "es": "Warm-up walk",
+        "fr": "Warm-up walk",
+        "de": "Warm-up walk",
+        "cs": "Warm-up walk",
+        "zh-Hans": "Warm-up walk",
+    },
+)
+
+t(
+    "treadmill_step_jog",
+    **{
+        "en-GB": "Jog",
+        "uk": "Jog",
+        "pl": "Jog",
+        "be": "Jog",
+        "kk": "Jog",
+        "ka": "Jog",
+        "es": "Jog",
+        "fr": "Jog",
+        "de": "Jog",
+        "cs": "Jog",
+        "zh-Hans": "Jog",
+    },
+)
+
+t(
+    "treadmill_step_walk",
+    **{
+        "en-GB": "Walk",
+        "uk": "Walk",
+        "pl": "Walk",
+        "be": "Walk",
+        "kk": "Walk",
+        "ka": "Walk",
+        "es": "Walk",
+        "fr": "Walk",
+        "de": "Walk",
+        "cs": "Walk",
+        "zh-Hans": "Walk",
+    },
+)
+
+t(
+    "treadmill_step_cooldown_walk",
+    **{
+        "en-GB": "Cool-down walk",
+        "uk": "Cool-down walk",
+        "pl": "Cool-down walk",
+        "be": "Cool-down walk",
+        "kk": "Cool-down walk",
+        "ka": "Cool-down walk",
+        "es": "Cool-down walk",
+        "fr": "Cool-down walk",
+        "de": "Cool-down walk",
+        "cs": "Cool-down walk",
+        "zh-Hans": "Cool-down walk",
+    },
+)
+
+t(
+    "treadmill_step_easy_walk",
+    **{
+        "en-GB": "Easy walk",
+        "uk": "Easy walk",
+        "pl": "Easy walk",
+        "be": "Easy walk",
+        "kk": "Easy walk",
+        "ka": "Easy walk",
+        "es": "Easy walk",
+        "fr": "Easy walk",
+        "de": "Easy walk",
+        "cs": "Easy walk",
+        "zh-Hans": "Easy walk",
+    },
+)
+
+t(
+    "treadmill_hr_settings_title",
+    **{
+        "en-GB": "Heart rate",
+        "uk": "Heart rate",
+        "pl": "Heart rate",
+        "be": "Heart rate",
+        "kk": "Heart rate",
+        "ka": "Heart rate",
+        "es": "Heart rate",
+        "fr": "Heart rate",
+        "de": "Heart rate",
+        "cs": "Heart rate",
+        "zh-Hans": "Heart rate",
+    },
+)
+
+t(
+    "treadmill_hr_alerts_enabled",
+    **{
+        "en-GB": "Heart-rate alerts",
+        "uk": "Heart-rate alerts",
+        "pl": "Heart-rate alerts",
+        "be": "Heart-rate alerts",
+        "kk": "Heart-rate alerts",
+        "ka": "Heart-rate alerts",
+        "es": "Heart-rate alerts",
+        "fr": "Heart-rate alerts",
+        "de": "Heart-rate alerts",
+        "cs": "Heart-rate alerts",
+        "zh-Hans": "Heart-rate alerts",
+    },
+)
+
+t(
+    "treadmill_hr_max",
+    **{
+        "en-GB": "Max heart rate (bpm)",
+        "uk": "Max heart rate (bpm)",
+        "pl": "Max heart rate (bpm)",
+        "be": "Max heart rate (bpm)",
+        "kk": "Max heart rate (bpm)",
+        "ka": "Max heart rate (bpm)",
+        "es": "Max heart rate (bpm)",
+        "fr": "Max heart rate (bpm)",
+        "de": "Max heart rate (bpm)",
+        "cs": "Max heart rate (bpm)",
+        "zh-Hans": "Max heart rate (bpm)",
+    },
+)
+
+t(
+    "treadmill_hr_karvonen",
+    **{
+        "en-GB": "Use Karvonen zones",
+        "uk": "Use Karvonen zones",
+        "pl": "Use Karvonen zones",
+        "be": "Use Karvonen zones",
+        "kk": "Use Karvonen zones",
+        "ka": "Use Karvonen zones",
+        "es": "Use Karvonen zones",
+        "fr": "Use Karvonen zones",
+        "de": "Use Karvonen zones",
+        "cs": "Use Karvonen zones",
+        "zh-Hans": "Use Karvonen zones",
+    },
+)
+
+t(
+    "treadmill_hr_rest",
+    **{
+        "en-GB": "Resting heart rate",
+        "uk": "Resting heart rate",
+        "pl": "Resting heart rate",
+        "be": "Resting heart rate",
+        "kk": "Resting heart rate",
+        "ka": "Resting heart rate",
+        "es": "Resting heart rate",
+        "fr": "Resting heart rate",
+        "de": "Resting heart rate",
+        "cs": "Resting heart rate",
+        "zh-Hans": "Resting heart rate",
+    },
+)
+
+t(
+    "treadmill_hr_strap_scan",
+    **{
+        "en-GB": "Scan chest strap",
+        "uk": "Scan chest strap",
+        "pl": "Scan chest strap",
+        "be": "Scan chest strap",
+        "kk": "Scan chest strap",
+        "ka": "Scan chest strap",
+        "es": "Scan chest strap",
+        "fr": "Scan chest strap",
+        "de": "Scan chest strap",
+        "cs": "Scan chest strap",
+        "zh-Hans": "Scan chest strap",
+    },
+)
+
+t(
+    "treadmill_hr_strap_connected",
+    **{
+        "en-GB": "Chest strap connected",
+        "uk": "Chest strap connected",
+        "pl": "Chest strap connected",
+        "be": "Chest strap connected",
+        "kk": "Chest strap connected",
+        "ka": "Chest strap connected",
+        "es": "Chest strap connected",
+        "fr": "Chest strap connected",
+        "de": "Chest strap connected",
+        "cs": "Chest strap connected",
+        "zh-Hans": "Chest strap connected",
+    },
+)
+
+t(
+    "treadmill_export_workoutkit",
+    **{
+        "en-GB": "Export program to Workout",
+        "uk": "Export program to Workout",
+        "pl": "Export program to Workout",
+        "be": "Export program to Workout",
+        "kk": "Export program to Workout",
+        "ka": "Export program to Workout",
+        "es": "Export program to Workout",
+        "fr": "Export program to Workout",
+        "de": "Export program to Workout",
+        "cs": "Export program to Workout",
+        "zh-Hans": "Export program to Workout",
+    },
+)
+
+t(
+    "treadmill_export_ok",
+    **{
+        "en-GB": "Program scheduled in Workout",
+        "uk": "Program scheduled in Workout",
+        "pl": "Program scheduled in Workout",
+        "be": "Program scheduled in Workout",
+        "kk": "Program scheduled in Workout",
+        "ka": "Program scheduled in Workout",
+        "es": "Program scheduled in Workout",
+        "fr": "Program scheduled in Workout",
+        "de": "Program scheduled in Workout",
+        "cs": "Program scheduled in Workout",
+        "zh-Hans": "Program scheduled in Workout",
+    },
+)
+
+t(
+    "treadmill_export_failed",
+    **{
+        "en-GB": "Could not schedule in Workout",
+        "uk": "Could not schedule in Workout",
+        "pl": "Could not schedule in Workout",
+        "be": "Could not schedule in Workout",
+        "kk": "Could not schedule in Workout",
+        "ka": "Could not schedule in Workout",
+        "es": "Could not schedule in Workout",
+        "fr": "Could not schedule in Workout",
+        "de": "Could not schedule in Workout",
+        "cs": "Could not schedule in Workout",
+        "zh-Hans": "Could not schedule in Workout",
+    },
+)
+
+
 def main() -> None:
     for locale in LOCALES:
         path = ROOT / "shared/src/commonMain/resources/i18n" / locale / "strings.json"

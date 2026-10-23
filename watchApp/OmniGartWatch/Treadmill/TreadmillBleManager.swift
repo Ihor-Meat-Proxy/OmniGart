@@ -1,7 +1,8 @@
 import CoreBluetooth
 import Foundation
 
-/// CoreBluetooth central for FTMS, RSC, and iConsole BLE UART treadmills.
+/// CoreBluetooth central for FTMS, FitShow, RSC, and iConsole BLE UART treadmills.
+/// Discovery preference: FTMS → FitShow → RSC → iConsole.
 @MainActor
 final class TreadmillBleManager: NSObject, ObservableObject {
     enum ConnectionState: String {
@@ -24,6 +25,7 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     @Published private(set) var lastError: String?
     @Published private(set) var live = TreadmillLiveSnapshot()
     @Published private(set) var diagnosticsText: String = ""
+    @Published private(set) var activeProtocol: TreadmillProtocolKind = .none
 
     var allowRemoteControl = false
     var watchHeartRateBpm: Int?
@@ -32,9 +34,11 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     private var peripheral: CBPeripheral?
     private var preferredId: UUID?
     private var controlPoint: CBCharacteristic?
+    private var fitShowWrite: CBCharacteristic?
     private var iconsoleRx: CBCharacteristic?
     private var reconnectTask: Task<Void, Never>?
     private var iconsolePollTask: Task<Void, Never>?
+    private var fitShowPollTask: Task<Void, Never>?
     private var reconnectAttempt = 0
     private var diagLines: [String] = []
     private let rememberedKey = "omnigart.treadmill.remembered"
@@ -43,6 +47,14 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     init(hrMax: Int = 190) {
         self.hrMax = hrMax
         super.init()
+    }
+
+    var controlAvailable: Bool {
+        allowRemoteControl &&
+            (
+                (activeProtocol == .ftms && controlPoint != nil) ||
+                    (activeProtocol == .fitshow && fitShowWrite != nil)
+            )
     }
 
     func start() {
@@ -61,7 +73,6 @@ final class TreadmillBleManager: NSObject, ObservableObject {
         discovered = []
         state = .scanning
         appendDiag("INFO scan start")
-        // Broad scan: many iConsole units do not advertise FTMS UUID in the advertisement.
         central.scanForPeripherals(
             withServices: nil,
             options: [CBCentralManagerScanOptionAllowDuplicatesKey: false]
@@ -99,7 +110,9 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     func disconnect() {
         reconnectTask?.cancel()
         iconsolePollTask?.cancel()
+        fitShowPollTask?.cancel()
         preferredId = nil
+        activeProtocol = .none
         if let peripheral {
             central?.cancelPeripheralConnection(peripheral)
         }
@@ -109,20 +122,42 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     }
 
     func setTargetSpeedKmh(_ speed: Double) {
-        guard allowRemoteControl, let controlPoint, let peripheral else { return }
-        peripheral.writeValue(FtmsTreadmillParser.requestControl(), for: controlPoint, type: .withResponse)
-        peripheral.writeValue(FtmsTreadmillParser.setTargetSpeedKmh(speed), for: controlPoint, type: .withResponse)
+        guard allowRemoteControl, let peripheral else { return }
+        if activeProtocol == .ftms, let controlPoint {
+            peripheral.writeValue(FtmsTreadmillParser.requestControl(), for: controlPoint, type: .withResponse)
+            peripheral.writeValue(
+                FtmsTreadmillParser.setTargetSpeedKmh(speed),
+                for: controlPoint,
+                type: .withResponse
+            )
+        } else if activeProtocol == .fitshow, let fitShowWrite {
+            let incline = live.inclinePercent ?? 0
+            peripheral.writeValue(
+                FitShowSwiftParser.setTarget(speedKmh: speed, inclinePercent: incline),
+                for: fitShowWrite,
+                type: .withResponse
+            )
+        }
         appendDiag("INFO control set speed \(speed)")
     }
 
     func setTargetInclinePercent(_ incline: Double) {
-        guard allowRemoteControl, let controlPoint, let peripheral else { return }
-        peripheral.writeValue(FtmsTreadmillParser.requestControl(), for: controlPoint, type: .withResponse)
-        peripheral.writeValue(
-            FtmsTreadmillParser.setTargetInclinePercent(incline),
-            for: controlPoint,
-            type: .withResponse
-        )
+        guard allowRemoteControl, let peripheral else { return }
+        if activeProtocol == .ftms, let controlPoint {
+            peripheral.writeValue(FtmsTreadmillParser.requestControl(), for: controlPoint, type: .withResponse)
+            peripheral.writeValue(
+                FtmsTreadmillParser.setTargetInclinePercent(incline),
+                for: controlPoint,
+                type: .withResponse
+            )
+        } else if activeProtocol == .fitshow, let fitShowWrite {
+            let speed = live.speedKmh ?? 0
+            peripheral.writeValue(
+                FitShowSwiftParser.setTarget(speedKmh: speed, inclinePercent: incline),
+                for: fitShowWrite,
+                type: .withResponse
+            )
+        }
         appendDiag("INFO control set incline \(incline)")
     }
 
@@ -180,20 +215,6 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     }
 }
 
-struct TreadmillLiveSnapshot: Equatable {
-    var protocolKind: TreadmillProtocolKind = .none
-    var connected: Bool = false
-    var speedKmh: Double?
-    var paceMinPerKm: Double?
-    var inclinePercent: Double?
-    var distanceMetres: Double?
-    var elapsedSeconds: Int?
-    var heartRateBpm: Int?
-    var energyKcal: Double?
-    var steps: Int64?
-    var zone: Int?
-}
-
 extension TreadmillBleManager: CBCentralManagerDelegate {
     nonisolated func centralManagerDidUpdateState(_ central: CBCentralManager) {
         Task { @MainActor in
@@ -215,7 +236,14 @@ extension TreadmillBleManager: CBCentralManagerDelegate {
                 ?? (advertisementData[CBAdvertisementDataLocalNameKey] as? String)
                 ?? "Treadmill"
             let lower = name.lowercased()
-            let hint = (lower.contains("iconsole") || lower.contains("i-console")) ? "ICONSOLE" : "BLE"
+            let hint: String
+            if lower.contains("iconsole") || lower.contains("i-console") {
+                hint = "ICONSOLE"
+            } else if lower.contains("fitshow") {
+                hint = "FITSHOW"
+            } else {
+                hint = "BLE"
+            }
             let device = DiscoveredDevice(id: peripheral.identifier, name: name, protocolHint: hint)
             if !self.discovered.contains(device) {
                 self.discovered.append(device)
@@ -252,83 +280,14 @@ extension TreadmillBleManager: CBCentralManagerDelegate {
     ) {
         Task { @MainActor in
             self.iconsolePollTask?.cancel()
+            self.fitShowPollTask?.cancel()
+            self.activeProtocol = .none
             self.live.connected = false
             self.appendDiag("INFO disconnected")
             if self.preferredId != nil {
                 self.scheduleReconnect()
             } else {
                 self.state = .idle
-            }
-        }
-    }
-}
-
-extension TreadmillBleManager: CBPeripheralDelegate {
-    nonisolated func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        Task { @MainActor in
-            guard let services = peripheral.services else { return }
-            for service in services {
-                self.appendDiag("SERVICE \(service.uuid.uuidString)")
-                peripheral.discoverCharacteristics(nil, for: service)
-            }
-        }
-    }
-
-    nonisolated func peripheral(
-        _ peripheral: CBPeripheral,
-        didDiscoverCharacteristicsFor service: CBService,
-        error: Error?
-    ) {
-        Task { @MainActor in
-            guard let chars = service.characteristics else { return }
-            for char in chars {
-                self.appendDiag(
-                    "CHAR svc=\(service.uuid.uuidString) char=\(char.uuid.uuidString) props=\(char.properties.rawValue)"
-                )
-                let u = char.uuid.uuidString.lowercased()
-                if u.contains("2acd") || u.contains("2a53") {
-                    peripheral.setNotifyValue(true, for: char)
-                } else if u.contains("2ad9") {
-                    self.controlPoint = char
-                } else if u == IConsoleSwiftParser.uartTx.lowercased() {
-                    peripheral.setNotifyValue(true, for: char)
-                } else if u == IConsoleSwiftParser.uartRx.lowercased() {
-                    self.iconsoleRx = char
-                    self.startIConsolePolling(peripheral: peripheral, rx: char)
-                }
-            }
-        }
-    }
-
-    nonisolated func peripheral(
-        _ peripheral: CBPeripheral,
-        didUpdateValueFor characteristic: CBCharacteristic,
-        error: Error?
-    ) {
-        Task { @MainActor in
-            guard let data = characteristic.value else { return }
-            let hex = data.map { String(format: "%02x", $0) }.joined(separator: " ")
-            self.appendDiag("RAW \(characteristic.uuid.uuidString) \(hex)")
-            let lower = characteristic.uuid.uuidString.lowercased()
-            if lower.contains("2acd"), let parsed = FtmsTreadmillParser.parse(data) {
-                self.apply(parsed)
-            } else if lower.contains("2a53"), let parsed = RscMeasurementSwiftParser.parse(data) {
-                self.apply(parsed)
-            } else if lower == IConsoleSwiftParser.uartTx.lowercased(),
-                      let parsed = IConsoleSwiftParser.parseTelemetry(data) {
-                self.apply(parsed)
-            }
-        }
-    }
-
-    private func startIConsolePolling(peripheral: CBPeripheral, rx: CBCharacteristic) {
-        iconsolePollTask?.cancel()
-        iconsolePollTask = Task { @MainActor in
-            peripheral.writeValue(IConsoleSwiftParser.ping(), for: rx, type: .withResponse)
-            while !Task.isCancelled {
-                peripheral.writeValue(IConsoleSwiftParser.read(), for: rx, type: .withResponse)
-                try? await Task.sleep(nanoseconds: 500_000_000)
-                peripheral.writeValue(IConsoleSwiftParser.ping(), for: rx, type: .withoutResponse)
             }
         }
     }

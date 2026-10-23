@@ -59,58 +59,7 @@ struct StrengthLoggingView: View {
                 }
                 .accessibilityIdentifier("workout_start")
             } else {
-                Text(catalog("workout_exercise"))
-                    .font(.subheadline.weight(.semibold))
-                ForEach(demos, id: \.exercise.id) { demo in
-                    Button {
-                        selectedExerciseId = demo.exercise.id
-                        tick += 1
-                    } label: {
-                        Text(selectedExerciseId == demo.exercise.id ? "● \(demo.displayName)" : "○ \(demo.displayName)")
-                    }
-                    .buttonStyle(.plain)
-                    .accessibilityIdentifier("workout_exercise_\(demo.exercise.id)")
-                }
-
-                labeledField(catalog("workout_weight_kg"), text: $weightText, id: "workout_weight")
-                labeledField(catalog("workout_reps"), text: $repsText, id: "workout_reps")
-                labeledField(catalog("workout_rir"), text: $rirText, id: "workout_rir")
-
-                Button {
-                    isWarmup.toggle()
-                    tick += 1
-                } label: {
-                    Text(isWarmup ? "● \(catalog("workout_warmup"))" : "○ \(catalog("workout_warmup"))")
-                }
-                .buttonStyle(.plain)
-                .accessibilityIdentifier("workout_warmup_toggle")
-
-                Button(catalog("workout_add_set")) {
-                    guard let id = sessionId else { return }
-                    let unilateral = demos.first { $0.exercise.id == selectedExerciseId }?.unilateral ?? false
-                    let weight = Double(weightText).map { KotlinDouble(value: $0) }
-                    let rir = Double(rirText).map { KotlinDouble(value: $0) }
-                    _ = core.strengthLogging.addSet(
-                        sessionId: id,
-                        exerciseId: selectedExerciseId,
-                        reps: Int32(Int(repsText) ?? 0),
-                        weightKg: weight,
-                        rir: rir,
-                        isWarmup: isWarmup,
-                        assistanceKg: nil,
-                        loggedPerHand: unilateral,
-                        completed: true
-                    )
-                    refreshSummary(id: id)
-                }
-                .accessibilityIdentifier("workout_add_set")
-
-                Button(catalog("workout_end")) {
-                    guard let id = sessionId else { return }
-                    endAndSave(sessionId: id)
-                }
-                .disabled(savingHealth)
-                .accessibilityIdentifier("workout_end")
+                activeSessionControls
             }
 
             Button {
@@ -120,7 +69,11 @@ struct StrengthLoggingView: View {
                 }
                 tick += 1
             } label: {
-                Text(includeWarmups ? "● \(catalog("workout_include_warmups"))" : "○ \(catalog("workout_include_warmups"))")
+                Text(
+                    includeWarmups
+                        ? "● \(catalog("workout_include_warmups"))"
+                        : "○ \(catalog("workout_include_warmups"))"
+                )
             }
             .buttonStyle(.plain)
             .accessibilityIdentifier("workout_include_warmups")
@@ -173,6 +126,66 @@ struct StrengthLoggingView: View {
         )
     }
 
+    @ViewBuilder
+    private var activeSessionControls: some View {
+        Text(catalog("workout_exercise"))
+            .font(.subheadline.weight(.semibold))
+        ForEach(demos, id: \.exercise.id) { demo in
+            Button {
+                selectedExerciseId = demo.exercise.id
+                tick += 1
+            } label: {
+                Text(selectedExerciseId == demo.exercise.id ? "● \(demo.displayName)" : "○ \(demo.displayName)")
+            }
+            .buttonStyle(.plain)
+            .accessibilityIdentifier("workout_exercise_\(demo.exercise.id)")
+        }
+
+        labeledField(catalog("workout_weight_kg"), text: $weightText, id: "workout_weight")
+        labeledField(catalog("workout_reps"), text: $repsText, id: "workout_reps")
+        labeledField(catalog("workout_rir"), text: $rirText, id: "workout_rir")
+
+        Button {
+            isWarmup.toggle()
+            tick += 1
+        } label: {
+            Text(isWarmup ? "● \(catalog("workout_warmup"))" : "○ \(catalog("workout_warmup"))")
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("workout_warmup_toggle")
+
+        Button(catalog("workout_add_set")) {
+            addCurrentSet()
+        }
+        .accessibilityIdentifier("workout_add_set")
+
+        Button(catalog("workout_end")) {
+            guard let id = sessionId else { return }
+            endAndSave(sessionId: id)
+        }
+        .disabled(savingHealth)
+        .accessibilityIdentifier("workout_end")
+    }
+
+    private func addCurrentSet() {
+        guard let id = sessionId else { return }
+        let unilateral = demos.first { $0.exercise.id == selectedExerciseId }?.unilateral ?? false
+        let weight = Double(weightText).map { KotlinDouble(value: $0) }
+        let rir = Double(rirText).map { KotlinDouble(value: $0) }
+        _ = core.strengthLogging.addSet(
+            sessionId: id,
+            exerciseId: selectedExerciseId,
+            reps: Int32(Int(repsText) ?? 0),
+            weightKg: weight,
+            rir: rir,
+            isWarmup: isWarmup,
+            assistanceKg: nil,
+            loggedPerHand: unilateral,
+            completed: true
+        )
+        refreshSummary(id: id)
+    }
+
     private func labeledField(_ label: String, text: Binding<String>, id: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(label).font(.caption)
@@ -206,204 +219,34 @@ struct StrengthLoggingView: View {
         refreshSummary(id: id)
         tick += 1
 
-        guard let profile = core.profiles.get(id: profileId) else {
-            savingHealth = false
-            return
-        }
-        let start = dateFromEpochMillis(core.strengthLogging.sessionStartEpochMillis(sessionId: id))
-        let end = dateFromEpochMillis(core.strengthLogging.sessionEndEpochMillis(sessionId: id))
-        let durationHours = max(0, end.timeIntervalSince(start) / 3600.0)
-        let age = Int(core.ageYears(profile: profile))
-        let breakdown = WorkoutEnergyEstimate.shared.strengthBreakdown(
-            weightKg: profile.weightKg,
-            heightCm: profile.heightCm,
-            ageYears: Int32(age),
-            sex: profile.biologicalSex,
-            durationHours: durationHours,
-            met: WorkoutEnergyEstimate.shared.STRENGTH_MET
-        )
-        let energy = HealthKitWorkoutWriter.EnergyInput(
-            activeKcal: breakdown.activeKcal,
-            basalKcal: breakdown.basalKcal,
-            isEstimate: true
-        )
-        let volumeSummary = core.strengthLogging.sessionSummary(
-            sessionId: id,
-            includeWarmups: includeWarmups,
-            bodyweightKg: KotlinDouble(value: profile.weightKg),
-            unit: .kg
-        )
-        let sets = core.strengthLogging.getSession(sessionId: id)?.sets ?? []
-        var totalReps = 0
-        for set in sets {
-            if let reps = set.reps {
-                totalReps += Int(reps)
-            }
-        }
-        let strengthMeta = HealthKitWorkoutWriter.StrengthMetadata(
-            totalSets: sets.count,
-            totalReps: totalReps,
-            totalWeightKg: volumeSummary.totalWeightLiftedDisplay
-        )
-
-        Task {
-            defer { savingHealth = false }
-            do {
-                let recoveryEnd = end.addingTimeInterval(90)
-                let hrSamples =
-                    (try? await HealthKitWorkoutWriter.fetchHeartRate(from: start, to: recoveryEnd)) ?? []
-                let sessionHr = hrSamples.filter { $0.date <= end }
-                let avg = sessionHr.map(\.bpm).filter { $0 > 0 }
-                let avgBpm = avg.isEmpty ? nil : avg.reduce(0, +) / Double(avg.count)
-                let maxBpm = avg.max()
-                let recovery = HealthKitWorkoutWriter.estimateHeartRateRecoveryBpm(
-                    samples: hrSamples,
-                    workoutEnd: end
-                )
-                let effort = HealthKitWorkoutWriter.estimateEffortScore(
-                    averageBpm: avgBpm,
-                    ageYears: age
-                )
-                // Local-first: always persist in OmniGart DB, even without Health permission.
-                let syncId = core.localHealth.recordOmniGartWorkout(
-                    localId: id,
-                    activityTypeName: "STRENGTH",
-                    startEpochMs: Int64(start.timeIntervalSince1970 * 1000),
-                    endEpochMs: Int64(end.timeIntervalSince1970 * 1000),
-                    activeEnergyKcal: KotlinDouble(value: energy.activeKcal),
-                    basalEnergyKcal: KotlinDouble(value: energy.basalKcal),
-                    distanceMetres: nil,
-                    averageHeartRateBpm: avgBpm.map { KotlinDouble(value: $0) },
-                    maxHeartRateBpm: maxBpm.map { KotlinDouble(value: $0) },
+        Task { @MainActor in
+            let saved = await StrengthWorkoutHealthSave.saveEstimate(
+                StrengthHealthSaveRequest(
+                    core: core,
+                    profileId: profileId,
                     sessionId: id,
-                    planId: nil,
-                    heartRateEpochMs: sessionHr.map { Int64($0.date.timeIntervalSince1970 * 1000) },
-                    heartRateBpm: sessionHr.map(\.bpm),
-                    syncVersion: 1
+                    includeWarmups: includeWarmups
                 )
-                let saved = try await HealthKitWorkoutWriter.save(
-                    options: .init(
-                        activityType: .traditionalStrengthTraining,
-                        start: start,
-                        end: end,
-                        energy: energy,
-                        heartRate: sessionHr,
-                        strength: strengthMeta,
-                        indoor: true,
-                        estimatedEffortScore: effort,
-                        heartRateRecoveryBpm: recovery,
-                        syncIdentifier: syncId,
-                        syncVersion: 1
-                    )
-                )
-                if let saved {
-                    core.localHealth.markPlatformLinked(
-                        localId: id,
-                        platformRecordId: saved.workoutUUID.uuidString
-                    )
-                }
-                await MainActor.run {
-                    lastEnergy = saved
-                    refreshSummary(id: id)
-                }
-            } catch {
-                // Local store already has the workout; platform write is optional.
-                await MainActor.run {
-                    lastEnergy = HealthKitWorkoutWriter.Result(
-                        workoutUUID: UUID(),
-                        activeKcal: energy.activeKcal,
-                        basalKcal: energy.basalKcal,
-                        averageHeartRateBpm: nil,
-                        maxHeartRateBpm: nil,
-                        energyIsEstimate: true,
-                        effortScore: nil,
-                        heartRateRecoveryBpm: nil
-                    )
-                    refreshSummary(id: id)
-                }
-            }
+            )
+            lastEnergy = saved
+            refreshSummary(id: id)
+            savingHealth = false
         }
     }
 
     private func refreshSummary(id: String) {
-        let profile = core.profiles.get(id: profileId)
-        let bw = profile.map { KotlinDouble(value: $0.weightKg) }
-        let summary = core.strengthLogging.sessionSummary(
-            sessionId: id,
-            includeWarmups: includeWarmups,
-            bodyweightKg: bw,
-            unit: .kg
+        let built = StrengthSessionSummaryLines.build(
+            StrengthSummaryInput(
+                core: core,
+                profileId: profileId,
+                sessionId: id,
+                includeWarmups: includeWarmups,
+                lastEnergy: lastEnergy
+            )
         )
-        setCount = Int(core.strengthLogging.getSession(sessionId: id)?.sets.count ?? 0)
-        let volume = summary.volume.totalVolumeDisplay
-        let lifted = summary.totalWeightLiftedDisplay
-
-        var lines: [String] = []
-        if core.strengthLogging.getSession(sessionId: id) != nil {
-            let start = dateFromEpochMillis(core.strengthLogging.sessionStartEpochMillis(sessionId: id))
-            let end = dateFromEpochMillis(core.strengthLogging.sessionEndEpochMillis(sessionId: id))
-            let seconds = max(0, end.timeIntervalSince(start))
-            lines.append(
-                "\(catalog("workout_summary_duration")): \(formatDuration(seconds))"
-            )
-        }
-        if let energy = lastEnergy {
-            lines.append(
-                "\(catalog("workout_summary_active_kcal")): \(String(format: "%.0f", energy.activeKcal))"
-            )
-            lines.append(
-                "\(catalog("workout_summary_total_kcal")): \(String(format: "%.0f", energy.activeKcal + energy.basalKcal))"
-            )
-            if energy.energyIsEstimate {
-                lines.append(catalog("workout_summary_energy_estimate"))
-            }
-            if let avg = energy.averageHeartRateBpm {
-                lines.append(
-                    "\(catalog("workout_summary_avg_hr")): \(String(format: "%.0f", avg))"
-                )
-            }
-            if let maxHr = energy.maxHeartRateBpm {
-                lines.append(
-                    "\(catalog("workout_summary_max_hr")): \(String(format: "%.0f", maxHr))"
-                )
-            }
-            if let effort = energy.effortScore {
-                lines.append(
-                    "\(catalog("workout_summary_effort")): \(String(format: "%.0f", effort))"
-                )
-            }
-            if let recovery = energy.heartRateRecoveryBpm {
-                lines.append(
-                    "\(catalog("workout_summary_hr_recovery")): \(String(format: "%.0f", recovery))"
-                )
-            }
-        }
-        lines.append(contentsOf: [
-            "\(catalog("workout_volume_load")): \(String(format: "%.1f", volume)) kg",
-            "\(catalog("workout_total_weight_lifted")): \(String(format: "%.1f", lifted)) kg",
-            "\(catalog("workout_hard_sets")): \(summary.volume.hardSets)"
-        ])
-        lines.append(catalog("workout_per_exercise"))
-        for row in summary.volume.perExercise {
-            lines.append("\(row.exerciseId): \(String(format: "%.1f", row.volumeKg)) kg · \(row.hardSets)")
-        }
-        summaryLines = lines
+        summaryLines = built.lines
+        setCount = built.setCount
         tick += 1
-    }
-
-    private func dateFromEpochMillis(_ millis: Int64) -> Date {
-        Date(timeIntervalSince1970: TimeInterval(millis) / 1000.0)
-    }
-
-    private func formatDuration(_ seconds: TimeInterval) -> String {
-        let total = max(0, Int(seconds.rounded()))
-        let hours = total / 3600
-        let minutes = (total % 3600) / 60
-        let secs = total % 60
-        if hours > 0 {
-            return String(format: "%d:%02d:%02d", hours, minutes, secs)
-        }
-        return String(format: "%d:%02d", minutes, secs)
     }
 
     private func catalog(_ key: String) -> String {

@@ -56,6 +56,7 @@ fun TreadmillRunSection(core: OmniGartCore, profileId: String, modifier: Modifie
     val discovered by client.discovered.collectAsState()
     val metrics by client.metrics.collectAsState()
     var allowControl by remember { mutableStateOf(false) }
+    var walking by remember { mutableStateOf(false) }
     var running by remember { mutableStateOf(false) }
     var startedAtMs by remember { mutableStateOf<Long?>(null) }
     var status by remember { mutableStateOf<String?>(null) }
@@ -73,6 +74,11 @@ fun TreadmillRunSection(core: OmniGartCore, profileId: String, modifier: Modifie
         verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space2)
     ) {
         TreadmillHeader(onShowDiagnostics = { showDiag = true })
+        RowSwitch(
+            label = stringResource(R.string.treadmill_walk_title),
+            checked = walking,
+            onCheckedChange = { walking = it }
+        )
         Text(text = "BLE: ${state.name} / ${metrics.protocol.name}")
         TreadmillConnectionButtons(client = client, discovered = discovered)
         RowSwitch(
@@ -98,7 +104,14 @@ fun TreadmillRunSection(core: OmniGartCore, profileId: String, modifier: Modifie
                 scope.launch {
                     status =
                         withContext(Dispatchers.IO) {
-                            saveWorkout(core, client, startedAtMs, calibration, context)
+                            saveWorkout(
+                                core = core,
+                                client = client,
+                                startedAtMs = startedAtMs,
+                                calibration = calibration,
+                                context = context,
+                                walking = walking
+                            )
                         }
                     running = false
                     client.disconnect()
@@ -238,7 +251,8 @@ private suspend fun saveWorkout(
     client: TreadmillBleClient,
     startedAtMs: Long?,
     calibration: String,
-    context: Context
+    context: Context,
+    walking: Boolean = false
 ): String {
     val end = Clock.System.now()
     val start = startedAtMs?.let { kotlin.time.Instant.fromEpochMilliseconds(it) } ?: end
@@ -249,6 +263,7 @@ private suspend fun saveWorkout(
         usedEstimate = true
         distance = calibration.toDoubleOrNull()
     }
+    val activity = if (walking) WorkoutActivityType.WALKING else WorkoutActivityType.RUNNING
     val summary =
         TreadmillWorkoutSummary(
             protocol = metrics.protocol,
@@ -267,7 +282,7 @@ private suspend fun saveWorkout(
         LocalHealthWorkout(
             id = localId,
             identity = HealthSyncIdentity(syncIdentifier = "omnigart.workout.$localId", syncVersion = 1),
-            activityType = WorkoutActivityType.RUNNING,
+            activityType = activity,
             startAt = start,
             endAt = end,
             activeEnergyKcal = metrics.energyKcal,
@@ -287,7 +302,7 @@ private suspend fun saveWorkout(
                 listOf(
                     HealthWorkout(
                         id = localId,
-                        activityType = WorkoutActivityType.RUNNING,
+                        activityType = activity,
                         start = start,
                         end = end,
                         energyKcal = metrics.energyKcal,

@@ -1,5 +1,6 @@
 import Foundation
 import HealthKit
+import SwiftUI
 
 /// Indoor / Zone 2 workout kinds the watch can run as live `HKWorkoutSession`s.
 enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable {
@@ -9,6 +10,7 @@ enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable
     case pilates
     case zone2Run
     case treadmillRun
+    case treadmillWalk
 
     var id: String { rawValue }
 
@@ -19,13 +21,14 @@ enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable
         case .yoga: return .yoga
         case .pilates: return .pilates
         case .zone2Run, .treadmillRun: return .running
+        case .treadmillWalk: return .walking
         }
     }
 
     var locationType: HKWorkoutSessionLocationType {
         switch self {
         case .zone2Run: return .outdoor
-        case .treadmillRun: return .indoor
+        case .treadmillRun, .treadmillWalk: return .indoor
         default: return .indoor
         }
     }
@@ -38,6 +41,7 @@ enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable
         case .pilates: return "watch.workout.pilates"
         case .zone2Run: return "watch.zone2.start"
         case .treadmillRun: return "treadmill_run_title"
+        case .treadmillWalk: return "treadmill_walk_title"
         }
     }
 
@@ -51,6 +55,7 @@ enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable
         case .pilates: return .pilates
         case .running where configuration.locationType == .outdoor: return .zone2Run
         case .running where configuration.locationType == .indoor: return .treadmillRun
+        case .walking where configuration.locationType == .indoor: return .treadmillWalk
         default: return nil
         }
     }

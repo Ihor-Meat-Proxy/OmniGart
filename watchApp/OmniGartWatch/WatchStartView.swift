@@ -31,12 +31,20 @@ struct WatchStartView: View {
                     .accessibilityIdentifier("watch_start_button")
 
                     NavigationLink {
-                        TreadmillLiveView()
+                        TreadmillLiveView(kind: .treadmillRun)
                     } label: {
                         Text("treadmill_run_title")
                     }
                     .tint(Color.OmniGart.colorBrandAccent)
                     .accessibilityIdentifier("watch_treadmill_start_nav")
+
+                    NavigationLink {
+                        TreadmillLiveView(kind: .treadmillWalk)
+                    } label: {
+                        Text("treadmill_walk_title")
+                    }
+                    .tint(Color.OmniGart.colorBrandAccent)
+                    .accessibilityIdentifier("watch_treadmill_walk_start_nav")
 
                     NavigationLink {
                         OmniGartLiveWorkoutView(kind: .traditionalStrength)
@@ -75,8 +83,8 @@ struct WatchStartView: View {
             .navigationDestination(item: $pending.kind) { kind in
                 if kind == .zone2Run {
                     Zone2LiveView()
-                } else if kind == .treadmillRun {
-                    TreadmillLiveView()
+                } else if kind == .treadmillRun || kind == .treadmillWalk {
+                    TreadmillLiveView(kind: kind)
                 } else {
                     OmniGartLiveWorkoutView(kind: kind)
                 }

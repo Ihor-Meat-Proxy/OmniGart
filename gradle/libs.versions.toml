@@ -18,7 +18,7 @@ androidx-test-espresso = "3.7.0"
 robolectric = "4.17"
 ktlint = "14.2.0"
 detekt = "1.23.8"
-json-schema-validator = "2.0.8"
+json-schema-validator = "3.0.8"
 jackson = "2.22.4"
 
 [libraries]

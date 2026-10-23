@@ -187,4 +187,7 @@
     <string name="equipment_item_box">Тумба</string>
     <string name="equipment_item_landmine">Лендмайн</string>
     <string name="equipment_item_yoga_mat">Дыванок для ёгі</string>
+    <string name="workouts_ready_title">Гатовыя трэніроўкі</string>
+    <string name="workouts_ready_intro">Праглядайце фіксаваныя сесіі па вашым абсталяванні. Запусціце адразу або падладзьце інвентар — замены абновяцца.</string>
+    <string name="workouts_ready_clear">Скінуць гатовую трэніроўку</string>
 </resources>

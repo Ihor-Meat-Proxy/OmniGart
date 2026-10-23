@@ -198,5 +198,8 @@
   "equipment_item_suspension": "Підвісні петлі",
   "equipment_item_box": "Тумба",
   "equipment_item_landmine": "Лендмайн",
-  "equipment_item_yoga_mat": "Килімок для йоги"
+  "equipment_item_yoga_mat": "Килімок для йоги",
+  "workouts_ready_title": "Готові тренування",
+  "workouts_ready_intro": "Переглядайте фіксовані сесії за вашим обладнанням. Запустіть одразу або підлаштуйте інвентар — заміни оновляться.",
+  "workouts_ready_clear": "Скинути готове тренування"
 }

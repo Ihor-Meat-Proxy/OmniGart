@@ -1,0 +1,95 @@
+{
+  "id": "pike-push-up",
+  "nameKeys": {
+    "enGB": "exercise.pike_push_up.name",
+    "uk": "exercise.pike_push_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "front_deltoid",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "pectoralis_major",
+    "serratus_anterior"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "From a pike (hips high, hands and feet on floor), bend the elbows to lower the head toward the floor between the hands.",
+    "Press back to the pike without flaring the ribs."
+  ],
+  "setup": [
+    "Hands roughly shoulder-width; hips stacked above shoulders as much as mobility allows."
+  ],
+  "breathing": "Inhale down; exhale as you press up.",
+  "commonMistakes": [
+    "Collapsing into a flat push-up",
+    "Flaring elbows aggressively"
+  ],
+  "safety": [
+    "Elevate hands to regress; stop with sharp shoulder pain."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "incline-push-up",
+      "note": "Hands elevated"
+    },
+    {
+      "exerciseId": "knee-push-up",
+      "note": "Knees down"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "overhead-press-dumbbell",
+      "note": "External load press"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/pike-push-up",
+    "videoKey": "media/video/pike-push-up",
+    "animationKey": "media/anim/pike-push-up"
+  },
+  "aliases": [
+    "pike press"
+  ],
+  "tags": [
+    "bodyweight",
+    "shoulder"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.7,
+    "basis": "estimate",
+    "rationale": "Pike orientation shifts load toward shoulders; estimate ~0.65–0.75 of body mass on the arms."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

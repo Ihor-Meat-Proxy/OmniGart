@@ -198,5 +198,8 @@
   "equipment_item_suspension": "Падвесныя стужкі",
   "equipment_item_box": "Тумба",
   "equipment_item_landmine": "Лендмайн",
-  "equipment_item_yoga_mat": "Дыванок для ёгі"
+  "equipment_item_yoga_mat": "Дыванок для ёгі",
+  "workouts_ready_title": "Гатовыя трэніроўкі",
+  "workouts_ready_intro": "Праглядайце фіксаваныя сесіі па вашым абсталяванні. Запусціце адразу або падладзьце інвентар — замены абновяцца.",
+  "workouts_ready_clear": "Скінуць гатовую трэніроўку"
 }

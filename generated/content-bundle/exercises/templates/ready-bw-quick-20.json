@@ -1,0 +1,90 @@
+{
+  "id": "ready-bw-quick-20",
+  "nameKeys": {
+    "enGB": "template.ready_bw_quick_20.name",
+    "uk": "template.ready_bw_quick_20.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "intermediate",
+  "goal": "fat_loss_support",
+  "daysPerWeek": 1,
+  "sessionMinutes": 20,
+  "equipmentPreset": "bodyweight",
+  "equipmentRequired": [
+    "bodyweight"
+  ],
+  "rationale": "Twenty-minute denser bodyweight bout mixing jumps, burpees and bracing for conditioning support.",
+  "evidenceRefs": [
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "main",
+      "nameKeys": {
+        "enGB": "template.ready_bw_quick_20.main.name",
+        "uk": "template.ready_bw_quick_20.main.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "jump-squat",
+              "sets": 3,
+              "reps": "8",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "burpee",
+              "sets": 3,
+              "reps": "6-10",
+              "rir": "2-3",
+              "restSeconds": 45
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": 3,
+              "reps": "10",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "walking-lunge",
+              "sets": 2,
+              "reps": "10/leg",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "hollow-hold",
+              "sets": 2,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 60,
+              "durationSeconds": 20
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

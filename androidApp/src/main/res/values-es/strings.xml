@@ -187,4 +187,7 @@
     <string name="equipment_item_box">Cajón</string>
     <string name="equipment_item_landmine">Landmine</string>
     <string name="equipment_item_yoga_mat">Esterilla de yoga</string>
+    <string name="workouts_ready_title">Entrenamientos listos</string>
+    <string name="workouts_ready_intro">Explora sesiones fijas filtradas por tu material. Empieza una directamente o ajusta el equipo y se actualizan los cambios.</string>
+    <string name="workouts_ready_clear">Quitar entrenamiento listo</string>
 </resources>

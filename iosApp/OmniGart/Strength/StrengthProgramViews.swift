@@ -11,6 +11,8 @@ struct StrengthProgramSection: View {
     @State private var showEquipment = false
     @State private var showAdjust = false
     @State private var sessionOverrideIds: [String] = []
+    @State private var selectedReadyId: String?
+    @State private var readySession: GeneratedStrengthSession?
 
     private var programs: StrengthProgramService {
         _ = tick
@@ -35,7 +37,60 @@ struct StrengthProgramSection: View {
         return programs.generateProgram(profileId: profileId, sessionEquipmentIds: sessionOverrideIds)
     }
 
+    private var readyWorkouts: [ReadyMadeWorkout] {
+        _ = tick
+        if sessionOverrideIds.isEmpty {
+            return programs.readyMadeWorkouts(profileId: profileId)
+        }
+        return programs.readyMadeWorkouts(profileId: profileId, sessionEquipmentIds: sessionOverrideIds)
+    }
+
     var body: some View {
+        Section("workouts_ready_title") {
+            Text("workouts_ready_intro")
+                .font(.footnote)
+                .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+            ForEach(readyWorkouts, id: \.id) { workout in
+                Button {
+                    selectedReadyId = workout.id
+                    readySession = programs.startReadyMade(
+                        profileId: profileId,
+                        workoutId: workout.id,
+                        sessionEquipmentIds: sessionOverrideIds.isEmpty ? nil : sessionOverrideIds
+                    )
+                } label: {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(LocalizedStringKey(workout.nameKey))
+                            .font(.body)
+                        Text("\(Int(workout.sessionMinutes)) min · \(workout.level)")
+                            .font(.caption)
+                            .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                    }
+                }
+                .accessibilityIdentifier("workouts_ready_\(workout.id)")
+            }
+            if let readySession {
+                SessionMusclePreview(muscles: readySession.workedMuscles.map { String(describing: $0) })
+                ForEach(Array(readySession.slots.enumerated()), id: \.offset) { _, slot in
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(humanize(String(describing: slot.exerciseId)))
+                            .font(.body)
+                        Text(slotDetail(slot))
+                            .font(.caption)
+                            .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                    }
+                }
+                Button("workouts_adjust_equipment") {
+                    sessionOverrideIds = ownedIdList(equipment)
+                    showAdjust = true
+                }
+                .accessibilityIdentifier("workouts_ready_adjust")
+                Button("workouts_ready_clear") {
+                    selectedReadyId = nil
+                    readySession = nil
+                }
+            }
+        }
         Section("workouts_program_title") {
             Text("workouts_program_intro")
                 .font(.footnote)
@@ -105,6 +160,13 @@ struct StrengthProgramSection: View {
                     sessionOwned: $sessionOverrideIds
                 ) {
                     tick += 1
+                    if let selectedReadyId {
+                        readySession = programs.startReadyMade(
+                            profileId: profileId,
+                            workoutId: selectedReadyId,
+                            sessionEquipmentIds: sessionOverrideIds
+                        )
+                    }
                 }
             }
         }

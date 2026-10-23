@@ -192,4 +192,7 @@
     <string name="equipment_item_box">Plyometric box</string>
     <string name="equipment_item_landmine">Landmine</string>
     <string name="equipment_item_yoga_mat">Yoga mat</string>
+    <string name="workouts_ready_title">Ready-made workouts</string>
+    <string name="workouts_ready_intro">Browse fixed sessions filtered by your equipment. Start one directly, or adjust kit and swaps update.</string>
+    <string name="workouts_ready_clear">Clear ready workout</string>
 </resources>

@@ -1,0 +1,93 @@
+{
+  "id": "decline-push-up",
+  "nameKeys": {
+    "enGB": "exercise.decline_push_up.name",
+    "uk": "exercise.decline_push_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps",
+    "front_deltoid"
+  ],
+  "secondaryMuscles": [
+    "serratus_anterior",
+    "rectus_abdominis"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Feet elevated on a stable surface; hands on floor under shoulders; lower chest toward floor with a rigid trunk, then press up."
+  ],
+  "setup": [
+    "Stable elevation for feet; wrists stacked under shoulders."
+  ],
+  "breathing": "Inhale down; exhale up.",
+  "commonMistakes": [
+    "Hips sagging",
+    "Neck craning"
+  ],
+  "safety": [
+    "Lower the feet if the angle is too hard on the shoulders."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "push-up",
+      "note": "Feet on floor"
+    },
+    {
+      "exerciseId": "incline-push-up",
+      "note": "Hands elevated"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "diamond-push-up",
+      "note": "Closer grip"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/decline-push-up",
+    "videoKey": "media/video/decline-push-up",
+    "animationKey": "media/anim/decline-push-up"
+  },
+  "aliases": [],
+  "tags": [
+    "bodyweight",
+    "push-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.7,
+    "basis": "estimate",
+    "rationale": "Feet-elevated push-up increases upper-body share of body mass versus a floor push-up; estimate ~0.7 BM."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

@@ -187,4 +187,7 @@
     <string name="equipment_item_box">Тумба</string>
     <string name="equipment_item_landmine">Лендмайн</string>
     <string name="equipment_item_yoga_mat">Йога төсеніші</string>
+    <string name="workouts_ready_title">Дайын жаттығулар</string>
+    <string name="workouts_ready_intro">Жабдығыңызға сай дайын сессияларды қараңыз. Бірден бастаңыз немесе жабдықты бейімдеңіз — алмастырулар жаңарады.</string>
+    <string name="workouts_ready_clear">Дайын жаттығуды тазалау</string>
 </resources>

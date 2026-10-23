@@ -198,5 +198,8 @@
   "equipment_item_suspension": "悬挂训练器",
   "equipment_item_box": "跳箱",
   "equipment_item_landmine": "地雷架",
-  "equipment_item_yoga_mat": "瑜伽垫"
+  "equipment_item_yoga_mat": "瑜伽垫",
+  "workouts_ready_title": "现成训练",
+  "workouts_ready_intro": "按现有器械浏览固定课次。可直接开始，或调整器械后自动替换动作。",
+  "workouts_ready_clear": "清除现成训练"
 }

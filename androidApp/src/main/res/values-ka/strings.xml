@@ -187,4 +187,7 @@
     <string name="equipment_item_box">ტუმბა</string>
     <string name="equipment_item_landmine">ლენდმაინი</string>
     <string name="equipment_item_yoga_mat">იოგას საგები</string>
+    <string name="workouts_ready_title">მზა ვარჯიშები</string>
+    <string name="workouts_ready_intro">ნახეთ ფიქსირებული სესიები თქვენი აღჭურვილობის მიხედვით. დაიწყეთ პირდაპირ, ან მოარგეთ ინვენტარი — ჩანაცვლებები განახლდება.</string>
+    <string name="workouts_ready_clear">მზა ვარჯიშის გასუფთავება</string>
 </resources>

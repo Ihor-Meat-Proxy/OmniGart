@@ -14007,6 +14007,219 @@
           }
         }
       }
+    },
+    "workouts_ready_title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ready-made workouts"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Готові тренування"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gotowe treningi"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Гатовыя трэніроўкі"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Дайын жаттығулар"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "მზა ვარჯიშები"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entrenamientos listos"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Séances prêtes"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fertige Workouts"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hotové tréninky"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "现成训练"
+          }
+        }
+      }
+    },
+    "workouts_ready_intro": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Browse fixed sessions filtered by your equipment. Start one directly, or adjust kit and swaps update."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Переглядайте фіксовані сесії за вашим обладнанням. Запустіть одразу або підлаштуйте інвентар — заміни оновляться."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Przeglądaj gotowe sesje dopasowane do sprzętu. Uruchom od razu albo dostosuj ekwipunek — zamiany się zaktualizują."
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Праглядайце фіксаваныя сесіі па вашым абсталяванні. Запусціце адразу або падладзьце інвентар — замены абновяцца."
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Жабдығыңызға сай дайын сессияларды қараңыз. Бірден бастаңыз немесе жабдықты бейімдеңіз — алмастырулар жаңарады."
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ნახეთ ფიქსირებული სესიები თქვენი აღჭურვილობის მიხედვით. დაიწყეთ პირდაპირ, ან მოარგეთ ინვენტარი — ჩანაცვლებები განახლდება."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Explora sesiones fijas filtradas por tu material. Empieza una directamente o ajusta el equipo y se actualizan los cambios."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parcourez des séances fixes filtrées selon votre matériel. Lancez-en une directement, ou ajustez l’équipement et les remplacements se mettent à jour."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durchsuchen Sie feste Einheiten, gefiltert nach Ihrem Gerät. Starten Sie direkt oder passen Sie das Equipment an — Ersatzübungen aktualisieren sich."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Procházejte pevné jednotky filtrované podle vybavení. Spusťte rovnou, nebo upravte výbavu — náhrady se aktualizují."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按现有器械浏览固定课次。可直接开始，或调整器械后自动替换动作。"
+          }
+        }
+      }
+    },
+    "workouts_ready_clear": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clear ready workout"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скинути готове тренування"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wyczyść gotowy trening"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скінуць гатовую трэніроўку"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Дайын жаттығуды тазалау"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "მზა ვარჯიშის გასუფთავება"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quitar entrenamiento listo"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Effacer la séance prête"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fertiges Workout leeren"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zrušit hotový trénink"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "清除现成训练"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

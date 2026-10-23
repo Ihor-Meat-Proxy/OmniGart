@@ -1,0 +1,99 @@
+{
+  "id": "reverse-lunge-bodyweight",
+  "nameKeys": {
+    "enGB": "exercise.reverse_lunge_bodyweight.name",
+    "uk": "exercise.reverse_lunge_bodyweight.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "lunge",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "hamstrings",
+    "adductors"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": true,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Step one foot back into a lunge until the back knee approaches the floor; drive through the front mid-foot to return.",
+    "Keep the torso upright and the front knee tracking over mid-foot."
+  ],
+  "setup": [
+    "Light brace; even weight on the front foot when standing."
+  ],
+  "breathing": "Inhale as you step back; exhale to stand.",
+  "commonMistakes": [
+    "Front heel rising",
+    "Torso collapsing forward"
+  ],
+  "safety": [
+    "Shorten the step if the front knee feels unstable."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "sit-to-stand",
+      "note": "Bilateral squat pattern"
+    },
+    {
+      "exerciseId": "split-squat-bodyweight",
+      "note": "Static split"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "walking-lunge",
+      "note": "Walking variation"
+    },
+    {
+      "exerciseId": "reverse-lunge-dumbbell",
+      "note": "Add load"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/reverse-lunge-bodyweight",
+    "videoKey": "media/video/reverse-lunge-bodyweight",
+    "animationKey": "media/anim/reverse-lunge-bodyweight"
+  },
+  "aliases": [
+    "bodyweight reverse lunge"
+  ],
+  "tags": [
+    "bodyweight",
+    "lunge-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.85,
+    "basis": "estimate",
+    "rationale": "Single-leg stance carries most body mass through the front limb; estimate ~0.85 BM for volume coaching."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

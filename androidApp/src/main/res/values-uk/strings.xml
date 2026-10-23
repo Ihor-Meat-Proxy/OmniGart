@@ -192,4 +192,7 @@
     <string name="equipment_item_box">Тумба</string>
     <string name="equipment_item_landmine">Лендмайн</string>
     <string name="equipment_item_yoga_mat">Килімок для йоги</string>
+    <string name="workouts_ready_title">Готові тренування</string>
+    <string name="workouts_ready_intro">Переглядайте фіксовані сесії за вашим обладнанням. Запустіть одразу або підлаштуйте інвентар — заміни оновляться.</string>
+    <string name="workouts_ready_clear">Скинути готове тренування</string>
 </resources>

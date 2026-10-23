@@ -198,5 +198,8 @@
   "equipment_item_suspension": "Závěsný trenér",
   "equipment_item_box": "Box",
   "equipment_item_landmine": "Landmine",
-  "equipment_item_yoga_mat": "Podložka na jógu"
+  "equipment_item_yoga_mat": "Podložka na jógu",
+  "workouts_ready_title": "Hotové tréninky",
+  "workouts_ready_intro": "Procházejte pevné jednotky filtrované podle vybavení. Spusťte rovnou, nebo upravte výbavu — náhrady se aktualizují.",
+  "workouts_ready_clear": "Zrušit hotový trénink"
 }

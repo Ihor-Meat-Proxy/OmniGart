@@ -176,6 +176,7 @@
   "exercise.bodyweight_squat.name": "Squat au poids de corps",
   "exercise.bodyweight_squat.progressions.split_squat_bodyweight.note": "Position fente",
   "exercise.bodyweight_squat.progressions.walking_lunge.note": "Fente dynamique",
+  "exercise.bodyweight_squat.regressions.sit_to_stand.note": "Squat bilatéral assisté par une chaise",
   "exercise.bodyweight_squat.safety.0": "Restez dans une profondeur indolore ; raccourcissez l'amplitude si genoux ou dos protestent.",
   "exercise.bodyweight_squat.setup.0": "Pieds ancrés ; légère tension du tronc ; bras devant pour l'équilibre si besoin.",
   "exercise.bodyweight_squat.technique.0": "Debout, pieds à peu près à largeur d'épaules ; reculez les hanches et descendez jusqu'à ce que les cuisses soient au moins parallèles, talons au sol.",

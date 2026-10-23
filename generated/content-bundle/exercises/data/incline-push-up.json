@@ -15,8 +15,7 @@
     "serratus_anterior"
   ],
   "equipment": [
-    "bodyweight",
-    "bench"
+    "bodyweight"
   ],
   "level": "beginner",
   "unilateral": false,
@@ -82,10 +81,10 @@
   "tags": [],
   "loadModel": "bodyweight_plus_external",
   "bodyweightFraction": {
-    "proportion": 0.72,
-    "basis": "measured",
-    "rationale": "Suprak et al. 2011 reported ~69% BM at the top and ~75% BM at the bottom of a traditional push-up (static positions); 0.72 is the mid-range summary used here."
+    "proportion": 0.55,
+    "basis": "estimate",
+    "rationale": "Hands-elevated push-up reduces upper-body share versus floor; estimate ~0.55 BM."
   },
-  "allowsAddedWeight": true,
+  "allowsAddedWeight": false,
   "allowsAssistance": true
 }

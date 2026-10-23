@@ -12,7 +12,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -25,84 +24,180 @@ import com.omnigart.design.theme.OmniGartSpacing
 import com.omnigart.shared.OmniGartCore
 import com.omnigart.shared.strength.EquipmentPresetKind
 import com.omnigart.shared.strength.GeneratedExerciseSlot
+import com.omnigart.shared.strength.GeneratedStrengthProgram
 import com.omnigart.shared.strength.GeneratedStrengthSession
 import com.omnigart.shared.strength.ProgramSplit
+import com.omnigart.shared.strength.ReadyMadeWorkout
+import com.omnigart.shared.strength.StrengthProgramPreferences
+import com.omnigart.shared.strength.StrengthProgramService
+import com.omnigart.shared.strength.UserEquipmentProfile
 import java.util.Locale
+
+private data class StrengthUiState(
+    val epoch: Int = 0,
+    val selectedDay: Int = 0,
+    val showEquipment: Boolean = false,
+    val sessionOverride: Set<String>? = null,
+    val selectedReadyId: String? = null
+)
 
 @Composable
 fun StrengthProgramSection(core: OmniGartCore, profileId: String) {
     val programs = core.strengthPrograms
-    var epoch by remember { mutableIntStateOf(0) }
-    var selectedDay by remember { mutableIntStateOf(0) }
-    var showEquipment by remember { mutableStateOf(false) }
-    var sessionOverride by remember { mutableStateOf<Set<String>?>(null) }
-
-    val prefs = remember(epoch) { programs.programPrefs(profileId) }
-    val equipment = remember(epoch) { programs.equipment(profileId) }
-    val program =
-        remember(epoch, sessionOverride) {
-            programs.generateProgram(profileId, sessionOverride?.toList())
+    var ui by remember { mutableStateOf(StrengthUiState()) }
+    val overrideList = ui.sessionOverride?.toList()
+    val prefs = remember(ui.epoch) { programs.programPrefs(profileId) }
+    val equipment = remember(ui.epoch) { programs.equipment(profileId) }
+    val program = remember(ui.epoch, ui.sessionOverride) { programs.generateProgram(profileId, overrideList) }
+    val readyWorkouts =
+        remember(ui.epoch, ui.sessionOverride) { programs.readyMadeWorkouts(profileId, overrideList) }
+    val readySession =
+        remember(ui.epoch, ui.sessionOverride, ui.selectedReadyId) {
+            ui.selectedReadyId?.let { programs.startReadyMade(profileId, it, overrideList) }
         }
-    val session =
-        program.sessions.getOrNull(
-            selectedDay.coerceIn(0, (program.sessions.size - 1).coerceAtLeast(0))
-        )
+    StrengthProgramContent(
+        programs = programs,
+        profileId = profileId,
+        ui = ui,
+        prefs = prefs,
+        equipment = equipment,
+        program = program,
+        readyWorkouts = readyWorkouts,
+        readySession = readySession,
+        onUi = { ui = it }
+    )
+}
 
+@Composable
+private fun StrengthProgramContent(
+    programs: StrengthProgramService,
+    profileId: String,
+    ui: StrengthUiState,
+    prefs: StrengthProgramPreferences,
+    equipment: UserEquipmentProfile,
+    program: GeneratedStrengthProgram,
+    readyWorkouts: List<ReadyMadeWorkout>,
+    readySession: GeneratedStrengthSession?,
+    onUi: (StrengthUiState) -> Unit
+) {
+    val session =
+        program.sessions.getOrNull(ui.selectedDay.coerceIn(0, (program.sessions.size - 1).coerceAtLeast(0)))
+    val toggleAdjust = {
+        onUi(
+            ui.copy(
+                sessionOverride = if (ui.sessionOverride == null) equipment.ownedIds else null,
+                epoch = ui.epoch + 1
+            )
+        )
+    }
     Column(
         modifier = Modifier.fillMaxWidth().testTag("strength_program_section"),
         verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space2)
     ) {
+        ReadyMadeBlock(
+            workouts = readyWorkouts,
+            selectedId = ui.selectedReadyId,
+            session = readySession,
+            onSelect = { id -> onUi(ui.copy(selectedReadyId = id)) },
+            onClear = { onUi(ui.copy(selectedReadyId = null)) },
+            onAdjust = toggleAdjust
+        )
         ProgramPickerBlock(
             selectedSplit = prefs.split,
             daysPerWeek = prefs.daysPerWeek,
             allowedDays = programs.allowedDays(prefs.split),
             onSplit = { split ->
                 programs.setSplit(profileId, split, prefs.daysPerWeek)
-                selectedDay = 0
-                epoch += 1
+                onUi(ui.copy(selectedDay = 0, epoch = ui.epoch + 1))
             },
             onDays = { day ->
                 programs.setSplit(profileId, prefs.split, day)
-                selectedDay = 0
-                epoch += 1
+                onUi(ui.copy(selectedDay = 0, epoch = ui.epoch + 1))
             }
         )
         EquipmentSummaryBlock(
             ownedPreview = equipment.ownedIds.sorted().take(5).joinToString(", "),
-            showEquipment = showEquipment,
-            onToggleEditor = { showEquipment = !showEquipment },
+            showEquipment = ui.showEquipment,
+            onToggleEditor = { onUi(ui.copy(showEquipment = !ui.showEquipment)) },
             owned = equipment.ownedIds,
             catalogue = programs.catalogueIds(),
             onToggle = { id, enabled ->
                 programs.toggleEquipment(profileId, id, enabled)
-                epoch += 1
+                onUi(ui.copy(epoch = ui.epoch + 1))
             },
             onPreset = { kind ->
                 programs.applyPreset(profileId, kind)
-                epoch += 1
+                onUi(ui.copy(epoch = ui.epoch + 1))
             },
             onSavePreset = { kind ->
                 programs.saveNamedPreset(profileId, presetLabel(kind), kind)
-                epoch += 1
+                onUi(ui.copy(epoch = ui.epoch + 1))
             }
         )
         WeekSessionBlock(
             sessions = program.sessions,
-            selectedDay = selectedDay,
-            onSelectDay = { selectedDay = it },
+            selectedDay = ui.selectedDay,
+            onSelectDay = { day -> onUi(ui.copy(selectedDay = day)) },
             session = session,
-            sessionOverride = sessionOverride,
+            sessionOverride = ui.sessionOverride,
             catalogue = programs.catalogueIds(),
-            onAdjust = {
-                sessionOverride = if (sessionOverride == null) equipment.ownedIds else null
-                epoch += 1
-            },
+            onAdjust = toggleAdjust,
             onOverrideToggle = { id, enabled ->
-                val current = sessionOverride.orEmpty()
-                sessionOverride = if (enabled) current + id else current - id
-                epoch += 1
+                val current = ui.sessionOverride.orEmpty()
+                onUi(
+                    ui.copy(
+                        sessionOverride = if (enabled) current + id else current - id,
+                        epoch = ui.epoch + 1
+                    )
+                )
             }
         )
+    }
+}
+
+@Composable
+private fun ReadyMadeBlock(
+    workouts: List<ReadyMadeWorkout>,
+    selectedId: String?,
+    session: GeneratedStrengthSession?,
+    onSelect: (String) -> Unit,
+    onClear: () -> Unit,
+    onAdjust: () -> Unit
+) {
+    Text(
+        text = stringResource(R.string.workouts_ready_title),
+        style = MaterialTheme.typography.titleMedium,
+        color = OmniGartColors.colorBrandAccent
+    )
+    Text(
+        text = stringResource(R.string.workouts_ready_intro),
+        style = MaterialTheme.typography.bodySmall,
+        color = OmniGartColors.colorTextLightSecondary
+    )
+    workouts.forEach { workout ->
+        FilterChip(
+            selected = selectedId == workout.id,
+            onClick = { onSelect(workout.id) },
+            label = {
+                Text("${humanize(workout.id.removePrefix("ready-"))} · ${workout.sessionMinutes} min")
+            },
+            modifier = Modifier.testTag("workouts_ready_${workout.id}")
+        )
+    }
+    session?.let { ready ->
+        Text(
+            text = ready.workedMuscles.joinToString(", "),
+            style = MaterialTheme.typography.bodySmall,
+            color = OmniGartColors.colorTextLightSecondary,
+            modifier = Modifier.testTag("workouts_ready_muscles")
+        )
+        ready.slots.forEach { SlotRow(it) }
+        TextButton(onClick = onAdjust, modifier = Modifier.testTag("workouts_ready_adjust")) {
+            Text(stringResource(R.string.workouts_adjust_equipment))
+        }
+        TextButton(onClick = onClear, modifier = Modifier.testTag("workouts_ready_clear")) {
+            Text(stringResource(R.string.workouts_ready_clear))
+        }
     }
 }
 

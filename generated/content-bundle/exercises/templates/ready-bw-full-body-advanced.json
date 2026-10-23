@@ -1,0 +1,105 @@
+{
+  "id": "ready-bw-full-body-advanced",
+  "nameKeys": {
+    "enGB": "template.ready_bw_full_body_advanced.name",
+    "uk": "template.ready_bw_full_body_advanced.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "advanced",
+  "goal": "strength",
+  "daysPerWeek": 1,
+  "sessionMinutes": 40,
+  "equipmentPreset": "bodyweight",
+  "equipmentRequired": [
+    "bodyweight"
+  ],
+  "rationale": "Advanced bodyweight session with decline pressing, Nordic curls and burpees for higher relative intensity without external load.",
+  "evidenceRefs": [
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "main",
+      "nameKeys": {
+        "enGB": "template.ready_bw_full_body_advanced.main.name",
+        "uk": "template.ready_bw_full_body_advanced.main.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "decline-push-up",
+              "sets": 4,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "nordic-curl",
+              "sets": 3,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "burpee",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 75
+            },
+            {
+              "exerciseId": "wide-push-up",
+              "sets": 3,
+              "reps": "12-15",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "split-squat-bodyweight",
+              "sets": 3,
+              "reps": "10/leg",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "side-plank",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 60,
+              "durationSeconds": 30
+            },
+            {
+              "exerciseId": "wall-sit",
+              "sets": 2,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 60,
+              "durationSeconds": 40
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

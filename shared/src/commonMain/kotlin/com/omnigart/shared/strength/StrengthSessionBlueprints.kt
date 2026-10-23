@@ -26,16 +26,25 @@ internal object StrengthSessionBlueprints {
             "program_session_full_a",
             "squat_push_hinge",
             listOf(
-                slot(listOf("goblet-squat", "back-squat", "leg-press"), "squat", "quadriceps", "gluteus_maximus"),
-                slot(listOf("push-up", "dumbbell-bench-press", "barbell-bench-press"), "push", "pectoralis_major"),
                 slot(
-                    listOf("romanian-deadlift-dumbbell", "romanian-deadlift-barbell", "kettlebell-swing"),
+                    listOf("bodyweight-squat", "goblet-squat", "back-squat", "leg-press"),
+                    "squat",
+                    "quadriceps",
+                    "gluteus_maximus"
+                ),
+                slot(listOf("push-up", "incline-push-up", "dumbbell-bench-press", "barbell-bench-press"), "push", "pectoralis_major"),
+                slot(
+                    listOf("glute-bridge", "romanian-deadlift-dumbbell", "romanian-deadlift-barbell", "kettlebell-swing"),
                     "hinge",
                     "hamstrings",
                     "gluteus_maximus"
                 ),
-                slot(listOf("one-arm-dumbbell-row", "barbell-row", "seated-cable-row"), "pull", "latissimus_dorsi"),
-                slot(listOf("plank", "dead-bug"), "core_brace", "rectus_abdominis", "transverse_abdominis")
+                slot(
+                    listOf("inverted-row", "one-arm-dumbbell-row", "barbell-row", "seated-cable-row"),
+                    "pull",
+                    "latissimus_dorsi"
+                ),
+                slot(listOf("plank", "hollow-hold", "dead-bug"), "core_brace", "rectus_abdominis", "transverse_abdominis")
             )
         ),
         SessionBlueprint(
@@ -43,15 +52,29 @@ internal object StrengthSessionBlueprints {
             "lunge_pull_push",
             listOf(
                 slot(
-                    listOf("reverse-lunge-dumbbell", "bulgarian-split-squat", "walking-lunge"),
+                    listOf(
+                        "reverse-lunge-bodyweight",
+                        "walking-lunge",
+                        "split-squat-bodyweight",
+                        "reverse-lunge-dumbbell",
+                        "bulgarian-split-squat"
+                    ),
                     "lunge",
                     "quadriceps",
                     "gluteus_maximus"
                 ),
-                slot(listOf("lat-pulldown", "pull-up", "assisted-pull-up-band"), "pull", "latissimus_dorsi"),
-                slot(listOf("overhead-press-dumbbell", "overhead-press-barbell", "machine-shoulder-press"), "push", "front_deltoid"),
-                slot(listOf("hip-thrust", "glute-bridge"), "hinge", "gluteus_maximus"),
-                slot(listOf("face-pull", "band-pull-apart"), "pull", "rear_deltoid", "rhomboids")
+                slot(
+                    listOf("pull-up", "inverted-row", "lat-pulldown", "assisted-pull-up-band"),
+                    "pull",
+                    "latissimus_dorsi"
+                ),
+                slot(
+                    listOf("pike-push-up", "overhead-press-dumbbell", "overhead-press-barbell", "machine-shoulder-press"),
+                    "push",
+                    "front_deltoid"
+                ),
+                slot(listOf("hip-thrust-bodyweight", "glute-bridge", "hip-thrust"), "hinge", "gluteus_maximus"),
+                slot(listOf("band-pull-apart", "face-pull", "inverted-row"), "pull", "rear_deltoid", "rhomboids")
             )
         ),
         SessionBlueprint(
@@ -59,15 +82,20 @@ internal object StrengthSessionBlueprints {
             "hinge_carry_balance",
             listOf(
                 slot(
-                    listOf("kettlebell-swing", "conventional-deadlift", "trap-bar-deadlift"),
+                    listOf("nordic-curl", "glute-bridge", "kettlebell-swing", "conventional-deadlift", "trap-bar-deadlift"),
                     "hinge",
                     "hamstrings",
                     "gluteus_maximus"
                 ),
-                slot(listOf("dip-parallel-bar", "bench-dip", "machine-assisted-dip"), "push", "triceps", "pectoralis_major"),
-                slot(listOf("farmers-carry"), "carry", "forearms", "trapezius"),
-                slot(listOf("lateral-raise"), "push", "lateral_deltoid"),
-                slot(listOf("bird-dog", "dead-bug"), "core_brace", "erector_spinae", "transverse_abdominis")
+                slot(
+                    listOf("dip-parallel-bar", "bench-dip", "decline-push-up", "machine-assisted-dip"),
+                    "push",
+                    "triceps",
+                    "pectoralis_major"
+                ),
+                slot(listOf("wall-sit", "farmers-carry"), "squat", "quadriceps", "forearms"),
+                slot(listOf("calf-raise-bodyweight", "calf-raise-standing", "lateral-raise"), "other", "calves", "lateral_deltoid"),
+                slot(listOf("bird-dog", "side-plank", "dead-bug"), "core_brace", "erector_spinae", "transverse_abdominis")
             )
         )
     )

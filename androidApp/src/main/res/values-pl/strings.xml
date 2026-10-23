@@ -187,4 +187,7 @@
     <string name="equipment_item_box">Box</string>
     <string name="equipment_item_landmine">Landmine</string>
     <string name="equipment_item_yoga_mat">Mata do jogi</string>
+    <string name="workouts_ready_title">Gotowe treningi</string>
+    <string name="workouts_ready_intro">Przeglądaj gotowe sesje dopasowane do sprzętu. Uruchom od razu albo dostosuj ekwipunek — zamiany się zaktualizują.</string>
+    <string name="workouts_ready_clear">Wyczyść gotowy trening</string>
 </resources>

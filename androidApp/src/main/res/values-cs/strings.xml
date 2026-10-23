@@ -187,4 +187,7 @@
     <string name="equipment_item_box">Box</string>
     <string name="equipment_item_landmine">Landmine</string>
     <string name="equipment_item_yoga_mat">Podložka na jógu</string>
+    <string name="workouts_ready_title">Hotové tréninky</string>
+    <string name="workouts_ready_intro">Procházejte pevné jednotky filtrované podle vybavení. Spusťte rovnou, nebo upravte výbavu — náhrady se aktualizují.</string>
+    <string name="workouts_ready_clear">Zrušit hotový trénink</string>
 </resources>

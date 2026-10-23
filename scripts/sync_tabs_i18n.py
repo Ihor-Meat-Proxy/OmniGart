@@ -929,6 +929,57 @@ t(
 )
 
 t(
+    "workouts_ready_title",
+    **{
+        "en-GB": "Ready-made workouts",
+        "uk": "Готові тренування",
+        "pl": "Gotowe treningi",
+        "be": "Гатовыя трэніроўкі",
+        "kk": "Дайын жаттығулар",
+        "ka": "მზა ვარჯიშები",
+        "es": "Entrenamientos listos",
+        "fr": "Séances prêtes",
+        "de": "Fertige Workouts",
+        "cs": "Hotové tréninky",
+        "zh-Hans": "现成训练",
+    },
+)
+
+t(
+    "workouts_ready_intro",
+    **{
+        "en-GB": "Browse fixed sessions filtered by your equipment. Start one directly, or adjust kit and swaps update.",
+        "uk": "Переглядайте фіксовані сесії за вашим обладнанням. Запустіть одразу або підлаштуйте інвентар — заміни оновляться.",
+        "pl": "Przeglądaj gotowe sesje dopasowane do sprzętu. Uruchom od razu albo dostosuj ekwipunek — zamiany się zaktualizują.",
+        "be": "Праглядайце фіксаваныя сесіі па вашым абсталяванні. Запусціце адразу або падладзьце інвентар — замены абновяцца.",
+        "kk": "Жабдығыңызға сай дайын сессияларды қараңыз. Бірден бастаңыз немесе жабдықты бейімдеңіз — алмастырулар жаңарады.",
+        "ka": "ნახეთ ფიქსირებული სესიები თქვენი აღჭურვილობის მიხედვით. დაიწყეთ პირდაპირ, ან მოარგეთ ინვენტარი — ჩანაცვლებები განახლდება.",
+        "es": "Explora sesiones fijas filtradas por tu material. Empieza una directamente o ajusta el equipo y se actualizan los cambios.",
+        "fr": "Parcourez des séances fixes filtrées selon votre matériel. Lancez-en une directement, ou ajustez l’équipement et les remplacements se mettent à jour.",
+        "de": "Durchsuchen Sie feste Einheiten, gefiltert nach Ihrem Gerät. Starten Sie direkt oder passen Sie das Equipment an — Ersatzübungen aktualisieren sich.",
+        "cs": "Procházejte pevné jednotky filtrované podle vybavení. Spusťte rovnou, nebo upravte výbavu — náhrady se aktualizují.",
+        "zh-Hans": "按现有器械浏览固定课次。可直接开始，或调整器械后自动替换动作。",
+    },
+)
+
+t(
+    "workouts_ready_clear",
+    **{
+        "en-GB": "Clear ready workout",
+        "uk": "Скинути готове тренування",
+        "pl": "Wyczyść gotowy trening",
+        "be": "Скінуць гатовую трэніроўку",
+        "kk": "Дайын жаттығуды тазалау",
+        "ka": "მზა ვარჯიშის გასუფთავება",
+        "es": "Quitar entrenamiento listo",
+        "fr": "Effacer la séance prête",
+        "de": "Fertiges Workout leeren",
+        "cs": "Zrušit hotový trénink",
+        "zh-Hans": "清除现成训练",
+    },
+)
+
+t(
     "watch_strength_start",
     **{
         "en-GB": "Strength session",

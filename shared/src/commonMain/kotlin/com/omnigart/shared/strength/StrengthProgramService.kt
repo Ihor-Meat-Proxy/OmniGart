@@ -94,6 +94,46 @@ class StrengthProgramService(
         return (range.first..range.last).toList()
     }
 
+    /** Ready-made workouts matching the profile's (or session) equipment. */
+    fun readyMadeWorkouts(profileId: String, sessionEquipmentIds: List<String>? = null): List<ReadyMadeWorkout> {
+        val equipment = equipmentService.getEquipment(profileId)
+        val effective =
+            if (sessionEquipmentIds == null) {
+                equipment
+            } else {
+                equipment.withSessionOverride(sessionEquipmentIds.toSet())
+            }
+        return ReadyMadeWorkoutCatalog.availableFor(effective)
+    }
+
+    fun readyMadeWorkouts(profileId: String): List<ReadyMadeWorkout> = readyMadeWorkouts(profileId, null)
+
+    fun startReadyMade(profileId: String, workoutId: String, sessionEquipmentIds: List<String>? = null): GeneratedStrengthSession? {
+        val workout = ReadyMadeWorkoutCatalog.byId(workoutId) ?: return null
+        val profile = profiles.get(profileId) ?: defaultProfile(profileId)
+        val equipment = equipmentService.getEquipment(profileId)
+        val effective =
+            if (sessionEquipmentIds == null) {
+                equipment
+            } else {
+                equipment.withSessionOverride(sessionEquipmentIds.toSet())
+            }
+        val maxLevel =
+            when (profile.strengthLevel) {
+                StrengthLevel.BEGINNER, StrengthLevel.NOVICE -> "beginner"
+                StrengthLevel.INTERMEDIATE -> "intermediate"
+                StrengthLevel.ADVANCED -> "advanced"
+            }
+        return ReadyMadeWorkoutCatalog.materialize(
+            workout = workout,
+            equipment = effective,
+            bodyMassKg = profile.weightKg,
+            maxLevel = maxLevel
+        )
+    }
+
+    fun startReadyMade(profileId: String, workoutId: String): GeneratedStrengthSession? = startReadyMade(profileId, workoutId, null)
+
     private fun defaultProfile(profileId: String): UserProfile = UserProfile(
         id = profileId,
         biologicalSex = com.omnigart.shared.domain.BiologicalSex.FEMALE,

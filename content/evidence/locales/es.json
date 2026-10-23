@@ -88,5 +88,9 @@
   "evidence.kaminsky_friend_vo2_2015.key_finding": "Age- and sex-specific VO2 reference percentiles from the FRIEND registry provide norms for cardiorespiratory fitness interpretation.",
   "evidence.loe_hunt_vo2_2016.key_finding": "Population fitness models from HUNT support estimating VO2peak for wellness fitness comparisons when direct CPET is unavailable.",
   "evidence.van_dongen_sleep_debt_2003.key_finding": "Cumulative sleep restriction produces dose-dependent neurobehavioral deficits, supporting the concept of accumulating sleep debt.",
-  "evidence.watson_sleep_performance_2017.key_finding": "Insufficient sleep impairs athletic performance, cognition and injury risk markers; extending sleep and protecting sleep opportunity support recovery."
+  "evidence.watson_sleep_performance_2017.key_finding": "Insufficient sleep impairs athletic performance, cognition and injury risk markers; extending sleep and protecting sleep opportunity support recovery.",
+  "claim.formula_zone2_hrr_karvonen.text": "La zona 2 (intensidad aeróbica fácil) se fija por defecto en torno al 60–70% de la reserva de frecuencia cardiaca (método de Karvonen) usando tu frecuencia en reposo y máxima.",
+  "claim.formula_zone2_percent_hrmax.text": "La zona 2 se puede definir opcionalmente como alrededor del 60–70% de la frecuencia cardiaca máxima si prefieres bandas de %HRmax en lugar de la reserva de frecuencia cardiaca.",
+  "claim.cardio_zone2_easy_distribution.text": "Gran parte del volumen de entrenamiento de resistencia suele realizarse a intensidad aeróbica fácil (similar a la zona 2), y el trabajo más duro representa una menor proporción de las sesiones.",
+  "claim.formula_zone2_lthr_band.text": "Como opción, la zona 2 se puede estimar como alrededor del 80–90% de la frecuencia cardiaca de umbral de lactato cuando dispones de un LTHR medido o estimado."
 }

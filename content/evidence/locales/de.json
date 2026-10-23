@@ -88,5 +88,9 @@
   "evidence.kaminsky_friend_vo2_2015.key_finding": "Age- and sex-specific VO2 reference percentiles from the FRIEND registry provide norms for cardiorespiratory fitness interpretation.",
   "evidence.loe_hunt_vo2_2016.key_finding": "Population fitness models from HUNT support estimating VO2peak for wellness fitness comparisons when direct CPET is unavailable.",
   "evidence.van_dongen_sleep_debt_2003.key_finding": "Cumulative sleep restriction produces dose-dependent neurobehavioral deficits, supporting the concept of accumulating sleep debt.",
-  "evidence.watson_sleep_performance_2017.key_finding": "Insufficient sleep impairs athletic performance, cognition and injury risk markers; extending sleep and protecting sleep opportunity support recovery."
+  "evidence.watson_sleep_performance_2017.key_finding": "Insufficient sleep impairs athletic performance, cognition and injury risk markers; extending sleep and protecting sleep opportunity support recovery.",
+  "claim.formula_zone2_hrr_karvonen.text": "Zone 2 (leichte aerobe Intensität) liegt standardmäßig bei etwa 60–70 % der Herzfrequenzreserve (Karvonen-Methode) auf Basis Ihrer Ruhe- und Maximalherzfrequenz.",
+  "claim.formula_zone2_percent_hrmax.text": "Zone 2 kann optional als etwa 60–70 % der maximalen Herzfrequenz festgelegt werden, wenn Sie %HRmax-Bänder statt der Herzfrequenzreserve bevorzugen.",
+  "claim.cardio_zone2_easy_distribution.text": "Ein großer Teil des Ausdauertrainingsvolumens wird oft bei leichter aerober Intensität (Zone-2-ähnlich) absolviert; härtere Arbeit macht einen kleineren Anteil der Einheiten aus.",
+  "claim.formula_zone2_lthr_band.text": "Optional kann Zone 2 als etwa 80–90 % der Laktatschwellen-Herzfrequenz geschätzt werden, wenn Sie eine gemessene oder geschätzte LTHR haben."
 }

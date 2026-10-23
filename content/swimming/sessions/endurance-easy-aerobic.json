@@ -1,0 +1,57 @@
+{
+  "id": "endurance-easy-aerobic",
+  "nameKeys": {
+    "enGB": "swim.session.endurance_easy_aerobic.name",
+    "uk": "swim.session.endurance_easy_aerobic.name"
+  },
+  "category": "endurance",
+  "level": "beginner",
+  "strokeIds": [
+    "freestyle"
+  ],
+  "targetDistanceM": 2000,
+  "durationMinutes": 50,
+  "usesCriticalSwimSpeed": false,
+  "blocks": [
+    {
+      "kind": "warmup",
+      "descriptionKey": "swim.session.endurance_easy_aerobic.block.warmup",
+      "distanceM": 300,
+      "intensityHint": "easy"
+    },
+    {
+      "kind": "main",
+      "descriptionKey": "swim.session.endurance_easy_aerobic.block.main",
+      "distanceM": 1400,
+      "intensityHint": "steady"
+    },
+    {
+      "kind": "cooldown",
+      "descriptionKey": "swim.session.endurance_easy_aerobic.block.cooldown",
+      "distanceM": 300,
+      "intensityHint": "easy"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "technique",
+        "safety"
+      ]
+    }
+  ],
+  "notes": "Bundled swim session content only — CSS and pacing algorithms are out of scope here."
+}

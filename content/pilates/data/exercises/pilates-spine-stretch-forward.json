@@ -1,0 +1,51 @@
+{
+  "id": "pilates-spine-stretch-forward",
+  "nameKeys": {
+    "enGB": "pilates.exercise.pilates_spine_stretch_forward.name",
+    "uk": "pilates.exercise.pilates_spine_stretch_forward.name"
+  },
+  "apparatus": "mat",
+  "level": "beginner",
+  "primaryMuscles": [
+    "erector_spinae",
+    "hamstrings"
+  ],
+  "secondaryMuscles": [
+    "transverse_abdominis"
+  ],
+  "equipment": [
+    "pilates_mat",
+    "bodyweight"
+  ],
+  "technique": [
+    "Perform Spine stretch forward with a braced centre, neutral or imprinted pelvis as coached, and smooth carriage or limb control.",
+    "Prioritise articulation and breath over range; reduce springs or amplitude if form breaks."
+  ],
+  "cues": [
+    "Keep ribs heavy and shoulders away from the ears.",
+    "Exhale on effort; inhale to prepare or lengthen."
+  ],
+  "breathing": "Coordinate breath with each repetition; never hold the breath through effort.",
+  "safetyNotes": [
+    "Use a head support or keep the head down if the neck fatigues.",
+    "Reduce load (springs, lever, or range) rather than forcing lumbar flexion or extension."
+  ],
+  "contraindicationNotes": [
+    "General safety: seek clinician guidance for acute spinal pain, recent surgery, or unmanaged medical conditions before loaded pilates work.",
+    "General safety: during pregnancy or postpartum, favour clinician-cleared regressions and avoid breath-holding or extreme abdominal pressure."
+  ],
+  "evidenceEntryIds": [
+    "garber-acsm-2011",
+    "acsm-rt-2026"
+  ],
+  "trackingType": "reps",
+  "unilateral": false,
+  "bundled": true,
+  "aliases": [],
+  "tags": [
+    "pilates",
+    "mat",
+    "beginner"
+  ],
+  "defaultReps": 6
+}

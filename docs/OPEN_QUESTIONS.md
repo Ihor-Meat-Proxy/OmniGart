@@ -265,3 +265,13 @@ Provisional — do not block merges. IDs are `BC1`…`BCn` (body composition) so
 - **BC5.** **EWMA alpha** — Default 0.3 for weight/girth series. Expose per-metric alphas in settings?
 - **BC6.** **Ethnicity adjustments** — BMI/WHtR wellness bands are population averages; any locale-specific screening copy beyond en-GB/uk?
 - **BC7.** **Navy abdomen vs waist** — Male equation prefers abdomen, falls back to waist. Confirm landmark copy in the app shell.
+
+## § Activity algorithms
+
+IDs use `A#` so they do not clash with numeric process items or other lettered sections.
+
+- **A1. Swim accel thresholds** — Stroke/turn thresholds validated on synthetic fixtures only. Confirm after pool sessions with watch IMU logs (axis choice, refractory, quiet window).
+- **A2. Default HR zone model** — Ship %HRmax five-zone bands, or prefer Karvonen %HRR when resting HR is known?
+- **A3. Running power Cr** — Default Cr = 3.8 J·kg⁻¹·m⁻¹ (di Prampero range 3.6–4.0). Expose as user setting, or lock for v1?
+- **A4. ACSM VO₂ labelling** — ACSM running equation is oxygen *cost* at a speed/grade; show as “estimated VO₂” vs “VO₂max” unless the bout is maximal?
+- **A5. Cooper surface** — Accept treadmill @ 1 % as equivalent to outdoor track for Cooper distance input?

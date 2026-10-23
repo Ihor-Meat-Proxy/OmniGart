@@ -1,0 +1,294 @@
+[
+  {
+    "id": "pilates.first_session",
+    "category": "pilates",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1,
+      "filters": {
+        "discipline": [
+          "pilates"
+        ]
+      }
+    },
+    "iconId": "pilates",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.pilates.first_session.title",
+    "descriptionKey": "achievement.pilates.first_session.description"
+  },
+  {
+    "id": "pilates.minutes",
+    "category": "pilates",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 60
+      },
+      {
+        "id": "silver",
+        "threshold": 300
+      },
+      {
+        "id": "gold",
+        "threshold": 900
+      },
+      {
+        "id": "platinum",
+        "threshold": 2400
+      }
+    ],
+    "rule": {
+      "metric": "pilates_minutes",
+      "aggregation": "sum",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte"
+    },
+    "iconId": "pilates",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.pilates.minutes.title",
+    "descriptionKey": "achievement.pilates.minutes.description"
+  },
+  {
+    "id": "pilates.sessions",
+    "category": "pilates",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 5
+      },
+      {
+        "id": "silver",
+        "threshold": 20
+      },
+      {
+        "id": "gold",
+        "threshold": 50
+      },
+      {
+        "id": "platinum",
+        "threshold": 120
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "pilates"
+        ]
+      }
+    },
+    "iconId": "pilates",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.pilates.sessions.title",
+    "descriptionKey": "achievement.pilates.sessions.description"
+  },
+  {
+    "id": "pilates.streak",
+    "category": "pilates",
+    "type": "streak",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 3
+      },
+      {
+        "id": "silver",
+        "threshold": 8
+      },
+      {
+        "id": "gold",
+        "threshold": 16
+      },
+      {
+        "id": "platinum",
+        "threshold": 30
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "streak",
+      "window": {
+        "kind": "streak_days",
+        "qualify": "activity_or_planned_rest",
+        "restDayTolerancePerWeek": 2,
+        "freezeTokensAllowed": true,
+        "maxFreezePerStreak": 2
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "pilates"
+        ]
+      }
+    },
+    "iconId": "streak",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.pilates.streak.title",
+    "descriptionKey": "achievement.pilates.streak.description"
+  },
+  {
+    "id": "pilates.core_focus",
+    "category": "pilates",
+    "type": "single_session",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 20
+      },
+      {
+        "id": "silver",
+        "threshold": 35
+      },
+      {
+        "id": "gold",
+        "threshold": 45
+      },
+      {
+        "id": "platinum",
+        "threshold": 60
+      }
+    ],
+    "rule": {
+      "metric": "session_duration_min",
+      "aggregation": "max",
+      "window": {
+        "kind": "single_event"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "pilates"
+        ]
+      }
+    },
+    "iconId": "muscle-core",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.pilates.core_focus.title",
+    "descriptionKey": "achievement.pilates.core_focus.description"
+  },
+  {
+    "id": "pilates.month_challenge",
+    "category": "pilates",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 6
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "challenge_period",
+        "period": "current_month"
+      },
+      "compare": "gte",
+      "threshold": 6,
+      "filters": {
+        "discipline": [
+          "pilates"
+        ]
+      }
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.pilates.month_challenge.title",
+    "descriptionKey": "achievement.pilates.month_challenge.description"
+  },
+  {
+    "id": "pilates.secret_hundred",
+    "category": "pilates",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1,
+      "filters": {
+        "discipline": [
+          "pilates"
+        ]
+      }
+    },
+    "iconId": "pilates",
+    "hidden": true,
+    "repeatable": false,
+    "titleKey": "achievement.pilates.secret_hundred.title",
+    "descriptionKey": "achievement.pilates.secret_hundred.description"
+  },
+  {
+    "id": "pilates.week_minutes",
+    "category": "pilates",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 30
+      },
+      {
+        "id": "silver",
+        "threshold": 60
+      },
+      {
+        "id": "gold",
+        "threshold": 90
+      },
+      {
+        "id": "platinum",
+        "threshold": 120
+      }
+    ],
+    "rule": {
+      "metric": "pilates_minutes",
+      "aggregation": "sum",
+      "window": {
+        "kind": "calendar",
+        "unit": "week",
+        "count": 1
+      },
+      "compare": "gte"
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.pilates.week_minutes.title",
+    "descriptionKey": "achievement.pilates.week_minutes.description"
+  }
+]

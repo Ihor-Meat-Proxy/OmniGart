@@ -1,0 +1,120 @@
+{
+  "id": "back-squat",
+  "nameKeys": {
+    "enGB": "exercise.back_squat.name",
+    "uk": "exercise.back_squat.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "squat",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "hamstrings",
+    "erector_spinae",
+    "calves"
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Brace the trunk, set the bar on the upper back, and unlock hips and knees together.",
+    "Descend until thighs reach at least parallel while keeping heels down and knees tracking over mid-foot.",
+    "Drive up by extending hips and knees without losing lumbar neutrality."
+  ],
+  "setup": [
+    "Rack height at mid-chest; step under the bar; create upper-back shelf; walk out with short steps."
+  ],
+  "breathing": "Inhale and brace before descent; forceful exhale near lockout or use a brief Valsalva on heavy sets.",
+  "commonMistakes": [
+    "Heels rising",
+    "Knees caving in",
+    "Excessive forward torso collapse",
+    "Losing lumbar brace"
+  ],
+  "safety": [
+    "Use collars; clear spotters/safety pins; stop if sharp knee or spine pain."
+  ],
+  "contraindications": [
+    "Uncontrolled hypertension for maximal Valsalva",
+    "Acute lumbar disc flare without clearance"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "goblet-squat",
+      "note": "Learn depth and brace with goblet load"
+    },
+    {
+      "exerciseId": "box-squat",
+      "note": "Depth target with box"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "front-squat",
+      "note": "More upright torso variation"
+    },
+    {
+      "exerciseId": "pause-back-squat",
+      "note": "Pause for control"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1097/00005768-200101000-00020",
+      "label": "Escamilla 2001 — knee biomechanics of the dynamic squat",
+      "supports": [
+        "biomechanics",
+        "technique",
+        "safety"
+      ]
+    },
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand (overview of reviews)",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/back-squat",
+    "videoKey": "media/video/back-squat",
+    "animationKey": "media/anim/back-squat"
+  },
+  "aliases": [
+    "barbell squat"
+  ],
+  "tags": [
+    "compound",
+    "legs"
+  ],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

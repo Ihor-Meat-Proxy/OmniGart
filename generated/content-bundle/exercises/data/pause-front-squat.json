@@ -1,0 +1,83 @@
+{
+  "id": "pause-front-squat",
+  "nameKeys": {
+    "enGB": "exercise.pause_front_squat.name",
+    "uk": "exercise.pause_front_squat.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "squat",
+  "primaryMuscles": [
+    "quadriceps"
+  ],
+  "secondaryMuscles": [
+    "gluteus_maximus",
+    "erector_spinae"
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Front squat pattern with a controlled pause in the bottom."
+  ],
+  "setup": [
+    "Front-rack setup; lighter than normal front squat."
+  ],
+  "breathing": "Maintain brace through the pause.",
+  "commonMistakes": [
+    "Elbows dropping in the pause"
+  ],
+  "safety": [
+    "Prioritise position over load."
+  ],
+  "contraindications": [
+    "Wrist pain in rack"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "front-squat",
+      "note": "Remove pause"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1097/00005768-200101000-00020",
+      "label": "Escamilla 2001 — knee biomechanics of the dynamic squat",
+      "supports": [
+        "biomechanics",
+        "technique",
+        "safety"
+      ]
+    },
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/pause-front-squat",
+    "videoKey": "media/video/pause-front-squat",
+    "animationKey": "media/anim/pause-front-squat"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

@@ -6,7 +6,6 @@ struct WorkoutsTabView: View {
     let core: OmniGartCore
     let profileId: String
 
-    @State private var selectedExerciseId: String?
     @State private var zone2Message: String?
     @State private var tick = 0
 
@@ -27,14 +26,48 @@ struct WorkoutsTabView: View {
                     .font(.footnote)
                     .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
             }
+            Section("explore_title") {
+                NavigationLink {
+                    WorkoutsExploreView(core: core, profileId: profileId)
+                } label: {
+                    Text("explore_open")
+                }
+                .accessibilityIdentifier("workouts_explore_open")
+                NavigationLink {
+                    EquipmentCataloguePickerView(core: core, profileId: profileId) {
+                        tick += 1
+                    }
+                } label: {
+                    Text("equipment_catalogue_open")
+                }
+                .accessibilityIdentifier("workouts_equipment_catalogue_open")
+                if let card = core.routineLibrary.nextWorkoutCard(profileId: profileId) {
+                    NavigationLink {
+                        RoutineDetailView(core: core, profileId: profileId, routineId: card.routineId)
+                    } label: {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("next_workout_title")
+                                .font(.caption)
+                                .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                            Text(LocalizedStringKey(card.nameKey))
+                                .font(.headline)
+                            Text("\(card.weeklyGoalDone)/\(card.weeklyGoalTarget) · \(card.estimatedMinutes) min")
+                                .font(.caption)
+                                .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                        }
+                    }
+                    .accessibilityIdentifier("workouts_next_card")
+                }
+            }
             StrengthProgramSection(core: core, profileId: profileId)
             Section("workouts_library_title") {
                 ForEach(demos, id: \.exercise.id) { demo in
-                    Button {
-                        selectedExerciseId = demo.exercise.id
-                        tick += 1
+                    NavigationLink {
+                        ExerciseDetailView(core: core, profileId: profileId, exerciseId: demo.exercise.id)
                     } label: {
                         HStack(spacing: OmniGartMetrics.space2) {
+                            ExerciseIllustrationView(illustrationKey: "ex_\(demo.exercise.id.replacingOccurrences(of: "-", with: "_"))")
+                                .frame(width: 40, height: 40)
                             MuscleMapIcons(muscles: muscleList(demo.exercise.primaryMuscles))
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(demo.displayName)
@@ -43,14 +76,8 @@ struct WorkoutsTabView: View {
                                     .font(.caption)
                                     .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
                             }
-                            Spacer()
-                            if selectedExerciseId == demo.exercise.id {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundStyle(Color.OmniGart.colorBrandAccent)
-                            }
                         }
                     }
-                    .buttonStyle(.plain)
                     .accessibilityIdentifier("library_exercise_\(demo.exercise.id)")
                 }
             }

@@ -140,7 +140,7 @@ class EquipmentProfileService(private val db: OmniGartDatabase) {
 
     fun saveProgramPrefs(prefs: StrengthProgramPreferences): StrengthProgramPreferences = saveProgramPrefs(prefs, Clock.System.now())
 
-    fun catalogueIds(): List<String> = EquipmentItem.selectable().map { it.id }
+    fun catalogueIds(): List<String> = EquipmentDefinitions.selectable().map { it.id }
 
     @Serializable
     private data class SavedPresetDto(val label: String, val kind: String, val ownedIds: List<String>)

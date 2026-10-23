@@ -22,6 +22,7 @@ import com.omnigart.shared.domain.UnitSystem
 import com.omnigart.shared.domain.UserProfile
 import com.omnigart.shared.logging.StrengthLoggingService
 import com.omnigart.shared.strength.EquipmentProfileService
+import com.omnigart.shared.strength.RoutineLibraryService
 import com.omnigart.shared.strength.StrengthProgramService
 import com.omnigart.shared.util.formatOneDecimal
 import kotlin.time.Clock
@@ -59,10 +60,18 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
             formulaSettings = formulaSettings,
             contentStore = contentStore
         )
+    private val equipmentProfiles = EquipmentProfileService(database)
     val strengthPrograms =
         StrengthProgramService(
-            equipmentService = EquipmentProfileService(database),
+            equipmentService = equipmentProfiles,
             profiles = profiles
+        )
+    val routineLibrary =
+        RoutineLibraryService(
+            equipmentService = equipmentProfiles,
+            profiles = profiles,
+            exercises = exercises,
+            sessions = sessions
         )
 
     /** True when a completed local profile exists (first-launch onboarding finished). */

@@ -138,35 +138,8 @@ data class UserEquipmentProfile(
          * Example: owning [bench_flat] also satisfies exercises tagged `bench`.
          */
         fun expandCapabilities(owned: Set<String>): Set<String> {
-            val out = owned.toMutableSet()
-            if (EquipmentItem.BENCH_FLAT.id in owned || EquipmentItem.BENCH_ADJUSTABLE.id in owned) {
-                out += "bench"
-            }
-            if (EquipmentItem.PLATES.id in owned && EquipmentItem.BARBELL.id in owned) {
-                out += EquipmentItem.BARBELL.id
-            }
-            // Generic machine unlock covers unspecified machine-tagged rows.
-            if (EquipmentItem.MACHINE.id in owned) {
-                out += EquipmentItem.SMITH_MACHINE.id
-                out += EquipmentItem.LEG_PRESS.id
-                out += EquipmentItem.LAT_PULLDOWN.id
-                out += EquipmentItem.ASSISTED_PULLUP_DIP_MACHINE.id
-            }
-            // Specific machines also count as "machine" for loosely tagged content.
-            val specificMachines =
-                setOf(
-                    EquipmentItem.SMITH_MACHINE.id,
-                    EquipmentItem.LEG_PRESS.id,
-                    EquipmentItem.LAT_PULLDOWN.id,
-                    EquipmentItem.ASSISTED_PULLUP_DIP_MACHINE.id
-                )
-            if (owned.any { it in specificMachines }) {
-                out += EquipmentItem.MACHINE.id
-            }
-            if (EquipmentItem.CABLE.id in owned) {
-                out += EquipmentItem.LAT_PULLDOWN.id
-            }
-            return out
+            // Prefer the expanded catalogue alias graph; keep legacy machine/bench rules inside it.
+            return EquipmentDefinitions.expandOwned(owned)
         }
     }
 }

@@ -1,9 +1,9 @@
 package com.omnigart.shared
 
 import com.omnigart.shared.calc.Bmi
-import com.omnigart.shared.calc.Bmr
-import com.omnigart.shared.calc.HeartRate
 import com.omnigart.shared.calc.WaterTarget
+import com.omnigart.shared.calc.strategy.FormulaSettingsService
+import com.omnigart.shared.content.ContentStore
 import com.omnigart.shared.data.DatabaseDriverFactory
 import com.omnigart.shared.data.ExerciseRepository
 import com.omnigart.shared.data.SessionRepository
@@ -12,6 +12,7 @@ import com.omnigart.shared.data.WorkoutRepository
 import com.omnigart.shared.data.createDatabase
 import com.omnigart.shared.domain.BiologicalSex
 import com.omnigart.shared.domain.UserProfile
+import com.omnigart.shared.logging.StrengthLoggingService
 import com.omnigart.shared.util.formatOneDecimal
 import kotlin.time.Clock
 import kotlinx.datetime.LocalDate
@@ -19,14 +20,29 @@ import kotlinx.datetime.TimeZone
 import kotlinx.datetime.todayIn
 
 /**
- * Facade used by thin native UI shells in Phase 0.
+ * Facade used by thin native UI shells.
+ *
+ * [contentStore] is the offline content pack (Android/Wear assets). When null, strength
+ * logging falls back to the built-in demo exercise catalog.
  */
-class OmniGartCore(driverFactory: DatabaseDriverFactory) {
+class OmniGartCore(driverFactory: DatabaseDriverFactory, contentStore: ContentStore?) {
+    /** Swift-friendly overload (Kotlin default args are not exported to Apple). */
+    constructor(driverFactory: DatabaseDriverFactory) : this(driverFactory, contentStore = null)
+
     private val database = createDatabase(driverFactory)
     val profiles = UserProfileRepository(database)
     val exercises = ExerciseRepository(database)
     val workouts = WorkoutRepository(database)
     val sessions = SessionRepository(database)
+    val formulaSettings = FormulaSettingsService(database)
+    val strengthLogging =
+        StrengthLoggingService(
+            sessions = sessions,
+            exercises = exercises,
+            profiles = profiles,
+            formulaSettings = formulaSettings,
+            contentStore = contentStore
+        )
 
     fun ensureDemoProfile(): UserProfile {
         val existing = profiles.get(DEMO_PROFILE_ID)
@@ -55,9 +71,10 @@ class OmniGartCore(driverFactory: DatabaseDriverFactory) {
 
     fun summaryLines(profile: UserProfile): List<String> {
         val age = ageYears(profile)
-        val bmr = Bmr.mifflinStJeor(profile.weightKg, profile.heightCm, age, profile.biologicalSex)
+        val prefs = formulaSettings.getSelection(profile.id).toPreferences()
+        val bmr = prefs.bmr.bmrKcal(profile.weightKg, profile.heightCm, age, profile.biologicalSex)
         val bmi = Bmi.value(profile.weightKg, profile.heightCm)
-        val hrMax = HeartRate.tanakaMax(age)
+        val hrMax = prefs.hrMax.hrMax(age)
         val water = WaterTarget.litresPerDay(profile.biologicalSex, profile.weightKg)
         return listOf(
             "OmniGart",
@@ -70,6 +87,6 @@ class OmniGartCore(driverFactory: DatabaseDriverFactory) {
 
     companion object {
         const val DEMO_PROFILE_ID = "demo-profile"
-        const val VERSION = "0.1.0-phase0"
+        const val VERSION = "0.1.0-phase1"
     }
 }

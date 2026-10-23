@@ -28,8 +28,9 @@ flowchart TB
   end
 
   subgraph content [Content - not user data]
-    Packs[Versioned JSON packs]
-    Media[Media CDN / packs server]
+    Bundle[Bundled baseline in app binary]
+    Update[Signed update packs]
+    Media[Optional media / food packs / remote config]
   end
 
   iOS --> kmp
@@ -41,9 +42,14 @@ flowchart TB
   HealthIF -.-> HK
   HealthIF -.-> HC
   HealthIF -.-> GHA
-  Packs --> Domain
-  Media --> Packs
+  Bundle --> Domain
+  Update -.-> Bundle
+  Media -.-> Update
 ```
+
+## Bundle-first content
+
+Apps ship an offline baseline (`generated/content-bundle/`: exercises, templates, locales, evidence, icons, body-map paths, achievements, exercise images). Shared `LayeredContentLoader` applies **bundled &lt; verified newer update pack**. The server is never required for core use. See `docs/CONTENT_BUNDLE.md`.
 
 ## Modules
 
@@ -103,3 +109,11 @@ If a future dependency lacks watchOS artifacts, keep the API in `commonMain` / `
 - No `GlobalScope`, no Kotlin `!!` in shared/core code
 - No singleton mutable app state; `OmniGartCore` is constructed per process entry and owns repositories
 - Main-thread DB work is acceptable for Phase 0 smoke shells only; later move to background dispatchers
+
+
+## Health integrations (first release)
+
+On-device: HealthKit (Apple) and Health Connect (Android) implement `HealthClient`.
+Cloud: `GoogleHealthApiClient` uses OAuth PKCE with tokens in Keychain/Keystore (no OmniGart server).
+Formula selection uses strategy interfaces in `calc/strategy` (BMR, HRmax, body fat, 1RM, HR zones).
+Baevsky stress index is available from RR intervals (`calc/BaevskyStressIndex`).

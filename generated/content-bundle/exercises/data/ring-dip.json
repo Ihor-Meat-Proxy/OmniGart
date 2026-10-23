@@ -1,0 +1,124 @@
+{
+  "id": "ring-dip",
+  "nameKeys": {
+    "enGB": "exercise.ring_dip.name",
+    "uk": "exercise.ring_dip.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "serratus_anterior",
+    "rectus_abdominis",
+    "front_deltoid",
+    "rotator_cuff"
+  ],
+  "equipment": [
+    "suspension",
+    "bodyweight"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Stabilise the rings in support, descend under control, press to support with rings turned out slightly at the top."
+  ],
+  "setup": [
+    "Ring height appropriate; hollow body; master parallel-bar dips first."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Losing ring stability",
+    "Excess depth under fatigue"
+  ],
+  "safety": [
+    "Rings increase stability demand; kinematic work suggests ring dips may use less peak shoulder extension than bar dips for some athletes — still respect pain-free depth (McKenzie et al. 2022)."
+  ],
+  "contraindications": [
+    "Shoulder instability"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "dip-parallel-bar",
+      "note": "Stable bars"
+    },
+    {
+      "exerciseId": "band-assisted-dip",
+      "note": "Assistance"
+    },
+    {
+      "exerciseId": "negative-dip",
+      "note": "Eccentrics"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "weighted-dip",
+      "note": "Load on rings or return to bars"
+    },
+    {
+      "exerciseId": "korean-dip",
+      "note": "Only if prepared"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.3390/ijerph192013211",
+      "label": "McKenzie et al. 2022 — bench vs bar vs ring dip kinematics and muscle activity",
+      "supports": [
+        "biomechanics",
+        "emg",
+        "safety"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1519/SSC.0000000000000579",
+      "label": "McKenzie et al. 2020 — glenohumeral extension risk considerations in the dip",
+      "supports": [
+        "safety",
+        "technique"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1016/0021-9290(95)00178-6",
+      "label": "de Leva 1996 — adjusted segmental mass proportions (Zatsiorsky–Seluyanov)",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/ring-dip",
+    "videoKey": "media/video/ring-dip",
+    "animationKey": "media/anim/ring-dip"
+  },
+  "aliases": [],
+  "tags": [
+    "dip-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.97,
+    "basis": "estimate",
+    "rationale": "Feet free; almost all BM is supported through the upper limbs. Hands contact the bars (~1.2% BM per de Leva male hands), so estimate ~0.96–0.99. No published GRF %BM for dips found — estimate only."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
+}

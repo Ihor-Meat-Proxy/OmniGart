@@ -1,0 +1,81 @@
+{
+  "id": "single-leg-rdl",
+  "nameKeys": {
+    "enGB": "exercise.single_leg_rdl.name",
+    "uk": "exercise.single_leg_rdl.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "hamstrings",
+    "gluteus_maximus",
+    "gluteus_medius"
+  ],
+  "secondaryMuscles": [
+    "erector_spinae"
+  ],
+  "equipment": [
+    "dumbbell",
+    "kettlebell"
+  ],
+  "level": "intermediate",
+  "unilateral": true,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Hinge on the stance leg while the free leg reaches back; keep hips square; return to tall stand."
+  ],
+  "setup": [
+    "Light load; optional support for balance."
+  ],
+  "breathing": "Steady breathing; brace lightly.",
+  "commonMistakes": [
+    "Rotating the pelvis open",
+    "Rounding the back"
+  ],
+  "safety": [
+    "Start bodyweight; progress load slowly."
+  ],
+  "contraindications": [
+    "Uncontrolled ankle instability"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "romanian-deadlift-dumbbell",
+      "note": "Bilateral hinge"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "conventional-deadlift",
+      "note": "Bilateral heavy hinge"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/single-leg-rdl",
+    "videoKey": "media/video/single-leg-rdl",
+    "animationKey": "media/anim/single-leg-rdl"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

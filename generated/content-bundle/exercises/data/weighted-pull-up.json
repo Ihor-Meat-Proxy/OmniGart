@@ -1,0 +1,128 @@
+{
+  "id": "weighted-pull-up",
+  "nameKeys": {
+    "enGB": "exercise.weighted_pull_up.name",
+    "uk": "exercise.weighted_pull_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "biceps"
+  ],
+  "secondaryMuscles": [
+    "forearms",
+    "rhomboids",
+    "trapezius"
+  ],
+  "equipment": [
+    "pull_up_bar"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Perform strict pull-ups with added load via dip belt, weighted vest, or a dumbbell held between the feet/ankles.",
+    "Use full ROM; load conservatively."
+  ],
+  "setup": [
+    "Only after solid unassisted sets; secure belt/vest; soft-clamp dumbbell safely if used."
+  ],
+  "breathing": "Exhale on the pull; brace before heavier reps.",
+  "commonMistakes": [
+    "Shortening ROM under load",
+    "Unsafe dumbbell clamping"
+  ],
+  "safety": [
+    "Prefer belt or vest for heavier loads; mind grip fatigue."
+  ],
+  "contraindications": [
+    "Same as pull-up; avoid if unassisted form fails"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "pull-up",
+      "note": "Unload"
+    },
+    {
+      "exerciseId": "chin-up",
+      "note": "Grip variant"
+    },
+    {
+      "exerciseId": "negative-pull-up",
+      "note": "Eccentrics"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "chest-to-bar-pull-up",
+      "note": "Higher pull unloaded or light"
+    },
+    {
+      "exerciseId": "archer-pull-up",
+      "note": "Skill progression"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1016/0021-9290(95)00178-6",
+      "label": "de Leva 1996 — adjusted segmental mass proportions (Zatsiorsky–Seluyanov)",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1519/JSC.0b013e3181f1598c",
+      "label": "Youdas et al. 2010 — pull-up vs chin-up surface EMG (biceps/pec higher on chin-up)",
+      "supports": [
+        "emg",
+        "biomechanics",
+        "technique"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand (overview of reviews)",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/weighted-pull-up",
+    "videoKey": "media/video/weighted-pull-up",
+    "animationKey": "media/anim/weighted-pull-up"
+  },
+  "aliases": [
+    "belt weighted pull-up",
+    "vest pull-up"
+  ],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

@@ -1,0 +1,85 @@
+{
+  "id": "pilates-hundred",
+  "nameKeys": {
+    "enGB": "exercise.pilates_hundred.name",
+    "uk": "exercise.pilates_hundred.name"
+  },
+  "discipline": "pilates",
+  "movementPattern": "core_brace",
+  "primaryMuscles": [
+    "rectus_abdominis",
+    "transverse_abdominis"
+  ],
+  "secondaryMuscles": [
+    "hip_flexors"
+  ],
+  "equipment": [
+    "pilates_mat",
+    "yoga_mat",
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "timed",
+  "technique": [
+    "Curl head/shoulders up, legs in tabletop or extended, pump arms while breathing in 5 / out 5 for ~100 counts."
+  ],
+  "setup": [
+    "Imprinted or neutral pelvis per school; neck supported if needed."
+  ],
+  "breathing": "Inhale 5 pumps, exhale 5 pumps.",
+  "commonMistakes": [
+    "Neck strain from jutting chin",
+    "Holding breath"
+  ],
+  "safety": [
+    "Keep head down if neck fatigues; bend knees."
+  ],
+  "contraindications": [
+    "Neck injury",
+    "Late pregnancy without specialist advice"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "dead-bug",
+      "note": "Core without neck load"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "pilates-roll-up",
+      "note": "More flexion challenge"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/pilates-hundred",
+    "videoKey": "media/video/pilates-hundred",
+    "animationKey": "media/anim/pilates-hundred"
+  },
+  "aliases": [],
+  "tags": [
+    "pilates"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Bodyweight movement with negligible external implement; treat moved mass as ~full BM unless a measured study applies. Estimate."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

@@ -211,11 +211,13 @@ jobs:
         run: |
           # Version-agnostic paths: Debug/iphonesimulator and Debug/watchsimulator
           # (matches FRAMEWORK_SEARCH_PATHS $(PLATFORM_NAME) in iosApp/project.yml).
+          # Two Gradle invocations so sync always sees freshly linked frameworks
+          # (syncXcodeFrameworks also mustRunAfter link*Framework* in build.gradle.kts).
           ./gradlew \
             linkDebugFrameworkIosSimulatorArm64 \
             linkDebugFrameworkWatchosSimulatorArm64 \
-            syncXcodeFrameworks \
             --stacktrace
+          ./gradlew syncXcodeFrameworks --stacktrace
           test -d shared/build/xcode-frameworks/Debug/iphonesimulator/Shared.framework
           test -d shared/build/xcode-frameworks/Debug/watchsimulator/Shared.framework
 

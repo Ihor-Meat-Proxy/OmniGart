@@ -23,10 +23,8 @@ project(":shared:planning").projectDir = file("shared/planning")
 include(":shared:bodymap")
 project(":shared:bodymap").projectDir = file("shared/bodymap")
 
-<<<<<<< HEAD
 include(":shared:achievements")
 project(":shared:achievements").projectDir = file("shared/achievements")
-=======
+
 include(":androidApp")
 include(":wearApp")
->>>>>>> origin/main

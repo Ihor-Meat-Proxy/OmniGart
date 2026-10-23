@@ -123,20 +123,21 @@ final class WatchEquipmentSync: NSObject, ObservableObject, WCSessionDelegate {
         activationDidCompleteWith activationState: WCSessionActivationState,
         error: Error?
     ) {
-        let context = session.receivedApplicationContext
+        let ids = (session.receivedApplicationContext["equipmentIds"] as? [String]) ?? []
         Task { @MainActor in
-            self.apply(context: context)
+            self.apply(ids: ids)
         }
     }
 
     nonisolated func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
+        let ids = (applicationContext["equipmentIds"] as? [String]) ?? []
         Task { @MainActor in
-            self.apply(context: applicationContext)
+            self.apply(ids: ids)
         }
     }
 
-    private func apply(context: [String: Any]) {
-        guard let ids = context["equipmentIds"] as? [String] else { return }
+    private func apply(ids: [String]) {
+        guard !ids.isEmpty else { return }
         enabledIds = Set(ids)
     }
 }

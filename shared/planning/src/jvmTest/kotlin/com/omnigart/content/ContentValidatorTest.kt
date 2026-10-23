@@ -20,12 +20,12 @@ class ContentValidatorTest {
             report.issues.joinToString("\n") { "${it.path}: ${it.message}" }
         )
         assertTrue(
-            report.exerciseCount in 110..150,
-            "expected ~120 exercises, got ${report.exerciseCount}"
+            report.exerciseCount in 110..200,
+            "expected ~120–160 exercises after bodyweight expansion, got ${report.exerciseCount}"
         )
         assertTrue(
-            report.templateCount >= 15,
-            "expected ≥15 templates, got ${report.templateCount}"
+            report.templateCount >= 25,
+            "expected ≥25 templates (including ready-made), got ${report.templateCount}"
         )
     }
 

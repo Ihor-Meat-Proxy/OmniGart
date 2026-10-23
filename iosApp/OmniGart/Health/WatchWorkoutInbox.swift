@@ -8,7 +8,7 @@ import WatchConnectivity
 final class WatchWorkoutInbox: NSObject, WCSessionDelegate {
     static let shared = WatchWorkoutInbox()
 
-    private let payloadKey = "omnigart.workout.transfer.json"
+    private static let payloadKey = "omnigart.workout.transfer.json"
     private var core: OmniGartCore?
 
     func start(core: OmniGartCore) {
@@ -25,12 +25,6 @@ final class WatchWorkoutInbox: NSObject, WCSessionDelegate {
         _ = core.localHealth.ingestDeviceTransferJson(utf8: json)
     }
 
-    private func ingest(userInfo: [String: Any]) {
-        if let json = userInfo[payloadKey] as? String {
-            ingest(json: json)
-        }
-    }
-
     nonisolated func session(
         _ session: WCSession,
         activationDidCompleteWith activationState: WCSessionActivationState,
@@ -44,14 +38,17 @@ final class WatchWorkoutInbox: NSObject, WCSessionDelegate {
     }
 
     nonisolated func session(_ session: WCSession, didReceiveUserInfo userInfo: [String: Any] = [:]) {
+        // Copy Sendable JSON off the WCSession callback before hopping to MainActor.
+        let json = userInfo[Self.payloadKey] as? String
         Task { @MainActor in
-            ingest(userInfo: userInfo)
+            if let json { ingest(json: json) }
         }
     }
 
     nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+        let json = message[Self.payloadKey] as? String
         Task { @MainActor in
-            ingest(userInfo: message)
+            if let json { ingest(json: json) }
         }
     }
 
@@ -59,11 +56,12 @@ final class WatchWorkoutInbox: NSObject, WCSessionDelegate {
         _ session: WCSession,
         didReceive file: WCSessionFile
     ) {
+        let json: String? = {
+            guard let data = try? Data(contentsOf: file.fileURL) else { return nil }
+            return String(data: data, encoding: .utf8)
+        }()
         Task { @MainActor in
-            if let data = try? Data(contentsOf: file.fileURL),
-               let json = String(data: data, encoding: .utf8) {
-                ingest(json: json)
-            }
+            if let json { ingest(json: json) }
         }
     }
 }

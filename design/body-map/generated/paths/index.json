@@ -6,11 +6,11 @@
     1024,
     1536
   ],
-  "generatedAt": "2026-10-22T22:02:44.743Z",
+  "generatedAt": "2026-10-22T22:26:15.164Z",
   "figures": {
     "male-front": {
       "file": "male-front.json",
-      "regionCount": 34,
+      "regionCount": 36,
       "regionIds": [
         "adductors_l",
         "adductors_r",
@@ -38,6 +38,8 @@
         "rectus_abdominis",
         "rectus_femoris_l",
         "rectus_femoris_r",
+        "sartorius_l",
+        "sartorius_r",
         "serratus_anterior_l",
         "serratus_anterior_r",
         "tibialis_anterior_l",
@@ -47,7 +49,7 @@
         "vastus_medialis_l",
         "vastus_medialis_r"
       ],
-      "contentSha256": "4205dff7fd6cecb441acfd9527a0a709f1f98c8937311606895047fd26a138c7"
+      "contentSha256": "69d51c00ddb06960a921eaf52e671fa5cea8ebb67377500fc3702116f19f5921"
     },
     "male-back": {
       "file": "male-back.json",
@@ -84,11 +86,11 @@
         "triceps_l",
         "triceps_r"
       ],
-      "contentSha256": "d14a3556211ed8722c3f1393dfc58a04b7edd981108a34ca263a307a504df104"
+      "contentSha256": "cf4283c94a7a718a2d96305f574fbd85ebb1e55f655fe97e074d418f76f4b815"
     },
     "female-front": {
       "file": "female-front.json",
-      "regionCount": 34,
+      "regionCount": 36,
       "regionIds": [
         "adductors_l",
         "adductors_r",
@@ -116,6 +118,8 @@
         "rectus_abdominis",
         "rectus_femoris_l",
         "rectus_femoris_r",
+        "sartorius_l",
+        "sartorius_r",
         "serratus_anterior_l",
         "serratus_anterior_r",
         "tibialis_anterior_l",
@@ -125,7 +129,7 @@
         "vastus_medialis_l",
         "vastus_medialis_r"
       ],
-      "contentSha256": "fd917fe8d736ed1ff48443b03396416cb553a6f43c29e39520c1018ff93cc2eb"
+      "contentSha256": "8361a38622131d634ec9544544f3867e73c0f7f5ee3aea462dd3882046d8b924"
     },
     "female-back": {
       "file": "female-back.json",
@@ -162,7 +166,7 @@
         "triceps_l",
         "triceps_r"
       ],
-      "contentSha256": "64d04cdb3cfc2e36ee437bd87c80590bf0f7ab5c2c634839eae651fb249e4a9c"
+      "contentSha256": "82aae7d8faf42b6c48e471ca9bd3f1387d30057df0855681cad00cc1587313b8"
     }
   },
   "renderingNotes": {

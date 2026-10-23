@@ -11,7 +11,12 @@ on:
       - 'androidApp/**/res/values*/**'
       - 'iosApp/**/*InfoPlist.strings'
       - 'iosApp/**/*.xcstrings'
+      - 'watchApp/**/*InfoPlist.strings'
+      - 'watchApp/**/*.xcstrings'
+      - 'watchApp/**/*.swift'
+      - 'iosApp/**/*.swift'
       - 'scripts/check_no_ru_locale.sh'
+      - 'scripts/check_swift_localization_keys.py'
       - '.github/workflows/translations.yml'
   pull_request:
     paths:
@@ -21,7 +26,12 @@ on:
       - 'androidApp/**/res/values*/**'
       - 'iosApp/**/*InfoPlist.strings'
       - 'iosApp/**/*.xcstrings'
+      - 'watchApp/**/*InfoPlist.strings'
+      - 'watchApp/**/*.xcstrings'
+      - 'watchApp/**/*.swift'
+      - 'iosApp/**/*.swift'
       - 'scripts/check_no_ru_locale.sh'
+      - 'scripts/check_swift_localization_keys.py'
       - '.github/workflows/translations.yml'
 
 concurrency:
@@ -37,6 +47,8 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Ban Russian locale catalogs
         run: bash ./scripts/check_no_ru_locale.sh
+      - name: Swift Text keys resolve in String Catalogs
+        run: python3 scripts/check_swift_localization_keys.py
       - name: List touched locale trees
         run: |
           set -euo pipefail

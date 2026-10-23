@@ -1,0 +1,32 @@
+{
+  "id": "al_haddad_hr_reliability_2011",
+  "type": "cohort",
+  "title": "Reliability of Resting and Postexercise Heart Rate Measures",
+  "authors": [
+    "Al Haddad H",
+    "Laursen PB",
+    "Chollet D",
+    "Ahmaidi S",
+    "Buchheit M"
+  ],
+  "year": 2011,
+  "journal": "International Journal of Sports Medicine",
+  "doi": "10.1055/s-0031-1275356",
+  "pmid": "21574126",
+  "url": "https://doi.org/10.1055/s-0031-1275356",
+  "openAccess": false,
+  "keyFinding": {
+    "enGB": "Resting and post-exercise heart-rate and HRV-related measures show quantifiable reliability that informs day-to-day monitoring thresholds.",
+    "keys": {
+      "enGB": "evidence.al_haddad_hr_reliability_2011.key_finding",
+      "uk": "evidence.al_haddad_hr_reliability_2011.key_finding"
+    }
+  },
+  "evidenceStrength": "moderate",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "insights"
+  ]
+}

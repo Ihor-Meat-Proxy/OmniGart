@@ -85,9 +85,12 @@ class ContentValidatorTest {
         }
         val chin = data.resolve("chin-up.json").toFile().readText()
         assertTrue("\"biceps\"" in chin && chin.indexOf("\"primaryMuscles\"") < chin.indexOf("\"biceps\""))
-        assertTrue("10.1519/JSC.0b013e3181f1598c" in chin, "chin-up should cite Youdas 2010")
+        assertTrue("youdas_pullup_chinup_emg_2010" in chin, "chin-up should cite Youdas 2010 evidence id")
         val dip = data.resolve("dip-parallel-bar.json").toFile().readText()
-        assertTrue("10.1519/SSC.0000000000000579" in dip, "parallel-bar dip should cite shoulder-extension safety")
+        assertTrue(
+            "mckenzie_dip_shoulder_2020" in dip || "mckenzie_dip_kinematics_2022" in dip,
+            "parallel-bar dip should cite shoulder-extension safety/kinematics evidence id"
+        )
         assertTrue("\"loadModel\"" in dip)
     }
 }

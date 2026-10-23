@@ -1,0 +1,29 @@
+{
+  "id": "baevsky_hrv_method_2017",
+  "type": "consensus",
+  "title": "Heart rate variability analysis: physiological foundations and main methods",
+  "authors": [
+    "Baevsky RM",
+    "Chernikova AG"
+  ],
+  "year": 2017,
+  "journal": "Cardiometry",
+  "doi": "10.12710/cardiometry.2017.10.6676",
+  "openAccess": true,
+  "url": "https://www.cardiometry.net/issues/no10-may-2017/heart-rate-variability-analysis",
+  "population": "Clinical and applied physiology contexts using Baevsky HRV indices",
+  "keyFinding": {
+    "enGB": "Describes physiological rationale and computational methods for Baevsky-style heart-rate variability and stress-index measures.",
+    "keys": {
+      "enGB": "evidence.baevsky_hrv_method_2017.key_finding",
+      "uk": "evidence.baevsky_hrv_method_2017.key_finding"
+    }
+  },
+  "evidenceStrength": "low",
+  "licenceNote": "Open-access or public-agency text: title and short finding may be shown; link out for full document. Do not paste copyrighted abstracts wholesale.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.Readiness.baevsky"
+  ]
+}

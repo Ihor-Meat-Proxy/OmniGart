@@ -38,8 +38,8 @@
     "General safety: seek clinician guidance for recent injury, uncontrolled hypertension, or acute illness before practising."
   ],
   "evidenceEntryIds": [
-    "garber-acsm-2011",
-    "acsm-rt-2026"
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
   ],
   "holdSecondsDefault": 180,
   "unilateral": false,

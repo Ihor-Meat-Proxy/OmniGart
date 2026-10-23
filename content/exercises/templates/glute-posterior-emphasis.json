@@ -20,18 +20,14 @@
   "rationale": "Hinge and hip-extension emphasis raises glute/hamstring weekly sets within established hypertrophy volume bands; hip thrust included given EMG comparisons versus squats.",
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1080/02640414.2016.1210197",
-      "label": "Schoenfeld et al. 2016 volume dose–response",
+      "evidenceId": "schoenfeld_volume_2016",
       "supports": [
         "hypertrophy",
         "programming"
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1123/jab.2014-0301",
-      "label": "Contreras et al. 2015 hip thrust vs squat EMG",
+      "evidenceId": "contreras_hip_thrust_emg_2015",
       "supports": [
         "emg",
         "biomechanics"

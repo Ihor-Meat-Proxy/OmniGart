@@ -40,8 +40,8 @@
     "General safety: deeper backbends and inversions may be unsuitable during pregnancy or with unmanaged glaucoma, cervical issues, or uncontrolled blood pressure—choose a regression."
   ],
   "evidenceEntryIds": [
-    "garber-acsm-2011",
-    "acsm-rt-2026"
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
   ],
   "holdSecondsDefault": 20,
   "unilateral": false,

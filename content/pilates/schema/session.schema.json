@@ -24,20 +24,41 @@
     "nameKeys": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["enGB", "uk"],
+      "required": [
+        "enGB",
+        "uk"
+      ],
       "properties": {
-        "enGB": { "type": "string", "pattern": "^pilates\\.session\\.[a-z0-9_]+\\.name$" },
-        "uk": { "type": "string", "pattern": "^pilates\\.session\\.[a-z0-9_]+\\.name$" }
+        "enGB": {
+          "type": "string",
+          "pattern": "^pilates\\.session\\.[a-z0-9_]+\\.name$"
+        },
+        "uk": {
+          "type": "string",
+          "pattern": "^pilates\\.session\\.[a-z0-9_]+\\.name$"
+        }
       }
     },
     "level": {
       "type": "string",
-      "enum": ["beginner", "intermediate", "advanced"]
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ]
     },
-    "durationMinutes": { "type": "integer", "minimum": 15, "maximum": 75 },
+    "durationMinutes": {
+      "type": "integer",
+      "minimum": 15,
+      "maximum": 75
+    },
     "apparatus": {
       "type": "string",
-      "enum": ["mat", "reformer", "mixed"]
+      "enum": [
+        "mat",
+        "reformer",
+        "mixed"
+      ]
     },
     "focus": {
       "type": "string",
@@ -55,7 +76,9 @@
       "type": "array",
       "minItems": 5,
       "uniqueItems": true,
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "blocks": {
       "type": "array",
@@ -63,21 +86,40 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["titleKey", "items"],
+        "required": [
+          "titleKey",
+          "items"
+        ],
         "properties": {
-          "titleKey": { "type": "string" },
+          "titleKey": {
+            "type": "string"
+          },
           "items": {
             "type": "array",
             "minItems": 1,
             "items": {
               "type": "object",
               "additionalProperties": false,
-              "required": ["exerciseId"],
+              "required": [
+                "exerciseId"
+              ],
               "properties": {
-                "exerciseId": { "type": "string" },
-                "reps": { "type": "integer", "minimum": 1 },
-                "seconds": { "type": "integer", "minimum": 5 },
-                "sets": { "type": "integer", "minimum": 1, "maximum": 6 }
+                "exerciseId": {
+                  "type": "string"
+                },
+                "reps": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "seconds": {
+                  "type": "integer",
+                  "minimum": 5
+                },
+                "sets": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 6
+                }
               }
             }
           }
@@ -87,16 +129,29 @@
     "evidenceEntryIds": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string" }
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+([_-][a-z0-9]+)*$"
+      }
     },
-    "bundled": { "type": "boolean", "const": true },
+    "bundled": {
+      "type": "boolean",
+      "const": true
+    },
     "descriptionKeys": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["enGB", "uk"],
+      "required": [
+        "enGB",
+        "uk"
+      ],
       "properties": {
-        "enGB": { "type": "string" },
-        "uk": { "type": "string" }
+        "enGB": {
+          "type": "string"
+        },
+        "uk": {
+          "type": "string"
+        }
       }
     }
   }

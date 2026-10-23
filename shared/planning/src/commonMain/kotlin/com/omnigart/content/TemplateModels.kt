@@ -5,24 +5,50 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 enum class TrainingGoal {
-    @SerialName("general_fitness") GENERAL_FITNESS,
-    @SerialName("hypertrophy") HYPERTROPHY,
-    @SerialName("strength") STRENGTH,
-    @SerialName("endurance") ENDURANCE,
-    @SerialName("mobility") MOBILITY,
-    @SerialName("fat_loss_support") FAT_LOSS_SUPPORT,
-    @SerialName("technique") TECHNIQUE,
-    @SerialName("race_prep") RACE_PREP,
+    @SerialName("general_fitness")
+    GENERAL_FITNESS,
+
+    @SerialName("hypertrophy")
+    HYPERTROPHY,
+
+    @SerialName("strength")
+    STRENGTH,
+
+    @SerialName("endurance")
+    ENDURANCE,
+
+    @SerialName("mobility")
+    MOBILITY,
+
+    @SerialName("fat_loss_support")
+    FAT_LOSS_SUPPORT,
+
+    @SerialName("technique")
+    TECHNIQUE,
+
+    @SerialName("race_prep")
+    RACE_PREP
 }
 
 @Serializable
 enum class EquipmentPresetId {
-    @SerialName("home_gym") HOME_GYM,
-    @SerialName("commercial_gym") COMMERCIAL_GYM,
-    @SerialName("travel") TRAVEL,
-    @SerialName("bodyweight") BODYWEIGHT,
-    @SerialName("pool") POOL,
-    @SerialName("custom") CUSTOM,
+    @SerialName("home_gym")
+    HOME_GYM,
+
+    @SerialName("commercial_gym")
+    COMMERCIAL_GYM,
+
+    @SerialName("travel")
+    TRAVEL,
+
+    @SerialName("bodyweight")
+    BODYWEIGHT,
+
+    @SerialName("pool")
+    POOL,
+
+    @SerialName("custom")
+    CUSTOM
 }
 
 @Serializable
@@ -34,21 +60,14 @@ data class TemplateSetItem(
     val restSeconds: Int? = null,
     val durationSeconds: Int? = null,
     val distanceMeters: Int? = null,
-    val notes: String? = null,
+    val notes: String? = null
 )
 
 @Serializable
-data class TemplateBlock(
-    val kind: String,
-    val items: List<TemplateSetItem>,
-)
+data class TemplateBlock(val kind: String, val items: List<TemplateSetItem>)
 
 @Serializable
-data class TemplateSession(
-    val id: String,
-    val nameKeys: LocalizedNameKeys,
-    val blocks: List<TemplateBlock>,
-)
+data class TemplateSession(val id: String, val nameKeys: LocalizedNameKeys, val blocks: List<TemplateBlock>)
 
 @Serializable
 data class WorkoutTemplate(
@@ -63,5 +82,5 @@ data class WorkoutTemplate(
     val equipmentRequired: List<String>,
     val rationale: String,
     val evidenceRefs: List<EvidenceRef>,
-    val sessions: List<TemplateSession>,
+    val sessions: List<TemplateSession>
 )

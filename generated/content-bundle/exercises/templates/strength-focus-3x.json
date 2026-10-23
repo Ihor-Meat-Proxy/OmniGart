@@ -1,0 +1,172 @@
+{
+  "id": "strength-focus-3x",
+  "nameKeys": {
+    "enGB": "template.strength_focus_3x.name",
+    "uk": "template.strength_focus_3x.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "beginner",
+  "goal": "strength",
+  "daysPerWeek": 3,
+  "sessionMinutes": 55,
+  "equipmentPreset": "commercial_gym",
+  "equipmentRequired": [
+    "barbell",
+    "bench"
+  ],
+  "rationale": "Novice linear progression on squat/hinge/press/pull compounds with conservative accessories, consistent with ACSM RT overview emphasis on multi-joint loading.",
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1007/s40279-025-02344-w",
+      "label": "Pelland et al. volume/frequency meta-regressions",
+      "supports": [
+        "programming",
+        "hypertrophy",
+        "strength"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "s1",
+      "nameKeys": {
+        "enGB": "template.strength_focus_3x.s1.name",
+        "uk": "template.strength_focus_3x.s1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": 3,
+              "reps": "5",
+              "rir": "2-3",
+              "restSeconds": 180
+            },
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": 3,
+              "reps": "5",
+              "rir": "2-3",
+              "restSeconds": 150
+            },
+            {
+              "exerciseId": "barbell-row",
+              "sets": 3,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 120
+            },
+            {
+              "exerciseId": "plank",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "nameKeys": {
+        "enGB": "template.strength_focus_3x.s2.name",
+        "uk": "template.strength_focus_3x.s2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "conventional-deadlift",
+              "sets": 3,
+              "reps": "3-5",
+              "rir": "2-3",
+              "restSeconds": 210
+            },
+            {
+              "exerciseId": "overhead-press-barbell",
+              "sets": 3,
+              "reps": "5",
+              "rir": "2-3",
+              "restSeconds": 150
+            },
+            {
+              "exerciseId": "pull-up",
+              "sets": 3,
+              "reps": "as tolerated",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "farmers-carry",
+              "sets": 3,
+              "reps": "carry",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "distanceMeters": 40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "nameKeys": {
+        "enGB": "template.strength_focus_3x.s3.name",
+        "uk": "template.strength_focus_3x.s3.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "front-squat",
+              "sets": 3,
+              "reps": "5",
+              "rir": "2-3",
+              "restSeconds": 180
+            },
+            {
+              "exerciseId": "close-grip-bench-press",
+              "sets": 3,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 150
+            },
+            {
+              "exerciseId": "chest-supported-row",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "hip-thrust",
+              "sets": 3,
+              "reps": "6-10",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

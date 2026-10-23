@@ -1,0 +1,142 @@
+{
+  "id": "beginner-5k-8w",
+  "nameKeys": {
+    "enGB": "template.beginner_5k_8w.name",
+    "uk": "template.beginner_5k_8w.name"
+  },
+  "disciplines": [
+    "running"
+  ],
+  "level": "beginner",
+  "goal": "race_prep",
+  "daysPerWeek": 3,
+  "sessionMinutes": 40,
+  "equipmentPreset": "custom",
+  "equipmentRequired": [
+    "road"
+  ],
+  "rationale": "Mostly easy running with one quality stimulus reflects polarised descriptive distributions; weekly mileage increases softly with an honest caveat that fixed 10% rules are weakly evidenced.",
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "r1",
+      "nameKeys": {
+        "enGB": "template.beginner_5k_8w.r1.name",
+        "uk": "template.beginner_5k_8w.r1.name"
+      },
+      "blocks": [
+        {
+          "kind": "warmup",
+          "items": [
+            {
+              "exerciseId": "worlds-greatest-stretch",
+              "sets": 1,
+              "reps": "3/side",
+              "rir": "2-3",
+              "restSeconds": 15
+            },
+            {
+              "exerciseId": "a-skip",
+              "sets": 2,
+              "reps": "20m",
+              "rir": "2-3",
+              "restSeconds": 30
+            }
+          ]
+        },
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "easy-run",
+              "sets": 1,
+              "reps": "20-30min",
+              "rir": "n/a",
+              "restSeconds": 0,
+              "durationSeconds": 1500
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "nameKeys": {
+        "enGB": "template.beginner_5k_8w.r2.name",
+        "uk": "template.beginner_5k_8w.r2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "easy-run",
+              "sets": 1,
+              "reps": "10minWU",
+              "rir": "2-3",
+              "restSeconds": 0,
+              "durationSeconds": 600
+            },
+            {
+              "exerciseId": "interval-run",
+              "sets": 6,
+              "reps": "1min hard/2min easy",
+              "rir": "2-3",
+              "restSeconds": 0
+            },
+            {
+              "exerciseId": "brisk-walk",
+              "sets": 1,
+              "reps": "5min CD",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 300
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "nameKeys": {
+        "enGB": "template.beginner_5k_8w.r3.name",
+        "uk": "template.beginner_5k_8w.r3.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "easy-run",
+              "sets": 1,
+              "reps": "30-40min",
+              "rir": "2-3",
+              "restSeconds": 0,
+              "durationSeconds": 2100
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

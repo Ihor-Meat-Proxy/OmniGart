@@ -6,11 +6,7 @@ import com.omnigart.content.EquipmentPresetId
 /**
  * Durable "my equipment" profile used to filter the library and templates.
  */
-data class EquipmentProfile(
-    val preset: EquipmentPresetId,
-    val owned: Set<Equipment>,
-    val label: String,
-) {
+data class EquipmentProfile(val preset: EquipmentPresetId, val owned: Set<Equipment>, val label: String) {
     fun canPerform(required: Collection<Equipment>): Boolean {
         if (required.isEmpty()) return true
         val effective = owned + Equipment.NONE
@@ -32,14 +28,14 @@ data class EquipmentProfile(
                 Equipment.PULL_UP_BAR,
                 Equipment.YOGA_MAT,
                 Equipment.BODYWEIGHT,
-                Equipment.NONE,
-            ),
+                Equipment.NONE
+            )
         )
 
         val COMMERCIAL_GYM = EquipmentProfile(
             preset = EquipmentPresetId.COMMERCIAL_GYM,
             label = "Commercial gym",
-            owned = Equipment.entries.toSet(),
+            owned = Equipment.entries.toSet()
         )
 
         val TRAVEL = EquipmentProfile(
@@ -49,14 +45,19 @@ data class EquipmentProfile(
                 Equipment.BANDS,
                 Equipment.BODYWEIGHT,
                 Equipment.YOGA_MAT,
-                Equipment.NONE,
-            ),
+                Equipment.NONE
+            )
         )
 
         val BODYWEIGHT = EquipmentProfile(
             preset = EquipmentPresetId.BODYWEIGHT,
             label = "Bodyweight only",
-            owned = setOf(Equipment.BODYWEIGHT, Equipment.NONE, Equipment.YOGA_MAT, Equipment.PULL_UP_BAR),
+            owned = setOf(
+                Equipment.BODYWEIGHT,
+                Equipment.NONE,
+                Equipment.YOGA_MAT,
+                Equipment.PULL_UP_BAR
+            )
         )
 
         val POOL = EquipmentProfile(
@@ -69,8 +70,8 @@ data class EquipmentProfile(
                 Equipment.FINS,
                 Equipment.PADDLE,
                 Equipment.BODYWEIGHT,
-                Equipment.NONE,
-            ),
+                Equipment.NONE
+            )
         )
 
         fun preset(id: EquipmentPresetId): EquipmentProfile = when (id) {

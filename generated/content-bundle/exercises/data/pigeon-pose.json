@@ -1,0 +1,78 @@
+{
+  "id": "pigeon-pose",
+  "nameKeys": {
+    "enGB": "exercise.pigeon_pose.name",
+    "uk": "exercise.pigeon_pose.name"
+  },
+  "discipline": "yoga",
+  "movementPattern": "mobility",
+  "primaryMuscles": [
+    "gluteus_maximus",
+    "hip_flexors"
+  ],
+  "secondaryMuscles": [
+    "adductors"
+  ],
+  "equipment": [
+    "yoga_mat",
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": true,
+  "mechanics": "skill",
+  "trackingType": "hold",
+  "technique": [
+    "Front leg flexed in front with shin angled as comfortable; back leg extended; fold forward if appropriate."
+  ],
+  "setup": [
+    "Use props under hip; never force the front knee."
+  ],
+  "breathing": "Slow breaths.",
+  "commonMistakes": [
+    "Torqueing the front knee",
+    "Forcing the fold"
+  ],
+  "safety": [
+    "Figure-four on back is a safer alternative for many."
+  ],
+  "contraindications": [
+    "Knee ligament issues — prefer supine figure-four"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "low-lunge",
+      "note": "Less external rotation demand"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/pigeon-pose",
+    "videoKey": "media/video/pigeon-pose",
+    "animationKey": "media/anim/pigeon-pose"
+  },
+  "aliases": [],
+  "tags": [
+    "yoga"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Bodyweight movement with negligible external implement; treat moved mass as ~full BM unless a measured study applies. Estimate."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

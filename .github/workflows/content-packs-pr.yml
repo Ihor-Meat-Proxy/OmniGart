@@ -1,0 +1,44 @@
+name: Content packs PR
+
+on:
+  push:
+    paths:
+      - 'tools/content-packs/**'
+      - 'docs/APP_SIZE_BUDGET.json'
+      - 'docs/APP_SIZE_BUDGET.md'
+      - 'docs/content-packs.md'
+      - '.github/workflows/content-packs-pr.yml'
+  pull_request:
+    paths:
+      - 'tools/content-packs/**'
+      - 'docs/APP_SIZE_BUDGET.json'
+      - 'docs/APP_SIZE_BUDGET.md'
+      - 'docs/content-packs.md'
+      - '.github/workflows/content-packs-pr.yml'
+
+jobs:
+  build-verify-size:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/content-packs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+
+      - name: Install minisign
+        run: |
+          set -euo pipefail
+          curl -fsSL -o /tmp/minisign.tar.gz \
+            https://github.com/jedisct1/minisign/releases/download/0.12/minisign-0.12-linux.tar.gz
+          tar -xzf /tmp/minisign.tar.gz -C /tmp
+          sudo install -m 755 /tmp/minisign-linux/x86_64/minisign /usr/local/bin/minisign
+          minisign -v
+
+      - name: Build catalog (baseline + updates)
+        run: npm test

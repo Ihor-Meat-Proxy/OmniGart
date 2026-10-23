@@ -57,6 +57,15 @@ coverage/
 scripts/content_i18n/_mt_cache/
 scripts/content_i18n/data/
 content/i18n/weblate/
+# OpenTofu / content plane
+infra/content/.terraform/
+infra/content/*.tfstate*
+infra/content/terraform.tfvars
+tools/content-packs/dist/
+tools/content-packs/keys/*.key
+**/*.minisig
+infra/self-host/.env
 # Fastlane
 fastlane/vendor/
 fastlane/.bundle/
+

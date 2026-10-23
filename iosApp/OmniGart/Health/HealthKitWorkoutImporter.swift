@@ -73,6 +73,7 @@ enum HealthKitWorkoutImporter {
         }
     }
 
+    @MainActor
     static func persistImported(
         _ imported: ImportedWorkout,
         core: OmniGartCore,
@@ -209,12 +210,12 @@ enum HealthKitWorkoutImporter {
         }
     }
 
-    private static func encodeAnchor(_ anchor: HKQueryAnchor?) -> Data? {
+    nonisolated private static func encodeAnchor(_ anchor: HKQueryAnchor?) -> Data? {
         guard let anchor else { return nil }
         return try? NSKeyedArchiver.archivedData(withRootObject: anchor, requiringSecureCoding: true)
     }
 
-    private static func decodeAnchor(_ data: Data?) -> HKQueryAnchor? {
+    nonisolated private static func decodeAnchor(_ data: Data?) -> HKQueryAnchor? {
         guard let data else { return nil }
         return try? NSKeyedUnarchiver.unarchivedObject(ofClass: HKQueryAnchor.self, from: data)
     }

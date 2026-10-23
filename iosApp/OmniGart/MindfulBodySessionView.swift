@@ -117,79 +117,32 @@ struct MindfulBodySessionView: View {
             saving = false
             return
         }
-        let durationHours = max(0, end.timeIntervalSince(start) / 3600.0)
-        let age = Int(core.ageYears(profile: profile))
-        let breakdown: WorkoutEnergyBreakdown =
-            kind == .yoga
-            ? WorkoutEnergyEstimate.shared.yogaBreakdown(
-                weightKg: profile.weightKg,
-                heightCm: profile.heightCm,
-                ageYears: Int32(age),
-                sex: profile.biologicalSex,
-                durationHours: durationHours
-            )
-            : WorkoutEnergyEstimate.shared.pilatesBreakdown(
-                weightKg: profile.weightKg,
-                heightCm: profile.heightCm,
-                ageYears: Int32(age),
-                sex: profile.biologicalSex,
-                durationHours: durationHours
-            )
-        let energy = HealthKitWorkoutWriter.EnergyInput(
-            activeKcal: breakdown.activeKcal,
-            basalKcal: breakdown.basalKcal,
-            isEstimate: true
-        )
         let saveMindful = kind == .yoga && mindfulMinutesEnabled
-
         Task {
             defer { saving = false }
-            do {
-                let recoveryEnd = end.addingTimeInterval(90)
-                let hrSamples =
-                    (try? await HealthKitWorkoutWriter.fetchHeartRate(from: start, to: recoveryEnd)) ?? []
-                let during = hrSamples.filter { $0.date <= end }
-                let avg = during.map(\.bpm).filter { $0 > 0 }
-                let avgBpm = avg.isEmpty ? nil : avg.reduce(0, +) / Double(avg.count)
-                let recovery = HealthKitWorkoutWriter.estimateHeartRateRecoveryBpm(
-                    samples: hrSamples,
-                    workoutEnd: end
+            let saved = await MindfulBodyHealthSave.saveEstimate(
+                MindfulBodySaveRequest(
+                    kind: kind,
+                    profile: profile,
+                    core: core,
+                    start: start,
+                    end: end,
+                    sessionKey: sessionKey,
+                    saveMindfulMinutes: saveMindful
                 )
-                let effort = HealthKitWorkoutWriter.estimateEffortScore(
-                    averageBpm: avgBpm,
-                    ageYears: age
+            )
+            let estimate = HealthKitWorkoutWriter.EnergyInput(
+                activeKcal: saved?.activeKcal ?? 0,
+                basalKcal: saved?.basalKcal ?? 0,
+                isEstimate: true
+            )
+            await MainActor.run {
+                summaryLines = makeSummaryLines(
+                    start: start,
+                    end: end,
+                    result: saved,
+                    estimate: estimate
                 )
-                let saved = try await HealthKitWorkoutWriter.save(
-                    options: .init(
-                        activityType: kind.activityType,
-                        start: start,
-                        end: end,
-                        energy: energy,
-                        syncIdentifier: HealthKitWorkoutWriter.syncIdentifier(forSessionId: sessionKey),
-                        heartRate: during,
-                        indoor: true,
-                        saveMindfulMinutes: saveMindful,
-                        estimatedEffortScore: effort,
-                        heartRateRecoveryBpm: recovery
-                    )
-                )
-                await MainActor.run {
-                    summaryLines = makeSummaryLines(
-                        start: start,
-                        end: end,
-                        result: saved,
-                        estimate: energy
-                    )
-                }
-            } catch {
-                await MainActor.run {
-                    summaryLines = makeSummaryLines(
-                        start: start,
-                        end: end,
-                        result: nil,
-                        estimate: energy
-                    )
-                }
             }
         }
     }

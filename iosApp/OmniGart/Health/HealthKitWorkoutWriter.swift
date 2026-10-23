@@ -40,25 +40,12 @@ enum HealthKitWorkoutWriter {
     static func authorizationTypes() -> (read: Set<HKObjectType>, write: Set<HKSampleType>) {
         var read: Set<HKObjectType> = [HealthKitPlatformBridge.workoutType()]
         var write: Set<HKSampleType> = [HealthKitPlatformBridge.workoutType()]
-        if let active = activeEnergyType() {
-            read.insert(active)
-            write.insert(active)
-        }
-        if let basal = basalEnergyType() {
-            read.insert(basal)
-            write.insert(basal)
-        }
-        if let heart = HealthKitPlatformBridge.heartRateType() {
-            read.insert(heart)
-            write.insert(heart)
-        }
-        if let recovery = heartRateRecoveryType() {
-            read.insert(recovery)
-            write.insert(recovery)
-        }
-        if let effort = workoutEffortType() {
-            read.insert(effort)
-            write.insert(effort)
+        for type in [activeEnergyType(), basalEnergyType(), HealthKitPlatformBridge.heartRateType(),
+                     heartRateRecoveryType(), workoutEffortType()] {
+            if let type {
+                read.insert(type)
+                write.insert(type)
+            }
         }
         if let mindful = mindfulType() {
             read.insert(mindful)
@@ -95,55 +82,43 @@ enum HealthKitWorkoutWriter {
 
     private static func persist(_ options: SaveOptions) async throws -> Result? {
         guard HKHealthStore.isHealthDataAvailable() else { return nil }
-        guard options.end >= options.start else { return nil }
-        guard !options.syncIdentifier.isEmpty else { return nil }
-
+        guard options.end >= options.start, !options.syncIdentifier.isEmpty else { return nil }
         try await requestWorkoutAuthorization()
-
         if let existing = try await existingWorkoutUUID(syncIdentifier: options.syncIdentifier) {
-            let bpms = options.heartRate.map(\.bpm).filter { $0 > 0 }
-            return Result(
-                workoutUUID: existing,
-                activeKcal: options.energy.activeKcal,
-                basalKcal: options.energy.basalKcal,
-                averageHeartRateBpm: bpms.isEmpty ? nil : bpms.reduce(0, +) / Double(bpms.count),
-                maxHeartRateBpm: bpms.max(),
-                energyIsEstimate: options.energy.isEstimate,
-                effortScore: options.estimatedEffortScore,
-                heartRateRecoveryBpm: options.heartRateRecoveryBpm,
-                skippedBecauseAlreadyExists: true
-            )
+            return makeResult(options: options, workoutUUID: existing, skipped: true)
         }
+        return try await finishNewWorkout(options)
+    }
 
+    private static func finishNewWorkout(_ options: SaveOptions) async throws -> Result? {
         let store = HKHealthStore()
         let configuration = HKWorkoutConfiguration()
         configuration.activityType = options.activityType
         configuration.locationType = options.indoor ? .indoor : .outdoor
-
         let builder = HKWorkoutBuilder(
             healthStore: store,
             configuration: configuration,
             device: .local()
         )
         try await builder.beginCollection(at: options.start)
-
         let samples = buildSamples(for: options)
-        if !samples.isEmpty {
-            try await builder.addSamples(samples)
-        }
-
+        if !samples.isEmpty { try await builder.addSamples(samples) }
         let events = buildEvents(for: options)
-        if !events.isEmpty {
-            try await builder.addWorkoutEvents(events)
-        }
-
+        if !events.isEmpty { try await builder.addWorkoutEvents(events) }
         try await builder.addMetadata(buildMetadata(for: options))
         try await builder.endCollection(at: options.end)
         guard let workout = try await builder.finishWorkout() else { return nil }
+        return makeResult(options: options, workoutUUID: workout.uuid, skipped: false)
+    }
 
+    private static func makeResult(
+        options: SaveOptions,
+        workoutUUID: UUID,
+        skipped: Bool
+    ) -> Result {
         let bpms = options.heartRate.map(\.bpm).filter { $0 > 0 }
         return Result(
-            workoutUUID: workout.uuid,
+            workoutUUID: workoutUUID,
             activeKcal: options.energy.activeKcal,
             basalKcal: options.energy.basalKcal,
             averageHeartRateBpm: bpms.isEmpty ? nil : bpms.reduce(0, +) / Double(bpms.count),
@@ -151,7 +126,7 @@ enum HealthKitWorkoutWriter {
             energyIsEstimate: options.energy.isEstimate,
             effortScore: options.estimatedEffortScore,
             heartRateRecoveryBpm: options.heartRateRecoveryBpm,
-            skippedBecauseAlreadyExists: false
+            skippedBecauseAlreadyExists: skipped
         )
     }
 }

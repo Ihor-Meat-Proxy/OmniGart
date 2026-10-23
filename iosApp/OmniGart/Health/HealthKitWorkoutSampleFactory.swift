@@ -4,8 +4,25 @@ import HealthKit
 extension HealthKitWorkoutWriter {
     static func buildSamples(for options: SaveOptions) -> [HKSample] {
         var samples: [HKSample] = []
-        let kcalUnit = HKUnit.kilocalorie()
+        samples.append(contentsOf: energySamples(for: options))
+        samples.append(contentsOf: heartRateSamples(for: options))
+        samples.append(contentsOf: recoveryAndEffortSamples(for: options))
+        if options.saveMindfulMinutes, let mindful = mindfulType() {
+            samples.append(
+                HKCategorySample(
+                    type: mindful,
+                    value: 0,
+                    start: options.start,
+                    end: options.end
+                )
+            )
+        }
+        return samples
+    }
 
+    private static func energySamples(for options: SaveOptions) -> [HKSample] {
+        var samples: [HKSample] = []
+        let kcalUnit = HKUnit.kilocalorie()
         if options.energy.activeKcal > 0, let activeType = activeEnergyType() {
             let quantity = HKQuantity(unit: kcalUnit, doubleValue: options.energy.activeKcal)
             samples.append(
@@ -28,22 +45,26 @@ extension HealthKitWorkoutWriter {
                 )
             )
         }
+        return samples
+    }
 
-        if let heartType = HealthKitPlatformBridge.heartRateType() {
-            let hrUnit = HKUnit.count().unitDivided(by: .minute())
-            for point in options.heartRate where point.bpm > 0 {
-                let quantity = HKQuantity(unit: hrUnit, doubleValue: point.bpm)
-                samples.append(
-                    HKQuantitySample(
-                        type: heartType,
-                        quantity: quantity,
-                        start: point.date,
-                        end: point.date
-                    )
-                )
-            }
+    private static func heartRateSamples(for options: SaveOptions) -> [HKSample] {
+        guard let heartType = HealthKitPlatformBridge.heartRateType() else { return [] }
+        let hrUnit = HKUnit.count().unitDivided(by: .minute())
+        return options.heartRate.compactMap { point in
+            guard point.bpm > 0 else { return nil }
+            let quantity = HKQuantity(unit: hrUnit, doubleValue: point.bpm)
+            return HKQuantitySample(
+                type: heartType,
+                quantity: quantity,
+                start: point.date,
+                end: point.date
+            )
         }
+    }
 
+    private static func recoveryAndEffortSamples(for options: SaveOptions) -> [HKSample] {
+        var samples: [HKSample] = []
         if let recoveryBpm = options.heartRateRecoveryBpm, recoveryBpm > 0,
            let recoveryType = heartRateRecoveryType() {
             let quantity = HKQuantity(
@@ -59,7 +80,6 @@ extension HealthKitWorkoutWriter {
                 )
             )
         }
-
         if let effort = options.estimatedEffortScore, effort > 0,
            let effortType = workoutEffortType() {
             let quantity = HKQuantity(unit: .count(), doubleValue: min(10, max(0, effort)))
@@ -67,17 +87,6 @@ extension HealthKitWorkoutWriter {
                 HKQuantitySample(
                     type: effortType,
                     quantity: quantity,
-                    start: options.start,
-                    end: options.end
-                )
-            )
-        }
-
-        if options.saveMindfulMinutes, let mindful = mindfulType() {
-            samples.append(
-                HKCategorySample(
-                    type: mindful,
-                    value: 0,
                     start: options.start,
                     end: options.end
                 )
@@ -158,8 +167,7 @@ extension HealthKitWorkoutWriter {
                     return
                 }
                 let unit = HKUnit.count().unitDivided(by: .minute())
-                let points: [HeartRatePoint] = (samples as? [HKQuantitySample] ?? []).compactMap {
-                    sample in
+                let points: [HeartRatePoint] = (samples as? [HKQuantitySample] ?? []).compactMap { sample in
                     let bpm = sample.quantity.doubleValue(for: unit)
                     guard bpm > 0 else { return nil }
                     return HeartRatePoint(date: sample.startDate, bpm: bpm)

@@ -1,3 +1,5 @@
+import Foundation
+import HealthKit
 
 extension OmniGartLiveWorkoutSession: HKWorkoutSessionDelegate {
     nonisolated func workoutSession(

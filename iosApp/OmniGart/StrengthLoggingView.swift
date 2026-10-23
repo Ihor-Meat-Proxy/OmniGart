@@ -119,22 +119,7 @@ struct StrengthLoggingView: View {
         .accessibilityIdentifier("workout_warmup_toggle")
 
         Button(catalog("workout_add_set")) {
-            guard let id = sessionId else { return }
-            let unilateral = demos.first { $0.exercise.id == selectedExerciseId }?.unilateral ?? false
-            let weight = Double(weightText).map { KotlinDouble(value: $0) }
-            let rir = Double(rirText).map { KotlinDouble(value: $0) }
-            _ = core.strengthLogging.addSet(
-                sessionId: id,
-                exerciseId: selectedExerciseId,
-                reps: Int32(Int(repsText) ?? 0),
-                weightKg: weight,
-                rir: rir,
-                isWarmup: isWarmup,
-                assistanceKg: nil,
-                loggedPerHand: unilateral,
-                completed: true
-            )
-            refreshSummary(id: id)
+            addCurrentSet()
         }
         .accessibilityIdentifier("workout_add_set")
 
@@ -144,6 +129,25 @@ struct StrengthLoggingView: View {
         }
         .disabled(savingHealth)
         .accessibilityIdentifier("workout_end")
+    }
+
+    private func addCurrentSet() {
+        guard let id = sessionId else { return }
+        let unilateral = demos.first { $0.exercise.id == selectedExerciseId }?.unilateral ?? false
+        let weight = Double(weightText).map { KotlinDouble(value: $0) }
+        let rir = Double(rirText).map { KotlinDouble(value: $0) }
+        _ = core.strengthLogging.addSet(
+            sessionId: id,
+            exerciseId: selectedExerciseId,
+            reps: Int32(Int(repsText) ?? 0),
+            weightKg: weight,
+            rir: rir,
+            isWarmup: isWarmup,
+            assistanceKg: nil,
+            loggedPerHand: unilateral,
+            completed: true
+        )
+        refreshSummary(id: id)
     }
 
     private func labeledField(_ label: String, text: Binding<String>, id: String) -> some View {
@@ -181,10 +185,12 @@ struct StrengthLoggingView: View {
 
         Task {
             let saved = await StrengthWorkoutHealthSave.saveEstimate(
-                core: core,
-                profileId: profileId,
-                sessionId: id,
-                includeWarmups: includeWarmups
+                StrengthHealthSaveRequest(
+                    core: core,
+                    profileId: profileId,
+                    sessionId: id,
+                    includeWarmups: includeWarmups
+                )
             )
             await MainActor.run {
                 lastEnergy = saved

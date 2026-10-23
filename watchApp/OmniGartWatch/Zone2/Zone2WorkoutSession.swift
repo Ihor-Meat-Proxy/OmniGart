@@ -47,6 +47,25 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
             lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
             return
         }
+        guard let quantityTypes = zone2QuantityTypes() else {
+            lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
+            return
+        }
+        do {
+            try await beginLiveRun(quantityTypes: quantityTypes)
+        } catch {
+            lastError = error.localizedDescription
+            isRunning = false
+        }
+    }
+
+    private func zone2QuantityTypes() -> (
+        heart: HKQuantityType,
+        distance: HKQuantityType,
+        step: HKQuantityType,
+        active: HKQuantityType,
+        basal: HKQuantityType
+    )? {
         guard
             let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate),
             let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning),
@@ -54,45 +73,50 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
             let activeEnergyType = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned),
             let basalEnergyType = HKQuantityType.quantityType(forIdentifier: .basalEnergyBurned)
         else {
-            lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
-            return
+            return nil
         }
+        return (heartRateType, distanceType, stepType, activeEnergyType, basalEnergyType)
+    }
+
+    private func beginLiveRun(
+        quantityTypes: (
+            heart: HKQuantityType,
+            distance: HKQuantityType,
+            step: HKQuantityType,
+            active: HKQuantityType,
+            basal: HKQuantityType
+        )
+    ) async throws {
         let types: Set<HKSampleType> = [
-            heartRateType,
-            distanceType,
-            stepType,
-            activeEnergyType,
-            basalEnergyType,
+            quantityTypes.heart,
+            quantityTypes.distance,
+            quantityTypes.step,
+            quantityTypes.active,
+            quantityTypes.basal,
             HKObjectType.workoutType()
         ]
-        do {
-            try await store.requestAuthorization(toShare: types, read: types)
-            let config = HKWorkoutConfiguration()
-            config.activityType = .running
-            config.locationType = .outdoor
-            let session = try HKWorkoutSession(healthStore: store, configuration: config)
-            let builder = session.associatedWorkoutBuilder()
-            let dataSource = HKLiveWorkoutDataSource(healthStore: store, workoutConfiguration: config)
-            // Ensure Fitness-critical quantities are collected for the outdoor run.
-            dataSource.enableCollection(for: activeEnergyType, predicate: nil)
-            dataSource.enableCollection(for: basalEnergyType, predicate: nil)
-            dataSource.enableCollection(for: heartRateType, predicate: nil)
-            dataSource.enableCollection(for: distanceType, predicate: nil)
-            builder.dataSource = dataSource
-            session.delegate = self
-            builder.delegate = self
-            self.session = session
-            self.builder = builder
-            let start = Date()
-            session.startActivity(with: start)
-            try await builder.beginCollection(at: start)
-            startedAt = start
-            isRunning = true
-            startElapsedTimer()
-        } catch {
-            lastError = error.localizedDescription
-            isRunning = false
-        }
+        try await store.requestAuthorization(toShare: types, read: types)
+        let config = HKWorkoutConfiguration()
+        config.activityType = .running
+        config.locationType = .outdoor
+        let session = try HKWorkoutSession(healthStore: store, configuration: config)
+        let builder = session.associatedWorkoutBuilder()
+        let dataSource = HKLiveWorkoutDataSource(healthStore: store, workoutConfiguration: config)
+        dataSource.enableCollection(for: quantityTypes.active, predicate: nil)
+        dataSource.enableCollection(for: quantityTypes.basal, predicate: nil)
+        dataSource.enableCollection(for: quantityTypes.heart, predicate: nil)
+        dataSource.enableCollection(for: quantityTypes.distance, predicate: nil)
+        builder.dataSource = dataSource
+        session.delegate = self
+        builder.delegate = self
+        self.session = session
+        self.builder = builder
+        let start = Date()
+        session.startActivity(with: start)
+        try await builder.beginCollection(at: start)
+        startedAt = start
+        isRunning = true
+        startElapsedTimer()
     }
 
     /// Ends the workout. On success returns a summary for the post-run screen.

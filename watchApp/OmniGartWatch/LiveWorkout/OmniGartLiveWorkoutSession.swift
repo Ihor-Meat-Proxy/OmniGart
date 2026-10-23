@@ -48,7 +48,23 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
             lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
             return
         }
+        do {
+            try await beginLiveSession(
+                heartRateType: heartRateType,
+                activeEnergyType: activeEnergyType,
+                basalEnergyType: basalEnergyType
+            )
+        } catch {
+            lastError = error.localizedDescription
+            isRunning = false
+        }
+    }
 
+    private func beginLiveSession(
+        heartRateType: HKQuantityType,
+        activeEnergyType: HKQuantityType,
+        basalEnergyType: HKQuantityType
+    ) async throws {
         var types: Set<HKSampleType> = [
             heartRateType,
             activeEnergyType,
@@ -59,37 +75,30 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
            let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) {
             types.insert(distanceType)
         }
-
-        do {
-            try await store.requestAuthorization(toShare: types, read: types)
-            let config = kind.makeConfiguration()
-            let session = try HKWorkoutSession(healthStore: store, configuration: config)
-            let builder = session.associatedWorkoutBuilder()
-            let dataSource = HKLiveWorkoutDataSource(healthStore: store, workoutConfiguration: config)
-            dataSource.enableCollection(for: heartRateType, predicate: nil)
-            dataSource.enableCollection(for: activeEnergyType, predicate: nil)
-            dataSource.enableCollection(for: basalEnergyType, predicate: nil)
-            if kind == .zone2Run,
-               let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) {
-                dataSource.enableCollection(for: distanceType, predicate: nil)
-            }
-            builder.dataSource = dataSource
-            session.delegate = self
-            builder.delegate = self
-            self.session = session
-            self.builder = builder
-
-            let start = Date()
-            session.startActivity(with: start)
-            try await builder.beginCollection(at: start)
-            startedAt = start
-            isRunning = true
-            isPaused = false
-            startElapsedTimer()
-        } catch {
-            lastError = error.localizedDescription
-            isRunning = false
+        try await store.requestAuthorization(toShare: types, read: types)
+        let config = kind.makeConfiguration()
+        let session = try HKWorkoutSession(healthStore: store, configuration: config)
+        let builder = session.associatedWorkoutBuilder()
+        let dataSource = HKLiveWorkoutDataSource(healthStore: store, workoutConfiguration: config)
+        dataSource.enableCollection(for: heartRateType, predicate: nil)
+        dataSource.enableCollection(for: activeEnergyType, predicate: nil)
+        dataSource.enableCollection(for: basalEnergyType, predicate: nil)
+        if kind == .zone2Run,
+           let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) {
+            dataSource.enableCollection(for: distanceType, predicate: nil)
         }
+        builder.dataSource = dataSource
+        session.delegate = self
+        builder.delegate = self
+        self.session = session
+        self.builder = builder
+        let start = Date()
+        session.startActivity(with: start)
+        try await builder.beginCollection(at: start)
+        startedAt = start
+        isRunning = true
+        isPaused = false
+        startElapsedTimer()
     }
 
     func pause() {

@@ -43,12 +43,12 @@ Each PR: feature branch, merge commits when updating bases (no force-push on ope
 3. **HealthKit readback**
    - After completion (system Workout app or OmniGart), read `HKWorkout` (+ relevant samples) and feed **load / recovery** inputs already used by planning/readiness (reuse `HealthClient` / HK bridge patterns; feature-flag if sync is still gated).
 4. **Documentation**
-   - `docs/WORKOUTKIT.md` (or section under existing health docs):
+   - `docs/WORKOUTKIT.md`:
      - Requires iOS 17+ / watchOS 10+ APIs (deployment already ≥ that).
      - **No strength set logging** via WorkoutKit (sets/reps stay in-app).
      - **No Wear OS equivalent** for system Workout scheduling — Wear parity is a later PR (see OPEN_QUESTIONS).
 5. **Personal Team / signing**
-   - Entitlements and XcodeGen flags arranged so a **Personal Team** build still compiles: paid-only capabilities optional or compile-time / runtime gated (see also PR C).
+   - Entitlements and `OMNIGART_ENABLE_WORKOUTKIT` gate so a **Personal Team** build still compiles: paid-only capabilities optional or compile-time / runtime gated (see also PR C).
 
 ### Out of scope (A)
 

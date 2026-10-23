@@ -2,6 +2,7 @@ name: Design check
 
 on:
   push:
+    branches: [main]
     paths:
       - 'design/**'
       - '.github/workflows/design-check.yml'
@@ -10,8 +11,13 @@ on:
       - 'design/**'
       - '.github/workflows/design-check.yml'
 
+concurrency:
+  group: design-check-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     defaults:
       run:

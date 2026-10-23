@@ -287,13 +287,19 @@ IDs use `A#` so they do not clash with numeric process items or other lettered s
 - **A4. ACSM VO₂ labelling** — ACSM running equation is oxygen *cost* at a speed/grade; show as “estimated VO₂” vs “VO₂max” unless the bout is maximal?
 - **A5. Cooper surface** — Accept treadmill @ 1 % as equivalent to outdoor track for Cooper distance input?
 
+## Zone 2 / watch workout copy
+
+Z1. **Watch string budget** — Confirm max characters for Zone 2 single-screen labels (HR, zone, time in zone, cadence, distance) before truncating translations.
+Z2. **Zone model default** — Prefer %HRR (Karvonen), LTHR-based, or %HRmax as the default Zone 2 definition in settings copy?
+Z3. **Wellness tone** — Keep permission/onboarding text free of diagnostic/medical claims; confirm legal review wording.
+
 ## § Watch WorkoutKit + Zone 2
 
 IDs use `W#`. Plan: `docs/plans/watch-workoutkit-zone2.md`.
 
 - **W1. Wear OS parity** — No system WorkoutKit equivalent on Wear. Defer Wear Zone 2 live workout + scheduling to a later PR; iOS/watchOS ship first.
 - **W2. Zone 2 haptic default** — Default haptics **on** with debounce/hysteresis, or default **off** until the user opts in?
-- **W3. LTHR Zone 2 edges** — If LTHR-based Zone 2 is offered, confirm band fractions against a verified publication before locking defaults; otherwise keep LTHR as opt-in experimental.
+- **W3. LTHR Zone 2 edges** — Opt-in LTHR Zone 2 ships as **80–90% of LTHR** (`Zone2.LTHR_*`) with claim `formula-zone2-lthr-band` pointing at Seiler 2010 for easy-intensity framing, not a lab LTHR assay. Confirm or replace fractions when a stronger LTHR-band citation is verified; until then treat as provisional coaching guidance.
 - **W4. Personal Team capabilities** — After a real free-Apple-ID archive: document which of HealthKit, WorkoutKit, background delivery, and associated domains succeed; keep paid-only flags gated so CI/Personal Team still compile.
 - **W5. HK workout import vs `healthSyncEnabled`** — Import completed workouts for load/recovery while the broader health-sync flag is still false, or require the flag?
 - **W6. WorkoutKit strength** — Confirmed out of scope: no set/rep strength plans via WorkoutKit; strength stays in-app logger only.

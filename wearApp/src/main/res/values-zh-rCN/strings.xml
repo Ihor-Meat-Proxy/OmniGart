@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OmniGart</string>
+    <string name="watch_start">开始</string>
+    <string name="watch_subtitle">腕上的健康估算</string>
+    <string name="info_sheet_not_medical_advice">非医疗建议。请咨询专业人士。</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OmniGart</string>
+    <string name="watch_start">Start</string>
+    <string name="watch_subtitle">Wellness-Schätzungen am Handgelenk</string>
+    <string name="info_sheet_not_medical_advice">Keine medizinische Beratung. Konsultieren Sie eine Fachkraft.</string>
+</resources>

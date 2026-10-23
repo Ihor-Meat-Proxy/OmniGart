@@ -38,3 +38,12 @@ Authorities cited in `glossary.csv` `source` cells. Prefer primary anatomical or
 ## Project schema
 
 - OmniGart `content/exercises/schema/exercise.schema.json` — muscle, equipment, movement-pattern, and tracking enums that the glossary must cover.
+
+## Heart-rate zones & watch workouts
+
+- **Karvonen & Kentala (1957)** — heart-rate reserve method for target training heart rates.
+- **ACSM** — *Guidelines for Exercise Testing and Prescription* intensity categories (%HRR / %HRmax), warm-up/cool-down, aerobic training guidance.
+- **Tanaka, Monahan & Seals (2001)** — age-predicted maximal heart rate (208 − 0.7×age) as an estimate alternative to 220 − age.
+- **Seiler** — polarised endurance intensity distribution; Zone 2 as low-moderate aerobic work in coaching vernacular (descriptive model, not a medical protocol).
+- **Lactate threshold / LTHR** — exercise-physiology coaching marker related to LT/MLSS testing; used here as a wellness training reference, not a clinical diagnosis.
+- Platform workout scheduling concepts (warm-up / interval / cool-down / HR–pace–cadence alerts) mapped for localisation; keep wellness tone and short watch UI labels.

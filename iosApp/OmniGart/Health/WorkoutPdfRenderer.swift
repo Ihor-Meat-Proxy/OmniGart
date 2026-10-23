@@ -107,8 +107,13 @@ enum WorkoutPdfRenderer {
         )
     }
 
-    private static var fontsRegistered = false
+    private static let fontRegistrationLock = NSLock()
+    // Guarded by fontRegistrationLock; process-wide one-shot registration.
+    nonisolated(unsafe) private static var fontsRegistered = false
+
     private static func registerFontsIfNeeded() {
+        fontRegistrationLock.lock()
+        defer { fontRegistrationLock.unlock() }
         guard !fontsRegistered else { return }
         fontsRegistered = true
         let names = ["NotoSans-Regular", "NotoSans-Bold", "NotoSansGeorgian-Regular"]

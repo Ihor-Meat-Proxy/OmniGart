@@ -104,3 +104,7 @@ UI catalogs land with the Phase 0 scaffold. This content PR does not invent UI c
 - `iosApp/OmniGart/Localizable.xcstrings`
 
 If those trees are missing, content validation still runs. Once merged, required locales must be complete there too.
+
+## Domain catalogs
+
+In addition to `content/exercises/locales/`, any `content/<domain>/locales/` tree that contains `en-GB.json` is validated by the Translations job (achievements, beverages, body, evidence, yoga, pilates, running, swimming, …). Stacked content PRs must ship all required locales for every catalog they introduce.

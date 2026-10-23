@@ -18,7 +18,6 @@ local.properties
 # Kotlin / Native
 .kotlin/
 kotlin-js-store/
-
 # Xcode / Apple
 iosApp/*.xcodeproj/**
 !iosApp/*.xcodeproj/project.pbxproj
@@ -31,37 +30,36 @@ iosApp/*.xcworkspace/
 *.ipa
 *.dSYM.zip
 *.dSYM
-
 # Keep XcodeGen as source of truth; ignore generated project if present
 iosApp/OmniGart.xcodeproj/
-
 # Android SDK (local cloud agent install)
 .android-sdk/
-
 # Node / tooling
 node_modules/
-
 # Python
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
 __pycache__/
-
-# Content bundle verify scratch (committed baseline lives in generated/content-bundle/)
-generated/.content-bundle-verify/
-
-# Xcode staged copies of the content bundle (rebuilt by pre-build script)
-iosApp/OmniGart/ContentBundle/
-watchApp/OmniGartWatch/ContentBundle/
-
+# i18n tooling scratch
+.i18n-work/
+scripts/content_i18n/_mt_cache/
+scripts/content_i18n/data/
+content/i18n/weblate/
 # Env / secrets
 .env
 .env.*
 *.jks
 *.keystore
-
 # Test / coverage
 coverage/
 *.exec
 .rapid/
-
+# Content bundle verify scratch (committed baseline lives in generated/content-bundle/)
+generated/.content-bundle-verify/
+# Xcode staged copies of the content bundle (rebuilt by pre-build script)
+iosApp/OmniGart/ContentBundle/
+watchApp/OmniGartWatch/ContentBundle/
 # OpenTofu / content plane
 infra/content/.terraform/
 infra/content/*.tfstate*
@@ -73,4 +71,4 @@ infra/self-host/.env
 # Fastlane
 fastlane/vendor/
 fastlane/.bundle/
-
+**/node_modules/

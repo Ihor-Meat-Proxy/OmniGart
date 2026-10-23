@@ -6,3 +6,10 @@ build/
 .DS_Store
 local.properties
 *.log
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.i18n-work/
+scripts/content_i18n/_mt_cache/
+scripts/content_i18n/data/
+content/i18n/weblate/

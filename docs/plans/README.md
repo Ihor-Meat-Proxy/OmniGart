@@ -17,6 +17,7 @@ Standing owner instruction: after Phase 0 and the health-integration PR, continu
 | 7 | [Watch apps deepening](phase-7.md) | `cursor/phase-7-watch-apps-*` | Phase 6 |
 | 8 | [Running](phase-8.md) | `cursor/phase-8-running-*` | Phase 7 |
 | 9 | [Swimming](phase-9.md) | `cursor/phase-9-swimming-*` | Phase 8 |
+| W | [Watch WorkoutKit + Zone 2](watch-workoutkit-zone2.md) | `cursor/workoutkit-integration-*` → `zone2-running-program-*` → `install-device-doc-*` | `main` (pulls forward Phase 7/8 pieces) |
 
 ## Cross-cutting rules (every phase)
 

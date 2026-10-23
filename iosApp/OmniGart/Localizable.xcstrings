@@ -2982,6 +2982,162 @@
           }
         }
       }
+    },
+    "watch.zone2.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Z2"
+          }
+        }
+      },
+      "comment": "Watch live title. maxLength=4"
+    },
+    "watch.zone2.hr_label": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HR"
+          }
+        }
+      },
+      "comment": "Heart-rate accessibility label. maxLength=4"
+    },
+    "watch.zone2.zone_in": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Z2"
+          }
+        }
+      },
+      "comment": "In-target zone chip. maxLength=4"
+    },
+    "watch.zone2.zone_below": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Low"
+          }
+        }
+      },
+      "comment": "Below Zone 2 chip. maxLength=6"
+    },
+    "watch.zone2.zone_above": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "High"
+          }
+        }
+      },
+      "comment": "Above Zone 2 chip. maxLength=6"
+    },
+    "watch.zone2.time_in_zone": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In Z"
+          }
+        }
+      },
+      "comment": "Time-in-zone column label. maxLength=6"
+    },
+    "watch.zone2.cadence": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cad"
+          }
+        }
+      },
+      "comment": "Cadence column label (spm implied). maxLength=4"
+    },
+    "watch.zone2.distance": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dist"
+          }
+        }
+      },
+      "comment": "Distance column label (m/km). maxLength=5"
+    },
+    "watch.zone2.elapsed": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Time"
+          }
+        }
+      },
+      "comment": "Elapsed accessibility label. maxLength=6"
+    },
+    "watch.zone2.start": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone 2"
+          }
+        }
+      },
+      "comment": "Start Zone 2 workout. maxLength=10"
+    },
+    "watch.zone2.stop": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop"
+          }
+        }
+      },
+      "comment": "Stop workout. maxLength=6"
+    },
+    "watch.zone2.haptics_toggle": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Haptics"
+          }
+        }
+      },
+      "comment": "Toggle zone haptics. maxLength=10"
+    },
+    "watch.zone2.error.health_unavailable": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Health unavailable"
+          }
+        }
+      },
+      "comment": "Error when HealthKit missing. maxLength=22"
     }
   },
   "version": "1.0"

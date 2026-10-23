@@ -19,9 +19,13 @@ struct WatchStartView: View {
                         .font(.caption)
                         .multilineTextAlignment(.center)
                 }
-                Button("watch_start") {}
-                    .tint(Color.OmniGart.colorBrandAccent)
-                    .accessibilityIdentifier("watch_start_button")
+                NavigationLink {
+                    Zone2LiveView()
+                } label: {
+                    Text("watch.zone2.start")
+                }
+                .tint(Color.OmniGart.colorBrandAccent)
+                .accessibilityIdentifier("watch_start_button")
             }
             .padding(OmniGartMetrics.space2)
             .accessibilityIdentifier("wear_start")

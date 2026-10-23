@@ -1,4 +1,30 @@
 term_id,en-GB,uk,pl,be,kk,ka,es,fr,de,cs,zh-Hans,pos,domain,source,notes,status
+ach.achievement,achievement,досягнення,osiągnięcie,дасягненне,жетістік,მიღწევა,logro,succès,Erfolg,úspěch,成就,n,achievements,OmniGart UX,Gamification unlock unit,draft
+ach.active_day,active day,активний день,dzień aktywny,актыўны дзень,белсенді күн,აქტიური დღე,día activo,jour actif,aktiver Tag,aktivní den,活跃日,n,achievements,OmniGart UX,,draft
+ach.bodyweight,bodyweight,власна вага,ciężar ciała,уласная вага,өз салмағы,საკუთარი წონა,peso corporal,poids du corps,Körpergewicht,vlastní váha,自重,n,training,NSCA,,draft
+ach.challenge,challenge,виклик,wyzwanie,выклік,челлендж / сынақ,გამოწვევა,reto,défi,Challenge,výzva,挑战,n,achievements,OmniGart UX,Time-boxed personal challenge,draft
+ach.check_in,check-in,чек-ін / відмітка,check-in / wpis,чэк-ін / адзнака,чек-ин / белгілеу,ჩექ-ინი,registro / check-in,pointage / check-in,Check-in,check-in / záznam,打卡,n,achievements,OmniGart UX,,draft
+ach.compound,compound pattern,базовий рух,wzorzec złożony,базавы рух,күрделі қозғалыс,რთული მოძრაობა,patrón compuesto,mouvement polyarticulaire,Grundmuster / Compound,složený vzor,复合动作,n,training,NSCA,,draft
+ach.deload,deload,розвантаження,odciążenie / deload,разгрузка,жеңілдету / делоад,დელოუდი,descarga / deload,deload / allègement,Deload,deload / odlehčení,减载周,n,training,NSCA,,draft
+ach.freeze,streak freeze,заморозка серії,zamrożenie serii,замарозка серыі,серияны тоқтату,სერიის გაყინვა,congelación de racha,gel de série,Serienpause / Freeze,zmrazení série,连胜冻结,n,achievements,OmniGart UX,Token that preserves streak during planned rest,draft
+ach.hrv,HRV / heart-rate variability,ВСР / варіабельність серцевого ритму,HRV / zmienność rytmu serca,ВСР / варыябельнасць сардэчнага рытму,ЖСВ / жүрек ырғағының өзгермелілігі,გულის რიტმის ცვალებადობა / HRV,VFC / variabilidad de la frecuencia cardiaca,VFC / variabilité de la fréquence cardiaque,HRV / Herzfrequenzvariabilität,HRV / variabilita srdeční frekvence,心率变异性 / HRV,n,recovery,ACSM,,draft
+ach.hydration,hydration,гідратація,nawodnienie,гідратацыя,ылғалдану / гидратация,ჰიდრატაცია,hidratación,hydratation,Hydration,hydratace,补水,n,nutrition,ACSM,,draft
+ach.im,individual medley / IM,комплекс / ІМ,styl zmienny / IM,комплекс / ІМ,кешенді жүзу / IM,კომპლექსური ცურვა / IM,estilos / IM,quatre nages / IM,Lagen / IM,polohový závod / IM,个人混合泳,n,swimming,FINA,,draft
+ach.mobility,mobility,мобільність,mobilność,мабільнасць,қозғалғыштық,მობილურობა,movilidad,mobilité,Mobilität,mobilita,活动度,n,training,ACSM,,draft
+ach.personal_record,personal record / PR,особистий рекорд,rekord osobisty / PR,асабісты рэкорд,жеке рекорд,პირადი რეკორდი,marca personal / PR,record personnel / PR,Persönliche Bestleistung / PR,osobní rekord / PR,个人最好成绩,n,training,NSCA; gym vernacular,,draft
+ach.plan_adherence,plan adherence,дотримання плану,trzymanie się planu,выкананне плана,жоспарды ұстану,გეგმის დაცვა,adherencia al plan,respect du plan,Planeinhaltung,dodržování plánu,计划执行,n,achievements,OmniGart UX,,draft
+ach.readiness,readiness,готовність,gotowość,гатоўнасць,дайындық,მზადყოფნა,disposición / readiness,prêt / readiness,Readiness,připravenost,身体就绪度,n,recovery,OmniGart UX,Recovery/readiness score,draft
+ach.rest_day,rest day / planned rest,день відпочинку / запланований відпочинок,dzień odpoczynku / planowany odpoczynek,дзень адпачынку / запланаваны адпачынак,демалыс күні / жоспарлы демалыс,დასვენების დღე,día de descanso / descanso planificado,jour de repos / repos planifié,Ruhetag / geplante Pause,odpočinkový den,休息日,n,recovery,OmniGart UX,,draft
+ach.rhythm,rhythm,ритм,rytm,рытм,ырғақ,რიტმი,ritmo,rythme,Rhythmus,rytmus,节奏,n,achievements,OmniGart UX,Preferred over aggressive streak language,draft
+ach.secret,secret achievement,таємне досягнення,sekretne osiągnięcie,сакрэтнае дасягненне,жасырын жетістік,საიდუმლო მიღწევა,logro secreto,succès secret,geheimes Erfolg,tajný úspěch,隐藏成就,n,achievements,OmniGart UX,,draft
+ach.streak,streak,серія,seria,серыя,серия,სერია,racha,série,Serie,série,连续记录,n,achievements,OmniGart UX,Consecutive-day habit counter,draft
+ach.tier,tier,рівень,poziom,узровень,деңгей,დონე,nivel,palier,Stufe,úroveň,等级,n,achievements,OmniGart UX,Bronze/Silver/Gold/Platinum,draft
+ach.tier.bronze,Bronze,Бронза,Brąz,Бронза,Қола,ბრინჯაო,Bronce,Bronze,Bronze,Bronz,铜,n,achievements,OmniGart UX,,draft
+ach.tier.gold,Gold,Золото,Złoto,Золата,Алтын,ოქრო,Oro,Or,Gold,Zlato,金,n,achievements,OmniGart UX,,draft
+ach.tier.platinum,Platinum,Платина,Platyna,Плаціна,Платина,პლატინა,Platino,Platine,Platin,Platina,铂金,n,achievements,OmniGart UX,,draft
+ach.tier.silver,Silver,Срібло,Srebro,Срэбра,Күміс,ვერცხლი,Plata,Argent,Silber,Stříbro,银,n,achievements,OmniGart UX,,draft
+ach.unilateral,unilateral,однобічний,jednostronny,аднабаковы,бір жақты,ცალმხრივი,unilateral,unilatéral,unilateral,jednostranný,单侧,adj,training,NSCA,,draft
+ach.walk_run,walk-run,ходьба-біг,marszobieg,хадзьба-бег,жүгіру-жаяу,სიარული-სირბილი,caminar-correr,marche-course,Gehen-Laufen,chůze-běh,走跑结合,n,running,OmniGart UX,,draft
 anatomy.cervical,cervical spine,шийний відділ хребта,odcinek szyjny kręgosłupa,шыйны аддзел хрыбетніка,мойын омыртқасы,კისრის ხერხემალი,columna cervical,rachis cervical,Halswirbelsäule,krční páteř,颈椎,n,anatomy,TA2 FIPAT,,draft
 anatomy.pelvis,pelvis,таз,miednica,таз,жамбас,მენჯი,pelvis,bassin,Becken,pánev,骨盆,n,anatomy,TA2 FIPAT,,draft
 anatomy.scapula,scapula,лопатка,łopatka,лапатка,жауырын,ბეჭი,omóplato / escápula,omoplate / scapula,Schulterblatt,lopatka,肩胛骨,n,anatomy,TA2 FIPAT,,draft

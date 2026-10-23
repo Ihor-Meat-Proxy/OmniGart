@@ -20,6 +20,24 @@ object StringKeys {
     const val INFO_SHEET_NOT_MEDICAL_ADVICE = "info_sheet_not_medical_advice"
     const val HEALTH_WARNING_CHEST_PAIN = "health_warning_chest_pain"
     const val ONBOARDING_WELLNESS_TITLE = "onboarding_wellness_title"
+    const val ONBOARDING_WELCOME_TITLE = "onboarding_welcome_title"
+    const val ONBOARDING_WELCOME_BODY = "onboarding_welcome_body"
+    const val ONBOARDING_NEXT = "onboarding_next"
+    const val ONBOARDING_BACK = "onboarding_back"
+    const val ONBOARDING_SKIP = "onboarding_skip"
+    const val ONBOARDING_FINISH = "onboarding_finish"
+    const val ONBOARDING_GOAL_TITLE = "onboarding_goal_title"
+    const val ONBOARDING_SEX_TITLE = "onboarding_sex_title"
+    const val ONBOARDING_BIRTH_TITLE = "onboarding_birth_title"
+    const val ONBOARDING_HEIGHT_TITLE = "onboarding_height_title"
+    const val ONBOARDING_WEIGHT_TITLE = "onboarding_weight_title"
+    const val ONBOARDING_EXPERIENCE_TITLE = "onboarding_experience_title"
+    const val ONBOARDING_UNITS_TITLE = "onboarding_units_title"
+    const val ONBOARDING_ACTIVITY_TITLE = "onboarding_activity_title"
+    const val PERM_EXPLAINER_HEALTH_TITLE = "perm_explainer_health_title"
+    const val PERM_EXPLAINER_HEALTH_BODY = "perm_explainer_health_body"
+    const val PERM_CONTINUE = "perm_continue"
+    const val PERM_NOT_NOW = "perm_not_now"
     const val INFO_SHEET_TITLE = "info_sheet_title"
     const val INFO_SHEET_BODY = "info_sheet_body"
 
@@ -97,6 +115,29 @@ object StringCatalog {
                 "Stop and seek emergency help if you feel chest pain, severe dizziness, or " +
                 "unusual shortness of breath during activity.",
             StringKeys.ONBOARDING_WELLNESS_TITLE to "Wellness, not medical care",
+            StringKeys.ONBOARDING_WELCOME_TITLE to "Welcome to OmniGart",
+            StringKeys.ONBOARDING_WELCOME_BODY to
+                "A few questions so we can personalise wellness estimates on your device. " +
+                "You can change these later in Profile.",
+            StringKeys.ONBOARDING_NEXT to "Next",
+            StringKeys.ONBOARDING_BACK to "Back",
+            StringKeys.ONBOARDING_SKIP to "Skip",
+            StringKeys.ONBOARDING_FINISH to "Finish",
+            StringKeys.ONBOARDING_GOAL_TITLE to "What is your main goal?",
+            StringKeys.ONBOARDING_SEX_TITLE to "Body map figure",
+            StringKeys.ONBOARDING_BIRTH_TITLE to "Date of birth",
+            StringKeys.ONBOARDING_HEIGHT_TITLE to "Height",
+            StringKeys.ONBOARDING_WEIGHT_TITLE to "Weight",
+            StringKeys.ONBOARDING_EXPERIENCE_TITLE to "Strength training experience",
+            StringKeys.ONBOARDING_UNITS_TITLE to "Preferred units",
+            StringKeys.ONBOARDING_ACTIVITY_TITLE to "Typical daily activity",
+            StringKeys.PERM_EXPLAINER_HEALTH_TITLE to "Apple Health / Health Connect",
+            StringKeys.PERM_EXPLAINER_HEALTH_BODY to
+                "OmniGart can read and write wellness samples (heart rate, HRV, sleep, workouts, " +
+                "body mass, hydration) to improve on-device estimates. Data is not used for ads " +
+                "or sent to unrelated third parties. You can continue without granting access.",
+            StringKeys.PERM_CONTINUE to "Continue",
+            StringKeys.PERM_NOT_NOW to "Not now",
             StringKeys.INFO_SHEET_TITLE to "About this estimate",
             StringKeys.INFO_SHEET_BODY to
                 "Figures such as readiness, stress, HRV, Baevsky index, body fat, and hydration " +
@@ -185,6 +226,30 @@ object StringCatalog {
                 "Зупиніться і зверніться по екстрену допомогу, якщо під час активності відчуваєте " +
                 "біль у грудях, сильне запаморочення або незвичну задишку.",
             StringKeys.ONBOARDING_WELLNESS_TITLE to "Самопочуття, не медицина",
+            StringKeys.ONBOARDING_WELCOME_TITLE to "Ласкаво просимо до OmniGart",
+            StringKeys.ONBOARDING_WELCOME_BODY to
+                "Кілька запитань, щоб налаштувати оцінки самопочуття на вашому пристрої. " +
+                "Пізніше можна змінити в Профілі.",
+            StringKeys.ONBOARDING_NEXT to "Далі",
+            StringKeys.ONBOARDING_BACK to "Назад",
+            StringKeys.ONBOARDING_SKIP to "Пропустити",
+            StringKeys.ONBOARDING_FINISH to "Завершити",
+            StringKeys.ONBOARDING_GOAL_TITLE to "Яка ваша головна мета?",
+            StringKeys.ONBOARDING_SEX_TITLE to "Фігура на карті тіла",
+            StringKeys.ONBOARDING_BIRTH_TITLE to "Дата народження",
+            StringKeys.ONBOARDING_HEIGHT_TITLE to "Зріст",
+            StringKeys.ONBOARDING_WEIGHT_TITLE to "Вага",
+            StringKeys.ONBOARDING_EXPERIENCE_TITLE to "Досвід силових тренувань",
+            StringKeys.ONBOARDING_UNITS_TITLE to "Зручні одиниці",
+            StringKeys.ONBOARDING_ACTIVITY_TITLE to "Типова щоденна активність",
+            StringKeys.PERM_EXPLAINER_HEALTH_TITLE to "Apple Health / Health Connect",
+            StringKeys.PERM_EXPLAINER_HEALTH_BODY to
+                "OmniGart може читати й записувати зразки самопочуття (пульс, ВСР, сон, " +
+                "тренування, маса тіла, гідратація), щоб покращувати оцінки на пристрої. " +
+                "Дані не використовуються для реклами і не надсилаються стороннім сервісам. " +
+                "Можна продовжити без доступу.",
+            StringKeys.PERM_CONTINUE to "Продовжити",
+            StringKeys.PERM_NOT_NOW to "Не зараз",
             StringKeys.INFO_SHEET_TITLE to "Про цю оцінку",
             StringKeys.INFO_SHEET_BODY to
                 "Показники на кшталт готовності, стресу, ВСР, індексу Баєвського, жиру в тілі та " +

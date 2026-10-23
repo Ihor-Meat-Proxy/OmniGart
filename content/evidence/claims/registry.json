@@ -1,0 +1,419 @@
+{
+  "version": 1,
+  "claims": [
+    {
+      "id": "formula-ree-mifflin-st-jeor",
+      "category": "formula",
+      "textKeys": {
+        "enGB": "claim.formula_ree_mifflin_st_jeor.text",
+        "uk": "claim.formula_ree_mifflin_st_jeor.text"
+      },
+      "evidenceIds": [
+        "mifflin-st-jeor-1990"
+      ]
+    },
+    {
+      "id": "formula-hrmax-tanaka",
+      "category": "formula",
+      "textKeys": {
+        "enGB": "claim.formula_hrmax_tanaka.text",
+        "uk": "claim.formula_hrmax_tanaka.text"
+      },
+      "evidenceIds": [
+        "tanaka-hrmax-2001"
+      ]
+    },
+    {
+      "id": "formula-hr-zone-karvonen",
+      "category": "formula",
+      "textKeys": {
+        "enGB": "claim.formula_hr_zone_karvonen.text",
+        "uk": "claim.formula_hr_zone_karvonen.text"
+      },
+      "evidenceIds": [
+        "karvonen-hr-reserve-1957"
+      ]
+    },
+    {
+      "id": "formula-hrmax-gellish",
+      "category": "formula",
+      "textKeys": {
+        "enGB": "claim.formula_hrmax_gellish.text",
+        "uk": "claim.formula_hrmax_gellish.text"
+      },
+      "evidenceIds": [
+        "gellish-hrmax-2007"
+      ]
+    },
+    {
+      "id": "formula-hrmax-nes",
+      "category": "formula",
+      "textKeys": {
+        "enGB": "claim.formula_hrmax_nes.text",
+        "uk": "claim.formula_hrmax_nes.text"
+      },
+      "evidenceIds": [
+        "nes-hrmax-2013"
+      ]
+    },
+    {
+      "id": "formula-hrmax-gulati-women",
+      "category": "formula",
+      "textKeys": {
+        "enGB": "claim.formula_hrmax_gulati_women.text",
+        "uk": "claim.formula_hrmax_gulati_women.text"
+      },
+      "evidenceIds": [
+        "gulati-hr-women-2010"
+      ]
+    },
+    {
+      "id": "formula-bodyfat-cun-bae",
+      "category": "body-comp",
+      "textKeys": {
+        "enGB": "claim.formula_bodyfat_cun_bae.text",
+        "uk": "claim.formula_bodyfat_cun_bae.text"
+      },
+      "evidenceIds": [
+        "cun-bae-2012"
+      ]
+    },
+    {
+      "id": "formula-bodyfat-deurenberg",
+      "category": "body-comp",
+      "textKeys": {
+        "enGB": "claim.formula_bodyfat_deurenberg.text",
+        "uk": "claim.formula_bodyfat_deurenberg.text"
+      },
+      "evidenceIds": [
+        "deurenberg-bf-bmi-1991"
+      ]
+    },
+    {
+      "id": "formula-bodyfat-rfm",
+      "category": "body-comp",
+      "textKeys": {
+        "enGB": "claim.formula_bodyfat_rfm.text",
+        "uk": "claim.formula_bodyfat_rfm.text"
+      },
+      "evidenceIds": [
+        "woolcott-rfm-2018"
+      ]
+    },
+    {
+      "id": "prog-weekly-set-volume-hypertrophy",
+      "category": "programming",
+      "textKeys": {
+        "enGB": "claim.prog_weekly_set_volume_hypertrophy.text",
+        "uk": "claim.prog_weekly_set_volume_hypertrophy.text"
+      },
+      "evidenceIds": [
+        "schoenfeld-volume-2016",
+        "pelland-dose-2025",
+        "schoenfeld-volume-guidelines-2018"
+      ]
+    },
+    {
+      "id": "prog-muscle-frequency-twice-weekly",
+      "category": "programming",
+      "textKeys": {
+        "enGB": "claim.prog_muscle_frequency_twice_weekly.text",
+        "uk": "claim.prog_muscle_frequency_twice_weekly.text"
+      },
+      "evidenceIds": [
+        "schoenfeld-frequency-2016"
+      ]
+    },
+    {
+      "id": "prog-frequency-volume-equated",
+      "category": "programming",
+      "textKeys": {
+        "enGB": "claim.prog_frequency_volume_equated.text",
+        "uk": "claim.prog_frequency_volume_equated.text"
+      },
+      "evidenceIds": [
+        "schoenfeld-frequency-2019",
+        "pelland-dose-2025"
+      ]
+    },
+    {
+      "id": "prog-acsm-rt-prescription",
+      "category": "programming",
+      "textKeys": {
+        "enGB": "claim.prog_acsm_rt_prescription.text",
+        "uk": "claim.prog_acsm_rt_prescription.text"
+      },
+      "evidenceIds": [
+        "acsm-rt-2026"
+      ]
+    },
+    {
+      "id": "prog-acsm-quantity-quality",
+      "category": "programming",
+      "textKeys": {
+        "enGB": "claim.prog_acsm_quantity_quality.text",
+        "uk": "claim.prog_acsm_quantity_quality.text"
+      },
+      "evidenceIds": [
+        "garber-acsm-2011"
+      ]
+    },
+    {
+      "id": "nutrition-protein-rt-augmentation",
+      "category": "nutrition",
+      "textKeys": {
+        "enGB": "claim.nutrition_protein_rt_augmentation.text",
+        "uk": "claim.nutrition_protein_rt_augmentation.text"
+      },
+      "evidenceIds": [
+        "morton-protein-2018"
+      ]
+    },
+    {
+      "id": "nutrition-protein-older-adults",
+      "category": "nutrition",
+      "textKeys": {
+        "enGB": "claim.nutrition_protein_older_adults.text",
+        "uk": "claim.nutrition_protein_older_adults.text"
+      },
+      "evidenceIds": [
+        "ten-haaf-protein-older-2018"
+      ]
+    },
+    {
+      "id": "nutrition-water-adequate-intake",
+      "category": "nutrition",
+      "textKeys": {
+        "enGB": "claim.nutrition_water_adequate_intake.text",
+        "uk": "claim.nutrition_water_adequate_intake.text"
+      },
+      "evidenceIds": [
+        "efsa-water-2010"
+      ]
+    },
+    {
+      "id": "recovery-sleep-performance",
+      "category": "recovery",
+      "textKeys": {
+        "enGB": "claim.recovery_sleep_performance.text",
+        "uk": "claim.recovery_sleep_performance.text"
+      },
+      "evidenceIds": [
+        "watson-sleep-performance-2017"
+      ]
+    },
+    {
+      "id": "recovery-hrv-guided-training",
+      "category": "recovery",
+      "textKeys": {
+        "enGB": "claim.recovery_hrv_guided_training.text",
+        "uk": "claim.recovery_hrv_guided_training.text"
+      },
+      "evidenceIds": [
+        "plews-hrv-monitoring-2013"
+      ]
+    },
+    {
+      "id": "recovery-baevsky-stress-index",
+      "category": "recovery",
+      "textKeys": {
+        "enGB": "claim.recovery_baevsky_stress_index.text",
+        "uk": "claim.recovery_baevsky_stress_index.text"
+      },
+      "evidenceIds": [
+        "baevsky-hrv-methods-2017"
+      ]
+    },
+    {
+      "id": "recovery-pss10-stress",
+      "category": "recovery",
+      "textKeys": {
+        "enGB": "claim.recovery_pss10_stress.text",
+        "uk": "claim.recovery_pss10_stress.text"
+      },
+      "evidenceIds": [
+        "pss10-cohen-1983"
+      ]
+    },
+    {
+      "id": "load-session-rpe",
+      "category": "load-monitoring",
+      "textKeys": {
+        "enGB": "claim.load_session_rpe.text",
+        "uk": "claim.load_session_rpe.text"
+      },
+      "evidenceIds": [
+        "foster-session-rpe-2001"
+      ]
+    },
+    {
+      "id": "load-trimp",
+      "category": "load-monitoring",
+      "textKeys": {
+        "enGB": "claim.load_trimp.text",
+        "uk": "claim.load_trimp.text"
+      },
+      "evidenceIds": [
+        "banister-trimp-1990",
+        "banister-calvert-planning-1980"
+      ]
+    },
+    {
+      "id": "load-acwr-caution",
+      "category": "load-monitoring",
+      "textKeys": {
+        "enGB": "claim.load_acwr_caution.text",
+        "uk": "claim.load_acwr_caution.text"
+      },
+      "evidenceIds": [
+        "impellizzeri-acwr-2021"
+      ]
+    },
+    {
+      "id": "cardio-polarized-distribution",
+      "category": "cardio",
+      "textKeys": {
+        "enGB": "claim.cardio_polarized_distribution.text",
+        "uk": "claim.cardio_polarized_distribution.text"
+      },
+      "evidenceIds": [
+        "seiler-polarized-2010",
+        "munoz-polarized-runners-2014"
+      ]
+    },
+    {
+      "id": "cardio-mileage-10pct-caveat",
+      "category": "cardio",
+      "textKeys": {
+        "enGB": "claim.cardio_mileage_10pct_caveat.text",
+        "uk": "claim.cardio_mileage_10pct_caveat.text"
+      },
+      "evidenceIds": [
+        "omnigart-mileage-caveat"
+      ]
+    },
+    {
+      "id": "claim-exercise-technique-safety",
+      "category": "technique",
+      "textKeys": {
+        "enGB": "claim.exercise_technique_safety.text",
+        "uk": "claim.exercise_technique_safety.text"
+      },
+      "evidenceIds": [
+        "nsca-essentials-4e",
+        "acsm-rt-2026"
+      ]
+    },
+    {
+      "id": "claim-exercise-programming-volume",
+      "category": "programming",
+      "textKeys": {
+        "enGB": "claim.exercise_programming_volume.text",
+        "uk": "claim.exercise_programming_volume.text"
+      },
+      "evidenceIds": [
+        "schoenfeld-volume-2016",
+        "acsm-rt-2026"
+      ]
+    },
+    {
+      "id": "claim-exercise-mobility-flexibility",
+      "category": "technique",
+      "textKeys": {
+        "enGB": "claim.exercise_mobility_flexibility.text",
+        "uk": "claim.exercise_mobility_flexibility.text"
+      },
+      "evidenceIds": [
+        "garber-acsm-2011"
+      ]
+    },
+    {
+      "id": "claim-squat-knee-biomechanics",
+      "category": "safety",
+      "textKeys": {
+        "enGB": "claim.squat_knee_biomechanics.text",
+        "uk": "claim.squat_knee_biomechanics.text"
+      },
+      "evidenceIds": [
+        "escamilla-squat-2001"
+      ]
+    },
+    {
+      "id": "claim-hip-thrust-glute-emg",
+      "category": "technique",
+      "textKeys": {
+        "enGB": "claim.hip_thrust_glute_emg.text",
+        "uk": "claim.hip_thrust_glute_emg.text"
+      },
+      "evidenceIds": [
+        "contreras-hip-thrust-emg-2015"
+      ]
+    },
+    {
+      "id": "claim-segment-inertia-load-model",
+      "category": "technique",
+      "textKeys": {
+        "enGB": "claim.segment_inertia_load_model.text",
+        "uk": "claim.segment_inertia_load_model.text"
+      },
+      "evidenceIds": [
+        "de-leva-segment-inertia-1996"
+      ]
+    },
+    {
+      "id": "claim-pullup-variation-emg",
+      "category": "technique",
+      "textKeys": {
+        "enGB": "claim.pullup_variation_emg.text",
+        "uk": "claim.pullup_variation_emg.text"
+      },
+      "evidenceIds": [
+        "dickie-pullup-emg-2017"
+      ]
+    },
+    {
+      "id": "claim-pullup-chinup-emg",
+      "category": "technique",
+      "textKeys": {
+        "enGB": "claim.pullup_chinup_emg.text",
+        "uk": "claim.pullup_chinup_emg.text"
+      },
+      "evidenceIds": [
+        "youdas-pullup-emg-2010"
+      ]
+    },
+    {
+      "id": "claim-dip-shoulder-extension-safety",
+      "category": "safety",
+      "textKeys": {
+        "enGB": "claim.dip_shoulder_extension_safety.text",
+        "uk": "claim.dip_shoulder_extension_safety.text"
+      },
+      "evidenceIds": [
+        "mckenzie-dip-extension-2021"
+      ]
+    },
+    {
+      "id": "claim-dip-apparatus-kinematics",
+      "category": "technique",
+      "textKeys": {
+        "enGB": "claim.dip_apparatus_kinematics.text",
+        "uk": "claim.dip_apparatus_kinematics.text"
+      },
+      "evidenceIds": [
+        "mckenzie-dip-kinematics-2022"
+      ]
+    },
+    {
+      "id": "claim-bodyweight-support-fraction",
+      "category": "technique",
+      "textKeys": {
+        "enGB": "claim.bodyweight_support_fraction.text",
+        "uk": "claim.bodyweight_support_fraction.text"
+      },
+      "evidenceIds": [
+        "suprak-pushup-body-mass-2011"
+      ]
+    }
+  ]
+}

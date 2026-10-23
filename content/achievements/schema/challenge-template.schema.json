@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.dev/schemas/challenge-template.schema.json",
+  "title": "OmniGartChallengeTemplateCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "templates"],
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "templates": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/template" }
+    }
+  },
+  "$defs": {
+    "template": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "challengeType",
+        "durationDays",
+        "iconId",
+        "titleKey",
+        "descriptionKey",
+        "goal",
+        "localOnly",
+        "social"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^challenge\\.[a-z0-9_]+$"
+        },
+        "challengeType": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "durationDays": { "type": "integer", "minimum": 3, "maximum": 366 },
+        "iconId": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "titleKey": {
+          "type": "string",
+          "pattern": "^challenge\\.[a-z0-9_]+\\.title$"
+        },
+        "descriptionKey": {
+          "type": "string",
+          "pattern": "^challenge\\.[a-z0-9_]+\\.description$"
+        },
+        "goal": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["metric", "comparator", "value"],
+          "properties": {
+            "metric": { "type": "string" },
+            "comparator": {
+              "type": "string",
+              "enum": ["gte", "gt", "lte", "lt", "eq"]
+            },
+            "value": { "type": "number" },
+            "filters": {
+              "type": "object",
+              "additionalProperties": {
+                "type": ["string", "number", "boolean"]
+              }
+            },
+            "window": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["unit", "count"],
+              "properties": {
+                "unit": {
+                  "type": "string",
+                  "enum": ["day", "week", "month", "rolling_days", "challenge"]
+                },
+                "count": { "type": "integer", "minimum": 1 }
+              }
+            }
+          }
+        },
+        "localOnly": { "type": "boolean", "const": true },
+        "social": { "type": "boolean", "const": false }
+      }
+    }
+  }
+}

@@ -1,0 +1,1925 @@
+{
+  "version": 1,
+  "localePolicy": [
+    "en-GB",
+    "uk"
+  ],
+  "healthyByDesign": {
+    "rewardConsistency": true,
+    "forbidCalorieRestrictionRewards": true,
+    "forbidDehydrationOrExcessWaterRewards": true,
+    "forbidTrainingThroughPoorRecoveryRewards": true,
+    "forbidRapidWeightLossRewards": true,
+    "weightAchievementsTrackLoggingOnly": true,
+    "streaksAllowPlannedRestAndFreeze": true
+  },
+  "achievements": [
+    {
+      "id": "strength.first_session",
+      "category": "strength",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "strength.first_session",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "strength",
+      "titleKey": "achievement.strength_first_session.title",
+      "descriptionKey": "achievement.strength_first_session.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 1,
+        "filters": {
+          "discipline": "strength"
+        }
+      },
+      "sortOrder": 10
+    },
+    {
+      "id": "strength.sessions.5",
+      "category": "strength",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "strength.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "strength",
+      "titleKey": "achievement.strength_sessions_5.title",
+      "descriptionKey": "achievement.strength_sessions_5.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 5,
+        "filters": {
+          "discipline": "strength"
+        }
+      },
+      "sortOrder": 20
+    },
+    {
+      "id": "strength.sessions.15",
+      "category": "strength",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "strength.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "strength",
+      "titleKey": "achievement.strength_sessions_15.title",
+      "descriptionKey": "achievement.strength_sessions_15.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 15,
+        "filters": {
+          "discipline": "strength"
+        }
+      },
+      "sortOrder": 30
+    },
+    {
+      "id": "strength.sessions.40",
+      "category": "strength",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "strength.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "strength",
+      "titleKey": "achievement.strength_sessions_40.title",
+      "descriptionKey": "achievement.strength_sessions_40.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 40,
+        "filters": {
+          "discipline": "strength"
+        }
+      },
+      "sortOrder": 40
+    },
+    {
+      "id": "strength.sessions.100",
+      "category": "strength",
+      "tier": {
+        "kind": "metal",
+        "metal": "platinum"
+      },
+      "familyId": "strength.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "trophy",
+      "titleKey": "achievement.strength_sessions_100.title",
+      "descriptionKey": "achievement.strength_sessions_100.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 100,
+        "filters": {
+          "discipline": "strength"
+        }
+      },
+      "sortOrder": 50
+    },
+    {
+      "id": "strength.first_pr",
+      "category": "strength",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "strength.first_pr",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "trophy",
+      "titleKey": "achievement.strength_first_pr.title",
+      "descriptionKey": "achievement.strength_first_pr.description",
+      "rule": {
+        "kind": "personal_record",
+        "metric": "load_kg",
+        "comparator": "gt",
+        "value": 0,
+        "filters": {
+          "discipline": "strength"
+        }
+      },
+      "sortOrder": 60
+    },
+    {
+      "id": "strength.prs.5",
+      "category": "strength",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "strength.pr",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "trophy",
+      "titleKey": "achievement.strength_prs_5.title",
+      "descriptionKey": "achievement.strength_prs_5.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "personal_record",
+        "comparator": "gte",
+        "value": 5,
+        "filters": {
+          "discipline": "strength"
+        }
+      },
+      "sortOrder": 70
+    },
+    {
+      "id": "strength.week_plan_adherence",
+      "category": "strength",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "strength.week_plan_adherence",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "planner",
+      "titleKey": "achievement.strength_week_plan_adherence.title",
+      "descriptionKey": "achievement.strength_week_plan_adherence.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "planned_session_completed",
+        "comparator": "gte",
+        "value": 3,
+        "filters": {
+          "discipline": "strength"
+        },
+        "window": {
+          "unit": "week",
+          "count": 1
+        }
+      },
+      "sortOrder": 80
+    },
+    {
+      "id": "strength.streak.28",
+      "category": "strength",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "strength.streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.strength_streak_28.title",
+      "descriptionKey": "achievement.strength_streak_28.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "training_or_rest_day",
+        "comparator": "gte",
+        "value": 28,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        },
+        "filters": {
+          "discipline": "strength"
+        }
+      },
+      "sortOrder": 90
+    },
+    {
+      "id": "running.first_session",
+      "category": "running",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "running.first_session",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "running",
+      "titleKey": "achievement.running_first_session.title",
+      "descriptionKey": "achievement.running_first_session.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 1,
+        "filters": {
+          "discipline": "running"
+        }
+      },
+      "sortOrder": 10
+    },
+    {
+      "id": "running.sessions.5",
+      "category": "running",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "running.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "running",
+      "titleKey": "achievement.running_sessions_5.title",
+      "descriptionKey": "achievement.running_sessions_5.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 5,
+        "filters": {
+          "discipline": "running"
+        }
+      },
+      "sortOrder": 20
+    },
+    {
+      "id": "running.sessions.20",
+      "category": "running",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "running.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "running",
+      "titleKey": "achievement.running_sessions_20.title",
+      "descriptionKey": "achievement.running_sessions_20.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 20,
+        "filters": {
+          "discipline": "running"
+        }
+      },
+      "sortOrder": 30
+    },
+    {
+      "id": "running.sessions.50",
+      "category": "running",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "running.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "running",
+      "titleKey": "achievement.running_sessions_50.title",
+      "descriptionKey": "achievement.running_sessions_50.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 50,
+        "filters": {
+          "discipline": "running"
+        }
+      },
+      "sortOrder": 40
+    },
+    {
+      "id": "running.single.5k",
+      "category": "running",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "running.distance_single",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "running",
+      "titleKey": "achievement.running_single_5k.title",
+      "descriptionKey": "achievement.running_single_5k.description",
+      "rule": {
+        "kind": "threshold",
+        "metric": "distance_m",
+        "comparator": "gte",
+        "value": 5000,
+        "filters": {
+          "discipline": "running"
+        }
+      },
+      "sortOrder": 50
+    },
+    {
+      "id": "running.single.10k",
+      "category": "running",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "running.distance_single",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "running",
+      "titleKey": "achievement.running_single_10k.title",
+      "descriptionKey": "achievement.running_single_10k.description",
+      "rule": {
+        "kind": "threshold",
+        "metric": "distance_m",
+        "comparator": "gte",
+        "value": 10000,
+        "filters": {
+          "discipline": "running"
+        }
+      },
+      "sortOrder": 60
+    },
+    {
+      "id": "running.month.50km",
+      "category": "running",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "running.distance_month",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "running",
+      "titleKey": "achievement.running_month_50km.title",
+      "descriptionKey": "achievement.running_month_50km.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "distance_m",
+        "comparator": "gte",
+        "value": 50000,
+        "filters": {
+          "discipline": "running"
+        },
+        "window": {
+          "unit": "month",
+          "count": 1
+        }
+      },
+      "sortOrder": 70
+    },
+    {
+      "id": "running.month.100km",
+      "category": "running",
+      "tier": {
+        "kind": "metal",
+        "metal": "platinum"
+      },
+      "familyId": "running.distance_month",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "trophy",
+      "titleKey": "achievement.running_month_100km.title",
+      "descriptionKey": "achievement.running_month_100km.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "distance_m",
+        "comparator": "gte",
+        "value": 100000,
+        "filters": {
+          "discipline": "running"
+        },
+        "window": {
+          "unit": "month",
+          "count": 1
+        }
+      },
+      "sortOrder": 80
+    },
+    {
+      "id": "swimming.first_session",
+      "category": "swimming",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "swimming.first_session",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "swimming",
+      "titleKey": "achievement.swimming_first_session.title",
+      "descriptionKey": "achievement.swimming_first_session.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 1,
+        "filters": {
+          "discipline": "swimming"
+        }
+      },
+      "sortOrder": 10
+    },
+    {
+      "id": "swimming.sessions.5",
+      "category": "swimming",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "swimming.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "swimming",
+      "titleKey": "achievement.swimming_sessions_5.title",
+      "descriptionKey": "achievement.swimming_sessions_5.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 5,
+        "filters": {
+          "discipline": "swimming"
+        }
+      },
+      "sortOrder": 20
+    },
+    {
+      "id": "swimming.sessions.20",
+      "category": "swimming",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "swimming.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "swimming",
+      "titleKey": "achievement.swimming_sessions_20.title",
+      "descriptionKey": "achievement.swimming_sessions_20.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 20,
+        "filters": {
+          "discipline": "swimming"
+        }
+      },
+      "sortOrder": 30
+    },
+    {
+      "id": "swimming.sessions.40",
+      "category": "swimming",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "swimming.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "swimming",
+      "titleKey": "achievement.swimming_sessions_40.title",
+      "descriptionKey": "achievement.swimming_sessions_40.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 40,
+        "filters": {
+          "discipline": "swimming"
+        }
+      },
+      "sortOrder": 40
+    },
+    {
+      "id": "swimming.single.1000m",
+      "category": "swimming",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "swimming.distance_single",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "swimming",
+      "titleKey": "achievement.swimming_single_1000m.title",
+      "descriptionKey": "achievement.swimming_single_1000m.description",
+      "rule": {
+        "kind": "threshold",
+        "metric": "distance_m",
+        "comparator": "gte",
+        "value": 1000,
+        "filters": {
+          "discipline": "swimming"
+        }
+      },
+      "sortOrder": 50
+    },
+    {
+      "id": "swimming.single.2000m",
+      "category": "swimming",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "swimming.distance_single",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "swimming",
+      "titleKey": "achievement.swimming_single_2000m.title",
+      "descriptionKey": "achievement.swimming_single_2000m.description",
+      "rule": {
+        "kind": "threshold",
+        "metric": "distance_m",
+        "comparator": "gte",
+        "value": 2000,
+        "filters": {
+          "discipline": "swimming"
+        }
+      },
+      "sortOrder": 60
+    },
+    {
+      "id": "swimming.month.20km",
+      "category": "swimming",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "swimming.distance_month",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "swimming",
+      "titleKey": "achievement.swimming_month_20km.title",
+      "descriptionKey": "achievement.swimming_month_20km.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "distance_m",
+        "comparator": "gte",
+        "value": 20000,
+        "filters": {
+          "discipline": "swimming"
+        },
+        "window": {
+          "unit": "month",
+          "count": 1
+        }
+      },
+      "sortOrder": 70
+    },
+    {
+      "id": "yoga.first_session",
+      "category": "yoga",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "yoga.first_session",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "yoga",
+      "titleKey": "achievement.yoga_first_session.title",
+      "descriptionKey": "achievement.yoga_first_session.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 1,
+        "filters": {
+          "discipline": "yoga"
+        }
+      },
+      "sortOrder": 10
+    },
+    {
+      "id": "yoga.sessions.5",
+      "category": "yoga",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "yoga.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "yoga",
+      "titleKey": "achievement.yoga_sessions_5.title",
+      "descriptionKey": "achievement.yoga_sessions_5.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 5,
+        "filters": {
+          "discipline": "yoga"
+        }
+      },
+      "sortOrder": 20
+    },
+    {
+      "id": "yoga.sessions.15",
+      "category": "yoga",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "yoga.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "yoga",
+      "titleKey": "achievement.yoga_sessions_15.title",
+      "descriptionKey": "achievement.yoga_sessions_15.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 15,
+        "filters": {
+          "discipline": "yoga"
+        }
+      },
+      "sortOrder": 30
+    },
+    {
+      "id": "yoga.sessions.40",
+      "category": "yoga",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "yoga.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "yoga",
+      "titleKey": "achievement.yoga_sessions_40.title",
+      "descriptionKey": "achievement.yoga_sessions_40.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 40,
+        "filters": {
+          "discipline": "yoga"
+        }
+      },
+      "sortOrder": 40
+    },
+    {
+      "id": "yoga.minutes.30",
+      "category": "yoga",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "yoga.duration",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "yoga",
+      "titleKey": "achievement.yoga_minutes_30.title",
+      "descriptionKey": "achievement.yoga_minutes_30.description",
+      "rule": {
+        "kind": "threshold",
+        "metric": "duration_min",
+        "comparator": "gte",
+        "value": 30,
+        "filters": {
+          "discipline": "yoga"
+        }
+      },
+      "sortOrder": 50
+    },
+    {
+      "id": "yoga.streak.14",
+      "category": "yoga",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "yoga.streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.yoga_streak_14.title",
+      "descriptionKey": "achievement.yoga_streak_14.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "training_or_rest_day",
+        "comparator": "gte",
+        "value": 14,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        },
+        "filters": {
+          "discipline": "yoga"
+        }
+      },
+      "sortOrder": 60
+    },
+    {
+      "id": "yoga.challenge.30d_mobility",
+      "category": "yoga",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "yoga.challenge",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "achievement",
+      "titleKey": "achievement.yoga_challenge_30d_mobility.title",
+      "descriptionKey": "achievement.yoga_challenge_30d_mobility.description",
+      "rule": {
+        "kind": "challenge",
+        "metric": "challenge_completed",
+        "comparator": "gte",
+        "value": 1,
+        "filters": {
+          "challengeType": "mobility_30_day"
+        }
+      },
+      "sortOrder": 70
+    },
+    {
+      "id": "pilates.first_session",
+      "category": "pilates",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "pilates.first_session",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "pilates",
+      "titleKey": "achievement.pilates_first_session.title",
+      "descriptionKey": "achievement.pilates_first_session.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 1,
+        "filters": {
+          "discipline": "pilates"
+        }
+      },
+      "sortOrder": 10
+    },
+    {
+      "id": "pilates.sessions.5",
+      "category": "pilates",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "pilates.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "pilates",
+      "titleKey": "achievement.pilates_sessions_5.title",
+      "descriptionKey": "achievement.pilates_sessions_5.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 5,
+        "filters": {
+          "discipline": "pilates"
+        }
+      },
+      "sortOrder": 20
+    },
+    {
+      "id": "pilates.sessions.15",
+      "category": "pilates",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "pilates.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "pilates",
+      "titleKey": "achievement.pilates_sessions_15.title",
+      "descriptionKey": "achievement.pilates_sessions_15.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 15,
+        "filters": {
+          "discipline": "pilates"
+        }
+      },
+      "sortOrder": 30
+    },
+    {
+      "id": "pilates.sessions.40",
+      "category": "pilates",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "pilates.sessions",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "pilates",
+      "titleKey": "achievement.pilates_sessions_40.title",
+      "descriptionKey": "achievement.pilates_sessions_40.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "workout_completed",
+        "comparator": "gte",
+        "value": 40,
+        "filters": {
+          "discipline": "pilates"
+        }
+      },
+      "sortOrder": 40
+    },
+    {
+      "id": "pilates.minutes.25",
+      "category": "pilates",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "pilates.duration",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "pilates",
+      "titleKey": "achievement.pilates_minutes_25.title",
+      "descriptionKey": "achievement.pilates_minutes_25.description",
+      "rule": {
+        "kind": "threshold",
+        "metric": "duration_min",
+        "comparator": "gte",
+        "value": 25,
+        "filters": {
+          "discipline": "pilates"
+        }
+      },
+      "sortOrder": 50
+    },
+    {
+      "id": "pilates.streak.14",
+      "category": "pilates",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "pilates.streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.pilates_streak_14.title",
+      "descriptionKey": "achievement.pilates_streak_14.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "training_or_rest_day",
+        "comparator": "gte",
+        "value": 14,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        },
+        "filters": {
+          "discipline": "pilates"
+        }
+      },
+      "sortOrder": 60
+    },
+    {
+      "id": "pilates.week_plan",
+      "category": "pilates",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "pilates.week_plan",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "planner",
+      "titleKey": "achievement.pilates_week_plan.title",
+      "descriptionKey": "achievement.pilates_week_plan.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "planned_session_completed",
+        "comparator": "gte",
+        "value": 2,
+        "filters": {
+          "discipline": "pilates"
+        },
+        "window": {
+          "unit": "week",
+          "count": 1
+        }
+      },
+      "sortOrder": 70
+    },
+    {
+      "id": "nutrition.first_log",
+      "category": "nutrition",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "nutrition.first_log",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "food-log",
+      "titleKey": "achievement.nutrition_first_log.title",
+      "descriptionKey": "achievement.nutrition_first_log.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "meal_logged",
+        "comparator": "gte",
+        "value": 1
+      },
+      "sortOrder": 10
+    },
+    {
+      "id": "nutrition.logs.10",
+      "category": "nutrition",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "nutrition.logs",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "food",
+      "titleKey": "achievement.nutrition_logs_10.title",
+      "descriptionKey": "achievement.nutrition_logs_10.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "meal_logged",
+        "comparator": "gte",
+        "value": 10
+      },
+      "sortOrder": 20
+    },
+    {
+      "id": "nutrition.logs.50",
+      "category": "nutrition",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "nutrition.logs",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "food",
+      "titleKey": "achievement.nutrition_logs_50.title",
+      "descriptionKey": "achievement.nutrition_logs_50.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "meal_logged",
+        "comparator": "gte",
+        "value": 50
+      },
+      "sortOrder": 30
+    },
+    {
+      "id": "nutrition.logs.200",
+      "category": "nutrition",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "nutrition.logs",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "food",
+      "titleKey": "achievement.nutrition_logs_200.title",
+      "descriptionKey": "achievement.nutrition_logs_200.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "meal_logged",
+        "comparator": "gte",
+        "value": 200
+      },
+      "sortOrder": 40
+    },
+    {
+      "id": "nutrition.days.7",
+      "category": "nutrition",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "nutrition.streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.nutrition_days_7.title",
+      "descriptionKey": "achievement.nutrition_days_7.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "nutrition_day",
+        "comparator": "gte",
+        "value": 7,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        }
+      },
+      "sortOrder": 50
+    },
+    {
+      "id": "nutrition.days.21",
+      "category": "nutrition",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "nutrition.streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.nutrition_days_21.title",
+      "descriptionKey": "achievement.nutrition_days_21.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "nutrition_day",
+        "comparator": "gte",
+        "value": 21,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        }
+      },
+      "sortOrder": 60
+    },
+    {
+      "id": "nutrition.days.66",
+      "category": "nutrition",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "nutrition.streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.nutrition_days_66.title",
+      "descriptionKey": "achievement.nutrition_days_66.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "nutrition_day",
+        "comparator": "gte",
+        "value": 66,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        }
+      },
+      "sortOrder": 70
+    },
+    {
+      "id": "nutrition.protein_days.14",
+      "category": "nutrition",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "nutrition.protein",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "food",
+      "titleKey": "achievement.nutrition_protein_days_14.title",
+      "descriptionKey": "achievement.nutrition_protein_days_14.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "protein_target_day",
+        "comparator": "gte",
+        "value": 14,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        }
+      },
+      "sortOrder": 80
+    },
+    {
+      "id": "water.first_log",
+      "category": "water",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "water.first_log",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "water",
+      "titleKey": "achievement.water_first_log.title",
+      "descriptionKey": "achievement.water_first_log.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "water_logged",
+        "comparator": "gte",
+        "value": 1
+      },
+      "sortOrder": 10
+    },
+    {
+      "id": "water.goal_days.3",
+      "category": "water",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "water.goal_streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "water",
+      "titleKey": "achievement.water_goal_days_3.title",
+      "descriptionKey": "achievement.water_goal_days_3.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "water_goal_day",
+        "comparator": "gte",
+        "value": 3,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        }
+      },
+      "sortOrder": 20
+    },
+    {
+      "id": "water.goal_days.7",
+      "category": "water",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "water.goal_streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "water",
+      "titleKey": "achievement.water_goal_days_7.title",
+      "descriptionKey": "achievement.water_goal_days_7.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "water_goal_day",
+        "comparator": "gte",
+        "value": 7,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        }
+      },
+      "sortOrder": 30
+    },
+    {
+      "id": "water.goal_days.30",
+      "category": "water",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "water.goal_streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "water",
+      "titleKey": "achievement.water_goal_days_30.title",
+      "descriptionKey": "achievement.water_goal_days_30.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "water_goal_day",
+        "comparator": "gte",
+        "value": 30,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        }
+      },
+      "sortOrder": 40
+    },
+    {
+      "id": "water.goal_days.100",
+      "category": "water",
+      "tier": {
+        "kind": "metal",
+        "metal": "platinum"
+      },
+      "familyId": "water.goal_count",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "trophy",
+      "titleKey": "achievement.water_goal_days_100.title",
+      "descriptionKey": "achievement.water_goal_days_100.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "water_goal_day",
+        "comparator": "gte",
+        "value": 100
+      },
+      "sortOrder": 50
+    },
+    {
+      "id": "water.challenge.21d",
+      "category": "water",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "water.challenge",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "achievement",
+      "titleKey": "achievement.water_challenge_21d.title",
+      "descriptionKey": "achievement.water_challenge_21d.description",
+      "rule": {
+        "kind": "challenge",
+        "metric": "challenge_completed",
+        "comparator": "gte",
+        "value": 1,
+        "filters": {
+          "challengeType": "hydration_21_day"
+        }
+      },
+      "sortOrder": 60
+    },
+    {
+      "id": "water.logs.50",
+      "category": "water",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "water.logs",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "water",
+      "titleKey": "achievement.water_logs_50.title",
+      "descriptionKey": "achievement.water_logs_50.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "water_logged",
+        "comparator": "gte",
+        "value": 50
+      },
+      "sortOrder": 70
+    },
+    {
+      "id": "recovery.sleep_first",
+      "category": "recovery",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "recovery.sleep_first",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "sleep",
+      "titleKey": "achievement.recovery_sleep_first.title",
+      "descriptionKey": "achievement.recovery_sleep_first.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "sleep_imported",
+        "comparator": "gte",
+        "value": 1
+      },
+      "sortOrder": 10
+    },
+    {
+      "id": "recovery.sleep_nights.7",
+      "category": "recovery",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "recovery.sleep_logs",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "sleep",
+      "titleKey": "achievement.recovery_sleep_nights_7.title",
+      "descriptionKey": "achievement.recovery_sleep_nights_7.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "sleep_imported",
+        "comparator": "gte",
+        "value": 7
+      },
+      "sortOrder": 20
+    },
+    {
+      "id": "recovery.sleep_nights.30",
+      "category": "recovery",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "recovery.sleep_logs",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "sleep",
+      "titleKey": "achievement.recovery_sleep_nights_30.title",
+      "descriptionKey": "achievement.recovery_sleep_nights_30.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "sleep_imported",
+        "comparator": "gte",
+        "value": 30
+      },
+      "sortOrder": 30
+    },
+    {
+      "id": "recovery.sleep_streak.14",
+      "category": "recovery",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "recovery.sleep_streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.recovery_sleep_streak_14.title",
+      "descriptionKey": "achievement.recovery_sleep_streak_14.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "sleep_logged_day",
+        "comparator": "gte",
+        "value": 14,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        }
+      },
+      "sortOrder": 40
+    },
+    {
+      "id": "recovery.rest_when_low.3",
+      "category": "recovery",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "recovery.wise_rest",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "readiness",
+      "titleKey": "achievement.recovery_rest_when_low_3.title",
+      "descriptionKey": "achievement.recovery_rest_when_low_3.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "rest_taken_on_low_readiness",
+        "comparator": "gte",
+        "value": 3
+      },
+      "sortOrder": 50
+    },
+    {
+      "id": "recovery.rest_when_low.10",
+      "category": "recovery",
+      "tier": {
+        "kind": "metal",
+        "metal": "platinum"
+      },
+      "familyId": "recovery.wise_rest",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "recovery",
+      "titleKey": "achievement.recovery_rest_when_low_10.title",
+      "descriptionKey": "achievement.recovery_rest_when_low_10.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "rest_taken_on_low_readiness",
+        "comparator": "gte",
+        "value": 10
+      },
+      "sortOrder": 60
+    },
+    {
+      "id": "recovery.hrv_logged.10",
+      "category": "recovery",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "recovery.hrv",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "hrv",
+      "titleKey": "achievement.recovery_hrv_logged_10.title",
+      "descriptionKey": "achievement.recovery_hrv_logged_10.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "hrv_logged",
+        "comparator": "gte",
+        "value": 10
+      },
+      "sortOrder": 70
+    },
+    {
+      "id": "recovery.challenge.14d_sleep",
+      "category": "recovery",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "recovery.challenge",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "achievement",
+      "titleKey": "achievement.recovery_challenge_14d_sleep.title",
+      "descriptionKey": "achievement.recovery_challenge_14d_sleep.description",
+      "rule": {
+        "kind": "challenge",
+        "metric": "challenge_completed",
+        "comparator": "gte",
+        "value": 1,
+        "filters": {
+          "challengeType": "sleep_logging_14_day"
+        }
+      },
+      "sortOrder": 80
+    },
+    {
+      "id": "recovery.stress_checkins.20",
+      "category": "recovery",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "recovery.stress",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "stress",
+      "titleKey": "achievement.recovery_stress_checkins_20.title",
+      "descriptionKey": "achievement.recovery_stress_checkins_20.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "stress_checkin",
+        "comparator": "gte",
+        "value": 20
+      },
+      "sortOrder": 90
+    },
+    {
+      "id": "measurements.first",
+      "category": "body_measurements",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "measurements.first",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "measurements",
+      "titleKey": "achievement.measurements_first.title",
+      "descriptionKey": "achievement.measurements_first.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "measurement_logged",
+        "comparator": "gte",
+        "value": 1
+      },
+      "sortOrder": 10
+    },
+    {
+      "id": "measurements.logs.5",
+      "category": "body_measurements",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "measurements.logs",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "measurements",
+      "titleKey": "achievement.measurements_logs_5.title",
+      "descriptionKey": "achievement.measurements_logs_5.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "measurement_logged",
+        "comparator": "gte",
+        "value": 5
+      },
+      "sortOrder": 20
+    },
+    {
+      "id": "measurements.logs.20",
+      "category": "body_measurements",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "measurements.logs",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "measurements",
+      "titleKey": "achievement.measurements_logs_20.title",
+      "descriptionKey": "achievement.measurements_logs_20.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "measurement_logged",
+        "comparator": "gte",
+        "value": 20
+      },
+      "sortOrder": 30
+    },
+    {
+      "id": "measurements.weekly.8",
+      "category": "body_measurements",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "measurements.weeks",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "measurements",
+      "titleKey": "achievement.measurements_weekly_8.title",
+      "descriptionKey": "achievement.measurements_weekly_8.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "measurement_week_logged",
+        "comparator": "gte",
+        "value": 8
+      },
+      "sortOrder": 40
+    },
+    {
+      "id": "measurements.streak.4_weeks",
+      "category": "body_measurements",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "measurements.streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.measurements_streak_4_weeks.title",
+      "descriptionKey": "achievement.measurements_streak_4_weeks.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "measurement_week_day",
+        "comparator": "gte",
+        "value": 28,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        }
+      },
+      "sortOrder": 50
+    },
+    {
+      "id": "measurements.sites.3",
+      "category": "body_measurements",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "measurements.sites",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "measurements",
+      "titleKey": "achievement.measurements_sites_3.title",
+      "descriptionKey": "achievement.measurements_sites_3.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "distinct_measurement_sites",
+        "comparator": "gte",
+        "value": 3
+      },
+      "sortOrder": 60
+    },
+    {
+      "id": "consistency.first_active_day",
+      "category": "consistency",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "consistency.first_active_day",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.consistency_first_active_day.title",
+      "descriptionKey": "achievement.consistency_first_active_day.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "active_day",
+        "comparator": "gte",
+        "value": 1
+      },
+      "sortOrder": 10
+    },
+    {
+      "id": "consistency.active_days.7",
+      "category": "consistency",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "consistency.active",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.consistency_active_days_7.title",
+      "descriptionKey": "achievement.consistency_active_days_7.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "active_day",
+        "comparator": "gte",
+        "value": 7
+      },
+      "sortOrder": 20
+    },
+    {
+      "id": "consistency.active_days.30",
+      "category": "consistency",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "consistency.active",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.consistency_active_days_30.title",
+      "descriptionKey": "achievement.consistency_active_days_30.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "active_day",
+        "comparator": "gte",
+        "value": 30
+      },
+      "sortOrder": 30
+    },
+    {
+      "id": "consistency.active_days.100",
+      "category": "consistency",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "consistency.active",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "trophy",
+      "titleKey": "achievement.consistency_active_days_100.title",
+      "descriptionKey": "achievement.consistency_active_days_100.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "active_day",
+        "comparator": "gte",
+        "value": 100
+      },
+      "sortOrder": 40
+    },
+    {
+      "id": "consistency.streak.7",
+      "category": "consistency",
+      "tier": {
+        "kind": "metal",
+        "metal": "bronze"
+      },
+      "familyId": "consistency.streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.consistency_streak_7.title",
+      "descriptionKey": "achievement.consistency_streak_7.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "active_or_rest_day",
+        "comparator": "gte",
+        "value": 7,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        }
+      },
+      "sortOrder": 50
+    },
+    {
+      "id": "consistency.streak.21",
+      "category": "consistency",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "consistency.streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.consistency_streak_21.title",
+      "descriptionKey": "achievement.consistency_streak_21.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "active_or_rest_day",
+        "comparator": "gte",
+        "value": 21,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        }
+      },
+      "sortOrder": 60
+    },
+    {
+      "id": "consistency.streak.66",
+      "category": "consistency",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "consistency.streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "streak",
+      "titleKey": "achievement.consistency_streak_66.title",
+      "descriptionKey": "achievement.consistency_streak_66.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "active_or_rest_day",
+        "comparator": "gte",
+        "value": 66,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        }
+      },
+      "sortOrder": 70
+    },
+    {
+      "id": "consistency.streak.100",
+      "category": "consistency",
+      "tier": {
+        "kind": "metal",
+        "metal": "platinum"
+      },
+      "familyId": "consistency.streak",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "trophy",
+      "titleKey": "achievement.consistency_streak_100.title",
+      "descriptionKey": "achievement.consistency_streak_100.description",
+      "rule": {
+        "kind": "streak",
+        "metric": "active_or_rest_day",
+        "comparator": "gte",
+        "value": 100,
+        "streakPolicy": {
+          "allowPlannedRest": true,
+          "allowStreakFreeze": true,
+          "maxFreezeDaysPer30Days": 2
+        }
+      },
+      "sortOrder": 80
+    },
+    {
+      "id": "consistency.multicategory.3",
+      "category": "consistency",
+      "tier": {
+        "kind": "metal",
+        "metal": "silver"
+      },
+      "familyId": "consistency.variety",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "achievement",
+      "titleKey": "achievement.consistency_multicategory_3.title",
+      "descriptionKey": "achievement.consistency_multicategory_3.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "distinct_disciplines_week",
+        "comparator": "gte",
+        "value": 3,
+        "window": {
+          "unit": "week",
+          "count": 1
+        }
+      },
+      "sortOrder": 90
+    },
+    {
+      "id": "consistency.weekly_goal.4",
+      "category": "consistency",
+      "tier": {
+        "kind": "level",
+        "level": 1
+      },
+      "familyId": "consistency.weekly_goal",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "planner",
+      "titleKey": "achievement.consistency_weekly_goal_4.title",
+      "descriptionKey": "achievement.consistency_weekly_goal_4.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "weekly_goal_met",
+        "comparator": "gte",
+        "value": 4
+      },
+      "sortOrder": 100
+    },
+    {
+      "id": "consistency.weekly_goal.12",
+      "category": "consistency",
+      "tier": {
+        "kind": "level",
+        "level": 2
+      },
+      "familyId": "consistency.weekly_goal",
+      "hidden": false,
+      "repeatable": false,
+      "iconId": "planner",
+      "titleKey": "achievement.consistency_weekly_goal_12.title",
+      "descriptionKey": "achievement.consistency_weekly_goal_12.description",
+      "rule": {
+        "kind": "counter",
+        "metric": "weekly_goal_met",
+        "comparator": "gte",
+        "value": 12
+      },
+      "sortOrder": 110
+    },
+    {
+      "id": "consistency.challenge.any",
+      "category": "consistency",
+      "tier": {
+        "kind": "metal",
+        "metal": "gold"
+      },
+      "familyId": "consistency.challenge",
+      "hidden": true,
+      "repeatable": false,
+      "iconId": "achievement",
+      "titleKey": "achievement.consistency_challenge_any.title",
+      "descriptionKey": "achievement.consistency_challenge_any.description",
+      "rule": {
+        "kind": "challenge",
+        "metric": "challenge_completed",
+        "comparator": "gte",
+        "value": 1,
+        "filters": {
+          "challengeType": "any"
+        }
+      },
+      "sortOrder": 120
+    }
+  ]
+}

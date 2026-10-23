@@ -6598,5 +6598,909 @@
   "body.wellness.whtr_unknown": {
     "status": "machine-drafted",
     "source_hash": "c87d808ab6689fd5"
+  },
+  "yoga.flow.balance_focus_flow.description": {
+    "status": "machine-drafted",
+    "source_hash": "84919b70ba35cc10"
+  },
+  "yoga.flow.balance_focus_flow.name": {
+    "status": "machine-drafted",
+    "source_hash": "85c79ce03689a719"
+  },
+  "yoga.flow.beginner_foundations.description": {
+    "status": "machine-drafted",
+    "source_hash": "346728b88ef23a13"
+  },
+  "yoga.flow.beginner_foundations.name": {
+    "status": "machine-drafted",
+    "source_hash": "2abefe9939f2c53d"
+  },
+  "yoga.flow.evening_wind_down.description": {
+    "status": "machine-drafted",
+    "source_hash": "835b665266dc3de6"
+  },
+  "yoga.flow.evening_wind_down.name": {
+    "status": "machine-drafted",
+    "source_hash": "6ad19fc9e1bb2b84"
+  },
+  "yoga.flow.full_body_vinyasa.description": {
+    "status": "machine-drafted",
+    "source_hash": "d633638e2cb0c51d"
+  },
+  "yoga.flow.full_body_vinyasa.name": {
+    "status": "machine-drafted",
+    "source_hash": "cf9397144907c7a4"
+  },
+  "yoga.flow.gentle_mobility_flow.description": {
+    "status": "machine-drafted",
+    "source_hash": "346728b88ef23a13"
+  },
+  "yoga.flow.gentle_mobility_flow.name": {
+    "status": "machine-drafted",
+    "source_hash": "f95d9c4159c5bcd4"
+  },
+  "yoga.flow.hamstring_care.description": {
+    "status": "machine-drafted",
+    "source_hash": "346728b88ef23a13"
+  },
+  "yoga.flow.hamstring_care.name": {
+    "status": "machine-drafted",
+    "source_hash": "faba8e3fcc5f9b4a"
+  },
+  "yoga.flow.hip_opener_sequence.description": {
+    "status": "machine-drafted",
+    "source_hash": "a0bf255aa8b00d8d"
+  },
+  "yoga.flow.hip_opener_sequence.name": {
+    "status": "machine-drafted",
+    "source_hash": "d439ccf41ac6db3c"
+  },
+  "yoga.flow.morning_sun_salutations.description": {
+    "status": "machine-drafted",
+    "source_hash": "7064c1e6543c62ef"
+  },
+  "yoga.flow.morning_sun_salutations.name": {
+    "status": "machine-drafted",
+    "source_hash": "5de62b4dd3daf1f0"
+  },
+  "yoga.flow.restorative_restore.description": {
+    "status": "machine-drafted",
+    "source_hash": "d33740704145c01e"
+  },
+  "yoga.flow.restorative_restore.name": {
+    "status": "machine-drafted",
+    "source_hash": "382175d384c242f8"
+  },
+  "yoga.flow.spinal_mobility_flow.description": {
+    "status": "machine-drafted",
+    "source_hash": "3cd159dea053ebb0"
+  },
+  "yoga.flow.spinal_mobility_flow.name": {
+    "status": "machine-drafted",
+    "source_hash": "e726b10b8ba6859b"
+  },
+  "yoga.flow.strength_standing_flow.description": {
+    "status": "machine-drafted",
+    "source_hash": "16030f1fef6c1d81"
+  },
+  "yoga.flow.strength_standing_flow.name": {
+    "status": "machine-drafted",
+    "source_hash": "c5d7de635db2dcc4"
+  },
+  "yoga.flow.twists_and_breath.description": {
+    "status": "machine-drafted",
+    "source_hash": "c296c470fe05a932"
+  },
+  "yoga.flow.twists_and_breath.name": {
+    "status": "machine-drafted",
+    "source_hash": "f7cf45b4b5dcc13f"
+  },
+  "yoga.pose.bird_dog_yoga.english": {
+    "status": "machine-drafted",
+    "source_hash": "b57163334a4f7b97"
+  },
+  "yoga.pose.bird_dog_yoga.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "5d0d3d45345558a3"
+  },
+  "yoga.pose.boat_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "e834f67454389a02"
+  },
+  "yoga.pose.boat_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "6dc87ec1e7fde98c"
+  },
+  "yoga.pose.bow_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "7c1783c902164344"
+  },
+  "yoga.pose.bow_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "86c500f14f9ef6e3"
+  },
+  "yoga.pose.bridge_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "df65d515432c7313"
+  },
+  "yoga.pose.bridge_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "e8a3f29808c853c6"
+  },
+  "yoga.pose.butterfly_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "f95686abb40c9161"
+  },
+  "yoga.pose.butterfly_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "e48633b37ad26588"
+  },
+  "yoga.pose.camel_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "ed7a757f9fbf286d"
+  },
+  "yoga.pose.camel_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "8844c8761943292e"
+  },
+  "yoga.pose.cat_cow.english": {
+    "status": "machine-drafted",
+    "source_hash": "17e1f291c345ca53"
+  },
+  "yoga.pose.cat_cow.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "75e86fc55b8a5a74"
+  },
+  "yoga.pose.chair_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "671d82e28278cdee"
+  },
+  "yoga.pose.chair_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "f575426646a529ac"
+  },
+  "yoga.pose.chaturanga.english": {
+    "status": "machine-drafted",
+    "source_hash": "c4693d17b1bc1663"
+  },
+  "yoga.pose.chaturanga.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "eff0e354eca7af4b"
+  },
+  "yoga.pose.child_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "622f30fbcf926d83"
+  },
+  "yoga.pose.child_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "8c80e505f0403095"
+  },
+  "yoga.pose.cobra_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "6e0e28a4858c104a"
+  },
+  "yoga.pose.cobra_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "b107e454ed480411"
+  },
+  "yoga.pose.corpse_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "c4d4ae4a222d62d0"
+  },
+  "yoga.pose.corpse_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "1380ec0b075c37d4"
+  },
+  "yoga.pose.cow_face_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "c02e4ccbfc01c631"
+  },
+  "yoga.pose.cow_face_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "5aa63ce977f7d691"
+  },
+  "yoga.pose.crescent_lunge_twist.english": {
+    "status": "machine-drafted",
+    "source_hash": "19e909793080f7c8"
+  },
+  "yoga.pose.crescent_lunge_twist.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "4b2075d012c97cba"
+  },
+  "yoga.pose.crow_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "4d618d5a1444187b"
+  },
+  "yoga.pose.crow_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "a22b1574a576e2b4"
+  },
+  "yoga.pose.dolphin_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "7d159b43e79aec39"
+  },
+  "yoga.pose.dolphin_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "11f770727fe579ba"
+  },
+  "yoga.pose.downward_dog.english": {
+    "status": "machine-drafted",
+    "source_hash": "0feeb0812e04d416"
+  },
+  "yoga.pose.downward_dog.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "e084b2ab33632455"
+  },
+  "yoga.pose.eagle_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "726a3f6c64e5ed62"
+  },
+  "yoga.pose.eagle_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "8f3f8d33b064a117"
+  },
+  "yoga.pose.easy_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "6b91f0cb9c2c9f15"
+  },
+  "yoga.pose.easy_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "8baea9256d25d4e0"
+  },
+  "yoga.pose.extended_side_angle.english": {
+    "status": "machine-drafted",
+    "source_hash": "7f27b7c33bb59675"
+  },
+  "yoga.pose.extended_side_angle.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "a032be2ddf6d9b89"
+  },
+  "yoga.pose.forward_fold.english": {
+    "status": "machine-drafted",
+    "source_hash": "47b272073315892e"
+  },
+  "yoga.pose.forward_fold.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "e907cd6a601dfdb6"
+  },
+  "yoga.pose.frog_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "1efe3e6c60424fe5"
+  },
+  "yoga.pose.frog_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "77c5fd1c8894cba0"
+  },
+  "yoga.pose.garland_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "310955964b84b8dd"
+  },
+  "yoga.pose.garland_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "971d7985ea5cb69f"
+  },
+  "yoga.pose.goddess_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "d3c66788f91be709"
+  },
+  "yoga.pose.goddess_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "e9f0e8467dcae51f"
+  },
+  "yoga.pose.half_forward_fold.english": {
+    "status": "machine-drafted",
+    "source_hash": "bcbd45f9f6f262a3"
+  },
+  "yoga.pose.half_forward_fold.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "89b7b2f2a9becf9d"
+  },
+  "yoga.pose.half_splits.english": {
+    "status": "machine-drafted",
+    "source_hash": "140af8df3c94590b"
+  },
+  "yoga.pose.half_splits.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "9a80acdf6667da3c"
+  },
+  "yoga.pose.happy_baby.english": {
+    "status": "machine-drafted",
+    "source_hash": "5052e9cbc27f275e"
+  },
+  "yoga.pose.happy_baby.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "1a6c73a8be4039b8"
+  },
+  "yoga.pose.head_to_knee.english": {
+    "status": "machine-drafted",
+    "source_hash": "80ee1a95e2e79fdf"
+  },
+  "yoga.pose.head_to_knee.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "b0f4c942532815d5"
+  },
+  "yoga.pose.hero_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "7f27d05005b12343"
+  },
+  "yoga.pose.hero_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "b938e97d09111491"
+  },
+  "yoga.pose.high_lunge.english": {
+    "status": "machine-drafted",
+    "source_hash": "fd6e36a5f87478eb"
+  },
+  "yoga.pose.high_lunge.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "b85c05f45dd535f5"
+  },
+  "yoga.pose.knee_to_chest.english": {
+    "status": "machine-drafted",
+    "source_hash": "bd5cc1d22792861d"
+  },
+  "yoga.pose.knee_to_chest.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "b3b2a45b0c737532"
+  },
+  "yoga.pose.legs_up_wall.english": {
+    "status": "machine-drafted",
+    "source_hash": "17fc5e0b55d25fc7"
+  },
+  "yoga.pose.legs_up_wall.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "690d468c26b59c87"
+  },
+  "yoga.pose.lizard_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "1f78a1adc191f6ff"
+  },
+  "yoga.pose.lizard_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "ce5b1e799ca233a1"
+  },
+  "yoga.pose.locust_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "6b063bf130e1b78d"
+  },
+  "yoga.pose.locust_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "31e2b0d75a838283"
+  },
+  "yoga.pose.low_lunge.english": {
+    "status": "machine-drafted",
+    "source_hash": "df4913bc7c3ae129"
+  },
+  "yoga.pose.low_lunge.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "e46a262c67d84db7"
+  },
+  "yoga.pose.mountain_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "73ba32ff946a9d63"
+  },
+  "yoga.pose.mountain_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "f11ccd32c77e29b0"
+  },
+  "yoga.pose.pigeon_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "ba87603d6b3d4b64"
+  },
+  "yoga.pose.pigeon_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "ea73c58a8adf2804"
+  },
+  "yoga.pose.plank_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "0bd629d60d4853f8"
+  },
+  "yoga.pose.plank_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "c6ac28e79f4ae9ae"
+  },
+  "yoga.pose.puppy_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "167aecb45fb23603"
+  },
+  "yoga.pose.puppy_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "6071b924024b252c"
+  },
+  "yoga.pose.pyramid_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "a124c1e9a7d5b936"
+  },
+  "yoga.pose.pyramid_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "7301ca9310981f30"
+  },
+  "yoga.pose.reclining_bound_angle.english": {
+    "status": "machine-drafted",
+    "source_hash": "bc2af64db3bf9095"
+  },
+  "yoga.pose.reclining_bound_angle.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "1f2be859b5de1778"
+  },
+  "yoga.pose.reverse_warrior.english": {
+    "status": "machine-drafted",
+    "source_hash": "6dfcac2f6fb02347"
+  },
+  "yoga.pose.reverse_warrior.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "d3e63697bea847a7"
+  },
+  "yoga.pose.revolved_head_to_knee.english": {
+    "status": "machine-drafted",
+    "source_hash": "c6a137e99c8b19bb"
+  },
+  "yoga.pose.revolved_head_to_knee.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "9a393852b12e4b32"
+  },
+  "yoga.pose.seated_forward_fold.english": {
+    "status": "machine-drafted",
+    "source_hash": "874245a892053e47"
+  },
+  "yoga.pose.seated_forward_fold.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "79b86fc4ed5de99d"
+  },
+  "yoga.pose.seated_twist.english": {
+    "status": "machine-drafted",
+    "source_hash": "5d2ec40cc655f34b"
+  },
+  "yoga.pose.seated_twist.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "d6ef2912bff6c7a2"
+  },
+  "yoga.pose.side_plank_yoga.english": {
+    "status": "machine-drafted",
+    "source_hash": "07eb2c0555be1c15"
+  },
+  "yoga.pose.side_plank_yoga.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "cb4f023bb7b09237"
+  },
+  "yoga.pose.sphinx_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "8c32e74a1a8421eb"
+  },
+  "yoga.pose.sphinx_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "f3a5246833c6bec1"
+  },
+  "yoga.pose.staff_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "426861d6b6cd0080"
+  },
+  "yoga.pose.staff_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "6a28c6b00307964f"
+  },
+  "yoga.pose.standing_split.english": {
+    "status": "machine-drafted",
+    "source_hash": "2e4f3cb47edff31e"
+  },
+  "yoga.pose.standing_split.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "377df89c86b821ea"
+  },
+  "yoga.pose.supine_twist.english": {
+    "status": "machine-drafted",
+    "source_hash": "12f09e3d28d0932a"
+  },
+  "yoga.pose.supine_twist.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "b0cc85be3f496d93"
+  },
+  "yoga.pose.tabletop.english": {
+    "status": "machine-drafted",
+    "source_hash": "c3dee2da944918b3"
+  },
+  "yoga.pose.tabletop.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "401aa79622d41ae6"
+  },
+  "yoga.pose.thread_needle.english": {
+    "status": "machine-drafted",
+    "source_hash": "17bdb7be330d64a3"
+  },
+  "yoga.pose.thread_needle.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "166c709bc5924860"
+  },
+  "yoga.pose.three_legged_dog.english": {
+    "status": "machine-drafted",
+    "source_hash": "39442ab6a0b87df2"
+  },
+  "yoga.pose.three_legged_dog.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "2f1a26e72ccee991"
+  },
+  "yoga.pose.tree_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "65d4d63ea4685a77"
+  },
+  "yoga.pose.tree_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "5edec9b12a459492"
+  },
+  "yoga.pose.triangle_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "67d20e30079f6930"
+  },
+  "yoga.pose.triangle_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "34145c7793c4dc29"
+  },
+  "yoga.pose.upward_dog.english": {
+    "status": "machine-drafted",
+    "source_hash": "e9548fba03838e45"
+  },
+  "yoga.pose.upward_dog.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "2e7667984729c028"
+  },
+  "yoga.pose.warrior_i.english": {
+    "status": "machine-drafted",
+    "source_hash": "dff2ef36cecf82b1"
+  },
+  "yoga.pose.warrior_i.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "156d9c9351408372"
+  },
+  "yoga.pose.warrior_ii.english": {
+    "status": "machine-drafted",
+    "source_hash": "223b679fd567d9aa"
+  },
+  "yoga.pose.warrior_ii.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "daea3c2d531ac2ba"
+  },
+  "yoga.pose.warrior_iii.english": {
+    "status": "machine-drafted",
+    "source_hash": "3d91d997075deb8e"
+  },
+  "yoga.pose.warrior_iii.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "41f52b0edccef6f2"
+  },
+  "yoga.pose.wheel_pose.english": {
+    "status": "machine-drafted",
+    "source_hash": "bcd22951252e032c"
+  },
+  "yoga.pose.wheel_pose.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "37a41f99d61146aa"
+  },
+  "yoga.pose.wide_legged_forward_fold.english": {
+    "status": "machine-drafted",
+    "source_hash": "d93d57446a8acc1b"
+  },
+  "yoga.pose.wide_legged_forward_fold.sanskrit": {
+    "status": "machine-drafted",
+    "source_hash": "d096c1ce74793d55"
+  },
+  "pilates.exercise.pilates_corkscrew.name": {
+    "status": "machine-drafted",
+    "source_hash": "61c16266993d6228"
+  },
+  "pilates.exercise.pilates_criss_cross.name": {
+    "status": "machine-drafted",
+    "source_hash": "a557e89146282b6a"
+  },
+  "pilates.exercise.pilates_double_leg_stretch.name": {
+    "status": "machine-drafted",
+    "source_hash": "008c01ed7cafdede"
+  },
+  "pilates.exercise.pilates_hip_circles.name": {
+    "status": "machine-drafted",
+    "source_hash": "ab5e8c2da5b145e9"
+  },
+  "pilates.exercise.pilates_hundred.name": {
+    "status": "machine-drafted",
+    "source_hash": "c54c86d16b39353a"
+  },
+  "pilates.exercise.pilates_jackknife.name": {
+    "status": "machine-drafted",
+    "source_hash": "e8f8f435726ceee9"
+  },
+  "pilates.exercise.pilates_leg_pull_back.name": {
+    "status": "machine-drafted",
+    "source_hash": "d53a9e94fd1c3bfa"
+  },
+  "pilates.exercise.pilates_leg_pull_front.name": {
+    "status": "machine-drafted",
+    "source_hash": "f184f62fac18a026"
+  },
+  "pilates.exercise.pilates_lower_lift.name": {
+    "status": "machine-drafted",
+    "source_hash": "c6672e0b84a0a01b"
+  },
+  "pilates.exercise.pilates_magic_circle_squeeze.name": {
+    "status": "machine-drafted",
+    "source_hash": "ea3f636fa27c39d8"
+  },
+  "pilates.exercise.pilates_mermaid.name": {
+    "status": "machine-drafted",
+    "source_hash": "a855a94bef4a7d01"
+  },
+  "pilates.exercise.pilates_neck_pull.name": {
+    "status": "machine-drafted",
+    "source_hash": "26eb21676d532af8"
+  },
+  "pilates.exercise.pilates_open_leg_rocker.name": {
+    "status": "machine-drafted",
+    "source_hash": "9fc952e9201a5b5a"
+  },
+  "pilates.exercise.pilates_push_up_series.name": {
+    "status": "machine-drafted",
+    "source_hash": "860593069b9404ce"
+  },
+  "pilates.exercise.pilates_roll_over.name": {
+    "status": "machine-drafted",
+    "source_hash": "465f90d32b4c8406"
+  },
+  "pilates.exercise.pilates_roll_up.name": {
+    "status": "machine-drafted",
+    "source_hash": "3ddc891ab658e035"
+  },
+  "pilates.exercise.pilates_rolling_like_ball.name": {
+    "status": "machine-drafted",
+    "source_hash": "107e6c5a07b91bcf"
+  },
+  "pilates.exercise.pilates_saw.name": {
+    "status": "machine-drafted",
+    "source_hash": "08730a746c960b3a"
+  },
+  "pilates.exercise.pilates_scissors.name": {
+    "status": "machine-drafted",
+    "source_hash": "0d30bdfcce4f3f51"
+  },
+  "pilates.exercise.pilates_shoulder_bridge.name": {
+    "status": "machine-drafted",
+    "source_hash": "0c8ff28ff1395188"
+  },
+  "pilates.exercise.pilates_side_kick_circles.name": {
+    "status": "machine-drafted",
+    "source_hash": "0504d950805d3322"
+  },
+  "pilates.exercise.pilates_side_kick_front_back.name": {
+    "status": "machine-drafted",
+    "source_hash": "ae09187a9be6a5b3"
+  },
+  "pilates.exercise.pilates_side_plank.name": {
+    "status": "machine-drafted",
+    "source_hash": "1b27258cd7d2832f"
+  },
+  "pilates.exercise.pilates_single_leg_circle.name": {
+    "status": "machine-drafted",
+    "source_hash": "9e9644e42220ebc2"
+  },
+  "pilates.exercise.pilates_single_leg_stretch.name": {
+    "status": "machine-drafted",
+    "source_hash": "1e80c04ce891efa6"
+  },
+  "pilates.exercise.pilates_spine_stretch_forward.name": {
+    "status": "machine-drafted",
+    "source_hash": "8b72b894b26d03a7"
+  },
+  "pilates.exercise.pilates_spine_twist.name": {
+    "status": "machine-drafted",
+    "source_hash": "1d43544ea9dbeddc"
+  },
+  "pilates.exercise.pilates_swan.name": {
+    "status": "machine-drafted",
+    "source_hash": "d4f3f587d2863422"
+  },
+  "pilates.exercise.pilates_swimming.name": {
+    "status": "machine-drafted",
+    "source_hash": "54230802dfda0e8b"
+  },
+  "pilates.exercise.pilates_teaser.name": {
+    "status": "machine-drafted",
+    "source_hash": "6018c5836fe2642e"
+  },
+  "pilates.exercise.reformer_arm_circles.name": {
+    "status": "machine-drafted",
+    "source_hash": "ba4d9f222049009e"
+  },
+  "pilates.exercise.reformer_chest_expansion.name": {
+    "status": "machine-drafted",
+    "source_hash": "0c02baecfb543653"
+  },
+  "pilates.exercise.reformer_coordination.name": {
+    "status": "machine-drafted",
+    "source_hash": "9c0f7ed16a6e5dfe"
+  },
+  "pilates.exercise.reformer_down_stretch.name": {
+    "status": "machine-drafted",
+    "source_hash": "a79487d445851571"
+  },
+  "pilates.exercise.reformer_elephant.name": {
+    "status": "machine-drafted",
+    "source_hash": "d48f07feb6fc19b9"
+  },
+  "pilates.exercise.reformer_footwork.name": {
+    "status": "machine-drafted",
+    "source_hash": "6f7b1531d8828e55"
+  },
+  "pilates.exercise.reformer_front_splits.name": {
+    "status": "machine-drafted",
+    "source_hash": "a5904e09fcf9c012"
+  },
+  "pilates.exercise.reformer_hundred.name": {
+    "status": "machine-drafted",
+    "source_hash": "1b9daf65799e38a3"
+  },
+  "pilates.exercise.reformer_knee_stretches.name": {
+    "status": "machine-drafted",
+    "source_hash": "677e42eb575e7077"
+  },
+  "pilates.exercise.reformer_leg_circles.name": {
+    "status": "machine-drafted",
+    "source_hash": "f77881414038a600"
+  },
+  "pilates.exercise.reformer_long_stretch.name": {
+    "status": "machine-drafted",
+    "source_hash": "e560ef72609e110a"
+  },
+  "pilates.exercise.reformer_pelvic_press.name": {
+    "status": "machine-drafted",
+    "source_hash": "1615cfee08ac44fa"
+  },
+  "pilates.exercise.reformer_row_arms.name": {
+    "status": "machine-drafted",
+    "source_hash": "31f68fb060de7b15"
+  },
+  "pilates.exercise.reformer_running.name": {
+    "status": "machine-drafted",
+    "source_hash": "b7336bc3eea46978"
+  },
+  "pilates.exercise.reformer_short_box_flat.name": {
+    "status": "machine-drafted",
+    "source_hash": "d21567691fb7f86b"
+  },
+  "pilates.exercise.reformer_short_box_round.name": {
+    "status": "machine-drafted",
+    "source_hash": "0e995ca3faf02948"
+  },
+  "pilates.exercise.reformer_short_box_side.name": {
+    "status": "machine-drafted",
+    "source_hash": "fab7bd6de84f9412"
+  },
+  "pilates.exercise.reformer_side_splits.name": {
+    "status": "machine-drafted",
+    "source_hash": "73ac96f4459bddb7"
+  },
+  "pilates.exercise.reformer_single_leg_stretch.name": {
+    "status": "machine-drafted",
+    "source_hash": "2917bc1961b2bdcd"
+  },
+  "pilates.exercise.reformer_stomach_massage.name": {
+    "status": "machine-drafted",
+    "source_hash": "54d4a37fda75dbd5"
+  },
+  "pilates.session.mat_athletic_core.block_main": {
+    "status": "machine-drafted",
+    "source_hash": "d0c88ade7bacee3f"
+  },
+  "pilates.session.mat_athletic_core.description": {
+    "status": "machine-drafted",
+    "source_hash": "ddaebff676012060"
+  },
+  "pilates.session.mat_athletic_core.name": {
+    "status": "machine-drafted",
+    "source_hash": "bd585e2fc4fadbbc"
+  },
+  "pilates.session.mat_core_foundations.block_main": {
+    "status": "machine-drafted",
+    "source_hash": "d0c88ade7bacee3f"
+  },
+  "pilates.session.mat_core_foundations.description": {
+    "status": "machine-drafted",
+    "source_hash": "708cf2171402140f"
+  },
+  "pilates.session.mat_core_foundations.name": {
+    "status": "machine-drafted",
+    "source_hash": "16838286e867fa27"
+  },
+  "pilates.session.mat_full_body_flow.block_main": {
+    "status": "machine-drafted",
+    "source_hash": "d0c88ade7bacee3f"
+  },
+  "pilates.session.mat_full_body_flow.description": {
+    "status": "machine-drafted",
+    "source_hash": "b427b5043b0a9e86"
+  },
+  "pilates.session.mat_full_body_flow.name": {
+    "status": "machine-drafted",
+    "source_hash": "ffd2dd3e89491c29"
+  },
+  "pilates.session.mat_hips_glutes.block_main": {
+    "status": "machine-drafted",
+    "source_hash": "d0c88ade7bacee3f"
+  },
+  "pilates.session.mat_hips_glutes.description": {
+    "status": "machine-drafted",
+    "source_hash": "c7011f80eb9f5d41"
+  },
+  "pilates.session.mat_hips_glutes.name": {
+    "status": "machine-drafted",
+    "source_hash": "ed04754e5c268658"
+  },
+  "pilates.session.mat_posture_reset.block_main": {
+    "status": "machine-drafted",
+    "source_hash": "d0c88ade7bacee3f"
+  },
+  "pilates.session.mat_posture_reset.description": {
+    "status": "machine-drafted",
+    "source_hash": "bbafcbe15c1a1a36"
+  },
+  "pilates.session.mat_posture_reset.name": {
+    "status": "machine-drafted",
+    "source_hash": "2086504ebd21fae6"
+  },
+  "pilates.session.mixed_mat_reformer_bridge.block_main": {
+    "status": "machine-drafted",
+    "source_hash": "d0c88ade7bacee3f"
+  },
+  "pilates.session.mixed_mat_reformer_bridge.description": {
+    "status": "machine-drafted",
+    "source_hash": "f42c7a2f76379aa8"
+  },
+  "pilates.session.mixed_mat_reformer_bridge.name": {
+    "status": "machine-drafted",
+    "source_hash": "df6755e36336c5e2"
+  },
+  "pilates.session.reformer_athletic_split.block_main": {
+    "status": "machine-drafted",
+    "source_hash": "d0c88ade7bacee3f"
+  },
+  "pilates.session.reformer_athletic_split.description": {
+    "status": "machine-drafted",
+    "source_hash": "c560daef450bdef1"
+  },
+  "pilates.session.reformer_athletic_split.name": {
+    "status": "machine-drafted",
+    "source_hash": "7a85dac04cafef1a"
+  },
+  "pilates.session.reformer_core_power.block_main": {
+    "status": "machine-drafted",
+    "source_hash": "d0c88ade7bacee3f"
+  },
+  "pilates.session.reformer_core_power.description": {
+    "status": "machine-drafted",
+    "source_hash": "3259d213696fd6a0"
+  },
+  "pilates.session.reformer_core_power.name": {
+    "status": "machine-drafted",
+    "source_hash": "5dda2101714a6c07"
+  },
+  "pilates.session.reformer_foundations.block_main": {
+    "status": "machine-drafted",
+    "source_hash": "d0c88ade7bacee3f"
+  },
+  "pilates.session.reformer_foundations.description": {
+    "status": "machine-drafted",
+    "source_hash": "835df28d793f5112"
+  },
+  "pilates.session.reformer_foundations.name": {
+    "status": "machine-drafted",
+    "source_hash": "118761bfd6896cae"
+  },
+  "pilates.session.reformer_posture_pull.block_main": {
+    "status": "machine-drafted",
+    "source_hash": "d0c88ade7bacee3f"
+  },
+  "pilates.session.reformer_posture_pull.description": {
+    "status": "machine-drafted",
+    "source_hash": "1bd33f0c13570bec"
+  },
+  "pilates.session.reformer_posture_pull.name": {
+    "status": "machine-drafted",
+    "source_hash": "3bad896162f6ca39"
   }
 }

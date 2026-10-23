@@ -60,7 +60,14 @@ class StrengthLoggingService(
     private val formulaSettings: FormulaSettingsService,
     private val clock: Clock = Clock.System
 ) {
-    fun startSession(workoutId: String? = null, startedAt: Instant = clock.now()): Session {
+    /** Swift-friendly overload (Kotlin default args are not exported to Apple). */
+    fun startSession(): Session = startSession(workoutId = null, startedAt = clock.now())
+
+    fun startSession(workoutId: String?): Session = startSession(workoutId = workoutId, startedAt = clock.now())
+
+    fun startSession(startedAt: Instant): Session = startSession(workoutId = null, startedAt = startedAt)
+
+    fun startSession(workoutId: String?, startedAt: Instant): Session {
         val session =
             Session(
                 id = "session-${startedAt.toEpochMilliseconds()}",
@@ -72,7 +79,10 @@ class StrengthLoggingService(
         return session
     }
 
-    fun endSession(sessionId: String, endedAt: Instant = clock.now()): Session {
+    /** Swift-friendly overload (Kotlin default args are not exported to Apple). */
+    fun endSession(sessionId: String): Session = endSession(sessionId = sessionId, endedAt = clock.now())
+
+    fun endSession(sessionId: String, endedAt: Instant): Session {
         val current = requireSession(sessionId)
         val ended = current.copy(endedAt = maxOf(endedAt, current.startedAt))
         sessions.upsert(ended)

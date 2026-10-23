@@ -27,21 +27,43 @@ import com.omnigart.shared.logging.DemoStrengthExercise
 import com.omnigart.shared.logging.StrengthSessionSummary
 import com.omnigart.shared.util.formatOneDecimal
 
+private data class SetFormState(
+    val weightText: String = "60",
+    val repsText: String = "8",
+    val rirText: String = "2",
+    val isWarmup: Boolean = false
+)
+
+private data class StrengthUiState(
+    val demos: List<DemoStrengthExercise>,
+    val sessionId: String?,
+    val setCount: Int,
+    val selectedExercise: DemoStrengthExercise,
+    val form: SetFormState,
+    val includeWarmups: Boolean,
+    val summary: StrengthSessionSummary?
+)
+
+private data class StrengthUiActions(
+    val onStart: () -> Unit,
+    val onSelectExercise: (DemoStrengthExercise) -> Unit,
+    val onFormChange: (SetFormState) -> Unit,
+    val onAddSet: () -> Unit,
+    val onEnd: () -> Unit,
+    val onWarmupsToggle: () -> Unit
+)
+
 @Composable
 fun StrengthLoggingSection(core: OmniGartCore, profileId: String) {
     val demos = remember { core.strengthLogging.ensureDemoExercises() }
     var sessionId by remember { mutableStateOf<String?>(null) }
     var lastSessionId by remember { mutableStateOf<String?>(null) }
     var selectedExercise by remember { mutableStateOf(demos.first()) }
-    var weightText by remember { mutableStateOf("60") }
-    var repsText by remember { mutableStateOf("8") }
-    var rirText by remember { mutableStateOf("2") }
-    var isWarmup by remember { mutableStateOf(false) }
+    var form by remember { mutableStateOf(SetFormState()) }
     var includeWarmups by remember { mutableStateOf(false) }
     var summary by remember { mutableStateOf<StrengthSessionSummary?>(null) }
     var setCount by remember { mutableStateOf(0) }
-
-    fun refreshSummary(id: String) {
+    val refresh: (String) -> Unit = { id ->
         val profile = core.profiles.get(profileId)
         summary =
             core.strengthLogging.sessionSummary(
@@ -53,7 +75,62 @@ fun StrengthLoggingSection(core: OmniGartCore, profileId: String) {
             )
         setCount = core.strengthLogging.getSession(id)?.sets?.size ?: 0
     }
+    StrengthLoggingBody(
+        state =
+        StrengthUiState(
+            demos = demos,
+            sessionId = sessionId,
+            setCount = setCount,
+            selectedExercise = selectedExercise,
+            form = form,
+            includeWarmups = includeWarmups,
+            summary = summary
+        ),
+        actions =
+        StrengthUiActions(
+            onStart = {
+                val started = core.strengthLogging.startSession()
+                sessionId = started.id
+                lastSessionId = started.id
+                summary = null
+                setCount = 0
+            },
+            onSelectExercise = { selectedExercise = it },
+            onFormChange = { form = it },
+            onAddSet = {
+                val id = sessionId
+                if (id != null) {
+                    core.strengthLogging.addSet(
+                        sessionId = id,
+                        exerciseId = selectedExercise.exercise.id,
+                        reps = form.repsText.toIntOrNull() ?: 0,
+                        weightKg = form.weightText.toDoubleOrNull(),
+                        rir = form.rirText.toDoubleOrNull(),
+                        isWarmup = form.isWarmup,
+                        loggedPerHand = selectedExercise.unilateral
+                    )
+                    refresh(id)
+                }
+            },
+            onEnd = {
+                val id = sessionId
+                if (id != null) {
+                    core.strengthLogging.endSession(id)
+                    refresh(id)
+                    lastSessionId = id
+                    sessionId = null
+                }
+            },
+            onWarmupsToggle = {
+                includeWarmups = !includeWarmups
+                (sessionId ?: lastSessionId)?.let(refresh)
+            }
+        )
+    )
+}
 
+@Composable
+private fun StrengthLoggingBody(state: StrengthUiState, actions: StrengthUiActions) {
     Column(
         modifier =
         Modifier
@@ -62,150 +139,132 @@ fun StrengthLoggingSection(core: OmniGartCore, profileId: String) {
             .padding(top = OmniGartSpacing.space4),
         verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space2)
     ) {
-        Text(
-            text = stringResource(R.string.tab_workouts),
-            style = MaterialTheme.typography.titleMedium,
-            color = OmniGartColors.colorTextLightPrimary
-        )
-        Text(
-            text = stringResource(R.string.workout_intro),
-            style = MaterialTheme.typography.bodySmall,
-            color = OmniGartColors.colorTextLightSecondary
-        )
-        Text(
-            text =
-            if (sessionId == null) {
-                stringResource(R.string.workout_idle)
-            } else {
-                stringResource(R.string.workout_active) + " · $setCount"
-            },
-            style = MaterialTheme.typography.bodyMedium,
-            modifier = Modifier.testTag("workout_status")
-        )
-        if (sessionId == null) {
-            Button(
-                onClick = {
-                    val started = core.strengthLogging.startSession()
-                    sessionId = started.id
-                    lastSessionId = started.id
-                    summary = null
-                    setCount = 0
-                },
-                modifier = Modifier.testTag("workout_start")
-            ) {
+        StrengthHeader(sessionId = state.sessionId, setCount = state.setCount)
+        if (state.sessionId == null) {
+            Button(onClick = actions.onStart, modifier = Modifier.testTag("workout_start")) {
                 Text(stringResource(R.string.workout_start))
             }
         } else {
-            ExercisePicker(demos = demos, selected = selectedExercise, onSelect = { selectedExercise = it })
-            OutlinedTextField(
-                value = weightText,
-                onValueChange = { weightText = it },
-                label = { Text(stringResource(R.string.workout_weight_kg)) },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-                modifier = Modifier.fillMaxWidth().testTag("workout_weight")
-            )
-            OutlinedTextField(
-                value = repsText,
-                onValueChange = { repsText = it },
-                label = { Text(stringResource(R.string.workout_reps)) },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                modifier = Modifier.fillMaxWidth().testTag("workout_reps")
-            )
-            OutlinedTextField(
-                value = rirText,
-                onValueChange = { rirText = it },
-                label = { Text(stringResource(R.string.workout_rir)) },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-                modifier = Modifier.fillMaxWidth().testTag("workout_rir")
-            )
-            Text(
-                text =
-                if (isWarmup) {
-                    "● ${stringResource(R.string.workout_warmup)}"
-                } else {
-                    "○ ${stringResource(R.string.workout_warmup)}"
-                },
-                modifier =
-                Modifier
-                    .clickable { isWarmup = !isWarmup }
-                    .testTag("workout_warmup_toggle")
-            )
-            Button(
-                onClick = {
-                    val id = sessionId ?: return@Button
-                    core.strengthLogging.addSet(
-                        sessionId = id,
-                        exerciseId = selectedExercise.exercise.id,
-                        reps = repsText.toIntOrNull() ?: 0,
-                        weightKg = weightText.toDoubleOrNull(),
-                        rir = rirText.toDoubleOrNull(),
-                        isWarmup = isWarmup,
-                        loggedPerHand = selectedExercise.unilateral
-                    )
-                    refreshSummary(id)
-                },
-                modifier = Modifier.testTag("workout_add_set")
-            ) {
-                Text(stringResource(R.string.workout_add_set))
-            }
-            Button(
-                onClick = {
-                    val id = sessionId ?: return@Button
-                    core.strengthLogging.endSession(id)
-                    refreshSummary(id)
-                    lastSessionId = id
-                    sessionId = null
-                },
-                modifier = Modifier.testTag("workout_end")
-            ) {
-                Text(stringResource(R.string.workout_end))
-            }
+            ActiveSessionForm(state = state, actions = actions)
         }
-        Text(
-            text =
-            if (includeWarmups) {
-                "● ${stringResource(R.string.workout_include_warmups)}"
-            } else {
-                "○ ${stringResource(R.string.workout_include_warmups)}"
-            },
-            modifier =
-            Modifier
-                .clickable {
-                    includeWarmups = !includeWarmups
-                    val id = sessionId ?: lastSessionId
-                    if (id != null) refreshSummary(id)
-                }
-                .testTag("workout_include_warmups")
-        )
-        summary?.let { s ->
-            Text(
-                text = stringResource(R.string.workout_summary_title),
-                style = MaterialTheme.typography.titleSmall,
-                modifier = Modifier.testTag("workout_summary")
-            )
-            Text(
-                text =
-                "${stringResource(R.string.workout_volume_load)}: " +
-                    "${formatOneDecimal(s.volume.totalVolumeDisplay)} kg"
-            )
-            Text(
-                text =
-                "${stringResource(R.string.workout_total_weight_lifted)}: " +
-                    "${formatOneDecimal(s.totalWeightLiftedDisplay)} kg"
-            )
-            Text(
-                text = "${stringResource(R.string.workout_hard_sets)}: ${s.volume.hardSets}"
-            )
-            Text(
-                text = stringResource(R.string.workout_per_exercise),
-                style = MaterialTheme.typography.bodyMedium
-            )
-            s.volume.perExercise.forEach { row ->
-                Text(
-                    text = "${row.exerciseId}: ${formatOneDecimal(row.volumeKg)} kg · ${row.hardSets}"
-                )
-            }
-        }
+        WarmupIncludeToggle(includeWarmups = state.includeWarmups, onToggle = actions.onWarmupsToggle)
+        state.summary?.let { SessionSummaryBlock(it) }
+    }
+}
+
+@Composable
+private fun StrengthHeader(sessionId: String?, setCount: Int) {
+    Text(
+        text = stringResource(R.string.tab_workouts),
+        style = MaterialTheme.typography.titleMedium,
+        color = OmniGartColors.colorTextLightPrimary
+    )
+    Text(
+        text = stringResource(R.string.workout_intro),
+        style = MaterialTheme.typography.bodySmall,
+        color = OmniGartColors.colorTextLightSecondary
+    )
+    Text(
+        text =
+        if (sessionId == null) {
+            stringResource(R.string.workout_idle)
+        } else {
+            stringResource(R.string.workout_active) + " · $setCount"
+        },
+        style = MaterialTheme.typography.bodyMedium,
+        modifier = Modifier.testTag("workout_status")
+    )
+}
+
+@Composable
+private fun ActiveSessionForm(state: StrengthUiState, actions: StrengthUiActions) {
+    val form = state.form
+    ExercisePicker(
+        demos = state.demos,
+        selected = state.selectedExercise,
+        onSelect = actions.onSelectExercise
+    )
+    OutlinedTextField(
+        value = form.weightText,
+        onValueChange = { actions.onFormChange(form.copy(weightText = it)) },
+        label = { Text(stringResource(R.string.workout_weight_kg)) },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+        modifier = Modifier.fillMaxWidth().testTag("workout_weight")
+    )
+    OutlinedTextField(
+        value = form.repsText,
+        onValueChange = { actions.onFormChange(form.copy(repsText = it)) },
+        label = { Text(stringResource(R.string.workout_reps)) },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        modifier = Modifier.fillMaxWidth().testTag("workout_reps")
+    )
+    OutlinedTextField(
+        value = form.rirText,
+        onValueChange = { actions.onFormChange(form.copy(rirText = it)) },
+        label = { Text(stringResource(R.string.workout_rir)) },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+        modifier = Modifier.fillMaxWidth().testTag("workout_rir")
+    )
+    Text(
+        text =
+        if (form.isWarmup) {
+            "● ${stringResource(R.string.workout_warmup)}"
+        } else {
+            "○ ${stringResource(R.string.workout_warmup)}"
+        },
+        modifier =
+        Modifier
+            .clickable { actions.onFormChange(form.copy(isWarmup = !form.isWarmup)) }
+            .testTag("workout_warmup_toggle")
+    )
+    Button(onClick = actions.onAddSet, modifier = Modifier.testTag("workout_add_set")) {
+        Text(stringResource(R.string.workout_add_set))
+    }
+    Button(onClick = actions.onEnd, modifier = Modifier.testTag("workout_end")) {
+        Text(stringResource(R.string.workout_end))
+    }
+}
+
+@Composable
+private fun WarmupIncludeToggle(includeWarmups: Boolean, onToggle: () -> Unit) {
+    Text(
+        text =
+        if (includeWarmups) {
+            "● ${stringResource(R.string.workout_include_warmups)}"
+        } else {
+            "○ ${stringResource(R.string.workout_include_warmups)}"
+        },
+        modifier =
+        Modifier
+            .clickable(onClick = onToggle)
+            .testTag("workout_include_warmups")
+    )
+}
+
+@Composable
+private fun SessionSummaryBlock(summary: StrengthSessionSummary) {
+    Text(
+        text = stringResource(R.string.workout_summary_title),
+        style = MaterialTheme.typography.titleSmall,
+        modifier = Modifier.testTag("workout_summary")
+    )
+    Text(
+        text =
+        "${stringResource(R.string.workout_volume_load)}: " +
+            "${formatOneDecimal(summary.volume.totalVolumeDisplay)} kg"
+    )
+    Text(
+        text =
+        "${stringResource(R.string.workout_total_weight_lifted)}: " +
+            "${formatOneDecimal(summary.totalWeightLiftedDisplay)} kg"
+    )
+    Text(text = "${stringResource(R.string.workout_hard_sets)}: ${summary.volume.hardSets}")
+    Text(
+        text = stringResource(R.string.workout_per_exercise),
+        style = MaterialTheme.typography.bodyMedium
+    )
+    summary.volume.perExercise.forEach { row ->
+        Text(text = "${row.exerciseId}: ${formatOneDecimal(row.volumeKg)} kg · ${row.hardSets}")
     }
 }
 

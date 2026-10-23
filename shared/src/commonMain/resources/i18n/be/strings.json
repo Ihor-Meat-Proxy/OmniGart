@@ -290,5 +290,9 @@
   "nutrition_low_intake_title": "Мы побач, калі патрэбная падтрымка",
   "nutrition_low_intake_body": "Нядаўна запісаная энергія выглядае вельмі нізкай. Звярніцеся да Beat, NEDA ці мясцовай лініі дапамогі. Калорыі можна схаваць у наладах.",
   "nutrition_open_measurements": "Запісаць абхваты",
-  "nutrition_kcal_unit": "ккал"
+  "nutrition_kcal_unit": "ккал",
+  "nutrition_day_start": "Дзень харчавання пачынаецца а",
+  "nutrition_add_exercise": "Дадаць частковы крэдыт за энергію руху",
+  "nutrition_target_weight": "Мэтавая вага (кг)",
+  "nutrition_water_goal": "Мэта па вадзе"
 }

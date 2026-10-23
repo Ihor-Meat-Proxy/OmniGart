@@ -290,5 +290,9 @@
   "nutrition_low_intake_title": "აქ ვართ, თუ მხარდაჭერა გჭირდებათ",
   "nutrition_low_intake_body": "ბოლო ჩაწერილი ენერგია ძალიან დაბალი ჩანს. განიხილეთ Beat, NEDA ან ადგილობრივი ხაზი. კალორიების დამალვა შესაძლებელია პარამეტრებში.",
   "nutrition_open_measurements": "გაზომვების ჩაწერა",
-  "nutrition_kcal_unit": "კკალ"
+  "nutrition_kcal_unit": "კკალ",
+  "nutrition_day_start": "კვების დღე იწყება",
+  "nutrition_add_exercise": "მოძრაობის ენერგიის ნაწილობრივი კრედიტის დამატება",
+  "nutrition_target_weight": "სამიზნე წონა (კგ)",
+  "nutrition_water_goal": "წყლის მიზანი"
 }

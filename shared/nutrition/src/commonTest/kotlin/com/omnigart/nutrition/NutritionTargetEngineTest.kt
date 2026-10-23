@@ -286,4 +286,34 @@ class NutritionTargetEngineTest {
         val usable = DataSufficiency.daysForMeanIntake(days)
         assertEquals(1, usable.size)
     }
+
+    @Test
+    fun flexibleMode_guardrailsKeepFloor() {
+        val floor = Guardrails.effectiveFloorKcal(bmrKcal = 1400.0, sex = NutritionSex.FEMALE)
+        val splits = (0..6).associateWith { 900.0 }
+        val days = WeekdayTargets.fromFlexibleBudget(7 * 900.0, splits)
+        assertTrue(days.values.all { it == 900.0 })
+        val guarded = days.mapValues { (_, v) -> maxOf(v, floor) }
+        assertTrue(guarded.values.all { it >= floor })
+    }
+
+    @Test
+    fun energyBalance21_computesWhenWindowRich() {
+        val intake =
+            (1..21).map { i ->
+                IntakeDay("2026-02-${i.toString().padStart(2, '0')}", 2200.0, DayLogStatus.COMPLETE)
+            }
+        val start = 1_700_000_000_000L
+        val weights =
+            listOf(
+                WeightPoint(start, 80.0),
+                WeightPoint(start + 10L * 86_400_000L, 79.6),
+                WeightPoint(start + 21L * 86_400_000L, 79.2),
+            )
+        val result = AdaptiveTdee.energyBalance21(intake, weights)
+        assertNotNull(result)
+        assertTrue(result.eligible)
+        assertTrue(result.expenditureKcal > 0.0)
+        assertTrue(result.fatShare in 0.0..1.0)
+    }
 }

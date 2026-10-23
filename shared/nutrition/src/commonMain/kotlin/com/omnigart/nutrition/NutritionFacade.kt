@@ -19,12 +19,15 @@ object NutritionFacade {
         modeCode: String,
         manualDailyKcal: Double,
         hasManualDaily: Boolean,
+        addExerciseCalories: Boolean,
+        exerciseKcalToday: Double,
         previousTargetKcal: Double,
         hasPreviousTarget: Boolean,
         recentWeightKg: DoubleArray,
         recentWeightEpochMs: LongArray,
         meanSteps: Int,
         dayStartMinutes: Int,
+        trainingHoursToday: Double = 0.0,
     ): NutritionTargetResult {
         val sex =
             when (sexCode.uppercase()) {
@@ -78,6 +81,7 @@ object NutritionFacade {
                         targetWeightKg = if (hasTargetWeight) targetWeightKg else null,
                         mode = mode,
                         manualDailyKcal = if (hasManualDaily) manualDailyKcal else null,
+                        addExerciseCalories = addExerciseCalories,
                         dayStartMinutes = dayStartMinutes,
                     ),
                 intakeDays = intake,
@@ -87,6 +91,8 @@ object NutritionFacade {
                         ActivityDay("d0", activeEnergyKcal = null, steps = meanSteps),
                     ),
                 previousPublishedTargetKcal = if (hasPreviousTarget) previousTargetKcal else null,
+                exerciseKcalToday = exerciseKcalToday,
+                trainingHoursToday = trainingHoursToday,
                 trustedBodyFat = hasBodyFat,
                 weekStartEpochMs = 0L,
                 weekEndEpochMs = Long.MAX_VALUE,

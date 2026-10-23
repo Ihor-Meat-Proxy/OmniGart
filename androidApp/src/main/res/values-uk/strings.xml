@@ -270,4 +270,8 @@
     <string name="nutrition_low_intake_body">Нещодавно записана енергія виглядає дуже низькою. Зверніться до Beat, NEDA або місцевої лінії допомоги. Калорії можна приховати в налаштуваннях.</string>
     <string name="nutrition_open_measurements">Записати обхвати</string>
     <string name="nutrition_kcal_unit">ккал</string>
+    <string name="nutrition_day_start">День харчування починається о</string>
+    <string name="nutrition_add_exercise">Додати частковий кредит за енергію руху</string>
+    <string name="nutrition_target_weight">Цільова вага (кг)</string>
+    <string name="nutrition_water_goal">Ціль по воді</string>
 </resources>

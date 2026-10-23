@@ -265,4 +265,8 @@
     <string name="nutrition_low_intake_body">Нядаўна запісаная энергія выглядае вельмі нізкай. Звярніцеся да Beat, NEDA ці мясцовай лініі дапамогі. Калорыі можна схаваць у наладах.</string>
     <string name="nutrition_open_measurements">Запісаць абхваты</string>
     <string name="nutrition_kcal_unit">ккал</string>
+    <string name="nutrition_day_start">Дзень харчавання пачынаецца а</string>
+    <string name="nutrition_add_exercise">Дадаць частковы крэдыт за энергію руху</string>
+    <string name="nutrition_target_weight">Мэтавая вага (кг)</string>
+    <string name="nutrition_water_goal">Мэта па вадзе</string>
 </resources>

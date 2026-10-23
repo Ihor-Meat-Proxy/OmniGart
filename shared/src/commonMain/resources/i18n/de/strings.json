@@ -290,5 +290,9 @@
   "nutrition_low_intake_title": "Wir sind da, wenn Sie Unterstützung brauchen",
   "nutrition_low_intake_body": "Ihre zuletzt protokollierte Energie wirkt sehr niedrig. Beat, NEDA oder eine lokale Hotline können helfen. Kalorien lassen sich in den Einstellungen ausblenden.",
   "nutrition_open_measurements": "Maße erfassen",
-  "nutrition_kcal_unit": "kcal"
+  "nutrition_kcal_unit": "kcal",
+  "nutrition_day_start": "Ernährungstag beginnt um",
+  "nutrition_add_exercise": "Teilweise Anrechnung der Bewegungsenergie",
+  "nutrition_target_weight": "Zielgewicht (kg)",
+  "nutrition_water_goal": "Wasserziel"
 }

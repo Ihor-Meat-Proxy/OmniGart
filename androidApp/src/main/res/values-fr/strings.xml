@@ -265,4 +265,8 @@ Nous ne vendons pas les données de santé et ne les utilisons pas pour la publi
     <string name="nutrition_low_intake_body">L’énergie récemment enregistrée semble très basse. Envisagez Beat, NEDA ou une ligne locale. Vous pouvez masquer les calories dans les réglages.</string>
     <string name="nutrition_open_measurements">Enregistrer les mensurations</string>
     <string name="nutrition_kcal_unit">kcal</string>
+    <string name="nutrition_day_start">La journée nutrition commence à</string>
+    <string name="nutrition_add_exercise">Ajouter un crédit partiel pour l’énergie d’exercice</string>
+    <string name="nutrition_target_weight">Poids cible (kg)</string>
+    <string name="nutrition_water_goal">Objectif d’eau</string>
 </resources>

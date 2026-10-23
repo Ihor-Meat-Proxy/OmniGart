@@ -1,10 +1,13 @@
 import SwiftUI
 
-/// Profile setting for energy goal, rate, and target mode.
+/// Profile setting for energy goal, rate, target mode, start-of-day, and exercise credit.
 struct NutritionGoalSettingsView: View {
     @State private var kind = "MAINTAIN"
     @State private var mode = "GUIDED"
     @State private var ratePercent = 0.5
+    @State private var dayStartHour = 4
+    @State private var addExercise = false
+    @State private var targetWeight = ""
     @State private var showFirstGoalNote = false
     @State private var saved = false
 
@@ -32,7 +35,22 @@ struct NutritionGoalSettingsView: View {
                     Text(String(format: "%.2f%% / wk", ratePercent))
                 }
                 .accessibilityIdentifier("nutrition_goal_rate")
+                HStack {
+                    Text("nutrition_target_weight")
+                    TextField("nutrition_target_weight", text: $targetWeight)
+                        .keyboardType(.decimalPad)
+                        .multilineTextAlignment(.trailing)
+                        .accessibilityIdentifier("nutrition_target_weight")
+                }
             }
+            Stepper(value: $dayStartHour, in: 0...12) {
+                Text("nutrition_day_start")
+                Text(String(format: "%02d:00", dayStartHour))
+                    .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+            }
+            .accessibilityIdentifier("nutrition_day_start")
+            Toggle("nutrition_add_exercise", isOn: $addExercise)
+                .accessibilityIdentifier("nutrition_add_exercise")
             Button("profile_save") {
                 save()
             }
@@ -52,6 +70,11 @@ struct NutritionGoalSettingsView: View {
         mode = goal.mode
         ratePercent = abs(goal.rateFractionPerWeek) * 100.0
         if ratePercent == 0 { ratePercent = 0.5 }
+        dayStartHour = goal.dayStartMinutes / 60
+        addExercise = goal.addExerciseCalories
+        if let tw = goal.targetWeightKg {
+            targetWeight = String(format: "%.1f", tw)
+        }
         showFirstGoalNote = !goal.firstGoalAcknowledged
     }
 
@@ -60,6 +83,9 @@ struct NutritionGoalSettingsView: View {
         goal.kind = kind
         goal.mode = mode
         goal.rateFractionPerWeek = kind == "MAINTAIN" ? 0 : ratePercent / 100.0
+        goal.dayStartMinutes = dayStartHour * 60
+        goal.addExerciseCalories = addExercise
+        goal.targetWeightKg = Double(targetWeight)
         goal.firstGoalAcknowledged = true
         NutritionLocalStore.shared.saveGoal(goal)
         showFirstGoalNote = false

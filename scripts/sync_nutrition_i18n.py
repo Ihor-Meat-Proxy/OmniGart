@@ -725,6 +725,70 @@ t(
     "nutrition_kcal_unit",
     **L("kcal", "ккал", "kcal", "ккал", "ккал", "კკალ", "kcal", "kcal", "kcal", "kcal", "千卡"),
 )
+t(
+    "nutrition_day_start",
+    **L(
+        "Nutrition day starts at",
+        "День харчування починається о",
+        "Dzień żywieniowy zaczyna się o",
+        "Дзень харчавання пачынаецца а",
+        "Тамақтану күні басталады",
+        "კვების დღე იწყება",
+        "El día nutricional empieza a las",
+        "La journée nutrition commence à",
+        "Ernährungstag beginnt um",
+        "Nutriční den začíná v",
+        "营养日起始于",
+    ),
+)
+t(
+    "nutrition_add_exercise",
+    **L(
+        "Add a partial credit for exercise energy",
+        "Додати частковий кредит за енергію руху",
+        "Dodaj częściowy kredyt za energię ruchu",
+        "Дадаць частковы крэдыт за энергію руху",
+        "Қозғалыс энергиясына ішінара кредит қосу",
+        "მოძრაობის ენერგიის ნაწილობრივი კრედიტის დამატება",
+        "Añadir un crédito parcial por la energía del ejercicio",
+        "Ajouter un crédit partiel pour l’énergie d’exercice",
+        "Teilweise Anrechnung der Bewegungsenergie",
+        "Přidat částečný kredit za energii z pohybu",
+        "为运动能量计入部分额度",
+    ),
+)
+t(
+    "nutrition_target_weight",
+    **L(
+        "Target weight (kg)",
+        "Цільова вага (кг)",
+        "Docelowa masa (kg)",
+        "Мэтавая вага (кг)",
+        "Мақсатты салмақ (кг)",
+        "სამიზნე წონა (კგ)",
+        "Peso objetivo (kg)",
+        "Poids cible (kg)",
+        "Zielgewicht (kg)",
+        "Cílová hmotnost (kg)",
+        "目标体重 (kg)",
+    ),
+)
+t(
+    "nutrition_water_goal",
+    **L(
+        "Water goal",
+        "Ціль по воді",
+        "Cel wodny",
+        "Мэта па вадзе",
+        "Су мақсаты",
+        "წყლის მიზანი",
+        "Objetivo de agua",
+        "Objectif d’eau",
+        "Wasserziel",
+        "Cíl vody",
+        "饮水目标",
+    ),
+)
 
 
 def escape_android(value: str) -> str:

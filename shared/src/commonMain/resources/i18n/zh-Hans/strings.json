@@ -290,5 +290,9 @@
   "nutrition_low_intake_title": "如需支持，我们在这里",
   "nutrition_low_intake_body": "近期记录的能量看起来很低。可考虑 Beat、NEDA 或本地热线。可在设置中隐藏卡路里数字。",
   "nutrition_open_measurements": "记录围度",
-  "nutrition_kcal_unit": "千卡"
+  "nutrition_kcal_unit": "千卡",
+  "nutrition_day_start": "营养日起始于",
+  "nutrition_add_exercise": "为运动能量计入部分额度",
+  "nutrition_target_weight": "目标体重 (kg)",
+  "nutrition_water_goal": "饮水目标"
 }

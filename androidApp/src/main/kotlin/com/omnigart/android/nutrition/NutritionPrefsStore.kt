@@ -22,6 +22,7 @@ object NutritionPrefsStore {
         var mode: String = "GUIDED",
         var manualDailyKcal: Double? = null,
         var dayStartMinutes: Int = 4 * 60,
+        var addExerciseCalories: Boolean = false,
         var weeklyCheckInWeekday: Int = 0,
         var remindersPaused: Boolean = false,
         var weighInNudgeEnabled: Boolean = true,
@@ -45,6 +46,7 @@ object NutritionPrefsStore {
             mode = o.optString("mode", "GUIDED"),
             manualDailyKcal = o.optDouble("manualDailyKcal").takeIf { o.has("manualDailyKcal") && !o.isNull("manualDailyKcal") },
             dayStartMinutes = o.optInt("dayStartMinutes", 4 * 60),
+            addExerciseCalories = o.optBoolean("addExerciseCalories", false),
             weeklyCheckInWeekday = o.optInt("weeklyCheckInWeekday", 0),
             remindersPaused = o.optBoolean("remindersPaused", false),
             weighInNudgeEnabled = o.optBoolean("weighInNudgeEnabled", true),
@@ -60,6 +62,7 @@ object NutritionPrefsStore {
                 .put("rateFractionPerWeek", goal.rateFractionPerWeek)
                 .put("mode", goal.mode)
                 .put("dayStartMinutes", goal.dayStartMinutes)
+                .put("addExerciseCalories", goal.addExerciseCalories)
                 .put("weeklyCheckInWeekday", goal.weeklyCheckInWeekday)
                 .put("remindersPaused", goal.remindersPaused)
                 .put("weighInNudgeEnabled", goal.weighInNudgeEnabled)

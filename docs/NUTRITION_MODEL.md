@@ -133,8 +133,10 @@ Local notifications only.
 - Recompute weekly, or after a **2 kg** change, or a goal change; notify when the target changes.  
 - **Pause reminders**.  
 - Confidence: **rough / good / personalised**.  
-- Configurable **start-of-day** time (default 04:00).  
-- **Weekly check-in** on a user-chosen weekday with skippable sections: incomplete days, weigh-in prompt, fasting vs unlogged, proposed target change (accept/decline).
+- Configurable **start-of-day** time (default 04:00; Profile → Energy goal).  
+- Opt-in **partial exercise credit** (~0.72, scaled by body fat) and **target weight** (drives the 5 kg→1 kg taper).  
+- **Weekly check-in** on a user-chosen weekday with skippable sections: incomplete days, weigh-in prompt, fasting vs unlogged, proposed target change (accept/decline).  
+- Food-tab target card shows suggested energy, **water goal**, confidence, and change reasons (red only for floor/safety).
 
 ---
 

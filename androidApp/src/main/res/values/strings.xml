@@ -275,4 +275,8 @@ We do not sell health data, use it for advertising, or share it with third parti
     <string name="nutrition_low_intake_body">Your recent logged energy looks very low. Consider Beat, NEDA, or a local helpline. You can hide calorie numbers in settings.</string>
     <string name="nutrition_open_measurements">Log measurements</string>
     <string name="nutrition_kcal_unit">kcal</string>
+    <string name="nutrition_day_start">Nutrition day starts at</string>
+    <string name="nutrition_add_exercise">Add a partial credit for exercise energy</string>
+    <string name="nutrition_target_weight">Target weight (kg)</string>
+    <string name="nutrition_water_goal">Water goal</string>
 </resources>

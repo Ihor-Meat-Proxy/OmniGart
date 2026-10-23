@@ -290,5 +290,9 @@
   "nutrition_low_intake_title": "Jesteśmy tu, jeśli potrzebujesz wsparcia",
   "nutrition_low_intake_body": "Ostatnio zapisana energia wygląda bardzo nisko. Rozważ Beat, NEDA lub lokalną infolinię. Kalorie możesz ukryć w ustawieniach.",
   "nutrition_open_measurements": "Zapisz pomiary",
-  "nutrition_kcal_unit": "kcal"
+  "nutrition_kcal_unit": "kcal",
+  "nutrition_day_start": "Dzień żywieniowy zaczyna się o",
+  "nutrition_add_exercise": "Dodaj częściowy kredyt za energię ruchu",
+  "nutrition_target_weight": "Docelowa masa (kg)",
+  "nutrition_water_goal": "Cel wodny"
 }

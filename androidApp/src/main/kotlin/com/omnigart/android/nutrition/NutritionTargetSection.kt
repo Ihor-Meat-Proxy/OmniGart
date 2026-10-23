@@ -32,6 +32,7 @@ fun NutritionTargetSection(
 ) {
     val profile = remember(profileId) { core.profiles.get(profileId) }
     var suggested by remember { mutableStateOf("—") }
+    var waterText by remember { mutableStateOf("—") }
     var confidenceRes by remember { mutableStateOf(R.string.nutrition_confidence_rough) }
     var reasonResIds by remember { mutableStateOf(listOf<Int>()) }
     var floorWarn by remember { mutableStateOf(false) }
@@ -59,12 +60,15 @@ fun NutritionTargetSection(
                 modeCode = goal.mode,
                 manualDailyKcal = goal.manualDailyKcal ?: 0.0,
                 hasManualDaily = goal.manualDailyKcal != null,
+                addExerciseCalories = goal.addExerciseCalories,
+                exerciseKcalToday = 0.0,
                 previousTargetKcal = previous ?: 0.0,
                 hasPreviousTarget = previous != null,
                 recentWeightKg = weights.map { it.massKg }.toDoubleArray(),
                 recentWeightEpochMs = weights.map { it.epochMs }.toLongArray(),
                 meanSteps = 8_000,
                 dayStartMinutes = goal.dayStartMinutes,
+                trainingHoursToday = 0.0,
             )
         val kcal = NutritionFacade.suggestedKcalOrNull(result)
         suggested =
@@ -74,6 +78,10 @@ fun NutritionTargetSection(
             } else {
                 "—"
             }
+        waterText =
+            result.waterLitres?.let { w ->
+                String.format("%.1f L", w)
+            } ?: "—"
         confidenceRes =
             when (result.confidence) {
                 ConfidenceLevel.ROUGH -> R.string.nutrition_confidence_rough
@@ -102,6 +110,11 @@ fun NutritionTargetSection(
                 },
             style = MaterialTheme.typography.headlineSmall,
             modifier = Modifier.testTag("nutrition_target_kcal"),
+        )
+        Text(
+            text = "${stringResource(R.string.nutrition_water_goal)}: $waterText",
+            style = MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.testTag("nutrition_water_goal"),
         )
         Text(
             text = stringResource(R.string.nutrition_target_disclaimer),

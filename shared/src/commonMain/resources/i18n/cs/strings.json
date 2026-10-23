@@ -290,5 +290,9 @@
   "nutrition_low_intake_title": "Jsme tu, pokud potřebujete podporu",
   "nutrition_low_intake_body": "Nedávno zaznamenaná energie vypadá velmi nízko. Zvažte Beat, NEDA nebo místní linku. Kalorie lze skrýt v nastavení.",
   "nutrition_open_measurements": "Zaznamenat míry",
-  "nutrition_kcal_unit": "kcal"
+  "nutrition_kcal_unit": "kcal",
+  "nutrition_day_start": "Nutriční den začíná v",
+  "nutrition_add_exercise": "Přidat částečný kredit za energii z pohybu",
+  "nutrition_target_weight": "Cílová hmotnost (kg)",
+  "nutrition_water_goal": "Cíl vody"
 }

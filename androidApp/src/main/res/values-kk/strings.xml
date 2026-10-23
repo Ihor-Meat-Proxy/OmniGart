@@ -265,4 +265,8 @@
     <string name="nutrition_low_intake_body">Соңғы жазылған энергия өте төмен көрінеді. Beat, NEDA немесе жергілікті желіні қарастырыңыз. Калорияларды баптаудан жасыруға болады.</string>
     <string name="nutrition_open_measurements">Өлшемдерді жазу</string>
     <string name="nutrition_kcal_unit">ккал</string>
+    <string name="nutrition_day_start">Тамақтану күні басталады</string>
+    <string name="nutrition_add_exercise">Қозғалыс энергиясына ішінара кредит қосу</string>
+    <string name="nutrition_target_weight">Мақсатты салмақ (кг)</string>
+    <string name="nutrition_water_goal">Су мақсаты</string>
 </resources>

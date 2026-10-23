@@ -265,4 +265,8 @@ Zdravotní data neprodáváme a nepoužíváme k reklamě. Můžete přístup od
     <string name="nutrition_low_intake_body">Nedávno zaznamenaná energie vypadá velmi nízko. Zvažte Beat, NEDA nebo místní linku. Kalorie lze skrýt v nastavení.</string>
     <string name="nutrition_open_measurements">Zaznamenat míry</string>
     <string name="nutrition_kcal_unit">kcal</string>
+    <string name="nutrition_day_start">Nutriční den začíná v</string>
+    <string name="nutrition_add_exercise">Přidat částečný kredit za energii z pohybu</string>
+    <string name="nutrition_target_weight">Cílová hmotnost (kg)</string>
+    <string name="nutrition_water_goal">Cíl vody</string>
 </resources>

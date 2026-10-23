@@ -265,4 +265,8 @@
     <string name="nutrition_low_intake_body">ბოლო ჩაწერილი ენერგია ძალიან დაბალი ჩანს. განიხილეთ Beat, NEDA ან ადგილობრივი ხაზი. კალორიების დამალვა შესაძლებელია პარამეტრებში.</string>
     <string name="nutrition_open_measurements">გაზომვების ჩაწერა</string>
     <string name="nutrition_kcal_unit">კკალ</string>
+    <string name="nutrition_day_start">კვების დღე იწყება</string>
+    <string name="nutrition_add_exercise">მოძრაობის ენერგიის ნაწილობრივი კრედიტის დამატება</string>
+    <string name="nutrition_target_weight">სამიზნე წონა (კგ)</string>
+    <string name="nutrition_water_goal">წყლის მიზანი</string>
 </resources>

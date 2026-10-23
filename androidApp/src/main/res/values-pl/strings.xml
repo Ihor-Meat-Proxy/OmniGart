@@ -265,4 +265,8 @@ Nie sprzedajemy danych zdrowotnych, nie używamy ich do reklam i nie udostępnia
     <string name="nutrition_low_intake_body">Ostatnio zapisana energia wygląda bardzo nisko. Rozważ Beat, NEDA lub lokalną infolinię. Kalorie możesz ukryć w ustawieniach.</string>
     <string name="nutrition_open_measurements">Zapisz pomiary</string>
     <string name="nutrition_kcal_unit">kcal</string>
+    <string name="nutrition_day_start">Dzień żywieniowy zaczyna się o</string>
+    <string name="nutrition_add_exercise">Dodaj częściowy kredyt za energię ruchu</string>
+    <string name="nutrition_target_weight">Docelowa masa (kg)</string>
+    <string name="nutrition_water_goal">Cel wodny</string>
 </resources>

@@ -7,6 +7,7 @@ struct NutritionTargetCard: View {
     let profileId: String
 
     @State private var suggestedText = "—"
+    @State private var waterText = "—"
     @State private var confidenceKey = "nutrition_confidence_rough"
     @State private var reasonKeys: [String] = []
     @State private var showSupportive = false
@@ -20,6 +21,9 @@ struct NutritionTargetCard: View {
                 Text(suggestedText)
                     .font(.title2.monospacedDigit())
                     .accessibilityIdentifier("nutrition_target_kcal")
+                Text(waterText)
+                    .font(.subheadline.monospacedDigit())
+                    .accessibilityIdentifier("nutrition_water_goal")
                 Text("nutrition_target_disclaimer")
                     .font(.footnote)
                     .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
@@ -92,12 +96,15 @@ struct NutritionTargetCard: View {
             modeCode: goal.mode,
             manualDailyKcal: goal.manualDailyKcal ?? 0,
             hasManualDaily: goal.manualDailyKcal != nil,
+            addExerciseCalories: goal.addExerciseCalories,
+            exerciseKcalToday: 0,
             previousTargetKcal: previous ?? 0,
             hasPreviousTarget: previous != nil,
             recentWeightKg: weightValues,
             recentWeightEpochMs: epochValues,
             meanSteps: 8_000,
-            dayStartMinutes: Int32(goal.dayStartMinutes)
+            dayStartMinutes: Int32(goal.dayStartMinutes),
+            trainingHoursToday: 0
         )
         let kcal = NutritionFacade.shared.suggestedKcalOrNull(result: result)
         if kcal > 0 {
@@ -109,6 +116,15 @@ struct NutritionTargetCard: View {
             store.saveLastTargetKcal(kcal)
         } else {
             suggestedText = "—"
+        }
+        if let water = result.waterLitres?.doubleValue, water > 0 {
+            waterText = String(
+                format: "%@ %.1f L",
+                String(localized: "nutrition_water_goal"),
+                water
+            )
+        } else {
+            waterText = "—"
         }
         confidenceKey = NutritionFacade.shared.confidenceLabelKey(level: result.confidence)
         reasonKeys = NutritionFacade.shared.changeReasonKeys(result: result).map { $0 as String }

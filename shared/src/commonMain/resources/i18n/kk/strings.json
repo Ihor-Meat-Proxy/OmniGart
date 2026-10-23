@@ -290,5 +290,9 @@
   "nutrition_low_intake_title": "Қолдау керек болса, біз жақынбыз",
   "nutrition_low_intake_body": "Соңғы жазылған энергия өте төмен көрінеді. Beat, NEDA немесе жергілікті желіні қарастырыңыз. Калорияларды баптаудан жасыруға болады.",
   "nutrition_open_measurements": "Өлшемдерді жазу",
-  "nutrition_kcal_unit": "ккал"
+  "nutrition_kcal_unit": "ккал",
+  "nutrition_day_start": "Тамақтану күні басталады",
+  "nutrition_add_exercise": "Қозғалыс энергиясына ішінара кредит қосу",
+  "nutrition_target_weight": "Мақсатты салмақ (кг)",
+  "nutrition_water_goal": "Су мақсаты"
 }

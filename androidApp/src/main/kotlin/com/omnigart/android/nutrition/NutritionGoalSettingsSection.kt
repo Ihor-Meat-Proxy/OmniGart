@@ -5,11 +5,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableDoubleStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -25,17 +28,20 @@ import com.omnigart.design.theme.OmniGartColors
 fun NutritionGoalSettingsSection() {
     val context = LocalContext.current
     NutritionPrefsStore.init(context)
-    var kind by remember { mutableStateOf(NutritionPrefsStore.loadGoal().kind) }
-    var mode by remember { mutableStateOf(NutritionPrefsStore.loadGoal().mode) }
+    val initial = NutritionPrefsStore.loadGoal()
+    var kind by remember { mutableStateOf(initial.kind) }
+    var mode by remember { mutableStateOf(initial.mode) }
     var ratePercent by remember {
         mutableDoubleStateOf(
-            (kotlin.math.abs(NutritionPrefsStore.loadGoal().rateFractionPerWeek) * 100.0)
-                .takeIf { it > 0 } ?: 0.5,
+            (kotlin.math.abs(initial.rateFractionPerWeek) * 100.0).takeIf { it > 0 } ?: 0.5,
         )
     }
-    var showFirst by remember {
-        mutableStateOf(!NutritionPrefsStore.loadGoal().firstGoalAcknowledged)
+    var dayStartHour by remember { mutableIntStateOf((initial.dayStartMinutes / 60).coerceIn(0, 12)) }
+    var addExercise by remember { mutableStateOf(initial.addExerciseCalories) }
+    var targetWeight by remember {
+        mutableStateOf(initial.targetWeightKg?.let { String.format("%.1f", it) } ?: "")
     }
+    var showFirst by remember { mutableStateOf(!initial.firstGoalAcknowledged) }
     var saved by remember { mutableStateOf(false) }
 
     Column(
@@ -83,13 +89,35 @@ fun NutritionGoalSettingsSection() {
             TextButton(onClick = { ratePercent = (ratePercent + 0.25).coerceAtMost(1.0) }) {
                 Text("+")
             }
+            OutlinedTextField(
+                value = targetWeight,
+                onValueChange = { targetWeight = it },
+                label = { Text(stringResource(R.string.nutrition_target_weight)) },
+                modifier = Modifier.fillMaxWidth().testTag("nutrition_target_weight"),
+                singleLine = true,
+            )
         }
+        Text(
+            text = "${stringResource(R.string.nutrition_day_start)}: %02d:00".format(dayStartHour),
+            modifier = Modifier.testTag("nutrition_day_start"),
+        )
+        TextButton(onClick = { dayStartHour = (dayStartHour - 1).coerceAtLeast(0) }) { Text("-") }
+        TextButton(onClick = { dayStartHour = (dayStartHour + 1).coerceAtMost(12) }) { Text("+") }
+        Text(stringResource(R.string.nutrition_add_exercise))
+        Switch(
+            checked = addExercise,
+            onCheckedChange = { addExercise = it },
+            modifier = Modifier.testTag("nutrition_add_exercise"),
+        )
         Button(
             onClick = {
                 val goal = NutritionPrefsStore.loadGoal()
                 goal.kind = kind
                 goal.mode = mode
                 goal.rateFractionPerWeek = if (kind == "MAINTAIN") 0.0 else ratePercent / 100.0
+                goal.dayStartMinutes = dayStartHour * 60
+                goal.addExerciseCalories = addExercise
+                goal.targetWeightKg = targetWeight.toDoubleOrNull()
                 goal.firstGoalAcknowledged = true
                 NutritionPrefsStore.saveGoal(goal)
                 showFirst = false

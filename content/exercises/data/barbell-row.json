@@ -17,7 +17,8 @@
     "rear_deltoid"
   ],
   "equipment": [
-    "barbell"
+    "barbell",
+    "plates"
   ],
   "level": "intermediate",
   "unilateral": false,

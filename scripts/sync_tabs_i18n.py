@@ -656,6 +656,993 @@ t(
 )
 
 
+t(
+    "workouts_program_title",
+    **{
+        "en-GB": "Strength programme",
+        "uk": "Силова програма",
+        "pl": "Program siłowy",
+        "be": "Сілавая праграма",
+        "kk": "Күш бағдарламасы",
+        "ka": "ძალის პროგრამა",
+        "es": "Programa de fuerza",
+        "fr": "Programme de force",
+        "de": "Kraftprogramm",
+        "cs": "Silový program",
+        "zh-Hans": "力量计划",
+    },
+)
+
+t(
+    "workouts_program_intro",
+    **{
+        "en-GB": "Build a full-body or split plan from your equipment. Coaching aid only — not medical advice.",
+        "uk": "Складіть план на все тіло або спліт з наявного обладнання. Лише тренерська допомога — не медична порада.",
+        "pl": "Ułóż plan całego ciała lub split z dostępnego sprzętu. To wskazówka treningowa, nie porada medyczna.",
+        "be": "Складзіце план на ўсё цела або спліт з наяўнага абсталявання. Толькі трэнерская дапамога — не медыцынская парада.",
+        "kk": "Қолдағы жабдықтан толық дене немесе сплит жоспарын жасаңыз. Тек жаттықтырушылық көмек — медициналық кеңес емес.",
+        "ka": "ააწყვეთ მთელი სხეულის ან სპლიტის გეგმა თქვენი აღჭურვილობით. მხოლოდ მწვრთნელის დახმარებაა — არა სამედიცინო რჩევა.",
+        "es": "Crea un plan de cuerpo completo o dividido con tu material. Solo ayuda de entrenamiento, no consejo médico.",
+        "fr": "Créez un plan full-body ou split selon votre matériel. Aide d’entraînement uniquement — pas un avis médical.",
+        "de": "Erstellen Sie einen Ganzkörper- oder Split-Plan aus Ihrem Gerät. Nur Trainingshilfe — keine medizinische Beratung.",
+        "cs": "Sestavte celotělový nebo split plán podle vybavení. Jen tréninková pomůcka — ne lékařská rada.",
+        "zh-Hans": "根据现有器械生成全身或分化计划。仅供训练参考，不是医疗建议。",
+    },
+)
+
+t(
+    "workouts_program_split",
+    **{
+        "en-GB": "Programme type",
+        "uk": "Тип програми",
+        "pl": "Typ programu",
+        "be": "Тып праграмы",
+        "kk": "Бағдарлама түрі",
+        "ka": "პროგრამის ტიპი",
+        "es": "Tipo de programa",
+        "fr": "Type de programme",
+        "de": "Programmtyp",
+        "cs": "Typ programu",
+        "zh-Hans": "计划类型",
+    },
+)
+
+t(
+    "workouts_program_days",
+    **{
+        "en-GB": "Days per week",
+        "uk": "Днів на тиждень",
+        "pl": "Dni w tygodniu",
+        "be": "Дзён на тыдзень",
+        "kk": "Аптасына күн",
+        "ka": "დღე კვირაში",
+        "es": "Días por semana",
+        "fr": "Jours par semaine",
+        "de": "Tage pro Woche",
+        "cs": "Dní týdně",
+        "zh-Hans": "每周天数",
+    },
+)
+
+t(
+    "workouts_equipment_title",
+    **{
+        "en-GB": "Equipment",
+        "uk": "Обладнання",
+        "pl": "Sprzęt",
+        "be": "Абсталяванне",
+        "kk": "Жабдық",
+        "ka": "აღჭურვილობა",
+        "es": "Material",
+        "fr": "Matériel",
+        "de": "Geräte",
+        "cs": "Vybavení",
+        "zh-Hans": "器械",
+    },
+)
+
+t(
+    "workouts_equipment_edit",
+    **{
+        "en-GB": "Edit equipment",
+        "uk": "Редагувати обладнання",
+        "pl": "Edytuj sprzęt",
+        "be": "Рэдагаваць абсталяванне",
+        "kk": "Жабдықты өңдеу",
+        "ka": "აღჭურვილობის რედაქტირება",
+        "es": "Editar material",
+        "fr": "Modifier le matériel",
+        "de": "Geräte bearbeiten",
+        "cs": "Upravit vybavení",
+        "zh-Hans": "编辑器械",
+    },
+)
+
+t(
+    "workouts_equipment_presets",
+    **{
+        "en-GB": "Presets",
+        "uk": "Пресети",
+        "pl": "Presety",
+        "be": "Пресеты",
+        "kk": "Алдын ала орнатулар",
+        "ka": "პრესეტები",
+        "es": "Preajustes",
+        "fr": "Préréglages",
+        "de": "Voreinstellungen",
+        "cs": "Předvolby",
+        "zh-Hans": "预设",
+    },
+)
+
+t(
+    "equipment_preset_home",
+    **{
+        "en-GB": "Home",
+        "uk": "Дім",
+        "pl": "Dom",
+        "be": "Дом",
+        "kk": "Үй",
+        "ka": "სახლი",
+        "es": "Casa",
+        "fr": "Maison",
+        "de": "Zuhause",
+        "cs": "Domov",
+        "zh-Hans": "居家",
+    },
+)
+
+t(
+    "equipment_preset_gym",
+    **{
+        "en-GB": "Gym",
+        "uk": "Зал",
+        "pl": "Siłownia",
+        "be": "Зала",
+        "kk": "Зал",
+        "ka": "დარბაზი",
+        "es": "Gimnasio",
+        "fr": "Salle",
+        "de": "Fitnessstudio",
+        "cs": "Posilovna",
+        "zh-Hans": "健身房",
+    },
+)
+
+t(
+    "equipment_preset_travel",
+    **{
+        "en-GB": "Travel",
+        "uk": "Подорож",
+        "pl": "Podróż",
+        "be": "Падарожжа",
+        "kk": "Саяхат",
+        "ka": "მოგზაურობა",
+        "es": "Viaje",
+        "fr": "Voyage",
+        "de": "Reise",
+        "cs": "Cestování",
+        "zh-Hans": "旅行",
+    },
+)
+
+t(
+    "equipment_preset_save_home",
+    **{
+        "en-GB": "Save as Home",
+        "uk": "Зберегти як Дім",
+        "pl": "Zapisz jako Dom",
+        "be": "Захаваць як Дом",
+        "kk": "Үй ретінде сақтау",
+        "ka": "სახლად შენახვა",
+        "es": "Guardar como Casa",
+        "fr": "Enregistrer comme Maison",
+        "de": "Als Zuhause speichern",
+        "cs": "Uložit jako Domov",
+        "zh-Hans": "保存为居家",
+    },
+)
+
+t(
+    "workouts_week_title",
+    **{
+        "en-GB": "This week",
+        "uk": "Цей тиждень",
+        "pl": "Ten tydzień",
+        "be": "Гэты тыдзень",
+        "kk": "Осы апта",
+        "ka": "ამ კვირაში",
+        "es": "Esta semana",
+        "fr": "Cette semaine",
+        "de": "Diese Woche",
+        "cs": "Tento týden",
+        "zh-Hans": "本周",
+    },
+)
+
+t(
+    "workouts_week_day",
+    **{
+        "en-GB": "Session",
+        "uk": "Сесія",
+        "pl": "Sesja",
+        "be": "Сесія",
+        "kk": "Сессия",
+        "ka": "სესია",
+        "es": "Sesión",
+        "fr": "Séance",
+        "de": "Einheit",
+        "cs": "Jednotka",
+        "zh-Hans": "课次",
+    },
+)
+
+t(
+    "workouts_muscles_title",
+    **{
+        "en-GB": "Muscles worked",
+        "uk": "Задіяні м’язи",
+        "pl": "Zaangażowane mięśnie",
+        "be": "Задзейнічаныя мышцы",
+        "kk": "Жұмыс істейтін бұлшықеттер",
+        "ka": "მუშა კუნთები",
+        "es": "Músculos trabajados",
+        "fr": "Muscles sollicités",
+        "de": "Beanspruchte Muskeln",
+        "cs": "Zapojené svaly",
+        "zh-Hans": "训练肌群",
+    },
+)
+
+t(
+    "workouts_adjust_equipment",
+    **{
+        "en-GB": "Adjust equipment",
+        "uk": "Підлаштувати обладнання",
+        "pl": "Dostosuj sprzęt",
+        "be": "Падладзіць абсталяванне",
+        "kk": "Жабдықты бейімдеу",
+        "ka": "აღჭურვილობის მორგება",
+        "es": "Ajustar material",
+        "fr": "Ajuster le matériel",
+        "de": "Geräte anpassen",
+        "cs": "Upravit vybavení",
+        "zh-Hans": "调整器械",
+    },
+)
+
+t(
+    "workouts_substituted",
+    **{
+        "en-GB": "Substituted",
+        "uk": "Замінено",
+        "pl": "Zastąpiono",
+        "be": "Заменена",
+        "kk": "Ауыстырылды",
+        "ka": "შეცვლილია",
+        "es": "Sustituido",
+        "fr": "Remplacé",
+        "de": "Ersetzt",
+        "cs": "Nahrazeno",
+        "zh-Hans": "已替换",
+    },
+)
+
+t(
+    "watch_strength_start",
+    **{
+        "en-GB": "Strength session",
+        "uk": "Силова сесія",
+        "pl": "Sesja siłowa",
+        "be": "Сілавая сесія",
+        "kk": "Күш сессиясы",
+        "ka": "ძალის სესია",
+        "es": "Sesión de fuerza",
+        "fr": "Séance de force",
+        "de": "Krafteinheit",
+        "cs": "Silová jednotka",
+        "zh-Hans": "力量课次",
+    },
+)
+
+t(
+    "watch_equipment_sync_hint",
+    **{
+        "en-GB": "Toggles sync from iPhone. Changes apply to this session only.",
+        "uk": "Перемикачі синхронізуються з iPhone. Зміни лише для цієї сесії.",
+        "pl": "Przełączniki synchronizują się z iPhone’a. Zmiany tylko dla tej sesji.",
+        "be": "Пераключальнікі сінхранізуюцца з iPhone. Змены толькі для гэтай сесіі.",
+        "kk": "Ауыстырғыштар iPhone-нан синхрондалады. Өзгерістер тек осы сессияға.",
+        "ka": "გადამრთველები სინქრონდება iPhone-დან. ცვლილებები მხოლოდ ამ სესიისთვის.",
+        "es": "Los interruptores se sincronizan desde el iPhone. Solo para esta sesión.",
+        "fr": "Les bascules se synchronisent depuis l’iPhone. Uniquement pour cette séance.",
+        "de": "Schalter synchronisieren vom iPhone. Nur für diese Einheit.",
+        "cs": "Přepínače se synchronizují z iPhonu. Jen pro tuto jednotku.",
+        "zh-Hans": "开关与 iPhone 同步。仅作用于本次课次。",
+    },
+)
+
+t(
+    "program_split_full_body",
+    **{
+        "en-GB": "Full body",
+        "uk": "Все тіло",
+        "pl": "Całe ciało",
+        "be": "Усё цела",
+        "kk": "Толық дене",
+        "ka": "მთელი სხეული",
+        "es": "Cuerpo completo",
+        "fr": "Full body",
+        "de": "Ganzkörper",
+        "cs": "Celé tělo",
+        "zh-Hans": "全身",
+    },
+)
+
+t(
+    "program_split_upper_lower",
+    **{
+        "en-GB": "Upper / lower",
+        "uk": "Верх / низ",
+        "pl": "Góra / dół",
+        "be": "Верх / ніз",
+        "kk": "Жоғарғы / төменгі",
+        "ka": "ზედა / ქვედა",
+        "es": "Superior / inferior",
+        "fr": "Haut / bas",
+        "de": "Ober- / Unterkörper",
+        "cs": "Horní / dolní",
+        "zh-Hans": "上下肢分化",
+    },
+)
+
+t(
+    "program_split_ppl",
+    **{
+        "en-GB": "Push / pull / legs",
+        "uk": "Жим / тяга / ноги",
+        "pl": "Push / pull / nogi",
+        "be": "Жым / цяга / ногі",
+        "kk": "Жим / тарту / аяқ",
+        "ka": "ბიძგი / თხრა / ფეხები",
+        "es": "Empuje / tirón / piernas",
+        "fr": "Push / pull / jambes",
+        "de": "Push / Pull / Beine",
+        "cs": "Tlaky / tahy / nohy",
+        "zh-Hans": "推/拉/腿",
+    },
+)
+
+t(
+    "program_split_bro",
+    **{
+        "en-GB": "Bro split",
+        "uk": "Бро-спліт",
+        "pl": "Bro split",
+        "be": "Бро-спліт",
+        "kk": "Бро-сплит",
+        "ka": "ბრო-სპლიტი",
+        "es": "Bro split",
+        "fr": "Bro split",
+        "de": "Bro-Split",
+        "cs": "Bro split",
+        "zh-Hans": "肌肉分化",
+    },
+)
+
+t(
+    "program_session_full_a",
+    **{
+        "en-GB": "Full body A",
+        "uk": "Все тіло A",
+        "pl": "Całe ciało A",
+        "be": "Усё цела A",
+        "kk": "Толық дене A",
+        "ka": "მთელი სხეული A",
+        "es": "Cuerpo completo A",
+        "fr": "Full body A",
+        "de": "Ganzkörper A",
+        "cs": "Celé tělo A",
+        "zh-Hans": "全身 A",
+    },
+)
+
+t(
+    "program_session_full_b",
+    **{
+        "en-GB": "Full body B",
+        "uk": "Все тіло B",
+        "pl": "Całe ciało B",
+        "be": "Усё цела B",
+        "kk": "Толық дене B",
+        "ka": "მთელი სხეული B",
+        "es": "Cuerpo completo B",
+        "fr": "Full body B",
+        "de": "Ganzkörper B",
+        "cs": "Celé tělo B",
+        "zh-Hans": "全身 B",
+    },
+)
+
+t(
+    "program_session_full_c",
+    **{
+        "en-GB": "Full body C",
+        "uk": "Все тіло C",
+        "pl": "Całe ciało C",
+        "be": "Усё цела C",
+        "kk": "Толық дене C",
+        "ka": "მთელი სხეული C",
+        "es": "Cuerpo completo C",
+        "fr": "Full body C",
+        "de": "Ganzkörper C",
+        "cs": "Celé tělo C",
+        "zh-Hans": "全身 C",
+    },
+)
+
+t(
+    "program_session_upper_a",
+    **{
+        "en-GB": "Upper A",
+        "uk": "Верх A",
+        "pl": "Góra A",
+        "be": "Верх A",
+        "kk": "Жоғарғы A",
+        "ka": "ზედა A",
+        "es": "Superior A",
+        "fr": "Haut A",
+        "de": "Oberkörper A",
+        "cs": "Horní A",
+        "zh-Hans": "上肢 A",
+    },
+)
+
+t(
+    "program_session_upper_b",
+    **{
+        "en-GB": "Upper B",
+        "uk": "Верх B",
+        "pl": "Góra B",
+        "be": "Верх B",
+        "kk": "Жоғарғы B",
+        "ka": "ზედა B",
+        "es": "Superior B",
+        "fr": "Haut B",
+        "de": "Oberkörper B",
+        "cs": "Horní B",
+        "zh-Hans": "上肢 B",
+    },
+)
+
+t(
+    "program_session_lower_a",
+    **{
+        "en-GB": "Lower A",
+        "uk": "Низ A",
+        "pl": "Dół A",
+        "be": "Ніз A",
+        "kk": "Төменгі A",
+        "ka": "ქვედა A",
+        "es": "Inferior A",
+        "fr": "Bas A",
+        "de": "Unterkörper A",
+        "cs": "Dolní A",
+        "zh-Hans": "下肢 A",
+    },
+)
+
+t(
+    "program_session_lower_b",
+    **{
+        "en-GB": "Lower B",
+        "uk": "Низ B",
+        "pl": "Dół B",
+        "be": "Ніз B",
+        "kk": "Төменгі B",
+        "ka": "ქვედა B",
+        "es": "Inferior B",
+        "fr": "Bas B",
+        "de": "Unterkörper B",
+        "cs": "Dolní B",
+        "zh-Hans": "下肢 B",
+    },
+)
+
+t(
+    "program_session_push",
+    **{
+        "en-GB": "Push",
+        "uk": "Жим",
+        "pl": "Push",
+        "be": "Жым",
+        "kk": "Жим",
+        "ka": "ბიძგი",
+        "es": "Empuje",
+        "fr": "Push",
+        "de": "Push",
+        "cs": "Tlaky",
+        "zh-Hans": "推",
+    },
+)
+
+t(
+    "program_session_pull",
+    **{
+        "en-GB": "Pull",
+        "uk": "Тяга",
+        "pl": "Pull",
+        "be": "Цяга",
+        "kk": "Тарту",
+        "ka": "თხრა",
+        "es": "Tirón",
+        "fr": "Pull",
+        "de": "Pull",
+        "cs": "Tahy",
+        "zh-Hans": "拉",
+    },
+)
+
+t(
+    "program_session_legs",
+    **{
+        "en-GB": "Legs",
+        "uk": "Ноги",
+        "pl": "Nogi",
+        "be": "Ногі",
+        "kk": "Аяқ",
+        "ka": "ფეხები",
+        "es": "Piernas",
+        "fr": "Jambes",
+        "de": "Beine",
+        "cs": "Nohy",
+        "zh-Hans": "腿",
+    },
+)
+
+t(
+    "program_session_chest",
+    **{
+        "en-GB": "Chest",
+        "uk": "Груди",
+        "pl": "Klatka",
+        "be": "Грудзі",
+        "kk": "Кеуде",
+        "ka": "მკერდი",
+        "es": "Pecho",
+        "fr": "Poitrine",
+        "de": "Brust",
+        "cs": "Hruď",
+        "zh-Hans": "胸",
+    },
+)
+
+t(
+    "program_session_back",
+    **{
+        "en-GB": "Back",
+        "uk": "Спина",
+        "pl": "Plecy",
+        "be": "Спіна",
+        "kk": "Арқа",
+        "ka": "ზურგი",
+        "es": "Espalda",
+        "fr": "Dos",
+        "de": "Rücken",
+        "cs": "Záda",
+        "zh-Hans": "背",
+    },
+)
+
+t(
+    "program_session_shoulders",
+    **{
+        "en-GB": "Shoulders",
+        "uk": "Плечі",
+        "pl": "Barki",
+        "be": "Плечы",
+        "kk": "Иық",
+        "ka": "მხრები",
+        "es": "Hombros",
+        "fr": "Épaules",
+        "de": "Schultern",
+        "cs": "Ramena",
+        "zh-Hans": "肩",
+    },
+)
+
+t(
+    "program_session_arms",
+    **{
+        "en-GB": "Arms",
+        "uk": "Руки",
+        "pl": "Ręce",
+        "be": "Рукі",
+        "kk": "Қол",
+        "ka": "ხელები",
+        "es": "Brazos",
+        "fr": "Bras",
+        "de": "Arme",
+        "cs": "Paže",
+        "zh-Hans": "手臂",
+    },
+)
+
+t(
+    "equipment_item_pull_up_bar",
+    **{
+        "en-GB": "Pull-up bar",
+        "uk": "Турнік",
+        "pl": "Drążek",
+        "be": "Турнік",
+        "kk": "Турник",
+        "ka": "ტურნიკი",
+        "es": "Barra de dominadas",
+        "fr": "Barre de traction",
+        "de": "Klimmzugstange",
+        "cs": "Hrazda",
+        "zh-Hans": "引体向上杆",
+    },
+)
+
+t(
+    "equipment_item_dip_bars",
+    **{
+        "en-GB": "Dip bars",
+        "uk": "Бруси",
+        "pl": "Poręcze",
+        "be": "Брусы",
+        "kk": "Брусья",
+        "ka": "ბარზეები",
+        "es": "Barras paralelas",
+        "fr": "Barres parallèles",
+        "de": "Barren",
+        "cs": "Bradla",
+        "zh-Hans": "双杠",
+    },
+)
+
+t(
+    "equipment_item_bands",
+    **{
+        "en-GB": "Resistance bands",
+        "uk": "Гумові петлі",
+        "pl": "Gumy",
+        "be": "Гумовыя стужкі",
+        "kk": "Резеңке таспалар",
+        "ka": "რეზინის ლენტები",
+        "es": "Bandas elásticas",
+        "fr": "Élastiques",
+        "de": "Widerstandsbänder",
+        "cs": "Odporové gumy",
+        "zh-Hans": "弹力带",
+    },
+)
+
+t(
+    "equipment_item_dumbbell",
+    **{
+        "en-GB": "Dumbbells",
+        "uk": "Гантелі",
+        "pl": "Hantle",
+        "be": "Гантэлі",
+        "kk": "Гантельдер",
+        "ka": "ჰანტელები",
+        "es": "Mancuernas",
+        "fr": "Haltères",
+        "de": "Kurzhanteln",
+        "cs": "Jednoručky",
+        "zh-Hans": "哑铃",
+    },
+)
+
+t(
+    "equipment_item_kettlebell",
+    **{
+        "en-GB": "Kettlebells",
+        "uk": "Гирі",
+        "pl": "Kettlebell",
+        "be": "Гірлі",
+        "kk": "Гирялар",
+        "ka": "გირიები",
+        "es": "Pesas rusas",
+        "fr": "Kettlebells",
+        "de": "Kettlebells",
+        "cs": "Kettlebelly",
+        "zh-Hans": "壶铃",
+    },
+)
+
+t(
+    "equipment_item_barbell",
+    **{
+        "en-GB": "Barbell",
+        "uk": "Штанга",
+        "pl": "Sztanga",
+        "be": "Штанга",
+        "kk": "Штанга",
+        "ka": "შტანგა",
+        "es": "Barra",
+        "fr": "Barre",
+        "de": "Langhantel",
+        "cs": "Osa",
+        "zh-Hans": "杠铃",
+    },
+)
+
+t(
+    "equipment_item_plates",
+    **{
+        "en-GB": "Weight plates",
+        "uk": "Диски",
+        "pl": "Talerze",
+        "be": "Дыскі",
+        "kk": "Дискілер",
+        "ka": "დისკები",
+        "es": "Discos",
+        "fr": "Disques",
+        "de": "Hantelscheiben",
+        "cs": "Kotouče",
+        "zh-Hans": "杠铃片",
+    },
+)
+
+t(
+    "equipment_item_bench_flat",
+    **{
+        "en-GB": "Flat bench",
+        "uk": "Горизонтальна лава",
+        "pl": "Ławka płaska",
+        "be": "Гарызантальная лава",
+        "kk": "Жазық орындық",
+        "ka": "ბრტყელი სკამი",
+        "es": "Banco plano",
+        "fr": "Banc plat",
+        "de": "Flachbank",
+        "cs": "Rovná lavice",
+        "zh-Hans": "平板凳",
+    },
+)
+
+t(
+    "equipment_item_bench_adjustable",
+    **{
+        "en-GB": "Adjustable bench",
+        "uk": "Регульована лава",
+        "pl": "Ławka regulowana",
+        "be": "Рэгуляваная лава",
+        "kk": "Реттелетін орындық",
+        "ka": "რეგულირებადი სკამი",
+        "es": "Banco ajustable",
+        "fr": "Banc réglable",
+        "de": "Verstellbare Bank",
+        "cs": "Nastavitelná lavice",
+        "zh-Hans": "可调节凳",
+    },
+)
+
+t(
+    "equipment_item_squat_rack",
+    **{
+        "en-GB": "Squat rack",
+        "uk": "Стійка для присідань",
+        "pl": "Stojak",
+        "be": "Стойка",
+        "kk": "Скватка",
+        "ka": "სკვატის თარო",
+        "es": "Rack de sentadillas",
+        "fr": "Cage à squat",
+        "de": "Kniebeugenständer",
+        "cs": "Dřepový stojan",
+        "zh-Hans": "深蹲架",
+    },
+)
+
+t(
+    "equipment_item_cable",
+    **{
+        "en-GB": "Cable machine",
+        "uk": "Блоковий тренажер",
+        "pl": "Wyciąg",
+        "be": "Блочны трэнажор",
+        "kk": "Блок тренажері",
+        "ka": "ბლოკური ტრენაჟორი",
+        "es": "Polea",
+        "fr": "Poulie",
+        "de": "Kabelzug",
+        "cs": "Kladka",
+        "zh-Hans": "绳索器械",
+    },
+)
+
+t(
+    "equipment_item_smith_machine",
+    **{
+        "en-GB": "Smith machine",
+        "uk": "Машина Сміта",
+        "pl": "Maszyna Smitha",
+        "be": "Машына Сміта",
+        "kk": "Смит машинасы",
+        "ka": "სმიტის მანქანა",
+        "es": "Máquina Smith",
+        "fr": "Machine Smith",
+        "de": "Smith-Maschine",
+        "cs": "Smithův stroj",
+        "zh-Hans": "史密斯机",
+    },
+)
+
+t(
+    "equipment_item_leg_press",
+    **{
+        "en-GB": "Leg press",
+        "uk": "Жим ногами",
+        "pl": "Wyciskanie nogami",
+        "be": "Ціск нагамі",
+        "kk": "Аяқпен жим",
+        "ka": "ფეხების პრესი",
+        "es": "Prensa de piernas",
+        "fr": "Presse à cuisses",
+        "de": "Beinpresse",
+        "cs": "Leg press",
+        "zh-Hans": "腿举",
+    },
+)
+
+t(
+    "equipment_item_lat_pulldown",
+    **{
+        "en-GB": "Lat pulldown",
+        "uk": "Верхня тяга",
+        "pl": "Wyciąg górny",
+        "be": "Верхняя цяга",
+        "kk": "Жоғары тарту",
+        "ka": "ზედა თხრილი",
+        "es": "Jalón al pecho",
+        "fr": "Tirage vertical",
+        "de": "Latzug",
+        "cs": "Stahování kladky",
+        "zh-Hans": "高位下拉",
+    },
+)
+
+t(
+    "equipment_item_assisted_pullup_dip_machine",
+    **{
+        "en-GB": "Assisted pull-up / dip machine",
+        "uk": "Гравітрон",
+        "pl": "Maszyna z pomocą",
+        "be": "Трэнажор з процівагай",
+        "kk": "Қарсы салмақ тренажері",
+        "ka": "დამხმარე მანქანა",
+        "es": "Máquina asistida",
+        "fr": "Machine assistée",
+        "de": "Assistenzmaschine",
+        "cs": "Stroj s výpomocí",
+        "zh-Hans": "辅助引体/双杠器械",
+    },
+)
+
+t(
+    "equipment_item_machine",
+    **{
+        "en-GB": "Resistance machines",
+        "uk": "Тренажери",
+        "pl": "Maszyny",
+        "be": "Трэнажоры",
+        "kk": "Тренажерлер",
+        "ka": "ტრენაჟორები",
+        "es": "Máquinas",
+        "fr": "Machines",
+        "de": "Geräte",
+        "cs": "Stroje",
+        "zh-Hans": "力量器械",
+    },
+)
+
+t(
+    "equipment_item_trap_bar",
+    **{
+        "en-GB": "Trap bar",
+        "uk": "Трап-гриф",
+        "pl": "Trap bar",
+        "be": "Трап-грыф",
+        "kk": "Трап-гриф",
+        "ka": "ტრაპ-გრიფი",
+        "es": "Barra trap",
+        "fr": "Barre trap",
+        "de": "Trap Bar",
+        "cs": "Trap bar",
+        "zh-Hans": "六角杠",
+    },
+)
+
+t(
+    "equipment_item_ez_bar",
+    **{
+        "en-GB": "EZ bar",
+        "uk": "EZ-гриф",
+        "pl": "Gryf EZ",
+        "be": "EZ-грыф",
+        "kk": "EZ-гриф",
+        "ka": "EZ-გრიფი",
+        "es": "Barra EZ",
+        "fr": "Barre EZ",
+        "de": "SZ-Stange",
+        "cs": "EZ osa",
+        "zh-Hans": "曲杆",
+    },
+)
+
+t(
+    "equipment_item_suspension",
+    **{
+        "en-GB": "Suspension trainer",
+        "uk": "Підвісні петлі",
+        "pl": "Taśmy podwieszane",
+        "be": "Падвесныя стужкі",
+        "kk": "Аспалы таспалар",
+        "ka": "ჩამოკიდებული ლენტები",
+        "es": "Suspensión",
+        "fr": "Suspension",
+        "de": "Schlingentrainer",
+        "cs": "Závěsný trenér",
+        "zh-Hans": "悬挂训练器",
+    },
+)
+
+t(
+    "equipment_item_box",
+    **{
+        "en-GB": "Plyometric box",
+        "uk": "Тумба",
+        "pl": "Box",
+        "be": "Тумба",
+        "kk": "Тумба",
+        "ka": "ტუმბა",
+        "es": "Cajón",
+        "fr": "Box",
+        "de": "Sprungbox",
+        "cs": "Box",
+        "zh-Hans": "跳箱",
+    },
+)
+
+t(
+    "equipment_item_landmine",
+    **{
+        "en-GB": "Landmine",
+        "uk": "Лендмайн",
+        "pl": "Landmine",
+        "be": "Лендмайн",
+        "kk": "Лендмайн",
+        "ka": "ლენდმაინი",
+        "es": "Landmine",
+        "fr": "Landmine",
+        "de": "Landmine",
+        "cs": "Landmine",
+        "zh-Hans": "地雷架",
+    },
+)
+
+t(
+    "equipment_item_yoga_mat",
+    **{
+        "en-GB": "Yoga mat",
+        "uk": "Килімок для йоги",
+        "pl": "Mata do jogi",
+        "be": "Дыванок для ёгі",
+        "kk": "Йога төсеніші",
+        "ka": "იოგას საგები",
+        "es": "Esterilla de yoga",
+        "fr": "Tapis de yoga",
+        "de": "Yogamatte",
+        "cs": "Podložka na jógu",
+        "zh-Hans": "瑜伽垫",
+    },
+)
+
+
 def escape_android(value: str) -> str:
     return (
         value.replace("&", "&amp;")

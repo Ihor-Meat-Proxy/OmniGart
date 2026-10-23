@@ -1,6 +1,9 @@
+import Shared
 import SwiftUI
 
 struct WatchStartView: View {
+    let core: OmniGartCore
+    let profileId: String
     let summaryLines: [String]
 
     var body: some View {
@@ -20,6 +23,13 @@ struct WatchStartView: View {
                         .multilineTextAlignment(.center)
                 }
                 NavigationLink {
+                    WatchStrengthStartView(core: core, profileId: profileId)
+                } label: {
+                    Text("watch_strength_start")
+                }
+                .tint(Color.OmniGart.colorBrandAccent)
+                .accessibilityIdentifier("watch_strength_start")
+                NavigationLink {
                     Zone2LiveView()
                 } label: {
                     Text("watch.zone2.start")
@@ -34,5 +44,9 @@ struct WatchStartView: View {
 }
 
 #Preview {
-    WatchStartView(summaryLines: ["OmniGart", "BMR 1349 kcal"])
+    WatchStartView(
+        core: OmniGartCore(driverFactory: DatabaseDriverFactory()),
+        profileId: "local-profile",
+        summaryLines: ["OmniGart", "BMR 1349 kcal"]
+    )
 }

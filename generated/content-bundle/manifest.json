@@ -245,9 +245,9 @@
         "sha256": "79f32eb72c9a663c4b574926a65056c31a5e1ecc2ad9cb0b801fc92791786ca4"
       },
       {
-        "bytes": 2851,
+        "bytes": 2883,
         "path": "data/back-squat.json",
-        "sha256": "e624a6537a5247fcde2517c4c98851e3a47ff8234ece5e8b59e72e2959e111cd"
+        "sha256": "079899160e794a79f08122ce8ac29688b1a3281da021a1b358405b4f7ea41c6c"
       },
       {
         "bytes": 1868,
@@ -255,9 +255,9 @@
         "sha256": "538c78f4f0a29f735d12e8efbf498e2b999bcc6167434d90dc0e8e51095c7ecb"
       },
       {
-        "bytes": 2466,
+        "bytes": 2464,
         "path": "data/band-assisted-dip.json",
-        "sha256": "ff4944afc2715fc515ceb8229942d59ea0e999e4e6cbafa096bcbc89ddcd69e6"
+        "sha256": "22c6d0a966c90b99a76ed2ff54e7f72e51da557a09619fd97bbed7d6ec9ffc9a"
       },
       {
         "bytes": 1777,
@@ -265,24 +265,24 @@
         "sha256": "d96087fa5031184a9039c91a4603703ab48c991188678c54979d14dc1bcd9caf"
       },
       {
-        "bytes": 2375,
+        "bytes": 2394,
         "path": "data/barbell-bench-press.json",
-        "sha256": "a7b5ec4bbeb93752e26574a7e39bd0f854932d29d25dfb20c1725b70db069e52"
+        "sha256": "448bf45b4b39fc21299780628e89b273341fed97b6acb8c518f5e64d6e7e4e26"
       },
       {
         "bytes": 1527,
         "path": "data/barbell-curl.json",
-        "sha256": "b310566d27678dddc225c4c29a7aee87753be642332942b01911af7a625f8cc1"
+        "sha256": "d56d76f063ac25b955dbafe0e3a7fa0826653e5a4108f149641c9fc61f354703"
       },
       {
-        "bytes": 1832,
+        "bytes": 1846,
         "path": "data/barbell-row.json",
-        "sha256": "a8fe8dbb9370930f5d9534f2ef55c6ed60c2c835d2290c313ccf46fc1ab7c6e3"
+        "sha256": "5ab2bc4a81f0b9705c83c7a0909718282f924290a4f081b074b137ff1d3c7502"
       },
       {
-        "bytes": 2813,
+        "bytes": 2818,
         "path": "data/bench-dip.json",
-        "sha256": "4b5dc2552d210ad1fcf236b04ee8c6b5b4e675639a0c1abadba768f5db8ba354"
+        "sha256": "5801559b587f5566deec4249b4afeb26ec2fc6c671780bad93b8c4638529f2d3"
       },
       {
         "bytes": 1712,
@@ -290,9 +290,9 @@
         "sha256": "736c32888ba5fe179f06dcc34e0086e2bb49d79f2947ab53f6f8e9219e4f9a2d"
       },
       {
-        "bytes": 2001,
+        "bytes": 2033,
         "path": "data/box-squat.json",
-        "sha256": "9aec383a60d4128cd863b52fdaf461a11138c143ba44608d16058e4f40209e63"
+        "sha256": "dcb82b97804187ee5f54e5220ffd0c8298afc1c9f204c7e5a52f690bc9f60011"
       },
       {
         "bytes": 1962,
@@ -370,9 +370,9 @@
         "sha256": "3d95c3c85b9d8501844a1f009a5b9de324fead8d9dff42d83ef20dc4fca4ad86"
       },
       {
-        "bytes": 1789,
+        "bytes": 1808,
         "path": "data/close-grip-bench-press.json",
-        "sha256": "fdbb86a9a77e1c5939eb43e7b49476e86e4d496c4cf419eb17e62aabc4f2578c"
+        "sha256": "4cda9fcd63f45948deba227bbc92df2d6612016a6295872e8c70447db8e372d6"
       },
       {
         "bytes": 2491,
@@ -385,9 +385,9 @@
         "sha256": "465f888aa85a1a5cda5b820cfac4014ed1a96894930d3210344be5ce0a72d87b"
       },
       {
-        "bytes": 2566,
+        "bytes": 2580,
         "path": "data/conventional-deadlift.json",
-        "sha256": "b9e60fa44b570153c4ae3a7652cba57398271450b5c850f1d3046a6a95b798d3"
+        "sha256": "232bb57c6be2858102d2ee1c63018c17923c9004116011a039a00fa2408cc886"
       },
       {
         "bytes": 1929,
@@ -405,9 +405,9 @@
         "sha256": "5485e28b48eaff6e959d02a1e74394a687ddf0ab8fc801d02122a368502164fd"
       },
       {
-        "bytes": 3275,
+        "bytes": 3273,
         "path": "data/dip-parallel-bar.json",
-        "sha256": "a601fba7c794d0dee32fe2714cd07da770a989f992fdedd0b369d05b11c1525d"
+        "sha256": "3586204542484d2c1467803f0161c8f92505ec2e785747cc722f66aa2db4b65c"
       },
       {
         "bytes": 1940,
@@ -415,9 +415,9 @@
         "sha256": "aa148f8f88b86c3393b9506fe20dee961806b9f68f8d925ea8ef2d3081aec016"
       },
       {
-        "bytes": 2190,
+        "bytes": 2195,
         "path": "data/dumbbell-bench-press.json",
-        "sha256": "395189b7fbc45e2bc99d31e870a3eb8275b83609c967b817c9176066c1e2878f"
+        "sha256": "d21e9a1f3bf451e0732f3c10476590f1a8e493b8fd5bc70b63a45eea8fa3a337"
       },
       {
         "bytes": 1527,
@@ -425,9 +425,9 @@
         "sha256": "465ccf175634dee7f04f2eedf6a92703e934ca45708f953418a4e7bec43ebbfa"
       },
       {
-        "bytes": 1809,
+        "bytes": 1820,
         "path": "data/dumbbell-incline-press.json",
-        "sha256": "611e20b3aa9437d90581cd43afc55b9e901b069a5e485fcbed3b3cb1c555b4a5"
+        "sha256": "9a1d52471c6399f3ae7e82baf2315585ec9f2987781bf66024b82ebe75e3f454"
       },
       {
         "bytes": 2151,
@@ -455,9 +455,9 @@
         "sha256": "09652d903c5feadb97871a9660c4fd6e574262e8c62d79318bc83cd0a75d96b9"
       },
       {
-        "bytes": 2337,
+        "bytes": 2369,
         "path": "data/front-squat.json",
-        "sha256": "3df1fe15b5bfd6ec0d9d5fa786641bbccb9aae47089ad4682e08b5e7c41629bc"
+        "sha256": "49f23a15307a2f6d63bccaf58c8440dfc960ad2186baa1770f753699f91e42a0"
       },
       {
         "bytes": 1853,
@@ -560,9 +560,9 @@
         "sha256": "248e0a0c951ff31060ae5150a9b15917a1813ba15bbe8d9c574aae1ec381d010"
       },
       {
-        "bytes": 1969,
+        "bytes": 1961,
         "path": "data/lat-pulldown.json",
-        "sha256": "cef16924654685c88887297b71721a8185610fdbde4ced5091a5c81c29e8d6c1"
+        "sha256": "8b1ae51c90d3ed2e88d0001f920a106bc73274296fce22b06f08a882bd23e7a3"
       },
       {
         "bytes": 1693,
@@ -585,9 +585,9 @@
         "sha256": "c4e374f83485a845f377dbc0b090658de42746074cb85696150e0273f7782e66"
       },
       {
-        "bytes": 2091,
+        "bytes": 2093,
         "path": "data/leg-press.json",
-        "sha256": "b0c0533372dd29fae7bafda87f3cd4e3de5d803d043f243355571d40ba76c2af"
+        "sha256": "54858ca9f6ce489a04cd6a4f72a57da741876b392ae2a5868736f4a78bc8af49"
       },
       {
         "bytes": 1760,
@@ -595,14 +595,14 @@
         "sha256": "2d97a8c9de7868ee19da8e947dc3358dc8452cd8c3cac3ab096cadfda12e5ec6"
       },
       {
-        "bytes": 2487,
+        "bytes": 2507,
         "path": "data/machine-assisted-dip.json",
-        "sha256": "96995830c244177e00ee53e79d519b8f2ab502dc3dd0fbcf7e3d56ddd8fd9046"
+        "sha256": "f376e82fc6590172b5f38f859d56e261c4614941f072d02bbf075e90bb9d853e"
       },
       {
-        "bytes": 2737,
+        "bytes": 2757,
         "path": "data/machine-assisted-pull-up.json",
-        "sha256": "8d4d3bf9fa557c02658fc48b2091cd4208843d4e821bad25ede57c9f0944617e"
+        "sha256": "ac034a7ffe9d0ba6d607c73beae9c380b6eec9549c67d1e065353c069e1a05c5"
       },
       {
         "bytes": 1962,
@@ -620,9 +620,9 @@
         "sha256": "4a16402b5a609b7543807b6929700151fa74d04f3cffeb61364d6343e316c47a"
       },
       {
-        "bytes": 2536,
+        "bytes": 2534,
         "path": "data/negative-dip.json",
-        "sha256": "5f9ba4ab405b32dfdd5b6ce7275ba49004adf390eeeb83f4c08ee386e5355043"
+        "sha256": "e24efa8bb7edf6855f9d4f218a2cce1de52e1cc764361f16a244e29ad2ca4e90"
       },
       {
         "bytes": 2715,
@@ -645,9 +645,9 @@
         "sha256": "56a601423db42c41e94006ace5092bdfa53ecd202a7f263860739ff513fbe517"
       },
       {
-        "bytes": 2242,
+        "bytes": 2256,
         "path": "data/overhead-press-barbell.json",
-        "sha256": "3068ee91c7dc95a7d051810e25ae784f75df0d4d0662b33d22851ffcc4bab500"
+        "sha256": "213fed9896c2cc416e3b0c2c443c86dd745eb64f0de1cb434f50e81522c8be19"
       },
       {
         "bytes": 2004,
@@ -780,9 +780,9 @@
         "sha256": "b0319906554ef2124fc1b930aa6c12185725c063c073eda1c40d73cdb4cab2b3"
       },
       {
-        "bytes": 2142,
+        "bytes": 2156,
         "path": "data/romanian-deadlift-barbell.json",
-        "sha256": "b0fab4b1b23076b04edc5d45ba27ec1a13af5968c841868937318b1e89ea9b84"
+        "sha256": "81f7d48af0915f1a252af62fb8274c80507caf34f1505c8a51a09fc937ffed05"
       },
       {
         "bytes": 2110,
@@ -835,9 +835,9 @@
         "sha256": "88cbc6dff3da45ee00e0cd307a8437ed30e236977026ff11944502d2e6dcf468"
       },
       {
-        "bytes": 1992,
+        "bytes": 1998,
         "path": "data/smith-machine-squat.json",
-        "sha256": "adcae094db02ac0bd2d9a274da86af3e30d1a1145f7476719822fb075055e993"
+        "sha256": "e62bd2b5c1d8995ca6b830cc003d4e32f7c2744680a8f3c6f7be57c927632b2f"
       },
       {
         "bytes": 1941,
@@ -915,9 +915,9 @@
         "sha256": "38a256bd264b8432d197d159b083062f0962fb4dcef91e42b56e117c87b090c5"
       },
       {
-        "bytes": 2724,
+        "bytes": 2722,
         "path": "data/weighted-dip.json",
-        "sha256": "a0ba274c6633b8a1dcc6e43e329157ef240cee1942a179a3a522358e86687a95"
+        "sha256": "a1aed1fd944bc7f8bef7059825f7320d93a15e63b7dde7f0d8ac08453455d66a"
       },
       {
         "bytes": 2844,
@@ -945,9 +945,9 @@
         "sha256": "f6fa20ba7b3bb4080d09ebd611b2faf0acc7140e615fbf0e99a152abfd06afac"
       },
       {
-        "bytes": 486,
+        "bytes": 594,
         "path": "equipment-presets.json",
-        "sha256": "86760cf1e0a139c7df639fbd4ad95580a0f96e5d7efbf151b42ff3977fee0108"
+        "sha256": "4d580601a11387c5d1682809ea6a79b00555e25e3436dc385c6e0204856a495c"
       },
       {
         "bytes": 191264,
@@ -1005,9 +1005,9 @@
         "sha256": "eeede640d2bf355d89a70efcf6ada6784c3bd2851ea2e52d15b3603cd0ea9533"
       },
       {
-        "bytes": 8622,
+        "bytes": 8841,
         "path": "schema/exercise.schema.json",
-        "sha256": "0a8043b7487b3766cc374f979d1c89d97663fabecf2db5ae6a3bf5587e02244a"
+        "sha256": "f93062179c259779320120755677dbc074b860cd122a7e55767b64902a40976a"
       },
       {
         "bytes": 4305,
@@ -1331,12 +1331,12 @@
     },
     "exercises": {
       "fileCount": 174,
-      "sha256": "cee0d8d49c5fa281c951bb1299522c94f0ecfa86e84ec2aa07b10aa6ffdcc451"
+      "sha256": "3b16d54c60cdbd6270946ae4a5bcc3cd1cfeb0df4502ba20e041afb936ac266b"
     },
     "icons": {
       "fileCount": 41,
       "sha256": "593cbd2111b9b013a64679a3ddf05dee6002a63c099764fe80ccf1302272fa3d"
     }
   },
-  "sha256": "dfe209e05a5a006623bac7d6c3690d974006670d9009366c73be604f134d62c3"
+  "sha256": "6af33605b310d1f67f42d89ce7a97a478e62f869f4565c5ee7626cf56bc043b3"
 }

@@ -82,7 +82,7 @@ targets:
         # PLATFORM_NAME (not versioned SDK_NAME) so SDK 18 / 26 / 27+ share one path.
         FRAMEWORK_SEARCH_PATHS: "$(inherited) $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(PLATFORM_NAME)"
         # Shared (SQLDelight / SQLIter) needs the system SQLite at link time.
-        OTHER_LDFLAGS: "$(inherited) -framework Shared -lsqlite3"
+        OTHER_LDFLAGS: "$(inherited) -framework Shared -lsqlite3 -framework WatchConnectivity"
         ENABLE_PREVIEWS: YES
         ONLY_ACTIVE_ARCH: YES
         EXCLUDED_ARCHS[sdk=iphonesimulator*]: "i386"
@@ -90,6 +90,7 @@ targets:
     dependencies:
       - target: OmniGartWatch
         embed: true
+      - sdk: WatchConnectivity.framework
     scheme:
       testTargets:
         - OmniGartTests
@@ -162,12 +163,14 @@ targets:
         INFOPLIST_FILE: ../watchApp/OmniGartWatch/Info.plist
         TARGETED_DEVICE_FAMILY: "4"
         FRAMEWORK_SEARCH_PATHS: "$(inherited) $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(PLATFORM_NAME)"
-        OTHER_LDFLAGS: "$(inherited) -framework Shared -lsqlite3"
+        OTHER_LDFLAGS: "$(inherited) -framework Shared -lsqlite3 -framework WatchConnectivity"
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks"
         ONLY_ACTIVE_ARCH: YES
         # KMP ships watchosSimulatorArm64 only (watchosX64 deprecated).
         EXCLUDED_ARCHS[sdk=watchsimulator*]: "x86_64 i386"
         CODE_SIGN_ENTITLEMENTS: ../watchApp/OmniGartWatch/OmniGartWatch.entitlements
+    dependencies:
+      - sdk: WatchConnectivity.framework
     scheme:
       testTargets:
         - OmniGartWatchTests

@@ -1,0 +1,59 @@
+{
+  "schema": "omnigart.content-catalog/1",
+  "contentEpoch": "local-dev",
+  "packs": [
+    {
+      "id": "exercises",
+      "version": "1.0.0",
+      "channel": "baseline",
+      "sourceDir": "fixtures/sample-pack",
+      "bundle": true,
+      "publishUpdate": true,
+      "sizeBudgetBytes": 5242880,
+      "minAppVersion": "0.1.0",
+      "bundlePath": "Content/Packs/exercises"
+    },
+    {
+      "id": "formulas",
+      "version": "1.0.0",
+      "channel": "baseline",
+      "sourceDir": "fixtures/formulas",
+      "bundle": true,
+      "publishUpdate": true,
+      "sizeBudgetBytes": 65536,
+      "minAppVersion": "0.1.0",
+      "bundlePath": "Content/Packs/formulas"
+    },
+    {
+      "id": "app-config",
+      "version": "1.0.0",
+      "channel": "config",
+      "sourceDir": "fixtures/app-config",
+      "bundle": true,
+      "publishUpdate": true,
+      "sizeBudgetBytes": 16384,
+      "minAppVersion": "0.1.0",
+      "bundlePath": "Content/Packs/app-config"
+    },
+    {
+      "id": "exercise-videos",
+      "version": "1.0.0",
+      "channel": "media",
+      "sourceDir": "fixtures/media-stub",
+      "bundle": false,
+      "publishUpdate": false,
+      "sizeBudgetBytes": 0,
+      "minAppVersion": "0.1.0"
+    },
+    {
+      "id": "food-offline",
+      "version": "1.0.0",
+      "channel": "off",
+      "sourceDir": "fixtures/food-offline-stub",
+      "bundle": false,
+      "publishUpdate": false,
+      "sizeBudgetBytes": 0,
+      "minAppVersion": "0.1.0"
+    }
+  ]
+}

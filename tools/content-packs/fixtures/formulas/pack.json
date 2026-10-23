@@ -1,0 +1,9 @@
+{
+  "id": "formulas",
+  "version": "1.0.0",
+  "channel": "baseline",
+  "minAppVersion": "0.1.0",
+  "description": "Bundled formulas / readiness heuristics config",
+  "bundlePath": "Content/Packs/formulas",
+  "sizeBudgetBytes": 65536
+}

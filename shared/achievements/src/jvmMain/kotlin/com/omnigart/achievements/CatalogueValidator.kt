@@ -1,7 +1,7 @@
 package com.omnigart.achievements
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.ObjectMapper
+import tools.jackson.databind.JsonNode
+import tools.jackson.databind.ObjectMapper
 import com.networknt.schema.SchemaRegistry
 import com.networknt.schema.SpecificationVersion
 import com.omnigart.achievements.dsl.RuleDsl
@@ -65,15 +65,15 @@ class CatalogueValidator(
                 schema.validate(node).forEach { err ->
                     issues += CatalogueIssue(file.toString(), err.message)
                 }
-                val id = node.path("id").asText()
-                val category = node.path("category").asText()
+                val id = node.path("id").asString()
+                val category = node.path("category").asString()
                 byCategory[category] = (byCategory[category] ?: 0) + 1
                 if (!ids.add(id)) {
                     issues += CatalogueIssue(file.toString(), "Duplicate id: $id")
                 }
                 checkKey(node, "titleKey", localeEn, localeUk, file, issues)
                 checkKey(node, "descriptionKey", localeEn, localeUk, file, issues)
-                val icon = node.path("iconId").asText()
+                val icon = node.path("iconId").asString()
                 if (icon.isNotBlank() && icon !in icons) {
                     issues += CatalogueIssue(file.toString(), "$id: unknown iconId $icon")
                 }
@@ -110,8 +110,8 @@ class CatalogueValidator(
         file: Path,
         issues: MutableList<CatalogueIssue>,
     ) {
-        val key = node.path(field).asText()
-        val id = node.path("id").asText()
+        val key = node.path(field).asString()
+        val id = node.path("id").asString()
         if (key !in en) issues += CatalogueIssue(file.toString(), "$id: missing en-GB $field=$key")
         if (key !in uk) issues += CatalogueIssue(file.toString(), "$id: missing uk $field=$key")
     }
@@ -122,7 +122,7 @@ class CatalogueValidator(
         val it = node.properties().iterator()
         while (it.hasNext()) {
             val entry = it.next()
-            out[entry.key] = entry.value.asText()
+            out[entry.key] = entry.value.asString()
         }
         return out
     }
@@ -131,12 +131,12 @@ class CatalogueValidator(
         val allowed = mutableSetOf<String>()
         val proposed = contentRoot.resolve("proposed-icons.json")
         if (Files.exists(proposed)) {
-            mapper.readTree(proposed.readText()).path("icons").forEach { allowed += it.path("name").asText() }
+            mapper.readTree(proposed.readText()).path("icons").forEach { allowed += it.path("name").asString() }
         }
         val manifest = designIconsManifest
             ?: contentRoot.resolve("../../design/icons/manifest.json").normalize()
         if (Files.exists(manifest)) {
-            mapper.readTree(manifest.readText()).path("icons").forEach { allowed += it.path("name").asText() }
+            mapper.readTree(manifest.readText()).path("icons").forEach { allowed += it.path("name").asString() }
         }
         return allowed
     }

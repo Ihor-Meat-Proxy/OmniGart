@@ -1,0 +1,71 @@
+# OmniGart required locales — single source of truth.
+# All content i18n tooling, CI (Translations job), and docs must read this file.
+# Never add ru / ru-*. Never use Russian as a pivot language.
+
+version: 1
+
+source: en-GB
+
+required:
+  - en-GB
+  - uk
+  - pl
+  - be
+  - kk
+  - ka
+  - es
+  - fr
+  - de
+  - cs
+  - zh-Hans
+
+forbidden:
+  - ru
+  - ru-RU
+  - ru-UA
+  - ru-BY
+  - ru-KZ
+
+# Script notes (not used as pivot; Cyrillic for kk is mandatory).
+scripts:
+  kk: Cyrillic
+  be: Cyrillic
+  uk: Cyrillic
+  ka: Mkhedruli
+  zh-Hans: Simplified-Han
+
+# CLDR plural categories expected when ICU plural/select forms appear.
+# Source: Unicode CLDR plural rules (cardinal).
+plurals:
+  en-GB: [one, other]
+  uk: [one, few, many, other]
+  pl: [one, few, many, other]
+  be: [one, few, many, other]
+  cs: [one, few, many, other]
+  kk: [one, other]
+  ka: [one, other]
+  es: [one, other]
+  fr: [one, many, other]
+  de: [one, other]
+  zh-Hans: [other]
+
+# Where translation catalogs live (checked when present).
+paths:
+  content_locales: content/exercises/locales
+  glossary: content/i18n/glossary/glossary.csv
+  status: content/i18n/status
+  # App UI (PR #2 scaffold). Validator skips gracefully if absent;
+  # if present but malformed, the check fails.
+  app_ui:
+    - shared/src/commonMain/resources/i18n
+    - androidApp/src/main/res
+    - wearApp/src/main/res
+    - iosApp/OmniGart/Localizable.xcstrings
+
+# Review status values allowed in status sidecars.
+status_values:
+  - machine-drafted
+  - reviewed
+
+# UI name length soft warning (characters). Does not fail the job.
+name_length_warn: 48

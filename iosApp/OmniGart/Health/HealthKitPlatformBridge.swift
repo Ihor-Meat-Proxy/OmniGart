@@ -7,7 +7,7 @@ import HealthKit
 ///
 /// Simulator note: many quantity types accept saves via `HealthKitSampleInjector`;
 /// background delivery is limited on Simulator — verify on device.
-final class HealthKitPlatformBridge: NSObject {
+final class HealthKitPlatformBridge: NSObject, @unchecked Sendable {
     static let shared = HealthKitPlatformBridge()
 
     private let store = HKHealthStore()

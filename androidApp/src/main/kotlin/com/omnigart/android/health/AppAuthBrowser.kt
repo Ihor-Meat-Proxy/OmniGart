@@ -18,10 +18,7 @@ class AppAuthBrowser(private val activity: ComponentActivity) : AuthBrowser {
     private var continuation: ((AuthBrowserResult) -> Unit)? = null
     private val authService by lazy { AuthorizationService(activity) }
 
-    override suspend fun authorize(
-        authorizationUrl: String,
-        redirectUri: String
-    ): AuthBrowserResult = suspendCancellableCoroutine { cont ->
+    override suspend fun authorize(authorizationUrl: String, redirectUri: String): AuthBrowserResult = suspendCancellableCoroutine { cont ->
         continuation = { result ->
             if (cont.isActive) cont.resume(result)
         }

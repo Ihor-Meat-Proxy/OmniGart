@@ -1,0 +1,40 @@
+{
+  "id": "whole-milk",
+  "category": "milk",
+  "defaultServingMl": 200,
+  "caffeineMgPerServing": 0,
+  "macrosPer100ml": {
+    "energyKcal": 61,
+    "proteinG": 3.2,
+    "carbohydrateG": 4.8,
+    "fatG": 3.3,
+    "sugarsG": 4.8,
+    "sodiumMg": 43
+  },
+  "hydrationFactor": 1.5,
+  "hydrationFactorEstimated": false,
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.3945/ajcn.115.114769",
+      "label": "Maughan et al. 2016 AJCN — Beverage Hydration Index",
+      "supports": [
+        "hydration_factor"
+      ]
+    },
+    {
+      "kind": "database",
+      "id": "usda-fdc",
+      "label": "USDA FoodData Central (typical values per 100 ml / serving)",
+      "supports": [
+        "macros",
+        "caffeine"
+      ]
+    }
+  ],
+  "notes": "Maughan 2016 full-fat milk BHI 1.50.",
+  "nameKeys": {
+    "enGB": "beverage.whole_milk.name",
+    "uk": "beverage.whole_milk.name"
+  }
+}

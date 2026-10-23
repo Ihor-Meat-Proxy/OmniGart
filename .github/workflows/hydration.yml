@@ -1,0 +1,52 @@
+# Hydration CI — beverage catalogue validation + shared/hydration unit tests.
+# Action SHAs aligned with ci.yml / sensors.yml (Oct 2026).
+name: Hydration
+
+on:
+  push:
+    branches: [main, cursor/**, feat/**, chore/**]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: hydration-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  hydration:
+    name: Hydration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Java
+        uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
+
+      - name: Verify hydration docs and content present
+        run: |
+          set -euo pipefail
+          for p in \
+            docs/specs/hydration-health-sync.md \
+            shared/hydration/build.gradle.kts \
+            shared/hydration/README.md \
+            content/beverages/schema/beverage.schema.json \
+            content/beverages/data/water.json \
+            content/beverages/locales/en-GB.json \
+            content/beverages/locales/uk.json
+          do
+            if [[ ! -f "$p" ]]; then
+              echo "::error::Missing $p"
+              exit 1
+            fi
+            echo "ok $p"
+          done
+
+      - name: Hydration unit tests (shared/hydration)
+        run: ./gradlew --stacktrace :shared:hydration:jvmTest

@@ -52,7 +52,12 @@ object TaxonomyRegions {
         Muscle.GLUTEUS_MAXIMUS to listOf("gluteus_maximus_l", "gluteus_maximus_r"),
         Muscle.GLUTEUS_MEDIUS to listOf("gluteus_medius_l", "gluteus_medius_r"),
         Muscle.ADDUCTORS to listOf("adductors_l", "adductors_r"),
-        Muscle.HIP_FLEXORS to listOf("hip_flexors_l", "hip_flexors_r"),
+        Muscle.HIP_FLEXORS to listOf(
+            "hip_flexors_l",
+            "hip_flexors_r",
+            "sartorius_l",
+            "sartorius_r",
+        ),
         Muscle.QUADRICEPS to listOf(
             "rectus_femoris_l",
             "rectus_femoris_r",

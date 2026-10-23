@@ -1,0 +1,109 @@
+{
+  "id": "push-up",
+  "nameKeys": {
+    "enGB": "exercise.push_up.name",
+    "uk": "exercise.push_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps",
+    "front_deltoid"
+  ],
+  "secondaryMuscles": [
+    "serratus_anterior",
+    "rectus_abdominis"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "High plank; lower chest toward floor with body rigid; press up without hips sagging."
+  ],
+  "setup": [
+    "Hands under shoulders; neutral neck."
+  ],
+  "breathing": "Inhale down, exhale up.",
+  "commonMistakes": [
+    "Hips sagging",
+    "Flaring elbows to 90° with pain",
+    "Partial range without intent"
+  ],
+  "safety": [
+    "Elevate hands to regress; elevate feet to progress."
+  ],
+  "contraindications": [
+    "Acute wrist pain — use handles/fists if appropriate"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "incline-push-up",
+      "note": "Hands elevated"
+    },
+    {
+      "exerciseId": "knee-push-up",
+      "note": "Knees down"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "diamond-push-up",
+      "note": "Closer grip"
+    },
+    {
+      "exerciseId": "barbell-bench-press",
+      "note": "Loaded"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1519/JSC.0b013e3181bde2cf",
+      "label": "Suprak et al. 2011 — % body mass supported in push-up positions (~69–75% traditional)",
+      "supports": [
+        "biomechanics"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/push-up",
+    "videoKey": "media/video/push-up",
+    "animationKey": "media/anim/push-up"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.72,
+    "basis": "measured",
+    "rationale": "Suprak et al. 2011 reported ~69% BM at the top and ~75% BM at the bottom of a traditional push-up (static positions); 0.72 is the mid-range summary used here."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
+}

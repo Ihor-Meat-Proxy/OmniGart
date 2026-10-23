@@ -1,0 +1,156 @@
+{
+  "id": "yoga-mobility-flow",
+  "nameKeys": {
+    "enGB": "template.yoga_mobility_flow.name",
+    "uk": "template.yoga_mobility_flow.name"
+  },
+  "disciplines": [
+    "yoga"
+  ],
+  "level": "beginner",
+  "goal": "mobility",
+  "daysPerWeek": 3,
+  "sessionMinutes": 30,
+  "equipmentPreset": "bodyweight",
+  "equipmentRequired": [
+    "yoga_mat"
+  ],
+  "rationale": "Flexibility and neuromotor practice on ≥2–3 days/week aligns with ACSM quantity/quality guidance; poses stay beginner-accessible.",
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "y1",
+      "nameKeys": {
+        "enGB": "template.yoga_mobility_flow.y1.name",
+        "uk": "template.yoga_mobility_flow.y1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "cat-cow",
+              "sets": 1,
+              "reps": "8",
+              "rir": "5",
+              "restSeconds": 10
+            },
+            {
+              "exerciseId": "downward-dog",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 20,
+              "durationSeconds": 40
+            },
+            {
+              "exerciseId": "low-lunge",
+              "sets": 2,
+              "reps": "hold/side",
+              "rir": "2-3",
+              "restSeconds": 20,
+              "durationSeconds": 40
+            },
+            {
+              "exerciseId": "warrior-ii",
+              "sets": 2,
+              "reps": "hold/side",
+              "rir": "2-3",
+              "restSeconds": 20,
+              "durationSeconds": 30
+            },
+            {
+              "exerciseId": "seated-forward-fold",
+              "sets": 2,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 20,
+              "durationSeconds": 45
+            },
+            {
+              "exerciseId": "child-pose",
+              "sets": 1,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 0,
+              "durationSeconds": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "y2",
+      "nameKeys": {
+        "enGB": "template.yoga_mobility_flow.y2.name",
+        "uk": "template.yoga_mobility_flow.y2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "mountain-pose",
+              "sets": 1,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 30
+            },
+            {
+              "exerciseId": "tree-pose",
+              "sets": 2,
+              "reps": "hold/side",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 30
+            },
+            {
+              "exerciseId": "triangle-pose",
+              "sets": 2,
+              "reps": "hold/side",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 30
+            },
+            {
+              "exerciseId": "bridge-pose-yoga",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 30
+            },
+            {
+              "exerciseId": "pigeon-pose",
+              "sets": 2,
+              "reps": "hold/side",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 40
+            },
+            {
+              "exerciseId": "child-pose",
+              "sets": 1,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

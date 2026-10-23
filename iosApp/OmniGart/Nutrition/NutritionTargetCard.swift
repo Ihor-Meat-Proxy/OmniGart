@@ -114,12 +114,6 @@ private struct NutritionTargetCardSnapshot {
         let bodyFat = store.loadBodyFat().last?.bodyFatPercent
         let birthYear = Int(core.birthYear(profile: profile))
         let age = max(1, Calendar.current.component(.year, from: Date()) - birthYear)
-        let weightValues = KotlinDoubleArray(size: Int32(weights.count))
-        let epochValues = KotlinLongArray(size: Int32(weights.count))
-        for (index, sample) in weights.enumerated() {
-            weightValues.set(index: Int32(index), value: sample.massKg)
-            epochValues.set(index: Int32(index), value: sample.epochMs)
-        }
         let previous = store.lastTargetKcal()
         return NutritionFacade.shared.computeForProfile(
             sexCode: profile.biologicalSex == .male ? "MALE" : "FEMALE",
@@ -139,8 +133,8 @@ private struct NutritionTargetCardSnapshot {
             exerciseKcalToday: 0,
             previousTargetKcal: previous ?? 0,
             hasPreviousTarget: previous != nil,
-            recentWeightKg: weightValues,
-            recentWeightEpochMs: epochValues,
+            recentWeightKg: KotlinPrimitiveArrays.doubleArray(weights.map(\.massKg)),
+            recentWeightEpochMs: KotlinPrimitiveArrays.longArray(weights.map(\.epochMs)),
             meanSteps: 8_000,
             dayStartMinutes: Int32(goal.dayStartMinutes),
             trainingHoursToday: 0

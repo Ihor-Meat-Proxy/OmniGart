@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.local/schemas/content-catalog.v1.json",
+  "title": "OmniGart content catalog (what is bundled vs CDN)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "contentEpoch", "packs"],
+  "properties": {
+    "schema": { "const": "omnigart.content-catalog/1" },
+    "contentEpoch": { "type": "string" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "packs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "version", "channel", "sourceDir", "bundle"],
+        "properties": {
+          "id": { "type": "string" },
+          "version": { "type": "string" },
+          "channel": {
+            "type": "string",
+            "enum": ["baseline", "update", "media", "off", "config"]
+          },
+          "sourceDir": { "type": "string" },
+          "bundle": {
+            "type": "boolean",
+            "description": "true = emit baseline artefact for app binary embedding"
+          },
+          "publishUpdate": {
+            "type": "boolean",
+            "description": "true = also emit CDN update pack from the same sources"
+          },
+          "sizeBudgetBytes": { "type": "integer", "minimum": 0 },
+          "minAppVersion": { "type": "string" },
+          "bundlePath": { "type": "string" }
+        }
+      }
+    }
+  }
+}

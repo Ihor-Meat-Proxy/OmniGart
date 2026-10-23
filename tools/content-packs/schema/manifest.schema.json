@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.local/schemas/content-pack-manifest.v1.json",
+  "title": "OmniGart content pack manifest (bundle-first)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "version",
+    "channel",
+    "minAppVersion",
+    "createdAt",
+    "files",
+    "archive"
+  ],
+  "properties": {
+    "schema": {
+      "const": "omnigart.content-pack/1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,63}$",
+      "description": "Pack identity, e.g. exercises, templates, translations, evidence, icons, body-maps, achievements, exercise-images, formulas, food-offline, app-config, exercise-videos"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+([.-][A-Za-z0-9.-]+)?$",
+      "description": "SemVer of this pack build (monotonic for a given id)"
+    },
+    "channel": {
+      "type": "string",
+      "enum": ["baseline", "update", "media", "off", "config"],
+      "description": "baseline = ships inside app binaries; update = signed CDN override newer than bundled; media = optional on-demand; off = Open Food Facts offline; config = remote flags with bundled defaults"
+    },
+    "minAppVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Minimum OmniGart app SemVer that may apply this pack"
+    },
+    "maxAppVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Optional exclusive upper bound; omit for open-ended"
+    },
+    "baselineVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+([.-][A-Za-z0-9.-]+)?$",
+      "description": "For channel=update: the bundled baseline version this pack may replace. App applies only if installed baseline ≤ this and pack.version > installed override (or baseline)."
+    },
+    "contentEpoch": {
+      "type": "string",
+      "description": "Stable id of the content source tree (e.g. git tree hash of content/). Same epoch for baseline + update built from one pipeline run."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "description": {
+      "type": "string"
+    },
+    "locale": {
+      "type": "string",
+      "description": "BCP-47 locale when the pack is language-specific"
+    },
+    "bundlePath": {
+      "type": "string",
+      "description": "Relative path inside the app bundle where baseline assets are expected (channel=baseline)"
+    },
+    "sizeBudgetBytes": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Declared budget for this pack; CI fails if archive.size exceeds it for baseline channel"
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256", "size"],
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^[^/].*"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "size": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "archive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "sha256", "size"],
+      "properties": {
+        "file": { "const": "pack.tar" },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "channel": { "const": "update" } }
+      },
+      "then": {
+        "required": ["baselineVersion"]
+      }
+    }
+  ]
+}

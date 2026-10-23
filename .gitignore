@@ -64,6 +64,15 @@ coverage/
 *.exec
 .rapid/
 
+# OpenTofu / content plane
+infra/content/.terraform/
+infra/content/*.tfstate*
+infra/content/terraform.tfvars
+tools/content-packs/dist/
+tools/content-packs/keys/*.key
+**/*.minisig
+infra/self-host/.env
 # Fastlane
 fastlane/vendor/
 fastlane/.bundle/
+

@@ -9,9 +9,13 @@ final class HealthKitInjectorSmokeTests: XCTestCase {
         XCTAssertNotNil(HealthKitPlatformBridge.sleepType())
     }
 
-    func testKeychainRoundTrip() {
+    func testKeychainRoundTrip() throws {
         let store = KeychainTokenStore(service: "com.omnigart.test.\(UUID().uuidString)")
-        store.write(key: "access", value: "token-value")
+        // Unsigned CI (`CODE_SIGNING_ALLOWED=NO`) cannot write to the Keychain.
+        try XCTSkipIf(
+            !store.write(key: "access", value: "token-value"),
+            "Keychain unavailable without signing entitlements"
+        )
         XCTAssertEqual(store.read(key: "access"), "token-value")
         store.delete(key: "access")
         XCTAssertNil(store.read(key: "access"))

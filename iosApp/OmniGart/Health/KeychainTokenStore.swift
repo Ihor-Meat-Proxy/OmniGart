@@ -23,7 +23,10 @@ final class KeychainTokenStore {
         return String(data: data, encoding: .utf8)
     }
 
-    func write(key: String, value: String) {
+    /// Returns `false` when Keychain rejects the write (common under unsigned CI with
+    /// `CODE_SIGNING_ALLOWED=NO` / missing Keychain entitlements).
+    @discardableResult
+    func write(key: String, value: String) -> Bool {
         let data = Data(value.utf8)
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
@@ -34,7 +37,7 @@ final class KeychainTokenStore {
         var add = query
         add[kSecValueData as String] = data
         add[kSecAttrAccessible as String] = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
-        SecItemAdd(add as CFDictionary, nil)
+        return SecItemAdd(add as CFDictionary, nil) == errSecSuccess
     }
 
     func delete(key: String) {

@@ -1,0 +1,8 @@
+{
+  "description": "Evidence registry entry ids cited by bundled pilates content. Validated against content/evidence/entries when that pack is present; otherwise against this allowlist (bundle-first).",
+  "ids": [
+    "garber-acsm-2011",
+    "acsm-rt-2026",
+    "nsca-essentials-4e"
+  ]
+}

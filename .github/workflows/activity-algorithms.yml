@@ -1,0 +1,26 @@
+name: Activity algorithms
+
+on:
+  push:
+    paths:
+      - 'shared/activity-algorithms/**'
+      - 'settings.gradle.kts'
+      - '.github/workflows/activity-algorithms.yml'
+  pull_request:
+    paths:
+      - 'shared/activity-algorithms/**'
+      - 'settings.gradle.kts'
+      - '.github/workflows/activity-algorithms.yml'
+
+jobs:
+  test:
+    name: Activity algorithms
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Unit tests
+        run: ./gradlew --no-daemon :shared:activity-algorithms:jvmTest

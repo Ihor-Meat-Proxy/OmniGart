@@ -3,6 +3,7 @@ package com.omnigart.shared
 import com.omnigart.shared.calc.Bmi
 import com.omnigart.shared.calc.WaterTarget
 import com.omnigart.shared.calc.strategy.FormulaSettingsService
+import com.omnigart.shared.content.ContentStore
 import com.omnigart.shared.data.DatabaseDriverFactory
 import com.omnigart.shared.data.ExerciseRepository
 import com.omnigart.shared.data.SessionRepository
@@ -20,8 +21,14 @@ import kotlinx.datetime.todayIn
 
 /**
  * Facade used by thin native UI shells.
+ *
+ * [contentStore] is the offline content pack (Android/Wear assets). When null, strength
+ * logging falls back to the built-in demo exercise catalog.
  */
-class OmniGartCore(driverFactory: DatabaseDriverFactory) {
+class OmniGartCore(driverFactory: DatabaseDriverFactory, contentStore: ContentStore?) {
+    /** Swift-friendly overload (Kotlin default args are not exported to Apple). */
+    constructor(driverFactory: DatabaseDriverFactory) : this(driverFactory, contentStore = null)
+
     private val database = createDatabase(driverFactory)
     val profiles = UserProfileRepository(database)
     val exercises = ExerciseRepository(database)
@@ -33,7 +40,8 @@ class OmniGartCore(driverFactory: DatabaseDriverFactory) {
             sessions = sessions,
             exercises = exercises,
             profiles = profiles,
-            formulaSettings = formulaSettings
+            formulaSettings = formulaSettings,
+            contentStore = contentStore
         )
 
     fun ensureDemoProfile(): UserProfile {

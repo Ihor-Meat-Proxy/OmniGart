@@ -28,8 +28,9 @@ flowchart TB
   end
 
   subgraph content [Content - not user data]
-    Packs[Versioned JSON packs]
-    Media[Media CDN / packs server]
+    Bundle[Bundled baseline in app binary]
+    Update[Signed update packs]
+    Media[Optional media / food packs / remote config]
   end
 
   iOS --> kmp
@@ -41,9 +42,14 @@ flowchart TB
   HealthIF -.-> HK
   HealthIF -.-> HC
   HealthIF -.-> GHA
-  Packs --> Domain
-  Media --> Packs
+  Bundle --> Domain
+  Update -.-> Bundle
+  Media -.-> Update
 ```
+
+## Bundle-first content
+
+Apps ship an offline baseline (`generated/content-bundle/`: exercises, templates, locales, evidence, icons, body-map paths, achievements, exercise images). Shared `LayeredContentLoader` applies **bundled &lt; verified newer update pack**. The server is never required for core use. See `docs/CONTENT_BUNDLE.md`.
 
 ## Modules
 

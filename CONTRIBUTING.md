@@ -23,9 +23,13 @@ License: **AGPL-3.0** (see `LICENSE`).
 ```bash
 ./scripts/check_no_ru_locale.sh
 python3 scripts/check_app_review_compliance.py
+python3 scripts/pack_bundled_content.py
+python3 scripts/pack_bundled_content.py --verify
 ./gradlew :shared:testAndroidHostTest :androidApp:testDebugUnitTest :wearApp:testDebugUnitTest
-./gradlew checkNoRuLocale checkAppReviewCompliance ktlintCheck detekt
+./gradlew checkNoRuLocale checkAppReviewCompliance verifyBundledContent ktlintCheck detekt
 ```
+
+After editing `content/`, `docs/evidence/`, or bundled design assets, regenerate and commit `generated/content-bundle/` (see `docs/CONTENT_BUNDLE.md`).
 
 On macOS (Apple targets):
 

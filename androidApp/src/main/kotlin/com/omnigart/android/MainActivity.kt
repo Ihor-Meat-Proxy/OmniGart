@@ -36,13 +36,18 @@ import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.design.theme.OmniGartSpacing
 import com.omnigart.shared.OmniGartCore
 import com.omnigart.shared.compliance.FeatureFlags
+import com.omnigart.shared.content.AssetContentStore
 import com.omnigart.shared.data.DatabaseDriverFactory
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val core = OmniGartCore(DatabaseDriverFactory(applicationContext))
+        val core =
+            OmniGartCore(
+                DatabaseDriverFactory(applicationContext),
+                contentStore = AssetContentStore(applicationContext.assets)
+            )
         val profile = core.ensureDemoProfile()
         setContent {
             OmniGartTheme {

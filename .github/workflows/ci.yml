@@ -38,6 +38,12 @@ jobs:
           java-version: "21"
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
+      - name: Pack and verify offline content bundle
+        # Bundle-first: generated/content-bundle must match content/ + design sources.
+        run: |
+          python3 scripts/pack_bundled_content.py
+          python3 scripts/pack_bundled_content.py --verify
+          ./gradlew verifyBundledContent
       - name: Unit tests and assemble
         run: |
           ./gradlew --stacktrace \
@@ -52,8 +58,8 @@ jobs:
         # Pure stdlib Python — no pip/PyYAML (macOS runners are PEP 668 managed).
         run: python3 scripts/check_app_review_compliance.py
       - name: Lint and verify
-        # checkNoRuLocale / checkAppReviewCompliance also hang off root `check`.
-        run: ./gradlew checkNoRuLocale checkAppReviewCompliance ktlintCheck detekt
+        # checkNoRuLocale / checkAppReviewCompliance / verifyBundledContent also hang off root `check`.
+        run: ./gradlew checkNoRuLocale checkAppReviewCompliance verifyBundledContent ktlintCheck detekt
 
   ios-watchos:
     name: iOS + watchOS

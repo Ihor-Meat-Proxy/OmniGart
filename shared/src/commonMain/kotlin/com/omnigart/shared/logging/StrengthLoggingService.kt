@@ -13,6 +13,9 @@ import com.omnigart.shared.calc.VolumeSessionInput
 import com.omnigart.shared.calc.VolumeSetInput
 import com.omnigart.shared.calc.WorkoutVolumeSummary
 import com.omnigart.shared.calc.strategy.FormulaSettingsService
+import com.omnigart.shared.content.BundledExerciseCatalog
+import com.omnigart.shared.content.ContentStore
+import com.omnigart.shared.content.LayeredContentLoader
 import com.omnigart.shared.data.ExerciseRepository
 import com.omnigart.shared.data.SessionRepository
 import com.omnigart.shared.data.UserProfileRepository
@@ -58,8 +61,12 @@ class StrengthLoggingService(
     private val exercises: ExerciseRepository,
     private val profiles: UserProfileRepository,
     private val formulaSettings: FormulaSettingsService,
-    private val clock: Clock = Clock.System
+    private val clock: Clock = Clock.System,
+    /** Offline content pack (bundled assets / in-memory fixtures). Null → demo fallback. */
+    private val contentStore: ContentStore? = null
 ) {
+    private var seededCatalog: List<DemoStrengthExercise>? = null
+
     /** Swift-friendly overload (Kotlin default args are not exported to Apple). */
     fun startSession(): Session = startSession(workoutId = null, startedAt = clock.now())
 
@@ -140,13 +147,29 @@ class StrengthLoggingService(
 
     fun getSession(sessionId: String): Session? = sessions.get(sessionId)
 
-    fun ensureDemoExercises(): List<DemoStrengthExercise> {
-        val catalog = demoCatalog()
+    /**
+     * Seeds SQLDelight from the offline bundled catalog when [contentStore] (or [loader])
+     * has exercises; otherwise uses the built-in demo list. Offline-only — no network.
+     */
+    fun ensureDemoExercises(): List<DemoStrengthExercise> = loadExercises()
+
+    fun loadExercises(loader: LayeredContentLoader? = null): List<DemoStrengthExercise> {
+        seededCatalog?.let { cached ->
+            cached.forEach { demo -> exercises.upsert(demo.exercise) }
+            return cached
+        }
+        val catalog =
+            when {
+                loader != null -> BundledExerciseCatalog.load(loader)
+                contentStore != null -> BundledExerciseCatalog.load(contentStore)
+                else -> demoCatalog()
+            }
         catalog.forEach { demo -> exercises.upsert(demo.exercise) }
+        seededCatalog = catalog
         return catalog
     }
 
-    fun demoExercises(): List<DemoStrengthExercise> = demoCatalog()
+    fun demoExercises(): List<DemoStrengthExercise> = seededCatalog ?: demoCatalog()
 
     fun volumeMetaFor(exercise: Exercise, unilateral: Boolean = false, loadSemantics: ExerciseLoadSemantics? = null): VolumeExerciseMeta =
         VolumeExerciseMeta(
@@ -165,10 +188,10 @@ class StrengthLoggingService(
 
     fun buildExerciseMetaMap(session: Session, overrides: Map<String, VolumeExerciseMeta> = emptyMap()): Map<String, VolumeExerciseMeta> {
         val ids = session.sets.map { it.exerciseId }.toSet()
-        val fromDemo = demoCatalog().associateBy { it.exercise.id }
+        val fromCatalog = (seededCatalog ?: demoCatalog()).associateBy { it.exercise.id }
         return ids.associateWith { id ->
             overrides[id]
-                ?: fromDemo[id]?.let {
+                ?: fromCatalog[id]?.let {
                     volumeMetaFor(it.exercise, it.unilateral, it.loadSemantics)
                 }
                 ?: exercises.get(id)?.let { volumeMetaFor(it) }

@@ -46,8 +46,14 @@ android {
                 rootProject.file("design/generated/android/values"),
                 rootProject.file("design/generated/android/drawable")
             )
+            // Offline baseline: exercises, evidence, icons, body-maps, etc.
+            assets.srcDirs(rootProject.file("generated/content-bundle"))
         }
     }
+}
+
+tasks.named("preBuild").configure {
+    dependsOn(rootProject.tasks.named("packBundledContent"))
 }
 
 kotlin {

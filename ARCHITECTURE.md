@@ -103,3 +103,11 @@ If a future dependency lacks watchOS artifacts, keep the API in `commonMain` / `
 - No `GlobalScope`, no Kotlin `!!` in shared/core code
 - No singleton mutable app state; `OmniGartCore` is constructed per process entry and owns repositories
 - Main-thread DB work is acceptable for Phase 0 smoke shells only; later move to background dispatchers
+
+
+## Health integrations (first release)
+
+On-device: HealthKit (Apple) and Health Connect (Android) implement `HealthClient`.
+Cloud: `GoogleHealthApiClient` uses OAuth PKCE with tokens in Keychain/Keystore (no OmniGart server).
+Formula selection uses strategy interfaces in `calc/strategy` (BMR, HRmax, body fat, 1RM, HR zones).
+Baevsky stress index is available from RR intervals (`calc/BaevskyStressIndex`).

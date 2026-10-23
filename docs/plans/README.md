@@ -7,7 +7,7 @@ Standing owner instruction: after Phase 0 and the health-integration PR, continu
 | # | Plan | Branch pattern | Depends on |
 |---|------|----------------|------------|
 | 0 | Foundation (this PR / Phase 0) | `cursor/phase-0-foundation-*` | — |
-| H | Health integration layer | `cursor/health-integration-layer-*` | Phase 0 |
+| H | [Health integration layer](health.md) | `cursor/health-integration-layer-*` | Phase 0 |
 | 1 | [Strength logging](phase-1.md) | `cursor/phase-1-strength-logging-*` | Health |
 | 2 | [Food barcode + water](phase-2.md) | `cursor/phase-2-food-water-*` | Phase 1 |
 | 3 | [Readiness + morning check](phase-3.md) | `cursor/phase-3-readiness-*` | Phase 2 |

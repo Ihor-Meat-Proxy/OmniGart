@@ -60,6 +60,7 @@ targets:
         ENABLE_PREVIEWS: YES
         ONLY_ACTIVE_ARCH: YES
         EXCLUDED_ARCHS[sdk=iphonesimulator*]: "i386"
+        CODE_SIGN_ENTITLEMENTS: OmniGart/OmniGart.entitlements
     dependencies:
       - target: OmniGartWatch
         embed: true

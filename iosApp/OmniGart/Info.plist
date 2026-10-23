@@ -44,5 +44,9 @@
 	<string>OmniGart uses the camera only when you scan a food barcode to look up nutrition information. You can log food manually if you prefer not to allow camera access.</string>
 	<key>NSUserNotificationsUsageDescription</key>
 	<string>OmniGart can send reminders for workouts, hydration, and morning wellness check-ins you opt into. You can use the app fully with notifications turned off.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>processing</string>
+	</array>
 </dict>
 </plist>

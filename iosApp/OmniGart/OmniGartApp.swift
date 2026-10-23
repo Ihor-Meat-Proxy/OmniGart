@@ -6,6 +6,10 @@ struct OmniGartApp: App {
     private let summary: [String]
 
     init() {
+        // HealthKit bridge is constructed for JIT use when FeatureFlags.healthSyncEnabled.
+        // Sync UI stays off until the flag is flipped; store remains local-only by default.
+        _ = HealthKitPlatformBridge.shared
+
         let core = OmniGartCore(driverFactory: DatabaseDriverFactory())
         let profile = core.ensureDemoProfile()
         // Kotlin List<String> exports as Swift [String] on current K/N.

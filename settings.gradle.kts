@@ -34,6 +34,9 @@ project(":shared:hydration").projectDir = file("shared/hydration")
 include(":shared:body")
 project(":shared:body").projectDir = file("shared/body")
 
+include(":shared:activity-algorithms")
+project(":shared:activity-algorithms").projectDir = file("shared/activity-algorithms")
+
 include(":androidApp")
 include(":wearApp")
 

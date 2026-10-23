@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.app/schemas/claims-registry.json",
+  "title": "OmniGartClaimsRegistry",
+  "description": "Maps every user-facing claim, goal, or formula to evidence entries.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "claims"],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "textKeys", "evidenceIds", "category"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "minLength": 3,
+            "maxLength": 96
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "formula",
+              "goal",
+              "programming",
+              "nutrition",
+              "recovery",
+              "technique",
+              "safety",
+              "cardio",
+              "body-comp",
+              "load-monitoring",
+              "other"
+            ]
+          },
+          "textKeys": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["enGB", "uk"],
+            "properties": {
+              "enGB": {
+                "type": "string",
+                "pattern": "^claim\\.[a-z0-9_]+\\.text$"
+              },
+              "uk": {
+                "type": "string",
+                "pattern": "^claim\\.[a-z0-9_]+\\.text$"
+              }
+            }
+          },
+          "evidenceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

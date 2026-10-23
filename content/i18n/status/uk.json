@@ -1,751 +1,99 @@
 {
-  "achievement.backfill.summary": {
+  "beverage.almond_milk.name": {
     "status": "machine-drafted",
-    "source_hash": "3f81450a27060cd7"
+    "source_hash": "04f29ad49dc43d0a"
   },
-  "achievement.category.body_measurements": {
+  "beverage.americano.name": {
     "status": "machine-drafted",
-    "source_hash": "7826b2bdbdc132c3"
+    "source_hash": "86bfb183104e3b86"
   },
-  "achievement.category.consistency": {
+  "beverage.beer.name": {
     "status": "machine-drafted",
-    "source_hash": "36e8309d0868e112"
+    "source_hash": "2758060bedd99ddd"
   },
-  "achievement.category.nutrition": {
+  "beverage.black_tea.name": {
     "status": "machine-drafted",
-    "source_hash": "7ab78b7058dd1c09"
+    "source_hash": "ff49ce9a7851305f"
   },
-  "achievement.category.pilates": {
+  "beverage.cappuccino.name": {
     "status": "machine-drafted",
-    "source_hash": "23941c7be811ac64"
+    "source_hash": "479ef320081b6d89"
   },
-  "achievement.category.recovery": {
+  "beverage.espresso.name": {
     "status": "machine-drafted",
-    "source_hash": "92ad93ca7b93b93a"
+    "source_hash": "e25dc4762c339fa6"
   },
-  "achievement.category.running": {
+  "beverage.filter_coffee.name": {
     "status": "machine-drafted",
-    "source_hash": "f4ccae29e1bb0c20"
+    "source_hash": "6e3ea0a33a75e088"
   },
-  "achievement.category.strength": {
+  "beverage.flat_white.name": {
     "status": "machine-drafted",
-    "source_hash": "63ee3a1b965a7bd2"
+    "source_hash": "b33ea90352ba2901"
   },
-  "achievement.category.swimming": {
+  "beverage.green_tea.name": {
     "status": "machine-drafted",
-    "source_hash": "54230802dfda0e8b"
+    "source_hash": "e2029462d80da658"
   },
-  "achievement.category.water": {
+  "beverage.herbal_tea.name": {
+    "status": "machine-drafted",
+    "source_hash": "b4a3336c2aca8a24"
+  },
+  "beverage.instant_coffee.name": {
+    "status": "machine-drafted",
+    "source_hash": "63091135c49d87cc"
+  },
+  "beverage.kefir.name": {
+    "status": "machine-drafted",
+    "source_hash": "2c282ac573772c56"
+  },
+  "beverage.latte.name": {
+    "status": "machine-drafted",
+    "source_hash": "5cf054995329c0e3"
+  },
+  "beverage.oat_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "2a1ed2518bcba130"
+  },
+  "beverage.orange_juice.name": {
+    "status": "machine-drafted",
+    "source_hash": "94bafc06ab843cf8"
+  },
+  "beverage.semi_skimmed_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "5c9e7233624604ef"
+  },
+  "beverage.skimmed_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "fce63bdb6a9f7dd2"
+  },
+  "beverage.soft_drink_cola.name": {
+    "status": "machine-drafted",
+    "source_hash": "82981451f51c631f"
+  },
+  "beverage.soy_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "c7f79bcc99251b6e"
+  },
+  "beverage.sparkling_water.name": {
+    "status": "machine-drafted",
+    "source_hash": "bb1955db1289b592"
+  },
+  "beverage.sports_drink.name": {
+    "status": "machine-drafted",
+    "source_hash": "b06afed2591eaf24"
+  },
+  "beverage.water.name": {
     "status": "machine-drafted",
     "source_hash": "7ca7dea906800f87"
   },
-  "achievement.category.yoga": {
+  "beverage.whole_milk.name": {
     "status": "machine-drafted",
-    "source_hash": "b49d7e8de3c7f289"
+    "source_hash": "76d8ae3e8b0d595b"
   },
-  "achievement.consistency_active_days_100.description": {
+  "beverage.wine.name": {
     "status": "machine-drafted",
-    "source_hash": "5ce59f59f943c4f0"
-  },
-  "achievement.consistency_active_days_100.title": {
-    "status": "machine-drafted",
-    "source_hash": "36d340080790ad08"
-  },
-  "achievement.consistency_active_days_30.description": {
-    "status": "machine-drafted",
-    "source_hash": "24da815fc88e1008"
-  },
-  "achievement.consistency_active_days_30.title": {
-    "status": "machine-drafted",
-    "source_hash": "c718f778d05788cc"
-  },
-  "achievement.consistency_active_days_7.description": {
-    "status": "machine-drafted",
-    "source_hash": "70e68d576bab574b"
-  },
-  "achievement.consistency_active_days_7.title": {
-    "status": "machine-drafted",
-    "source_hash": "d089d543b748aee3"
-  },
-  "achievement.consistency_challenge_any.description": {
-    "status": "machine-drafted",
-    "source_hash": "8a8fcdc1d2f2038d"
-  },
-  "achievement.consistency_challenge_any.title": {
-    "status": "machine-drafted",
-    "source_hash": "0a2759838d6a04c6"
-  },
-  "achievement.consistency_first_active_day.description": {
-    "status": "machine-drafted",
-    "source_hash": "e1d025727bbe128e"
-  },
-  "achievement.consistency_first_active_day.title": {
-    "status": "machine-drafted",
-    "source_hash": "6949cc5261637dc5"
-  },
-  "achievement.consistency_multicategory_3.description": {
-    "status": "machine-drafted",
-    "source_hash": "f66d7d9267b1a887"
-  },
-  "achievement.consistency_multicategory_3.title": {
-    "status": "machine-drafted",
-    "source_hash": "64473b7a9bbcbad2"
-  },
-  "achievement.consistency_streak_100.description": {
-    "status": "machine-drafted",
-    "source_hash": "d0f3df4b0d4863f8"
-  },
-  "achievement.consistency_streak_100.title": {
-    "status": "machine-drafted",
-    "source_hash": "bd8296c042c539ee"
-  },
-  "achievement.consistency_streak_21.description": {
-    "status": "machine-drafted",
-    "source_hash": "0c7f3baaeefbc39a"
-  },
-  "achievement.consistency_streak_21.title": {
-    "status": "machine-drafted",
-    "source_hash": "106762a9f1be01a2"
-  },
-  "achievement.consistency_streak_66.description": {
-    "status": "machine-drafted",
-    "source_hash": "98fcafde70a832c5"
-  },
-  "achievement.consistency_streak_66.title": {
-    "status": "machine-drafted",
-    "source_hash": "b9a7178161f897c2"
-  },
-  "achievement.consistency_streak_7.description": {
-    "status": "machine-drafted",
-    "source_hash": "2bf81513c1df6926"
-  },
-  "achievement.consistency_streak_7.title": {
-    "status": "machine-drafted",
-    "source_hash": "c58f2af2f9bb7385"
-  },
-  "achievement.consistency_weekly_goal_12.description": {
-    "status": "machine-drafted",
-    "source_hash": "4d5a84b14cd69193"
-  },
-  "achievement.consistency_weekly_goal_12.title": {
-    "status": "machine-drafted",
-    "source_hash": "f4aa7eb4c4acc39f"
-  },
-  "achievement.consistency_weekly_goal_4.description": {
-    "status": "machine-drafted",
-    "source_hash": "96fcde26c0c13a95"
-  },
-  "achievement.consistency_weekly_goal_4.title": {
-    "status": "machine-drafted",
-    "source_hash": "66b53790885287f0"
-  },
-  "achievement.measurements_first.description": {
-    "status": "machine-drafted",
-    "source_hash": "57244cecd747b11b"
-  },
-  "achievement.measurements_first.title": {
-    "status": "machine-drafted",
-    "source_hash": "c516a8390356411a"
-  },
-  "achievement.measurements_logs_20.description": {
-    "status": "machine-drafted",
-    "source_hash": "5e238fb112457150"
-  },
-  "achievement.measurements_logs_20.title": {
-    "status": "machine-drafted",
-    "source_hash": "f40943b970dcf9e0"
-  },
-  "achievement.measurements_logs_5.description": {
-    "status": "machine-drafted",
-    "source_hash": "9452218af770ff61"
-  },
-  "achievement.measurements_logs_5.title": {
-    "status": "machine-drafted",
-    "source_hash": "00c2f6fc40c88945"
-  },
-  "achievement.measurements_sites_3.description": {
-    "status": "machine-drafted",
-    "source_hash": "c8303d07997d9a80"
-  },
-  "achievement.measurements_sites_3.title": {
-    "status": "machine-drafted",
-    "source_hash": "56320656638fcec2"
-  },
-  "achievement.measurements_streak_4_weeks.description": {
-    "status": "machine-drafted",
-    "source_hash": "7cadb1f6b4e2575b"
-  },
-  "achievement.measurements_streak_4_weeks.title": {
-    "status": "machine-drafted",
-    "source_hash": "bff31e58b612a62c"
-  },
-  "achievement.measurements_weekly_8.description": {
-    "status": "machine-drafted",
-    "source_hash": "59af78fadb2617b7"
-  },
-  "achievement.measurements_weekly_8.title": {
-    "status": "machine-drafted",
-    "source_hash": "694d7c4fd1df2485"
-  },
-  "achievement.nutrition_days_21.description": {
-    "status": "machine-drafted",
-    "source_hash": "d024fbe0e24beae8"
-  },
-  "achievement.nutrition_days_21.title": {
-    "status": "machine-drafted",
-    "source_hash": "65c1d23f88658ed3"
-  },
-  "achievement.nutrition_days_66.description": {
-    "status": "machine-drafted",
-    "source_hash": "97339fb5b8441f2d"
-  },
-  "achievement.nutrition_days_66.title": {
-    "status": "machine-drafted",
-    "source_hash": "262391557ab84c5d"
-  },
-  "achievement.nutrition_days_7.description": {
-    "status": "machine-drafted",
-    "source_hash": "1d21a8b724b92103"
-  },
-  "achievement.nutrition_days_7.title": {
-    "status": "machine-drafted",
-    "source_hash": "aff8337200b6ad31"
-  },
-  "achievement.nutrition_first_log.description": {
-    "status": "machine-drafted",
-    "source_hash": "7ebf70af13a802ff"
-  },
-  "achievement.nutrition_first_log.title": {
-    "status": "machine-drafted",
-    "source_hash": "f30c7a9452573d3f"
-  },
-  "achievement.nutrition_logs_10.description": {
-    "status": "machine-drafted",
-    "source_hash": "8f3f017f030e3271"
-  },
-  "achievement.nutrition_logs_10.title": {
-    "status": "machine-drafted",
-    "source_hash": "e11cda52692f97aa"
-  },
-  "achievement.nutrition_logs_200.description": {
-    "status": "machine-drafted",
-    "source_hash": "a972e47e4a3e08e1"
-  },
-  "achievement.nutrition_logs_200.title": {
-    "status": "machine-drafted",
-    "source_hash": "4f2773b8231bc8df"
-  },
-  "achievement.nutrition_logs_50.description": {
-    "status": "machine-drafted",
-    "source_hash": "caeaba717b75ec8c"
-  },
-  "achievement.nutrition_logs_50.title": {
-    "status": "machine-drafted",
-    "source_hash": "6c69208a11f9b16a"
-  },
-  "achievement.nutrition_protein_days_14.description": {
-    "status": "machine-drafted",
-    "source_hash": "050d8fdfdca93f2a"
-  },
-  "achievement.nutrition_protein_days_14.title": {
-    "status": "machine-drafted",
-    "source_hash": "9501c1a309144b1e"
-  },
-  "achievement.pilates_first_session.description": {
-    "status": "machine-drafted",
-    "source_hash": "5da9bbea91d22987"
-  },
-  "achievement.pilates_first_session.title": {
-    "status": "machine-drafted",
-    "source_hash": "efcaf225c855db20"
-  },
-  "achievement.pilates_minutes_25.description": {
-    "status": "machine-drafted",
-    "source_hash": "c4c4f86e6c8a0bb9"
-  },
-  "achievement.pilates_minutes_25.title": {
-    "status": "machine-drafted",
-    "source_hash": "800c55b23a2a4224"
-  },
-  "achievement.pilates_sessions_15.description": {
-    "status": "machine-drafted",
-    "source_hash": "69d0186a5d18e983"
-  },
-  "achievement.pilates_sessions_15.title": {
-    "status": "machine-drafted",
-    "source_hash": "447dd5da957f240e"
-  },
-  "achievement.pilates_sessions_40.description": {
-    "status": "machine-drafted",
-    "source_hash": "cb2d00c8703ae8d1"
-  },
-  "achievement.pilates_sessions_40.title": {
-    "status": "machine-drafted",
-    "source_hash": "4feff83d003a6ad9"
-  },
-  "achievement.pilates_sessions_5.description": {
-    "status": "machine-drafted",
-    "source_hash": "0cc7b22c95b02016"
-  },
-  "achievement.pilates_sessions_5.title": {
-    "status": "machine-drafted",
-    "source_hash": "18d75b1e1d68a614"
-  },
-  "achievement.pilates_streak_14.description": {
-    "status": "machine-drafted",
-    "source_hash": "633d4f8c2cfe1a9f"
-  },
-  "achievement.pilates_streak_14.title": {
-    "status": "machine-drafted",
-    "source_hash": "4cddcec3d3a17d5e"
-  },
-  "achievement.pilates_week_plan.description": {
-    "status": "machine-drafted",
-    "source_hash": "5fa45da205a92cce"
-  },
-  "achievement.pilates_week_plan.title": {
-    "status": "machine-drafted",
-    "source_hash": "65d261efdabf5d1a"
-  },
-  "achievement.progress.next_tier": {
-    "status": "machine-drafted",
-    "source_hash": "b17aa7841897d475"
-  },
-  "achievement.recovery_challenge_14d_sleep.description": {
-    "status": "machine-drafted",
-    "source_hash": "a9011a2feb0d3b1e"
-  },
-  "achievement.recovery_challenge_14d_sleep.title": {
-    "status": "machine-drafted",
-    "source_hash": "a625ff5e86931eb2"
-  },
-  "achievement.recovery_hrv_logged_10.description": {
-    "status": "machine-drafted",
-    "source_hash": "da04617b1c4695a3"
-  },
-  "achievement.recovery_hrv_logged_10.title": {
-    "status": "machine-drafted",
-    "source_hash": "a47527370f195f45"
-  },
-  "achievement.recovery_rest_when_low_10.description": {
-    "status": "machine-drafted",
-    "source_hash": "f6e99b4ac26bef4e"
-  },
-  "achievement.recovery_rest_when_low_10.title": {
-    "status": "machine-drafted",
-    "source_hash": "127daf1ed2b30e3d"
-  },
-  "achievement.recovery_rest_when_low_3.description": {
-    "status": "machine-drafted",
-    "source_hash": "d8070b51dce129be"
-  },
-  "achievement.recovery_rest_when_low_3.title": {
-    "status": "machine-drafted",
-    "source_hash": "9bab5a078c6e3a26"
-  },
-  "achievement.recovery_sleep_first.description": {
-    "status": "machine-drafted",
-    "source_hash": "ab1f462793622b0c"
-  },
-  "achievement.recovery_sleep_first.title": {
-    "status": "machine-drafted",
-    "source_hash": "e9cf8d373a2eb6f9"
-  },
-  "achievement.recovery_sleep_nights_30.description": {
-    "status": "machine-drafted",
-    "source_hash": "84d3eae7c2383c19"
-  },
-  "achievement.recovery_sleep_nights_30.title": {
-    "status": "machine-drafted",
-    "source_hash": "5028194e98d5370a"
-  },
-  "achievement.recovery_sleep_nights_7.description": {
-    "status": "machine-drafted",
-    "source_hash": "93d1e5e462ef08d1"
-  },
-  "achievement.recovery_sleep_nights_7.title": {
-    "status": "machine-drafted",
-    "source_hash": "1d540f5f569d2359"
-  },
-  "achievement.recovery_sleep_streak_14.description": {
-    "status": "machine-drafted",
-    "source_hash": "c080a5d6819740bb"
-  },
-  "achievement.recovery_sleep_streak_14.title": {
-    "status": "machine-drafted",
-    "source_hash": "3b5976fc7bd1d7b2"
-  },
-  "achievement.recovery_stress_checkins_20.description": {
-    "status": "machine-drafted",
-    "source_hash": "2a1f502a1ddd14b0"
-  },
-  "achievement.recovery_stress_checkins_20.title": {
-    "status": "machine-drafted",
-    "source_hash": "31cf81e3b477feab"
-  },
-  "achievement.running_first_session.description": {
-    "status": "machine-drafted",
-    "source_hash": "71c904adcf4c432c"
-  },
-  "achievement.running_first_session.title": {
-    "status": "machine-drafted",
-    "source_hash": "21e67b815beabcaa"
-  },
-  "achievement.running_month_100km.description": {
-    "status": "machine-drafted",
-    "source_hash": "d05d139ca7bc64d8"
-  },
-  "achievement.running_month_100km.title": {
-    "status": "machine-drafted",
-    "source_hash": "34ce8cdf94cc56a1"
-  },
-  "achievement.running_month_50km.description": {
-    "status": "machine-drafted",
-    "source_hash": "01cc4687401b0d90"
-  },
-  "achievement.running_month_50km.title": {
-    "status": "machine-drafted",
-    "source_hash": "328d025860ffad50"
-  },
-  "achievement.running_sessions_20.description": {
-    "status": "machine-drafted",
-    "source_hash": "da8f1a74299d5945"
-  },
-  "achievement.running_sessions_20.title": {
-    "status": "machine-drafted",
-    "source_hash": "36f285db3e479728"
-  },
-  "achievement.running_sessions_5.description": {
-    "status": "machine-drafted",
-    "source_hash": "ac942c1824feac00"
-  },
-  "achievement.running_sessions_5.title": {
-    "status": "machine-drafted",
-    "source_hash": "59f3aa1f4fcb7823"
-  },
-  "achievement.running_sessions_50.description": {
-    "status": "machine-drafted",
-    "source_hash": "6dc93e6e88c8f706"
-  },
-  "achievement.running_sessions_50.title": {
-    "status": "machine-drafted",
-    "source_hash": "3b1fc63e3a75451b"
-  },
-  "achievement.running_single_10k.description": {
-    "status": "machine-drafted",
-    "source_hash": "d26bff725c53a56b"
-  },
-  "achievement.running_single_10k.title": {
-    "status": "machine-drafted",
-    "source_hash": "4a5741d18a5e2625"
-  },
-  "achievement.running_single_5k.description": {
-    "status": "machine-drafted",
-    "source_hash": "0f4d4280c6d00180"
-  },
-  "achievement.running_single_5k.title": {
-    "status": "machine-drafted",
-    "source_hash": "e39b38caf6c04603"
-  },
-  "achievement.secret.unlocked": {
-    "status": "machine-drafted",
-    "source_hash": "e37b4bd4b8364726"
-  },
-  "achievement.strength_first_pr.description": {
-    "status": "machine-drafted",
-    "source_hash": "1b31b59bc782a33c"
-  },
-  "achievement.strength_first_pr.title": {
-    "status": "machine-drafted",
-    "source_hash": "786663cb0ee5e66b"
-  },
-  "achievement.strength_first_session.description": {
-    "status": "machine-drafted",
-    "source_hash": "001b8e12ec292c28"
-  },
-  "achievement.strength_first_session.title": {
-    "status": "machine-drafted",
-    "source_hash": "88de0f29b1416f6d"
-  },
-  "achievement.strength_prs_5.description": {
-    "status": "machine-drafted",
-    "source_hash": "8887578bebffb5a6"
-  },
-  "achievement.strength_prs_5.title": {
-    "status": "machine-drafted",
-    "source_hash": "7b12c692af23da30"
-  },
-  "achievement.strength_sessions_100.description": {
-    "status": "machine-drafted",
-    "source_hash": "89b5ab1f818faee4"
-  },
-  "achievement.strength_sessions_100.title": {
-    "status": "machine-drafted",
-    "source_hash": "7f158f36b1da7943"
-  },
-  "achievement.strength_sessions_15.description": {
-    "status": "machine-drafted",
-    "source_hash": "c031ffcce01a2293"
-  },
-  "achievement.strength_sessions_15.title": {
-    "status": "machine-drafted",
-    "source_hash": "e24a63b0819c4cf0"
-  },
-  "achievement.strength_sessions_40.description": {
-    "status": "machine-drafted",
-    "source_hash": "2c36105eec6fca0b"
-  },
-  "achievement.strength_sessions_40.title": {
-    "status": "machine-drafted",
-    "source_hash": "844af8c5d8ac8455"
-  },
-  "achievement.strength_sessions_5.description": {
-    "status": "machine-drafted",
-    "source_hash": "b10ae03c96dfa480"
-  },
-  "achievement.strength_sessions_5.title": {
-    "status": "machine-drafted",
-    "source_hash": "ff4d7600b308f38e"
-  },
-  "achievement.strength_streak_28.description": {
-    "status": "machine-drafted",
-    "source_hash": "83885993369ecde2"
-  },
-  "achievement.strength_streak_28.title": {
-    "status": "machine-drafted",
-    "source_hash": "769df0413378688d"
-  },
-  "achievement.strength_week_plan_adherence.description": {
-    "status": "machine-drafted",
-    "source_hash": "3ada67ec03658e6e"
-  },
-  "achievement.strength_week_plan_adherence.title": {
-    "status": "machine-drafted",
-    "source_hash": "bc7f9e5d1ce888b4"
-  },
-  "achievement.swimming_first_session.description": {
-    "status": "machine-drafted",
-    "source_hash": "deeb3b5341942b0c"
-  },
-  "achievement.swimming_first_session.title": {
-    "status": "machine-drafted",
-    "source_hash": "d288390a7f22306c"
-  },
-  "achievement.swimming_month_20km.description": {
-    "status": "machine-drafted",
-    "source_hash": "357074332e9d532f"
-  },
-  "achievement.swimming_month_20km.title": {
-    "status": "machine-drafted",
-    "source_hash": "ff64aad09fb87b34"
-  },
-  "achievement.swimming_sessions_20.description": {
-    "status": "machine-drafted",
-    "source_hash": "46cac48a74b08ad2"
-  },
-  "achievement.swimming_sessions_20.title": {
-    "status": "machine-drafted",
-    "source_hash": "a76ed8d162e978d7"
-  },
-  "achievement.swimming_sessions_40.description": {
-    "status": "machine-drafted",
-    "source_hash": "f0b96c9d32a75385"
-  },
-  "achievement.swimming_sessions_40.title": {
-    "status": "machine-drafted",
-    "source_hash": "596c63804c72ce40"
-  },
-  "achievement.swimming_sessions_5.description": {
-    "status": "machine-drafted",
-    "source_hash": "2e92972fdfd5cd3f"
-  },
-  "achievement.swimming_sessions_5.title": {
-    "status": "machine-drafted",
-    "source_hash": "9f9f812a787e7790"
-  },
-  "achievement.swimming_single_1000m.description": {
-    "status": "machine-drafted",
-    "source_hash": "d699537e76c613ea"
-  },
-  "achievement.swimming_single_1000m.title": {
-    "status": "machine-drafted",
-    "source_hash": "867fa6e29784ec41"
-  },
-  "achievement.swimming_single_2000m.description": {
-    "status": "machine-drafted",
-    "source_hash": "96c57e414f1be392"
-  },
-  "achievement.swimming_single_2000m.title": {
-    "status": "machine-drafted",
-    "source_hash": "a8449796dbd5932c"
-  },
-  "achievement.tier.bronze": {
-    "status": "machine-drafted",
-    "source_hash": "d916515d826cf07e"
-  },
-  "achievement.tier.gold": {
-    "status": "machine-drafted",
-    "source_hash": "6249df4367d0a2e0"
-  },
-  "achievement.tier.platinum": {
-    "status": "machine-drafted",
-    "source_hash": "5a98505ed9138590"
-  },
-  "achievement.tier.silver": {
-    "status": "machine-drafted",
-    "source_hash": "a0b43df06f52085e"
-  },
-  "achievement.water_challenge_21d.description": {
-    "status": "machine-drafted",
-    "source_hash": "d9f0d077a322ecad"
-  },
-  "achievement.water_challenge_21d.title": {
-    "status": "machine-drafted",
-    "source_hash": "92f61f34210c11a4"
-  },
-  "achievement.water_first_log.description": {
-    "status": "machine-drafted",
-    "source_hash": "dcb0bde64b2ec540"
-  },
-  "achievement.water_first_log.title": {
-    "status": "machine-drafted",
-    "source_hash": "13f7b3926d34eb38"
-  },
-  "achievement.water_goal_days_100.description": {
-    "status": "machine-drafted",
-    "source_hash": "075d89aac9ef74fc"
-  },
-  "achievement.water_goal_days_100.title": {
-    "status": "machine-drafted",
-    "source_hash": "89d6d16e6a9fe8cf"
-  },
-  "achievement.water_goal_days_3.description": {
-    "status": "machine-drafted",
-    "source_hash": "8acecee0881cb84c"
-  },
-  "achievement.water_goal_days_3.title": {
-    "status": "machine-drafted",
-    "source_hash": "82a134df2082d9a4"
-  },
-  "achievement.water_goal_days_30.description": {
-    "status": "machine-drafted",
-    "source_hash": "3317fa99586528ba"
-  },
-  "achievement.water_goal_days_30.title": {
-    "status": "machine-drafted",
-    "source_hash": "4cb9602ef77e6e81"
-  },
-  "achievement.water_goal_days_7.description": {
-    "status": "machine-drafted",
-    "source_hash": "90e53b13976088d8"
-  },
-  "achievement.water_goal_days_7.title": {
-    "status": "machine-drafted",
-    "source_hash": "2c99bf3ccaae07aa"
-  },
-  "achievement.water_logs_50.description": {
-    "status": "machine-drafted",
-    "source_hash": "e8086d2cb11a49a9"
-  },
-  "achievement.water_logs_50.title": {
-    "status": "machine-drafted",
-    "source_hash": "cdd5435357dd5b51"
-  },
-  "achievement.yoga_challenge_30d_mobility.description": {
-    "status": "machine-drafted",
-    "source_hash": "98d5a517a19eb46e"
-  },
-  "achievement.yoga_challenge_30d_mobility.title": {
-    "status": "machine-drafted",
-    "source_hash": "abe602ef1b7c9223"
-  },
-  "achievement.yoga_first_session.description": {
-    "status": "machine-drafted",
-    "source_hash": "c1a3a9338dbe4a42"
-  },
-  "achievement.yoga_first_session.title": {
-    "status": "machine-drafted",
-    "source_hash": "f26a7b4fa04a3b6c"
-  },
-  "achievement.yoga_minutes_30.description": {
-    "status": "machine-drafted",
-    "source_hash": "7c991d3026f70f14"
-  },
-  "achievement.yoga_minutes_30.title": {
-    "status": "machine-drafted",
-    "source_hash": "4589ac009b2eff2e"
-  },
-  "achievement.yoga_sessions_15.description": {
-    "status": "machine-drafted",
-    "source_hash": "35837d39420abd85"
-  },
-  "achievement.yoga_sessions_15.title": {
-    "status": "machine-drafted",
-    "source_hash": "ecbec236d2952ae4"
-  },
-  "achievement.yoga_sessions_40.description": {
-    "status": "machine-drafted",
-    "source_hash": "c31e6efed4faf6b3"
-  },
-  "achievement.yoga_sessions_40.title": {
-    "status": "machine-drafted",
-    "source_hash": "6cb1b9b468f5c9e1"
-  },
-  "achievement.yoga_sessions_5.description": {
-    "status": "machine-drafted",
-    "source_hash": "ad4399f1f4786710"
-  },
-  "achievement.yoga_sessions_5.title": {
-    "status": "machine-drafted",
-    "source_hash": "b7e8a1adbfd8aa7e"
-  },
-  "achievement.yoga_streak_14.description": {
-    "status": "machine-drafted",
-    "source_hash": "8be52941602f2b4c"
-  },
-  "achievement.yoga_streak_14.title": {
-    "status": "machine-drafted",
-    "source_hash": "1d5ae24200b33657"
-  },
-  "challenge.hydration_21_day.description": {
-    "status": "machine-drafted",
-    "source_hash": "38436fb8f99ec0fc"
-  },
-  "challenge.hydration_21_day.title": {
-    "status": "machine-drafted",
-    "source_hash": "8ef0a9a65d61b33b"
-  },
-  "challenge.mobility_30_day.description": {
-    "status": "machine-drafted",
-    "source_hash": "04bc4fc62c29cc32"
-  },
-  "challenge.mobility_30_day.title": {
-    "status": "machine-drafted",
-    "source_hash": "abe602ef1b7c9223"
-  },
-  "challenge.run_100km_month.description": {
-    "status": "machine-drafted",
-    "source_hash": "94c47ea99abadc2f"
-  },
-  "challenge.run_100km_month.title": {
-    "status": "machine-drafted",
-    "source_hash": "34ce8cdf94cc56a1"
-  },
-  "challenge.sleep_logging_14_day.description": {
-    "status": "machine-drafted",
-    "source_hash": "26dab3f5738c168b"
-  },
-  "challenge.sleep_logging_14_day.title": {
-    "status": "machine-drafted",
-    "source_hash": "d09187b395bc984d"
-  },
-  "challenge.strength_adherence_28_day.description": {
-    "status": "machine-drafted",
-    "source_hash": "81065a6562fba1cb"
-  },
-  "challenge.strength_adherence_28_day.title": {
-    "status": "machine-drafted",
-    "source_hash": "ea5163a63cac6d3c"
+    "source_hash": "3889e6c049489fc3"
   },
   "exercise.a_skip.breathing": {
     "status": "machine-drafted",
@@ -6754,6 +6102,18 @@
   "exercise.wrist_curl.technique.0": {
     "status": "machine-drafted",
     "source_hash": "c9f0c40104abd914"
+  },
+  "hydration.counting.info": {
+    "status": "machine-drafted",
+    "source_hash": "f070c0fbee45c334"
+  },
+  "hydration.norm.efsa_default": {
+    "status": "machine-drafted",
+    "source_hash": "bfcb92745ba478b9"
+  },
+  "hydration.norm.weight_weak": {
+    "status": "machine-drafted",
+    "source_hash": "89333e07a7e8d1a1"
   },
   "template.beginner_5k_8w.name": {
     "status": "machine-drafted",

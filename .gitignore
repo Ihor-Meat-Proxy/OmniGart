@@ -71,3 +71,4 @@ infra/self-host/.env
 # Fastlane
 fastlane/vendor/
 fastlane/.bundle/
+**/node_modules/

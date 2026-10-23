@@ -41,10 +41,18 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
             lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
             return
         }
+        guard
+            let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate),
+            let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning),
+            let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount)
+        else {
+            lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
+            return
+        }
         let types: Set<HKSampleType> = [
-            HKQuantityType.quantityType(forIdentifier: .heartRate)!,
-            HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!,
-            HKQuantityType.quantityType(forIdentifier: .stepCount)!,
+            heartRateType,
+            distanceType,
+            stepType,
             HKObjectType.workoutType()
         ]
         do {
@@ -126,9 +134,9 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
     }
 
     func setHapticsEnabled(_ enabled: Bool) {
-        var s = haptics.settings
-        s.enabled = enabled
-        haptics.updateSettings(s)
+        var hapticSettings = haptics.settings
+        hapticSettings.enabled = enabled
+        haptics.updateSettings(hapticSettings)
     }
 
     private func ingestHeartRate(_ bpm: Double, at date: Date) {
@@ -188,8 +196,8 @@ extension Zone2WorkoutSession: HKLiveWorkoutBuilderDelegate {
                 switch quantityType.quantityTypeIdentifier {
                 case .heartRate:
                     let unit = HKUnit.count().unitDivided(by: .minute())
-                    if let v = stats.mostRecentQuantity()?.doubleValue(for: unit) {
-                        ingestHeartRate(v, at: Date())
+                    if let heartRate = stats.mostRecentQuantity()?.doubleValue(for: unit) {
+                        ingestHeartRate(heartRate, at: Date())
                     }
                 case .distanceWalkingRunning:
                     distanceMetres = stats.sumQuantity()?.doubleValue(for: .meter()) ?? distanceMetres

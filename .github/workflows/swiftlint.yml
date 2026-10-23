@@ -1,0 +1,34 @@
+# Fast SwiftLint gate for Apple sources. Separate from the expensive iOS + watchOS
+# xcodebuild job so cancel-in-progress on CI.yml cannot skip style checks on PRs.
+name: SwiftLint
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'iosApp/**'
+      - 'watchApp/**'
+      - '.swiftlint.yml'
+      - '.github/workflows/swiftlint.yml'
+  pull_request:
+    paths:
+      - 'iosApp/**'
+      - 'watchApp/**'
+      - '.swiftlint.yml'
+      - '.github/workflows/swiftlint.yml'
+
+concurrency:
+  group: swiftlint-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  swiftlint:
+    name: SwiftLint
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install SwiftLint
+        run: brew install swiftlint
+      - name: Lint
+        run: swiftlint lint --config .swiftlint.yml --strict

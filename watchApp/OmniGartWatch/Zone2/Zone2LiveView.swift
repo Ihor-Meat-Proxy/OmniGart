@@ -130,8 +130,8 @@ struct Zone2LiveView: View {
         .frame(maxWidth: .infinity)
     }
 
-    private func timeString(_ t: TimeInterval) -> String {
-        Zone2Summary.formatDuration(t)
+    private func timeString(_ duration: TimeInterval) -> String {
+        Zone2Summary.formatDuration(duration)
     }
 
     private func distanceString(_ metres: Double) -> String {

@@ -104,8 +104,8 @@ struct Zone2HRSparkline: View {
             if pts.count >= 2 {
                 Path { path in
                     path.move(to: pts[0])
-                    for p in pts.dropFirst() {
-                        path.addLine(to: p)
+                    for point in pts.dropFirst() {
+                        path.addLine(to: point)
                     }
                 }
                 .stroke(Color.OmniGart.colorHrZoneZ2, lineWidth: 1.5)
@@ -116,17 +116,19 @@ struct Zone2HRSparkline: View {
     private func points(in size: CGSize) -> [CGPoint] {
         guard samples.count >= 2,
               let minBpm = samples.map(\.bpm).min(),
-              let maxBpm = samples.map(\.bpm).max()
+              let maxBpm = samples.map(\.bpm).max(),
+              let firstSample = samples.first,
+              let lastSample = samples.last
         else { return [] }
         let span = max(1, maxBpm - minBpm)
-        let t0 = samples.first!.offsetSeconds
-        let t1 = samples.last!.offsetSeconds
-        let tSpan = max(0.001, t1 - t0)
-        return samples.map { s in
-            let x = CGFloat((s.offsetSeconds - t0) / tSpan) * size.width
-            let yNorm = CGFloat(s.bpm - minBpm) / CGFloat(span)
-            let y = size.height - (yNorm * size.height)
-            return CGPoint(x: x, y: y)
+        let startOffset = firstSample.offsetSeconds
+        let endOffset = lastSample.offsetSeconds
+        let offsetSpan = max(0.001, endOffset - startOffset)
+        return samples.map { sample in
+            let pointX = CGFloat((sample.offsetSeconds - startOffset) / offsetSpan) * size.width
+            let yNorm = CGFloat(sample.bpm - minBpm) / CGFloat(span)
+            let pointY = size.height - (yNorm * size.height)
+            return CGPoint(x: pointX, y: pointY)
         }
     }
 }
@@ -139,10 +141,10 @@ struct Zone2HRSparkline: View {
                 distanceMetres: 3200,
                 averageCadenceSpm: 168,
                 elapsed: 900,
-                heartRateSamples: (0..<40).map { i in
+                heartRateSamples: (0..<40).map { sampleIndex in
                     Zone2HeartRateSample(
-                        offsetSeconds: Double(i) * 20,
-                        bpm: 130 + (i % 7)
+                        offsetSeconds: Double(sampleIndex) * 20,
+                        bpm: 130 + (sampleIndex % 7)
                     )
                 }
             ),

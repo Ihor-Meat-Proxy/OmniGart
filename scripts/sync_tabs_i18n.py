@@ -353,17 +353,17 @@ t(
 t(
     "recovery_intro",
     **{
-        "en-GB": "Wellness recovery estimates from your profile and recent inputs. Not a diagnosis.",
-        "uk": "Оцінки відновлення самопочуття з вашого профілю та недавніх даних. Це не діагноз.",
-        "pl": "Szacunki regeneracji wellness z profilu i ostatnich danych. To nie diagnoza.",
-        "be": "Ацэнкі аднаўлення самаадчування з профілю і нядаўніх дадзеных. Гэта не дыягназ.",
-        "kk": "Профиль мен соңғы деректерден сауықтыру қалпына келу бағалаулары. Диагноз емес.",
-        "ka": "კეთილდღეობის აღდგენის შეფასებები პროფილიდან და ბოლო მონაცემებიდან. ეს დიაგნოზი არ არის.",
-        "es": "Estimaciones de recuperación de bienestar desde tu perfil y entradas recientes. No es un diagnóstico.",
-        "fr": "Estimations de récupération bien-être à partir de votre profil et des entrées récentes. Pas un diagnostic.",
-        "de": "Wellness-Erholungsschätzungen aus Profil und jüngsten Eingaben. Keine Diagnose.",
-        "cs": "Wellness odhady regenerace z profilu a nedávných vstupů. Nejde o diagnózu.",
-        "zh-Hans": "根据个人资料与近期输入得出的恢复健康估算。不是诊断。",
+        "en-GB": "Wellness recovery estimates from your profile and recent inputs. Not medical advice.",
+        "uk": "Оцінки відновлення самопочуття з вашого профілю та недавніх даних. Не медична консультація.",
+        "pl": "Szacunki regeneracji wellness z profilu i ostatnich danych. To nie porada medyczna.",
+        "be": "Ацэнкі аднаўлення самаадчування з профілю і нядаўніх дадзеных. Не медыцынская кансультацыя.",
+        "kk": "Профиль мен соңғы деректерден сауықтыру қалпына келу бағалаулары. Медициналық кеңес емес.",
+        "ka": "კეთილდღეობის აღდგენის შეფასებები პროფილიდან და ბოლო მონაცემებიდან. სამედიცინო რჩევა არ არის.",
+        "es": "Estimaciones de recuperación de bienestar desde tu perfil y entradas recientes. No es consejo médico.",
+        "fr": "Estimations de récupération bien-être à partir de votre profil et des entrées récentes. Pas un avis médical.",
+        "de": "Wellness-Erholungsschätzungen aus Profil und jüngsten Eingaben. Keine medizinische Beratung.",
+        "cs": "Wellness odhady regenerace z profilu a nedávných vstupů. Nejde o lékařskou radu.",
+        "zh-Hans": "根据个人资料与近期输入得出的恢复健康估算。不是医疗建议。",
     },
 )
 t(

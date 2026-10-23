@@ -122,7 +122,7 @@
   "workouts_zone2_scheduled": "Zone 2 plan sent to Workout.",
   "workouts_zone2_unavailable": "Could not schedule Zone 2 right now.",
   "workouts_zone2_flag_off": "WorkoutKit scheduling is off in this build. You can still train with the in-app watch Zone 2 session when available.",
-  "recovery_intro": "Wellness recovery estimates from your profile and recent inputs. Not a diagnosis.",
+  "recovery_intro": "Wellness recovery estimates from your profile and recent inputs. Not medical advice.",
   "recovery_estimates_title": "Today’s estimates",
   "recovery_empty": "Complete your profile to see wellness estimates.",
   "planner_intro": "Plan workouts on-device and optionally schedule a Zone 2 run into Workout.",

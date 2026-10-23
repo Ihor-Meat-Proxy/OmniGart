@@ -122,7 +122,7 @@
   "workouts_zone2_scheduled": "Plan strefy 2 wysłany do Workout.",
   "workouts_zone2_unavailable": "Nie udało się zaplanować strefy 2.",
   "workouts_zone2_flag_off": "Planowanie WorkoutKit jest wyłączone w tej kompilacji. Nadal możesz trenować sesją strefy 2 na zegarku, gdy będzie dostępna.",
-  "recovery_intro": "Szacunki regeneracji wellness z profilu i ostatnich danych. To nie diagnoza.",
+  "recovery_intro": "Szacunki regeneracji wellness z profilu i ostatnich danych. To nie porada medyczna.",
   "recovery_estimates_title": "Dzisiejsze szacunki",
   "recovery_empty": "Uzupełnij profil, aby zobaczyć szacunki wellness.",
   "planner_intro": "Planuj treningi na urządzeniu i opcjonalnie zaplanuj bieg w strefie 2 w Workout.",

@@ -110,7 +110,7 @@
     <string name="workouts_zone2_scheduled">2-аймақ жоспары Workout-қа жіберілді.</string>
     <string name="workouts_zone2_unavailable">Қазір 2-аймақты жоспарлау мүмкін болмады.</string>
     <string name="workouts_zone2_flag_off">Бұл құрастыруда WorkoutKit жоспарлау өшірулі. Қолжетімді болса, сағаттағы 2-аймақ сессиясымен жаттыға аласыз.</string>
-    <string name="recovery_intro">Профиль мен соңғы деректерден сауықтыру қалпына келу бағалаулары. Диагноз емес.</string>
+    <string name="recovery_intro">Профиль мен соңғы деректерден сауықтыру қалпына келу бағалаулары. Медициналық кеңес емес.</string>
     <string name="recovery_estimates_title">Бүгінгі бағалаулар</string>
     <string name="recovery_empty">Сауықтыру бағалауларын көру үшін профильді толтырыңыз.</string>
     <string name="planner_intro">Құрылғыда жаттығуларды жоспарлаңыз және қаласаңыз 2-аймақ жүгіруін Workout-қа қосыңыз.</string>

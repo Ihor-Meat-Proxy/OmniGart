@@ -8547,67 +8547,67 @@
         "en-GB": {
           "stringUnit": {
             "state": "translated",
-            "value": "Wellness recovery estimates from your profile and recent inputs. Not a diagnosis."
+            "value": "Wellness recovery estimates from your profile and recent inputs. Not medical advice."
           }
         },
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Оцінки відновлення самопочуття з вашого профілю та недавніх даних. Це не діагноз."
+            "value": "Оцінки відновлення самопочуття з вашого профілю та недавніх даних. Не медична консультація."
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Szacunki regeneracji wellness z profilu i ostatnich danych. To nie diagnoza."
+            "value": "Szacunki regeneracji wellness z profilu i ostatnich danych. To nie porada medyczna."
           }
         },
         "be": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ацэнкі аднаўлення самаадчування з профілю і нядаўніх дадзеных. Гэта не дыягназ."
+            "value": "Ацэнкі аднаўлення самаадчування з профілю і нядаўніх дадзеных. Не медыцынская кансультацыя."
           }
         },
         "kk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Профиль мен соңғы деректерден сауықтыру қалпына келу бағалаулары. Диагноз емес."
+            "value": "Профиль мен соңғы деректерден сауықтыру қалпына келу бағалаулары. Медициналық кеңес емес."
           }
         },
         "ka": {
           "stringUnit": {
             "state": "translated",
-            "value": "კეთილდღეობის აღდგენის შეფასებები პროფილიდან და ბოლო მონაცემებიდან. ეს დიაგნოზი არ არის."
+            "value": "კეთილდღეობის აღდგენის შეფასებები პროფილიდან და ბოლო მონაცემებიდან. სამედიცინო რჩევა არ არის."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Estimaciones de recuperación de bienestar desde tu perfil y entradas recientes. No es un diagnóstico."
+            "value": "Estimaciones de recuperación de bienestar desde tu perfil y entradas recientes. No es consejo médico."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Estimations de récupération bien-être à partir de votre profil et des entrées récentes. Pas un diagnostic."
+            "value": "Estimations de récupération bien-être à partir de votre profil et des entrées récentes. Pas un avis médical."
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Wellness-Erholungsschätzungen aus Profil und jüngsten Eingaben. Keine Diagnose."
+            "value": "Wellness-Erholungsschätzungen aus Profil und jüngsten Eingaben. Keine medizinische Beratung."
           }
         },
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Wellness odhady regenerace z profilu a nedávných vstupů. Nejde o diagnózu."
+            "value": "Wellness odhady regenerace z profilu a nedávných vstupů. Nejde o lékařskou radu."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "根据个人资料与近期输入得出的恢复健康估算。不是诊断。"
+            "value": "根据个人资料与近期输入得出的恢复健康估算。不是医疗建议。"
           }
         }
       }

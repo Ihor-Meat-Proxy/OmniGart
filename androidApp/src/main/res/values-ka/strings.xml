@@ -110,7 +110,7 @@
     <string name="workouts_zone2_scheduled">ზონა 2 გეგმა გაიგზავნა Workout-ში.</string>
     <string name="workouts_zone2_unavailable">ზონა 2-ის დაგეგმვა ახლა ვერ მოხერხდა.</string>
     <string name="workouts_zone2_flag_off">ამ აგებაში WorkoutKit დაგეგმვა გამორთულია. ხელმისაწვდომობისას შეგიძლიათ საათის ზონა 2 სესიით ივარჯიშოთ.</string>
-    <string name="recovery_intro">კეთილდღეობის აღდგენის შეფასებები პროფილიდან და ბოლო მონაცემებიდან. ეს დიაგნოზი არ არის.</string>
+    <string name="recovery_intro">კეთილდღეობის აღდგენის შეფასებები პროფილიდან და ბოლო მონაცემებიდან. სამედიცინო რჩევა არ არის.</string>
     <string name="recovery_estimates_title">დღევანდელი შეფასებები</string>
     <string name="recovery_empty">კეთილდღეობის შეფასებების სანახავად შეავსეთ პროფილი.</string>
     <string name="planner_intro">დაგეგმეთ ვარჯიშები მოწყობილობაზე და სურვილისამებრ დაამატეთ ზონა 2 სირბილი Workout-ში.</string>

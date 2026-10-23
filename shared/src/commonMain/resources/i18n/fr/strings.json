@@ -122,7 +122,7 @@
   "workouts_zone2_scheduled": "Plan zone 2 envoyé à Workout.",
   "workouts_zone2_unavailable": "Impossible de planifier la zone 2 pour le moment.",
   "workouts_zone2_flag_off": "La planification WorkoutKit est désactivée dans cette version. Vous pouvez toujours vous entraîner avec la session Zone 2 de la montre lorsqu’elle est disponible.",
-  "recovery_intro": "Estimations de récupération bien-être à partir de votre profil et des entrées récentes. Pas un diagnostic.",
+  "recovery_intro": "Estimations de récupération bien-être à partir de votre profil et des entrées récentes. Pas un avis médical.",
   "recovery_estimates_title": "Estimations du jour",
   "recovery_empty": "Complétez votre profil pour voir les estimations de bien-être.",
   "planner_intro": "Planifiez des séances sur l’appareil et, en option, une course zone 2 dans Workout.",

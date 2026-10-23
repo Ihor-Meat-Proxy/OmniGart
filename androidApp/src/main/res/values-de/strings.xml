@@ -110,7 +110,7 @@
     <string name="workouts_zone2_scheduled">Zone-2-Plan an Workout gesendet.</string>
     <string name="workouts_zone2_unavailable">Zone 2 konnte gerade nicht geplant werden.</string>
     <string name="workouts_zone2_flag_off">WorkoutKit-Planung ist in diesem Build aus. Sie können weiterhin mit der Zone-2-Session auf der Watch trainieren, wenn verfügbar.</string>
-    <string name="recovery_intro">Wellness-Erholungsschätzungen aus Profil und jüngsten Eingaben. Keine Diagnose.</string>
+    <string name="recovery_intro">Wellness-Erholungsschätzungen aus Profil und jüngsten Eingaben. Keine medizinische Beratung.</string>
     <string name="recovery_estimates_title">Heutige Schätzungen</string>
     <string name="recovery_empty">Vervollständigen Sie Ihr Profil, um Wellness-Schätzungen zu sehen.</string>
     <string name="planner_intro">Planen Sie Workouts auf dem Gerät und optional einen Zone-2-Lauf in Workout.</string>

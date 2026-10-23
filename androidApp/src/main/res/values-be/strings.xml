@@ -110,7 +110,7 @@
     <string name="workouts_zone2_scheduled">План зоны 2 адпраўлены ў Workout.</string>
     <string name="workouts_zone2_unavailable">Цяпер не атрымалася запланаваць зону 2.</string>
     <string name="workouts_zone2_flag_off">Планаванне WorkoutKit у гэтай зборцы выключана. Можна трэніравацца з сесіяй зоны 2 на гадзінніку, калі яна даступная.</string>
-    <string name="recovery_intro">Ацэнкі аднаўлення самаадчування з профілю і нядаўніх дадзеных. Гэта не дыягназ.</string>
+    <string name="recovery_intro">Ацэнкі аднаўлення самаадчування з профілю і нядаўніх дадзеных. Не медыцынская кансультацыя.</string>
     <string name="recovery_estimates_title">Сённяшнія ацэнкі</string>
     <string name="recovery_empty">Запоўніце профіль, каб бачыць ацэнкі самаадчування.</string>
     <string name="planner_intro">Плануйце трэніроўкі на прыладзе і пры жаданні дадайце бег у зоне 2 у Workout.</string>

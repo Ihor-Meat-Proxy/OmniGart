@@ -115,7 +115,7 @@
     <string name="workouts_zone2_scheduled">Zone 2 plan sent to Workout.</string>
     <string name="workouts_zone2_unavailable">Could not schedule Zone 2 right now.</string>
     <string name="workouts_zone2_flag_off">WorkoutKit scheduling is off in this build. You can still train with the in-app watch Zone 2 session when available.</string>
-    <string name="recovery_intro">Wellness recovery estimates from your profile and recent inputs. Not a diagnosis.</string>
+    <string name="recovery_intro">Wellness recovery estimates from your profile and recent inputs. Not medical advice.</string>
     <string name="recovery_estimates_title">Today’s estimates</string>
     <string name="recovery_empty">Complete your profile to see wellness estimates.</string>
     <string name="planner_intro">Plan workouts on-device and optionally schedule a Zone 2 run into Workout.</string>

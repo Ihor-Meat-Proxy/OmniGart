@@ -110,7 +110,7 @@
     <string name="workouts_zone2_scheduled">Plan de zona 2 enviado a Workout.</string>
     <string name="workouts_zone2_unavailable">No se pudo programar la zona 2 ahora.</string>
     <string name="workouts_zone2_flag_off">La programación de WorkoutKit está desactivada en esta versión. Aún puedes entrenar con la sesión Zone 2 del reloj cuando esté disponible.</string>
-    <string name="recovery_intro">Estimaciones de recuperación de bienestar desde tu perfil y entradas recientes. No es un diagnóstico.</string>
+    <string name="recovery_intro">Estimaciones de recuperación de bienestar desde tu perfil y entradas recientes. No es consejo médico.</string>
     <string name="recovery_estimates_title">Estimaciones de hoy</string>
     <string name="recovery_empty">Completa tu perfil para ver estimaciones de bienestar.</string>
     <string name="planner_intro">Planifica entrenamientos en el dispositivo y, si quieres, programa una carrera zona 2 en Workout.</string>

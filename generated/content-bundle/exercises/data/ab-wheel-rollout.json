@@ -1,0 +1,79 @@
+{
+  "id": "ab-wheel-rollout",
+  "nameKeys": {
+    "enGB": "exercise.ab_wheel_rollout.name",
+    "uk": "exercise.ab_wheel_rollout.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "core_brace",
+  "primaryMuscles": [
+    "rectus_abdominis",
+    "transverse_abdominis",
+    "latissimus_dorsi"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "reps",
+  "technique": [
+    "From knees, roll forward while keeping ribs down; pull back without lumbar sag."
+  ],
+  "setup": [
+    "Wheel under shoulders to start; modest ROM first."
+  ],
+  "breathing": "Exhale to return; do not dump into a breath-hold panic.",
+  "commonMistakes": [
+    "Lumbar extension sag",
+    "Going too far too soon"
+  ],
+  "safety": [
+    "Master dead bugs/planks first."
+  ],
+  "contraindications": [
+    "Acute lumbar pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "plank",
+      "note": "Isometric anti-extension"
+    },
+    {
+      "exerciseId": "dead-bug",
+      "note": "Regression"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/ab-wheel-rollout",
+    "videoKey": "media/video/ab-wheel-rollout",
+    "animationKey": "media/anim/ab-wheel-rollout"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Bodyweight movement with negligible external implement; treat moved mass as ~full BM unless a measured study applies. Estimate."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

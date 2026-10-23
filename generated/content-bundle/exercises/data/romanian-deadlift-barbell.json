@@ -1,0 +1,88 @@
+{
+  "id": "romanian-deadlift-barbell",
+  "nameKeys": {
+    "enGB": "exercise.romanian_deadlift_barbell.name",
+    "uk": "exercise.romanian_deadlift_barbell.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "hamstrings",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "erector_spinae",
+    "forearms"
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "From standing, push hips back with soft knees, slide the bar down the thighs until a strong hamstring stretch, then return."
+  ],
+  "setup": [
+    "Start from a rack or carefully lift off floor to stand; shoulder-blade set."
+  ],
+  "breathing": "Inhale as you hinge, exhale as hips return.",
+  "commonMistakes": [
+    "Rounding lumbar spine",
+    "Turning it into a squat"
+  ],
+  "safety": [
+    "Keep bar close; stop range before form breaks."
+  ],
+  "contraindications": [
+    "Hamstring strain acute phase"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "romanian-deadlift-dumbbell",
+      "note": "Easier to bail"
+    },
+    {
+      "exerciseId": "hip-hinge-dowel",
+      "note": "Pattern only"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "conventional-deadlift",
+      "note": "Pull from floor"
+    },
+    {
+      "exerciseId": "good-morning",
+      "note": "Bar on back hinge"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/romanian-deadlift-barbell",
+    "videoKey": "media/video/romanian-deadlift-barbell",
+    "animationKey": "media/anim/romanian-deadlift-barbell"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

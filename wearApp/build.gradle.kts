@@ -33,6 +33,16 @@ android {
     testOptions {
         unitTests.isIncludeAndroidResources = true
     }
+
+    sourceSets {
+        getByName("main") {
+            assets.srcDirs(rootProject.file("generated/content-bundle"))
+        }
+    }
+}
+
+tasks.named("preBuild").configure {
+    dependsOn(rootProject.tasks.named("packBundledContent"))
 }
 
 kotlin {

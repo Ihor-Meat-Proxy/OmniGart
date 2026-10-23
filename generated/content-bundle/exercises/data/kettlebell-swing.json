@@ -1,0 +1,88 @@
+{
+  "id": "kettlebell-swing",
+  "nameKeys": {
+    "enGB": "exercise.kettlebell_swing.name",
+    "uk": "exercise.kettlebell_swing.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "gluteus_maximus",
+    "hamstrings"
+  ],
+  "secondaryMuscles": [
+    "erector_spinae",
+    "latissimus_dorsi",
+    "forearms"
+  ],
+  "equipment": [
+    "kettlebell"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "reps",
+  "technique": [
+    "Hike the bell back high in the hips, then snap hips to standing; bell floats to about chest height.",
+    "Let the bell fall; hinge again; repeat rhythmically."
+  ],
+  "setup": [
+    "Feet shoulder-width; neutral spine; pack shoulders."
+  ],
+  "breathing": "Sharp exhale on the hip snap.",
+  "commonMistakes": [
+    "Squatting the swing",
+    "Raising with the arms",
+    "Hyperextending lockout"
+  ],
+  "safety": [
+    "Clear space; use a flat sole shoe; stop if back rounds."
+  ],
+  "contraindications": [
+    "Acute low-back pain",
+    "Uncontrolled hypertension for ballistic work"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "romanian-deadlift-dumbbell",
+      "note": "Slow hinge"
+    },
+    {
+      "exerciseId": "hip-hinge-dowel",
+      "note": "Pattern"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "conventional-deadlift",
+      "note": "Maximal strength hinge"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/kettlebell-swing",
+    "videoKey": "media/video/kettlebell-swing",
+    "animationKey": "media/anim/kettlebell-swing"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

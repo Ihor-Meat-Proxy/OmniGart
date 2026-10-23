@@ -44,7 +44,7 @@
       ]
     },
     "female-front": {
-      "regionCount": 34,
+      "regionCount": 36,
       "regions": [
         "adductors_l",
         "adductors_r",
@@ -72,6 +72,8 @@
         "rectus_abdominis",
         "rectus_femoris_l",
         "rectus_femoris_r",
+        "sartorius_l",
+        "sartorius_r",
         "serratus_anterior_l",
         "serratus_anterior_r",
         "tibialis_anterior_l",
@@ -118,7 +120,7 @@
       ]
     },
     "male-front": {
-      "regionCount": 34,
+      "regionCount": 36,
       "regions": [
         "adductors_l",
         "adductors_r",
@@ -146,6 +148,8 @@
         "rectus_abdominis",
         "rectus_femoris_l",
         "rectus_femoris_r",
+        "sartorius_l",
+        "sartorius_r",
         "serratus_anterior_l",
         "serratus_anterior_r",
         "tibialis_anterior_l",
@@ -207,6 +211,8 @@
     "rhomboids_r",
     "rotator_cuff_l",
     "rotator_cuff_r",
+    "sartorius_l",
+    "sartorius_r",
     "serratus_anterior_l",
     "serratus_anterior_r",
     "soleus_l",

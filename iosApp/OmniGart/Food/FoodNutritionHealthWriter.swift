@@ -14,23 +14,23 @@ enum FoodNutritionHealthWriter {
         let errorMessage: String?
     }
 
+    /// Macros for one dietary append (keeps call-site parameter count low).
+    struct DietaryMacros {
+        var energyKcal: Double?
+        var proteinG: Double?
+        var carbsG: Double?
+        var fatG: Double?
+    }
+
     static func appendDietary(
         syncIdentifier: String,
         syncVersion: Int64,
         displayName: String,
-        energyKcal: Double?,
-        proteinG: Double?,
-        carbsG: Double?,
-        fatG: Double?,
+        macros: DietaryMacros,
         date: Date
     ) async -> Result {
         guard HKHealthStore.isHealthDataAvailable() else {
-            return Result(
-                syncIdentifier: syncIdentifier,
-                skippedAlreadyPresent: false,
-                ok: false,
-                errorMessage: "Health data unavailable"
-            )
+            return failure(syncIdentifier, "Health data unavailable")
         }
         if await syncIdentifierExists(syncIdentifier) {
             return Result(
@@ -40,54 +40,42 @@ enum FoodNutritionHealthWriter {
                 errorMessage: nil
             )
         }
-        var samples: [HKQuantitySample] = []
-        let meta: [String: Any] = [
-            HKMetadataKeySyncIdentifier: syncIdentifier,
-            HKMetadataKeySyncVersion: NSNumber(value: syncVersion),
-            "omnigart.origin": "omnigart.food",
-            "omnigart.foodName": displayName
-        ]
-        func add(_ typeId: HKQuantityTypeIdentifier, unit: HKUnit, value: Double?) {
-            guard let value, value > 0,
-                  let type = HKQuantityType.quantityType(forIdentifier: typeId) else { return }
-            samples.append(
-                HKQuantitySample(
-                    type: type,
-                    quantity: HKQuantity(unit: unit, doubleValue: value),
-                    start: date,
-                    end: date,
-                    metadata: meta
-                )
-            )
-        }
-        add(.dietaryEnergyConsumed, unit: .kilocalorie(), value: energyKcal)
-        add(.dietaryProtein, unit: .gram(), value: proteinG)
-        add(.dietaryCarbohydrates, unit: .gram(), value: carbsG)
-        add(.dietaryFatTotal, unit: .gram(), value: fatG)
-        guard !samples.isEmpty else {
-            return Result(
+        let samples = DietarySampleFactory.make(
+            DietarySampleFactory.Context(
+                macros: macros,
+                displayName: displayName,
                 syncIdentifier: syncIdentifier,
-                skippedAlreadyPresent: false,
-                ok: true,
-                errorMessage: nil
+                syncVersion: syncVersion,
+                date: date
             )
+        )
+        guard !samples.isEmpty else {
+            return success(syncIdentifier, skipped: false)
         }
         do {
             try await store.save(samples)
-            return Result(
-                syncIdentifier: syncIdentifier,
-                skippedAlreadyPresent: false,
-                ok: true,
-                errorMessage: nil
-            )
+            return success(syncIdentifier, skipped: false)
         } catch {
-            return Result(
-                syncIdentifier: syncIdentifier,
-                skippedAlreadyPresent: false,
-                ok: false,
-                errorMessage: error.localizedDescription
-            )
+            return failure(syncIdentifier, error.localizedDescription)
         }
+    }
+
+    private static func success(_ syncIdentifier: String, skipped: Bool) -> Result {
+        Result(
+            syncIdentifier: syncIdentifier,
+            skippedAlreadyPresent: skipped,
+            ok: true,
+            errorMessage: nil
+        )
+    }
+
+    private static func failure(_ syncIdentifier: String, _ message: String) -> Result {
+        Result(
+            syncIdentifier: syncIdentifier,
+            skippedAlreadyPresent: false,
+            ok: false,
+            errorMessage: message
+        )
     }
 
     private static func syncIdentifierExists(_ syncId: String) async -> Bool {
@@ -109,5 +97,51 @@ enum FoodNutritionHealthWriter {
             }
             store.execute(query)
         }
+    }
+}
+
+private enum DietarySampleFactory {
+    struct Context {
+        let macros: FoodNutritionHealthWriter.DietaryMacros
+        let displayName: String
+        let syncIdentifier: String
+        let syncVersion: Int64
+        let date: Date
+    }
+
+    static func make(_ ctx: Context) -> [HKQuantitySample] {
+        let meta: [String: Any] = [
+            HKMetadataKeySyncIdentifier: ctx.syncIdentifier,
+            HKMetadataKeySyncVersion: NSNumber(value: ctx.syncVersion),
+            "omnigart.origin": "omnigart.food",
+            "omnigart.foodName": ctx.displayName
+        ]
+        let specs: [(HKQuantityTypeIdentifier, HKUnit, Double?)] = [
+            (.dietaryEnergyConsumed, .kilocalorie(), ctx.macros.energyKcal),
+            (.dietaryProtein, .gram(), ctx.macros.proteinG),
+            (.dietaryCarbohydrates, .gram(), ctx.macros.carbsG),
+            (.dietaryFatTotal, .gram(), ctx.macros.fatG)
+        ]
+        return specs.compactMap { typeId, unit, value in
+            sample(typeId: typeId, unit: unit, value: value, date: ctx.date, meta: meta)
+        }
+    }
+
+    private static func sample(
+        typeId: HKQuantityTypeIdentifier,
+        unit: HKUnit,
+        value: Double?,
+        date: Date,
+        meta: [String: Any]
+    ) -> HKQuantitySample? {
+        guard let value, value > 0,
+              let type = HKQuantityType.quantityType(forIdentifier: typeId) else { return nil }
+        return HKQuantitySample(
+            type: type,
+            quantity: HKQuantity(unit: unit, doubleValue: value),
+            start: date,
+            end: date,
+            metadata: meta
+        )
     }
 }

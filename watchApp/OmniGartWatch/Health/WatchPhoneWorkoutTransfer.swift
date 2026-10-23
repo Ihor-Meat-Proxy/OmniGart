@@ -66,20 +66,22 @@ enum WatchWorkoutTransferBuilder {
 
     static func enqueueLiveSummary(_ summary: OmniGartLiveWorkoutSummary, localId: String, syncIdentifier: String) {
         let startMs = Int64(summary.startedAt.timeIntervalSince1970 * 1000)
-        let json = makeJSON(
-            localId: localId,
-            syncIdentifier: syncIdentifier,
-            activityTypeName: activityTypeName(for: summary.kind),
-            startEpochMs: startMs,
-            endEpochMs: Int64(summary.endedAt.timeIntervalSince1970 * 1000),
-            activeEnergyKcal: summary.activeEnergyKcal,
-            basalEnergyKcal: summary.basalEnergyKcal,
-            distanceMetres: nil,
-            averageHeartRateBpm: summary.averageHeartRateBpm,
-            maxHeartRateBpm: summary.maxHeartRateBpm,
-            averageCadenceSpm: nil,
-            samples: summary.heartRateSamples,
-            sessionStart: summary.startedAt
+        let json = encodeJSON(
+            TransferJSONInput(
+                localId: localId,
+                syncIdentifier: syncIdentifier,
+                activityTypeName: activityTypeName(for: summary.kind),
+                startEpochMs: startMs,
+                endEpochMs: Int64(summary.endedAt.timeIntervalSince1970 * 1000),
+                activeEnergyKcal: summary.activeEnergyKcal,
+                basalEnergyKcal: summary.basalEnergyKcal,
+                distanceMetres: nil,
+                averageHeartRateBpm: summary.averageHeartRateBpm,
+                maxHeartRateBpm: summary.maxHeartRateBpm,
+                averageCadenceSpm: nil,
+                samples: summary.heartRateSamples,
+                sessionStart: summary.startedAt
+            )
         )
         WatchPhoneWorkoutTransfer.shared.enqueue(jsonPayload: json)
     }
@@ -92,75 +94,79 @@ enum WatchWorkoutTransferBuilder {
         endedAt: Date
     ) {
         let startMs = Int64(startedAt.timeIntervalSince1970 * 1000)
-        let json = makeJSON(
-            localId: localId,
-            syncIdentifier: syncIdentifier,
-            activityTypeName: "RUNNING",
-            startEpochMs: startMs,
-            endEpochMs: Int64(endedAt.timeIntervalSince1970 * 1000),
-            activeEnergyKcal: summary.activeEnergyKcal,
-            basalEnergyKcal: summary.basalEnergyKcal,
-            distanceMetres: summary.distanceMetres,
-            averageHeartRateBpm: summary.averageHeartRateBpm,
-            maxHeartRateBpm: summary.maxHeartRateBpm,
-            averageCadenceSpm: summary.averageCadenceSpm,
-            samples: summary.heartRateSamples,
-            sessionStart: startedAt
+        let json = encodeJSON(
+            TransferJSONInput(
+                localId: localId,
+                syncIdentifier: syncIdentifier,
+                activityTypeName: "RUNNING",
+                startEpochMs: startMs,
+                endEpochMs: Int64(endedAt.timeIntervalSince1970 * 1000),
+                activeEnergyKcal: summary.activeEnergyKcal,
+                basalEnergyKcal: summary.basalEnergyKcal,
+                distanceMetres: summary.distanceMetres,
+                averageHeartRateBpm: summary.averageHeartRateBpm,
+                maxHeartRateBpm: summary.maxHeartRateBpm,
+                averageCadenceSpm: summary.averageCadenceSpm,
+                samples: summary.heartRateSamples,
+                sessionStart: startedAt
+            )
         )
         WatchPhoneWorkoutTransfer.shared.enqueue(jsonPayload: json)
     }
 
-    private static func makeJSON(
-        localId: String,
-        syncIdentifier: String,
-        activityTypeName: String,
-        startEpochMs: Int64,
-        endEpochMs: Int64,
-        activeEnergyKcal: Double,
-        basalEnergyKcal: Double,
-        distanceMetres: Double?,
-        averageHeartRateBpm: Double,
-        maxHeartRateBpm: Double,
-        averageCadenceSpm: Double?,
-        samples: [Zone2HeartRateSample],
-        sessionStart: Date
-    ) -> String {
-        func esc(_ s: String) -> String {
-            s.replacingOccurrences(of: "\\", with: "\\\\")
+    private struct TransferJSONInput {
+        var localId: String
+        var syncIdentifier: String
+        var activityTypeName: String
+        var startEpochMs: Int64
+        var endEpochMs: Int64
+        var activeEnergyKcal: Double
+        var basalEnergyKcal: Double
+        var distanceMetres: Double?
+        var averageHeartRateBpm: Double
+        var maxHeartRateBpm: Double
+        var averageCadenceSpm: Double?
+        var samples: [Zone2HeartRateSample]
+        var sessionStart: Date
+    }
+
+    private static func encodeJSON(_ input: TransferJSONInput) -> String {
+        func escape(_ value: String) -> String {
+            value.replacingOccurrences(of: "\\", with: "\\\\")
                 .replacingOccurrences(of: "\"", with: "\\\"")
         }
-        let hrEpoch = samples.map { sample -> Int64 in
-            startEpochMs + Int64(sample.offsetSeconds * 1000)
+        let hrEpoch = input.samples.map { sample -> Int64 in
+            input.startEpochMs + Int64(sample.offsetSeconds * 1000)
         }
-        let hrBpm = samples.map { Double($0.bpm) }
+        let hrBpm = input.samples.map { Double($0.bpm) }
         let hrEpochJson = hrEpoch.map(String.init).joined(separator: ",")
         let hrBpmJson = hrBpm.map { String(format: "%.1f", $0) }.joined(separator: ",")
         var fields: [String] = [
             "\"schema\":\"omnigart.device.workout.transfer\"",
             "\"schemaVersion\":1",
-            "\"localId\":\"\(esc(localId))\"",
-            "\"syncIdentifier\":\"\(esc(syncIdentifier))\"",
+            "\"localId\":\"\(escape(input.localId))\"",
+            "\"syncIdentifier\":\"\(escape(input.syncIdentifier))\"",
             "\"syncVersion\":1",
-            "\"activityTypeName\":\"\(esc(activityTypeName))\"",
-            "\"startEpochMs\":\(startEpochMs)",
-            "\"endEpochMs\":\(endEpochMs)",
-            "\"activeEnergyKcal\":\(activeEnergyKcal)",
-            "\"basalEnergyKcal\":\(basalEnergyKcal)",
-            "\"averageHeartRateBpm\":\(averageHeartRateBpm)",
-            "\"maxHeartRateBpm\":\(maxHeartRateBpm)",
+            "\"activityTypeName\":\"\(escape(input.activityTypeName))\"",
+            "\"startEpochMs\":\(input.startEpochMs)",
+            "\"endEpochMs\":\(input.endEpochMs)",
+            "\"activeEnergyKcal\":\(input.activeEnergyKcal)",
+            "\"basalEnergyKcal\":\(input.basalEnergyKcal)",
+            "\"averageHeartRateBpm\":\(input.averageHeartRateBpm)",
+            "\"maxHeartRateBpm\":\(input.maxHeartRateBpm)",
             "\"heartRateEpochMs\":[\(hrEpochJson)]",
             "\"heartRateBpm\":[\(hrBpmJson)]",
             "\"sourceDevice\":\"APPLE_WATCH\"",
             "\"sourceBundle\":\"com.omnigart\"",
             "\"sourceName\":\"OmniGart\""
         ]
-        if let distanceMetres {
+        if let distanceMetres = input.distanceMetres {
             fields.append("\"distanceMetres\":\(distanceMetres)")
         }
-        if let averageCadenceSpm {
+        if let averageCadenceSpm = input.averageCadenceSpm {
             fields.append("\"averageCadenceSpm\":\(averageCadenceSpm)")
         }
-        _ = sessionStart // used via startEpochMs; keep signature for call-site clarity
+        _ = input.sessionStart // used via startEpochMs; keep for call-site clarity
         return "{" + fields.joined(separator: ",") + "}"
     }
 }

@@ -16,7 +16,7 @@ enum InsightsChartPalette {
 
 struct DarkInsightCard<Content: View>: View {
     let titleKey: LocalizedStringKey
-    var sourceName: String? = nil
+    var sourceName: String?
     @ViewBuilder var content: () -> Content
 
     var body: some View {

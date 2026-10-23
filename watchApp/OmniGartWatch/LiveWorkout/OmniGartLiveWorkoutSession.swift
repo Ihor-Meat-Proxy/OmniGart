@@ -152,51 +152,65 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         session?.end()
         do {
             if let builder {
-                // Append-only: never finish a second copy for the same sync id.
-                if await OmniGartWatchHealthSync.workoutExists(
-                    syncIdentifier: syncIdentifier,
-                    store: store
-                ) {
-                    builder.discardWorkout()
-                    isRunning = false
-                    isPaused = false
-                    return makeSummary(endedAt: end)
+                if let early = try await finishBuilder(builder, endedAt: end) {
+                    return early
                 }
-                if !events.isEmpty {
-                    try await builder.addWorkoutEvents(events)
-                }
-                var metadata = OmniGartWatchHealthSync.syncMetadata(
-                    syncIdentifier: syncIdentifier,
-                    indoor: kind.isIndoor
-                )
-                if let label = pendingSegmentLabel {
-                    metadata["OmniGartLastSegment"] = label
-                }
-                try await builder.addMetadata(metadata)
-                try await builder.endCollection(at: end)
-                _ = try await builder.finishWorkout()
             }
             isRunning = false
             isPaused = false
             let summary = makeSummary(endedAt: end)
-            // Phone inbox: local store by sync id; never re-write HealthKit on iPhone.
-            let localId = syncIdentifier.replacingOccurrences(
-                of: OmniGartWatchHealthSync.syncIdPrefix,
-                with: ""
-            )
-            if !localId.isEmpty {
-                WatchWorkoutTransferBuilder.enqueueLiveSummary(
-                    summary,
-                    localId: localId,
-                    syncIdentifier: syncIdentifier
-                )
-            }
+            enqueuePhoneTransfer(summary)
             return summary
         } catch {
             lastError = error.localizedDescription
             isRunning = false
             return nil
         }
+    }
+
+    /// Returns a summary when the builder is discarded as a duplicate; otherwise nil after finish.
+    private func finishBuilder(
+        _ builder: HKLiveWorkoutBuilder,
+        endedAt: Date
+    ) async throws -> OmniGartLiveWorkoutSummary? {
+        // Append-only: never finish a second copy for the same sync id.
+        if await OmniGartWatchHealthSync.workoutExists(
+            syncIdentifier: syncIdentifier,
+            store: store
+        ) {
+            builder.discardWorkout()
+            isRunning = false
+            isPaused = false
+            return makeSummary(endedAt: endedAt)
+        }
+        if !events.isEmpty {
+            try await builder.addWorkoutEvents(events)
+        }
+        var metadata = OmniGartWatchHealthSync.syncMetadata(
+            syncIdentifier: syncIdentifier,
+            indoor: kind.isIndoor
+        )
+        if let label = pendingSegmentLabel {
+            metadata["OmniGartLastSegment"] = label
+        }
+        try await builder.addMetadata(metadata)
+        try await builder.endCollection(at: endedAt)
+        _ = try await builder.finishWorkout()
+        return nil
+    }
+
+    private func enqueuePhoneTransfer(_ summary: OmniGartLiveWorkoutSummary) {
+        // Phone inbox: local store by sync id; never re-write HealthKit on iPhone.
+        let localId = syncIdentifier.replacingOccurrences(
+            of: OmniGartWatchHealthSync.syncIdPrefix,
+            with: ""
+        )
+        guard !localId.isEmpty else { return }
+        WatchWorkoutTransferBuilder.enqueueLiveSummary(
+            summary,
+            localId: localId,
+            syncIdentifier: syncIdentifier
+        )
     }
 
     func makeSummary(endedAt: Date = Date()) -> OmniGartLiveWorkoutSummary {

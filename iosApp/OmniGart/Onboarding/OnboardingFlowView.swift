@@ -69,48 +69,13 @@ struct OnboardingFlowView: View {
     private func requestHealthAccess() {
         guard HKHealthStore.isHealthDataAvailable() else { return }
         requestingHealth = true
-        var read: Set<HKObjectType> = []
-        var write: Set<HKSampleType> = []
-        if let heart = HealthKitPlatformBridge.heartRateType() {
-            read.insert(heart)
-            write.insert(heart)
-        }
-        if let resting = HealthKitPlatformBridge.restingHeartRateType() { read.insert(resting) }
-        if let hrv = HealthKitPlatformBridge.hrvType() { read.insert(hrv) }
-        if let sleep = HealthKitPlatformBridge.sleepType() { read.insert(sleep) }
-        if let water = HealthKitPlatformBridge.dietaryWaterType() {
-            read.insert(water)
-            write.insert(water)
-        }
-        if let active = HealthKitPlatformBridge.activeEnergyType() {
-            read.insert(active)
-            write.insert(active)
-        }
-        if let basal = HealthKitPlatformBridge.basalEnergyType() {
-            read.insert(basal)
-            write.insert(basal)
-        }
-        if let recovery = HealthKitWorkoutWriter.heartRateRecoveryType() {
-            read.insert(recovery)
-            write.insert(recovery)
-        }
-        if let effort = HealthKitWorkoutWriter.workoutEffortType() {
-            read.insert(effort)
-            write.insert(effort)
-        }
-        if let mindful = HealthKitWorkoutWriter.mindfulType() {
-            read.insert(mindful)
-            write.insert(mindful)
-        }
-        // Workouts: read existing Fitness history + write OmniGart sessions.
-        read.insert(HealthKitPlatformBridge.workoutType())
-        write.insert(HealthKitPlatformBridge.workoutType())
+        let types = OnboardingHealthAuth.authorizationSets()
         Task {
             defer { requestingHealth = false }
             do {
                 try await HealthKitPlatformBridge.shared.requestAuthorization(
-                    readTypes: read,
-                    writeTypes: write
+                    readTypes: types.read,
+                    writeTypes: types.write
                 )
             } catch {
                 // Declined or unavailable — onboarding still completes.

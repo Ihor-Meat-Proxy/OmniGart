@@ -2,7 +2,7 @@ import SwiftUI
 import Shared
 
 /// Thin Workouts-tab strength logger over Shared StrengthLoggingService.
-/// On end, saves an `HKWorkout` (traditional strength) with MET energy estimates.
+/// Prefers a live watch `HKWorkoutSession`; falls back to iPhone MET estimate labelled as such.
 struct StrengthLoggingView: View {
     let core: OmniGartCore
     let profileId: String
@@ -20,6 +20,7 @@ struct StrengthLoggingView: View {
     @State private var tick = 0
     @State private var lastEnergy: HealthKitWorkoutWriter.Result?
     @State private var savingHealth = false
+    @State private var watchStatus: String?
 
     private var demos: [DemoStrengthExercise] {
         _ = tick
@@ -31,6 +32,17 @@ struct StrengthLoggingView: View {
             Text(catalog("workout_intro"))
                 .font(.footnote)
                 .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+
+            Button(catalog("workout_start_on_watch")) {
+                Task { await startOnWatch() }
+            }
+            .accessibilityIdentifier("workout_start_on_watch")
+            if let watchStatus {
+                Text(watchStatus)
+                    .font(.caption2)
+                    .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                    .accessibilityIdentifier("workout_watch_status")
+            }
 
             Text(sessionId == nil ? catalog("workout_idle") : "\(catalog("workout_active")) · \(setCount)")
                 .accessibilityIdentifier("workout_status")
@@ -135,6 +147,21 @@ struct StrengthLoggingView: View {
         }
     }
 
+    private func startOnWatch() async {
+        let outcome = await HealthKitWatchLauncher.startOnWatch(
+            activityType: .traditionalStrengthTraining,
+            indoor: true
+        )
+        await MainActor.run {
+            switch outcome {
+            case .watchStarted:
+                watchStatus = catalog("workout_watch_started")
+            case .watchUnavailable:
+                watchStatus = catalog("workout_watch_unavailable")
+            }
+        }
+    }
+
     private func endAndSave(sessionId id: String) {
         savingHealth = true
         _ = core.strengthLogging.endSession(sessionId: id)
@@ -150,43 +177,83 @@ struct StrengthLoggingView: View {
         let start = dateFromEpochMillis(core.strengthLogging.sessionStartEpochMillis(sessionId: id))
         let end = dateFromEpochMillis(core.strengthLogging.sessionEndEpochMillis(sessionId: id))
         let durationHours = max(0, end.timeIntervalSince(start) / 3600.0)
-        let age = Int32(core.ageYears(profile: profile))
+        let age = Int(core.ageYears(profile: profile))
         let breakdown = WorkoutEnergyEstimate.shared.strengthBreakdown(
             weightKg: profile.weightKg,
             heightCm: profile.heightCm,
-            ageYears: age,
+            ageYears: Int32(age),
             sex: profile.biologicalSex,
             durationHours: durationHours,
             met: WorkoutEnergyEstimate.shared.STRENGTH_MET
         )
         let energy = HealthKitWorkoutWriter.EnergyInput(
             activeKcal: breakdown.activeKcal,
-            basalKcal: breakdown.basalKcal
+            basalKcal: breakdown.basalKcal,
+            isEstimate: true
+        )
+        let volumeSummary = core.strengthLogging.sessionSummary(
+            sessionId: id,
+            includeWarmups: includeWarmups,
+            bodyweightKg: KotlinDouble(value: profile.weightKg),
+            unit: .kg
+        )
+        let sets = core.strengthLogging.getSession(sessionId: id)?.sets ?? []
+        var totalReps = 0
+        for set in sets {
+            if let reps = set.reps {
+                totalReps += Int(reps)
+            }
+        }
+        let strengthMeta = HealthKitWorkoutWriter.StrengthMetadata(
+            totalSets: sets.count,
+            totalReps: totalReps,
+            totalWeightKg: volumeSummary.totalWeightLiftedDisplay
         )
 
         Task {
             defer { savingHealth = false }
             do {
-                let hrSamples = (try? await HealthKitWorkoutWriter.fetchHeartRate(from: start, to: end)) ?? []
-                let saved = try await HealthKitWorkoutWriter.saveStrengthWorkout(
-                    start: start,
-                    end: end,
-                    energy: energy,
-                    heartRate: hrSamples
+                let recoveryEnd = end.addingTimeInterval(90)
+                let hrSamples =
+                    (try? await HealthKitWorkoutWriter.fetchHeartRate(from: start, to: recoveryEnd)) ?? []
+                let avg = hrSamples.map(\.bpm).filter { $0 > 0 }
+                let avgBpm = avg.isEmpty ? nil : avg.reduce(0, +) / Double(avg.count)
+                let recovery = HealthKitWorkoutWriter.estimateHeartRateRecoveryBpm(
+                    samples: hrSamples,
+                    workoutEnd: end
+                )
+                let effort = HealthKitWorkoutWriter.estimateEffortScore(
+                    averageBpm: avgBpm,
+                    ageYears: age
+                )
+                let saved = try await HealthKitWorkoutWriter.save(
+                    options: .init(
+                        activityType: .traditionalStrengthTraining,
+                        start: start,
+                        end: end,
+                        energy: energy,
+                        heartRate: hrSamples.filter { $0.date <= end },
+                        strength: strengthMeta,
+                        indoor: true,
+                        estimatedEffortScore: effort,
+                        heartRateRecoveryBpm: recovery
+                    )
                 )
                 await MainActor.run {
                     lastEnergy = saved
                     refreshSummary(id: id)
                 }
             } catch {
-                // Permission denied or Health unavailable — local summary still shown.
                 await MainActor.run {
                     lastEnergy = HealthKitWorkoutWriter.Result(
                         workoutUUID: UUID(),
                         activeKcal: energy.activeKcal,
                         basalKcal: energy.basalKcal,
                         averageHeartRateBpm: nil,
-                        maxHeartRateBpm: nil
+                        maxHeartRateBpm: nil,
+                        energyIsEstimate: true,
+                        effortScore: nil,
+                        heartRateRecoveryBpm: nil
                     )
                     refreshSummary(id: id)
                 }
@@ -223,6 +290,9 @@ struct StrengthLoggingView: View {
             lines.append(
                 "\(catalog("workout_summary_total_kcal")): \(String(format: "%.0f", energy.activeKcal + energy.basalKcal))"
             )
+            if energy.energyIsEstimate {
+                lines.append(catalog("workout_summary_energy_estimate"))
+            }
             if let avg = energy.averageHeartRateBpm {
                 lines.append(
                     "\(catalog("workout_summary_avg_hr")): \(String(format: "%.0f", avg))"
@@ -231,6 +301,16 @@ struct StrengthLoggingView: View {
             if let maxHr = energy.maxHeartRateBpm {
                 lines.append(
                     "\(catalog("workout_summary_max_hr")): \(String(format: "%.0f", maxHr))"
+                )
+            }
+            if let effort = energy.effortScore {
+                lines.append(
+                    "\(catalog("workout_summary_effort")): \(String(format: "%.0f", effort))"
+                )
+            }
+            if let recovery = energy.heartRateRecoveryBpm {
+                lines.append(
+                    "\(catalog("workout_summary_hr_recovery")): \(String(format: "%.0f", recovery))"
                 )
             }
         }

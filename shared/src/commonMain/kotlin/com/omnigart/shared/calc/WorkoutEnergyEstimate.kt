@@ -14,6 +14,12 @@ object WorkoutEnergyEstimate {
     /** Compendium MET for general / traditional strength training (moderate effort). */
     const val STRENGTH_MET: Double = 5.0
 
+    /** Hatha / general yoga (Compendium ~2.5). */
+    const val YOGA_MET: Double = 2.5
+
+    /** Mat pilates (Compendium ~3.0). */
+    const val PILATES_MET: Double = 3.0
+
     /**
      * Active energy in kilocalories.
      *
@@ -40,16 +46,13 @@ object WorkoutEnergyEstimate {
         return activeKcal + basalKcal
     }
 
-    /**
-     * Convenience for strength sessions: active from [STRENGTH_MET], basal from Mifflin–St Jeor.
-     */
-    fun strengthBreakdown(
+    fun breakdown(
+        met: Double,
         weightKg: Double,
         heightCm: Double,
         ageYears: Int,
         sex: BiologicalSex,
-        durationHours: Double,
-        met: Double = STRENGTH_MET
+        durationHours: Double
     ): WorkoutEnergyBreakdown {
         val active = activeKcal(met = met, weightKg = weightKg, durationHours = durationHours)
         val bmr = Bmr.mifflinStJeor(weightKg, heightCm, ageYears, sex)
@@ -60,6 +63,38 @@ object WorkoutEnergyEstimate {
             totalKcal = totalKcal(active, basal)
         )
     }
+
+    fun strengthBreakdown(
+        weightKg: Double,
+        heightCm: Double,
+        ageYears: Int,
+        sex: BiologicalSex,
+        durationHours: Double,
+        met: Double = STRENGTH_MET
+    ): WorkoutEnergyBreakdown = breakdown(
+        met = met,
+        weightKg = weightKg,
+        heightCm = heightCm,
+        ageYears = ageYears,
+        sex = sex,
+        durationHours = durationHours
+    )
+
+    fun yogaBreakdown(
+        weightKg: Double,
+        heightCm: Double,
+        ageYears: Int,
+        sex: BiologicalSex,
+        durationHours: Double
+    ): WorkoutEnergyBreakdown = breakdown(YOGA_MET, weightKg, heightCm, ageYears, sex, durationHours)
+
+    fun pilatesBreakdown(
+        weightKg: Double,
+        heightCm: Double,
+        ageYears: Int,
+        sex: BiologicalSex,
+        durationHours: Double
+    ): WorkoutEnergyBreakdown = breakdown(PILATES_MET, weightKg, heightCm, ageYears, sex, durationHours)
 }
 
 data class WorkoutEnergyBreakdown(val activeKcal: Double, val basalKcal: Double, val totalKcal: Double)

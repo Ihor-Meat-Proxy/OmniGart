@@ -134,4 +134,17 @@
     <string name="workout_summary_total_kcal">Celkem kcal</string>
     <string name="workout_summary_avg_hr">Průměrný tep</string>
     <string name="workout_summary_max_hr">Max. tep</string>
+    <string name="workout_summary_energy_estimate">Energie je wellness odhad (MET × hmotnost).</string>
+    <string name="workout_summary_effort">Skóre úsilí</string>
+    <string name="workout_summary_hr_recovery">Regenerace tepu</string>
+    <string name="workout_start_on_watch">Spustit na Apple Watch</string>
+    <string name="workout_watch_started">Spouštění tréninku na hodinkách…</string>
+    <string name="workout_watch_unavailable">Hodinky nedostupné — použijte odhad na iPhonu.</string>
+    <string name="workout_start_iphone_estimate">Záznam na iPhonu (odhad)</string>
+    <string name="workout_yoga_title">Jóga</string>
+    <string name="workout_pilates_title">Pilates</string>
+    <string name="workout_mindful_body_intro">Preferujte živou relaci na hodinkách pro tep a energii. Jen na iPhonu OmniGart uloží označený odhad MET.</string>
+    <string name="workout_mindful_minutes_toggle">Ukládat mindful minuty pro jógu</string>
+    <string name="workout_mindful_minutes_body">Volitelné. Ve výchozím stavu vypnuto. Zapisuje jen po zapnutí.</string>
+    <string name="workout_mindful_settings_title">Mindful minuty jógy</string>
 </resources>

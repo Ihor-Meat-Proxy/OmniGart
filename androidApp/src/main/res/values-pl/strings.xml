@@ -134,4 +134,17 @@
     <string name="workout_summary_total_kcal">Suma kcal</string>
     <string name="workout_summary_avg_hr">Średnie tętno</string>
     <string name="workout_summary_max_hr">Maks. tętno</string>
+    <string name="workout_summary_energy_estimate">Energia to szacunek wellness (MET × masa ciała).</string>
+    <string name="workout_summary_effort">Wskaźnik wysiłku</string>
+    <string name="workout_summary_hr_recovery">Regeneracja tętna</string>
+    <string name="workout_start_on_watch">Start na Apple Watch</string>
+    <string name="workout_watch_started">Uruchamianie treningu na zegarku…</string>
+    <string name="workout_watch_unavailable">Zegarek niedostępny — użyj szacunku na iPhonie.</string>
+    <string name="workout_start_iphone_estimate">Zapis na iPhonie (szacunek)</string>
+    <string name="workout_yoga_title">Joga</string>
+    <string name="workout_pilates_title">Pilates</string>
+    <string name="workout_mindful_body_intro">Preferuj żywą sesję na zegarku dla tętna i energii. Na samym iPhonie OmniGart zapisuje szacunek MET z etykietą.</string>
+    <string name="workout_mindful_minutes_toggle">Zapisuj minuty uważności dla jogi</string>
+    <string name="workout_mindful_minutes_body">Opcjonalne. Domyślnie wyłączone. Zapisuje sesję uważności tylko po włączeniu.</string>
+    <string name="workout_mindful_settings_title">Uważność w jodze</string>
 </resources>

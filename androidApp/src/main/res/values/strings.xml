@@ -18,7 +18,7 @@
 
     <!-- Just-in-time permission explainers (app usable if denied) -->
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, active and resting energy, body mass, and hydration — so sessions can appear in Apple Fitness with duration and calories. Data is not used for ads or sent to unrelated third parties. You can continue without granting access.</string>
+    <string name="perm_explainer_health_body">OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, active and resting energy, heart-rate recovery, workout effort, optional mindful minutes, body mass, and hydration — so sessions can appear in Apple Fitness with duration and calories. Data is not used for ads or sent to unrelated third parties. You can continue without granting access.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth accessories</string>
     <string name="perm_explainer_bluetooth_body">Connect a heart-rate or similar fitness accessory for live samples. OmniGart works fully without Bluetooth.</string>
     <string name="perm_explainer_camera_title">Camera for barcodes</string>
@@ -144,4 +144,17 @@
     <string name="workout_summary_total_kcal">Total kcal</string>
     <string name="workout_summary_avg_hr">Average heart rate</string>
     <string name="workout_summary_max_hr">Max heart rate</string>
+    <string name="workout_summary_energy_estimate">Energy is a wellness estimate (MET × body weight).</string>
+    <string name="workout_summary_effort">Effort score</string>
+    <string name="workout_summary_hr_recovery">Heart-rate recovery</string>
+    <string name="workout_start_on_watch">Start on Apple Watch</string>
+    <string name="workout_watch_started">Watch workout starting…</string>
+    <string name="workout_watch_unavailable">Watch unavailable — use iPhone estimate below.</string>
+    <string name="workout_start_iphone_estimate">Log on iPhone (estimate)</string>
+    <string name="workout_yoga_title">Yoga</string>
+    <string name="workout_pilates_title">Pilates</string>
+    <string name="workout_mindful_body_intro">Prefer a live watch session for heart rate and energy. On iPhone alone, OmniGart saves a MET wellness estimate labelled as such.</string>
+    <string name="workout_mindful_minutes_toggle">Save mindful minutes for yoga</string>
+    <string name="workout_mindful_minutes_body">Optional. Off by default. Writes a mindful session only when you enable this.</string>
+    <string name="workout_mindful_settings_title">Yoga mindful minutes</string>
 </resources>

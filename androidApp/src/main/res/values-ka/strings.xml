@@ -134,4 +134,17 @@
     <string name="workout_summary_total_kcal">სულ კკალ</string>
     <string name="workout_summary_avg_hr">საშუალო გულისცემა</string>
     <string name="workout_summary_max_hr">მაქს. გულისცემა</string>
+    <string name="workout_summary_energy_estimate">ენერგია კეთილდღეობის შეფასებაა (MET × სხეულის მასა).</string>
+    <string name="workout_summary_effort">ძალისხმევის ქულა</string>
+    <string name="workout_summary_hr_recovery">გულისცემის აღდგენა</string>
+    <string name="workout_start_on_watch">დაწყება Apple Watch-ზე</string>
+    <string name="workout_watch_started">საათზე ვარჯიში იწყება…</string>
+    <string name="workout_watch_unavailable">საათი მიუწვდომელია — გამოიყენეთ iPhone შეფასება.</string>
+    <string name="workout_start_iphone_estimate">ჩაწერა iPhone-ზე (შეფასება)</string>
+    <string name="workout_yoga_title">იოგა</string>
+    <string name="workout_pilates_title">პილატესი</string>
+    <string name="workout_mindful_body_intro">გულისცემისა და ენერგიისთვის უპირატესობა მიანიჭეთ საათის ცოცხალ სესიას. მხოლოდ iPhone-ზე OmniGart ინახავს MET შეფასებას შესაბამისი ნიშნით.</string>
+    <string name="workout_mindful_minutes_toggle">იოგისთვის mindful წუთების შენახვა</string>
+    <string name="workout_mindful_minutes_body">სურვილისამებრ. ნაგულისხმევად გამორთულია. იწერს მხოლოდ ჩართვისას.</string>
+    <string name="workout_mindful_settings_title">იოგის mindful წუთები</string>
 </resources>

@@ -68,4 +68,30 @@ class WorkoutEnergyEstimateTest {
             WorkoutEnergyEstimate.activeKcal(met = 5.0, weightKg = 70.0, durationHours = -0.1)
         }
     }
+
+    @Test
+    fun yogaBreakdown_usesYogaMet() {
+        val breakdown =
+            WorkoutEnergyEstimate.yogaBreakdown(
+                weightKg = 62.0,
+                heightCm = 168.0,
+                ageYears = 32,
+                sex = BiologicalSex.FEMALE,
+                durationHours = 1.0
+            )
+        assertEquals(2.5 * 62.0, breakdown.activeKcal, absoluteTolerance = 0.01)
+    }
+
+    @Test
+    fun pilatesBreakdown_usesPilatesMet() {
+        val breakdown =
+            WorkoutEnergyEstimate.pilatesBreakdown(
+                weightKg = 80.0,
+                heightCm = 180.0,
+                ageYears = 30,
+                sex = BiologicalSex.MALE,
+                durationHours = 0.5
+            )
+        assertEquals(3.0 * 80.0 * 0.5, breakdown.activeKcal, absoluteTolerance = 0.01)
+    }
 }

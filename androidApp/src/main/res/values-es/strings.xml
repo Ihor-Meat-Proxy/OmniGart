@@ -134,4 +134,17 @@
     <string name="workout_summary_total_kcal">Kcal totales</string>
     <string name="workout_summary_avg_hr">Frecuencia media</string>
     <string name="workout_summary_max_hr">Frecuencia máx.</string>
+    <string name="workout_summary_energy_estimate">La energía es una estimación de bienestar (MET × peso).</string>
+    <string name="workout_summary_effort">Esfuerzo</string>
+    <string name="workout_summary_hr_recovery">Recuperación cardiaca</string>
+    <string name="workout_start_on_watch">Empezar en Apple Watch</string>
+    <string name="workout_watch_started">Iniciando entrenamiento en el reloj…</string>
+    <string name="workout_watch_unavailable">Reloj no disponible — usa la estimación del iPhone.</string>
+    <string name="workout_start_iphone_estimate">Registrar en iPhone (estimación)</string>
+    <string name="workout_yoga_title">Yoga</string>
+    <string name="workout_pilates_title">Pilates</string>
+    <string name="workout_mindful_body_intro">Prefiere una sesión en vivo en el reloj para frecuencia y energía. Solo en iPhone, OmniGart guarda una estimación MET etiquetada.</string>
+    <string name="workout_mindful_minutes_toggle">Guardar minutos mindful en yoga</string>
+    <string name="workout_mindful_minutes_body">Opcional. Desactivado por defecto. Solo escribe si lo activas.</string>
+    <string name="workout_mindful_settings_title">Minutos mindful de yoga</string>
 </resources>

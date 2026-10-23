@@ -330,6 +330,18 @@ struct OnboardingFlowView: View {
             read.insert(basal)
             write.insert(basal)
         }
+        if let recovery = HealthKitWorkoutWriter.heartRateRecoveryType() {
+            read.insert(recovery)
+            write.insert(recovery)
+        }
+        if let effort = HealthKitWorkoutWriter.workoutEffortType() {
+            read.insert(effort)
+            write.insert(effort)
+        }
+        if let mindful = HealthKitWorkoutWriter.mindfulType() {
+            read.insert(mindful)
+            write.insert(mindful)
+        }
         // Workouts: read existing Fitness history + write OmniGart sessions.
         read.insert(HealthKitPlatformBridge.workoutType())
         write.insert(HealthKitPlatformBridge.workoutType())

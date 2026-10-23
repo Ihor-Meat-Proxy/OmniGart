@@ -1,0 +1,69 @@
+{
+  "id": "lateral-raise",
+  "nameKeys": {
+    "enGB": "exercise.lateral_raise.name",
+    "uk": "exercise.lateral_raise.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "lateral_deltoid"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid",
+    "trapezius"
+  ],
+  "equipment": [
+    "dumbbell"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Raise dumbbells to roughly shoulder height with soft elbows; lower slowly; slight forward lead of pinkies optional."
+  ],
+  "setup": [
+    "Standing tall; light weights."
+  ],
+  "breathing": "Exhale to raise.",
+  "commonMistakes": [
+    "Shrugging traps to cheat",
+    "Swinging torso"
+  ],
+  "safety": [
+    "Stop at shoulder height; control the eccentric."
+  ],
+  "contraindications": [
+    "Acute cuff flare"
+  ],
+  "regressions": [],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/lateral-raise",
+    "videoKey": "media/video/lateral-raise",
+    "animationKey": "media/anim/lateral-raise"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

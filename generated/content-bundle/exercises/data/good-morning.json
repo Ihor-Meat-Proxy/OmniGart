@@ -1,0 +1,73 @@
+{
+  "id": "good-morning",
+  "nameKeys": {
+    "enGB": "exercise.good_morning.name",
+    "uk": "exercise.good_morning.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "hamstrings",
+    "erector_spinae",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [],
+  "equipment": [
+    "barbell"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Bar on upper back; soft knees; hinge hips back until torso nears parallel; return by extending hips."
+  ],
+  "setup": [
+    "Light load; braced trunk; careful walkout."
+  ],
+  "breathing": "Inhale hinge, exhale extend.",
+  "commonMistakes": [
+    "Squatting instead of hinging",
+    "Cervical hyperextension"
+  ],
+  "safety": [
+    "Conservative loading; this stresses the posterior chain heavily."
+  ],
+  "contraindications": [
+    "History of lumbar stress injury — clinician clearance"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "romanian-deadlift-barbell",
+      "note": "Safer load path for many"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/good-morning",
+    "videoKey": "media/video/good-morning",
+    "animationKey": "media/anim/good-morning"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

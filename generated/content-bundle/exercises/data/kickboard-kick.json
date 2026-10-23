@@ -1,0 +1,86 @@
+{
+  "id": "kickboard-kick",
+  "nameKeys": {
+    "enGB": "exercise.kickboard_kick.name",
+    "uk": "exercise.kickboard_kick.name"
+  },
+  "discipline": "swimming",
+  "movementPattern": "swim_drill",
+  "primaryMuscles": [
+    "quadriceps",
+    "calves",
+    "hip_flexors"
+  ],
+  "secondaryMuscles": [
+    "gluteus_maximus"
+  ],
+  "equipment": [
+    "pool",
+    "kickboard"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "skill",
+  "trackingType": "distance",
+  "technique": [
+    "Hold a kickboard; propel with flutter or dolphin kicks; keep kick from the hips."
+  ],
+  "setup": [
+    "Board extended; relaxed ankles."
+  ],
+  "breathing": "Blow bubbles steadily.",
+  "commonMistakes": [
+    "Bending only at the knees",
+    "Tense ankles"
+  ],
+  "safety": [
+    "Useful aerobic + technique tool."
+  ],
+  "contraindications": [],
+  "regressions": [],
+  "progressions": [
+    {
+      "exerciseId": "freestyle-stroke",
+      "note": "Full stroke"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/kickboard-kick",
+    "videoKey": "media/video/kickboard-kick",
+    "animationKey": "media/anim/kickboard-kick"
+  },
+  "aliases": [],
+  "tags": [
+    "swim"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Bodyweight movement with negligible external implement; treat moved mass as ~full BM unless a measured study applies. Estimate."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

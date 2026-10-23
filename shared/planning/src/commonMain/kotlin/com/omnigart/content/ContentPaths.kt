@@ -1,8 +1,9 @@
 package com.omnigart.content
 
 /**
- * Logical layout of the content pack relative to the repo (or bundled assets later).
- * No I/O here — loaders pass concrete roots from the host app / tests.
+ * Logical layout of the exercise section inside the offline content bundle
+ * (`generated/content-bundle/exercises/…`) or the repo `content/exercises/` tree.
+ * No I/O here — [com.omnigart.shared.content.LayeredContentLoader] mounts concrete stores.
  */
 object ContentPaths {
     const val EXERCISES_DATA = "data"

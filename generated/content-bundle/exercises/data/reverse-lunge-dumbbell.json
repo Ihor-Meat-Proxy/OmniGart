@@ -1,0 +1,82 @@
+{
+  "id": "reverse-lunge-dumbbell",
+  "nameKeys": {
+    "enGB": "exercise.reverse_lunge_dumbbell.name",
+    "uk": "exercise.reverse_lunge_dumbbell.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "lunge",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "hamstrings",
+    "gluteus_medius"
+  ],
+  "equipment": [
+    "dumbbell"
+  ],
+  "level": "beginner",
+  "unilateral": true,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Step backward into a lunge; front shin stays fairly vertical; return to stand."
+  ],
+  "setup": [
+    "Dumbbells at sides; eyes forward."
+  ],
+  "breathing": "Exhale to stand.",
+  "commonMistakes": [
+    "Slamming the back knee",
+    "Torso collapsing forward"
+  ],
+  "safety": [
+    "Often easier on the knees than forward lunges for some."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "split-squat-bodyweight",
+      "note": "No step"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "walking-lunge",
+      "note": "Traveling"
+    },
+    {
+      "exerciseId": "bulgarian-split-squat",
+      "note": "Harder"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/reverse-lunge-dumbbell",
+    "videoKey": "media/video/reverse-lunge-dumbbell",
+    "animationKey": "media/anim/reverse-lunge-dumbbell"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

@@ -1576,5 +1576,22 @@
   "template.strength_focus_3x.rationale": "新手在深蹲/铰链/推/拉复合动作上做线性递增，辅以保守的辅助动作，符合ACSM抗阻训练概览对多关节负荷的强调。",
   "template.swim_technique_3x.rationale": "先保证技术练习密度再加码距离，以免有氧容量固化错误动作；体能阶段仍以轻松有氧为主。",
   "template.upper_lower_4x.rationale": "四天上下肢分化使每块肌群约每周练2次，并在Schoenfeld/Pelland剂量–反应区间内允许更高单次容量。",
-  "template.yoga_mobility_flow.rationale": "每周≥2–3天的柔韧与神经肌肉练习符合ACSM数量/质量指导；体式保持初学者可及。"
+  "template.yoga_mobility_flow.rationale": "每周≥2–3天的柔韧与神经肌肉练习符合ACSM数量/质量指导；体式保持初学者可及。",
+  "exercise.archer_pull_up.name": "Archer pull-up",
+  "exercise.band_assisted_dip.name": "Band-assisted dip",
+  "exercise.bench_dip.name": "Bench dip",
+  "exercise.close_grip_pull_up.name": "Close-grip pull-up",
+  "exercise.commando_pull_up.name": "Commando pull-up",
+  "exercise.korean_dip.name": "Korean dip",
+  "exercise.l_sit_pull_up.name": "L-sit pull-up",
+  "exercise.machine_assisted_dip.name": "Machine-assisted dip",
+  "exercise.machine_assisted_pull_up.name": "Machine-assisted pull-up",
+  "exercise.negative_dip.name": "Negative dip (eccentric)",
+  "exercise.negative_pull_up.name": "Negative pull-up (eccentric)",
+  "exercise.neutral_grip_pull_up.name": "Neutral-grip pull-up",
+  "exercise.scapular_pull_up.name": "Scapular pull-up",
+  "exercise.straight_bar_dip.name": "Straight-bar dip",
+  "exercise.typewriter_pull_up.name": "Typewriter pull-up",
+  "exercise.weighted_dip.name": "Weighted dip",
+  "exercise.wide_grip_pull_up.name": "Wide-grip pull-up"
 }

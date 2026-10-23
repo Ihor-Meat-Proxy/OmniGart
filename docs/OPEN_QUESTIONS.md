@@ -58,9 +58,9 @@ Autopilot log (Phase 0 + merged design / planning). Each item: **context**, **ch
 
 ## watchOS KMP framework linking
 
-- **Context:** Both iOS and watchOS consume `Shared.framework` from Gradle. CI failed with `No such module 'Shared'` because XcodeGen searched `shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)` while Gradle only wrote `shared/build/bin/<target>/debugFramework/`.
-- **Choice:** Add `syncXcodeFrameworks` Gradle task + CI rsync into the exact `$(SDK_NAME)` folders; exclude `x86_64` on watch simulator (no `watchosX64` target).
-- **Alternatives:** Fat XCFramework via `./gradlew assembleXCFramework`; Xcode Run Script calling `embedAndSignAppleFrameworkForXcode`.
+- **Context:** Both iOS and watchOS consume `Shared.framework` from Gradle. Versioned `$(SDK_NAME)` paths (e.g. `watchsimulator26.2`) break when Xcode ships a newer SDK (27+) that is not in a hardcoded sync list.
+- **Choice:** Sync to `shared/build/xcode-frameworks/$(CONFIGURATION)/$(PLATFORM_NAME)/` via `:shared:syncXcodeFrameworks`; XcodeGen `FRAMEWORK_SEARCH_PATHS` uses `$(PLATFORM_NAME)`. Xcode pre-build `scripts/xcode_sync_shared_framework.sh` links+syncs on Run (CI sets `OMNIGART_SKIP_XCODE_GRADLE=1` after an explicit Gradle sync). Exclude `x86_64` on watch simulator (no `watchosX64` target).
+- **Alternatives:** Fat XCFramework via `./gradlew assembleXCFramework`; keep expanding versioned SDK lists (rejected — brittle).
 
 ## iOS / watchOS deployment vs GitHub Actions Xcode
 

@@ -85,7 +85,7 @@ Defined in `shared/.../health/HealthAdapters.kt`:
 ## watchOS KMP notes
 
 Targets enabled: `watchosArm64`, `watchosSimulatorArm64` (`watchosX64` deprecated).
-Frameworks are synced into `shared/build/xcode-frameworks/<Config>/<SDK_NAME>/` via `:shared:syncXcodeFrameworks` for XcodeGen `FRAMEWORK_SEARCH_PATHS`.
+Frameworks are synced into `shared/build/xcode-frameworks/<Config>/<PLATFORM_NAME>/` via `:shared:syncXcodeFrameworks` for XcodeGen `FRAMEWORK_SEARCH_PATHS` (e.g. `watchsimulator`, not a versioned SDK). Xcode pre-build: `scripts/xcode_sync_shared_framework.sh`.
 
 Supported in Phase 0: Kotlin/Native stdlib, coroutines, kotlinx-datetime, kotlinx-serialization, SQLDelight native driver.
 

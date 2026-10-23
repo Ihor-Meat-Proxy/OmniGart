@@ -16,12 +16,16 @@ Wellness app installs only — not App Store distribution (see [RELEASE_CHECKLIS
 
 ```bash
 cd /path/to/OmniGart
-./gradlew linkDebugFrameworkIosArm64 linkDebugFrameworkWatchosArm64 \
-  || ./gradlew linkDebugFrameworkIosSimulatorArm64 linkDebugFrameworkWatchosSimulatorArm64
+# Device (preferred for personal hardware) or simulator frameworks:
+./gradlew linkDebugFrameworkIosArm64 linkDebugFrameworkWatchosArm64 syncXcodeFrameworks \
+  || ./gradlew linkDebugFrameworkIosSimulatorArm64 linkDebugFrameworkWatchosSimulatorArm64 \
+       syncXcodeFrameworks
 cd iosApp
 xcodegen generate
 open OmniGart.xcodeproj
 ```
+
+Frameworks land under `shared/build/xcode-frameworks/Debug/<PLATFORM_NAME>/` (`iphoneos`, `iphonesimulator`, `watchos`, `watchsimulator`) — **not** a versioned SDK folder. Pressing **Run** in Xcode re-links/syncs via `scripts/xcode_sync_shared_framework.sh` when needed (works with iOS/watchOS 18 through 27+ simulators).
 
 Select your **Team** on targets **OmniGart** and **OmniGartWatch** (Signing & Capabilities). Set a unique bundle id suffix if the default `com.omnigart.ios` / `.watchkitapp` is already taken on your team.
 
@@ -87,7 +91,7 @@ Same as Personal Team, but select your paid team. Prefer automatic signing.
 
 | Symptom | Likely fix |
 |---------|------------|
-| `No such module 'Shared'` | Run the Gradle `linkDebugFramework*` / sync tasks; confirm `FRAMEWORK_SEARCH_PATHS` under `shared/build/xcode-frameworks/...` |
+| `No such module 'Shared'` / unable to resolve `Shared` | Run `./gradlew … syncXcodeFrameworks`, or just **Run** in Xcode (pre-build sync). Expect `shared/build/xcode-frameworks/Debug/watchsimulator/Shared.framework` (platform name, not `watchsimulator27.x`). Re-run `xcodegen generate` after pulling `project.yml` changes. |
 | Watch app missing | Build the phone scheme that embeds Watch; keep Watch nearby and unlocked |
 | HealthKit denied forever | Reset privacy for OmniGart in Settings → Health / reset location & privacy (device) |
 | WorkoutKit compile/sign errors on free team | `OMNIGART_ENABLE_WORKOUTKIT=0` |

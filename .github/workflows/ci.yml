@@ -207,19 +207,16 @@ jobs:
         run: swiftlint lint --config .swiftlint.yml --strict
       - name: Link and sync Shared frameworks (simulator)
         run: |
+          # Version-agnostic paths: Debug/iphonesimulator and Debug/watchsimulator
+          # (matches FRAMEWORK_SEARCH_PATHS $(PLATFORM_NAME) in iosApp/project.yml).
           ./gradlew \
             linkDebugFrameworkIosSimulatorArm64 \
             linkDebugFrameworkWatchosSimulatorArm64 \
             syncXcodeFrameworks \
             --stacktrace
-          IOS_SDK=$(xcrun --sdk iphonesimulator --show-sdk-version)
-          WATCH_SDK=$(xcrun --sdk watchsimulator --show-sdk-version)
-          mkdir -p "shared/build/xcode-frameworks/Debug/iphonesimulator${IOS_SDK}"
-          mkdir -p "shared/build/xcode-frameworks/Debug/watchsimulator${WATCH_SDK}"
-          rsync -a shared/build/bin/iosSimulatorArm64/debugFramework/Shared.framework \
-            "shared/build/xcode-frameworks/Debug/iphonesimulator${IOS_SDK}/"
-          rsync -a shared/build/bin/watchosSimulatorArm64/debugFramework/Shared.framework \
-            "shared/build/xcode-frameworks/Debug/watchsimulator${WATCH_SDK}/"
+          test -d shared/build/xcode-frameworks/Debug/iphonesimulator/Shared.framework
+          test -d shared/build/xcode-frameworks/Debug/watchsimulator/Shared.framework
+
       - name: Generate Xcode project
         run: |
           set -euo pipefail
@@ -235,6 +232,9 @@ jobs:
             exit 1
           fi
       - name: Build iOS + watchOS (simulator, arm64)
+        env:
+          # Frameworks already linked+synced above; skip Gradle inside Xcode pre-build.
+          OMNIGART_SKIP_XCODE_GRADLE: "1"
         run: |
           set -euo pipefail
           xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart \
@@ -250,6 +250,8 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             build
       - name: Test iOS + watchOS (booted simulators)
+        env:
+          OMNIGART_SKIP_XCODE_GRADLE: "1"
         run: |
           set -euo pipefail
           IOS_DEST=$(

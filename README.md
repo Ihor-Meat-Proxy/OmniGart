@@ -82,11 +82,14 @@ echo "sdk.dir=$HOME/Library/Android/sdk" > local.properties   # adjust path
 
 ```bash
 brew install xcodegen swiftlint   # once
-./gradlew linkDebugFrameworkIosSimulatorArm64 linkDebugFrameworkWatchosSimulatorArm64
+./gradlew linkDebugFrameworkIosSimulatorArm64 linkDebugFrameworkWatchosSimulatorArm64 \
+  syncXcodeFrameworks
 cd iosApp && xcodegen generate && open OmniGart.xcodeproj
 ```
 
-Install on a personal iPhone / Apple Watch: **[docs/INSTALL_DEVICE.md](docs/INSTALL_DEVICE.md)** (guide in progress — free Personal Team vs paid / TestFlight).
+`Shared.framework` is synced to `shared/build/xcode-frameworks/<Debug|Release>/<PLATFORM_NAME>/` (e.g. `watchsimulator`, not `watchsimulator27.2`). Xcode **Run** also runs `scripts/xcode_sync_shared_framework.sh` as a pre-build step so newer simulator SDKs resolve without updating Gradle SDK lists.
+
+Install on a personal iPhone / Apple Watch: **[docs/INSTALL_DEVICE.md](docs/INSTALL_DEVICE.md)** (free Personal Team vs paid / TestFlight).
 
 > Linux CI builds Shared + Android/Wear; the macOS job builds and tests iOS/watchOS simulators when those paths change.
 

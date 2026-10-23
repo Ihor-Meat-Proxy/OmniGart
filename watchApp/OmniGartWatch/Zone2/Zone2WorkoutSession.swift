@@ -127,8 +127,8 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
         elapsedTimer?.invalidate()
         elapsedTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             Task { @MainActor in
-                guard let self, let startedAt else { return }
-                self.elapsed = Date().timeIntervalSince(startedAt)
+                guard let self, let sessionStart = self.startedAt else { return }
+                self.elapsed = Date().timeIntervalSince(sessionStart)
             }
         }
     }
@@ -190,25 +190,27 @@ extension Zone2WorkoutSession: HKLiveWorkoutBuilderDelegate {
         didCollectDataOf collectedTypes: Set<HKSampleType>
     ) {
         Task { @MainActor in
+            let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)
+            let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)
+            let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount)
             for type in collectedTypes {
                 guard let quantityType = type as? HKQuantityType else { continue }
                 guard let stats = workoutBuilder.statistics(for: quantityType) else { continue }
-                switch quantityType.quantityTypeIdentifier {
-                case .heartRate:
+                // Compare quantity types directly — `quantityTypeIdentifier` is unavailable
+                // on some watchOS SDK overlays used by CI / newer Xcode.
+                if quantityType == heartRateType {
                     let unit = HKUnit.count().unitDivided(by: .minute())
                     if let heartRate = stats.mostRecentQuantity()?.doubleValue(for: unit) {
                         ingestHeartRate(heartRate, at: Date())
                     }
-                case .distanceWalkingRunning:
+                } else if quantityType == distanceType {
                     distanceMetres = stats.sumQuantity()?.doubleValue(for: .meter()) ?? distanceMetres
-                case .stepCount:
+                } else if quantityType == stepType {
                     // Rough cadence: steps in last rolling window approximated from total / elapsed.
                     if elapsed > 10 {
                         let steps = stats.sumQuantity()?.doubleValue(for: .count()) ?? 0
                         recordCadence((steps / elapsed) * 60.0)
                     }
-                default:
-                    break
                 }
             }
         }

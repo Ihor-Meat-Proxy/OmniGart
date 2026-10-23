@@ -107,19 +107,19 @@ enum WorkoutPdfRenderer {
         )
     }
 
-    // Process-wide one-shot gate; CTFontManager registration is idempotent.
+    private static let fontRegistrationLock = NSLock()
+    // Guarded by fontRegistrationLock; process-wide one-shot registration.
     nonisolated(unsafe) private static var fontsRegistered = false
 
     private static func registerFontsIfNeeded() {
+        fontRegistrationLock.lock()
+        defer { fontRegistrationLock.unlock() }
         guard !fontsRegistered else { return }
         fontsRegistered = true
         let names = ["NotoSans-Regular", "NotoSans-Bold", "NotoSansGeorgian-Regular"]
         for name in names {
-            guard let url = Bundle.main.url(
-                forResource: name,
-                withExtension: "ttf",
-                subdirectory: "Fonts"
-            ) ?? Bundle.main.url(forResource: name, withExtension: "ttf")
+            guard let url = Bundle.main.url(forResource: name, withExtension: "ttf", subdirectory: "Fonts")
+                ?? Bundle.main.url(forResource: name, withExtension: "ttf")
             else { continue }
             CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
         }

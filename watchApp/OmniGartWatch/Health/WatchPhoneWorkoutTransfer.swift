@@ -3,11 +3,11 @@ import WatchConnectivity
 
 /// Queues finished watch workouts to the iPhone via WCSession (reliable delivery).
 /// Payload is OmniGart device-transfer JSON; the phone stores locally and must not re-write HealthKit.
-@MainActor
-final class WatchPhoneWorkoutTransfer: NSObject, WCSessionDelegate {
+final class WatchPhoneWorkoutTransfer: NSObject, WCSessionDelegate, @unchecked Sendable {
     static let shared = WatchPhoneWorkoutTransfer()
 
     private let payloadKey = "omnigart.workout.transfer.json"
+    private let stateLock = NSLock()
     private var activated = false
 
     func activate() {
@@ -21,7 +21,10 @@ final class WatchPhoneWorkoutTransfer: NSObject, WCSessionDelegate {
     func enqueue(jsonPayload: String) {
         guard WCSession.isSupported() else { return }
         let session = WCSession.default
-        if !activated {
+        stateLock.lock()
+        let needsActivate = !activated
+        stateLock.unlock()
+        if needsActivate {
             session.delegate = self
             session.activate()
         }
@@ -47,9 +50,9 @@ final class WatchPhoneWorkoutTransfer: NSObject, WCSessionDelegate {
         activationDidCompleteWith activationState: WCSessionActivationState,
         error: Error?
     ) {
-        Task { @MainActor in
-            activated = activationState == .activated
-        }
+        WatchPhoneWorkoutTransfer.shared.stateLock.lock()
+        WatchPhoneWorkoutTransfer.shared.activated = activationState == .activated
+        WatchPhoneWorkoutTransfer.shared.stateLock.unlock()
     }
 }
 

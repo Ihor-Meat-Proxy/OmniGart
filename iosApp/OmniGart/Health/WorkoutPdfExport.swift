@@ -3,6 +3,7 @@ import SwiftUI
 import UIKit
 
 /// SwiftUI helpers to build and share OmniGart workout PDFs.
+@MainActor
 enum WorkoutPdfExport {
     static func localeTag() -> String {
         Locale.current.identifier.replacingOccurrences(of: "_", with: "-")

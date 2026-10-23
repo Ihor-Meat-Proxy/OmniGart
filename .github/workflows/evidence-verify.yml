@@ -1,0 +1,47 @@
+name: Evidence network verify
+
+on:
+  schedule:
+    # Mondays 06:15 UTC
+    - cron: '15 6 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: evidence-network-verify
+  cancel-in-progress: false
+
+jobs:
+  EvidenceNetwork:
+    name: Evidence network verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: tooling/evidence/package-lock.json
+
+      - name: Install evidence tooling
+        working-directory: tooling/evidence
+        run: npm ci
+
+      - name: Offline validate first
+        working-directory: tooling/evidence
+        run: npm run validate
+
+      - name: Crossref + PubMed verification
+        working-directory: tooling/evidence
+        env:
+          OMNIGART_EVIDENCE_EMAIL: evidence@omnigart.app
+        run: npm run verify:network
+
+      - name: Upload verification report
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: evidence-verification-report
+          path: content/evidence/reports/verification-report.json
+          if-no-files-found: error

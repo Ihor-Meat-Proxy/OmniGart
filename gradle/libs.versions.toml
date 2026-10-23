@@ -18,10 +18,6 @@ androidx-test-espresso = "3.7.0"
 robolectric = "4.17"
 ktlint = "14.2.0"
 detekt = "1.23.8"
-<<<<<<< HEAD
-json-schema-validator = "3.0.8"
-jackson = "3.2.1"
-=======
 json-schema-validator = "3.0.8"
 jackson = "3.2.1"
 ktor = "3.6.0"
@@ -29,7 +25,6 @@ health-connect = "1.1.0"
 health-connect-testing = "1.0.0-alpha04"
 security-crypto = "1.1.0"
 appauth = "0.11.1"
->>>>>>> origin/main
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }

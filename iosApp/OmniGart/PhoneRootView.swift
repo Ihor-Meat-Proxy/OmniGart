@@ -124,4 +124,3 @@ enum PhoneTab: String, CaseIterable, Identifiable {
 
     var accessibilityId: String { "tab_\(rawValue)" }
 }
-

@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "equip_pilates_reformer.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "equip_pilates_reformer.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

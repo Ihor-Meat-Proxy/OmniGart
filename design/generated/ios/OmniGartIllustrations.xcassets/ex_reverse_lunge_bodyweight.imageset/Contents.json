@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "ex_reverse_lunge_bodyweight.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "ex_reverse_lunge_bodyweight.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

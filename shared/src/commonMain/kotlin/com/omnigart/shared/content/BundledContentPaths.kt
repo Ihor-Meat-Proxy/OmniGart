@@ -14,6 +14,7 @@ object BundledContentPaths {
     const val EVIDENCE = "evidence"
     const val ICONS = "icons"
     const val BODY_MAPS = "body-maps"
+    const val ILLUSTRATIONS = "illustrations"
     const val ACHIEVEMENTS = "achievements"
     const val EXERCISE_IMAGES = "exercise-images"
 

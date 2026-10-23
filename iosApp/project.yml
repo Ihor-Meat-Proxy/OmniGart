@@ -64,6 +64,10 @@ targets:
         path: ../design/generated/ios/OmniGartIcons.xcassets
         name: OmniGartIcons
         createIntermediateGroups: false
+      - &designIllustrationAssets
+        path: ../design/generated/ios/OmniGartIllustrations.xcassets
+        name: OmniGartIllustrations
+        createIntermediateGroups: false
       - path: OmniGart/PrivacyInfo.xcprivacy
         buildPhase: resources
       - path: OmniGart/en-GB.lproj
@@ -150,6 +154,9 @@ targets:
     resources:
       - *designColorAssets
       - *designIconAssets
+      - path: ../design/generated/watch/OmniGartIllustrations.xcassets
+        name: OmniGartWatchIllustrations
+        createIntermediateGroups: false
       - path: ../watchApp/OmniGartWatch/en-GB.lproj
       - path: ../watchApp/OmniGartWatch/uk.lproj
       - path: OmniGart/Localizable.xcstrings

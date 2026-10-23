@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none" data-omnigart="equip:treadmill">
+  <circle cx="64" cy="64" r="58" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="28" y="72" width="72" height="16" rx="3" fill="#334155"/>
+  <rect x="36" y="40" width="40" height="32" rx="3" fill="#475569"/>
+  <line x1="76" y1="40" x2="92" y2="56" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+  <line x1="92" y1="56" x2="92" y2="72" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+
+</svg>

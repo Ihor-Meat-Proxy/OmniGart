@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none" data-omnigart="equip:landmine">
+  <circle cx="64" cy="64" r="58" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <circle cx="40" cy="96" r="10" fill="#334155"/>
+  <line x1="40" y1="90" x2="96" y2="40" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+  <rect x="88" y="32" width="14" height="10" rx="2" fill="#475569"/>
+
+</svg>

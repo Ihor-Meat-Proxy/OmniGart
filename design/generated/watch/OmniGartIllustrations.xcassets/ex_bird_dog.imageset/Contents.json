@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "ex_bird_dog.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "ex_bird_dog.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

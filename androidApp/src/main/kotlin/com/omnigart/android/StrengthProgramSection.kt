@@ -33,7 +33,7 @@ import com.omnigart.shared.strength.StrengthProgramService
 import com.omnigart.shared.strength.UserEquipmentProfile
 import java.util.Locale
 
-private data class StrengthUiState(
+private data class ProgramUiState(
     val epoch: Int = 0,
     val selectedDay: Int = 0,
     val showEquipment: Boolean = false,
@@ -44,7 +44,7 @@ private data class StrengthUiState(
 @Composable
 fun StrengthProgramSection(core: OmniGartCore, profileId: String) {
     val programs = core.strengthPrograms
-    var ui by remember { mutableStateOf(StrengthUiState()) }
+    var ui by remember { mutableStateOf(ProgramUiState()) }
     val overrideList = ui.sessionOverride?.toList()
     val prefs = remember(ui.epoch) { programs.programPrefs(profileId) }
     val equipment = remember(ui.epoch) { programs.equipment(profileId) }
@@ -72,13 +72,13 @@ fun StrengthProgramSection(core: OmniGartCore, profileId: String) {
 private fun StrengthProgramContent(
     programs: StrengthProgramService,
     profileId: String,
-    ui: StrengthUiState,
+    ui: ProgramUiState,
     prefs: StrengthProgramPreferences,
     equipment: UserEquipmentProfile,
     program: GeneratedStrengthProgram,
     readyWorkouts: List<ReadyMadeWorkout>,
     readySession: GeneratedStrengthSession?,
-    onUi: (StrengthUiState) -> Unit
+    onUi: (ProgramUiState) -> Unit
 ) {
     val session =
         program.sessions.getOrNull(ui.selectedDay.coerceIn(0, (program.sessions.size - 1).coerceAtLeast(0)))

@@ -69,9 +69,9 @@ struct StrengthProgramSection: View {
                 }
                 .accessibilityIdentifier("workouts_ready_\(workout.id)")
             }
-            if let readySession {
-                SessionMusclePreview(muscles: readySession.workedMuscles.map { String(describing: $0) })
-                ForEach(Array(readySession.slots.enumerated()), id: \.offset) { _, slot in
+            if let preview = readySession {
+                SessionMusclePreview(muscles: preview.workedMuscles.map { String(describing: $0) })
+                ForEach(Array(preview.slots.enumerated()), id: \.offset) { _, slot in
                     VStack(alignment: .leading, spacing: 2) {
                         Text(humanize(String(describing: slot.exerciseId)))
                             .font(.body)

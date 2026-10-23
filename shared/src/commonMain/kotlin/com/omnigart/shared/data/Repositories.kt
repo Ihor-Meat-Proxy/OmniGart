@@ -88,7 +88,10 @@ class SessionRepository(private val db: OmniGartDatabase) {
                     duration_seconds = set.durationSeconds?.toLong(),
                     distance_metres = set.distanceMetres,
                     rir = set.rir,
-                    completed = if (set.completed) 1L else 0L
+                    completed = if (set.completed) 1L else 0L,
+                    is_warmup = if (set.isWarmup) 1L else 0L,
+                    assistance_kg = set.assistanceKg,
+                    logged_per_hand = if (set.loggedPerHand) 1L else 0L
                 )
             }
         }
@@ -107,6 +110,10 @@ class SessionRepository(private val db: OmniGartDatabase) {
                 it.toDomain()
             }
         row.toDomain(sets)
+    }
+
+    fun deleteSet(setId: String) {
+        db.omniGartQueries.deleteSet(setId)
     }
 }
 
@@ -156,5 +163,8 @@ private fun com.omnigart.shared.db.Workout_set.toDomain(): WorkoutSet = WorkoutS
     durationSeconds = duration_seconds?.toInt(),
     distanceMetres = distance_metres,
     rir = rir,
-    completed = completed != 0L
+    completed = completed != 0L,
+    isWarmup = is_warmup != 0L,
+    assistanceKg = assistance_kg,
+    loggedPerHand = logged_per_hand != 0L
 )

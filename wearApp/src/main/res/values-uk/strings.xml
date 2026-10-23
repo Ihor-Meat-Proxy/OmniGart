@@ -2,5 +2,6 @@
 <resources>
     <string name="app_name">OmniGart</string>
     <string name="watch_start">Старт</string>
-    <string name="watch_subtitle">Phase 0 — спільне ядро</string>
+    <string name="watch_subtitle">Оцінки самопочуття на зап’ясті</string>
+    <string name="info_sheet_not_medical_advice">Це не медична консультація. Зверніться до фахівця.</string>
 </resources>

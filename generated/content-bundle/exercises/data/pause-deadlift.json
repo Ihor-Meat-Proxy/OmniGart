@@ -1,0 +1,75 @@
+{
+  "id": "pause-deadlift",
+  "nameKeys": {
+    "enGB": "exercise.pause_deadlift.name",
+    "uk": "exercise.pause_deadlift.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "hamstrings",
+    "erector_spinae",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "quadriceps",
+    "forearms"
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Pull to just below the knee, pause while braced, then finish lockout."
+  ],
+  "setup": [
+    "Lighter than full deadlift."
+  ],
+  "breathing": "Maintain brace during pause.",
+  "commonMistakes": [
+    "Losing position in the pause"
+  ],
+  "safety": [
+    "Positional tool — not for maximal testing."
+  ],
+  "contraindications": [
+    "Acute lumbar pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "conventional-deadlift",
+      "note": "Remove pause"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/pause-deadlift",
+    "videoKey": "media/video/pause-deadlift",
+    "animationKey": "media/anim/pause-deadlift"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

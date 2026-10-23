@@ -1,0 +1,93 @@
+{
+  "id": "farmers-carry",
+  "nameKeys": {
+    "enGB": "exercise.farmers_carry.name",
+    "uk": "exercise.farmers_carry.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "carry",
+  "primaryMuscles": [
+    "forearms",
+    "trapezius",
+    "full_body"
+  ],
+  "secondaryMuscles": [
+    "gluteus_medius",
+    "rectus_abdominis"
+  ],
+  "equipment": [
+    "dumbbell",
+    "kettlebell",
+    "trap_bar"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "distance",
+  "technique": [
+    "Pick up heavy implements, stand tall, and walk with short controlled steps without leaning."
+  ],
+  "setup": [
+    "Clear path; loads equal unless suitcase variation."
+  ],
+  "breathing": "Steady breathing; avoid breath-holding the whole walk.",
+  "commonMistakes": [
+    "Rounded shoulders",
+    "Shuffling with twisted torso"
+  ],
+  "safety": [
+    "Drop safely if grip fails; use chalk/straps sparingly for grip goals."
+  ],
+  "contraindications": [
+    "Acute low-back pain with loading"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "suitcase-carry",
+      "note": "Unilateral"
+    },
+    {
+      "exerciseId": "plank",
+      "note": "Static brace"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/farmers-carry",
+    "videoKey": "media/video/farmers-carry",
+    "animationKey": "media/anim/farmers-carry"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

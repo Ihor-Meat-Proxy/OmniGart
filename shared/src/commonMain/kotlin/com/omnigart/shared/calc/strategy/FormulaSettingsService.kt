@@ -39,7 +39,12 @@ class FormulaSettingsService(private val db: OmniGartDatabase) {
         ).normalize()
     }
 
-    fun saveSelection(profileId: String, selection: FormulaSelection, now: Instant = Clock.System.now()) {
+    /** Swift-friendly overload (Kotlin default args are not exported to Apple). */
+    fun saveSelection(profileId: String, selection: FormulaSelection) {
+        saveSelection(profileId, selection, Clock.System.now())
+    }
+
+    fun saveSelection(profileId: String, selection: FormulaSelection, now: Instant) {
         val normalized = selection.normalize()
         // When switching to SIMPLE, force curated defaults for every domain.
         val toStore =
@@ -68,7 +73,11 @@ class FormulaSettingsService(private val db: OmniGartDatabase) {
         }
     }
 
-    fun updateDomain(profileId: String, domain: FormulaDomain, key: String, now: Instant = Clock.System.now()): FormulaSelection {
+    /** Swift-friendly overload (Kotlin default args are not exported to Apple). */
+    fun updateDomain(profileId: String, domain: FormulaDomain, key: String): FormulaSelection =
+        updateDomain(profileId, domain, key, Clock.System.now())
+
+    fun updateDomain(profileId: String, domain: FormulaDomain, key: String, now: Instant): FormulaSelection {
         val current = getSelection(profileId)
         val next = current.withKey(domain, key).normalize()
         // Domain edits imply advanced mode when picking a non-default.
@@ -82,7 +91,10 @@ class FormulaSettingsService(private val db: OmniGartDatabase) {
         return getSelection(profileId)
     }
 
-    fun setMode(profileId: String, mode: FormulaMode, now: Instant = Clock.System.now()): FormulaSelection {
+    /** Swift-friendly overload (Kotlin default args are not exported to Apple). */
+    fun setMode(profileId: String, mode: FormulaMode): FormulaSelection = setMode(profileId, mode, Clock.System.now())
+
+    fun setMode(profileId: String, mode: FormulaMode, now: Instant): FormulaSelection {
         val current = getSelection(profileId)
         saveSelection(profileId, current.copy(mode = mode), now)
         return getSelection(profileId)

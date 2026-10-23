@@ -88,34 +88,7 @@ fun OmniGartPhoneShell(summaryLines: List<String>) {
     Scaffold(
         modifier = Modifier.testTag("phone_shell"),
         containerColor = OmniGartColors.colorSurfaceLightCanvas,
-        bottomBar = {
-            NavigationBar(
-                containerColor = OmniGartColors.colorSurfaceLightRaised
-            ) {
-                tabs.forEachIndexed { index, tab ->
-                    NavigationBarItem(
-                        selected = selected == index,
-                        onClick = { selected = index },
-                        icon = {
-                            Icon(
-                                imageVector = tab.icon,
-                                contentDescription = stringResource(tab.labelRes)
-                            )
-                        },
-                        label = { Text(stringResource(tab.labelRes)) },
-                        colors =
-                        NavigationBarItemDefaults.colors(
-                            selectedIconColor = OmniGartColors.colorBrandAccent,
-                            selectedTextColor = OmniGartColors.colorBrandAccent,
-                            indicatorColor = OmniGartColors.colorBrandAccentMuted,
-                            unselectedIconColor = OmniGartColors.colorTextLightSecondary,
-                            unselectedTextColor = OmniGartColors.colorTextLightSecondary
-                        ),
-                        modifier = Modifier.testTag(tab.testTag)
-                    )
-                }
-            }
-        }
+        bottomBar = { PhoneBottomBar(tabs = tabs, selected = selected, onSelect = { selected = it }) }
     ) { padding ->
         Column(
             modifier =
@@ -145,30 +118,10 @@ fun OmniGartPhoneShell(summaryLines: List<String>) {
                 Text(text = line, style = MaterialTheme.typography.bodyLarge)
             }
             if (selected == PhoneTab.Profile.ordinal || selected == PhoneTab.Recovery.ordinal) {
-                Text(
-                    text = stringResource(R.string.onboarding_wellness_title),
-                    style = MaterialTheme.typography.titleSmall
+                WellnessTabSection(
+                    showInfoSheet = showInfoSheet,
+                    onToggleInfoSheet = { showInfoSheet = !showInfoSheet }
                 )
-                Text(
-                    text = stringResource(R.string.wellness_disclaimer),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = OmniGartColors.colorTextLightSecondary,
-                    modifier = Modifier.testTag("wellness_disclaimer")
-                )
-                Text(
-                    text = stringResource(R.string.health_warning_chest_pain),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = OmniGartColors.colorTextLightSecondary
-                )
-                IconButton(
-                    onClick = { showInfoSheet = !showInfoSheet },
-                    modifier = Modifier.testTag("info_sheet_toggle")
-                ) {
-                    Text(stringResource(R.string.info_sheet_title))
-                }
-                if (showInfoSheet) {
-                    WellnessInfoSheet()
-                }
             }
             // Unfinished surfaces stay behind flags that are off in release.
             if (FeatureFlags.healthSyncEnabled) {
@@ -176,5 +129,61 @@ fun OmniGartPhoneShell(summaryLines: List<String>) {
             }
             MaybeDebugMenu()
         }
+    }
+}
+
+@Composable
+private fun PhoneBottomBar(tabs: List<PhoneTab>, selected: Int, onSelect: (Int) -> Unit) {
+    NavigationBar(containerColor = OmniGartColors.colorSurfaceLightRaised) {
+        tabs.forEachIndexed { index, tab ->
+            NavigationBarItem(
+                selected = selected == index,
+                onClick = { onSelect(index) },
+                icon = {
+                    Icon(
+                        imageVector = tab.icon,
+                        contentDescription = stringResource(tab.labelRes)
+                    )
+                },
+                label = { Text(stringResource(tab.labelRes)) },
+                colors =
+                NavigationBarItemDefaults.colors(
+                    selectedIconColor = OmniGartColors.colorBrandAccent,
+                    selectedTextColor = OmniGartColors.colorBrandAccent,
+                    indicatorColor = OmniGartColors.colorBrandAccentMuted,
+                    unselectedIconColor = OmniGartColors.colorTextLightSecondary,
+                    unselectedTextColor = OmniGartColors.colorTextLightSecondary
+                ),
+                modifier = Modifier.testTag(tab.testTag)
+            )
+        }
+    }
+}
+
+@Composable
+private fun WellnessTabSection(showInfoSheet: Boolean, onToggleInfoSheet: () -> Unit) {
+    Text(
+        text = stringResource(R.string.onboarding_wellness_title),
+        style = MaterialTheme.typography.titleSmall
+    )
+    Text(
+        text = stringResource(R.string.wellness_disclaimer),
+        style = MaterialTheme.typography.bodySmall,
+        color = OmniGartColors.colorTextLightSecondary,
+        modifier = Modifier.testTag("wellness_disclaimer")
+    )
+    Text(
+        text = stringResource(R.string.health_warning_chest_pain),
+        style = MaterialTheme.typography.bodySmall,
+        color = OmniGartColors.colorTextLightSecondary
+    )
+    IconButton(
+        onClick = onToggleInfoSheet,
+        modifier = Modifier.testTag("info_sheet_toggle")
+    ) {
+        Text(stringResource(R.string.info_sheet_title))
+    }
+    if (showInfoSheet) {
+        WellnessInfoSheet()
     }
 }

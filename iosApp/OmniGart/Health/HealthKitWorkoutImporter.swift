@@ -23,12 +23,18 @@ enum HealthKitWorkoutImporter {
         var planId: String?
     }
 
+    struct AnchoredImportResult: Sendable {
+        var workouts: [ImportedWorkout]
+        var deletedUUIDs: [UUID]
+        var newAnchor: Data?
+    }
+
     /// Incremental import using an anchored object query.
     static func importAnchored(
         previousAnchor: Data?
-    ) async throws -> (workouts: [ImportedWorkout], deletedUUIDs: [UUID], newAnchor: Data?) {
+    ) async throws -> AnchoredImportResult {
         guard HKHealthStore.isHealthDataAvailable() else {
-            return ([], [], previousAnchor)
+            return AnchoredImportResult(workouts: [], deletedUUIDs: [], newAnchor: previousAnchor)
         }
         let store = HKHealthStore()
         let workoutType = HealthKitPlatformBridge.workoutType()
@@ -48,7 +54,11 @@ enum HealthKitWorkoutImporter {
                         let workouts = try await mapSamples(samples as? [HKWorkout] ?? [])
                         let deletedIds = (deleted ?? []).compactMap { $0.uuid }
                         continuation.resume(
-                            returning: (workouts, deletedIds, encodeAnchor(newAnchor))
+                            returning: AnchoredImportResult(
+                                workouts: workouts,
+                                deletedUUIDs: deletedIds,
+                                newAnchor: encodeAnchor(newAnchor)
+                            )
                         )
                     } catch {
                         continuation.resume(throwing: error)

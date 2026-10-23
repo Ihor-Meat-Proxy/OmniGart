@@ -62,57 +62,19 @@ enum MindfulBodyHealthSave {
         energy: HealthKitWorkoutWriter.EnergyInput,
         age: Int
     ) async -> HealthKitWorkoutWriter.Result? {
+        let heartRate = await WorkoutHeartRateSummary.load(start: request.start, end: request.end)
+        let syncId = recordLocalWorkout(request: request, energy: energy, heartRate: heartRate)
         do {
-            let hrSamples =
-                (try? await HealthKitWorkoutWriter.fetchHeartRate(
-                    from: request.start,
-                    to: request.end.addingTimeInterval(90)
-                )) ?? []
-            let during = hrSamples.filter { $0.date <= request.end }
-            let avg = during.map(\.bpm).filter { $0 > 0 }
-            let avgBpm = avg.isEmpty ? nil : avg.reduce(0, +) / Double(avg.count)
-            let maxBpm = avg.max()
-            let activityName = request.kind == .yoga ? "YOGA" : "PILATES"
-            let localId = request.sessionKey
-            let syncId = request.core.localHealth.recordOmniGartWorkout(
-                localId: localId,
-                activityTypeName: activityName,
-                startEpochMs: Int64(request.start.timeIntervalSince1970 * 1000),
-                endEpochMs: Int64(request.end.timeIntervalSince1970 * 1000),
-                activeEnergyKcal: KotlinDouble(value: energy.activeKcal),
-                basalEnergyKcal: KotlinDouble(value: energy.basalKcal),
-                distanceMetres: nil,
-                averageHeartRateBpm: avgBpm.map { KotlinDouble(value: $0) },
-                maxHeartRateBpm: maxBpm.map { KotlinDouble(value: $0) },
-                sessionId: nil,
-                planId: nil,
-                heartRateEpochMs: during.map { Int64($0.date.timeIntervalSince1970 * 1000) },
-                heartRateBpm: during.map(\.bpm),
-                syncVersion: 1
-            )
-            let saved = try await HealthKitWorkoutWriter.save(
-                options: .init(
-                    activityType: request.kind.activityType,
-                    start: request.start,
-                    end: request.end,
-                    energy: energy,
-                    syncIdentifier: syncId,
-                    heartRate: during,
-                    indoor: true,
-                    saveMindfulMinutes: request.saveMindfulMinutes,
-                    estimatedEffortScore: HealthKitWorkoutWriter.estimateEffortScore(
-                        averageBpm: avgBpm,
-                        ageYears: age
-                    ),
-                    heartRateRecoveryBpm: HealthKitWorkoutWriter.estimateHeartRateRecoveryBpm(
-                        samples: hrSamples,
-                        workoutEnd: request.end
-                    )
-                )
+            let saved = try await saveToHealthKit(
+                request: request,
+                energy: energy,
+                age: age,
+                heartRate: heartRate,
+                syncId: syncId
             )
             if let saved, !saved.skippedBecauseAlreadyExists {
                 request.core.localHealth.markPlatformLinked(
-                    localId: localId,
+                    localId: request.sessionKey,
                     platformRecordId: saved.workoutUUID.uuidString
                 )
             }
@@ -129,5 +91,57 @@ enum MindfulBodyHealthSave {
                 heartRateRecoveryBpm: nil
             )
         }
+    }
+
+    private static func recordLocalWorkout(
+        request: MindfulBodySaveRequest,
+        energy: HealthKitWorkoutWriter.EnergyInput,
+        heartRate: WorkoutHeartRateSummary
+    ) -> String {
+        request.core.localHealth.recordOmniGartWorkout(
+            localId: request.sessionKey,
+            activityTypeName: request.kind == .yoga ? "YOGA" : "PILATES",
+            startEpochMs: Int64(request.start.timeIntervalSince1970 * 1000),
+            endEpochMs: Int64(request.end.timeIntervalSince1970 * 1000),
+            activeEnergyKcal: KotlinDouble(value: energy.activeKcal),
+            basalEnergyKcal: KotlinDouble(value: energy.basalKcal),
+            distanceMetres: nil,
+            averageHeartRateBpm: heartRate.averageBpm.map { KotlinDouble(value: $0) },
+            maxHeartRateBpm: heartRate.maxBpm.map { KotlinDouble(value: $0) },
+            sessionId: nil,
+            planId: nil,
+            heartRateEpochMs: heartRate.during.map { Int64($0.date.timeIntervalSince1970 * 1000) },
+            heartRateBpm: heartRate.during.map(\.bpm),
+            syncVersion: 1
+        )
+    }
+
+    private static func saveToHealthKit(
+        request: MindfulBodySaveRequest,
+        energy: HealthKitWorkoutWriter.EnergyInput,
+        age: Int,
+        heartRate: WorkoutHeartRateSummary,
+        syncId: String
+    ) async throws -> HealthKitWorkoutWriter.Result? {
+        try await HealthKitWorkoutWriter.save(
+            options: .init(
+                activityType: request.kind.activityType,
+                start: request.start,
+                end: request.end,
+                energy: energy,
+                syncIdentifier: syncId,
+                heartRate: heartRate.during,
+                indoor: true,
+                saveMindfulMinutes: request.saveMindfulMinutes,
+                estimatedEffortScore: HealthKitWorkoutWriter.estimateEffortScore(
+                    averageBpm: heartRate.averageBpm,
+                    ageYears: age
+                ),
+                heartRateRecoveryBpm: HealthKitWorkoutWriter.estimateHeartRateRecoveryBpm(
+                    samples: heartRate.allSamples,
+                    workoutEnd: request.end
+                )
+            )
+        )
     }
 }

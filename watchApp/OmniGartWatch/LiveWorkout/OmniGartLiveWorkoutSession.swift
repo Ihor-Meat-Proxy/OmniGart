@@ -106,9 +106,9 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
     }
 
     func startRest(seconds: Int = OmniGartStrengthDefaults.restSeconds) {
-        let s = max(0, seconds)
-        restRemaining = s
-        restWasActive = s > 0
+        let clampedSeconds = max(0, seconds)
+        restRemaining = clampedSeconds
+        restWasActive = clampedSeconds > 0
     }
 
     func skipRest() {
@@ -129,44 +129,17 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         lastError = nil
         resetMetrics()
         syncIdentifier = OmniGartWatchHealthSync.makeSyncIdentifier()
-        guard HKHealthStore.isHealthDataAvailable() else {
+        guard HKHealthStore.isHealthDataAvailable(), let healthTypes = LiveWorkoutHealthTypes(kind: kind) else {
             lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
             return
-        }
-        guard
-            let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate),
-            let activeEnergyType = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned),
-            let basalEnergyType = HKQuantityType.quantityType(forIdentifier: .basalEnergyBurned)
-        else {
-            lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
-            return
-        }
-
-        var types: Set<HKSampleType> = [
-            heartRateType,
-            activeEnergyType,
-            basalEnergyType,
-            HKObjectType.workoutType()
-        ]
-        if kind == .zone2Run,
-           let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) {
-            types.insert(distanceType)
         }
 
         do {
-            try await store.requestAuthorization(toShare: types, read: types)
+            try await store.requestAuthorization(toShare: healthTypes.sampleTypes, read: healthTypes.sampleTypes)
             let config = kind.makeConfiguration()
             let session = try HKWorkoutSession(healthStore: store, configuration: config)
             let builder = session.associatedWorkoutBuilder()
-            let dataSource = HKLiveWorkoutDataSource(healthStore: store, workoutConfiguration: config)
-            dataSource.enableCollection(for: heartRateType, predicate: nil)
-            dataSource.enableCollection(for: activeEnergyType, predicate: nil)
-            dataSource.enableCollection(for: basalEnergyType, predicate: nil)
-            if kind == .zone2Run,
-               let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) {
-                dataSource.enableCollection(for: distanceType, predicate: nil)
-            }
-            builder.dataSource = dataSource
+            builder.dataSource = makeDataSource(configuration: config, healthTypes: healthTypes)
             session.delegate = self
             builder.delegate = self
             self.session = session
@@ -183,6 +156,19 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
             lastError = error.localizedDescription
             isRunning = false
         }
+    }
+}
+
+extension OmniGartLiveWorkoutSession {
+    private func makeDataSource(
+        configuration: HKWorkoutConfiguration,
+        healthTypes: LiveWorkoutHealthTypes
+    ) -> HKLiveWorkoutDataSource {
+        let dataSource = HKLiveWorkoutDataSource(healthStore: store, workoutConfiguration: configuration)
+        for type in healthTypes.collectedQuantityTypes {
+            dataSource.enableCollection(for: type, predicate: nil)
+        }
+        return dataSource
     }
 
     func pause() {
@@ -236,50 +222,63 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         session?.end()
         do {
             if let builder {
-                // Append-only: never finish a second copy for the same sync id.
-                if await OmniGartWatchHealthSync.workoutExists(
-                    syncIdentifier: syncIdentifier,
-                    store: store
-                ) {
-                    builder.discardWorkout()
+                let saved = try await finalizeBuilder(builder, endedAt: end)
+                if !saved {
                     isRunning = false
                     isPaused = false
                     return makeSummary(endedAt: end)
                 }
-                if !events.isEmpty {
-                    try await builder.addWorkoutEvents(events)
-                }
-                var metadata = OmniGartWatchHealthSync.syncMetadata(
-                    syncIdentifier: syncIdentifier,
-                    indoor: kind.isIndoor
-                )
-                if let label = pendingSegmentLabel {
-                    metadata["OmniGartLastSegment"] = label
-                }
-                try await builder.addMetadata(metadata)
-                try await builder.endCollection(at: end)
-                _ = try await builder.finishWorkout()
             }
             isRunning = false
             isPaused = false
             let summary = makeSummary(endedAt: end)
-            // Phone inbox: local store by sync id; never re-write HealthKit on iPhone.
-            let localId = syncIdentifier.replacingOccurrences(
-                of: OmniGartWatchHealthSync.syncIdPrefix,
-                with: ""
-            )
-            if !localId.isEmpty {
-                WatchWorkoutTransferBuilder.enqueueLiveSummary(
-                    summary,
-                    localId: localId,
-                    syncIdentifier: syncIdentifier
-                )
-            }
+            enqueuePhoneTransfer(summary)
             return summary
         } catch {
             lastError = error.localizedDescription
             isRunning = false
             return nil
+        }
+    }
+
+    /// Returns `false` when a workout with the same sync id already exists and the builder was discarded.
+    private func finalizeBuilder(_ builder: HKLiveWorkoutBuilder, endedAt end: Date) async throws -> Bool {
+        // Append-only: never finish a second copy for the same sync id.
+        if await OmniGartWatchHealthSync.workoutExists(
+            syncIdentifier: syncIdentifier,
+            store: store
+        ) {
+            builder.discardWorkout()
+            return false
+        }
+        if !events.isEmpty {
+            try await builder.addWorkoutEvents(events)
+        }
+        var metadata = OmniGartWatchHealthSync.syncMetadata(
+            syncIdentifier: syncIdentifier,
+            indoor: kind.isIndoor
+        )
+        if let label = pendingSegmentLabel {
+            metadata["OmniGartLastSegment"] = label
+        }
+        try await builder.addMetadata(metadata)
+        try await builder.endCollection(at: end)
+        _ = try await builder.finishWorkout()
+        return true
+    }
+
+    private func enqueuePhoneTransfer(_ summary: OmniGartLiveWorkoutSummary) {
+        // Phone inbox: local store by sync id; never re-write HealthKit on iPhone.
+        let localId = syncIdentifier.replacingOccurrences(
+            of: OmniGartWatchHealthSync.syncIdPrefix,
+            with: ""
+        )
+        if !localId.isEmpty {
+            WatchWorkoutTransferBuilder.enqueueLiveSummary(
+                summary,
+                localId: localId,
+                syncIdentifier: syncIdentifier
+            )
         }
     }
 
@@ -346,5 +345,39 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         heartRateBpm = value
         let offset = startedAt.map { date.timeIntervalSince($0) } ?? elapsed
         heartRateSamples.append(Zone2HeartRateSample(offsetSeconds: max(0, offset), bpm: value))
+    }
+}
+
+/// HealthKit quantity types a live workout reads, writes, and collects.
+private struct LiveWorkoutHealthTypes {
+    let heartRate: HKQuantityType
+    let activeEnergy: HKQuantityType
+    let basalEnergy: HKQuantityType
+    let distance: HKQuantityType?
+
+    init?(kind: OmniGartWorkoutKind) {
+        guard
+            let heartRate = HKQuantityType.quantityType(forIdentifier: .heartRate),
+            let activeEnergy = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned),
+            let basalEnergy = HKQuantityType.quantityType(forIdentifier: .basalEnergyBurned)
+        else { return nil }
+        self.heartRate = heartRate
+        self.activeEnergy = activeEnergy
+        self.basalEnergy = basalEnergy
+        distance = kind == .zone2Run
+            ? HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)
+            : nil
+    }
+
+    var collectedQuantityTypes: [HKQuantityType] {
+        [heartRate, activeEnergy, basalEnergy] + (distance.map { [$0] } ?? [])
+    }
+
+    var sampleTypes: Set<HKSampleType> {
+        var types: Set<HKSampleType> = [heartRate, activeEnergy, basalEnergy, HKObjectType.workoutType()]
+        if let distance {
+            types.insert(distance)
+        }
+        return types
     }
 }

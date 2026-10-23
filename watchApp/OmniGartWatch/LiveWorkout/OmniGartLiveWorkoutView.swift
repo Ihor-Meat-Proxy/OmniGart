@@ -154,7 +154,7 @@ struct OmniGartLiveWorkoutView: View {
                         .tint(Color.OmniGart.colorBrandAccent)
                     }
 
-                    if session.loggedSets.count > 0 {
+                    if !session.loggedSets.isEmpty {
                         Text("\(session.loggedSets.count)")
                             .font(.caption2)
                             .foregroundStyle(Color.OmniGart.colorTextLightSecondary)

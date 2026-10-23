@@ -53,20 +53,21 @@ final class WatchWorkoutTransferTests: XCTestCase {
             )
         ]
         let json = WatchWorkoutTransferBuilder.makeJSON(
-            localId: "strength-1",
-            syncIdentifier: "omnigart.workout.strength-1",
-            activityTypeName: "STRENGTH",
-            startEpochMs: 1_700_000_000_000,
-            endEpochMs: 1_700_000_600_000,
-            activeEnergyKcal: 120,
-            basalEnergyKcal: 30,
-            distanceMetres: nil,
-            averageHeartRateBpm: 118,
-            maxHeartRateBpm: 140,
-            averageCadenceSpm: nil,
-            samples: [],
-            sessionStart: Date(timeIntervalSince1970: 1_700_000_000),
-            sets: sets
+            WatchWorkoutTransferPayload(
+                localId: "strength-1",
+                syncIdentifier: "omnigart.workout.strength-1",
+                activityTypeName: "STRENGTH",
+                startEpochMs: 1_700_000_000_000,
+                endEpochMs: 1_700_000_600_000,
+                activeEnergyKcal: 120,
+                basalEnergyKcal: 30,
+                distanceMetres: nil,
+                averageHeartRateBpm: 118,
+                maxHeartRateBpm: 140,
+                averageCadenceSpm: nil,
+                samples: [],
+                sets: sets
+            )
         )
         XCTAssertTrue(json.contains("\"schemaVersion\":2"))
         XCTAssertTrue(json.contains("\"sets\":["))

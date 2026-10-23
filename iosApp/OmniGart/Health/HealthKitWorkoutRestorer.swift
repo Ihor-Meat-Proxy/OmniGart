@@ -35,92 +35,133 @@ enum HealthKitWorkoutRestorer {
                 )
                 return .alreadyPresent
             }
-
-            let activityName = core.localHealth.workoutActivityTypeName(localId: localId) ?? "OTHER"
-            let startMs = core.localHealth.workoutStartEpochMs(localId: localId)
-            let endMs = core.localHealth.workoutEndEpochMs(localId: localId)
-            let start = Date(timeIntervalSince1970: Double(startMs) / 1000.0)
-            let end = Date(timeIntervalSince1970: Double(endMs) / 1000.0)
-            let active = core.localHealth.workoutActiveEnergyKcal(localId: localId)?.doubleValue ?? 0
-            let basal = core.localHealth.workoutBasalEnergyKcal(localId: localId)?.doubleValue ?? 0
-
-            let hrEpoch = core.localHealth.workoutHeartRateEpochMs(localId: localId)
-            let hrBpm = core.localHealth.workoutHeartRateBpm(localId: localId)
-            let hrCount = min(Int(hrEpoch.size), Int(hrBpm.size))
-            var heartRate: [HealthKitWorkoutWriter.HeartRatePoint] = []
-            for i in 0..<hrCount {
-                let idx = Int32(i)
-                heartRate.append(
-                    HealthKitWorkoutWriter.HeartRatePoint(
-                        date: Date(timeIntervalSince1970: Double(hrEpoch.get(index: idx)) / 1000.0),
-                        bpm: hrBpm.get(index: idx)
-                    )
-                )
-            }
-
-            let eventTypes = core.localHealth.workoutEventTypesList(localId: localId)
-            let eventStarts = core.localHealth.workoutEventStartEpochMs(localId: localId)
-            let eventEnds = core.localHealth.workoutEventEndEpochMs(localId: localId)
-            let eventLabels = core.localHealth.workoutEventLabelsList(localId: localId)
-            var pauses: [(pause: Date, resume: Date?)] = []
-            var segments: [HealthKitWorkoutWriter.Segment] = []
-            var pendingPause: Date?
-            let eventCount = eventTypes.count
-            for i in 0..<eventCount {
-                let type = eventTypes[i] as String
-                let idx = Int32(i)
-                let startEpoch = i < Int(eventStarts.size) ? eventStarts.get(index: idx) : startMs
-                let endEpoch = i < Int(eventEnds.size) ? eventEnds.get(index: idx) : startMs
-                let s = Date(timeIntervalSince1970: Double(startEpoch) / 1000.0)
-                let e = Date(timeIntervalSince1970: Double(endEpoch) / 1000.0)
-                let label = (eventLabels[safe: i] as String?) ?? ""
-                switch type {
-                case "PAUSE":
-                    pendingPause = s
-                case "RESUME":
-                    if let p = pendingPause {
-                        pauses.append((pause: p, resume: s))
-                        pendingPause = nil
-                    }
-                case "SEGMENT", "LAP", "MARKER":
-                    segments.append(
-                        HealthKitWorkoutWriter.Segment(
-                            start: s,
-                            end: max(e, s),
-                            label: label.isEmpty ? type : label
-                        )
-                    )
-                default:
-                    break
-                }
-            }
-            if let p = pendingPause {
-                pauses.append((pause: p, resume: nil))
-            }
-
-            let saved = try await HealthKitWorkoutWriter.save(
-                options: .init(
-                    activityType: activityType(from: activityName),
-                    start: start,
-                    end: end,
-                    energy: .init(activeKcal: active, basalKcal: basal, isEstimate: false),
-                    syncIdentifier: syncId,
-                    heartRate: heartRate,
-                    pauseResumeDates: pauses,
-                    segments: segments,
-                    indoor: true,
-                    syncVersion: syncVersion
-                )
-            )
-            guard let saved else { return .skipped }
-            core.localHealth.completeRestore(
+            return try await insertRestoredWorkout(
                 localId: localId,
-                platformRecordId: saved.workoutUUID.uuidString
+                syncId: syncId,
+                syncVersion: syncVersion,
+                core: core
             )
-            return .restored(saved.workoutUUID)
         } catch {
             return .failed(error.localizedDescription)
         }
+    }
+
+    private static func insertRestoredWorkout(
+        localId: String,
+        syncId: String,
+        syncVersion: Int,
+        core: OmniGartCore
+    ) async throws -> Outcome {
+        let activityName = core.localHealth.workoutActivityTypeName(localId: localId) ?? "OTHER"
+        let startMs = core.localHealth.workoutStartEpochMs(localId: localId)
+        let endMs = core.localHealth.workoutEndEpochMs(localId: localId)
+        let start = Date(timeIntervalSince1970: Double(startMs) / 1000.0)
+        let end = Date(timeIntervalSince1970: Double(endMs) / 1000.0)
+        let active = core.localHealth.workoutActiveEnergyKcal(localId: localId)?.doubleValue ?? 0
+        let basal = core.localHealth.workoutBasalEnergyKcal(localId: localId)?.doubleValue ?? 0
+
+        let heartRate = restoredHeartRate(localId: localId, core: core)
+        let events = restoredEvents(localId: localId, startMs: startMs, core: core)
+
+        let saved = try await HealthKitWorkoutWriter.save(
+            options: .init(
+                activityType: activityType(from: activityName),
+                start: start,
+                end: end,
+                energy: .init(activeKcal: active, basalKcal: basal, isEstimate: false),
+                syncIdentifier: syncId,
+                heartRate: heartRate,
+                pauseResumeDates: events.pauses,
+                segments: events.segments,
+                indoor: true,
+                syncVersion: syncVersion
+            )
+        )
+        guard let saved else { return .skipped }
+        core.localHealth.completeRestore(
+            localId: localId,
+            platformRecordId: saved.workoutUUID.uuidString
+        )
+        return .restored(saved.workoutUUID)
+    }
+
+    private static func restoredHeartRate(
+        localId: String,
+        core: OmniGartCore
+    ) -> [HealthKitWorkoutWriter.HeartRatePoint] {
+        let hrEpoch = core.localHealth.workoutHeartRateEpochMs(localId: localId)
+        let hrBpm = core.localHealth.workoutHeartRateBpm(localId: localId)
+        let hrCount = min(Int(hrEpoch.size), Int(hrBpm.size))
+        var heartRate: [HealthKitWorkoutWriter.HeartRatePoint] = []
+        for index in 0..<hrCount {
+            let kotlinIndex = Int32(index)
+            heartRate.append(
+                HealthKitWorkoutWriter.HeartRatePoint(
+                    date: Date(timeIntervalSince1970: Double(hrEpoch.get(index: kotlinIndex)) / 1000.0),
+                    bpm: hrBpm.get(index: kotlinIndex)
+                )
+            )
+        }
+        return heartRate
+    }
+
+    private struct RestoredEvents {
+        var pauses: [(pause: Date, resume: Date?)] = []
+        var segments: [HealthKitWorkoutWriter.Segment] = []
+        var pendingPause: Date?
+
+        mutating func apply(type: String, label: String, start: Date, end: Date) {
+            switch type {
+            case "PAUSE":
+                pendingPause = start
+            case "RESUME":
+                if let pausedAt = pendingPause {
+                    pauses.append((pause: pausedAt, resume: start))
+                    pendingPause = nil
+                }
+            case "SEGMENT", "LAP", "MARKER":
+                segments.append(
+                    HealthKitWorkoutWriter.Segment(
+                        start: start,
+                        end: max(end, start),
+                        label: label.isEmpty ? type : label
+                    )
+                )
+            default:
+                break
+            }
+        }
+
+        mutating func finish() {
+            if let pausedAt = pendingPause {
+                pauses.append((pause: pausedAt, resume: nil))
+            }
+        }
+    }
+
+    private static func restoredEvents(
+        localId: String,
+        startMs: Int64,
+        core: OmniGartCore
+    ) -> RestoredEvents {
+        let eventTypes = core.localHealth.workoutEventTypesList(localId: localId)
+        let eventStarts = core.localHealth.workoutEventStartEpochMs(localId: localId)
+        let eventEnds = core.localHealth.workoutEventEndEpochMs(localId: localId)
+        let eventLabels = core.localHealth.workoutEventLabelsList(localId: localId)
+        var events = RestoredEvents()
+        for index in 0..<eventTypes.count {
+            let kotlinIndex = Int32(index)
+            let startEpoch = index < Int(eventStarts.size) ? eventStarts.get(index: kotlinIndex) : startMs
+            let endEpoch = index < Int(eventEnds.size) ? eventEnds.get(index: kotlinIndex) : startMs
+            events.apply(
+                type: eventTypes[index] as String,
+                label: (eventLabels[safe: index] as String?) ?? "",
+                start: Date(timeIntervalSince1970: Double(startEpoch) / 1000.0),
+                end: Date(timeIntervalSince1970: Double(endEpoch) / 1000.0)
+            )
+        }
+        events.finish()
+        return events
     }
 
     static func restoreAll(core: OmniGartCore) async -> (ok: Int, failed: Int) {

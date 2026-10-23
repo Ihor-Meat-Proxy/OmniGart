@@ -506,6 +506,118 @@ t(
         "zh-Hans": "完成",
     },
 )
+t(
+    "watch.strength.done",
+    **{
+        "en-GB": "Done",
+        "uk": "Готово",
+        "pl": "Gotowe",
+        "be": "Гатова",
+        "kk": "Дайын",
+        "ka": "მზადაა",
+        "es": "Listo",
+        "fr": "Fait",
+        "de": "Fertig",
+        "cs": "Hotovo",
+        "zh-Hans": "完成",
+    },
+)
+t(
+    "watch.strength.rest",
+    **{
+        "en-GB": "Rest",
+        "uk": "Відпочинок",
+        "pl": "Odpoczynek",
+        "be": "Адпачынак",
+        "kk": "Демалыс",
+        "ka": "დასვენება",
+        "es": "Descanso",
+        "fr": "Repos",
+        "de": "Pause",
+        "cs": "Odpočinek",
+        "zh-Hans": "休息",
+    },
+)
+t(
+    "watch.strength.weight",
+    **{
+        "en-GB": "kg",
+        "uk": "кг",
+        "pl": "kg",
+        "be": "кг",
+        "kk": "кг",
+        "ka": "კგ",
+        "es": "kg",
+        "fr": "kg",
+        "de": "kg",
+        "cs": "kg",
+        "zh-Hans": "公斤",
+    },
+)
+t(
+    "watch.strength.reps",
+    **{
+        "en-GB": "Reps",
+        "uk": "Повтори",
+        "pl": "Powtórzenia",
+        "be": "Паўторы",
+        "kk": "Қайталау",
+        "ka": "გამეორება",
+        "es": "Reps",
+        "fr": "Répétitions",
+        "de": "Wdh.",
+        "cs": "Opakování",
+        "zh-Hans": "次数",
+    },
+)
+t(
+    "watch.strength.set",
+    **{
+        "en-GB": "Set",
+        "uk": "Підхід",
+        "pl": "Seria",
+        "be": "Падыход",
+        "kk": "Жақындау",
+        "ka": "მიდგომა",
+        "es": "Serie",
+        "fr": "Série",
+        "de": "Satz",
+        "cs": "Série",
+        "zh-Hans": "组",
+    },
+)
+t(
+    "watch.strength.target",
+    **{
+        "en-GB": "Target",
+        "uk": "Ціль",
+        "pl": "Cel",
+        "be": "Мэта",
+        "kk": "Мақсат",
+        "ka": "მიზანი",
+        "es": "Objetivo",
+        "fr": "Objectif",
+        "de": "Ziel",
+        "cs": "Cíl",
+        "zh-Hans": "目标",
+    },
+)
+t(
+    "watch.strength.sets",
+    **{
+        "en-GB": "Sets",
+        "uk": "Підходи",
+        "pl": "Serie",
+        "be": "Падыходы",
+        "kk": "Жақындаулар",
+        "ka": "მიდგომები",
+        "es": "Series",
+        "fr": "Séries",
+        "de": "Sätze",
+        "cs": "Série",
+        "zh-Hans": "组数",
+    },
+)
 
 
 def escape_android(value: str) -> str:

@@ -1,0 +1,38 @@
+name: Release dry-run
+
+on:
+  push:
+    paths:
+      - 'fastlane/**'
+      - '.github/workflows/release-*.yml'
+      - 'docs/RELEASE_*.md'
+  pull_request:
+    paths:
+      - 'fastlane/**'
+      - '.github/workflows/release-*.yml'
+      - 'docs/RELEASE_*.md'
+
+# Always runs dry-run lanes; never uploads. Ensures Gemfile.lock resolves.
+
+jobs:
+  fastlane-dry-run:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: fastlane
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@e1bd6146574da5e0795075b5319b300edb30c5b0 # v1.333.0
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: fastlane
+
+      - name: iOS dry-run
+        run: bundle exec fastlane ios beta_dry_run
+
+      - name: Android dry-run
+        run: bundle exec fastlane android internal_dry_run

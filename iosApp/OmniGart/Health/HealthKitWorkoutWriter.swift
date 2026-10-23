@@ -41,6 +41,8 @@ enum HealthKitWorkoutWriter {
         var saveMindfulMinutes: Bool = false
         var estimatedEffortScore: Double? = nil
         var heartRateRecoveryBpm: Double? = nil
+        /// Walking/running distance (metres). Prefer treadmill belt distance when linked.
+        var distanceMetres: Double? = nil
         /// Stable OmniGart sync id (`HKMetadataKeySyncIdentifier`).
         /// If a workout with this id already exists in Apple Health, the write is skipped.
         var syncIdentifier: String? = nil
@@ -240,6 +242,19 @@ enum HealthKitWorkoutWriter {
             samples.append(
                 HKQuantitySample(
                     type: basalType,
+                    quantity: quantity,
+                    start: options.start,
+                    end: options.end
+                )
+            )
+        }
+
+        if let metres = options.distanceMetres, metres > 0,
+           let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) {
+            let quantity = HKQuantity(unit: .meter(), doubleValue: metres)
+            samples.append(
+                HKQuantitySample(
+                    type: distanceType,
                     quantity: quantity,
                     start: options.start,
                     end: options.end

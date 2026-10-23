@@ -31,6 +31,7 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "Shared"
             isStatic = true
+            export(project(":shared:treadmill"))
         }
     }
 
@@ -42,6 +43,7 @@ kotlin {
         watchTarget.binaries.framework {
             baseName = "Shared"
             isStatic = true
+            export(project(":shared:treadmill"))
         }
     }
 
@@ -57,6 +59,8 @@ kotlin {
             implementation(libs.ktor.serialization.json)
             // Zone 2 HR bands for WorkoutKit schedule plans (pure algorithms).
             implementation(project(":shared:activity-algorithms"))
+            // Treadmill FTMS / RSC / iConsole parsers (exported into Shared.framework).
+            api(project(":shared:treadmill"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

@@ -41,7 +41,10 @@ class LocalHealthBridge(
         planId: String?,
         heartRateEpochMs: LongArray,
         heartRateBpm: DoubleArray,
-        syncVersion: Long = 1
+        syncVersion: Long = 1,
+        notes: String? = null,
+        steps: Long? = null,
+        sourceName: String? = "OmniGart"
     ): String {
         require(heartRateEpochMs.size == heartRateBpm.size)
         val hr =
@@ -65,14 +68,16 @@ class LocalHealthBridge(
                 activeEnergyKcal = activeEnergyKcal,
                 basalEnergyKcal = basalEnergyKcal,
                 distanceMetres = distanceMetres,
+                steps = steps,
                 averageHeartRateBpm = averageHeartRateBpm,
                 maxHeartRateBpm = maxHeartRateBpm,
                 planId = planId,
                 sessionId = sessionId,
                 origin = HealthRecordOrigin.OMNIGART,
                 sourceBundle = HealthDataMapper.SOURCE_BUNDLE_OMNIGART,
-                sourceName = "OmniGart",
+                sourceName = sourceName,
                 updatedAt = clock.now(),
+                notes = notes,
                 heartRateSeries = hr
             )
         sync.recordLocally(workout)

@@ -53,7 +53,7 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
             basalEnergyType,
             HKObjectType.workoutType()
         ]
-        if kind == .zone2Run,
+        if kind == .zone2Run || kind == .treadmillRun,
            let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) {
             types.insert(distanceType)
         }
@@ -67,7 +67,7 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
             dataSource.enableCollection(for: heartRateType, predicate: nil)
             dataSource.enableCollection(for: activeEnergyType, predicate: nil)
             dataSource.enableCollection(for: basalEnergyType, predicate: nil)
-            if kind == .zone2Run,
+            if kind == .zone2Run || kind == .treadmillRun,
                let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) {
                 dataSource.enableCollection(for: distanceType, predicate: nil)
             }

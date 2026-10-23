@@ -83,6 +83,8 @@ class WearExerciseRecorder(
         distanceMetres.set(0.0)
         startedAtMs.set(System.currentTimeMillis())
         exerciseClient.setUpdateCallback(callback)
+        // Outdoor-style RUNNING remains the default Health Services type; treadmill
+        // BLE distance overrides the live UI / local save when a belt is linked.
         val config =
             ExerciseConfig.builder(ExerciseType.RUNNING)
                 .setDataTypes(

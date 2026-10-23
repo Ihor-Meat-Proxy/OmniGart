@@ -46,24 +46,30 @@ class MainActivity : ComponentActivity() {
         val headline = core.summaryLines(profile).take(2)
         setContent {
             MaterialTheme {
-                WearStartScreen(
-                    lines = headline,
-                    onStart = {
-                        // Prefer Health Services ExerciseClient; fall back to manual publish for emulators.
-                        if (recorder.isRunning()) {
-                            recorder.stop { }
-                        } else {
-                            runCatching { recorder.start() }
-                                .onFailure {
+                var showTreadmill by remember { mutableStateOf(false) }
+                if (showTreadmill) {
+                    com.omnigart.wear.treadmill.WearTreadmillScreen(onBack = { showTreadmill = false })
+                } else {
+                    WearStartScreen(
+                        lines = headline,
+                        onStart = {
+                            // Prefer Health Services ExerciseClient; fall back to manual publish for emulators.
+                            if (recorder.isRunning()) {
+                                recorder.stop { }
+                            } else {
+                                runCatching { recorder.start() }
+                                    .onFailure {
+                                        recorder.recordManualAndTransfer()
+                                    }
+                                // If ExerciseClient cannot start on this device, still deliver a transfer.
+                                if (!recorder.isRunning()) {
                                     recorder.recordManualAndTransfer()
                                 }
-                            // If ExerciseClient cannot start on this device, still deliver a transfer.
-                            if (!recorder.isRunning()) {
-                                recorder.recordManualAndTransfer()
                             }
-                        }
-                    }
-                )
+                        },
+                        onTreadmill = { showTreadmill = true }
+                    )
+                }
             }
         }
     }
@@ -75,7 +81,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun WearStartScreen(lines: List<String>, onStart: () -> Unit = {}) {
+fun WearStartScreen(lines: List<String>, onStart: () -> Unit = {}, onTreadmill: () -> Unit = {}) {
     var status by remember { mutableStateOf("") }
     Column(
         modifier =
@@ -117,6 +123,15 @@ fun WearStartScreen(lines: List<String>, onStart: () -> Unit = {}) {
                 .testTag("wear_start_button")
         ) {
             Text(text = stringResource(R.string.watch_start))
+        }
+        Button(
+            onClick = onTreadmill,
+            modifier =
+            Modifier
+                .padding(top = OmniGartSpacing.space2)
+                .testTag("wear_treadmill_button")
+        ) {
+            Text(text = stringResource(R.string.treadmill_run_title))
         }
     }
 }

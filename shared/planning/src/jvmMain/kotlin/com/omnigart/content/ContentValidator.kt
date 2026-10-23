@@ -3,15 +3,15 @@ package com.omnigart.content
 import com.networknt.schema.Schema
 import com.networknt.schema.SchemaRegistry
 import com.networknt.schema.SpecificationVersion
-import tools.jackson.databind.JsonNode
-import tools.jackson.databind.ObjectMapper
-import tools.jackson.databind.json.JsonMapper
 import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.io.path.extension
 import kotlin.io.path.isRegularFile
 import kotlin.io.path.name
 import kotlin.io.path.readText
+import tools.jackson.databind.JsonNode
+import tools.jackson.databind.ObjectMapper
+import tools.jackson.databind.json.JsonMapper
 
 data class ValidationIssue(val path: String, val message: String)
 
@@ -23,10 +23,7 @@ data class ValidationReport(val exerciseCount: Int, val templateCount: Int, val 
  * Validates on-disk exercise/template JSON against schemas and content rules:
  * unique ids, locale keys present (en-GB + uk only — no ru), cross-refs, evidence refs.
  */
-class ContentValidator(
-    private val contentRoot: Path,
-    private val mapper: ObjectMapper = JsonMapper.builder().build()
-) {
+class ContentValidator(private val contentRoot: Path, private val mapper: ObjectMapper = JsonMapper.builder().build()) {
     private val registry: SchemaRegistry =
         SchemaRegistry.withDefaultDialect(SpecificationVersion.DRAFT_2020_12)
 

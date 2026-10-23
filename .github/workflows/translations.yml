@@ -20,8 +20,8 @@ on:
       - 'iosApp/**/*.swift'
       - 'scripts/check_no_ru_locale.sh'
       - 'scripts/content_i18n/**'
-      - 'i18n/locales.yml'
       - 'scripts/check_swift_localization_keys.py'
+      - 'i18n/locales.yml'
       - '.github/workflows/translations.yml'
   pull_request:
     paths:
@@ -40,8 +40,8 @@ on:
       - 'iosApp/**/*.swift'
       - 'scripts/check_no_ru_locale.sh'
       - 'scripts/content_i18n/**'
-      - 'i18n/locales.yml'
       - 'scripts/check_swift_localization_keys.py'
+      - 'i18n/locales.yml'
       - '.github/workflows/translations.yml'
   workflow_dispatch:
 

@@ -275,8 +275,14 @@ def main() -> int:
         return 0
 
     manifest = write_bundle(args.out)
+    out = args.out.resolve()
+    try:
+        out_display = out.relative_to(ROOT.resolve())
+    except ValueError:
+        # Xcode may pass a temp --out outside the repo (e.g. $TMPDIR).
+        out_display = out
     print(
-        f"Wrote {args.out.relative_to(ROOT)} "
+        f"Wrote {out_display} "
         f"schema={manifest['schemaVersion']} packVersion={manifest['packVersion']} "
         f"sha256={manifest['sha256']}"
     )

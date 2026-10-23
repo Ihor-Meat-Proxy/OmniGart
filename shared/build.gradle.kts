@@ -129,6 +129,7 @@ tasks.register("syncXcodeFrameworks") {
         "Sync linked Shared.framework into xcode-frameworks/\$(CONFIGURATION)/\$(PLATFORM_NAME)"
     doLast {
         val outRoot = layout.buildDirectory.get().asFile.resolve("xcode-frameworks")
+        var synced = 0
 
         fun sync(targetName: String, buildType: NativeBuildType, platformName: String) {
             val typeDir =
@@ -145,6 +146,8 @@ tasks.register("syncXcodeFrameworks") {
             val dest = destParent.resolve("Shared.framework")
             if (dest.exists()) dest.deleteRecursively()
             framework.copyRecursively(dest, overwrite = true)
+            synced += 1
+            logger.lifecycle("Synced Shared.framework → xcode-frameworks/$configDir/$platformName")
         }
 
         listOf(NativeBuildType.DEBUG, NativeBuildType.RELEASE).forEach { type ->
@@ -155,5 +158,22 @@ tasks.register("syncXcodeFrameworks") {
             sync("watchosSimulatorArm64", type, "watchsimulator")
             sync("watchosArm64", type, "watchos")
         }
+        if (synced == 0) {
+            throw GradleException(
+                "syncXcodeFrameworks found no linked Shared.framework under shared/build/bin " +
+                    "(run link*Framework* before sync, or fix task ordering)"
+            )
+        }
+    }
+}
+
+// Link tasks are registered by the Kotlin Multiplatform plugin after this file is
+// evaluated — wire ordering in afterEvaluate so sync never runs before links in the
+// same Gradle invocation (CI used to hit a silent empty sync + test -d failure).
+afterEvaluate {
+    tasks.named("syncXcodeFrameworks").configure {
+        mustRunAfter(
+            tasks.matching { it.name.startsWith("link") && it.name.contains("Framework") }
+        )
     }
 }

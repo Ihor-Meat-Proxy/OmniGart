@@ -1,0 +1,76 @@
+{
+  "id": "pec-deck",
+  "nameKeys": {
+    "enGB": "exercise.pec_deck.name",
+    "uk": "exercise.pec_deck.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid"
+  ],
+  "equipment": [
+    "machine"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Bring arms together on the arc; return slowly without losing shoulder position."
+  ],
+  "setup": [
+    "Seat adjusted; soft elbows."
+  ],
+  "breathing": "Exhale on the squeeze.",
+  "commonMistakes": [
+    "Excess stretch with pain"
+  ],
+  "safety": [
+    "Use a comfortable ROM."
+  ],
+  "contraindications": [
+    "Acute pec/shoulder strain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "cable-chest-fly",
+      "note": "Cable"
+    },
+    {
+      "exerciseId": "push-up",
+      "note": "Compound"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/pec-deck",
+    "videoKey": "media/video/pec-deck",
+    "animationKey": "media/anim/pec-deck"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

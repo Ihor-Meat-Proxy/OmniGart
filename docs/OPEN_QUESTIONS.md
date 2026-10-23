@@ -161,6 +161,12 @@ Autopilot log (Phase 0 + merged design / planning). Each item: **context**, **ch
 - **Choice:** Enforce via `scripts/check_app_review_compliance.py` inside existing CI jobs; human store steps in `docs/RELEASE_CHECKLIST.md`. Privacy policy URL currently points at `https://omnigart.com/privacy` until the live policy is published.
 - **Alternatives:** Separate required CI job (rejected — keep gates inside existing jobs).
 
+## Bundle-first content (all phases)
+
+- **Context:** Owner decision: apps must work fully offline; server only for signed between-release updates, optional large media, food packs, and remote config.
+- **Choice:** Pack exercises, templates, locales, evidence, icons, body-map paths, achievements, and exercise images into `generated/content-bundle/` via `scripts/pack_bundled_content.py` (Gradle + Xcode pre-build). Shared `LayeredContentLoader` layers **bundled baseline &lt; verified newer update pack**. CI runs `--verify` so the committed bundle stays up to date. Docs: `docs/CONTENT_BUNDLE.md`.
+- **Alternatives:** On-demand CDN fetch for all content (rejected — breaks offline); commit only sources and generate exclusively in CI without a committed baseline (rejected — harder offline/dev reproducibility).
+
 ## Autopilot v1 roadmap
 
 - **Context:** Owner standing instruction after Phase 0 + health-integration PR.
@@ -175,7 +181,7 @@ B3. **Secondary weight** — Default 0.5 follows Pelland et al. 2025 fractional 
 B4. **TVA / rotator-cuff proxies** — Surface proxies may overstate visible load. Drop from heatmap fills and keep taxonomy-only, or add dashed “deep” overlays?
 B5. **Sex figure default** — `UNSPECIFIED` currently falls back to the male figure. Prefer a neutral third silhouette, or require sex before showing heatmaps?
 B6. **Intensity binning** — Equal-width vs log / landmark-anchored bins for single workouts — confirm preference after first user tests.
-B7. **Path JSON packaging** — **Decided (bundle-first):** ship path JSON inside `generated/content-bundle/body-maps/` on all apps.
+B7. **Path JSON packaging** — **Decided (bundle-first):** ship `design/body-map/generated/paths/*.json` inside `generated/content-bundle/body-maps/` on all apps. Optional Swift/Compose tables remain a future optimisation, not a requirement for offline.
 
 ## Google Health API identity
 

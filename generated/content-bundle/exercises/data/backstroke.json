@@ -1,0 +1,85 @@
+{
+  "id": "backstroke",
+  "nameKeys": {
+    "enGB": "exercise.backstroke.name",
+    "uk": "exercise.backstroke.name"
+  },
+  "discipline": "swimming",
+  "movementPattern": "swim_stroke",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "rear_deltoid"
+  ],
+  "secondaryMuscles": [
+    "quadriceps",
+    "trapezius"
+  ],
+  "equipment": [
+    "pool"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "skill",
+  "trackingType": "distance",
+  "technique": [
+    "Float on back; alternate continuous arm circles with steady flutter kick; head neutral."
+  ],
+  "setup": [
+    "Know lane lines; careful at walls."
+  ],
+  "breathing": "Steady rhythmic breathing (face clear of water).",
+  "commonMistakes": [
+    "Sitting hips low",
+    "Crossing arms over midline excessively"
+  ],
+  "safety": [
+    "Watch for wall collisions."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "kickboard-kick",
+      "note": "Kick focus"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/backstroke",
+    "videoKey": "media/video/backstroke",
+    "animationKey": "media/anim/backstroke"
+  },
+  "aliases": [],
+  "tags": [
+    "swim"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Bodyweight movement with negligible external implement; treat moved mass as ~full BM unless a measured study applies. Estimate."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

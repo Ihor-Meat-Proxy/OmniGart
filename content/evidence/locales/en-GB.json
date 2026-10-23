@@ -88,5 +88,9 @@
   "claim.insight_out_of_range_baseline.text": "Out-of-range notes flag metrics that deviate from a personal rolling baseline, for awareness rather than diagnosis.",
   "claim.insight_weekly_overview.text": "Weekly overview aggregates readiness, load, and sleep wellness estimates to summarise the past week.",
   "claim.insight_day_reserve.text": "Day reserve estimates remaining training headroom from readiness and load context as a wellness guide only.",
-  "claim.insight_fitness_age_vo2_norms.text": "Fitness age maps estimated VO2max onto age- and sex-specific cardiorespiratory fitness norms as a wellness comparison."
+  "claim.insight_fitness_age_vo2_norms.text": "Fitness age maps estimated VO2max onto age- and sex-specific cardiorespiratory fitness norms as a wellness comparison.",
+  "claim.formula_zone2_hrr_karvonen.text": "Zone 2 easy aerobic intensity defaults to about 60–70% of heart-rate reserve (Karvonen method) using your resting and maximal heart rate.",
+  "claim.formula_zone2_percent_hrmax.text": "Zone 2 can optionally be set as about 60–70% of maximal heart rate when you prefer %HRmax bands instead of heart-rate reserve.",
+  "claim.cardio_zone2_easy_distribution.text": "Much endurance training volume is often performed at easy aerobic intensity (Zone 2–like), with harder work making up a smaller share of sessions.",
+  "claim.formula_zone2_lthr_band.text": "As an option, Zone 2 can be estimated as about 80–90% of lactate-threshold heart rate when you have a measured or estimated LTHR."
 }

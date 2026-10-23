@@ -1,0 +1,74 @@
+{
+  "id": "cat-cow",
+  "nameKeys": {
+    "enGB": "exercise.cat_cow.name",
+    "uk": "exercise.cat_cow.name"
+  },
+  "discipline": "yoga",
+  "movementPattern": "mobility",
+  "primaryMuscles": [
+    "erector_spinae"
+  ],
+  "secondaryMuscles": [
+    "rectus_abdominis"
+  ],
+  "equipment": [
+    "yoga_mat",
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "skill",
+  "trackingType": "hold",
+  "technique": [
+    "Quadruped; alternate spinal flexion (cat) and extension (cow) with the breath."
+  ],
+  "setup": [
+    "Hands under shoulders; knees under hips."
+  ],
+  "breathing": "Inhale cow, exhale cat (common cue).",
+  "commonMistakes": [
+    "Dumping into end-range pain"
+  ],
+  "safety": [
+    "Move within comfort."
+  ],
+  "contraindications": [],
+  "regressions": [],
+  "progressions": [
+    {
+      "exerciseId": "bird-dog",
+      "note": "Add limb reach"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/cat-cow",
+    "videoKey": "media/video/cat-cow",
+    "animationKey": "media/anim/cat-cow"
+  },
+  "aliases": [],
+  "tags": [
+    "yoga"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Bodyweight movement with negligible external implement; treat moved mass as ~full BM unless a measured study applies. Estimate."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

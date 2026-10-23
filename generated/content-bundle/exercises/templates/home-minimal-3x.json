@@ -1,0 +1,201 @@
+{
+  "id": "home-minimal-3x",
+  "nameKeys": {
+    "enGB": "template.home_minimal_3x.name",
+    "uk": "template.home_minimal_3x.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "beginner",
+  "goal": "general_fitness",
+  "daysPerWeek": 3,
+  "sessionMinutes": 40,
+  "equipmentPreset": "travel",
+  "equipmentRequired": [
+    "bands",
+    "bodyweight"
+  ],
+  "rationale": "Band + bodyweight full-body work preserves multi-joint stimulus when a gym is unavailable, aligned with ACSM guidance that some resistance is better than none.",
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "h1",
+      "nameKeys": {
+        "enGB": "template.home_minimal_3x.h1.name",
+        "uk": "template.home_minimal_3x.h1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "goblet-squat",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "notes": "Use backpack if no DB"
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "inverted-row",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "glute-bridge",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "band-pull-apart",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "plank",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h2",
+      "nameKeys": {
+        "enGB": "template.home_minimal_3x.h2.name",
+        "uk": "template.home_minimal_3x.h2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "split-squat-bodyweight",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "incline-push-up",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "dead-bug",
+              "sets": 3,
+              "reps": "8/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "hip-hinge-dowel",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "side-plank",
+              "sets": 3,
+              "reps": "hold/side",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h3",
+      "nameKeys": {
+        "enGB": "template.home_minimal_3x.h3.name",
+        "uk": "template.home_minimal_3x.h3.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "walking-lunge",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "diamond-push-up",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "bird-dog",
+              "sets": 3,
+              "reps": "8/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "russian-twist",
+              "sets": 3,
+              "reps": "12/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "calf-raise-standing",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

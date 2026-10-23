@@ -1,6 +1,6 @@
 package com.omnigart.evidence
 
-import com.fasterxml.jackson.databind.ObjectMapper
+import tools.jackson.databind.ObjectMapper
 import com.networknt.schema.SchemaRegistry
 import com.networknt.schema.SpecificationVersion
 import java.nio.file.Files
@@ -53,7 +53,7 @@ class EvidenceCatalogLoader(
             schema.validate(node).forEach { err ->
                 issues += EvidenceValidationIssue(file.toString(), err.message)
             }
-            val id = node.path("id").asText()
+            val id = node.path("id").asString()
             if (!ids.add(id)) {
                 issues += EvidenceValidationIssue(file.toString(), "Duplicate evidence id: $id")
             }
@@ -75,7 +75,7 @@ class EvidenceCatalogLoader(
             if (!catalog.isArray) {
                 issues += EvidenceValidationIssue(catalogPath.toString(), "catalog.json must be an array")
             } else {
-                val catalogIds = catalog.map { it.path("id").asText() }.toSet()
+                val catalogIds = catalog.values().map { it.path("id").asString() }.toSet()
                 if (catalogIds != ids) {
                     issues +=
                         EvidenceValidationIssue(
@@ -95,7 +95,7 @@ class EvidenceCatalogLoader(
             val uk = mapper.readTree(localeUk.readText())
             for (file in files) {
                 val node = mapper.readTree(file.readText())
-                val key = node.path("keyFinding").path("keys").path("enGB").asText()
+                val key = node.path("keyFinding").path("keys").path("enGB").asString()
                 if (key.isNotBlank() && !en.has(key)) {
                     issues += EvidenceValidationIssue(file.toString(), "Missing en-GB string for $key")
                 }

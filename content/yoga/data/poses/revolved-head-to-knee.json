@@ -40,8 +40,8 @@
     "General safety: keep twists gentle after abdominal surgery or during later pregnancy unless cleared by a qualified professional."
   ],
   "evidenceEntryIds": [
-    "garber-acsm-2011",
-    "acsm-rt-2026"
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
   ],
   "holdSecondsDefault": 30,
   "unilateral": true,

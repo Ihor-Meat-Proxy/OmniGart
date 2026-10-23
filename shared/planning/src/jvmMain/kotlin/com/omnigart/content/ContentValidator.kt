@@ -1,7 +1,5 @@
 package com.omnigart.content
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.networknt.schema.Schema
 import com.networknt.schema.SchemaRegistry
 import com.networknt.schema.SpecificationVersion
@@ -11,6 +9,8 @@ import kotlin.io.path.extension
 import kotlin.io.path.isRegularFile
 import kotlin.io.path.name
 import kotlin.io.path.readText
+import tools.jackson.databind.JsonNode
+import tools.jackson.databind.ObjectMapper
 
 data class ValidationIssue(val path: String, val message: String)
 
@@ -167,7 +167,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
             )
         }
         val knownIds = loadEvidenceIds()
-        refs.forEach { ref ->
+        refs.values().forEach { ref ->
             val evidenceId = ref.path("evidenceId").asString()
             if (evidenceId.isBlank()) {
                 issues += ValidationIssue(file.toString(), "evidenceRefs entry missing evidenceId")

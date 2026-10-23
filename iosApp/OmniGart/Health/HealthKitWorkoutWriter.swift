@@ -4,56 +4,6 @@ import HealthKit
 /// Saves completed OmniGart sessions into Apple Health via `HKWorkoutBuilder`
 /// so they appear in the Fitness app with duration, energy, heart rate, and events.
 enum HealthKitWorkoutWriter {
-    struct EnergyInput: Sendable {
-        var activeKcal: Double
-        var basalKcal: Double
-        /// When true, metadata marks energy as a wellness estimate (iPhone-only path).
-        var isEstimate: Bool = false
-    }
-
-    struct HeartRatePoint: Sendable {
-        var date: Date
-        var bpm: Double
-    }
-
-    struct Segment: Sendable {
-        var start: Date
-        var end: Date
-        var label: String
-    }
-
-    struct StrengthMetadata: Sendable {
-        var totalSets: Int
-        var totalReps: Int
-        var totalWeightKg: Double
-    }
-
-    struct SaveOptions: Sendable {
-        var activityType: HKWorkoutActivityType
-        var start: Date
-        var end: Date
-        var energy: EnergyInput
-        var heartRate: [HeartRatePoint] = []
-        var pauseResumeDates: [(pause: Date, resume: Date?)] = []
-        var segments: [Segment] = []
-        var strength: StrengthMetadata? = nil
-        var indoor: Bool = true
-        var saveMindfulMinutes: Bool = false
-        var estimatedEffortScore: Double? = nil
-        var heartRateRecoveryBpm: Double? = nil
-    }
-
-    struct Result: Sendable {
-        var workoutUUID: UUID
-        var activeKcal: Double
-        var basalKcal: Double
-        var averageHeartRateBpm: Double?
-        var maxHeartRateBpm: Double?
-        var energyIsEstimate: Bool
-        var effortScore: Double?
-        var heartRateRecoveryBpm: Double?
-    }
-
     static func activeEnergyType() -> HKQuantityType? {
         HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)
     }
@@ -178,9 +128,76 @@ enum HealthKitWorkoutWriter {
         configuration.activityType = options.activityType
         configuration.locationType = options.indoor ? .indoor : .outdoor
 
-        let builder = HKWorkoutBuilder(healthStore: store, configuration: configuration, device: .local())
+        let builder = HKWorkoutBuilder(
+            healthStore: store,
+            configuration: configuration,
+            device: .local()
+        )
         try await builder.beginCollection(at: options.start)
 
+        let samples = buildSamples(for: options)
+        if !samples.isEmpty {
+            try await builder.addSamples(samples)
+        }
+
+        let events = buildEvents(for: options)
+        if !events.isEmpty {
+            try await builder.addWorkoutEvents(events)
+        }
+
+        try await builder.addMetadata(buildMetadata(for: options))
+        try await builder.endCollection(at: options.end)
+        guard let workout = try await builder.finishWorkout() else { return nil }
+
+        let bpms = options.heartRate.map(\.bpm).filter { $0 > 0 }
+        return Result(
+            workoutUUID: workout.uuid,
+            activeKcal: options.energy.activeKcal,
+            basalKcal: options.energy.basalKcal,
+            averageHeartRateBpm: bpms.isEmpty ? nil : bpms.reduce(0, +) / Double(bpms.count),
+            maxHeartRateBpm: bpms.max(),
+            energyIsEstimate: options.energy.isEstimate,
+            effortScore: options.estimatedEffortScore,
+            heartRateRecoveryBpm: options.heartRateRecoveryBpm
+        )
+    }
+
+    /// Heart-rate samples already in Health for the session window (when readable).
+    static func fetchHeartRate(from start: Date, to end: Date) async throws -> [HeartRatePoint] {
+        guard let heartType = HealthKitPlatformBridge.heartRateType() else { return [] }
+        let store = HKHealthStore()
+        let predicate = HKQuery.predicateForSamples(
+            withStart: start,
+            end: end,
+            options: .strictStartDate
+        )
+        return try await withCheckedThrowingContinuation { continuation in
+            let query = HKSampleQuery(
+                sampleType: heartType,
+                predicate: predicate,
+                limit: HKObjectQueryNoLimit,
+                sortDescriptors: [
+                    NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: true)
+                ]
+            ) { _, samples, error in
+                if let error {
+                    continuation.resume(throwing: error)
+                    return
+                }
+                let unit = HKUnit.count().unitDivided(by: .minute())
+                let points: [HeartRatePoint] = (samples as? [HKQuantitySample] ?? []).compactMap {
+                    sample in
+                    let bpm = sample.quantity.doubleValue(for: unit)
+                    guard bpm > 0 else { return nil }
+                    return HeartRatePoint(date: sample.startDate, bpm: bpm)
+                }
+                continuation.resume(returning: points)
+            }
+            store.execute(query)
+        }
+    }
+
+    private static func buildSamples(for options: SaveOptions) -> [HKSample] {
         var samples: [HKSample] = []
         let kcalUnit = HKUnit.kilocalorie()
 
@@ -238,7 +255,8 @@ enum HealthKitWorkoutWriter {
             )
         }
 
-        if let effort = options.estimatedEffortScore, effort > 0, let effortType = workoutEffortType() {
+        if let effort = options.estimatedEffortScore, effort > 0,
+           let effortType = workoutEffortType() {
             let quantity = HKQuantity(unit: .count(), doubleValue: min(10, max(0, effort)))
             samples.append(
                 HKQuantitySample(
@@ -251,27 +269,33 @@ enum HealthKitWorkoutWriter {
         }
 
         if options.saveMindfulMinutes, let mindful = mindfulType() {
-            let sample = HKCategorySample(
-                type: mindful,
-                value: 0,
-                start: options.start,
-                end: options.end
+            samples.append(
+                HKCategorySample(
+                    type: mindful,
+                    value: 0,
+                    start: options.start,
+                    end: options.end
+                )
             )
-            samples.append(sample)
         }
+        return samples
+    }
 
-        if !samples.isEmpty {
-            try await builder.addSamples(samples)
-        }
-
+    private static func buildEvents(for options: SaveOptions) -> [HKWorkoutEvent] {
         var events: [HKWorkoutEvent] = []
         for pair in options.pauseResumeDates {
             events.append(
-                HKWorkoutEvent(type: .pause, dateInterval: DateInterval(start: pair.pause, duration: 0))
+                HKWorkoutEvent(
+                    type: .pause,
+                    dateInterval: DateInterval(start: pair.pause, duration: 1)
+                )
             )
             if let resume = pair.resume {
                 events.append(
-                    HKWorkoutEvent(type: .resume, dateInterval: DateInterval(start: resume, duration: 0))
+                    HKWorkoutEvent(
+                        type: .resume,
+                        dateInterval: DateInterval(start: resume, duration: 1)
+                    )
                 )
             }
         }
@@ -285,10 +309,10 @@ enum HealthKitWorkoutWriter {
                 )
             )
         }
-        if !events.isEmpty {
-            try await builder.addWorkoutEvents(events)
-        }
+        return events
+    }
 
+    private static func buildMetadata(for options: SaveOptions) -> [String: Any] {
         var metadata: [String: Any] = [
             HKMetadataKeyIndoorWorkout: options.indoor
         ]
@@ -300,76 +324,6 @@ enum HealthKitWorkoutWriter {
             metadata["OmniGartTotalReps"] = strength.totalReps
             metadata["OmniGartTotalWeightKg"] = strength.totalWeightKg
         }
-        try await builder.addMetadata(metadata)
-
-        try await builder.endCollection(at: options.end)
-        guard let workout = try await builder.finishWorkout() else { return nil }
-
-        let bpms = options.heartRate.map(\.bpm).filter { $0 > 0 }
-        return Result(
-            workoutUUID: workout.uuid,
-            activeKcal: options.energy.activeKcal,
-            basalKcal: options.energy.basalKcal,
-            averageHeartRateBpm: bpms.isEmpty ? nil : bpms.reduce(0, +) / Double(bpms.count),
-            maxHeartRateBpm: bpms.max(),
-            energyIsEstimate: options.energy.isEstimate,
-            effortScore: options.estimatedEffortScore,
-            heartRateRecoveryBpm: options.heartRateRecoveryBpm
-        )
-    }
-
-    /// Heart-rate samples already in Health for the session window (when readable).
-    static func fetchHeartRate(from start: Date, to end: Date) async throws -> [HeartRatePoint] {
-        guard let heartType = HealthKitPlatformBridge.heartRateType() else { return [] }
-        let store = HKHealthStore()
-        let predicate = HKQuery.predicateForSamples(
-            withStart: start,
-            end: end,
-            options: .strictStartDate
-        )
-        return try await withCheckedThrowingContinuation { continuation in
-            let query = HKSampleQuery(
-                sampleType: heartType,
-                predicate: predicate,
-                limit: HKObjectQueryNoLimit,
-                sortDescriptors: [
-                    NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: true)
-                ]
-            ) { _, samples, error in
-                if let error {
-                    continuation.resume(throwing: error)
-                    return
-                }
-                let unit = HKUnit.count().unitDivided(by: .minute())
-                let points: [HeartRatePoint] = (samples as? [HKQuantitySample] ?? []).compactMap { sample in
-                    let bpm = sample.quantity.doubleValue(for: unit)
-                    guard bpm > 0 else { return nil }
-                    return HeartRatePoint(date: sample.startDate, bpm: bpm)
-                }
-                continuation.resume(returning: points)
-            }
-            store.execute(query)
-        }
-    }
-
-    /// Rough 1-minute HR recovery: peak near end minus HR ~60s after end (when samples exist).
-    static func estimateHeartRateRecoveryBpm(samples: [HeartRatePoint], workoutEnd: Date) -> Double? {
-        let nearEnd = samples.filter {
-            $0.date >= workoutEnd.addingTimeInterval(-90) && $0.date <= workoutEnd
-        }
-        let after = samples.filter {
-            $0.date > workoutEnd && $0.date <= workoutEnd.addingTimeInterval(75)
-        }
-        guard let peak = nearEnd.map(\.bpm).max(), let recovered = after.last?.bpm else { return nil }
-        let delta = peak - recovered
-        return delta > 0 ? delta : nil
-    }
-
-    /// Wellness effort score 0–10 from average HR / estimated max (Tanaka-style 208 − 0.7·age).
-    static func estimateEffortScore(averageBpm: Double?, ageYears: Int) -> Double? {
-        guard let averageBpm, averageBpm > 0, ageYears > 0 else { return nil }
-        let hrMax = 208.0 - 0.7 * Double(ageYears)
-        guard hrMax > 0 else { return nil }
-        return min(10, max(0, (averageBpm / hrMax) * 10.0))
+        return metadata
     }
 }

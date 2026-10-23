@@ -1,0 +1,771 @@
+[
+  {
+    "id": "strength.first_session",
+    "category": "strength",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1,
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "strength",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.first_session.title",
+    "descriptionKey": "achievement.strength.first_session.description"
+  },
+  {
+    "id": "strength.sessions",
+    "category": "strength",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 5
+      },
+      {
+        "id": "silver",
+        "threshold": 25
+      },
+      {
+        "id": "gold",
+        "threshold": 75
+      },
+      {
+        "id": "platinum",
+        "threshold": 200
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "strength",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.sessions.title",
+    "descriptionKey": "achievement.strength.sessions.description"
+  },
+  {
+    "id": "strength.volume_tonnes",
+    "category": "strength",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 1000
+      },
+      {
+        "id": "silver",
+        "threshold": 10000
+      },
+      {
+        "id": "gold",
+        "threshold": 50000
+      },
+      {
+        "id": "platinum",
+        "threshold": 100000
+      }
+    ],
+    "rule": {
+      "metric": "volume_kg",
+      "aggregation": "sum",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "weight",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.volume_tonnes.title",
+    "descriptionKey": "achievement.strength.volume_tonnes.description",
+    "healthyNotes": "Volume milestones in kg (display as tonnes); not body-weight change."
+  },
+  {
+    "id": "strength.sets_logged",
+    "category": "strength",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 50
+      },
+      {
+        "id": "silver",
+        "threshold": 250
+      },
+      {
+        "id": "gold",
+        "threshold": 1000
+      },
+      {
+        "id": "platinum",
+        "threshold": 5000
+      }
+    ],
+    "rule": {
+      "metric": "sets_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "add-set",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.sets_logged.title",
+    "descriptionKey": "achievement.strength.sets_logged.description"
+  },
+  {
+    "id": "strength.weekly_practice",
+    "category": "strength",
+    "type": "streak",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 2
+      },
+      {
+        "id": "silver",
+        "threshold": 6
+      },
+      {
+        "id": "gold",
+        "threshold": 12
+      },
+      {
+        "id": "platinum",
+        "threshold": 24
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "streak",
+      "window": {
+        "kind": "streak_days",
+        "qualify": "activity_or_planned_rest",
+        "restDayTolerancePerWeek": 2,
+        "freezeTokensAllowed": true,
+        "maxFreezePerStreak": 2
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "streak",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.weekly_practice.title",
+    "descriptionKey": "achievement.strength.weekly_practice.description",
+    "healthyNotes": "Streak counts planned rest; tolerance for life events via freeze tokens."
+  },
+  {
+    "id": "strength.pr_squat",
+    "category": "strength",
+    "type": "personal_record",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 1
+      },
+      {
+        "id": "silver",
+        "threshold": 3
+      },
+      {
+        "id": "gold",
+        "threshold": 10
+      },
+      {
+        "id": "platinum",
+        "threshold": 25
+      }
+    ],
+    "rule": {
+      "metric": "personal_record_events",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "personal-record",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.pr_squat.title",
+    "descriptionKey": "achievement.strength.pr_squat.description"
+  },
+  {
+    "id": "strength.pr_hinge",
+    "category": "strength",
+    "type": "personal_record",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 1
+      },
+      {
+        "id": "silver",
+        "threshold": 3
+      },
+      {
+        "id": "gold",
+        "threshold": 10
+      },
+      {
+        "id": "platinum",
+        "threshold": 25
+      }
+    ],
+    "rule": {
+      "metric": "personal_record_events",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "personal-record",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.pr_hinge.title",
+    "descriptionKey": "achievement.strength.pr_hinge.description"
+  },
+  {
+    "id": "strength.pr_press",
+    "category": "strength",
+    "type": "personal_record",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 1
+      },
+      {
+        "id": "silver",
+        "threshold": 3
+      },
+      {
+        "id": "gold",
+        "threshold": 10
+      },
+      {
+        "id": "platinum",
+        "threshold": 25
+      }
+    ],
+    "rule": {
+      "metric": "personal_record_events",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "personal-record",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.pr_press.title",
+    "descriptionKey": "achievement.strength.pr_press.description"
+  },
+  {
+    "id": "strength.pr_pull",
+    "category": "strength",
+    "type": "personal_record",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 1
+      },
+      {
+        "id": "silver",
+        "threshold": 3
+      },
+      {
+        "id": "gold",
+        "threshold": 10
+      },
+      {
+        "id": "platinum",
+        "threshold": 25
+      }
+    ],
+    "rule": {
+      "metric": "personal_record_events",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "personal-record",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.pr_pull.title",
+    "descriptionKey": "achievement.strength.pr_pull.description"
+  },
+  {
+    "id": "strength.long_session",
+    "category": "strength",
+    "type": "single_session",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 45
+      },
+      {
+        "id": "silver",
+        "threshold": 60
+      },
+      {
+        "id": "gold",
+        "threshold": 75
+      },
+      {
+        "id": "platinum",
+        "threshold": 90
+      }
+    ],
+    "rule": {
+      "metric": "session_duration_min",
+      "aggregation": "max",
+      "window": {
+        "kind": "single_event"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "timer",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.long_session.title",
+    "descriptionKey": "achievement.strength.long_session.description",
+    "healthyNotes": "Caps emphasise quality sessions, not marathon overreach."
+  },
+  {
+    "id": "strength.session_volume",
+    "category": "strength",
+    "type": "single_session",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 2000
+      },
+      {
+        "id": "silver",
+        "threshold": 5000
+      },
+      {
+        "id": "gold",
+        "threshold": 10000
+      },
+      {
+        "id": "platinum",
+        "threshold": 20000
+      }
+    ],
+    "rule": {
+      "metric": "volume_kg",
+      "aggregation": "sum",
+      "window": {
+        "kind": "single_event"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "weight",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.session_volume.title",
+    "descriptionKey": "achievement.strength.session_volume.description"
+  },
+  {
+    "id": "strength.month_challenge",
+    "category": "strength",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 8
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "challenge_period",
+        "period": "current_month"
+      },
+      "compare": "gte",
+      "threshold": 8,
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.strength.month_challenge.title",
+    "descriptionKey": "achievement.strength.month_challenge.description"
+  },
+  {
+    "id": "strength.compound_focus",
+    "category": "strength",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 10
+      },
+      {
+        "id": "silver",
+        "threshold": 40
+      },
+      {
+        "id": "gold",
+        "threshold": 100
+      },
+      {
+        "id": "platinum",
+        "threshold": 250
+      }
+    ],
+    "rule": {
+      "metric": "sets_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "muscle-legs",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.compound_focus.title",
+    "descriptionKey": "achievement.strength.compound_focus.description"
+  },
+  {
+    "id": "strength.secret_pr_night",
+    "category": "strength",
+    "type": "personal_record",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "personal_record_events",
+      "aggregation": "exists",
+      "window": {
+        "kind": "single_event"
+      },
+      "compare": "gte",
+      "threshold": 1,
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "personal-record",
+    "hidden": true,
+    "repeatable": false,
+    "titleKey": "achievement.strength.secret_pr_night.title",
+    "descriptionKey": "achievement.strength.secret_pr_night.description"
+  },
+  {
+    "id": "strength.deload_honour",
+    "category": "strength",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "planned_rest_honoured",
+      "aggregation": "count",
+      "window": {
+        "kind": "rolling_days",
+        "days": 14
+      },
+      "compare": "gte",
+      "threshold": 2
+    },
+    "iconId": "recovery",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.deload_honour.title",
+    "descriptionKey": "achievement.strength.deload_honour.description",
+    "healthyNotes": "Rewards smart unloading, not grinding through fatigue."
+  },
+  {
+    "id": "strength.year_volume",
+    "category": "strength",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "level_1",
+        "threshold": 5000
+      },
+      {
+        "id": "level_2",
+        "threshold": 20000
+      },
+      {
+        "id": "level_3",
+        "threshold": 50000
+      },
+      {
+        "id": "level_4",
+        "threshold": 80000
+      },
+      {
+        "id": "level_5",
+        "threshold": 120000
+      }
+    ],
+    "rule": {
+      "metric": "volume_kg",
+      "aggregation": "sum",
+      "window": {
+        "kind": "calendar",
+        "unit": "month",
+        "count": 12
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "weight",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.year_volume.title",
+    "descriptionKey": "achievement.strength.year_volume.description"
+  },
+  {
+    "id": "strength.three_week_block",
+    "category": "strength",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 6
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "rolling_days",
+        "days": 21
+      },
+      "compare": "gte",
+      "threshold": 6,
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.strength.three_week_block.title",
+    "descriptionKey": "achievement.strength.three_week_block.description"
+  },
+  {
+    "id": "strength.unilateral_sets",
+    "category": "strength",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 20
+      },
+      {
+        "id": "silver",
+        "threshold": 80
+      },
+      {
+        "id": "gold",
+        "threshold": 200
+      },
+      {
+        "id": "platinum",
+        "threshold": 500
+      }
+    ],
+    "rule": {
+      "metric": "sets_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "muscle-legs",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.unilateral_sets.title",
+    "descriptionKey": "achievement.strength.unilateral_sets.description"
+  },
+  {
+    "id": "strength.upper_lower_week",
+    "category": "strength",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 4
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "calendar",
+        "unit": "week",
+        "count": 1
+      },
+      "compare": "gte",
+      "threshold": 4,
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.strength.upper_lower_week.title",
+    "descriptionKey": "achievement.strength.upper_lower_week.description",
+    "healthyNotes": "Optional denser week; rest still expected via planned rest days."
+  },
+  {
+    "id": "strength.bodyweight_base",
+    "category": "strength",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 10
+      },
+      {
+        "id": "silver",
+        "threshold": 40
+      },
+      {
+        "id": "gold",
+        "threshold": 100
+      },
+      {
+        "id": "platinum",
+        "threshold": 250
+      }
+    ],
+    "rule": {
+      "metric": "sets_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength"
+        ]
+      }
+    },
+    "iconId": "strength",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.strength.bodyweight_base.title",
+    "descriptionKey": "achievement.strength.bodyweight_base.description"
+  }
+]

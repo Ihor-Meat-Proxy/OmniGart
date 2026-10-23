@@ -1,0 +1,83 @@
+{
+  "id": "beginner-foundations",
+  "nameKeys": {
+    "enGB": "yoga.flow.beginner_foundations.name",
+    "uk": "yoga.flow.beginner_foundations.name"
+  },
+  "descriptionKeys": {
+    "enGB": "yoga.flow.beginner_foundations.description",
+    "uk": "yoga.flow.beginner_foundations.description"
+  },
+  "level": "beginner",
+  "durationMinutes": 25,
+  "focus": "mobility",
+  "poseIds": [
+    "mountain-pose",
+    "chair-pose",
+    "warrior-ii",
+    "triangle-pose",
+    "downward-dog",
+    "cobra-pose",
+    "child-pose",
+    "bridge-pose",
+    "corpse-pose"
+  ],
+  "sequence": [
+    {
+      "poseId": "mountain-pose",
+      "holdSeconds": 30,
+      "side": "none"
+    },
+    {
+      "poseId": "chair-pose",
+      "holdSeconds": 30,
+      "side": "none"
+    },
+    {
+      "poseId": "warrior-ii",
+      "holdSeconds": 40,
+      "side": "both"
+    },
+    {
+      "poseId": "triangle-pose",
+      "holdSeconds": 35,
+      "side": "both"
+    },
+    {
+      "poseId": "downward-dog",
+      "holdSeconds": 40,
+      "side": "none"
+    },
+    {
+      "poseId": "cobra-pose",
+      "holdSeconds": 25,
+      "side": "none"
+    },
+    {
+      "poseId": "child-pose",
+      "holdSeconds": 60,
+      "side": "none"
+    },
+    {
+      "poseId": "bridge-pose",
+      "holdSeconds": 35,
+      "side": "none"
+    },
+    {
+      "poseId": "corpse-pose",
+      "holdSeconds": 90,
+      "side": "none"
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber-acsm-2011",
+    "acsm-rt-2026"
+  ],
+  "bundled": true,
+  "equipmentSuggested": [
+    "yoga_mat",
+    "yoga_block",
+    "yoga_strap",
+    "bodyweight"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "mixed-im-endurance",
+  "nameKeys": {
+    "enGB": "swim.session.mixed_im_endurance.name",
+    "uk": "swim.session.mixed_im_endurance.name"
+  },
+  "category": "mixed",
+  "level": "advanced",
+  "strokeIds": [
+    "individual-medley"
+  ],
+  "targetDistanceM": 2400,
+  "durationMinutes": 60,
+  "usesCriticalSwimSpeed": false,
+  "blocks": [
+    {
+      "kind": "warmup",
+      "descriptionKey": "swim.session.mixed_im_endurance.block.warmup",
+      "distanceM": 400,
+      "intensityHint": "easy"
+    },
+    {
+      "kind": "drill",
+      "descriptionKey": "swim.session.mixed_im_endurance.block.drills",
+      "distanceM": 400,
+      "intensityHint": "easy",
+      "drillIds": [
+        "im-transition-practice",
+        "underwater-dolphin-kick"
+      ]
+    },
+    {
+      "kind": "main",
+      "descriptionKey": "swim.session.mixed_im_endurance.block.main",
+      "distanceM": 1400,
+      "intensityHint": "steady"
+    },
+    {
+      "kind": "cooldown",
+      "descriptionKey": "swim.session.mixed_im_endurance.block.cooldown",
+      "distanceM": 200,
+      "intensityHint": "easy"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "technique",
+        "safety"
+      ]
+    }
+  ],
+  "notes": "Bundled swim session content only — CSS and pacing algorithms are out of scope here."
+}

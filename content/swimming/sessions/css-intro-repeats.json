@@ -1,0 +1,57 @@
+{
+  "id": "css-intro-repeats",
+  "nameKeys": {
+    "enGB": "swim.session.css_intro_repeats.name",
+    "uk": "swim.session.css_intro_repeats.name"
+  },
+  "category": "css_intervals",
+  "level": "intermediate",
+  "strokeIds": [
+    "freestyle"
+  ],
+  "targetDistanceM": 2000,
+  "durationMinutes": 50,
+  "usesCriticalSwimSpeed": true,
+  "blocks": [
+    {
+      "kind": "warmup",
+      "descriptionKey": "swim.session.css_intro_repeats.block.warmup",
+      "distanceM": 400,
+      "intensityHint": "easy"
+    },
+    {
+      "kind": "css_set",
+      "descriptionKey": "swim.session.css_intro_repeats.block.css",
+      "distanceM": 1200,
+      "intensityHint": "css"
+    },
+    {
+      "kind": "cooldown",
+      "descriptionKey": "swim.session.css_intro_repeats.block.cooldown",
+      "distanceM": 400,
+      "intensityHint": "easy"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1055/s-2007-1021282",
+      "label": "Wakayoshi et al. — critical swim speed as fatigue threshold",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "technique",
+        "safety"
+      ]
+    }
+  ],
+  "notes": "Bundled swim session content only — CSS and pacing algorithms are out of scope here."
+}

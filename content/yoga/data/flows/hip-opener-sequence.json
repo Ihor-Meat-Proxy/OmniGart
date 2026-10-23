@@ -1,0 +1,83 @@
+{
+  "id": "hip-opener-sequence",
+  "nameKeys": {
+    "enGB": "yoga.flow.hip_opener_sequence.name",
+    "uk": "yoga.flow.hip_opener_sequence.name"
+  },
+  "descriptionKeys": {
+    "enGB": "yoga.flow.hip_opener_sequence.description",
+    "uk": "yoga.flow.hip_opener_sequence.description"
+  },
+  "level": "intermediate",
+  "durationMinutes": 30,
+  "focus": "hip_openers",
+  "poseIds": [
+    "mountain-pose",
+    "goddess-pose",
+    "garland-pose",
+    "lizard-pose",
+    "pigeon-pose",
+    "butterfly-pose",
+    "frog-pose",
+    "happy-baby",
+    "reclining-bound-angle"
+  ],
+  "sequence": [
+    {
+      "poseId": "mountain-pose",
+      "holdSeconds": 30,
+      "side": "none"
+    },
+    {
+      "poseId": "goddess-pose",
+      "holdSeconds": 35,
+      "side": "none"
+    },
+    {
+      "poseId": "garland-pose",
+      "holdSeconds": 35,
+      "side": "none"
+    },
+    {
+      "poseId": "lizard-pose",
+      "holdSeconds": 40,
+      "side": "both"
+    },
+    {
+      "poseId": "pigeon-pose",
+      "holdSeconds": 45,
+      "side": "both"
+    },
+    {
+      "poseId": "butterfly-pose",
+      "holdSeconds": 45,
+      "side": "none"
+    },
+    {
+      "poseId": "frog-pose",
+      "holdSeconds": 45,
+      "side": "none"
+    },
+    {
+      "poseId": "happy-baby",
+      "holdSeconds": 45,
+      "side": "none"
+    },
+    {
+      "poseId": "reclining-bound-angle",
+      "holdSeconds": 90,
+      "side": "none"
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber-acsm-2011",
+    "acsm-rt-2026"
+  ],
+  "bundled": true,
+  "equipmentSuggested": [
+    "yoga_mat",
+    "yoga_block",
+    "yoga_strap",
+    "bodyweight"
+  ]
+}

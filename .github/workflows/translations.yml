@@ -14,9 +14,14 @@ on:
       - 'androidApp/**/res/values*/**'
       - 'iosApp/**/*InfoPlist.strings'
       - 'iosApp/**/*.xcstrings'
+      - 'watchApp/**/*InfoPlist.strings'
+      - 'watchApp/**/*.xcstrings'
+      - 'watchApp/**/*.swift'
+      - 'iosApp/**/*.swift'
       - 'scripts/check_no_ru_locale.sh'
       - 'scripts/content_i18n/**'
       - 'i18n/locales.yml'
+      - 'scripts/check_swift_localization_keys.py'
       - '.github/workflows/translations.yml'
   pull_request:
     paths:
@@ -29,9 +34,14 @@ on:
       - 'androidApp/**/res/values*/**'
       - 'iosApp/**/*InfoPlist.strings'
       - 'iosApp/**/*.xcstrings'
+      - 'watchApp/**/*InfoPlist.strings'
+      - 'watchApp/**/*.xcstrings'
+      - 'watchApp/**/*.swift'
+      - 'iosApp/**/*.swift'
       - 'scripts/check_no_ru_locale.sh'
       - 'scripts/content_i18n/**'
       - 'i18n/locales.yml'
+      - 'scripts/check_swift_localization_keys.py'
       - '.github/workflows/translations.yml'
   workflow_dispatch:
 
@@ -68,3 +78,12 @@ jobs:
 
       - name: Unit tests
         run: python -m pytest scripts/content_i18n/tests -q
+
+      - name: Swift Text keys resolve in String Catalogs
+        run: python3 scripts/check_swift_localization_keys.py
+
+      - name: List touched locale trees
+        run: |
+          set -euo pipefail
+          echo "Locale/content paths present:"
+          find content -type d -name locales 2>/dev/null | sort || true

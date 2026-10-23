@@ -4,7 +4,6 @@ import Shared
 
 /// Reads completed HealthKit workouts (including system Workout app sessions) into the
 /// OmniGart local-first store. Never writes back foreign-origin data.
-@MainActor
 enum HealthKitWorkoutImporter {
     struct ImportedWorkout: Sendable {
         var uuid: UUID

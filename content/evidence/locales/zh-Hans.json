@@ -88,5 +88,9 @@
   "evidence.kaminsky_friend_vo2_2015.key_finding": "Age- and sex-specific VO2 reference percentiles from the FRIEND registry provide norms for cardiorespiratory fitness interpretation.",
   "evidence.loe_hunt_vo2_2016.key_finding": "Population fitness models from HUNT support estimating VO2peak for wellness fitness comparisons when direct CPET is unavailable.",
   "evidence.van_dongen_sleep_debt_2003.key_finding": "Cumulative sleep restriction produces dose-dependent neurobehavioral deficits, supporting the concept of accumulating sleep debt.",
-  "evidence.watson_sleep_performance_2017.key_finding": "Insufficient sleep impairs athletic performance, cognition and injury risk markers; extending sleep and protecting sleep opportunity support recovery."
+  "evidence.watson_sleep_performance_2017.key_finding": "Insufficient sleep impairs athletic performance, cognition and injury risk markers; extending sleep and protecting sleep opportunity support recovery.",
+  "claim.formula_zone2_hrr_karvonen.text": "2区（轻松有氧强度）默认约为心率储备的 60–70%（Karvonen 法），依据您的静息心率与最大心率。",
+  "claim.formula_zone2_percent_hrmax.text": "若您更偏好按 %HRmax 划区而非心率储备，可将 2区可选设为最大心率的约 60–70%。",
+  "claim.cardio_zone2_easy_distribution.text": "耐力训练量往往大部分以轻松有氧强度（类似 2区）完成，较艰苦的部分在课次中占比较小。",
+  "claim.formula_zone2_lthr_band.text": "作为选项，在您有实测或估算的乳酸阈心率（LTHR）时，可将 2区估计为 LTHR 的约 80–90%。"
 }

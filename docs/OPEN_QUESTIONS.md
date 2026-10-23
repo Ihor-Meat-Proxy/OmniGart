@@ -286,3 +286,9 @@ IDs use `A#` so they do not clash with numeric process items or other lettered s
 - **A3. Running power Cr** — Default Cr = 3.8 J·kg⁻¹·m⁻¹ (di Prampero range 3.6–4.0). Expose as user setting, or lock for v1?
 - **A4. ACSM VO₂ labelling** — ACSM running equation is oxygen *cost* at a speed/grade; show as “estimated VO₂” vs “VO₂max” unless the bout is maximal?
 - **A5. Cooper surface** — Accept treadmill @ 1 % as equivalent to outdoor track for Cooper distance input?
+
+## Zone 2 / watch workout copy
+
+Z1. **Watch string budget** — Confirm max characters for Zone 2 single-screen labels (HR, zone, time in zone, cadence, distance) before truncating translations.
+Z2. **Zone model default** — Prefer %HRR (Karvonen), LTHR-based, or %HRmax as the default Zone 2 definition in settings copy?
+Z3. **Wellness tone** — Keep permission/onboarding text free of diagnostic/medical claims; confirm legal review wording.

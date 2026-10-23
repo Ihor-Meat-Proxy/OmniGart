@@ -71,13 +71,7 @@ def extract() -> OrderedDict[str, str]:
                             f"{tbase}.session.{session['id']}.item.{idx}.notes"
                         ] = note
 
-    # Keep any leftover non-name template keys already present
-    if names_path.exists():
-        existing = json.loads(names_path.read_text(encoding="utf-8"))
-        for key, value in sorted(existing.items()):
-            if key not in catalog:
-                catalog[key] = value
-
+    # Do not retain orphan body keys for deleted exercises; rebuild from data only.
     return catalog
 
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OmniGart</string>
+    <string name="watch_start">Inicio</string>
+    <string name="watch_subtitle">Estimaciones de bienestar en tu muñeca</string>
+    <string name="info_sheet_not_medical_advice">No es consejo médico. Consulta a un profesional.</string>
+</resources>

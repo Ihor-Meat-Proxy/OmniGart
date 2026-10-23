@@ -23,17 +23,34 @@
     "nameKeys": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["enGB", "uk"],
+      "required": [
+        "enGB",
+        "uk"
+      ],
       "properties": {
-        "enGB": { "type": "string", "pattern": "^yoga\\.flow\\.[a-z0-9_]+\\.name$" },
-        "uk": { "type": "string", "pattern": "^yoga\\.flow\\.[a-z0-9_]+\\.name$" }
+        "enGB": {
+          "type": "string",
+          "pattern": "^yoga\\.flow\\.[a-z0-9_]+\\.name$"
+        },
+        "uk": {
+          "type": "string",
+          "pattern": "^yoga\\.flow\\.[a-z0-9_]+\\.name$"
+        }
       }
     },
     "level": {
       "type": "string",
-      "enum": ["beginner", "intermediate", "advanced"]
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ]
     },
-    "durationMinutes": { "type": "integer", "minimum": 10, "maximum": 90 },
+    "durationMinutes": {
+      "type": "integer",
+      "minimum": 10,
+      "maximum": 90
+    },
     "focus": {
       "type": "string",
       "enum": [
@@ -51,7 +68,10 @@
       "type": "array",
       "minItems": 4,
       "uniqueItems": true,
-      "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" }
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
     },
     "sequence": {
       "type": "array",
@@ -59,38 +79,75 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["poseId", "holdSeconds"],
+        "required": [
+          "poseId",
+          "holdSeconds"
+        ],
         "properties": {
-          "poseId": { "type": "string" },
-          "holdSeconds": { "type": "integer", "minimum": 5, "maximum": 600 },
+          "poseId": {
+            "type": "string"
+          },
+          "holdSeconds": {
+            "type": "integer",
+            "minimum": 5,
+            "maximum": 600
+          },
           "side": {
             "type": "string",
-            "enum": ["both", "left", "right", "none"]
+            "enum": [
+              "both",
+              "left",
+              "right",
+              "none"
+            ]
           },
-          "noteKey": { "type": "string" }
+          "noteKey": {
+            "type": "string"
+          }
         }
       }
     },
     "evidenceEntryIds": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" }
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+([_-][a-z0-9]+)*$"
+      }
     },
-    "bundled": { "type": "boolean", "const": true },
+    "bundled": {
+      "type": "boolean",
+      "const": true
+    },
     "equipmentSuggested": {
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["yoga_mat", "yoga_block", "yoga_strap", "bolster", "blanket", "bodyweight", "none"]
+        "enum": [
+          "yoga_mat",
+          "yoga_block",
+          "yoga_strap",
+          "bolster",
+          "blanket",
+          "bodyweight",
+          "none"
+        ]
       }
     },
     "descriptionKeys": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["enGB", "uk"],
+      "required": [
+        "enGB",
+        "uk"
+      ],
       "properties": {
-        "enGB": { "type": "string" },
-        "uk": { "type": "string" }
+        "enGB": {
+          "type": "string"
+        },
+        "uk": {
+          "type": "string"
+        }
       }
     }
   }

@@ -1,0 +1,27 @@
+{
+  "id": "who_bmi_2000",
+  "type": "guideline",
+  "title": "Obesity: preventing and managing the global epidemic. Report of a WHO consultation",
+  "authors": [
+    "World Health Organization"
+  ],
+  "year": 2000,
+  "journal": "WHO Technical Report Series",
+  "url": "https://apps.who.int/iris/handle/10665/42330",
+  "openAccess": true,
+  "population": "Global adult BMI classification guidance",
+  "keyFinding": {
+    "enGB": "Defines widely used adult BMI cut-points for underweight, normal weight, overweight, and obesity categories.",
+    "keys": {
+      "enGB": "evidence.who_bmi_2000.key_finding",
+      "uk": "evidence.who_bmi_2000.key_finding"
+    }
+  },
+  "evidenceStrength": "high",
+  "licenceNote": "Open-access or public-agency text: title and short finding may be shown; link out for full document. Do not paste copyrighted abstracts wholesale.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.Bmi.whoCategory"
+  ]
+}

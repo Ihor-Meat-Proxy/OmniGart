@@ -1,0 +1,27 @@
+{
+  "id": "who_whr_2008",
+  "type": "guideline",
+  "title": "Waist Circumference and Waist–Hip Ratio: Report of a WHO Expert Consultation",
+  "authors": [
+    "World Health Organization"
+  ],
+  "year": 2008,
+  "journal": "WHO",
+  "url": "https://www.who.int/publications/i/item/9789241501491",
+  "openAccess": true,
+  "population": "Global anthropometric cut-point guidance",
+  "keyFinding": {
+    "enGB": "Expert consultation report on measuring and interpreting waist circumference and waist–hip ratio for health risk screening.",
+    "keys": {
+      "enGB": "evidence.who_whr_2008.key_finding",
+      "uk": "evidence.who_whr_2008.key_finding"
+    }
+  },
+  "evidenceStrength": "moderate",
+  "licenceNote": "Open-access or public-agency text: title and short finding may be shown; link out for full document. Do not paste copyrighted abstracts wholesale.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.Anthropometry.waistToHipRatio"
+  ]
+}

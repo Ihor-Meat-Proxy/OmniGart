@@ -1,0 +1,6 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+# Latest stable on RubyGems as of 2026-10-15
+gem "fastlane", "2.241.1"

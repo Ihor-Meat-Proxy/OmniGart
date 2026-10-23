@@ -30,7 +30,7 @@ class RuleBasedPlanGeneratorTest {
     fun generatesSessionsMatchingAvailableDays() {
         val plan = RuleBasedPlanGenerator().generate(PlanGenerationInput(profile(days = 4)))
         assertEquals(4, plan.sessions.size)
-        assertTrue(plan.explanations.any { it.evidence.refId.startsWith("doi:") })
+        assertTrue(plan.explanations.any { it.evidence.refId == "schoenfeld_volume_2016" })
         assertTrue(plan.volumeTargets.isNotEmpty())
     }
 

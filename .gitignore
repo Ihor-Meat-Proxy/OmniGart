@@ -70,3 +70,7 @@ tools/content-packs/dist/
 tools/content-packs/keys/*.key
 **/*.minisig
 infra/self-host/.env
+# Fastlane
+fastlane/vendor/
+fastlane/.bundle/
+

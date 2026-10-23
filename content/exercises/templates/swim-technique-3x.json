@@ -20,9 +20,7 @@
   "rationale": "Prioritise drill density before yardage so aerobic volume does not entrench poor mechanics; easy aerobic dominance still applies when conditioning.",
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0b013e318213fefb",
-      "label": "Garber et al. 2011 ACSM guidance",
+      "evidenceId": "garber_acsm_quantity_2011",
       "supports": [
         "programming",
         "endurance",
@@ -30,9 +28,7 @@
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1123/ijspp.5.3.276",
-      "label": "Seiler 2010 intensity distribution",
+      "evidenceId": "seiler_intensity_distribution_2010",
       "supports": [
         "endurance",
         "programming"

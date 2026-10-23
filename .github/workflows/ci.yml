@@ -11,7 +11,9 @@ on:
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+  # Never cancel in-flight runs. Cancelling hid WorkoutKit / Swift compile failures
+  # when a later push arrived before the macOS iOS + watchOS job finished.
+  cancel-in-progress: false
 
 jobs:
   changes:

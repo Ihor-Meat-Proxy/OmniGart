@@ -1,0 +1,77 @@
+{
+  "id": "mixed-mat-reformer-bridge",
+  "nameKeys": {
+    "enGB": "pilates.session.mixed_mat_reformer_bridge.name",
+    "uk": "pilates.session.mixed_mat_reformer_bridge.name"
+  },
+  "descriptionKeys": {
+    "enGB": "pilates.session.mixed_mat_reformer_bridge.description",
+    "uk": "pilates.session.mixed_mat_reformer_bridge.description"
+  },
+  "level": "intermediate",
+  "durationMinutes": 40,
+  "apparatus": "mixed",
+  "focus": "full_body",
+  "exerciseIds": [
+    "pilates-hundred",
+    "pilates-roll-up",
+    "pilates-swan",
+    "reformer-footwork",
+    "reformer-hundred",
+    "reformer-long-stretch",
+    "reformer-row-arms",
+    "reformer-pelvic-press"
+  ],
+  "blocks": [
+    {
+      "titleKey": "pilates.session.mixed_mat_reformer_bridge.block_main",
+      "items": [
+        {
+          "exerciseId": "pilates-hundred",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "pilates-roll-up",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "pilates-swan",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "reformer-footwork",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "reformer-hundred",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "reformer-long-stretch",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "reformer-row-arms",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "reformer-pelvic-press",
+          "sets": 1,
+          "reps": 8
+        }
+      ]
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber-acsm-2011",
+    "acsm-rt-2026"
+  ],
+  "bundled": true
+}

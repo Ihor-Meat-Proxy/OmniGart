@@ -1,0 +1,66 @@
+{
+  "id": "easy-progressive",
+  "nameKeys": {
+    "enGB": "running.workout.easy_progressive.name",
+    "uk": "running.workout.easy_progressive.name"
+  },
+  "category": "easy",
+  "level": "intermediate",
+  "durationMinutes": {
+    "typical": 50,
+    "min": 35,
+    "max": 80
+  },
+  "structure": [
+    {
+      "phase": "warmup",
+      "descriptionKey": "running.workout.easy_progressive.structure.warmup"
+    },
+    {
+      "phase": "main",
+      "descriptionKey": "running.workout.easy_progressive.structure.main"
+    },
+    {
+      "phase": "cooldown",
+      "descriptionKey": "running.workout.easy_progressive.structure.cooldown"
+    }
+  ],
+  "intensityTargets": {
+    "hrZones": [
+      "z2",
+      "z3"
+    ],
+    "paceZones": [
+      "easy",
+      "marathon"
+    ],
+    "primaryLabel": "easy",
+    "rpeRange": "3-5"
+  },
+  "cues": [
+    "Start easy; finish nearer marathon effort.",
+    "Stop or ease if sharp pain appears."
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity/duration distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "programming",
+        "safety"
+      ]
+    }
+  ],
+  "notes": "Bundled prescription content only — pacing/HR algorithms live outside this pack."
+}

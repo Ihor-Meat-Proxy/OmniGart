@@ -1,0 +1,57 @@
+{
+  "id": "endurance-distance-build",
+  "nameKeys": {
+    "enGB": "swim.session.endurance_distance_build.name",
+    "uk": "swim.session.endurance_distance_build.name"
+  },
+  "category": "endurance",
+  "level": "advanced",
+  "strokeIds": [
+    "freestyle"
+  ],
+  "targetDistanceM": 3200,
+  "durationMinutes": 70,
+  "usesCriticalSwimSpeed": false,
+  "blocks": [
+    {
+      "kind": "warmup",
+      "descriptionKey": "swim.session.endurance_distance_build.block.warmup",
+      "distanceM": 400,
+      "intensityHint": "easy"
+    },
+    {
+      "kind": "main",
+      "descriptionKey": "swim.session.endurance_distance_build.block.main",
+      "distanceM": 2400,
+      "intensityHint": "steady"
+    },
+    {
+      "kind": "cooldown",
+      "descriptionKey": "swim.session.endurance_distance_build.block.cooldown",
+      "distanceM": 400,
+      "intensityHint": "easy"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "technique",
+        "safety"
+      ]
+    }
+  ],
+  "notes": "Bundled swim session content only — CSS and pacing algorithms are out of scope here."
+}

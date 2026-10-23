@@ -54,7 +54,6 @@ final class WatchPhoneWorkoutTransfer: NSObject, WCSessionDelegate {
 }
 
 /// Builds device-transfer JSON from a finished watch workout and enqueues WCSession delivery.
-@MainActor
 enum WatchWorkoutTransferBuilder {
     struct TransferPayload {
         var localId: String
@@ -80,6 +79,7 @@ enum WatchWorkoutTransferBuilder {
         }
     }
 
+    @MainActor
     static func enqueueLiveSummary(_ summary: OmniGartLiveWorkoutSummary, localId: String, syncIdentifier: String) {
         let startMs = Int64(summary.startedAt.timeIntervalSince1970 * 1000)
         let json = makeJSON(
@@ -101,6 +101,7 @@ enum WatchWorkoutTransferBuilder {
         WatchPhoneWorkoutTransfer.shared.enqueue(jsonPayload: json)
     }
 
+    @MainActor
     static func enqueueZone2Summary(
         _ summary: Zone2Summary,
         localId: String,

@@ -12,6 +12,7 @@ final class WatchWorkoutTransferTests: XCTestCase {
         )
     }
 
+    @MainActor
     func testTransferJSONContainsSchemaAndSyncId() {
         let summary = OmniGartLiveWorkoutSummary(
             kind: .yoga,

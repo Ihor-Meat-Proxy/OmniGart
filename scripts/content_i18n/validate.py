@@ -32,6 +32,7 @@ from content_i18n.config import (  # noqa: E402
     target_locales,
 )
 from content_i18n.icu_util import validate_icu  # noqa: E402
+from content_i18n.catalogs import catalog_id, discover_locale_dirs  # noqa: E402
 
 RU_FILE_RE = re.compile(
     r"(^|/)(ru|ru-[A-Za-z0-9]+)(\.json|\.xml|\.strings|\.tsv)?$",
@@ -191,17 +192,19 @@ def check_no_ru(root: Path, report: Report) -> None:
                     )
 
 
-def check_content_locales(
+
+def check_one_content_catalog(
+    locales_dir: Path,
     cfg: dict[str, Any],
     report: Report,
-) -> dict[str, dict[str, str]]:
-    paths = cfg.get("paths") or {}
-    locales_dir = REPO_ROOT / paths.get("content_locales", "content/exercises/locales")
-    status_dir = REPO_ROOT / paths.get("status", "content/i18n/status")
-    glossary_path = REPO_ROOT / paths.get("glossary", "content/i18n/glossary/glossary.csv")
+    glossary_by_en: dict[str, dict[str, str]],
+    status_dir: Path,
+) -> None:
+    """Validate a single content/*/locales catalog against required locales."""
     name_warn = int(cfg.get("name_length_warn") or 48)
     src = source_locale(cfg)
     required = required_locales(cfg)
+    cid = catalog_id(locales_dir)
 
     catalogs: dict[str, dict[str, str]] = {}
     for loc in required:
@@ -211,7 +214,7 @@ def check_content_locales(
                 Finding(
                     "error",
                     "missing-locale-file",
-                    f"Missing content locale file for {loc}",
+                    f"[{cid}] Missing content locale file for {loc}",
                     path=str(path.relative_to(REPO_ROOT)),
                     locale=loc,
                 )
@@ -225,7 +228,7 @@ def check_content_locales(
                 Finding(
                     "error",
                     "malformed-locale",
-                    f"Malformed content locale {loc}: {exc}",
+                    f"[{cid}] Malformed content locale {loc}: {exc}",
                     path=str(path.relative_to(REPO_ROOT)),
                     locale=loc,
                 )
@@ -238,18 +241,12 @@ def check_content_locales(
             Finding(
                 "error",
                 "empty-source",
-                f"Source locale {src} has no keys",
+                f"[{cid}] Source locale {src} has no keys",
                 locale=src,
+                path=str((locales_dir / f"{src}.json").relative_to(REPO_ROOT)),
             )
         )
-        return catalogs
-
-    glossary_rows = load_glossary(glossary_path)
-    glossary_by_en: dict[str, dict[str, str]] = {}
-    for row in glossary_rows:
-        en = (row.get("en-GB") or "").strip()
-        if en:
-            glossary_by_en[en.lower()] = row
+        return
 
     for loc in required:
         path = locales_dir / f"{loc}.json"
@@ -258,12 +255,8 @@ def check_content_locales(
         missing = sorted(set(source_keys) - set(cat))
         orphans = sorted(set(cat) - set(source_keys))
         empty = sorted(k for k, v in cat.items() if k in source_keys and not v.strip())
-        present = len(source_keys) - len(missing) - len([k for k in empty if k not in missing])
-        # coverage counts
-        report.coverage.setdefault("content", {})
-        # finer per-locale below
 
-        status = {}
+        status: dict[str, Any] = {}
         try:
             status = load_status(status_dir, loc) if loc != src else {}
         except (ValueError, json.JSONDecodeError) as exc:
@@ -271,7 +264,7 @@ def check_content_locales(
                 Finding(
                     "error",
                     "malformed-status",
-                    f"Malformed status for {loc}: {exc}",
+                    f"[{cid}] Malformed status for {loc}: {exc}",
                     path=str((status_dir / f"{loc}.json").relative_to(REPO_ROOT)),
                     locale=loc,
                 )
@@ -287,7 +280,7 @@ def check_content_locales(
                 Finding(
                     "error",
                     "missing-key",
-                    f"[{loc}] missing key: {key}",
+                    f"[{cid}/{loc}] missing key: {key}",
                     path=rel,
                     line=line,
                     locale=loc,
@@ -300,7 +293,7 @@ def check_content_locales(
                 Finding(
                     "error",
                     "orphan-key",
-                    f"[{loc}] orphan key not in {src}: {key}",
+                    f"[{cid}/{loc}] orphan key not in {src}: {key}",
                     path=rel,
                     line=line,
                     locale=loc,
@@ -313,7 +306,7 @@ def check_content_locales(
                 Finding(
                     "error",
                     "empty-string",
-                    f"[{loc}] empty string: {key}",
+                    f"[{cid}/{loc}] empty string: {key}",
                     path=rel,
                     line=line,
                     locale=loc,
@@ -332,7 +325,7 @@ def check_content_locales(
                         Finding(
                             "error",
                             "icu",
-                            f"[{loc}] {key}: {issue.message}",
+                            f"[{cid}/{loc}] {key}: {issue.message}",
                             path=rel,
                             line=find_key_line(path, key),
                             locale=loc,
@@ -340,13 +333,12 @@ def check_content_locales(
                         )
                     )
 
-                # name length warning
                 if key.endswith(".name") and len(dst_val) > name_warn:
                     report.add(
                         Finding(
                             "warning",
                             "name-length",
-                            f"[{loc}] UI name long ({len(dst_val)}>{name_warn}): {key}",
+                            f"[{cid}/{loc}] UI name long ({len(dst_val)}>{name_warn}): {key}",
                             path=rel,
                             line=find_key_line(path, key),
                             locale=loc,
@@ -354,7 +346,6 @@ def check_content_locales(
                         )
                     )
 
-                # glossary consistency: if en term appears in source, prefer glossary translation
                 _check_glossary(
                     report,
                     glossary_by_en,
@@ -366,7 +357,6 @@ def check_content_locales(
                     path,
                 )
 
-                # status + stale (count each key once)
                 meta = status.get(key) or {}
                 st = meta.get("status") or "machine-drafted"
                 if st not in {"machine-drafted", "reviewed"}:
@@ -374,7 +364,7 @@ def check_content_locales(
                         Finding(
                             "error",
                             "bad-status",
-                            f"[{loc}] invalid status '{st}' for {key}",
+                            f"[{cid}/{loc}] invalid status '{st}' for {key}",
                             path=str((status_dir / f"{loc}.json").relative_to(REPO_ROOT))
                             if (status_dir / f"{loc}.json").is_file()
                             else rel,
@@ -393,7 +383,7 @@ def check_content_locales(
                         Finding(
                             sev,
                             "stale",
-                            f"[{loc}] stale translation (source changed): {key}",
+                            f"[{cid}/{loc}] stale translation (source changed): {key}",
                             path=rel,
                             line=find_key_line(path, key),
                             locale=loc,
@@ -403,10 +393,12 @@ def check_content_locales(
                     if st == "reviewed":
                         reviewed_stale += 1
 
-
         translated = len(source_keys) - len(missing)
         non_empty = translated - len(empty)
-        report.coverage[loc] = {
+        cov_key = f"{cid}:{loc}"
+        report.coverage[cov_key] = {
+            "catalog": cid,
+            "locale": loc,
             "source_keys": len(source_keys),
             "present": translated,
             "non_empty": non_empty,
@@ -416,18 +408,32 @@ def check_content_locales(
             "stale": stale_count,
             "reviewed_stale": reviewed_stale,
         }
-        report.status_counts[loc] = dict(status_counter)
+        # Aggregate status counts per locale across catalogs
+        agg = report.status_counts.setdefault(loc, {})
+        for k, v in status_counter.items():
+            agg[k] = agg.get(k, 0) + v
 
-    # Glossary must cover all required locale columns
+
+def check_content_locales(
+    cfg: dict[str, Any],
+    report: Report,
+) -> None:
+    paths = cfg.get("paths") or {}
+    status_dir = REPO_ROOT / paths.get("status", "content/i18n/status")
+    glossary_path = REPO_ROOT / paths.get("glossary", "content/i18n/glossary/glossary.csv")
+    required = required_locales(cfg)
+
+    glossary_rows = load_glossary(glossary_path)
+    glossary_by_en: dict[str, dict[str, str]] = {}
+    for row in glossary_rows:
+        en = (row.get("en-GB") or "").strip()
+        if en:
+            glossary_by_en[en.lower()] = row
+
     if glossary_rows:
         fieldnames = set(glossary_rows[0].keys())
         for loc in required:
-            if loc not in fieldnames and loc != "en-GB":
-                # en-GB column uses that exact name
-                pass
-        for loc in required:
-            col = loc
-            if col not in fieldnames:
+            if loc not in fieldnames:
                 report.add(
                     Finding(
                         "error",
@@ -441,7 +447,7 @@ def check_content_locales(
                 blanks = [
                     r.get("term_id", "?")
                     for r in glossary_rows
-                    if not (r.get(col) or "").strip()
+                    if not (r.get(loc) or "").strip()
                 ]
                 if blanks:
                     report.add(
@@ -455,7 +461,22 @@ def check_content_locales(
                         )
                     )
 
-    return catalogs
+    dirs = discover_locale_dirs(cfg)
+    if not dirs:
+        report.add(
+            Finding(
+                "error",
+                "empty-source",
+                "No content locale catalogs with en-GB.json were found under content/",
+            )
+        )
+        return
+
+    for locales_dir in dirs:
+        check_one_content_catalog(
+            locales_dir, cfg, report, glossary_by_en, status_dir
+        )
+
 
 
 # Overly generic en stems that create noisy false positives in free prose.
@@ -856,15 +877,17 @@ def write_summary(report: Report, cfg: dict[str, Any]) -> None:
         "",
         "## Coverage (content catalogs)",
         "",
-        "| Locale | Source keys | Present | Non-empty | Missing | Orphans | Empty | Stale |",
-        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+        "| Catalog | Locale | Source keys | Present | Non-empty | Missing | Orphans | Empty | Stale |",
+        "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
-    for loc in required_locales(cfg):
-        c = report.coverage.get(loc) or {}
+    for cov_key in sorted(report.coverage.keys()):
+        c = report.coverage[cov_key]
+        if "catalog" not in c:
+            continue
         lines.append(
-            f"| `{loc}` | {c.get('source_keys', 0)} | {c.get('present', 0)} | "
-            f"{c.get('non_empty', 0)} | {c.get('missing', 0)} | {c.get('orphans', 0)} | "
-            f"{c.get('empty', 0)} | {c.get('stale', 0)} |"
+            f"| `{c.get('catalog')}` | `{c.get('locale')}` | {c.get('source_keys', 0)} | "
+            f"{c.get('present', 0)} | {c.get('non_empty', 0)} | {c.get('missing', 0)} | "
+            f"{c.get('orphans', 0)} | {c.get('empty', 0)} | {c.get('stale', 0)} |"
         )
 
     lines += ["", "## Review status", ""]

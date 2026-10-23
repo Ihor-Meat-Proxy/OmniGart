@@ -18,9 +18,7 @@
   "rationale": "Flexibility and neuromotor practice on ≥2–3 days/week aligns with ACSM quantity/quality guidance; poses stay beginner-accessible.",
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0b013e318213fefb",
-      "label": "Garber et al. 2011 ACSM guidance",
+      "evidenceId": "garber_acsm_quantity_2011",
       "supports": [
         "programming",
         "endurance",

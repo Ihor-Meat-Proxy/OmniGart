@@ -1,7 +1,5 @@
 package com.omnigart.content
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.networknt.schema.Schema
 import com.networknt.schema.SchemaRegistry
 import com.networknt.schema.SpecificationVersion
@@ -11,17 +9,12 @@ import kotlin.io.path.extension
 import kotlin.io.path.isRegularFile
 import kotlin.io.path.name
 import kotlin.io.path.readText
+import tools.jackson.databind.JsonNode
+import tools.jackson.databind.ObjectMapper
 
-data class ValidationIssue(
-    val path: String,
-    val message: String,
-)
+data class ValidationIssue(val path: String, val message: String)
 
-data class ValidationReport(
-    val exerciseCount: Int,
-    val templateCount: Int,
-    val issues: List<ValidationIssue>,
-) {
+data class ValidationReport(val exerciseCount: Int, val templateCount: Int, val issues: List<ValidationIssue>) {
     val ok: Boolean get() = issues.isEmpty()
 }
 
@@ -29,10 +22,7 @@ data class ValidationReport(
  * Validates on-disk exercise/template JSON against schemas and content rules:
  * unique ids, locale keys present (en-GB + uk only — no ru), cross-refs, evidence refs.
  */
-class ContentValidator(
-    private val contentRoot: Path,
-    private val mapper: ObjectMapper = ObjectMapper(),
-) {
+class ContentValidator(private val contentRoot: Path, private val mapper: ObjectMapper = ObjectMapper()) {
     private val registry: SchemaRegistry =
         SchemaRegistry.withDefaultDialect(SpecificationVersion.DRAFT_2020_12)
 
@@ -58,7 +48,7 @@ class ContentValidator(
             exerciseSchema.validate(node).forEach { err ->
                 issues += ValidationIssue(file.toString(), err.message)
             }
-            val id = node.path("id").asText()
+            val id = node.path("id").asString()
             if (!ids.add(id)) {
                 issues += ValidationIssue(file.toString(), "Duplicate exercise id: $id")
             }
@@ -74,7 +64,7 @@ class ContentValidator(
         for ((file, node) in nodes) {
             for (field in listOf("regressions", "progressions")) {
                 node.path(field).forEach { link ->
-                    val ref = link.path("exerciseId").asText()
+                    val ref = link.path("exerciseId").asString()
                     if (ref.isNotBlank() && ref !in idSet) {
                         issues += ValidationIssue(file.toString(), "Broken $field link to $ref")
                     }
@@ -96,22 +86,28 @@ class ContentValidator(
             templateSchema.validate(node).forEach { err ->
                 issues += ValidationIssue(file.toString(), err.message)
             }
-            val id = node.path("id").asText()
+            val id = node.path("id").asString()
             if (!templateIds.add(id)) {
                 issues += ValidationIssue(file.toString(), "Duplicate template id: $id")
             }
             node.path("sessions").forEach { session ->
                 session.path("blocks").forEach { block ->
                     block.path("items").forEach { item ->
-                        val eid = item.path("exerciseId").asText()
+                        val eid = item.path("exerciseId").asString()
                         if (eid.isNotBlank() && eid !in idSet) {
-                            issues += ValidationIssue(file.toString(), "Template references missing exercise $eid")
+                            issues +=
+                                ValidationIssue(
+                                    file.toString(),
+                                    "Template references missing exercise $eid"
+                                )
                         }
                     }
                 }
             }
             if (node.path("evidenceRefs").isEmpty) {
                 issues += ValidationIssue(file.toString(), "Template missing evidenceRefs")
+            } else {
+                checkEvidence(node, file, issues)
             }
         }
 
@@ -127,7 +123,7 @@ class ContentValidator(
         val file = contentRoot.resolve(relative)
         if (!Files.exists(file)) return emptyMap()
         val node = mapper.readTree(file.readText())
-        return node.properties().associate { it.key to it.value.asText() }
+        return node.properties().associate { it.key to it.value.asString() }
     }
 
     private fun assertNoRuLocale(issues: MutableList<ValidationIssue>) {
@@ -137,7 +133,8 @@ class ContentValidator(
             stream.forEach { path ->
                 val n = path.fileName.toString().lowercase()
                 if (n == "ru.json" || n.startsWith("ru-") || n.contains(".ru.")) {
-                    issues += ValidationIssue(path.toString(), "Russian locale files are not allowed")
+                    issues +=
+                        ValidationIssue(path.toString(), "Russian locale files are not allowed")
                 }
             }
         }
@@ -148,10 +145,10 @@ class ContentValidator(
         en: Map<String, String>,
         uk: Map<String, String>,
         file: Path,
-        issues: MutableList<ValidationIssue>,
+        issues: MutableList<ValidationIssue>
     ) {
-        val enKey = node.path("nameKeys").path("enGB").asText()
-        val ukKey = node.path("nameKeys").path("uk").asText()
+        val enKey = node.path("nameKeys").path("enGB").asString()
+        val ukKey = node.path("nameKeys").path("uk").asString()
         if (enKey.isNotBlank() && enKey !in en) {
             issues += ValidationIssue(file.toString(), "Missing en-GB string for $enKey")
         }
@@ -165,31 +162,47 @@ class ContentValidator(
         if (refs.isEmpty) {
             issues += ValidationIssue(
                 file.toString(),
-                "Exercise has technique/safety claims but no evidenceRefs (log in OPEN_QUESTIONS if intentionally omitted)",
+                "Content has claims but no evidenceRefs (log in OPEN_QUESTIONS if intentionally omitted)"
+
             )
         }
-        refs.forEach { ref ->
-            val kind = ref.path("kind").asText()
-            val id = ref.path("id").asText()
-            if (kind == "doi" && !id.matches(Regex("""^10\.\d{4,9}/\S+$"""))) {
-                issues += ValidationIssue(file.toString(), "DOI looks malformed: $id")
+        val knownIds = loadEvidenceIds()
+        refs.values().forEach { ref ->
+            val evidenceId = ref.path("evidenceId").asString()
+            if (evidenceId.isBlank()) {
+                issues += ValidationIssue(file.toString(), "evidenceRefs entry missing evidenceId")
+                return@forEach
             }
-            if (kind == "pmid" && !id.matches(Regex("""^\d+$"""))) {
-                issues += ValidationIssue(file.toString(), "PMID looks malformed: $id")
+            if (!evidenceId.matches(Regex("""^[a-z][a-z0-9]*(_[a-z0-9]+)*$"""))) {
+                issues += ValidationIssue(file.toString(), "evidenceId looks malformed: $evidenceId")
+            }
+            if (knownIds != null && evidenceId !in knownIds) {
+                issues += ValidationIssue(
+                    file.toString(),
+                    "evidenceId not found in content/evidence catalog: $evidenceId"
+                )
             }
         }
     }
 
+    private fun loadEvidenceIds(): Set<String>? {
+        val catalog = contentRoot.parent?.resolve("evidence/catalog.json") ?: return null
+        if (!Files.isRegularFile(catalog)) return null
+        val root = mapper.readTree(catalog.readText())
+        if (!root.isArray) return null
+        return root.values().mapNotNull { it.path("id").asString().takeIf { id -> id.isNotBlank() } }.toSet()
+    }
+
     private fun checkLoadModel(node: JsonNode, file: Path, issues: MutableList<ValidationIssue>) {
-        val loadModel = node.path("loadModel").asText()
+        val loadModel = node.path("loadModel").asString()
         val fraction = node.path("bodyweightFraction")
         if (fraction.isMissingNode || fraction.isNull) {
             issues += ValidationIssue(file.toString(), "Missing bodyweightFraction")
             return
         }
         val proportion = fraction.path("proportion").asDouble(Double.NaN)
-        val basis = fraction.path("basis").asText()
-        val rationale = fraction.path("rationale").asText()
+        val basis = fraction.path("basis").asString()
+        val rationale = fraction.path("rationale").asString()
         if (proportion.isNaN() || proportion < 0.0 || proportion > 1.5) {
             issues += ValidationIssue(file.toString(), "bodyweightFraction.proportion out of range: $proportion")
         }
@@ -204,7 +217,7 @@ class ContentValidator(
                 if (proportion != 0.0) {
                     issues += ValidationIssue(
                         file.toString(),
-                        "external_only exercises should use bodyweightFraction.proportion 0",
+                        "external_only exercises should use bodyweightFraction.proportion 0"
                     )
                 }
             }
@@ -212,7 +225,7 @@ class ContentValidator(
                 if (proportion <= 0.0) {
                     issues += ValidationIssue(
                         file.toString(),
-                        "$loadModel should have bodyweightFraction.proportion > 0",
+                        "$loadModel should have bodyweightFraction.proportion > 0"
                     )
                 }
             }
@@ -228,31 +241,26 @@ class ContentValidator(
         if (!node.has("allowsAssistance") || !node.path("allowsAssistance").isBoolean) {
             issues += ValidationIssue(file.toString(), "allowsAssistance must be a boolean")
         }
-        val tags = node.path("tags").map { it.asText() }.toSet()
+        val tags = node.path("tags").values().map { it.asString() }.toSet()
         if ("pull-up-family" in tags || "dip-family" in tags) {
-            val refIds = node.path("evidenceRefs").map { it.path("id").asText() }.toSet()
+            val evidenceIds = node.path("evidenceRefs").values().map { it.path("evidenceId").asString() }.toSet()
             if ("pull-up-family" in tags) {
-                val hasEmg = refIds.any {
-                    it == "10.1519/JSC.0b013e3181f1598c" || it == "10.1016/j.jelekin.2016.11.004"
-                }
-                val hasSeg = "10.1016/0021-9290(95)00178-6" in refIds
-                if (!hasEmg && node.path("id").asText() !in setOf("typewriter-pull-up", "commando-pull-up")) {
-                    // advanced skill variants may only have technique refs; still prefer segmental mass
-                }
+                val hasSeg = "de_leva_segmental_1996" in evidenceIds
                 if (!hasSeg && basis == "estimate") {
                     issues += ValidationIssue(
                         file.toString(),
-                        "pull-up-family estimate should cite de Leva segmental masses (10.1016/0021-9290(95)00178-6)",
+                        "pull-up-family estimate should cite de_leva_segmental_1996"
+
                     )
                 }
             }
             if ("dip-family" in tags) {
-                if ("10.1519/SSC.0000000000000579" !in refIds &&
-                    "10.3390/ijerph192013211" !in refIds
+                if ("mckenzie_dip_shoulder_2020" !in evidenceIds &&
+                    "mckenzie_dip_kinematics_2022" !in evidenceIds
                 ) {
                     issues += ValidationIssue(
                         file.toString(),
-                        "dip-family should cite dip shoulder-extension safety/kinematics evidence",
+                        "dip-family should cite dip shoulder-extension safety/kinematics evidence"
                     )
                 }
             }

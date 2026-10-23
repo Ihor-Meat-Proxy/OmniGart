@@ -1,0 +1,40 @@
+{
+  "id": "almond-milk",
+  "category": "plant_milk",
+  "defaultServingMl": 200,
+  "caffeineMgPerServing": 0,
+  "macrosPer100ml": {
+    "energyKcal": 17,
+    "proteinG": 0.5,
+    "carbohydrateG": 0.7,
+    "fatG": 1.4,
+    "sugarsG": 0.2,
+    "sodiumMg": 55
+  },
+  "hydrationFactor": 1.0,
+  "hydrationFactorEstimated": true,
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.3945/ajcn.115.114769",
+      "label": "Maughan et al. 2016 AJCN — Beverage Hydration Index",
+      "supports": [
+        "hydration_factor"
+      ]
+    },
+    {
+      "kind": "database",
+      "id": "usda-fdc",
+      "label": "USDA FoodData Central (typical values per 100 ml / serving)",
+      "supports": [
+        "macros",
+        "caffeine"
+      ]
+    }
+  ],
+  "notes": "No Maughan BHI; defaulted to 1.0.",
+  "nameKeys": {
+    "enGB": "beverage.almond_milk.name",
+    "uk": "beverage.almond_milk.name"
+  }
+}

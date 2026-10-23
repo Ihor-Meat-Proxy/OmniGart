@@ -1,3 +1,2 @@
-# Polar BLE SDK / RxJava keep rules (consumer-side).
--keep class com.polar.** { *; }
--dontwarn com.polar.**
+# Keep Polar SDK entry points used via reflection by RxJava adapters if needed.
+-keep class com.polar.sdk.** { *; }

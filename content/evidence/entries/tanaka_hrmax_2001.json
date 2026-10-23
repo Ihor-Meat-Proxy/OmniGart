@@ -1,0 +1,31 @@
+{
+  "id": "tanaka_hrmax_2001",
+  "type": "meta-analysis",
+  "title": "Age-predicted maximal heart rate revisited",
+  "authors": [
+    "Tanaka H",
+    "Monahan KD",
+    "Seals DR"
+  ],
+  "year": 2001,
+  "journal": "Journal of the American College of Cardiology",
+  "doi": "10.1016/S0735-1097(00)01054-8",
+  "pmid": "11153730",
+  "openAccess": false,
+  "sampleSize": 18712,
+  "population": "Healthy adults across ages (meta-analytic HRmax prediction)",
+  "keyFinding": {
+    "enGB": "Supports the 208 − 0.7×age prediction of maximal heart rate as an improvement over 220 − age in healthy adults.",
+    "keys": {
+      "enGB": "evidence.tanaka_hrmax_2001.key_finding",
+      "uk": "evidence.tanaka_hrmax_2001.key_finding"
+    }
+  },
+  "evidenceStrength": "high",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.HeartRate.tanakaMax"
+  ]
+}

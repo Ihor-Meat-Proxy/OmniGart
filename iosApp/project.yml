@@ -1,0 +1,174 @@
+name: OmniGart
+options:
+  bundleIdPrefix: com.omnigart
+  deploymentTarget:
+    iOS: "18.0"
+    watchOS: "11.0"
+  # In-project groups stay tidy. External design paths set createIntermediateGroups:
+  # false so XcodeGen does not nest the design tree under a parent that already
+  # resolves through ../design/generated (that previously doubled the path on Watch).
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  SWIFT_VERSION: "6.0"
+  DEVELOPMENT_TEAM: ""
+  # Product targets iOS 26+ / watchOS 26+ on owner machines; CI (Xcode 16.4) caps at
+  # iOS 18 / watchOS 11. Keep build settings aligned with the available SDK.
+  IPHONEOS_DEPLOYMENT_TARGET: "18.0"
+  WATCHOS_DEPLOYMENT_TARGET: "11.0"
+
+targets:
+  OmniGart:
+    type: application
+    platform: iOS
+    deploymentTarget: "18.0"
+    preBuildScripts:
+      - name: Pack OmniGart Content
+        basedOnDependencyAnalysis: false
+        script: |
+          set -euo pipefail
+          ROOT="${SRCROOT}/.."
+          /usr/bin/python3 "$ROOT/scripts/pack_bundled_content.py"
+          DEST="${SRCROOT}/OmniGart/ContentBundle"
+          rm -rf "$DEST"
+          cp -R "$ROOT/generated/content-bundle" "$DEST"
+    sources:
+      - path: OmniGart
+        excludes:
+          - PrivacyInfo.xcprivacy
+          - "**/*.lproj/**"
+          - ContentBundle/**
+      - &designSwiftSources
+        path: ../design/generated/ios/Sources
+        name: Design
+        createIntermediateGroups: false
+    resources:
+      - &designColorAssets
+        path: ../design/generated/ios/OmniGartColors.xcassets
+        type: folder
+        name: OmniGartColors
+        createIntermediateGroups: false
+      - &designIconAssets
+        path: ../design/generated/ios/OmniGartIcons.xcassets
+        type: folder
+        name: OmniGartIcons
+        createIntermediateGroups: false
+      - path: OmniGart/PrivacyInfo.xcprivacy
+        buildPhase: resources
+      - path: OmniGart/en-GB.lproj
+      - path: OmniGart/uk.lproj
+      - path: OmniGart/ContentBundle
+        type: folder
+        buildPhase: resources
+        optional: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios
+        INFOPLIST_FILE: OmniGart/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks"
+        FRAMEWORK_SEARCH_PATHS: "$(inherited) $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)"
+        # Shared (SQLDelight / SQLIter) needs the system SQLite at link time.
+        OTHER_LDFLAGS: "$(inherited) -framework Shared -lsqlite3"
+        ENABLE_PREVIEWS: YES
+        ONLY_ACTIVE_ARCH: YES
+        EXCLUDED_ARCHS[sdk=iphonesimulator*]: "i386"
+        CODE_SIGN_ENTITLEMENTS: OmniGart/OmniGart.entitlements
+    dependencies:
+      - target: OmniGartWatch
+        embed: true
+    scheme:
+      testTargets:
+        - OmniGartTests
+        - OmniGartUITests
+
+  OmniGartTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "18.0"
+    sources:
+      - path: OmniGartTests
+    dependencies:
+      - target: OmniGart
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios.tests
+        GENERATE_INFOPLIST_FILE: YES
+        FRAMEWORK_SEARCH_PATHS: "$(inherited) $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)"
+        OTHER_LDFLAGS: "$(inherited) -framework Shared -lsqlite3"
+
+  OmniGartUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "18.0"
+    sources:
+      - path: OmniGartUITests
+    dependencies:
+      - target: OmniGart
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios.uitests
+        GENERATE_INFOPLIST_FILE: YES
+
+  OmniGartWatch:
+    type: application
+    platform: watchOS
+    deploymentTarget: "11.0"
+    preBuildScripts:
+      - name: Pack OmniGart Content
+        basedOnDependencyAnalysis: false
+        script: |
+          set -euo pipefail
+          ROOT="${SRCROOT}/.."
+          /usr/bin/python3 "$ROOT/scripts/pack_bundled_content.py"
+          DEST="${SRCROOT}/../watchApp/OmniGartWatch/ContentBundle"
+          rm -rf "$DEST"
+          cp -R "$ROOT/generated/content-bundle" "$DEST"
+    sources:
+      - path: ../watchApp/OmniGartWatch
+        createIntermediateGroups: false
+        excludes:
+          - ContentBundle/**
+      - *designSwiftSources
+    resources:
+      - *designColorAssets
+      - *designIconAssets
+      - path: ../watchApp/OmniGartWatch/en-GB.lproj
+      - path: ../watchApp/OmniGartWatch/uk.lproj
+      - path: ../watchApp/OmniGartWatch/ContentBundle
+        type: folder
+        buildPhase: resources
+        optional: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios.watchkitapp
+        INFOPLIST_FILE: ../watchApp/OmniGartWatch/Info.plist
+        TARGETED_DEVICE_FAMILY: "4"
+        FRAMEWORK_SEARCH_PATHS: "$(inherited) $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)"
+        OTHER_LDFLAGS: "$(inherited) -framework Shared -lsqlite3"
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks"
+        ONLY_ACTIVE_ARCH: YES
+        # KMP ships watchosSimulatorArm64 only (watchosX64 deprecated).
+        EXCLUDED_ARCHS[sdk=watchsimulator*]: "x86_64 i386"
+    scheme:
+      testTargets:
+        - OmniGartWatchTests
+
+  OmniGartWatchTests:
+    type: bundle.unit-test
+    platform: watchOS
+    deploymentTarget: "11.0"
+    sources:
+      - path: ../watchApp/OmniGartWatchTests
+        createIntermediateGroups: false
+    dependencies:
+      - target: OmniGartWatch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.omnigart.ios.watchkitapp.tests
+        GENERATE_INFOPLIST_FILE: YES
+        FRAMEWORK_SEARCH_PATHS: "$(inherited) $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)"
+        OTHER_LDFLAGS: "$(inherited) -framework Shared -lsqlite3"
+        EXCLUDED_ARCHS[sdk=watchsimulator*]: "x86_64 i386"

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en-GB</string>
+	<key>CFBundleDisplayName</key>
+	<string>OmniGart</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>WKApplication</key>
+	<true/>
+	<key>WKCompanionAppBundleIdentifier</key>
+	<string>com.omnigart.ios</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>OmniGart on Apple Watch reads heart rate, HRV, and workout samples from Apple Health to show on-watch wellness estimates. Health data is not used for advertising or shared with third parties.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>OmniGart on Apple Watch can save workouts you complete to Apple Health so your phone and watch stay aligned. Data is not used for ads or sold to third parties.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>OmniGart may use Bluetooth for compatible heart-rate accessories during workouts. The watch app remains usable without an accessory.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera access is not required on Apple Watch for OmniGart; this description exists for shared permission strings with the iPhone app.</string>
+	<key>NSUserNotificationsUsageDescription</key>
+	<string>OmniGart can remind you about workouts and wellness check-ins you enable. The app works with notifications disabled.</string>
+</dict>
+</plist>

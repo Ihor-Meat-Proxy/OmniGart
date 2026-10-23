@@ -1,0 +1,209 @@
+{
+  "id": "concurrent-lift-run-4x",
+  "nameKeys": {
+    "enGB": "template.concurrent_lift_run_4x.name",
+    "uk": "template.concurrent_lift_run_4x.name"
+  },
+  "disciplines": [
+    "strength",
+    "running"
+  ],
+  "level": "intermediate",
+  "goal": "general_fitness",
+  "daysPerWeek": 4,
+  "sessionMinutes": 60,
+  "equipmentPreset": "commercial_gym",
+  "equipmentRequired": [
+    "barbell",
+    "dumbbell",
+    "road"
+  ],
+  "rationale": "Two lifting days plus two easy runs balance musculoskeletal and cardiorespiratory fitness per ACSM multi-component guidance; hard intervals limited.",
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "cl1",
+      "nameKeys": {
+        "enGB": "template.concurrent_lift_run_4x.cl1.name",
+        "uk": "template.concurrent_lift_run_4x.cl1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": 3,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 150
+            },
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": 3,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 150
+            },
+            {
+              "exerciseId": "one-arm-dumbbell-row",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "hip-thrust",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cr1",
+      "nameKeys": {
+        "enGB": "template.concurrent_lift_run_4x.cr1.name",
+        "uk": "template.concurrent_lift_run_4x.cr1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "easy-run",
+              "sets": 1,
+              "reps": "30-40min",
+              "rir": "2-3",
+              "restSeconds": 0,
+              "durationSeconds": 2100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cl2",
+      "nameKeys": {
+        "enGB": "template.concurrent_lift_run_4x.cl2.name",
+        "uk": "template.concurrent_lift_run_4x.cl2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "romanian-deadlift-barbell",
+              "sets": 3,
+              "reps": "6-10",
+              "rir": "2-3",
+              "restSeconds": 150
+            },
+            {
+              "exerciseId": "overhead-press-dumbbell",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "pull-up",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "walking-lunge",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "pallof-press",
+              "sets": 3,
+              "reps": "8/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cr2",
+      "nameKeys": {
+        "enGB": "template.concurrent_lift_run_4x.cr2.name",
+        "uk": "template.concurrent_lift_run_4x.cr2.name"
+      },
+      "blocks": [
+        {
+          "kind": "warmup",
+          "items": [
+            {
+              "exerciseId": "high-knees-drill",
+              "sets": 2,
+              "reps": "20m",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "butt-kicks",
+              "sets": 2,
+              "reps": "20m",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        },
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "easy-run",
+              "sets": 1,
+              "reps": "25min",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 1500
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

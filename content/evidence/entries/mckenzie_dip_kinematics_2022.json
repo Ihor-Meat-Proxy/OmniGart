@@ -1,0 +1,31 @@
+{
+  "id": "mckenzie_dip_kinematics_2022",
+  "type": "rct",
+  "title": "Bench, Bar, and Ring Dips: Do Kinematics and Muscle Activity Differ?",
+  "authors": [
+    "McKenzie A",
+    "Crowley-McHattan Z",
+    "Meir R",
+    "Whitting J",
+    "Volschenk W"
+  ],
+  "year": 2022,
+  "journal": "International Journal of Environmental Research and Public Health",
+  "doi": "10.3390/ijerph192013211",
+  "openAccess": true,
+  "population": "Adults comparing bench, parallel-bar, and ring dip kinematics/EMG",
+  "keyFinding": {
+    "enGB": "Compares kinematics and muscle activity across bench, bar, and ring dips, informing progression and stability demands.",
+    "keys": {
+      "enGB": "evidence.mckenzie_dip_kinematics_2022.key_finding",
+      "uk": "evidence.mckenzie_dip_kinematics_2022.key_finding"
+    }
+  },
+  "evidenceStrength": "low",
+  "licenceNote": "Open-access or public-agency text: title and short finding may be shown; link out for full document. Do not paste copyrighted abstracts wholesale.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "content.exercises.dip_family"
+  ]
+}

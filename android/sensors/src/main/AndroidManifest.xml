@@ -2,14 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- BLE (API 31+) -->
+    <!--
+      App shells must merge these permissions. BLUETOOTH_SCAN uses neverForLocation
+      because OmniGart does not derive physical location from BLE scans.
+    -->
     <uses-permission
         android:name="android.permission.BLUETOOTH_SCAN"
         android:usesPermissionFlags="neverForLocation"
         tools:targetApi="s" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-
-    <!-- Legacy ≤ API 30 -->
     <uses-permission
         android:name="android.permission.BLUETOOTH"
         android:maxSdkVersion="30" />
@@ -19,23 +20,8 @@
     <uses-permission
         android:name="android.permission.ACCESS_FINE_LOCATION"
         android:maxSdkVersion="30" />
-    <uses-permission
-        android:name="android.permission.ACCESS_COARSE_LOCATION"
-        android:maxSdkVersion="30" />
-
-    <!-- Foreground service for connected BLE strap during workouts -->
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <uses-feature
         android:name="android.hardware.bluetooth_le"
-        android:required="true" />
-
-    <application>
-        <service
-            android:name=".service.BleHeartRateForegroundService"
-            android:exported="false"
-            android:foregroundServiceType="connectedDevice" />
-    </application>
+        android:required="false" />
 </manifest>

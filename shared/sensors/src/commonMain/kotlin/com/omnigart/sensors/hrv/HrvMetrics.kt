@@ -4,49 +4,45 @@ import kotlin.math.ln
 import kotlin.math.sqrt
 
 /**
- * Time-domain HRV metrics from an RR-interval series (milliseconds).
+ * Time-domain HRV metrics on NN (normal-to-normal) intervals in milliseconds.
  *
- * - **SDNN** — standard deviation of NN (normalised RR) intervals.
- * - **rMSSD** — root mean square of successive differences.
- * - **ln rMSSD** — natural log of rMSSD (common readiness / parasympathetic index).
- *
- * Population SD (divide by N) is used for SDNN to match common wearable /
- * Kubios “SDNN” reporting on short windows; successive diffs use N−1 pairs.
+ * References:
+ * - Task Force of the ESC and NASPE. Heart rate variability: standards of measurement,
+ *   physiological interpretation and clinical use. Circulation. 1996;93(5):1043–1065.
+ *   DOI: [10.1161/01.CIR.93.5.1043](https://doi.org/10.1161/01.CIR.93.5.1043)
+ * - Shaffer F, Ginsberg JP. An overview of heart rate variability metrics and norms.
+ *   Front Public Health. 2017;5:258. DOI: [10.3389/fpubh.2017.00258](https://doi.org/10.3389/fpubh.2017.00258)
  */
-data class HrvMetrics(
-    val sampleCount: Int,
+data class HrvTimeDomain(
     val meanRrMs: Double,
     val sdnnMs: Double,
     val rmssdMs: Double,
     val lnRmssd: Double,
-    val meanHrBpm: Double,
-) {
-    companion object {
-        fun compute(rrMs: List<Double>): HrvMetrics? {
-            if (rrMs.size < 2) return null
-            require(rrMs.all { it.isFinite() && it > 0.0 }) {
-                "RR intervals must be finite and positive"
-            }
+    val pnn50Percent: Double,
+    val nnCount: Int,
+)
 
-            val n = rrMs.size
-            val mean = rrMs.sum() / n
-            val variance = rrMs.sumOf { (it - mean) * (it - mean) } / n
-            val sdnn = sqrt(variance)
+object HrvMetrics {
+    fun timeDomain(nnMs: List<Double>): HrvTimeDomain {
+        require(nnMs.size >= 2) { "Need at least 2 NN intervals" }
+        require(nnMs.all { it > 0.0 }) { "NN intervals must be positive" }
 
-            val diffs = (1 until n).map { rrMs[it] - rrMs[it - 1] }
-            val rmssd = sqrt(diffs.sumOf { it * it } / diffs.size)
-            val lnRmssd = ln(rmssd)
+        val mean = nnMs.average()
+        val variance = nnMs.sumOf { (it - mean) * (it - mean) } / (nnMs.size - 1)
+        val sdnn = sqrt(variance)
 
-            val meanHr = 60_000.0 / mean
+        val successive = nnMs.zipWithNext { a, b -> b - a }
+        val rmssd = sqrt(successive.sumOf { it * it } / successive.size)
+        val lnRmssd = ln(rmssd.coerceAtLeast(1e-9))
+        val pnn50 = 100.0 * successive.count { kotlin.math.abs(it) > 50.0 } / successive.size
 
-            return HrvMetrics(
-                sampleCount = n,
-                meanRrMs = mean,
-                sdnnMs = sdnn,
-                rmssdMs = rmssd,
-                lnRmssd = lnRmssd,
-                meanHrBpm = meanHr,
-            )
-        }
+        return HrvTimeDomain(
+            meanRrMs = mean,
+            sdnnMs = sdnn,
+            rmssdMs = rmssd,
+            lnRmssd = lnRmssd,
+            pnn50Percent = pnn50,
+            nnCount = nnMs.size,
+        )
     }
 }

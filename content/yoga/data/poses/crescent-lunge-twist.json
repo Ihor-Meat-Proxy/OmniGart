@@ -1,0 +1,55 @@
+{
+  "id": "crescent-lunge-twist",
+  "englishNameKeys": {
+    "enGB": "yoga.pose.crescent_lunge_twist.english",
+    "uk": "yoga.pose.crescent_lunge_twist.english"
+  },
+  "sanskritNameKeys": {
+    "enGB": "yoga.pose.crescent_lunge_twist.sanskrit",
+    "uk": "yoga.pose.crescent_lunge_twist.sanskrit"
+  },
+  "family": "twist",
+  "level": "intermediate",
+  "primaryMuscles": [
+    "obliques",
+    "hip_flexors"
+  ],
+  "secondaryMuscles": [
+    "quadriceps",
+    "gluteus_medius"
+  ],
+  "equipment": [
+    "yoga_mat",
+    "bodyweight"
+  ],
+  "technique": [
+    "Enter Revolved lunge with steady footing and an even pelvis; lengthen the spine without forcing end range.",
+    "Distribute load through the feet or support points; soften the jaw and keep the neck long."
+  ],
+  "cues": [
+    "Breathe steadily; ease out of the shape if sharp pain appears.",
+    "Use blocks or a strap to keep joints stacked and comfortable."
+  ],
+  "breathing": "Inhale to lengthen; exhale to settle into the shape without collapsing.",
+  "safetyNotes": [
+    "Move within a comfortable range; props are encouraged rather than forcing depth.",
+    "Stop and rest if you feel dizziness, numbness, or joint locking."
+  ],
+  "contraindicationNotes": [
+    "General safety: seek clinician guidance for recent injury, uncontrolled hypertension, or acute illness before practising.",
+    "General safety: keep twists gentle after abdominal surgery or during later pregnancy unless cleared by a qualified professional."
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "holdSecondsDefault": 25,
+  "unilateral": true,
+  "bundled": true,
+  "aliases": [],
+  "tags": [
+    "yoga",
+    "twist",
+    "intermediate"
+  ]
+}

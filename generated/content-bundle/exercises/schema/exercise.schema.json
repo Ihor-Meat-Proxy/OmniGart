@@ -1,0 +1,428 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.dev/schemas/exercise.schema.json",
+  "title": "OmniGartExercise",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "nameKeys",
+    "discipline",
+    "movementPattern",
+    "primaryMuscles",
+    "secondaryMuscles",
+    "equipment",
+    "level",
+    "unilateral",
+    "mechanics",
+    "trackingType",
+    "technique",
+    "setup",
+    "breathing",
+    "commonMistakes",
+    "safety",
+    "contraindications",
+    "regressions",
+    "progressions",
+    "evidenceRefs",
+    "media",
+    "loadModel",
+    "bodyweightFraction",
+    "allowsAddedWeight",
+    "allowsAssistance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "minLength": 3,
+      "maxLength": 80
+    },
+    "nameKeys": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enGB",
+        "uk"
+      ],
+      "properties": {
+        "enGB": {
+          "type": "string",
+          "pattern": "^exercise\\.[a-z0-9_.]+\\.name$"
+        },
+        "uk": {
+          "type": "string",
+          "pattern": "^exercise\\.[a-z0-9_.]+\\.name$"
+        }
+      }
+    },
+    "discipline": {
+      "type": "string",
+      "enum": [
+        "strength",
+        "yoga",
+        "pilates",
+        "swimming",
+        "running"
+      ]
+    },
+    "movementPattern": {
+      "type": "string",
+      "enum": [
+        "squat",
+        "hinge",
+        "push",
+        "pull",
+        "carry",
+        "lunge",
+        "rotation",
+        "gait",
+        "core_brace",
+        "mobility",
+        "balance",
+        "swim_stroke",
+        "swim_drill",
+        "run_drill",
+        "isometric",
+        "other"
+      ]
+    },
+    "primaryMuscles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/muscle"
+      },
+      "uniqueItems": true
+    },
+    "secondaryMuscles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/muscle"
+      },
+      "uniqueItems": true
+    },
+    "equipment": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/equipment"
+      },
+      "uniqueItems": true
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ]
+    },
+    "unilateral": {
+      "type": "boolean"
+    },
+    "mechanics": {
+      "type": "string",
+      "enum": [
+        "compound",
+        "isolation",
+        "isometric",
+        "skill"
+      ]
+    },
+    "trackingType": {
+      "type": "string",
+      "enum": [
+        "weight_reps",
+        "reps",
+        "timed",
+        "distance",
+        "distance_time",
+        "hold",
+        "laps",
+        "bodyweight_reps"
+      ]
+    },
+    "technique": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 8
+      }
+    },
+    "setup": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 8
+      }
+    },
+    "breathing": {
+      "type": "string",
+      "minLength": 8
+    },
+    "commonMistakes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 8
+      }
+    },
+    "safety": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 8
+      }
+    },
+    "contraindications": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 4
+      }
+    },
+    "regressions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/exerciseLink"
+      }
+    },
+    "progressions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/exerciseLink"
+      }
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "description": "Every substantive claim in technique/safety should be backed when a suitable source exists. Empty only when logged in OPEN_QUESTIONS.",
+      "items": {
+        "$ref": "#/$defs/evidenceRef"
+      }
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "illustrationKey",
+        "videoKey",
+        "animationKey"
+      ],
+      "properties": {
+        "illustrationKey": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "videoKey": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "animationKey": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "loadModel": {
+      "type": "string",
+      "enum": [
+        "bodyweight_plus_external",
+        "bodyweight_minus_assistance",
+        "external_only"
+      ]
+    },
+    "bodyweightFraction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proportion",
+        "basis",
+        "rationale"
+      ],
+      "properties": {
+        "proportion": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1.5,
+          "description": "Share of body mass moved by the trainee (0 for external-only). May exceed 1 when added load is folded into a combined model elsewhere; keep \u22641 for the body-mass share alone."
+        },
+        "basis": {
+          "type": "string",
+          "enum": [
+            "measured",
+            "estimate"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 20
+        }
+      }
+    },
+    "allowsAddedWeight": {
+      "type": "boolean"
+    },
+    "allowsAssistance": {
+      "type": "boolean"
+    }
+  },
+  "$defs": {
+    "muscle": {
+      "type": "string",
+      "enum": [
+        "quadriceps",
+        "hamstrings",
+        "gluteus_maximus",
+        "gluteus_medius",
+        "calves",
+        "hip_flexors",
+        "adductors",
+        "pectoralis_major",
+        "latissimus_dorsi",
+        "trapezius",
+        "rhomboids",
+        "rear_deltoid",
+        "front_deltoid",
+        "lateral_deltoid",
+        "biceps",
+        "triceps",
+        "forearms",
+        "rectus_abdominis",
+        "obliques",
+        "transverse_abdominis",
+        "erector_spinae",
+        "full_body",
+        "rotator_cuff",
+        "serratus_anterior",
+        "tibialis_anterior",
+        "neck"
+      ]
+    },
+    "equipment": {
+      "type": "string",
+      "enum": [
+        "barbell",
+        "dumbbell",
+        "kettlebell",
+        "cable",
+        "machine",
+        "bands",
+        "bodyweight",
+        "bench",
+        "pull_up_bar",
+        "trap_bar",
+        "ez_bar",
+        "medicine_ball",
+        "swiss_ball",
+        "foam_roller",
+        "yoga_mat",
+        "yoga_block",
+        "yoga_strap",
+        "pilates_reformer",
+        "pilates_mat",
+        "pool",
+        "kickboard",
+        "pull_buoy",
+        "fins",
+        "paddle",
+        "treadmill",
+        "track",
+        "road",
+        "sled",
+        "landmine",
+        "suspension",
+        "box",
+        "rope",
+        "none"
+      ]
+    },
+    "exerciseLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exerciseId",
+        "note"
+      ],
+      "properties": {
+        "exerciseId": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 4
+        }
+      }
+    },
+    "evidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "id",
+        "label",
+        "supports"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "doi",
+            "pmid",
+            "guideline",
+            "textbook"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 4
+        },
+        "label": {
+          "type": "string",
+          "minLength": 8
+        },
+        "supports": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "technique",
+              "safety",
+              "hypertrophy",
+              "strength",
+              "endurance",
+              "mobility",
+              "programming",
+              "biomechanics",
+              "emg"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

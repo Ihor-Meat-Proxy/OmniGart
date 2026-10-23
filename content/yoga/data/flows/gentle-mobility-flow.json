@@ -1,0 +1,83 @@
+{
+  "id": "gentle-mobility-flow",
+  "nameKeys": {
+    "enGB": "yoga.flow.gentle_mobility_flow.name",
+    "uk": "yoga.flow.gentle_mobility_flow.name"
+  },
+  "descriptionKeys": {
+    "enGB": "yoga.flow.gentle_mobility_flow.description",
+    "uk": "yoga.flow.gentle_mobility_flow.description"
+  },
+  "level": "beginner",
+  "durationMinutes": 25,
+  "focus": "mobility",
+  "poseIds": [
+    "easy-pose",
+    "cat-cow",
+    "thread-needle",
+    "downward-dog",
+    "low-lunge",
+    "triangle-pose",
+    "seated-forward-fold",
+    "supine-twist",
+    "corpse-pose"
+  ],
+  "sequence": [
+    {
+      "poseId": "easy-pose",
+      "holdSeconds": 60,
+      "side": "none"
+    },
+    {
+      "poseId": "cat-cow",
+      "holdSeconds": 60,
+      "side": "none"
+    },
+    {
+      "poseId": "thread-needle",
+      "holdSeconds": 30,
+      "side": "both"
+    },
+    {
+      "poseId": "downward-dog",
+      "holdSeconds": 40,
+      "side": "none"
+    },
+    {
+      "poseId": "low-lunge",
+      "holdSeconds": 35,
+      "side": "both"
+    },
+    {
+      "poseId": "triangle-pose",
+      "holdSeconds": 35,
+      "side": "both"
+    },
+    {
+      "poseId": "seated-forward-fold",
+      "holdSeconds": 45,
+      "side": "none"
+    },
+    {
+      "poseId": "supine-twist",
+      "holdSeconds": 45,
+      "side": "both"
+    },
+    {
+      "poseId": "corpse-pose",
+      "holdSeconds": 90,
+      "side": "none"
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "bundled": true,
+  "equipmentSuggested": [
+    "yoga_mat",
+    "yoga_block",
+    "yoga_strap",
+    "bodyweight"
+  ]
+}

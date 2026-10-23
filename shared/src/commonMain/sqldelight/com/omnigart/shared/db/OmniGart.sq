@@ -1,0 +1,180 @@
+CREATE TABLE user_profile (
+  id TEXT NOT NULL PRIMARY KEY,
+  biological_sex TEXT NOT NULL,
+  height_cm REAL NOT NULL,
+  weight_kg REAL NOT NULL,
+  date_of_birth TEXT NOT NULL,
+  preferred_units TEXT NOT NULL,
+  waist_cm REAL,
+  hip_cm REAL
+);
+
+CREATE TABLE exercise (
+  id TEXT NOT NULL PRIMARY KEY,
+  content_key TEXT NOT NULL,
+  modality TEXT NOT NULL,
+  primary_muscles TEXT NOT NULL DEFAULT ''
+);
+
+CREATE TABLE workout (
+  id TEXT NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL,
+  notes TEXT,
+  exercise_ids TEXT NOT NULL DEFAULT ''
+);
+
+CREATE TABLE session (
+  id TEXT NOT NULL PRIMARY KEY,
+  workout_id TEXT,
+  started_at TEXT NOT NULL,
+  ended_at TEXT,
+  perceived_exertion INTEGER,
+  notes TEXT
+);
+
+CREATE TABLE workout_set (
+  id TEXT NOT NULL PRIMARY KEY,
+  session_id TEXT NOT NULL,
+  exercise_id TEXT NOT NULL,
+  set_index INTEGER NOT NULL,
+  reps INTEGER,
+  weight_kg REAL,
+  duration_seconds INTEGER,
+  distance_metres REAL,
+  rir REAL,
+  completed INTEGER NOT NULL DEFAULT 1,
+  is_warmup INTEGER NOT NULL DEFAULT 0,
+  assistance_kg REAL,
+  logged_per_hand INTEGER NOT NULL DEFAULT 0,
+  FOREIGN KEY(session_id) REFERENCES session(id) ON DELETE CASCADE
+);
+
+selectProfile:
+SELECT * FROM user_profile WHERE id = ?;
+
+selectAllProfiles:
+SELECT * FROM user_profile;
+
+upsertProfile:
+INSERT OR REPLACE INTO user_profile(
+  id, biological_sex, height_cm, weight_kg, date_of_birth, preferred_units, waist_cm, hip_cm
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+deleteProfile:
+DELETE FROM user_profile WHERE id = ?;
+
+selectExercise:
+SELECT * FROM exercise WHERE id = ?;
+
+selectAllExercises:
+SELECT * FROM exercise;
+
+upsertExercise:
+INSERT OR REPLACE INTO exercise(id, content_key, modality, primary_muscles)
+VALUES (?, ?, ?, ?);
+
+selectWorkout:
+SELECT * FROM workout WHERE id = ?;
+
+selectAllWorkouts:
+SELECT * FROM workout;
+
+upsertWorkout:
+INSERT OR REPLACE INTO workout(id, name, notes, exercise_ids)
+VALUES (?, ?, ?, ?);
+
+selectSession:
+SELECT * FROM session WHERE id = ?;
+
+selectAllSessions:
+SELECT * FROM session ORDER BY started_at DESC;
+
+upsertSession:
+INSERT OR REPLACE INTO session(id, workout_id, started_at, ended_at, perceived_exertion, notes)
+VALUES (?, ?, ?, ?, ?, ?);
+
+selectSetsForSession:
+SELECT * FROM workout_set WHERE session_id = ? ORDER BY set_index ASC;
+
+upsertSet:
+INSERT OR REPLACE INTO workout_set(
+  id, session_id, exercise_id, set_index, reps, weight_kg, duration_seconds, distance_metres, rir, completed,
+  is_warmup, assistance_kg, logged_per_hand
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+deleteSet:
+DELETE FROM workout_set WHERE id = ?;
+
+deleteSetsForSession:
+DELETE FROM workout_set WHERE session_id = ?;
+
+CREATE TABLE formula_settings (
+  profile_id TEXT NOT NULL PRIMARY KEY,
+  mode TEXT NOT NULL,
+  bmr_key TEXT NOT NULL,
+  hr_max_key TEXT NOT NULL,
+  body_fat_key TEXT NOT NULL,
+  one_rm_key TEXT NOT NULL,
+  hr_zones_key TEXT NOT NULL,
+  updated_at TEXT NOT NULL
+);
+
+CREATE TABLE derived_estimate (
+  id TEXT NOT NULL PRIMARY KEY,
+  profile_id TEXT NOT NULL,
+  domain TEXT NOT NULL,
+  formula_key TEXT NOT NULL,
+  weight_kg REAL,
+  height_cm REAL,
+  age_years INTEGER,
+  biological_sex TEXT,
+  reps INTEGER,
+  resting_bpm REAL,
+  max_bpm REAL,
+  estimate_value REAL NOT NULL,
+  unit TEXT NOT NULL,
+  computed_at TEXT NOT NULL
+);
+
+CREATE TABLE formula_recalc_audit (
+  id TEXT NOT NULL PRIMARY KEY,
+  profile_id TEXT NOT NULL,
+  domain TEXT NOT NULL,
+  old_formula_key TEXT NOT NULL,
+  new_formula_key TEXT NOT NULL,
+  rows_touched INTEGER NOT NULL,
+  at TEXT NOT NULL
+);
+
+selectFormulaSettings:
+SELECT * FROM formula_settings WHERE profile_id = ?;
+
+upsertFormulaSettings:
+INSERT OR REPLACE INTO formula_settings(
+  profile_id, mode, bmr_key, hr_max_key, body_fat_key, one_rm_key, hr_zones_key, updated_at
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+selectEstimatesForProfileDomain:
+SELECT * FROM derived_estimate
+WHERE profile_id = ? AND domain = ?
+ORDER BY computed_at ASC;
+
+selectEstimatesForProfile:
+SELECT * FROM derived_estimate WHERE profile_id = ? ORDER BY computed_at ASC;
+
+upsertDerivedEstimate:
+INSERT OR REPLACE INTO derived_estimate(
+  id, profile_id, domain, formula_key, weight_kg, height_cm, age_years, biological_sex,
+  reps, resting_bpm, max_bpm, estimate_value, unit, computed_at
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+updateDerivedEstimateValue:
+UPDATE derived_estimate SET formula_key = ?, estimate_value = ?, computed_at = ? WHERE id = ?;
+
+insertRecalcAudit:
+INSERT INTO formula_recalc_audit(
+  id, profile_id, domain, old_formula_key, new_formula_key, rows_touched, at
+) VALUES (?, ?, ?, ?, ?, ?, ?);
+
+selectRecalcAuditsForProfile:
+SELECT * FROM formula_recalc_audit WHERE profile_id = ? ORDER BY at DESC;

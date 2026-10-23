@@ -1,26 +1,14 @@
 plugins {
+    // AGP 9+ ships built-in Kotlin — do not apply org.jetbrains.kotlin.android
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
 }
 
-/**
- * Standalone Android sensors library.
- *
- * Wiring when PR #2 lands (see docs/sensors/WIRING.md):
- * - Root settings.gradle.kts: include(":android:sensors")
- * - androidApp dependencies: implementation(project(":android:sensors"))
- * - Ensure JitPack + Google/Maven Central repos; Polar BLE SDK 8.4.0 via JitPack.
- *
- * Until the Android Gradle Plugin is on the root build, this module is not
- * included from settings.gradle.kts — open it in Android Studio or include it
- * after AGP is available.
- */
 android {
-    namespace = "com.omnigart.sensors"
+    namespace = "com.omnigart.sensors.android"
     compileSdk = 36
 
     defaultConfig {
-        minSdk = 33
+        minSdk = 26
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -30,22 +18,33 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        jvmTarget = "17"
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
     }
 }
 
 dependencies {
-    // Shared pure-logic module (parsers, HRV, merge). Requires composite build
-    // or published artifact once KMP android target is enabled.
-    // implementation(project(":shared:sensors"))
+    api(project(":shared:sensors"))
 
-    // Polar BLE SDK — latest stable verified 2026-10-01: 8.4.0 (JitPack).
-    implementation("com.github.polarofficial:polar-ble-sdk:8.4.0")
-
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.8.0")
+    // 1.17.0 is the newest stable that still metadata-checks against compileSdk 36
+    // (1.19+ requires compileSdk 37; platform android-37 not yet on all CI images).
     implementation("androidx.core:core-ktx:1.17.0")
 
+    // Official Polar BLE SDK (JitPack). Licence: Polar SDK Limited License — see docs/third_party/POLAR_SDK.md
+    // Verified release: 8.4.0 (2026-10-01). https://github.com/polarofficial/polar-ble-sdk/releases/tag/8.4.0
+    implementation("com.github.polarofficial:polar-ble-sdk:8.4.0")
+
     testImplementation("junit:junit:4.13.2")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.11.0")
+    testImplementation("org.robolectric:robolectric:4.17")
+}
+
+tasks.withType<Test>().configureEach {
+    // Robolectric 4.17 + newer JDKs need these opens for ApplicationSharedMemory.
+    jvmArgs(
+        "--add-opens=java.base/jdk.internal.access=ALL-UNNAMED",
+        "--add-opens=java.base/java.io=ALL-UNNAMED",
+    )
 }

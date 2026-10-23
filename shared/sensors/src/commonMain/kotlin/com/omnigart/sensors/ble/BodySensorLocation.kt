@@ -1,25 +1,20 @@
 package com.omnigart.sensors.ble
 
 /**
- * Body Sensor Location characteristic (0x2A38) values per Bluetooth SIG HRS 1.0.
+ * Body Sensor Location characteristic (0x2A38) values from the Heart Rate Service.
  */
 enum class BodySensorLocation(val code: Int) {
-    OTHER(0),
-    CHEST(1),
-    WRIST(2),
-    FINGER(3),
-    HAND(4),
-    EAR_LOBE(5),
-    FOOT(6),
+    Other(0),
+    Chest(1),
+    Wrist(2),
+    Finger(3),
+    Hand(4),
+    EarLobe(5),
+    Foot(6),
     ;
 
     companion object {
-        fun fromByte(value: UByte): BodySensorLocation =
-            entries.firstOrNull { it.code == value.toInt() } ?: OTHER
-
-        fun parse(payload: ByteArray): BodySensorLocation {
-            require(payload.isNotEmpty()) { "Body Sensor Location characteristic is empty" }
-            return fromByte(payload[0].toUByte())
-        }
+        fun fromByte(value: Int): BodySensorLocation? =
+            entries.firstOrNull { it.code == (value and 0xFF) }
     }
 }

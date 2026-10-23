@@ -1,0 +1,28 @@
+{
+  "id": "iom_water_2005",
+  "type": "guideline",
+  "title": "Dietary Reference Intakes for Water, Potassium, Sodium, Chloride, and Sulfate",
+  "authors": [
+    "Institute of Medicine"
+  ],
+  "year": 2005,
+  "journal": "National Academies Press",
+  "doi": "10.17226/10925",
+  "url": "https://nap.nationalacademies.org/catalog/10925/dietary-reference-intakes-for-water-potassium-sodium-chloride-and-sulfate",
+  "openAccess": true,
+  "population": "US/Canada DRI population for water and electrolytes",
+  "keyFinding": {
+    "enGB": "Establishes Adequate Intake values for total water for the US/Canada DRI population by life stage and sex.",
+    "keys": {
+      "enGB": "evidence.iom_water_2005.key_finding",
+      "uk": "evidence.iom_water_2005.key_finding"
+    }
+  },
+  "evidenceStrength": "high",
+  "licenceNote": "Open-access or public-agency text: title and short finding may be shown; link out for full document. Do not paste copyrighted abstracts wholesale.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.WaterTarget"
+  ]
+}

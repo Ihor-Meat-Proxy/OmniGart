@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.dev/schemas/yoga-flow.schema.json",
+  "title": "OmniGartYogaFlow",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "nameKeys",
+    "level",
+    "durationMinutes",
+    "focus",
+    "poseIds",
+    "sequence",
+    "evidenceEntryIds",
+    "bundled"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "nameKeys": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enGB",
+        "uk"
+      ],
+      "properties": {
+        "enGB": {
+          "type": "string",
+          "pattern": "^yoga\\.flow\\.[a-z0-9_]+\\.name$"
+        },
+        "uk": {
+          "type": "string",
+          "pattern": "^yoga\\.flow\\.[a-z0-9_]+\\.name$"
+        }
+      }
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ]
+    },
+    "durationMinutes": {
+      "type": "integer",
+      "minimum": 10,
+      "maximum": 90
+    },
+    "focus": {
+      "type": "string",
+      "enum": [
+        "mobility",
+        "strength_balance",
+        "restorative",
+        "hip_openers",
+        "spinal_mobility",
+        "morning_energy",
+        "evening_wind_down",
+        "full_body"
+      ]
+    },
+    "poseIds": {
+      "type": "array",
+      "minItems": 4,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "sequence": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "poseId",
+          "holdSeconds"
+        ],
+        "properties": {
+          "poseId": {
+            "type": "string"
+          },
+          "holdSeconds": {
+            "type": "integer",
+            "minimum": 5,
+            "maximum": 600
+          },
+          "side": {
+            "type": "string",
+            "enum": [
+              "both",
+              "left",
+              "right",
+              "none"
+            ]
+          },
+          "noteKey": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "evidenceEntryIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+([_-][a-z0-9]+)*$"
+      }
+    },
+    "bundled": {
+      "type": "boolean",
+      "const": true
+    },
+    "equipmentSuggested": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "yoga_mat",
+          "yoga_block",
+          "yoga_strap",
+          "bolster",
+          "blanket",
+          "bodyweight",
+          "none"
+        ]
+      }
+    },
+    "descriptionKeys": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enGB",
+        "uk"
+      ],
+      "properties": {
+        "enGB": {
+          "type": "string"
+        },
+        "uk": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -19,7 +19,7 @@ robolectric = "4.17"
 ktlint = "14.2.0"
 detekt = "1.23.8"
 json-schema-validator = "3.0.8"
-jackson = "2.22.4"
+jackson = "3.2.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -58,7 +58,7 @@ androidx-test-espresso-core = { module = "androidx.test.espresso:espresso-core",
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 
 json-schema-validator = { module = "com.networknt:json-schema-validator", version.ref = "json-schema-validator" }
-jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+jackson-databind = { module = "tools.jackson.core:jackson-databind", version.ref = "jackson" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

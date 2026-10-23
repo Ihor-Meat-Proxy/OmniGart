@@ -1,7 +1,7 @@
 package com.omnigart.content
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.ObjectMapper
+import tools.jackson.databind.JsonNode
+import tools.jackson.databind.ObjectMapper
 import com.networknt.schema.Schema
 import com.networknt.schema.SchemaRegistry
 import com.networknt.schema.SpecificationVersion
@@ -223,9 +223,10 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         if (!node.has("allowsAssistance") || !node.path("allowsAssistance").isBoolean) {
             issues += ValidationIssue(file.toString(), "allowsAssistance must be a boolean")
         }
-        val tags = node.path("tags").map { it.asText() }.toSet()
+        // Jackson 3 JsonNode.map(Function) shadows Kotlin Iterable.map — use values().
+        val tags = node.path("tags").values().map { it.asText() }.toSet()
         if ("pull-up-family" in tags || "dip-family" in tags) {
-            val refIds = node.path("evidenceRefs").map { it.path("id").asText() }.toSet()
+            val refIds = node.path("evidenceRefs").values().map { it.path("id").asText() }.toSet()
             if ("pull-up-family" in tags) {
                 val hasEmg = refIds.any {
                     it == "10.1519/JSC.0b013e3181f1598c" || it == "10.1016/j.jelekin.2016.11.004"

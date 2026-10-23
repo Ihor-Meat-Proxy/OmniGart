@@ -1,0 +1,17 @@
+{
+  "name": "omnigart-achievements-tools",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "validate": "node validate.mjs",
+    "generate": "python3 generate_catalogue.py"
+  },
+  "dependencies": {
+    "ajv": "8.18.0",
+    "ajv-formats": "3.0.1"
+  }
+}

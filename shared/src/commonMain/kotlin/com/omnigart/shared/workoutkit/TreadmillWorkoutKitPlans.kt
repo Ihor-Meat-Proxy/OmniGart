@@ -11,19 +11,10 @@ import com.omnigart.treadmill.program.TreadmillStepGoalKind
  * Indoor location is encoded in JSON as `location=indoor` for the Swift builder.
  */
 object TreadmillWorkoutKitPlans {
-    fun allPlans(
-        hrMax: Int,
-        hrRest: Int? = null,
-        scheduledStartEpochMillis: Long? = null
-    ): List<ScheduledWorkoutPlan> =
+    fun allPlans(hrMax: Int, hrRest: Int? = null, scheduledStartEpochMillis: Long? = null): List<ScheduledWorkoutPlan> =
         TreadmillProgramCatalog.all.map { toPlan(it, hrMax, hrRest, scheduledStartEpochMillis) }
 
-    fun toPlan(
-        program: TreadmillProgram,
-        hrMax: Int,
-        hrRest: Int? = null,
-        scheduledStartEpochMillis: Long? = null
-    ): ScheduledWorkoutPlan {
+    fun toPlan(program: TreadmillProgram, hrMax: Int, hrRest: Int? = null, scheduledStartEpochMillis: Long? = null): ScheduledWorkoutPlan {
         val activity =
             when (program.mode) {
                 TreadmillActivityMode.RUN -> WorkoutActivityType.RUNNING

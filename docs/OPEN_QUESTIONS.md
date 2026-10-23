@@ -55,3 +55,9 @@ T6. **App UI locales** — When Phase 0 scaffold merges, should the Translations
 T7. **Required check** — Confirm GitHub branch protection adds the exact job name `Translations`.
 T8. **Pull-up/dip grip glossary** — Machine-drafted translations for PR #5 keys are in all required locales; confirm preferred local forms for chin-up, neutral grip, archer, Korean dip, typewriter, commando with native reviewers.
 T9. **Glossary term least-certain set** — Especially `uk` hip-thrust loan, `kk`/`ka` press/pull nomenclature, `zh-Hans` face-pull / hip-thrust gym slang; plus new pull/dip variation names.
+
+## Domain content i18n stacks
+
+D1. **Merge order** — Prefer merge stacked i18n PRs into each source branch before merging the source to main once Translations is required on main (#26).
+D2. **Achievements #11 vs #14** — Two incompatible catalogs (0 key overlap). Confirm which lands; both have stacked i18n PRs.
+D3. **Yoga Sanskrit policy** — Confirmed keep Sanskrit strings identical to en-GB across locales; localise English/common names only.

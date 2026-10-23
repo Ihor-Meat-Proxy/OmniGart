@@ -22,15 +22,11 @@ data class WorkoutLoadContribution(
     /** Dimensionless load proxy; higher = more session stress. */
     val loadScore: Double,
     val distanceMetres: Double? = null,
-    val averageHeartRateBpm: Double? = null,
+    val averageHeartRateBpm: Double? = null
 )
 
 object CompletedWorkoutLoad {
-    fun fromHealthWorkout(
-        workout: HealthWorkout,
-        restingHrBpm: Double? = null,
-        maxHrBpm: Double? = null,
-    ): WorkoutLoadContribution {
+    fun fromHealthWorkout(workout: HealthWorkout, restingHrBpm: Double? = null, maxHrBpm: Double? = null): WorkoutLoadContribution {
         val durationMs =
             (workout.end.toEpochMilliseconds() - workout.start.toEpochMilliseconds())
                 .coerceAtLeast(0L)
@@ -38,7 +34,7 @@ object CompletedWorkoutLoad {
         val intensity = intensityFactor(
             averageHr = workout.averageHeartRateBpm,
             restingHr = restingHrBpm,
-            maxHr = maxHrBpm,
+            maxHr = maxHrBpm
         )
         val minutes = durationSeconds / 60.0
         val loadScore = minutes * intensity
@@ -50,7 +46,7 @@ object CompletedWorkoutLoad {
             durationSeconds = durationSeconds,
             loadScore = loadScore,
             distanceMetres = workout.distanceMetres,
-            averageHeartRateBpm = workout.averageHeartRateBpm,
+            averageHeartRateBpm = workout.averageHeartRateBpm
         )
     }
 
@@ -58,11 +54,7 @@ object CompletedWorkoutLoad {
      * Maps average HR into ~0.5–1.5 intensity. When HR or zone anchors are missing,
      * falls back to 1.0 (duration-only).
      */
-    fun intensityFactor(
-        averageHr: Double?,
-        restingHr: Double?,
-        maxHr: Double?,
-    ): Double {
+    fun intensityFactor(averageHr: Double?, restingHr: Double?, maxHr: Double?): Double {
         if (averageHr == null || averageHr <= 0) return 1.0
         val rest = restingHr?.takeIf { it > 0 }
         val max = maxHr?.takeIf { it > rest ?: 0.0 }
@@ -75,6 +67,5 @@ object CompletedWorkoutLoad {
         return (0.5 + (averageHr / assumedMax)).coerceIn(0.5, 1.5)
     }
 
-    fun totalLoad(contributions: Collection<WorkoutLoadContribution>): Double =
-        contributions.sumOf { max(0.0, it.loadScore) }
+    fun totalLoad(contributions: Collection<WorkoutLoadContribution>): Double = contributions.sumOf { max(0.0, it.loadScore) }
 }

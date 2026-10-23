@@ -14,8 +14,9 @@ enum class WorkoutBlockKind {
     WORK,
     RECOVERY,
     COOL_DOWN,
+
     /** Rejected by [ScheduledWorkoutValidator] — no WorkoutKit strength-set equivalent. */
-    STRENGTH_UNSUPPORTED,
+    STRENGTH_UNSUPPORTED
 }
 
 @Serializable
@@ -23,14 +24,14 @@ enum class WorkoutGoalKind {
     OPEN,
     TIME_SECONDS,
     DISTANCE_METRES,
-    HEART_RATE_ZONE,
+    HEART_RATE_ZONE
 }
 
 @Serializable
 enum class WorkoutAlertKind {
     HEART_RATE_ZONE,
     PACE_MIN_PER_KM,
-    CADENCE_SPM,
+    CADENCE_SPM
 }
 
 @Serializable
@@ -40,15 +41,11 @@ data class WorkoutGoalSpec(
     val value: Double? = null,
     /** Inclusive lower bound for zone / pace / cadence alerts paired with the goal. */
     val lower: Double? = null,
-    val upper: Double? = null,
+    val upper: Double? = null
 )
 
 @Serializable
-data class WorkoutAlertSpec(
-    val kind: WorkoutAlertKind,
-    val lower: Double,
-    val upper: Double,
-)
+data class WorkoutAlertSpec(val kind: WorkoutAlertKind, val lower: Double, val upper: Double)
 
 @Serializable
 data class WorkoutBlockSpec(
@@ -57,7 +54,7 @@ data class WorkoutBlockSpec(
     val goal: WorkoutGoalSpec = WorkoutGoalSpec(WorkoutGoalKind.OPEN),
     val alerts: List<WorkoutAlertSpec> = emptyList(),
     /** For interval groups: repeat count (1 = single block). */
-    val repeatCount: Int = 1,
+    val repeatCount: Int = 1
 )
 
 @Serializable
@@ -67,7 +64,7 @@ data class ScheduledWorkoutPlan(
     val displayNameKey: String,
     val blocks: List<WorkoutBlockSpec>,
     /** Epoch millis for the intended start; null = next available schedule slot. */
-    val scheduledStartEpochMillis: Long? = null,
+    val scheduledStartEpochMillis: Long? = null
 ) {
     init {
         require(id.isNotBlank())
@@ -84,7 +81,7 @@ enum class ScheduleFailureReason {
     STRENGTH_NOT_SUPPORTED,
     INVALID_PLAN,
     UNSUPPORTED_ON_PLATFORM,
-    UNKNOWN,
+    UNKNOWN
 }
 
 @Serializable
@@ -92,5 +89,5 @@ data class ScheduleResult(
     val ok: Boolean,
     val scheduledCount: Int = 0,
     val failure: ScheduleFailureReason? = null,
-    val detail: String? = null,
+    val detail: String? = null
 )

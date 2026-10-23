@@ -13,14 +13,14 @@ object ScheduledWorkoutValidator {
             return ScheduleResult(
                 ok = false,
                 failure = ScheduleFailureReason.STRENGTH_NOT_SUPPORTED,
-                detail = "WorkoutKit scheduling does not support strength set/rep blocks",
+                detail = "WorkoutKit scheduling does not support strength set/rep blocks"
             )
         }
         if (plan.blocks.any { it.repeatCount < 1 }) {
             return ScheduleResult(
                 ok = false,
                 failure = ScheduleFailureReason.INVALID_PLAN,
-                detail = "repeatCount must be >= 1",
+                detail = "repeatCount must be >= 1"
             )
         }
         for (block in plan.blocks) {
@@ -29,7 +29,7 @@ object ScheduledWorkoutValidator {
                     return ScheduleResult(
                         ok = false,
                         failure = ScheduleFailureReason.INVALID_PLAN,
-                        detail = "alert lower > upper in block ${block.displayNameKey}",
+                        detail = "alert lower > upper in block ${block.displayNameKey}"
                     )
                 }
             }
@@ -43,7 +43,7 @@ object ScheduledWorkoutValidator {
                 ok = false,
                 scheduledCount = currentScheduledCount,
                 failure = ScheduleFailureReason.SCHEDULE_CAP_REACHED,
-                detail = "At WorkoutScheduler cap ($MAX_SCHEDULED_WORKOUTS)",
+                detail = "At WorkoutScheduler cap ($MAX_SCHEDULED_WORKOUTS)"
             )
         }
         return ScheduleResult(ok = true, scheduledCount = currentScheduledCount)

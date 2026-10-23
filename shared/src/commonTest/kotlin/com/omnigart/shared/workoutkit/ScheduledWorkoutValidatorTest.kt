@@ -7,13 +7,12 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class ScheduledWorkoutValidatorTest {
-    private fun runningPlan(vararg blocks: WorkoutBlockSpec) =
-        ScheduledWorkoutPlan(
-            id = "plan-1",
-            activityType = WorkoutActivityType.RUNNING,
-            displayNameKey = "running.session.easy",
-            blocks = blocks.toList(),
-        )
+    private fun runningPlan(vararg blocks: WorkoutBlockSpec) = ScheduledWorkoutPlan(
+        id = "plan-1",
+        activityType = WorkoutActivityType.RUNNING,
+        displayNameKey = "running.session.easy",
+        blocks = blocks.toList()
+    )
 
     @Test
     fun acceptsWarmWorkCool() {
@@ -24,9 +23,9 @@ class ScheduledWorkoutValidatorTest {
                     WorkoutBlockKind.WORK,
                     "z2",
                     WorkoutGoalSpec(WorkoutGoalKind.TIME_SECONDS, 1800.0),
-                    alerts = listOf(WorkoutAlertSpec(WorkoutAlertKind.HEART_RATE_ZONE, 120.0, 140.0)),
+                    alerts = listOf(WorkoutAlertSpec(WorkoutAlertKind.HEART_RATE_ZONE, 120.0, 140.0))
                 ),
-                WorkoutBlockSpec(WorkoutBlockKind.COOL_DOWN, "c", WorkoutGoalSpec(WorkoutGoalKind.TIME_SECONDS, 300.0)),
+                WorkoutBlockSpec(WorkoutBlockKind.COOL_DOWN, "c", WorkoutGoalSpec(WorkoutGoalKind.TIME_SECONDS, 300.0))
             )
         assertTrue(ScheduledWorkoutValidator.validate(plan).ok)
     }
@@ -39,9 +38,9 @@ class ScheduledWorkoutValidatorTest {
                 activityType = WorkoutActivityType.STRENGTH,
                 displayNameKey = "strength.session",
                 blocks =
-                    listOf(
-                        WorkoutBlockSpec(WorkoutBlockKind.WORK, "sets"),
-                    ),
+                listOf(
+                    WorkoutBlockSpec(WorkoutBlockKind.WORK, "sets")
+                )
             )
         val result = ScheduledWorkoutValidator.validate(plan)
         assertFalse(result.ok)
@@ -52,11 +51,11 @@ class ScheduledWorkoutValidatorTest {
     fun rejectsStrengthBlockKind() {
         val plan =
             runningPlan(
-                WorkoutBlockSpec(WorkoutBlockKind.STRENGTH_UNSUPPORTED, "bad"),
+                WorkoutBlockSpec(WorkoutBlockKind.STRENGTH_UNSUPPORTED, "bad")
             )
         assertEquals(
             ScheduleFailureReason.STRENGTH_NOT_SUPPORTED,
-            ScheduledWorkoutValidator.validate(plan).failure,
+            ScheduledWorkoutValidator.validate(plan).failure
         )
     }
 

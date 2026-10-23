@@ -15,7 +15,7 @@ class CompletedWorkoutLoadTest {
                 id = "w1",
                 activityType = WorkoutActivityType.RUNNING,
                 start = Instant.parse("2026-10-23T10:00:00Z"),
-                end = Instant.parse("2026-10-23T11:00:00Z"),
+                end = Instant.parse("2026-10-23T11:00:00Z")
             )
         val c = CompletedWorkoutLoad.fromHealthWorkout(w)
         assertEquals(3600, c.durationSeconds)
@@ -33,7 +33,7 @@ class CompletedWorkoutLoadTest {
                 activityType = WorkoutActivityType.RUNNING,
                 start = Instant.parse("2026-10-23T10:00:00Z"),
                 end = Instant.parse("2026-10-23T10:30:00Z"),
-                averageHeartRateBpm = 120.0,
+                averageHeartRateBpm = 120.0
             )
         val c = CompletedWorkoutLoad.fromHealthWorkout(w, restingHrBpm = 60.0, maxHrBpm = 180.0)
         assertEquals(30.0, c.loadScore, absoluteTolerance = 0.01)
@@ -47,8 +47,8 @@ class CompletedWorkoutLoadTest {
                     "a",
                     WorkoutActivityType.RUNNING,
                     Instant.parse("2026-10-23T10:00:00Z"),
-                    Instant.parse("2026-10-23T10:20:00Z"),
-                ),
+                    Instant.parse("2026-10-23T10:20:00Z")
+                )
             )
         val b =
             CompletedWorkoutLoad.fromHealthWorkout(
@@ -56,8 +56,8 @@ class CompletedWorkoutLoadTest {
                     "b",
                     WorkoutActivityType.RUNNING,
                     Instant.parse("2026-10-23T12:00:00Z"),
-                    Instant.parse("2026-10-23T12:10:00Z"),
-                ),
+                    Instant.parse("2026-10-23T12:10:00Z")
+                )
             )
         assertTrue(CompletedWorkoutLoad.totalLoad(listOf(a, b)) > 20.0)
     }

@@ -18,14 +18,14 @@ class WorkoutKitSchedulingServiceTest {
             activityType = WorkoutActivityType.RUNNING,
             displayNameKey = "running.session.zone2",
             blocks =
-                listOf(
-                    WorkoutBlockSpec(
-                        WorkoutBlockKind.WORK,
-                        "work",
-                        WorkoutGoalSpec(WorkoutGoalKind.TIME_SECONDS, 1800.0),
-                        alerts = listOf(WorkoutAlertSpec(WorkoutAlertKind.HEART_RATE_ZONE, 120.0, 145.0)),
-                    ),
-                ),
+            listOf(
+                WorkoutBlockSpec(
+                    WorkoutBlockKind.WORK,
+                    "work",
+                    WorkoutGoalSpec(WorkoutGoalKind.TIME_SECONDS, 1800.0),
+                    alerts = listOf(WorkoutAlertSpec(WorkoutAlertKind.HEART_RATE_ZONE, 120.0, 145.0))
+                )
+            )
         )
 
     @Test
@@ -45,17 +45,17 @@ class WorkoutKitSchedulingServiceTest {
                     "w",
                     WorkoutActivityType.RUNNING,
                     Instant.parse("2026-10-23T10:00:00Z"),
-                    Instant.parse("2026-10-23T11:00:00Z"),
-                ),
-            ),
+                    Instant.parse("2026-10-23T11:00:00Z")
+                )
+            )
         )
         val svc = WorkoutKitSchedulingService(UnsupportedWorkoutKitSchedulerGateway(), health)
         val imported =
             svc.importLoadContributions(
                 TimeRange(
                     Instant.parse("2026-10-23T00:00:00Z"),
-                    Instant.parse("2026-10-24T00:00:00Z"),
-                ),
+                    Instant.parse("2026-10-24T00:00:00Z")
+                )
             )
         assertEquals(0, imported.size)
     }
@@ -67,8 +67,7 @@ class WorkoutKitSchedulingServiceTest {
 
         override suspend fun scheduledCount(): Int = 0
 
-        override suspend fun schedule(plan: ScheduledWorkoutPlan): ScheduleResult =
-            ScheduleResult(ok = true, scheduledCount = 1)
+        override suspend fun schedule(plan: ScheduledWorkoutPlan): ScheduleResult = ScheduleResult(ok = true, scheduledCount = 1)
 
         override suspend fun removeAllScheduled(): ScheduleResult = ScheduleResult(ok = true)
     }

@@ -17,7 +17,7 @@ object EndurancePlanFactory {
         coolDownSeconds: Long = 300,
         hrAlertLowerBpm: Double? = null,
         hrAlertUpperBpm: Double? = null,
-        scheduledStartEpochMillis: Long? = null,
+        scheduledStartEpochMillis: Long? = null
     ): ScheduledWorkoutPlan {
         val alerts =
             if (hrAlertLowerBpm != null && hrAlertUpperBpm != null) {
@@ -25,8 +25,8 @@ object EndurancePlanFactory {
                     WorkoutAlertSpec(
                         kind = WorkoutAlertKind.HEART_RATE_ZONE,
                         lower = hrAlertLowerBpm,
-                        upper = hrAlertUpperBpm,
-                    ),
+                        upper = hrAlertUpperBpm
+                    )
                 )
             } else {
                 emptyList()
@@ -37,24 +37,24 @@ object EndurancePlanFactory {
             displayNameKey = displayNameKey,
             scheduledStartEpochMillis = scheduledStartEpochMillis,
             blocks =
-                listOf(
-                    WorkoutBlockSpec(
-                        kind = WorkoutBlockKind.WARM_UP,
-                        displayNameKey = "$displayNameKey.warmup",
-                        goal = WorkoutGoalSpec(WorkoutGoalKind.TIME_SECONDS, warmUpSeconds.toDouble()),
-                    ),
-                    WorkoutBlockSpec(
-                        kind = WorkoutBlockKind.WORK,
-                        displayNameKey = "$displayNameKey.work",
-                        goal = WorkoutGoalSpec(WorkoutGoalKind.TIME_SECONDS, workSeconds.toDouble()),
-                        alerts = alerts,
-                    ),
-                    WorkoutBlockSpec(
-                        kind = WorkoutBlockKind.COOL_DOWN,
-                        displayNameKey = "$displayNameKey.cooldown",
-                        goal = WorkoutGoalSpec(WorkoutGoalKind.TIME_SECONDS, coolDownSeconds.toDouble()),
-                    ),
+            listOf(
+                WorkoutBlockSpec(
+                    kind = WorkoutBlockKind.WARM_UP,
+                    displayNameKey = "$displayNameKey.warmup",
+                    goal = WorkoutGoalSpec(WorkoutGoalKind.TIME_SECONDS, warmUpSeconds.toDouble())
                 ),
+                WorkoutBlockSpec(
+                    kind = WorkoutBlockKind.WORK,
+                    displayNameKey = "$displayNameKey.work",
+                    goal = WorkoutGoalSpec(WorkoutGoalKind.TIME_SECONDS, workSeconds.toDouble()),
+                    alerts = alerts
+                ),
+                WorkoutBlockSpec(
+                    kind = WorkoutBlockKind.COOL_DOWN,
+                    displayNameKey = "$displayNameKey.cooldown",
+                    goal = WorkoutGoalSpec(WorkoutGoalKind.TIME_SECONDS, coolDownSeconds.toDouble())
+                )
+            )
         )
     }
 }

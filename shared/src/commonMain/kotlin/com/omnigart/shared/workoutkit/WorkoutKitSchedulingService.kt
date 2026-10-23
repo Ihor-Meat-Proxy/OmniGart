@@ -10,10 +10,7 @@ import com.omnigart.shared.health.TimeRange
  * Schedules validated plans through a platform [WorkoutKitSchedulerGateway]
  * and optionally imports completed workouts for load/recovery.
  */
-class WorkoutKitSchedulingService(
-    private val gateway: WorkoutKitSchedulerGateway,
-    private val health: HealthClient? = null,
-) {
+class WorkoutKitSchedulingService(private val gateway: WorkoutKitSchedulerGateway, private val health: HealthClient? = null) {
     fun isSchedulingEnabled(): Boolean = FeatureFlags.workoutKitSchedulingEnabled
 
     suspend fun schedule(plan: ScheduledWorkoutPlan): ScheduleResult {
@@ -21,7 +18,7 @@ class WorkoutKitSchedulingService(
             return ScheduleResult(
                 ok = false,
                 failure = ScheduleFailureReason.FEATURE_DISABLED,
-                detail = "workoutKitSchedulingEnabled is false",
+                detail = "workoutKitSchedulingEnabled is false"
             )
         }
         val validated = ScheduledWorkoutValidator.validate(plan)
@@ -31,7 +28,7 @@ class WorkoutKitSchedulingService(
             return ScheduleResult(
                 ok = false,
                 failure = ScheduleFailureReason.UNSUPPORTED_ON_PLATFORM,
-                detail = "WorkoutKit unavailable (OS or Personal Team capability gate)",
+                detail = "WorkoutKit unavailable (OS or Personal Team capability gate)"
             )
         }
 
@@ -40,7 +37,7 @@ class WorkoutKitSchedulingService(
             return ScheduleResult(
                 ok = false,
                 failure = ScheduleFailureReason.AUTHORIZATION_DENIED,
-                detail = auth.name,
+                detail = auth.name
             )
         }
 
@@ -58,7 +55,7 @@ class WorkoutKitSchedulingService(
     suspend fun importLoadContributions(
         range: TimeRange,
         restingHrBpm: Double? = null,
-        maxHrBpm: Double? = null,
+        maxHrBpm: Double? = null
     ): List<WorkoutLoadContribution> {
         if (!FeatureFlags.healthWorkoutImportEnabled) return emptyList()
         val client = health ?: return emptyList()

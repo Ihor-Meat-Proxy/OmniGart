@@ -2,6 +2,7 @@ import Shared
 import SwiftUI
 
 /// Fitness, load ratio/focus, and goals cards for the Insights tab.
+@MainActor
 enum InsightsDashboardCards {
     @ViewBuilder
     static func fitness(_ dash: InsightsDashboard) -> some View {

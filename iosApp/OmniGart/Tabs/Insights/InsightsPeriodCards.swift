@@ -2,6 +2,7 @@ import Shared
 import SwiftUI
 
 /// Period pager, sport bars, YTD, heatmaps, and all-time cards for Insights.
+@MainActor
 enum InsightsPeriodCards {
     static func periodPager(_ card: PeriodSwipeCard, page: Binding<Int>) -> some View {
         DarkInsightCard(titleKey: LocalizedStringKey(card.titleKey)) {

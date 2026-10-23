@@ -143,8 +143,10 @@ enum MindfulBodyHealthSave {
             maxHeartRateBpm: maxBpm.map { KotlinDouble(value: $0) },
             sessionId: nil,
             planId: nil,
-            heartRateEpochMs: during.map { Int64($0.date.timeIntervalSince1970 * 1000) },
-            heartRateBpm: during.map(\.bpm),
+            heartRateEpochMs: KotlinPrimitiveArrays.longArray(
+                during.map { Int64($0.date.timeIntervalSince1970 * 1000) }
+            ),
+            heartRateBpm: KotlinPrimitiveArrays.doubleArray(during.map(\.bpm)),
             syncVersion: 1
         )
     }

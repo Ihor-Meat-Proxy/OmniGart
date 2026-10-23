@@ -175,4 +175,40 @@ B3. **Secondary weight** — Default 0.5 follows Pelland et al. 2025 fractional 
 B4. **TVA / rotator-cuff proxies** — Surface proxies may overstate visible load. Drop from heatmap fills and keep taxonomy-only, or add dashed “deep” overlays?
 B5. **Sex figure default** — `UNSPECIFIED` currently falls back to the male figure. Prefer a neutral third silhouette, or require sex before showing heatmaps?
 B6. **Intensity binning** — Equal-width vs log / landmark-anchored bins for single workouts — confirm preference after first user tests.
-B7. **Path JSON packaging** — Ship JSON in both app bundles, or generate Swift/Compose path tables in `design/generated` like icons?
+B7. **Path JSON packaging** — **Decided (bundle-first):** ship path JSON inside `generated/content-bundle/body-maps/` on all apps.
+
+## Google Health API identity
+
+- **Context:** Spec requires a Google Health API client with OAuth (no server), distinct from Google Fit and from on-device Health Connect.
+- **Choice:** Implement against **Fitbit Web API** OAuth + REST hosts (`www.fitbit.com/oauth2`, `api.fitbit.com`) as Google’s consumer health cloud API after the Fitbit acquisition. Scopes: activity, heartrate, sleep, nutrition, weight, location, profile.
+- **Alternatives:** Google Cloud Healthcare API (enterprise); a future first-party Google Health consumer API if/when publicly documented.
+
+## HealthKit Kotlin vs Swift split
+
+- **Context:** HealthKit is an Apple framework; full typed queries are awkward in Kotlin/Native.
+- **Choice:** `HealthKitPlatformApi` + `HealthKitClientImpl` in KMP; Swift `HealthKitPlatformBridge` + `HealthKitSampleInjector` owns HKStore. Register the Swift bridge at app launch.
+- **Alternatives:** Pure Kotlin/Native cinterop; duplicate domain mapping only in Swift.
+
+## Health Connect testing library
+
+- **Context:** Owner asked for connect-testing if available.
+- **Choice:** Depend on `androidx.health.connect:connect-testing:1.0.0-alpha04` (only published line) for androidHostTest, but exercise logic via `FakeHealthConnectGateway` because alpha APIs + Robolectric HC APK support are incomplete on Linux CI.
+- **Alternatives:** Instrumented device tests only; wait for stable connect-testing.
+
+## AppAuth placement
+
+- **Context:** AppAuth Android library requires `appAuthRedirectScheme` manifest placeholder.
+- **Choice:** Keep OAuth abstract (`AuthBrowser` / PKCE client) in `shared`; add AppAuth dependency + placeholder on `androidApp` for the production browser implementation.
+- **Alternatives:** Put AppAuth inside `shared` with a default placeholder.
+
+## Baevsky SI units
+
+- **Context:** Literature mixes ms/sec for Mo and MxDMn; AMo as percent vs fraction.
+- **Choice:** 50 ms bins; Mo and MxDMn in **seconds**; AMo as **percent** 0–100; SI = AMo / (2·Mo·MxDMn).
+- **Alternatives:** Keep everything in ms and scale the formula.
+
+## Formula strategy defaults
+
+- **Context:** Users may pick alternative formulae later.
+- **Choice:** Strategy interfaces + `FormulaCatalog` / `FormulaPreferences`; Phase 0 defaults remain Mifflin–St Jeor, Tanaka, CUN-BAE, Epley, Karvonen 5-zone. Added Harris–Benedict and Fox as first alternatives.
+- **Alternatives:** Content-pack driven formula tables.

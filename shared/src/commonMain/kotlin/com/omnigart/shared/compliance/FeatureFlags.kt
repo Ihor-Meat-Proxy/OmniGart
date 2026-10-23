@@ -12,7 +12,10 @@ package com.omnigart.shared.compliance
  * override at runtime in DEBUG builds via platform debug menus.
  */
 object FeatureFlags {
-    /** Health platform sync (HealthKit / Health Connect) UI and workers. */
+    /**
+     * Health platform sync (HealthKit / Health Connect / Google Health API) UI and workers.
+     * Remains false by default until the health integration layer is product-ready.
+     */
     val healthSyncEnabled: Boolean = false
 
     /** Barcode food logging camera flow. */

@@ -1,0 +1,46 @@
+# OmniGart content plane — self-host (Caddy + Garage).
+# Not used by the default hosted architecture (Bunny Storage + CDN).
+# Image tags verified Oct 2026: caddy 2.11.7, garage v2.4.1.
+
+services:
+  garage:
+    image: dxflrs/garage:v2.4.1
+    restart: unless-stopped
+    volumes:
+      - ./garage.toml:/etc/garage.toml:ro
+      - garage-meta:/var/lib/garage/meta
+      - garage-data:/var/lib/garage/data
+    ports:
+      - "3900:3900"   # S3 API (keep internal / firewalled in production)
+      - "3903:3903"   # admin
+    networks:
+      - content
+
+  caddy:
+    image: caddy:2.11.7-alpine
+    restart: unless-stopped
+    depends_on:
+      - garage
+    environment:
+      DOMAIN: ${DOMAIN:-content.localhost}
+      EMAIL: ${EMAIL:-ops@example.com}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+      - ./public:/srv/public:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - content
+
+volumes:
+  garage-meta:
+  garage-data:
+  caddy-data:
+  caddy-config:
+
+networks:
+  content:
+    driver: bridge

@@ -1,0 +1,17 @@
+{
+  "name": "omnigart-content-packs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Bundle-first content pack build, verify, size-gate, and sign helpers",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node src/build.mjs --catalog catalog.json --out dist",
+    "verify": "node src/verify.mjs --catalog-dist dist",
+    "sign": "node src/sign.mjs",
+    "check-size": "node src/check-bundle-size.mjs --index dist/build-index.json --budget ../../docs/APP_SIZE_BUDGET.json",
+    "test": "npm run build && npm run verify && npm run check-size"
+  }
+}

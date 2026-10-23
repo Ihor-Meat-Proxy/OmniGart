@@ -1,0 +1,3 @@
+OmniGart helps you log strength and endurance training, food and water, and recovery. Optional Health Connect access improves on-device wellness estimates such as readiness, HRV, and hydration targets.
+
+OmniGart is not medical advice. Estimates and plans are for wellness and coaching only — consult a professional for health decisions. You can deny Health Connect, camera, Bluetooth, or notification access and keep using the app with manual entry.

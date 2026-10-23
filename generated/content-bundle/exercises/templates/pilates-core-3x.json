@@ -1,0 +1,134 @@
+{
+  "id": "pilates-core-3x",
+  "nameKeys": {
+    "enGB": "template.pilates_core_3x.name",
+    "uk": "template.pilates_core_3x.name"
+  },
+  "disciplines": [
+    "pilates"
+  ],
+  "level": "beginner",
+  "goal": "mobility",
+  "daysPerWeek": 3,
+  "sessionMinutes": 35,
+  "equipmentPreset": "bodyweight",
+  "equipmentRequired": [
+    "pilates_mat",
+    "yoga_mat"
+  ],
+  "rationale": "Controlled trunk endurance and motor control sessions complement ACSM neuromotor recommendations without high spinal load.",
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "p1",
+      "nameKeys": {
+        "enGB": "template.pilates_core_3x.p1.name",
+        "uk": "template.pilates_core_3x.p1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "pilates-hundred",
+              "sets": 1,
+              "reps": "100 counts",
+              "rir": "2-3",
+              "restSeconds": 30,
+              "durationSeconds": 90
+            },
+            {
+              "exerciseId": "pilates-single-leg-stretch",
+              "sets": 2,
+              "reps": "8/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "pilates-shoulder-bridge",
+              "sets": 3,
+              "reps": "8",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "pilates-leg-circles",
+              "sets": 2,
+              "reps": "5/dir/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "pilates-plank-variations",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "nameKeys": {
+        "enGB": "template.pilates_core_3x.p2.name",
+        "uk": "template.pilates_core_3x.p2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "pilates-roll-up",
+              "sets": 3,
+              "reps": "6",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "pilates-double-leg-stretch",
+              "sets": 2,
+              "reps": "8",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "pilates-side-kick",
+              "sets": 2,
+              "reps": "8/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "pilates-swan",
+              "sets": 3,
+              "reps": "6",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "pilates-saw",
+              "sets": 2,
+              "reps": "6/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

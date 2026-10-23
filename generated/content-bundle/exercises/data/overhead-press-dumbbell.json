@@ -1,0 +1,91 @@
+{
+  "id": "overhead-press-dumbbell",
+  "nameKeys": {
+    "enGB": "exercise.overhead_press_dumbbell.name",
+    "uk": "exercise.overhead_press_dumbbell.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "front_deltoid",
+    "lateral_deltoid",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "trapezius"
+  ],
+  "equipment": [
+    "dumbbell"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Press dumbbells from shoulder height to lockout without shrugging excessively; lower slowly."
+  ],
+  "setup": [
+    "Seated or standing; braced trunk."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Flared ribs / lumbar arch",
+    "Clanking bells hard"
+  ],
+  "safety": [
+    "Seated version reduces cheat from legs."
+  ],
+  "contraindications": [
+    "Shoulder pain overhead"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "landmine-press",
+      "note": "Less overhead demand"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "overhead-press-barbell",
+      "note": "Barbell"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/overhead-press-dumbbell",
+    "videoKey": "media/video/overhead-press-dumbbell",
+    "animationKey": "media/anim/overhead-press-dumbbell"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

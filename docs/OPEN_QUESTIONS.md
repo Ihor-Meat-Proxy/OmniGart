@@ -127,14 +127,45 @@ Autopilot log (Phase 0 + merged design / planning). Each item: **context**, **ch
 
 17. **Target library size** — Library grew with pull-up/dip families (~145 total). Grow toward a several-hundred-exercise catalog later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
+19. **Additional locale keys (en-GB/uk only in this PR)** — Another agent should translate these `exercise.*.name` keys beyond en-GB/uk:
+    - `exercise.archer_pull_up.name`
+    - `exercise.band_assisted_dip.name`
+    - `exercise.bench_dip.name`
+    - `exercise.close_grip_pull_up.name`
+    - `exercise.commando_pull_up.name`
+    - `exercise.korean_dip.name`
+    - `exercise.l_sit_pull_up.name`
+    - `exercise.machine_assisted_dip.name`
+    - `exercise.machine_assisted_pull_up.name`
+    - `exercise.negative_dip.name`
+    - `exercise.negative_pull_up.name`
+    - `exercise.neutral_grip_pull_up.name`
+    - `exercise.scapular_pull_up.name`
+    - `exercise.straight_bar_dip.name`
+    - `exercise.typewriter_pull_up.name`
+    - `exercise.weighted_dip.name`
+    - `exercise.wide_grip_pull_up.name`
+    Also refresh display strings for expanded existing keys (`pull_up`, `chin_up`, `inverted_row`, `weighted_pull_up`, `assisted_pull_up_band`, `ring_dip`, `dip_parallel_bar`, `chest_to_bar_pull_up`) if non-en/uk locales already exist elsewhere.
 20. **`bodyweightFraction` for dips** — No published GRF %BM study for parallel-bar dips was verified; current values are estimates from de Leva segmental logic. Prefer a measured study if one appears.
 21. **`loadModel` backfill** — Non pull/dip exercises received heuristic loadModel/fraction defaults; review edge cases (carries, swimming, holds) before treating proportions as analytics-grade.
 
 ## Naming: no competitor product names
 
 - **Context:** Owner rule for all current and future work.
-- **Choice:** Never mention competitor app/product names (examples include popular strength loggers, wearable brands, and recovery/coaching apps) in the repo, code, docs, commits, or PR titles/bodies. Use neutral descriptions of product categories and patterns instead. Platform APIs remain allowed: HealthKit, Health Connect, Google Health API, Polar BLE SDK.
+- **Choice:** Never mention competitor app/product names (examples include popular strength loggers, wearable brands, and recovery/coaching apps) in the repo, code, docs, commits, or PR titles/bodies. Use neutral descriptions of product categories and patterns instead. Platform APIs remain allowed: HealthKit, Health Connect, Google Health API, Polar BLE SDK. The CI scan list is `.github/ci/banned-terms.yml` only.
 - **Alternatives:** Keep a private research notebook outside the repo if named product comparisons are needed.
+
+## App Review / health-app compliance
+
+- **Context:** Owner-mandated rules for all app code and copy going forward (wellness framing, JIT permissions, no debug dead ends in release, accurate PrivacyInfo).
+- **Choice:** Enforce via `scripts/check_app_review_compliance.py` inside existing CI jobs; human store steps in `docs/RELEASE_CHECKLIST.md`. Privacy policy URL currently points at `https://omnigart.com/privacy` until the live policy is published.
+- **Alternatives:** Separate required CI job (rejected — keep gates inside existing jobs).
+
+## Bundle-first content (all phases)
+
+- **Context:** Owner decision: apps must work fully offline; server only for signed between-release updates, optional large media, food packs, and remote config.
+- **Choice:** Pack exercises, templates, locales, evidence, icons, body-map paths, achievements, and exercise images into `generated/content-bundle/` via `scripts/pack_bundled_content.py` (Gradle + Xcode pre-build). Shared `LayeredContentLoader` layers **bundled baseline &lt; verified newer update pack**. CI runs `--verify` so the committed bundle stays up to date. Docs: `docs/CONTENT_BUNDLE.md`.
+- **Alternatives:** On-demand CDN fetch for all content (rejected — breaks offline); commit only sources and generate exclusively in CI without a committed baseline (rejected — harder offline/dev reproducibility).
 
 ## Autopilot v1 roadmap
 
@@ -150,16 +181,87 @@ B3. **Secondary weight** — Default 0.5 follows Pelland et al. 2025 fractional 
 B4. **TVA / rotator-cuff proxies** — Surface proxies may overstate visible load. Drop from heatmap fills and keep taxonomy-only, or add dashed “deep” overlays?
 B5. **Sex figure default** — `UNSPECIFIED` currently falls back to the male figure. Prefer a neutral third silhouette, or require sex before showing heatmaps?
 B6. **Intensity binning** — Equal-width vs log / landmark-anchored bins for single workouts — confirm preference after first user tests.
-B7. **Path JSON packaging** — Ship JSON in both app bundles, or generate Swift/Compose path tables in `design/generated` like icons?
+B7. **Path JSON packaging** — **Decided (bundle-first):** ship `design/body-map/generated/paths/*.json` inside `generated/content-bundle/body-maps/` on all apps. Optional Swift/Compose tables remain a future optimisation, not a requirement for offline.
 
-## Translation / i18n (content catalogs)
+## Google Health API identity
 
-T1. **Native-speaker review queue** — All new `pl`/`be`/`kk`/`ka`/`es`/`fr`/`de`/`cs`/`zh-Hans` strings (and expanded `uk` body copy) are `machine-drafted`. Who owns first-pass review per language?
-T2. **Kazakh gym loans** — Some `kk` strength names still use international/gym loans that overlap Russian orthography (e.g. присед). Prefer fully nativised Kazakh sports-federation forms when a reviewer supplies them?
-T3. **Belarusian orthography** — Confirm Narkamaŭka standard throughout vs any classical (taraškievica) preference for public copy.
-T4. **Georgian strength loans** — Confirm whether სკუატი / დედლიფტი-style loans are preferred over fully calqued Georgian for gym UX.
-T5. **Pilates naming** — Keep English PMA names in European locales (common in studios) or always localise (e.g. PL “Setka” for The Hundred)?
-T6. **App UI locales** — When Phase 0 scaffold merges, should the Translations job also require Android `values-*` / iOS xcstrings parity for every required locale immediately, or gate platform mirrors behind a follow-up?
-T7. **Required check** — Confirm GitHub branch protection adds the exact job name `Translations`.
-T8. **Pull-up/dip grip glossary** — Machine-drafted translations for PR #5 keys are in all required locales; confirm preferred local forms for chin-up, neutral grip, archer, Korean dip, typewriter, commando with native reviewers.
-T9. **Glossary term least-certain set** — Especially `uk` hip-thrust loan, `kk`/`ka` press/pull nomenclature, `zh-Hans` face-pull / hip-thrust gym slang; plus new pull/dip variation names.
+- **Context:** Spec requires a Google Health API client with OAuth (no server), distinct from Google Fit and from on-device Health Connect.
+- **Choice:** Implement against **Fitbit Web API** OAuth + REST hosts (`www.fitbit.com/oauth2`, `api.fitbit.com`) as Google’s consumer health cloud API after the Fitbit acquisition. Scopes: activity, heartrate, sleep, nutrition, weight, location, profile.
+- **Alternatives:** Google Cloud Healthcare API (enterprise); a future first-party Google Health consumer API if/when publicly documented.
+
+## HealthKit Kotlin vs Swift split
+
+- **Context:** HealthKit is an Apple framework; full typed queries are awkward in Kotlin/Native.
+- **Choice:** `HealthKitPlatformApi` + `HealthKitClientImpl` in KMP; Swift `HealthKitPlatformBridge` + `HealthKitSampleInjector` owns HKStore. Register the Swift bridge at app launch.
+- **Alternatives:** Pure Kotlin/Native cinterop; duplicate domain mapping only in Swift.
+
+## Health Connect testing library
+
+- **Context:** Owner asked for connect-testing if available.
+- **Choice:** Depend on `androidx.health.connect:connect-testing:1.0.0-alpha04` (only published line) for androidHostTest, but exercise logic via `FakeHealthConnectGateway` because alpha APIs + Robolectric HC APK support are incomplete on Linux CI.
+- **Alternatives:** Instrumented device tests only; wait for stable connect-testing.
+
+## AppAuth placement
+
+- **Context:** AppAuth Android library requires `appAuthRedirectScheme` manifest placeholder.
+- **Choice:** Keep OAuth abstract (`AuthBrowser` / PKCE client) in `shared`; add AppAuth dependency + placeholder on `androidApp` for the production browser implementation.
+- **Alternatives:** Put AppAuth inside `shared` with a default placeholder.
+
+## Baevsky SI units
+
+- **Context:** Literature mixes ms/sec for Mo and MxDMn; AMo as percent vs fraction.
+- **Choice:** 50 ms bins; Mo and MxDMn in **seconds**; AMo as **percent** 0–100; SI = AMo / (2·Mo·MxDMn).
+- **Alternatives:** Keep everything in ms and scale the formula.
+
+## Formula strategy defaults
+
+- **Context:** Users may pick alternative formulae later.
+- **Choice:** Strategy interfaces + `FormulaCatalog` / `FormulaPreferences`; Phase 0 defaults remain Mifflin–St Jeor, Tanaka, CUN-BAE, Epley, Karvonen 5-zone. Added Harris–Benedict and Fox as first alternatives.
+- **Alternatives:** Content-pack driven formula tables.
+
+## Phase 1 volume load — bodyweight coefficients
+
+- **Context:** Effective load for BW movements needs a fraction of body mass; published GRF %BM varies by variation and study.
+- **Choice:** Ship `BodyweightLoadCoefficients` + content `bodyweightFraction` / `ExerciseLoadSemantics` (push-up ≈ 0.64, pull-up/dip ≈ 1.0, inverted row ≈ 0.5) as provisional estimates; mark volume as estimated; prompt when body mass is missing/stale via `BodyweightResolver`.
+- **Alternatives:** Require always-on scale/Health body mass; per-user calibrated fractions; omit BW contribution until cited.
+
+## Sensors / BLE / Polar
+
+S1. **Polar licence acceptance** — Polar SDK Limited License is proprietary (not AGPL). Confirm owner acceptance for shipping Android/iOS binaries that link Polar 8.4.0, and whether NOTICE text must appear in-app.
+S2. **Android minSdk vs Polar** — Phone shell targets minSdk 26; Polar getting-started recommends 33. Keep 26 until AAR merge forces a bump?
+S3. **Multi-sensor simultaneous connections** — Façade currently one active strap; allow N concurrent GATT sessions for dual-strap experiments?
+S4. **Baevsky detrending** — Kubios applies smoothness-priors VLF removal before √SI. Implement detrending in a follow-up, or ship raw SI + √SI only?
+S5. **H10 offline sample type default for swimming** — Prefer RR (richer HRV) vs HR 1 Hz (smaller, easier merge)? Provisional: RR when battery/memory allows.
+S6. **watchOS product policy** — Show strap HR in-app only, or also write mirrored samples to a non-workout HealthKit type? Health layer owns writes; confirm UX.
+S7. **Remembered-device storage** — SharedPreferences / UserDefaults now; migrate into SQLDelight when Phase 0 DB lands?
+S8. **iOS Polar SPM in CI** — `OmniGartSensorsPolar` pulls Polar SPM; run on macOS only after Phase 0 iOS job exists, or keep Polar target optional in XcodeGen?
+S9. **Smoothness of Lipponen constants** — Using paper defaults (c1=0.13, c2=0.17, α=5.2). Tune for swimming artefact profiles?
+
+## § Hydration
+
+Provisional — do not block merges. IDs are `H1`…`Hn` so they do not collide with numeric items from other PRs.
+
+- **H1.** **Plant-milk BHI** — Oat/soy/almond defaulted to 1.0 (estimated). Soy’s protein profile might behave closer to dairy; run or cite a BHI trial before raising factors.
+- **H2.** **Milk-based coffees BHI** — Cappuccino/latte/flat white use interpolated factors (1.15–1.25) between coffee (1.0) and milk (~1.5). Confirm or measure.
+- **H3.** **Kefir BHI** — Estimated from full-fat milk (1.50). Acceptable until a fermented-dairy BHI exists?
+- **H4.** **Wine BHI** — Defaulted to 1.0 like Maughan lager; higher ABV may increase diuresis at larger intakes. Keep 1.0 or apply an alcohol discount?
+- **H5.** **ORS vs sports drink** — Catalogue ships a sports drink at BHI 1.0 (Maughan). Add a separate oral-rehydration entry at BHI 1.54?
+- **H6.** **Food-water fraction** — Beverage targets use 20% from food. Expose as a user setting?
+- **H7.** **Weight heuristic constant** — 35 ml/kg labelled weak. Prefer 30 ml/kg, 40 ml/kg, or hide the method entirely?
+- **H8.** **Hyponatraemia ceiling** — Absolute caution at 6 L/day and 1.5× target / +2 L. Confirm clinical comfort with these product thresholds (citation is Hew-Butler 2015 consensus, which emphasises drinking to thirst rather than a fixed litre cap).
+- **H9.** **Intensity sweat heuristics** — 0.4 / 0.8 / 1.2 L/h for light/moderate/hard. Replace with sport-specific tables?
+- **H10.** **Health caloric drinks** — Always write NutritionRecord/HKCorrelation for any energy > 0, or only when user opts into nutrition sync?
+- **H11.** **Late-caffeine threshold** — Drake used 400 mg; should the insight trigger on any caffeine in the 6 h window (current) or only above a mg floor?
+- **H12.** **Reminder copy / localisation** — Notification strings not shipped in this module; confirm en-GB + uk ownership in the app shell.
+
+## § Body composition
+
+Provisional — do not block merges. IDs are `BC1`…`BCn` (body composition) so they do not collide with numeric items or body-map `B1`…`Bn`.
+
+- **BC1.** **Default body-fat method** — CUN-BAE is the product default (height/weight/age/sex only). Confirm vs U.S. Navy for users who already tape-measure.
+- **BC2.** **Siri vs Brozek** — Skinfold density currently uses Siri. Offer Brozek as an option for older adults / different assumptions?
+- **BC3.** **Extra girths in Health** — Only waist has a stable cross-platform Health type today; keep hip/neck/arms OmniGart-only or map via vendor extensions?
+- **BC4.** **Progress photo cloud backup** — Contract is local-only. If encrypted private backup is added later, keep Health export forbidden?
+- **BC5.** **EWMA alpha** — Default 0.3 for weight/girth series. Expose per-metric alphas in settings?
+- **BC6.** **Ethnicity adjustments** — BMI/WHtR wellness bands are population averages; any locale-specific screening copy beyond en-GB/uk?
+- **BC7.** **Navy abdomen vs waist** — Male equation prefers abdomen, falls back to waist. Confirm landmark copy in the app shell.

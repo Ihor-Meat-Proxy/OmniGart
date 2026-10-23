@@ -1,0 +1,97 @@
+{
+  "id": "overhead-press-barbell",
+  "nameKeys": {
+    "enGB": "exercise.overhead_press_barbell.name",
+    "uk": "exercise.overhead_press_barbell.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "front_deltoid",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "trapezius",
+    "pectoralis_major",
+    "rectus_abdominis"
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Bar at front rack; brace; press vertically while head moves through; lock out overhead; lower with control."
+  ],
+  "setup": [
+    "Stance roughly hip-width; glutes tight; ribs down."
+  ],
+  "breathing": "Brace before press; exhale through sticking point.",
+  "commonMistakes": [
+    "Excessive lumbar lean",
+    "Pressing forward around the face"
+  ],
+  "safety": [
+    "Clear overhead mobility first; stop with shoulder pain."
+  ],
+  "contraindications": [
+    "Uncontrolled hypertension",
+    "Symptomatic shoulder instability"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "overhead-press-dumbbell",
+      "note": "Independent arms"
+    },
+    {
+      "exerciseId": "landmine-press",
+      "note": "Angled"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "push-press",
+      "note": "Leg drive assist"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand (overview of reviews)",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/overhead-press-barbell",
+    "videoKey": "media/video/overhead-press-barbell",
+    "animationKey": "media/anim/overhead-press-barbell"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

@@ -25,7 +25,17 @@ Programme framing for easy aerobic volume: `cardio-zone2-easy-distribution` → 
 
 - `shared/activity-algorithms/.../hr/HeartRateZones.kt` — general zones + time-in-zone
 - `shared/activity-algorithms/.../hr/Zone2.kt` — Zone 2 profile helpers
-- WorkoutKit scheduling of a Zone 2 session: follow-up PR (uses `EndurancePlanFactory` + HR alert)
+- `Zone2WorkoutKitPlans` + `EndurancePlanFactory.continuousRun` — WorkoutKit plan with Zone 2 HR alert
+- `Zone2WorkoutKitScheduler` (iOS) — schedules that plan when WorkoutKit flags / Personal Team gate allow
+
+## Dual path (in-app vs system Workout)
+
+| Path | Surface | Guidance |
+|------|---------|----------|
+| In-app | watchOS Zone 2 live session | Glanceable HR / zone / haptics |
+| System | WorkoutKit → Apple Workout app | Same Zone 2 bpm band as a `HEART_RATE_ZONE` alert |
+
+Both use the Karvonen default (60–70% HRR) unless the user picks %HRmax or LTHR. See `docs/WORKOUTKIT.md`.
 
 ## Locales
 

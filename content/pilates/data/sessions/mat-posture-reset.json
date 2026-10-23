@@ -1,0 +1,65 @@
+{
+  "id": "mat-posture-reset",
+  "nameKeys": {
+    "enGB": "pilates.session.mat_posture_reset.name",
+    "uk": "pilates.session.mat_posture_reset.name"
+  },
+  "descriptionKeys": {
+    "enGB": "pilates.session.mat_posture_reset.description",
+    "uk": "pilates.session.mat_posture_reset.description"
+  },
+  "level": "beginner",
+  "durationMinutes": 20,
+  "apparatus": "mat",
+  "focus": "posture",
+  "exerciseIds": [
+    "pilates-spine-stretch-forward",
+    "pilates-spine-twist",
+    "pilates-swan",
+    "pilates-swimming",
+    "pilates-shoulder-bridge",
+    "pilates-mermaid"
+  ],
+  "blocks": [
+    {
+      "titleKey": "pilates.session.mat_posture_reset.block_main",
+      "items": [
+        {
+          "exerciseId": "pilates-spine-stretch-forward",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "pilates-spine-twist",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "pilates-swan",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "pilates-swimming",
+          "sets": 1,
+          "seconds": 30
+        },
+        {
+          "exerciseId": "pilates-shoulder-bridge",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "pilates-mermaid",
+          "sets": 1,
+          "reps": 4
+        }
+      ]
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber-acsm-2011",
+    "acsm-rt-2026"
+  ],
+  "bundled": true
+}

@@ -1,0 +1,77 @@
+{
+  "id": "hamstring-care",
+  "nameKeys": {
+    "enGB": "yoga.flow.hamstring_care.name",
+    "uk": "yoga.flow.hamstring_care.name"
+  },
+  "descriptionKeys": {
+    "enGB": "yoga.flow.hamstring_care.description",
+    "uk": "yoga.flow.hamstring_care.description"
+  },
+  "level": "beginner",
+  "durationMinutes": 25,
+  "focus": "mobility",
+  "poseIds": [
+    "mountain-pose",
+    "forward-fold",
+    "pyramid-pose",
+    "half-splits",
+    "head-to-knee",
+    "seated-forward-fold",
+    "wide-legged-forward-fold",
+    "legs-up-wall"
+  ],
+  "sequence": [
+    {
+      "poseId": "mountain-pose",
+      "holdSeconds": 30,
+      "side": "none"
+    },
+    {
+      "poseId": "forward-fold",
+      "holdSeconds": 40,
+      "side": "none"
+    },
+    {
+      "poseId": "pyramid-pose",
+      "holdSeconds": 30,
+      "side": "both"
+    },
+    {
+      "poseId": "half-splits",
+      "holdSeconds": 35,
+      "side": "both"
+    },
+    {
+      "poseId": "head-to-knee",
+      "holdSeconds": 40,
+      "side": "both"
+    },
+    {
+      "poseId": "seated-forward-fold",
+      "holdSeconds": 45,
+      "side": "none"
+    },
+    {
+      "poseId": "wide-legged-forward-fold",
+      "holdSeconds": 40,
+      "side": "none"
+    },
+    {
+      "poseId": "legs-up-wall",
+      "holdSeconds": 90,
+      "side": "none"
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber-acsm-2011",
+    "acsm-rt-2026"
+  ],
+  "bundled": true,
+  "equipmentSuggested": [
+    "yoga_mat",
+    "yoga_block",
+    "yoga_strap",
+    "bodyweight"
+  ]
+}

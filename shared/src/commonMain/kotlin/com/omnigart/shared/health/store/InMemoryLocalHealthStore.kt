@@ -1,9 +1,11 @@
 package com.omnigart.shared.health.store
 
+import kotlin.time.Clock
+
 /**
  * In-memory [LocalHealthStore] for tests and hosts that do not yet open SQLDelight.
  */
-class InMemoryLocalHealthStore : LocalHealthStore {
+class InMemoryLocalHealthStore(private val clock: Clock = Clock.System) : LocalHealthStore {
     private val workouts = linkedMapOf<String, LocalHealthWorkout>()
     private val syncById = linkedMapOf<String, String>()
     private val syncState = mutableMapOf<HealthSyncPlatform, HealthSyncStatus>()
@@ -21,6 +23,9 @@ class InMemoryLocalHealthStore : LocalHealthStore {
         return getWorkout(id)
     }
 
+    override fun getByPlatformRecordId(platformRecordId: String): LocalHealthWorkout? =
+        workouts.values.firstOrNull { !it.deleted && it.platformRecordId == platformRecordId }
+
     override fun listWorkouts(range: HealthExportRange): List<LocalHealthWorkout> = workouts.values
         .filter { !it.deleted }
         .filter { range.start == null || it.startAt >= range.start }
@@ -29,10 +34,20 @@ class InMemoryLocalHealthStore : LocalHealthStore {
 
     override fun softDeleteWorkout(id: String) {
         val existing = workouts[id] ?: return
+        workouts[id] = existing.copy(deleted = true, updatedAt = clock.now())
+    }
+
+    override fun markRemovedFromPlatform(id: String) {
+        val existing = workouts[id] ?: return
+        workouts[id] = existing.copy(removedFromPlatform = true, updatedAt = clock.now())
+    }
+
+    override fun linkPlatformRecord(id: String, platformRecordId: String) {
+        val existing = workouts[id] ?: return
         workouts[id] =
             existing.copy(
-                deleted = true,
-                identity = existing.identity.bumped()
+                platformRecordId = platformRecordId,
+                updatedAt = clock.now()
             )
     }
 

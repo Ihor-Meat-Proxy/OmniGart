@@ -149,6 +149,28 @@ class LocalHealthBridge(
         sync.markSynced(syncPlatform, authStatus, changeToken)
     }
 
+    /**
+     * Platform deleted a sample identified by HealthKit UUID / HC record id and/or sync id.
+     * Keeps the OmniGart copy; never deletes platform data.
+     */
+    fun markRemovedFromPlatform(platform: String, platformRecordId: String?, syncIdentifier: String?) {
+        val syncPlatform =
+            when (platform.uppercase()) {
+                "HEALTH_CONNECT" -> HealthSyncPlatform.HEALTH_CONNECT
+                else -> HealthSyncPlatform.APPLE_HEALTH
+            }
+        sync.applyPlatformDeletion(
+            platform = syncPlatform,
+            syncIdentifier = syncIdentifier,
+            platformRecordId = platformRecordId
+        )
+    }
+
+    /** After a successful first-time Apple Health / Health Connect insert. */
+    fun markPlatformLinked(localId: String, platformRecordId: String) {
+        sync.markPlatformLinked(localId, platformRecordId)
+    }
+
     fun lastSyncEpochMs(platform: String): Long? {
         val syncPlatform =
             when (platform.uppercase()) {

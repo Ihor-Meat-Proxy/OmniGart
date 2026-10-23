@@ -14,7 +14,7 @@
     <string name="info_sheet_title">O tomto odhadu</string>
     <string name="info_sheet_body">Údaje jako připravenost, stres, HRV, Bajevského index, tělesný tuk a hydratace jsou wellness odhady založené na vašich vstupech a vzorcích ze zařízení. Plány jsou koučovací návrhy, nikoli předpisy.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart může číst a zapisovat wellness vzorky — tep, HRV, spánek, tréninky, aktivní a bazální energii, tělesnou hmotnost a hydrataci — aby se sezení zobrazila v Apple Fitness s délkou a kaloriemi. Data se nepoužívají k reklamě. Můžete pokračovat bez přístupu.</string>
+    <string name="perm_explainer_health_body">OmniGart může číst a zapisovat wellness vzorky — tep, HRV, spánek, tréninky, aktivní a bazální energii, tělesnou hmotnost a hydrataci — aby se sezení zobrazila v Apple Fitness. Zápis na platformu jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Apple Health ani Health Connect, ani vlastní. Můžete pokračovat bez přístupu.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth příslušenství</string>
     <string name="perm_explainer_bluetooth_body">Připojte tepoměr nebo podobné fitness příslušenství pro živé vzorky. OmniGart plně funguje bez Bluetooth.</string>
     <string name="perm_explainer_camera_title">Fotoaparát pro čárové kódy</string>
@@ -24,7 +24,11 @@
     <string name="perm_continue">Pokračovat</string>
     <string name="perm_not_now">Teď ne</string>
     <string name="hc_rationale_title">Použití dat Health Connect</string>
-    <string name="hc_rationale_body">OmniGart žádá přístup k Health Connect, aby četl a zapisoval vámi zvolená fitness a wellness data — například tep, HRV, spánek, tréninky, tělesnou hmotnost a hydrataci — aby odhady připravenosti a tréninku zůstaly přesné na vašem zařízení.\n\nNeprodáváme zdravotní data, nepoužíváme je k reklamě ani je nesdílíme s třetími stranami pro marketing. Můžete přístup odepřít a používat OmniGart s ručním zadáváním.</string>
+    <string name="hc_rationale_body">OmniGart žádá přístup k Health Connect, aby četl a zapisoval vámi zvolená fitness a wellness data.
+
+Zápis jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Health Connect, ani vlastní. Místní úpravy zůstávají v OmniGart.
+
+Zdravotní data neprodáváme a nepoužíváme k reklamě. Můžete přístup odepřít.</string>
     <string name="hc_rationale_privacy_policy">Zásady ochrany soukromí</string>
     <string name="calc_settings_title">Výpočty</string>
     <string name="calc_settings_intro">Zvolte, jak OmniGart odhaduje wellness ukazatele, jako je spotřeba energie, tepové zóny, tělesný tuk a síla.</string>
@@ -167,7 +171,7 @@
     <string name="data_privacy_status_denied">Oprávnění odepřeno — místní úložiště funguje</string>
     <string name="data_privacy_status_partial">Částečný přístup</string>
     <string name="data_privacy_status_unknown">Neurčeno</string>
-    <string name="data_privacy_permission_note">OmniGart může číst a zapisovat wellness tréninky a vzorky, pokud to povolíte. Záznamy fungují i bez oprávnění. OmniGart nikdy nemaže data platformy, která nevytvořil, a nezapisuje zpět data jiných aplikací.</string>
+    <string name="data_privacy_permission_note">OmniGart může číst a zapisovat wellness tréninky a vzorky, pokud to povolíte. Záznamy fungují i bez oprávnění. Zápis na platformu jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Apple Health ani Health Connect — ani vlastní. Místní úpravy zůstávají v OmniGart. Pokud vzorek z platformy zmizí, lokální kopie zůstane.</string>
     <string name="pdf_export_button">Exportovat PDF</string>
     <string name="pdf_export_range_button">Exportovat PDF za období</string>
     <string name="pdf_report_single_title">Shrnutí tréninku</string>

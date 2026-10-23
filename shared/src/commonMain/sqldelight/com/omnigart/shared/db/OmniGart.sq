@@ -232,6 +232,7 @@ CREATE TABLE local_health_workout (
   source_name TEXT,
   platform_record_id TEXT,
   deleted INTEGER NOT NULL DEFAULT 0,
+  removed_from_platform INTEGER NOT NULL DEFAULT 0,
   updated_at TEXT NOT NULL,
   notes TEXT
 );
@@ -315,6 +316,9 @@ SELECT * FROM local_health_workout WHERE id = ?;
 selectLocalHealthWorkoutBySyncId:
 SELECT * FROM local_health_workout WHERE sync_identifier = ? AND deleted = 0;
 
+selectLocalHealthWorkoutByPlatformRecordId:
+SELECT * FROM local_health_workout WHERE platform_record_id = ? AND deleted = 0;
+
 selectLocalHealthWorkoutsInRange:
 SELECT * FROM local_health_workout
 WHERE deleted = 0 AND start_at >= ? AND start_at < ?
@@ -329,11 +333,17 @@ INSERT OR REPLACE INTO local_health_workout(
   active_energy_kcal, basal_energy_kcal, distance_metres, steps,
   average_heart_rate_bpm, max_heart_rate_bpm, average_cadence_spm,
   plan_id, session_id, origin, source_bundle, source_name, platform_record_id,
-  deleted, updated_at, notes
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+  deleted, removed_from_platform, updated_at, notes
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 softDeleteLocalHealthWorkout:
-UPDATE local_health_workout SET deleted = 1, sync_version = sync_version + 1, updated_at = ? WHERE id = ?;
+UPDATE local_health_workout SET deleted = 1, updated_at = ? WHERE id = ?;
+
+markLocalHealthWorkoutRemovedFromPlatform:
+UPDATE local_health_workout SET removed_from_platform = 1, updated_at = ? WHERE id = ?;
+
+linkLocalHealthWorkoutPlatformRecord:
+UPDATE local_health_workout SET platform_record_id = ?, updated_at = ? WHERE id = ?;
 
 selectSamplesForWorkout:
 SELECT * FROM local_health_sample WHERE workout_id = ? ORDER BY recorded_at ASC;

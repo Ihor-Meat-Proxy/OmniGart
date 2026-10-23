@@ -1,33 +1,38 @@
 # OmniGart ↔ HealthKit ↔ Health Connect mapping
 
 Status: product contract for the local-first health store (`shared/.../health/store`).  
-Canonical storage is always OmniGart’s SQLDelight DB. Platform sync is optional and idempotent.
+Canonical storage is always OmniGart’s SQLDelight DB. Platform sync is optional and **append-only**.
 
 ## Principles
 
 1. **Local-first.** Every workout and sample OmniGart records or receives is stored locally, even when Health permission is denied.
-2. **One canonical record.** Stable `syncIdentifier` + monotonic `syncVersion`.
-3. **Never corrupt platform data.** Do not write back foreign-app data. Do not delete platform records OmniGart did not create.
-4. **Richest local copy.** Prefer full-resolution series over averages; merge without silent overwrite.
-5. **Conflict policy.** Prefer original source, keep both values with provenance, show the user (`health_conflict` table).
+2. **One canonical record.** Stable `syncIdentifier` (dedupe key). `syncVersion` is stamped once on first platform insert only — never used to rewrite.
+3. **Append-only platform writes (hard rule).** OmniGart must **never delete or rewrite** any data in Apple Health or Health Connect — **not even records OmniGart created**. Before writing, exist-check `HKMetadataKeySyncIdentifier` / `clientRecordId`; if present, **skip**. Never call HealthKit `delete` / `deleteObjects` or Health Connect `deleteRecords` / `updateRecords`.
+4. **Local edits stay in OmniGart.** Changing a workout after the first successful platform insert updates the local DB only.
+5. **Platform deletion → keep local.** If Apple Health / Health Connect deletes a sample, mark the OmniGart row `removedFromPlatform` and keep all data. Do not re-insert.
+6. **Never corrupt foreign data.** Do not write back foreign-app data.
+7. **Richest local copy.** Prefer full-resolution series over averages; merge without silent overwrite.
+8. **Conflict policy.** Prefer original source, keep both values with provenance, show the user (`health_conflict` table).
 
 ## Sync identity
 
 | Layer | Identifier | Version |
 | --- | --- | --- |
-| OmniGart | `HealthSyncIdentity.syncIdentifier` (`omnigart.workout.<localId>`) | `syncVersion` (Long, starts at 1) |
-| Apple Health | `HKMetadataKeySyncIdentifier` | `HKMetadataKeySyncVersion` |
-| Health Connect | `Metadata.clientRecordId` | `Metadata.clientRecordVersion` |
+| OmniGart | `HealthSyncIdentity.syncIdentifier` (`omnigart.workout.<localId>`) | `syncVersion` (Long, starts at 1; **not bumped for platform re-saves**) |
+| Apple Health | `HKMetadataKeySyncIdentifier` | `HKMetadataKeySyncVersion` (stamped once; never used to overwrite) |
+| Health Connect | `Metadata.clientRecordId` | `Metadata.clientRecordVersion` (stamped once; never `updateRecords`) |
 
 Also stored: `omnigart.origin`, `omnigart.healthSchemaVersion` (= 1).
+
+**Write path:** `PlatformAppendOnlyPolicy.shouldAttemptPlatformWrite` → platform writer exist-checks sync id → `insert` only → `markPlatformLinked`. Edits after link never re-queue a platform write.
 
 ## Workout field matrix
 
 | OmniGart field | Unit | HealthKit | Health Connect | Notes |
 | --- | --- | --- | --- | --- |
 | `id` | string | local only (UUID also in `platformRecordId`) | local only (`metadata.id` mirrored) | Stable OmniGart primary key |
-| `identity.syncIdentifier` | string | `HKMetadataKeySyncIdentifier` | `clientRecordId` | Idempotent upsert key |
-| `identity.syncVersion` | long | `HKMetadataKeySyncVersion` | `clientRecordVersion` | Re-save updates in place |
+| `identity.syncIdentifier` | string | `HKMetadataKeySyncIdentifier` | `clientRecordId` | Dedupe / first-write key; skip write if exists |
+| `identity.syncVersion` | long | `HKMetadataKeySyncVersion` | `clientRecordVersion` | First insert only; never bump to rewrite |
 | `activityType` | enum | `HKWorkoutActivityType` | `ExerciseSessionRecord.exerciseType` | See activity map below |
 | `startAt` / `endAt` | Instant (UTC) | `HKWorkout.start/end` | session start/end + zone offset | Convert TZ at platform boundary |
 | `activeEnergyKcal` | kcal | `activeEnergyBurned` (kcal) | `ActiveCaloriesBurnedRecord` (kcal) | Never fold basal into active |
@@ -42,7 +47,9 @@ Also stored: `omnigart.origin`, `omnigart.healthSchemaVersion` (= 1).
 | `sets[]` reps/load | kg, reps | OmniGart metadata (`OmniGartTotal*`) + local DB | `ExerciseSessionRecord` + local DB | Per-set detail is OmniGart-richest |
 | `planId` / `sessionId` | string | metadata / local link | metadata / local link | Links WorkoutKit / logging session |
 | `origin` / `sourceBundle` / `sourceName` | enum/string | `HKSource` + OmniGart metadata | `DataOrigin` + metadata | Filter write-back by origin |
-| `deleted` | bool | soft-delete local; HK delete only if OmniGart-owned | HC delete only if OmniGart-owned | Two-way deletion via anchors / changes tokens |
+| `platformRecordId` | string | HK workout UUID | HC `metadata.id` | Set after first successful insert; blocks re-write |
+| `deleted` | bool | **local soft-delete only** | **local soft-delete only** | Never deletes platform objects |
+| `removedFromPlatform` | bool | set when HK anchored query reports deletion | set when HC Changes reports deletion | Keep local data; do not re-insert |
 
 ## Activity type map
 
@@ -82,6 +89,8 @@ Unmapped platform types import as `OTHER` and keep the raw platform type in `not
 | Routes without location permission | Workout still saved; `route` empty |
 | Different workout type enums | Map via tables above; unknown → `OTHER` |
 | HC basal often not session-scoped | Prefer OmniGart basal estimate for OmniGart-origin sessions; import HC basal only when session-linked |
+| User edits a synced workout in OmniGart | Local DB only; platform object unchanged |
+| User deletes a workout in Apple Health / HC | Local row kept with `removedFromPlatform=true` |
 
 ## Incremental sync
 
@@ -90,7 +99,16 @@ Unmapped platform types import as `OTHER` and keep the raw platform type in `not
 | Apple Health | `HKAnchoredObjectQuery` anchor | `health_sync_state.change_token` (`platform=APPLE_HEALTH`) |
 | Health Connect | Changes API token | `health_sync_state.change_token` (`platform=HEALTH_CONNECT`) |
 
-Deletions: platform deletion soft-deletes the local mirror. Local soft-delete of OmniGart-owned records may delete the platform twin. Foreign-origin platform records are never deleted by OmniGart.
+Deletions on the platform **never** delete OmniGart data and **never** trigger platform delete APIs. They only set `removedFromPlatform`. Local soft-delete (`deleted=1`) is OmniGart-only.
+
+## Forbidden platform APIs (CI gate)
+
+`scripts/check_no_health_platform_mutate.sh` (wired into `lint-gate`) fails the build if production sources contain:
+
+- HealthKit: `deleteObjects(`, `healthStore.delete(`, `HKHealthStore().delete(`, `.delete(object` / `.delete(objects`
+- Health Connect: `deleteRecords(`, `updateRecords(`
+
+Unit/contract coverage: `PlatformAppendOnlyPolicyTest` + `PlatformAppendOnlyPolicy`.
 
 ## Conflict policy (per record)
 
@@ -121,11 +139,12 @@ User-triggered; local only (iOS share sheet / Files, Android SAF).
 
 ## Round-trip guarantee
 
-Shared tests (`HealthDataRoundTripTest`) assert that export → import (JSON) and mapper platform field conversions preserve:
+Shared tests (`HealthDataRoundTripTest`, `PlatformAppendOnlyPolicyTest`) assert that export → import (JSON) and mapper platform field conversions preserve:
 
 - timestamps, activity type, active/basal energy, distance, steps
 - full HR series order and values
 - route points, events, sets
 - sync identity (identifier + version)
+- append-only eligibility (no platform rewrite after link; platform deletion keeps local)
 
 Floating-point: energy to 0.001 kcal, distance to 0.001 m, HR to 0.1 bpm.

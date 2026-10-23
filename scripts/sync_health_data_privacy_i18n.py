@@ -419,62 +419,170 @@ t(
 )
 
 t(
+    "hc_rationale_body",
+    **{
+        "en-GB": (
+            "OmniGart requests Health Connect access to read and write fitness and wellness data "
+            "you choose — such as heart rate, HRV, sleep, workouts, body mass, and hydration — so "
+            "readiness and training estimates stay accurate on your device.\n\n"
+            "Writes are append-only: OmniGart never deletes or rewrites Health Connect data, "
+            "including workouts it created. Local edits stay in OmniGart. If a sample is removed "
+            "from Health Connect, OmniGart keeps your local copy.\n\n"
+            "We do not sell health data, use it for advertising, or share it with third parties "
+            "for marketing. You can deny access and keep using OmniGart with manual entry."
+        ),
+        "uk": (
+            "OmniGart запитує доступ до Health Connect, щоб читати й записувати обрані вами "
+            "фітнес-дані та дані самопочуття — пульс, ВСР, сон, тренування, масу тіла, гідратацію — "
+            "для точніших оцінок готовності й тренувань на пристрої.\n\n"
+            "Запис лише додає: OmniGart ніколи не видаляє й не перезаписує дані Health Connect, "
+            "навіть створені ним. Локальні зміни лишаються в OmniGart. Якщо зразок приберуть з "
+            "Health Connect, локальна копія зберігається.\n\n"
+            "Ми не продаємо дані здоров’я, не використовуємо їх для реклами і не передаємо третім "
+            "сторонам для маркетингу. Можна відмовити в доступі й користуватися ручним введенням."
+        ),
+        "pl": (
+            "OmniGart prosi o dostęp do Health Connect, aby czytać i zapisywać wybrane dane fitness "
+            "i wellness — tętno, HRV, sen, treningi, masa ciała, nawodnienie — dla dokładniejszych "
+            "szacunków na urządzeniu.\n\n"
+            "Zapis tylko dopisuje: OmniGart nigdy nie usuwa ani nie nadpisuje danych Health Connect, "
+            "także własnych. Edycje lokalne zostają w OmniGart. Gdy próbka zniknie z Health Connect, "
+            "lokalna kopia pozostaje.\n\n"
+            "Nie sprzedajemy danych zdrowotnych, nie używamy ich do reklam i nie udostępniamy ich "
+            "stronom trzecim do marketingu. Możesz odmówić dostępu i korzystać z ręcznego wpisu."
+        ),
+        "be": (
+            "OmniGart запытвае доступ да Health Connect, каб чытаць і запісваць абраныя вамі "
+            "фітнес-даныя і даныя самаадчування — пульс, ВСР, сон, трэніроўкі, масу цела, гідратацыю.\n\n"
+            "Запіс толькі дадае: OmniGart ніколі не выдаляе і не перазапісвае дадзеныя Health Connect, "
+            "нават свае. Лакальныя змены застаюцца ў OmniGart.\n\n"
+            "Мы не прадаём даныя здароўя і не выкарыстоўваем іх для рэкламы. Можна адмовіць у доступе."
+        ),
+        "kk": (
+            "OmniGart сіз таңдаған фитнес және сауықтыру деректерін оқу және жазу үшін Health Connect "
+            "қолжетімділігін сұрайды.\n\n"
+            "Жазу тек қосу: OmniGart Health Connect деректерін — өзінкін де — жоймайды және қайта "
+            "жазбайды. Жергілікті өзгерістер OmniGart-та қалады.\n\n"
+            "Денсаулық деректерін сатпаймыз және жарнамаға пайдаланбаймыз. Қолжетімділікті қабылдамауға болады."
+        ),
+        "ka": (
+            "OmniGart ითხოვს Health Connect-ზე წვდომას თქვენ მიერ არჩეული ფიტნესისა და კეთილდღეობის "
+            "მონაცემების წასაკითხად და ჩასაწერად.\n\n"
+            "ჩაწერა მხოლოდ დამატებითია: OmniGart არ შლის და არ გადააწერს Health Connect მონაცემებს, "
+            "მათ შორის საკუთარს. ლოკალური ცვლილებები რჩება OmniGart-ში.\n\n"
+            "ჯანმრთელობის მონაცემებს არ ვყიდით და რეკლამისთვის არ ვიყენებთ. შეგიძლიათ უარყოთ წვდომა."
+        ),
+        "es": (
+            "OmniGart solicita acceso a Health Connect para leer y escribir los datos de fitness y "
+            "bienestar que elijas.\n\n"
+            "Las escrituras solo añaden: OmniGart nunca elimina ni reescribe datos de Health Connect, "
+            "ni siquiera los que creó. Las ediciones locales permanecen en OmniGart.\n\n"
+            "No vendemos datos de salud ni los usamos para publicidad. Puedes denegar el acceso."
+        ),
+        "fr": (
+            "OmniGart demande l’accès à Health Connect pour lire et écrire les données de fitness et "
+            "de bien-être que vous choisissez.\n\n"
+            "Écritures en ajout seul : OmniGart ne supprime ni ne réécrit jamais les données Health "
+            "Connect, y compris les siennes. Les modifications locales restent dans OmniGart.\n\n"
+            "Nous ne vendons pas les données de santé et ne les utilisons pas pour la publicité. "
+            "Vous pouvez refuser l’accès."
+        ),
+        "de": (
+            "OmniGart fordert Zugriff auf Health Connect, um von Ihnen gewählte Fitness- und "
+            "Wellness-Daten zu lesen und zu schreiben.\n\n"
+            "Schreibungen nur anfügend: OmniGart löscht oder überschreibt keine Health-Connect-Daten, "
+            "auch keine eigenen. Lokale Änderungen bleiben in OmniGart.\n\n"
+            "Wir verkaufen keine Gesundheitsdaten und nutzen sie nicht für Werbung. Sie können den "
+            "Zugriff verweigern."
+        ),
+        "cs": (
+            "OmniGart žádá přístup k Health Connect, aby četl a zapisoval vámi zvolená fitness a "
+            "wellness data.\n\n"
+            "Zápis jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Health Connect, ani vlastní. "
+            "Místní úpravy zůstávají v OmniGart.\n\n"
+            "Zdravotní data neprodáváme a nepoužíváme k reklamě. Můžete přístup odepřít."
+        ),
+        "zh-Hans": (
+            "OmniGart 请求访问 Health Connect，以读写您选择的健身与健康数据。\n\n"
+            "写入仅为追加：从不删除或改写 Health Connect 数据（包括本应用创建的）。"
+            "本地编辑只保留在 OmniGart。\n\n"
+            "我们不出售健康数据，也不将其用于广告。您可以拒绝访问。"
+        ),
+    },
+)
+
+t(
     "data_privacy_permission_note",
     **{
         "en-GB": (
             "OmniGart can read and write wellness workouts and samples when you allow it. "
-            "You can keep logging without granting access. OmniGart never deletes platform "
-            "data it did not create, and never writes back data from other apps."
+            "You can keep logging without granting access. Platform writes are append-only: "
+            "OmniGart never deletes or rewrites Apple Health or Health Connect data — including "
+            "workouts it created. Local edits stay in OmniGart. If a sample is removed from the "
+            "platform, OmniGart keeps your local copy."
         ),
         "uk": (
             "OmniGart може читати й записувати тренування та зразки самопочуття, якщо ви дозволите. "
-            "Можна вести журнал без доступу. OmniGart ніколи не видаляє дані платформи, які не створював, "
-            "і не записує назад дані інших додатків."
+            "Можна вести журнал без доступу. Запис на платформу лише додає нові дані: OmniGart ніколи "
+            "не видаляє й не перезаписує дані Apple Health чи Health Connect — навіть створені ним. "
+            "Локальні зміни лишаються в OmniGart. Якщо зразок прибрали з платформи, локальна копія зберігається."
         ),
         "pl": (
             "OmniGart może czytać i zapisywać treningi oraz próbki wellness, gdy na to pozwolisz. "
-            "Możesz logować bez dostępu. OmniGart nie usuwa danych platformy, których nie utworzył, "
-            "i nie zapisuje danych z innych aplikacji."
+            "Możesz logować bez dostępu. Zapis na platformę jest tylko dopisywany: OmniGart nigdy "
+            "nie usuwa ani nie nadpisuje danych Apple Health ani Health Connect — także własnych. "
+            "Edycje lokalne zostają w OmniGart. Gdy próbka zniknie z platformy, lokalna kopia pozostaje."
         ),
         "be": (
             "OmniGart можа чытаць і запісваць трэніроўкі і ўзоры самаадчування, калі вы дазволіце. "
-            "Можна весьці журнал без доступу. OmniGart ніколі не выдаляе дадзеныя платформы, якія не ствараў, "
-            "і не запісвае дадзеныя іншых праграм."
+            "Можна весьці журнал без доступу. Запіс на платформу толькі дадае новыя дадзеныя: OmniGart "
+            "ніколі не выдаляе і не перазапісвае дадзеныя Apple Health ці Health Connect — нават свае. "
+            "Лакальныя змены застаюцца ў OmniGart. Калі ўзор прыбралі з платформы, лакальная копія захоўваецца."
         ),
         "kk": (
             "Рұқсат берсеңіз, OmniGart сауықтыру жаттығуларын және үлгілерін оқи және жаза алады. "
-            "Рұқсатсыз журнал жүргізуге болады. OmniGart өзі жасамаган платформа деректерін жоймайды "
-            "және басқа қолданба деректерін кері жазбайды."
+            "Рұқсатсыз журнал жүргізуге болады. Платформаға жазу тек қосу: OmniGart Apple Health немесе "
+            "Health Connect деректерін — өзі жасағандарын да — жоймайды және қайта жазбайды. "
+            "Жергілікті өзгерістер OmniGart-та қалады. Үлгі платформадан өшірілсе, жергілікті көшірме сақталады."
         ),
         "ka": (
             "OmniGart-ს შეუძლია წაიკითხოს და ჩაიწეროს კეთილდღეობის ვარჯიშები და ნიმუშები, თუ დართავთ. "
-            "შეგიძლიათ ჩანაწერი ნებართვის გარეშე. OmniGart არასოდეს შლის პლატფორმის მონაცემებს, "
-            "რომლებიც არ შეუქმნია, და არ წერს უკან სხვა აპების მონაცემებს."
+            "შეგიძლიათ ჩანაწერი ნებართვის გარეშე. პლატფორმაზე ჩაწერა მხოლოდ დამატებითია: OmniGart არასოდეს "
+            "შლის ან გადააწერს Apple Health ან Health Connect მონაცემებს — მათ შორის საკუთარ ჩანაწერებს. "
+            "ლოკალური ცვლილებები რჩება OmniGart-ში. თუ ნიმუში პლატფორმიდან წაიშლება, ლოკალური ასლი ინახება."
         ),
         "es": (
             "OmniGart puede leer y escribir entrenamientos y muestras de bienestar si lo permites. "
-            "Puedes seguir registrando sin conceder acceso. OmniGart nunca elimina datos de la plataforma "
-            "que no creó, ni reescribe datos de otras apps."
+            "Puedes seguir registrando sin conceder acceso. Las escrituras a la plataforma solo añaden: "
+            "OmniGart nunca elimina ni reescribe datos de Apple Health o Health Connect, ni siquiera "
+            "los que creó. Las ediciones locales permanecen en OmniGart. Si se quita una muestra de la "
+            "plataforma, se conserva la copia local."
         ),
         "fr": (
             "OmniGart peut lire et écrire des séances et échantillons de bien-être si vous l’autorisez. "
-            "Vous pouvez journaliser sans accès. OmniGart ne supprime jamais les données plateforme "
-            "qu’il n’a pas créées, et n’écrit pas les données d’autres apps."
+            "Vous pouvez journaliser sans accès. Les écritures plateforme sont en ajout seul : OmniGart "
+            "ne supprime ni ne réécrit jamais les données Apple Health ou Health Connect, y compris les "
+            "siennes. Les modifications locales restent dans OmniGart. Si un échantillon disparaît de la "
+            "plateforme, la copie locale est conservée."
         ),
         "de": (
             "OmniGart kann Wellness-Workouts und Messwerte lesen und schreiben, wenn Sie es erlauben. "
-            "Protokollieren geht auch ohne Zugriff. OmniGart löscht keine Plattformdaten, die es nicht "
-            "erstellt hat, und schreibt keine Daten anderer Apps zurück."
+            "Protokollieren geht auch ohne Zugriff. Plattformschreibungen sind nur anfügend: OmniGart "
+            "löscht oder überschreibt keine Apple-Health- oder Health-Connect-Daten — auch keine eigenen. "
+            "Lokale Änderungen bleiben in OmniGart. Wird ein Eintrag auf der Plattform entfernt, bleibt "
+            "die lokale Kopie erhalten."
         ),
         "cs": (
             "OmniGart může číst a zapisovat wellness tréninky a vzorky, pokud to povolíte. "
-            "Záznamy fungují i bez oprávnění. OmniGart nikdy nemaže data platformy, která nevytvořil, "
-            "a nezapisuje zpět data jiných aplikací."
+            "Záznamy fungují i bez oprávnění. Zápis na platformu jen přidává: OmniGart nikdy nemaže "
+            "ani nepřepisuje data Apple Health ani Health Connect — ani vlastní. Místní úpravy zůstávají "
+            "v OmniGart. Pokud vzorek z platformy zmizí, lokální kopie zůstane."
         ),
         "zh-Hans": (
-            "在您允许时，OmniGart 可读写健康训练与采样。"
-            "未授权时仍可正常记录。OmniGart 从不删除非其创建的平台数据，"
-            "也从不回写其他应用的数据。"
+            "在您允许时，OmniGart 可读写健康训练与采样。未授权时仍可正常记录。"
+            "写入平台仅为追加：OmniGart 从不删除或改写 Apple Health / Health Connect 中的数据"
+            "（包括本应用创建的记录）。本地编辑只保留在 OmniGart。"
+            "若样本从平台移除，仍保留本地副本。"
         ),
     },
 )

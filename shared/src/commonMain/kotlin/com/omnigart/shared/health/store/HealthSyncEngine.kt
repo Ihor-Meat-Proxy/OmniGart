@@ -3,13 +3,17 @@ package com.omnigart.shared.health.store
 import kotlin.time.Clock
 
 /**
- * Orchestrates local-first persistence and optional two-way platform sync.
+ * Orchestrates local-first persistence and optional platform sync.
  *
  * Rules:
  * - Always write to [LocalHealthStore] first.
  * - Never write back data that originated from another app.
- * - Never delete platform data OmniGart did not create.
- * - Idempotent via [HealthSyncIdentity] (sync identifier + version).
+ * - Platform writes are **append-only**: never delete or rewrite Apple Health /
+ *   Health Connect objects (including OmniGart-owned ones).
+ * - Before a platform insert, writers exist-check [HealthSyncIdentity.syncIdentifier]
+ *   / clientRecordId and skip when already present.
+ * - Local edits stay in OmniGart only.
+ * - Platform-side deletion marks [LocalHealthWorkout.removedFromPlatform] and keeps data.
  * - Incremental via change tokens / anchors stored in [health_sync_state].
  */
 class HealthSyncEngine(private val store: LocalHealthStore, private val clock: Clock = Clock.System) {
@@ -43,29 +47,44 @@ class HealthSyncEngine(private val store: LocalHealthStore, private val clock: C
                     HealthConflictPolicy.findScalarConflicts(existing, incoming, platform)
                 conflicts.forEach { store.upsertConflict(it) }
                 HealthConflictPolicy.resolvePreferringOrigin(existing, incoming)
-                    .copy(updatedAt = clock.now())
+                    .copy(
+                        updatedAt = clock.now(),
+                        // Re-import from platform clears a prior "removed" flag when the sample returns.
+                        removedFromPlatform = false
+                    )
             }
         store.upsertWorkout(merged)
         return merged
     }
 
     /**
-     * Candidates OmniGart may push to a platform: OmniGart-origin only, not deleted.
+     * Candidates OmniGart may attempt a first-time platform insert for.
+     * Writers must still exist-check sync id / clientRecordId and skip if present.
      */
     fun workoutsEligibleForPlatformWrite(): List<LocalHealthWorkout> =
-        store.listWorkouts().filter { HealthDataMapper.mayWriteToPlatform(it) && !it.deleted }
+        store.listWorkouts().filter { PlatformAppendOnlyPolicy.shouldAttemptPlatformWrite(it) }
 
     /**
-     * Apply a platform-side deletion only when the local record is OmniGart-owned and linked.
-     * Foreign platform deletions soft-delete the local mirror but never cascade to the other platform.
+     * Platform deleted a sample. Keep the OmniGart copy; mark it removed from the platform.
+     * Never cascades a delete to the other platform or to HealthKit/Health Connect.
      */
-    fun applyPlatformDeletion(syncIdentifier: String, platform: HealthSyncPlatform) {
-        val local = store.getBySyncIdentifier(syncIdentifier) ?: return
-        store.softDeleteWorkout(local.id)
+    fun applyPlatformDeletion(platform: HealthSyncPlatform, syncIdentifier: String? = null, platformRecordId: String? = null) {
+        val local =
+            when {
+                !syncIdentifier.isNullOrBlank() -> store.getBySyncIdentifier(syncIdentifier)
+                !platformRecordId.isNullOrBlank() -> store.getByPlatformRecordId(platformRecordId)
+                else -> null
+            } ?: return
+        store.markRemovedFromPlatform(local.id)
         val status =
             store.getSyncStatus(platform)
                 ?: HealthSyncStatus(platform, authStatus = "AUTHORIZED")
         store.upsertSyncStatus(status.copy(lastSyncAt = clock.now()))
+    }
+
+    /** Record that a first-time platform insert succeeded (local bookkeeping only). */
+    fun markPlatformLinked(localId: String, platformRecordId: String) {
+        store.linkPlatformRecord(localId, platformRecordId)
     }
 
     fun markSynced(platform: HealthSyncPlatform, authStatus: String, changeToken: String?) {
@@ -77,11 +96,5 @@ class HealthSyncEngine(private val store: LocalHealthStore, private val clock: C
                 changeToken = changeToken
             )
         )
-    }
-
-    fun bumpVersionForResave(workout: LocalHealthWorkout): LocalHealthWorkout {
-        val bumped = workout.copy(identity = workout.identity.bumped(), updatedAt = clock.now())
-        store.upsertWorkout(bumped)
-        return bumped
     }
 }

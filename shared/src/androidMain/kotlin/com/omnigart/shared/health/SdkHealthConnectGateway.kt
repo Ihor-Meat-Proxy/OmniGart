@@ -302,10 +302,19 @@ class SdkHealthConnectGateway(
 
     override suspend fun writeWorkouts(workouts: List<HealthWorkout>) {
         withContext(Dispatchers.IO) {
+            // Append-only: never HC record delete/update APIs. Skip when clientRecordId exists.
+            val fresh =
+                workouts.filter { workout ->
+                    val syncId = "omnigart.workout.${workout.id}"
+                    !clientRecordIdExists(
+                        clientRecordId = syncId,
+                        start = workout.start,
+                        end = workout.end
+                    )
+                }
+            if (fresh.isEmpty()) return@withContext
             client.insertRecords(
-                workouts.map {
-                    // clientRecordId + clientRecordVersion keep re-saves idempotent
-                    // (update in place instead of duplicating).
+                fresh.map {
                     val syncId = "omnigart.workout.${it.id}"
                     ExerciseSessionRecord(
                         startTime = it.start.toJava(),
@@ -317,12 +326,31 @@ class SdkHealthConnectGateway(
                         metadata =
                         Metadata.manualEntry(
                             clientRecordId = syncId,
+                            // Stamped once for identity; never bumped to rewrite.
                             clientRecordVersion = 1L
                         )
                     )
                 }
             )
         }
+    }
+
+    /**
+     * True when Health Connect already has an [ExerciseSessionRecord] with [clientRecordId].
+     * Used to skip inserts (append-only; never HC update APIs).
+     */
+    private suspend fun clientRecordIdExists(clientRecordId: String, start: Instant, end: Instant): Boolean {
+        val padMs = 60_000L
+        val from = JavaInstant.ofEpochMilli((start.toEpochMilliseconds() - padMs).coerceAtLeast(0))
+        val to = JavaInstant.ofEpochMilli(end.toEpochMilliseconds() + padMs)
+        val records =
+            client.readRecords(
+                ReadRecordsRequest(
+                    ExerciseSessionRecord::class,
+                    TimeRangeFilter.between(from, to)
+                )
+            ).records
+        return records.any { it.metadata.clientRecordId == clientRecordId }
     }
 
     override suspend fun getChangesToken(types: Set<HealthDataType>): String = withContext(Dispatchers.IO) {

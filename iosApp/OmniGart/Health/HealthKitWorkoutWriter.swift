@@ -41,9 +41,10 @@ enum HealthKitWorkoutWriter {
         var saveMindfulMinutes: Bool = false
         var estimatedEffortScore: Double? = nil
         var heartRateRecoveryBpm: Double? = nil
-        /// Stable OmniGart sync id (`HKMetadataKeySyncIdentifier`). Re-saves update in place.
+        /// Stable OmniGart sync id (`HKMetadataKeySyncIdentifier`). First write only —
+        /// if a workout with this id already exists in Apple Health, the write is skipped.
         var syncIdentifier: String? = nil
-        /// Monotonic version (`HKMetadataKeySyncVersion`).
+        /// Stamped once on first insert (`HKMetadataKeySyncVersion`). Never bumped to rewrite.
         var syncVersion: Int = 1
     }
 
@@ -171,9 +172,43 @@ enum HealthKitWorkoutWriter {
         )
     }
 
+    /// True when Apple Health already has a workout with this `HKMetadataKeySyncIdentifier`.
+    /// Append-only rule: never delete or save-over; skip the write instead.
+    static func workoutExists(syncIdentifier: String) async throws -> Bool {
+        guard HKHealthStore.isHealthDataAvailable(), !syncIdentifier.isEmpty else { return false }
+        let store = HKHealthStore()
+        let workoutType = HealthKitPlatformBridge.workoutType()
+        let predicate = HKQuery.predicateForObjects(
+            withMetadataKey: HKMetadataKeySyncIdentifier,
+            allowedValues: [syncIdentifier]
+        )
+        return try await withCheckedThrowingContinuation { continuation in
+            let query = HKSampleQuery(
+                sampleType: workoutType,
+                predicate: predicate,
+                limit: 1,
+                sortDescriptors: nil
+            ) { _, samples, error in
+                if let error {
+                    continuation.resume(throwing: error)
+                    return
+                }
+                continuation.resume(returning: !(samples ?? []).isEmpty)
+            }
+            store.execute(query)
+        }
+    }
+
     private static func save(_ options: SaveOptions) async throws -> Result? {
         guard HKHealthStore.isHealthDataAvailable() else { return nil }
         guard options.end >= options.start else { return nil }
+
+        if let syncId = options.syncIdentifier, !syncId.isEmpty {
+            if try await workoutExists(syncIdentifier: syncId) {
+                // Already on Apple Health — never rewrite or delete.
+                return nil
+            }
+        }
 
         let store = HKHealthStore()
         try await requestWorkoutAuthorization()

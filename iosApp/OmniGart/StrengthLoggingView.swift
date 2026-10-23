@@ -296,6 +296,12 @@ struct StrengthLoggingView: View {
                         syncVersion: 1
                     )
                 )
+                if let saved {
+                    core.localHealth.markPlatformLinked(
+                        localId: id,
+                        platformRecordId: saved.workoutUUID.uuidString
+                    )
+                }
                 await MainActor.run {
                     lastEnergy = saved
                     refreshSummary(id: id)

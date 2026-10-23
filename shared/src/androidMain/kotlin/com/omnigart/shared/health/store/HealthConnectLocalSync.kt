@@ -47,6 +47,29 @@ class HealthConnectLocalSync(
                     setOf(com.omnigart.shared.health.HealthDataType.WORKOUT)
                 ).value
             }.getOrNull()
+        // Platform deletions: keep OmniGart data, mark removedFromPlatform. Never call HC delete APIs.
+        if (token != null) {
+            runCatching {
+                val changes =
+                    client.changes(
+                        types = setOf(com.omnigart.shared.health.HealthDataType.WORKOUT),
+                        previous = com.omnigart.shared.health.HealthChangeToken("health_connect", token)
+                    )
+                changes.deletions.forEach { recordId ->
+                    bridge.markRemovedFromPlatform(
+                        platform = "HEALTH_CONNECT",
+                        platformRecordId = recordId,
+                        syncIdentifier = null
+                    )
+                }
+                bridge.markSyncStatus(
+                    platform = "HEALTH_CONNECT",
+                    authStatus = "AUTHORIZED",
+                    changeToken = changes.nextToken?.value ?: token
+                )
+                return
+            }
+        }
         bridge.markSyncStatus(
             platform = "HEALTH_CONNECT",
             authStatus = "AUTHORIZED",

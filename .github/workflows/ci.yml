@@ -89,6 +89,9 @@ jobs:
       - name: App Review compliance (copy, permissions, debug gates)
         # Pure stdlib Python — no pip/PyYAML (macOS runners are PEP 668 managed).
         run: python3 scripts/check_app_review_compliance.py
+      - name: No HealthKit/Health Connect delete or rewrite APIs
+        # Append-only platform writes (Ihor hard rule). See docs/HEALTH_DATA_MAPPING.md.
+        run: bash ./scripts/check_no_health_platform_mutate.sh
       - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
         with:
           distribution: temurin

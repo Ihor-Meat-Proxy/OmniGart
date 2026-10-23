@@ -14,7 +14,7 @@
     <string name="info_sheet_title">Осы бағалау туралы</string>
     <string name="info_sheet_body">Дайындық, стресс, ЖЖВ, Баевский индексі, дене майы және су балансы сияқты көрсеткіштер — сіздің деректеріңіз бен құрылғы үлгілеріне негізделген сауықтыру бағалаулары. Жоспарлар — жаттықтырушы ұсыныстары, рецепт емес.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart сауықтыру үлгілерін оқи және жаза алады — жүрек соғысы, HRV, ұйқы, жаттығулар, белсенді және базалық энергия, дене салмағы және су ішу — сеанстар Apple Fitness-те ұзақтық пен калориямен көрінуі үшін. Деректер жарнамаға немесе үшінші тарапқа берілмейді. Рұқсатсыз жалғастыруға болады.</string>
+    <string name="perm_explainer_health_body">OmniGart сауықтыру үлгілерін оқи және жаза алады — жүрек соғысы, HRV, ұйқы, жаттығулар, белсенді және базалық энергия, дене салмағы және су ішу — сеанстар Apple Fitness-те көрінуі үшін. Платформаға жазу тек қосу: OmniGart Apple Health / Health Connect деректерін — өзінкін де — жоймайды және қайта жазбайды. Деректер жарнамаға берілмейді. Рұқсатсыз жалғастыруға болады.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth аксессуарлары</string>
     <string name="perm_explainer_bluetooth_body">Тірі үлгілер үшін жүрек соғу немесе ұқсас фитнес аксессуарын қосыңыз. OmniGart Bluetoothсыз толық жұмыс істейді.</string>
     <string name="perm_explainer_camera_title">Штрихкод камерасы</string>
@@ -24,7 +24,11 @@
     <string name="perm_continue">Жалғастыру</string>
     <string name="perm_not_now">Қазір емес</string>
     <string name="hc_rationale_title">Health Connect деректерін пайдалану</string>
-    <string name="hc_rationale_body">OmniGart дайындық пен жаттығу бағалаулары құрылғыңызда дәл болуы үшін сіз таңдаған фитнес және сауықтыру деректерін — жүрек соғуы, ЖЖВ, ұйқы, жаттығулар, дене массасы және су балансы — оқу және жазу үшін Health Connect қолжетімділігін сұрайды.\n\nБіз денсаулық деректерін сатпаймыз, жарнамаға пайдаланбаймыз және маркетинг үшін үшінші тараптармен бөліспейміз. Қолжетімділікті қабылдамай, OmniGart-ты қолмен енгізу арқылы пайдалана аласыз.</string>
+    <string name="hc_rationale_body">OmniGart сіз таңдаған фитнес және сауықтыру деректерін оқу және жазу үшін Health Connect қолжетімділігін сұрайды.
+
+Жазу тек қосу: OmniGart Health Connect деректерін — өзінкін де — жоймайды және қайта жазбайды. Жергілікті өзгерістер OmniGart-та қалады.
+
+Денсаулық деректерін сатпаймыз және жарнамаға пайдаланбаймыз. Қолжетімділікті қабылдамауға болады.</string>
     <string name="hc_rationale_privacy_policy">Құпиялылық саясаты</string>
     <string name="calc_settings_title">Есептеулер</string>
     <string name="calc_settings_intro">OmniGart энергия шығыны, жүрек соғу аймақтары, дене майы және күш сияқты сауықтыру көрсеткіштерін қалай бағалайтынын таңдаңыз.</string>
@@ -167,7 +171,7 @@
     <string name="data_privacy_status_denied">Рұқсат қабылданбады — жергілікті қойма жұмыс істейді</string>
     <string name="data_privacy_status_partial">Ішінара қолжетімділік</string>
     <string name="data_privacy_status_unknown">Анықталмаған</string>
-    <string name="data_privacy_permission_note">Рұқсат берсеңіз, OmniGart сауықтыру жаттығуларын және үлгілерін оқи және жаза алады. Рұқсатсыз журнал жүргізуге болады. OmniGart өзі жасамаган платформа деректерін жоймайды және басқа қолданба деректерін кері жазбайды.</string>
+    <string name="data_privacy_permission_note">Рұқсат берсеңіз, OmniGart сауықтыру жаттығуларын және үлгілерін оқи және жаза алады. Рұқсатсыз журнал жүргізуге болады. Платформаға жазу тек қосу: OmniGart Apple Health немесе Health Connect деректерін — өзі жасағандарын да — жоймайды және қайта жазбайды. Жергілікті өзгерістер OmniGart-та қалады. Үлгі платформадан өшірілсе, жергілікті көшірме сақталады.</string>
     <string name="pdf_export_button">PDF экспорттау</string>
     <string name="pdf_export_range_button">Күн аралығы PDF экспорттау</string>
     <string name="pdf_report_single_title">Жаттығу қорытындысы</string>

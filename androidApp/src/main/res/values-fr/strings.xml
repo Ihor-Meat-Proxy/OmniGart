@@ -14,7 +14,7 @@
     <string name="info_sheet_title">À propos de cette estimation</string>
     <string name="info_sheet_body">Des indicateurs tels que la préparation, le stress, la VRC, l’indice de Baevsky, la masse grasse et l’hydratation sont des estimations de bien-être basées sur vos saisies et les échantillons de l’appareil. Les plans sont des suggestions de coaching, pas des prescriptions.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart peut lire et écrire des échantillons bien-être — fréquence cardiaque, VRC, sommeil, séances, énergie active et basale, masse corporelle et hydratation — pour afficher les séances dans Apple Fitness avec durée et calories. Les données ne servent pas à la pub. Vous pouvez continuer sans accorder l’accès.</string>
+    <string name="perm_explainer_health_body">OmniGart peut lire et écrire des échantillons bien-être — fréquence cardiaque, VRC, sommeil, séances, énergie active et basale, masse corporelle et hydratation — pour afficher les séances dans Apple Fitness. Écritures en ajout seul : OmniGart ne supprime ni ne réécrit jamais les données Apple Health ou Health Connect, y compris les siennes. Vous pouvez continuer sans accorder l’accès.</string>
     <string name="perm_explainer_bluetooth_title">Accessoires Bluetooth</string>
     <string name="perm_explainer_bluetooth_body">Connectez un moniteur de fréquence cardiaque ou un accessoire fitness similaire pour des échantillons en direct. OmniGart fonctionne pleinement sans Bluetooth.</string>
     <string name="perm_explainer_camera_title">Caméra pour codes-barres</string>
@@ -24,7 +24,11 @@
     <string name="perm_continue">Continuer</string>
     <string name="perm_not_now">Pas maintenant</string>
     <string name="hc_rationale_title">Utilisation des données Health Connect</string>
-    <string name="hc_rationale_body">OmniGart demande l’accès à Health Connect pour lire et écrire les données de fitness et de bien-être que vous choisissez — telles que la fréquence cardiaque, la VRC, le sommeil, les entraînements, la masse corporelle et l’hydratation — afin que les estimations de préparation et d’entraînement restent précises sur votre appareil.\n\nNous ne vendons pas les données de santé, ne les utilisons pas pour la publicité et ne les partageons pas avec des tiers à des fins marketing. Vous pouvez refuser l’accès et continuer à utiliser OmniGart avec une saisie manuelle.</string>
+    <string name="hc_rationale_body">OmniGart demande l’accès à Health Connect pour lire et écrire les données de fitness et de bien-être que vous choisissez.
+
+Écritures en ajout seul : OmniGart ne supprime ni ne réécrit jamais les données Health Connect, y compris les siennes. Les modifications locales restent dans OmniGart.
+
+Nous ne vendons pas les données de santé et ne les utilisons pas pour la publicité. Vous pouvez refuser l’accès.</string>
     <string name="hc_rationale_privacy_policy">Politique de confidentialité</string>
     <string name="calc_settings_title">Calculs</string>
     <string name="calc_settings_intro">Choisissez comment OmniGart estime les indicateurs de bien-être : dépense énergétique, zones de fréquence cardiaque, masse grasse et force.</string>
@@ -167,7 +171,7 @@
     <string name="data_privacy_status_denied">Permission refusée — le stockage local fonctionne</string>
     <string name="data_privacy_status_partial">Accès partiel</string>
     <string name="data_privacy_status_unknown">Non déterminé</string>
-    <string name="data_privacy_permission_note">OmniGart peut lire et écrire des séances et échantillons de bien-être si vous l’autorisez. Vous pouvez journaliser sans accès. OmniGart ne supprime jamais les données plateforme qu’il n’a pas créées, et n’écrit pas les données d’autres apps.</string>
+    <string name="data_privacy_permission_note">OmniGart peut lire et écrire des séances et échantillons de bien-être si vous l’autorisez. Vous pouvez journaliser sans accès. Les écritures plateforme sont en ajout seul : OmniGart ne supprime ni ne réécrit jamais les données Apple Health ou Health Connect, y compris les siennes. Les modifications locales restent dans OmniGart. Si un échantillon disparaît de la plateforme, la copie locale est conservée.</string>
     <string name="pdf_export_button">Exporter en PDF</string>
     <string name="pdf_export_range_button">Exporter un PDF sur une période</string>
     <string name="pdf_report_single_title">Résumé de séance</string>

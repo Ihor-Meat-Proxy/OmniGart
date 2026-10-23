@@ -100,7 +100,7 @@
   "onboarding_activity_very_active": "Sehr aktiv",
   "onboarding_health_privacy": "Gesundheitsdaten bleiben auf Ihren Geräten. OmniGart verkauft sie nicht und nutzt sie nicht für Werbung.",
   "perm_explainer_health_title": "Apple Health / Health Connect",
-  "perm_explainer_health_body": "OmniGart kann Wellness-Proben lesen und schreiben — Herzfrequenz, HRV, Schlaf, Workouts, aktive und Ruheenergie, Körpermasse und Hydration — damit Sitzungen in Apple Fitness mit Dauer und Kalorien erscheinen. Daten werden nicht für Werbung genutzt. Sie können ohne Zugriff fortfahren.",
+  "perm_explainer_health_body": "OmniGart kann Wellness-Proben lesen und schreiben — Herzfrequenz, HRV, Schlaf, Workouts, aktive und Ruheenergie, Körpermasse und Hydration — damit Sitzungen in Apple Fitness erscheinen. Plattformschreibungen nur anfügend: OmniGart löscht oder überschreibt keine Apple-Health- oder Health-Connect-Daten, auch keine eigenen. Sie können ohne Zugriff fortfahren.",
   "perm_continue": "Weiter",
   "perm_not_now": "Nicht jetzt",
   "food_intro": "Mahlzeiten offline erfassen. Tageswerte sind Wellness-Hilfen, keine medizinische Beratung.",
@@ -196,7 +196,7 @@
   "data_privacy_status_denied": "Berechtigung verweigert — lokaler Speicher funktioniert",
   "data_privacy_status_partial": "Teilzugriff",
   "data_privacy_status_unknown": "Nicht festgelegt",
-  "data_privacy_permission_note": "OmniGart kann Wellness-Workouts und Messwerte lesen und schreiben, wenn Sie es erlauben. Protokollieren geht auch ohne Zugriff. OmniGart löscht keine Plattformdaten, die es nicht erstellt hat, und schreibt keine Daten anderer Apps zurück.",
+  "data_privacy_permission_note": "OmniGart kann Wellness-Workouts und Messwerte lesen und schreiben, wenn Sie es erlauben. Protokollieren geht auch ohne Zugriff. Plattformschreibungen sind nur anfügend: OmniGart löscht oder überschreibt keine Apple-Health- oder Health-Connect-Daten — auch keine eigenen. Lokale Änderungen bleiben in OmniGart. Wird ein Eintrag auf der Plattform entfernt, bleibt die lokale Kopie erhalten.",
   "pdf_export_button": "PDF exportieren",
   "pdf_export_range_button": "PDF für Zeitraum exportieren",
   "pdf_report_single_title": "Workout-Zusammenfassung",
@@ -230,5 +230,6 @@
   "pdf_activity_hiit": "HIIT",
   "pdf_activity_yoga": "Yoga",
   "pdf_activity_pilates": "Pilates",
-  "pdf_activity_other": "Sonstiges"
+  "pdf_activity_other": "Sonstiges",
+  "hc_rationale_body": "OmniGart fordert Zugriff auf Health Connect, um von Ihnen gewählte Fitness- und Wellness-Daten zu lesen und zu schreiben.\n\nSchreibungen nur anfügend: OmniGart löscht oder überschreibt keine Health-Connect-Daten, auch keine eigenen. Lokale Änderungen bleiben in OmniGart.\n\nWir verkaufen keine Gesundheitsdaten und nutzen sie nicht für Werbung. Sie können den Zugriff verweigern."
 }

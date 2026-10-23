@@ -14,7 +14,7 @@
     <string name="info_sheet_title">Sobre esta estimación</string>
     <string name="info_sheet_body">Cifras como preparación, estrés, VFC, índice de Baevsky, grasa corporal e hidratación son estimaciones de bienestar basadas en tus datos y muestras del dispositivo. Los planes son sugerencias de coaching, no prescripciones.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart puede leer y escribir muestras de bienestar — frecuencia cardiaca, VFC, sueño, entrenamientos, energía activa y en reposo, masa corporal e hidratación — para que las sesiones aparezcan en Apple Fitness con duración y calorías. Los datos no se usan para publicidad. Puedes continuar sin conceder acceso.</string>
+    <string name="perm_explainer_health_body">OmniGart puede leer y escribir muestras de bienestar — frecuencia cardiaca, VFC, sueño, entrenamientos, energía activa y en reposo, masa corporal e hidratación — para que las sesiones aparezcan en Apple Fitness. Las escrituras solo añaden: OmniGart nunca elimina ni reescribe datos de Apple Health o Health Connect, ni siquiera los propios. Puedes continuar sin conceder acceso.</string>
     <string name="perm_explainer_bluetooth_title">Accesorios Bluetooth</string>
     <string name="perm_explainer_bluetooth_body">Conecta un monitor de frecuencia cardíaca o un accesorio de fitness similar para muestras en vivo. OmniGart funciona por completo sin Bluetooth.</string>
     <string name="perm_explainer_camera_title">Cámara para códigos de barras</string>
@@ -24,7 +24,11 @@
     <string name="perm_continue">Continuar</string>
     <string name="perm_not_now">Ahora no</string>
     <string name="hc_rationale_title">Uso de datos de Health Connect</string>
-    <string name="hc_rationale_body">OmniGart solicita acceso a Health Connect para leer y escribir los datos de fitness y bienestar que elijas — como frecuencia cardíaca, VFC, sueño, entrenamientos, masa corporal e hidratación — para que las estimaciones de preparación y entrenamiento sean precisas en tu dispositivo.\n\nNo vendemos datos de salud, no los usamos para publicidad ni los compartimos con terceros con fines de marketing. Puedes denegar el acceso y seguir usando OmniGart con entrada manual.</string>
+    <string name="hc_rationale_body">OmniGart solicita acceso a Health Connect para leer y escribir los datos de fitness y bienestar que elijas.
+
+Las escrituras solo añaden: OmniGart nunca elimina ni reescribe datos de Health Connect, ni siquiera los que creó. Las ediciones locales permanecen en OmniGart.
+
+No vendemos datos de salud ni los usamos para publicidad. Puedes denegar el acceso.</string>
     <string name="hc_rationale_privacy_policy">Política de privacidad</string>
     <string name="calc_settings_title">Cálculos</string>
     <string name="calc_settings_intro">Elige cómo OmniGart estima cifras de bienestar como el gasto energético, las zonas de frecuencia cardíaca, la grasa corporal y la fuerza.</string>
@@ -167,7 +171,7 @@
     <string name="data_privacy_status_denied">Permiso denegado — el almacén local sigue activo</string>
     <string name="data_privacy_status_partial">Acceso parcial</string>
     <string name="data_privacy_status_unknown">Sin determinar</string>
-    <string name="data_privacy_permission_note">OmniGart puede leer y escribir entrenamientos y muestras de bienestar si lo permites. Puedes seguir registrando sin conceder acceso. OmniGart nunca elimina datos de la plataforma que no creó, ni reescribe datos de otras apps.</string>
+    <string name="data_privacy_permission_note">OmniGart puede leer y escribir entrenamientos y muestras de bienestar si lo permites. Puedes seguir registrando sin conceder acceso. Las escrituras a la plataforma solo añaden: OmniGart nunca elimina ni reescribe datos de Apple Health o Health Connect, ni siquiera los que creó. Las ediciones locales permanecen en OmniGart. Si se quita una muestra de la plataforma, se conserva la copia local.</string>
     <string name="pdf_export_button">Exportar PDF</string>
     <string name="pdf_export_range_button">Exportar PDF por fechas</string>
     <string name="pdf_report_single_title">Resumen del entrenamiento</string>

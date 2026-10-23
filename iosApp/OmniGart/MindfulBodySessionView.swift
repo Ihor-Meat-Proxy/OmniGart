@@ -196,6 +196,12 @@ struct MindfulBodySessionView: View {
                         syncVersion: 1
                     )
                 )
+                if let saved {
+                    core.localHealth.markPlatformLinked(
+                        localId: localId,
+                        platformRecordId: saved.workoutUUID.uuidString
+                    )
+                }
                 await MainActor.run {
                     summaryLines = makeSummaryLines(
                         start: start,

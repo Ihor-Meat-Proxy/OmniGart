@@ -46,19 +46,21 @@ enum class HealthSyncPlatform {
 }
 
 /**
- * Stable sync identity for idempotent upserts.
+ * Stable sync identity for **dedupe / first-write** only.
  *
- * Apple Health: [HKMetadataKeySyncIdentifier] / [HKMetadataKeySyncVersion].
- * Health Connect: [Metadata.clientRecordId] / [Metadata.clientRecordVersion].
+ * Apple Health: [HKMetadataKeySyncIdentifier] (optional [HKMetadataKeySyncVersion] stamped once).
+ * Health Connect: [Metadata.clientRecordId] (optional [Metadata.clientRecordVersion] stamped once).
+ *
+ * Platform writes are append-only: never bump version to re-save or overwrite an existing
+ * platform object. Local edits stay in OmniGart; if the sync id already exists on the
+ * platform, skip the write.
  */
 @Serializable
-data class HealthSyncIdentity(val syncIdentifier: String, val syncVersion: Long) {
+data class HealthSyncIdentity(val syncIdentifier: String, val syncVersion: Long = 1) {
     init {
         require(syncIdentifier.isNotBlank()) { "syncIdentifier must not be blank" }
         require(syncVersion >= 1) { "syncVersion must be >= 1" }
     }
-
-    fun bumped(): HealthSyncIdentity = copy(syncVersion = syncVersion + 1)
 }
 
 @Serializable
@@ -135,6 +137,11 @@ data class LocalHealthWorkout(
     val sourceName: String? = null,
     val platformRecordId: String? = null,
     val deleted: Boolean = false,
+    /**
+     * Platform deleted or revoked this sample. OmniGart keeps the local copy;
+     * never re-inserts to the platform for this row.
+     */
+    val removedFromPlatform: Boolean = false,
     val updatedAt: Instant,
     val notes: String? = null,
     val heartRateSeries: List<LocalHeartRatePoint> = emptyList(),

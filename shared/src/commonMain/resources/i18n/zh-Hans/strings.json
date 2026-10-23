@@ -100,7 +100,7 @@
   "onboarding_activity_very_active": "非常活跃",
   "onboarding_health_privacy": "健康数据保留在您的设备上。OmniGart 不会出售或将其用于广告。",
   "perm_explainer_health_title": "Apple Health / Health Connect",
-  "perm_explainer_health_body": "OmniGart 可读写健康样本——心率、心率变异、睡眠、训练、活动与基础能量、体重和补水——以便会话以时长和热量出现在 Apple Fitness 中。数据不用于广告，也不发送给无关第三方。您也可不授予权限并继续。",
+  "perm_explainer_health_body": "OmniGart 可读写健康样本——心率、心率变异、睡眠、训练、活动与基础能量、体重和补水——以便会话出现在 Apple Fitness 中。写入平台仅为追加：从不删除或改写 Apple Health / Health Connect 数据（包括本应用创建的）。您也可不授予权限并继续。",
   "perm_continue": "继续",
   "perm_not_now": "暂时不要",
   "food_intro": "离线记录餐食。每日合计为健康教练参考，不是医疗建议。",
@@ -196,7 +196,7 @@
   "data_privacy_status_denied": "权限已拒绝 — 本地存储仍可用",
   "data_privacy_status_partial": "部分访问",
   "data_privacy_status_unknown": "未确定",
-  "data_privacy_permission_note": "在您允许时，OmniGart 可读写健康训练与采样。未授权时仍可正常记录。OmniGart 从不删除非其创建的平台数据，也从不回写其他应用的数据。",
+  "data_privacy_permission_note": "在您允许时，OmniGart 可读写健康训练与采样。未授权时仍可正常记录。写入平台仅为追加：OmniGart 从不删除或改写 Apple Health / Health Connect 中的数据（包括本应用创建的记录）。本地编辑只保留在 OmniGart。若样本从平台移除，仍保留本地副本。",
   "pdf_export_button": "导出 PDF",
   "pdf_export_range_button": "导出日期范围 PDF",
   "pdf_report_single_title": "训练摘要",
@@ -230,5 +230,6 @@
   "pdf_activity_hiit": "高强度间歇",
   "pdf_activity_yoga": "瑜伽",
   "pdf_activity_pilates": "普拉提",
-  "pdf_activity_other": "其他"
+  "pdf_activity_other": "其他",
+  "hc_rationale_body": "OmniGart 请求访问 Health Connect，以读写您选择的健身与健康数据。\n\n写入仅为追加：从不删除或改写 Health Connect 数据（包括本应用创建的）。本地编辑只保留在 OmniGart。\n\n我们不出售健康数据，也不将其用于广告。您可以拒绝访问。"
 }

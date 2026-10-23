@@ -14,7 +14,7 @@
     <string name="info_sheet_title">关于此估算</string>
     <string name="info_sheet_body">准备度、压力、心率变异、Baevsky 指数、体脂和补水等数值是基于您的输入和设备样本的健康估算。计划是教练建议，不是处方。</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart 可读写健康样本——心率、心率变异、睡眠、训练、活动与基础能量、体重和补水——以便会话以时长和热量出现在 Apple Fitness 中。数据不用于广告，也不发送给无关第三方。您也可不授予权限并继续。</string>
+    <string name="perm_explainer_health_body">OmniGart 可读写健康样本——心率、心率变异、睡眠、训练、活动与基础能量、体重和补水——以便会话出现在 Apple Fitness 中。写入平台仅为追加：从不删除或改写 Apple Health / Health Connect 数据（包括本应用创建的）。您也可不授予权限并继续。</string>
     <string name="perm_explainer_bluetooth_title">蓝牙配件</string>
     <string name="perm_explainer_bluetooth_body">连接心率或其他健身配件以获取实时样本。OmniGart 在无蓝牙时也可完整使用。</string>
     <string name="perm_explainer_camera_title">条码相机</string>
@@ -24,7 +24,11 @@
     <string name="perm_continue">继续</string>
     <string name="perm_not_now">暂时不要</string>
     <string name="hc_rationale_title">Health Connect 数据用途</string>
-    <string name="hc_rationale_body">OmniGart 请求访问 Health Connect，以读写您选择的健身与健康数据——例如心率、心率变异、睡眠、训练、体重和补水——使准备度与训练估算在设备上保持准确。\n\n我们不出售健康数据、不将其用于广告，也不与第三方分享用于营销。您可以拒绝访问，并通过手动输入继续使用 OmniGart。</string>
+    <string name="hc_rationale_body">OmniGart 请求访问 Health Connect，以读写您选择的健身与健康数据。
+
+写入仅为追加：从不删除或改写 Health Connect 数据（包括本应用创建的）。本地编辑只保留在 OmniGart。
+
+我们不出售健康数据，也不将其用于广告。您可以拒绝访问。</string>
     <string name="hc_rationale_privacy_policy">隐私政策</string>
     <string name="calc_settings_title">计算</string>
     <string name="calc_settings_intro">选择 OmniGart 如何估算能量消耗、心率区间、体脂和力量等健康指标。</string>
@@ -167,7 +171,7 @@
     <string name="data_privacy_status_denied">权限已拒绝 — 本地存储仍可用</string>
     <string name="data_privacy_status_partial">部分访问</string>
     <string name="data_privacy_status_unknown">未确定</string>
-    <string name="data_privacy_permission_note">在您允许时，OmniGart 可读写健康训练与采样。未授权时仍可正常记录。OmniGart 从不删除非其创建的平台数据，也从不回写其他应用的数据。</string>
+    <string name="data_privacy_permission_note">在您允许时，OmniGart 可读写健康训练与采样。未授权时仍可正常记录。写入平台仅为追加：OmniGart 从不删除或改写 Apple Health / Health Connect 中的数据（包括本应用创建的记录）。本地编辑只保留在 OmniGart。若样本从平台移除，仍保留本地副本。</string>
     <string name="pdf_export_button">导出 PDF</string>
     <string name="pdf_export_range_button">导出日期范围 PDF</string>
     <string name="pdf_report_single_title">训练摘要</string>

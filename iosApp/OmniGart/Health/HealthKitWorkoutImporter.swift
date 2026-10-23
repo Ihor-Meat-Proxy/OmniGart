@@ -103,6 +103,15 @@ enum HealthKitWorkoutImporter {
                 // Never write back; only mirror into OmniGart DB.
                 persistImported(workout, core: core, planId: workout.planId)
             }
+            // Platform deleted samples: keep OmniGart copy, mark removed from Apple Health.
+            // Never call HealthKit object-deletion APIs.
+            for uuid in result.deletedUUIDs {
+                core.localHealth.markRemovedFromPlatform(
+                    platform: "APPLE_HEALTH",
+                    platformRecordId: uuid.uuidString,
+                    syncIdentifier: nil
+                )
+            }
             if let anchor = result.newAnchor {
                 UserDefaults.standard.set(anchor, forKey: anchorDefaultsKey)
                 let token = anchor.base64EncodedString()

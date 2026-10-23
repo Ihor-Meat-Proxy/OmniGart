@@ -16,9 +16,18 @@ interface LocalHealthStore {
 
     fun getBySyncIdentifier(syncIdentifier: String): LocalHealthWorkout?
 
+    fun getByPlatformRecordId(platformRecordId: String): LocalHealthWorkout?
+
     fun listWorkouts(range: HealthExportRange = HealthExportRange()): List<LocalHealthWorkout>
 
+    /** Soft-delete locally only. Never deletes Apple Health / Health Connect objects. */
     fun softDeleteWorkout(id: String)
+
+    /** Platform removed the sample; keep OmniGart data and stop platform re-writes. */
+    fun markRemovedFromPlatform(id: String)
+
+    /** After a successful first-time platform insert. */
+    fun linkPlatformRecord(id: String, platformRecordId: String)
 
     fun getSyncStatus(platform: HealthSyncPlatform): HealthSyncStatus?
 
@@ -57,6 +66,7 @@ class SqlDelightLocalHealthStore(private val db: OmniGartDatabase, private val c
                 source_name = workout.sourceName,
                 platform_record_id = workout.platformRecordId,
                 deleted = if (workout.deleted) 1L else 0L,
+                removed_from_platform = if (workout.removedFromPlatform) 1L else 0L,
                 updated_at = workout.updatedAt.toString(),
                 notes = workout.notes
             )
@@ -130,6 +140,9 @@ class SqlDelightLocalHealthStore(private val db: OmniGartDatabase, private val c
     override fun getBySyncIdentifier(syncIdentifier: String): LocalHealthWorkout? =
         q.selectLocalHealthWorkoutBySyncId(syncIdentifier).executeAsOneOrNull()?.let { hydrate(it) }
 
+    override fun getByPlatformRecordId(platformRecordId: String): LocalHealthWorkout? =
+        q.selectLocalHealthWorkoutByPlatformRecordId(platformRecordId).executeAsOneOrNull()?.let { hydrate(it) }
+
     override fun listWorkouts(range: HealthExportRange): List<LocalHealthWorkout> {
         val start = range.start?.toString() ?: Instant.fromEpochMilliseconds(0).toString()
         val end = range.endExclusive?.toString()
@@ -139,6 +152,14 @@ class SqlDelightLocalHealthStore(private val db: OmniGartDatabase, private val c
 
     override fun softDeleteWorkout(id: String) {
         q.softDeleteLocalHealthWorkout(clock.now().toString(), id)
+    }
+
+    override fun markRemovedFromPlatform(id: String) {
+        q.markLocalHealthWorkoutRemovedFromPlatform(clock.now().toString(), id)
+    }
+
+    override fun linkPlatformRecord(id: String, platformRecordId: String) {
+        q.linkLocalHealthWorkoutPlatformRecord(platformRecordId, clock.now().toString(), id)
     }
 
     override fun getSyncStatus(platform: HealthSyncPlatform): HealthSyncStatus? =
@@ -272,6 +293,7 @@ class SqlDelightLocalHealthStore(private val db: OmniGartDatabase, private val c
             sourceName = row.source_name,
             platformRecordId = row.platform_record_id,
             deleted = row.deleted != 0L,
+            removedFromPlatform = row.removed_from_platform != 0L,
             updatedAt = Instant.parse(row.updated_at),
             notes = row.notes,
             heartRateSeries = heartRate,

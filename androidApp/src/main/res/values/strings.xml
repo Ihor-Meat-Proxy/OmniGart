@@ -18,7 +18,7 @@
 
     <!-- Just-in-time permission explainers (app usable if denied) -->
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, active and resting energy, heart-rate recovery, workout effort, optional mindful minutes, body mass, and hydration — so sessions can appear in Apple Fitness with duration and calories. Data is not used for ads or sent to unrelated third parties. You can continue without granting access.</string>
+    <string name="perm_explainer_health_body">OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, active and resting energy, heart-rate recovery, workout effort, optional mindful minutes, body mass, and hydration — so sessions can appear in Apple Fitness with duration and calories. Platform writes are append-only: OmniGart never deletes or rewrites Apple Health or Health Connect data, including its own. Data is not used for ads or sent to unrelated third parties. You can continue without granting access.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth accessories</string>
     <string name="perm_explainer_bluetooth_body">Connect a heart-rate or similar fitness accessory for live samples. OmniGart works fully without Bluetooth.</string>
     <string name="perm_explainer_camera_title">Camera for barcodes</string>
@@ -30,7 +30,11 @@
 
     <!-- Health Connect privacy rationale (Play health apps policy) -->
     <string name="hc_rationale_title">Health Connect data use</string>
-    <string name="hc_rationale_body">OmniGart requests Health Connect access to read and write fitness and wellness data you choose — such as heart rate, HRV, sleep, workouts, body mass, and hydration — so readiness and training estimates stay accurate on your device.\n\nWe do not sell health data, use it for advertising, or share it with third parties for marketing. You can deny access and keep using OmniGart with manual entry.</string>
+    <string name="hc_rationale_body">OmniGart requests Health Connect access to read and write fitness and wellness data you choose — such as heart rate, HRV, sleep, workouts, body mass, and hydration — so readiness and training estimates stay accurate on your device.
+
+Writes are append-only: OmniGart never deletes or rewrites Health Connect data, including workouts it created. Local edits stay in OmniGart. If a sample is removed from Health Connect, OmniGart keeps your local copy.
+
+We do not sell health data, use it for advertising, or share it with third parties for marketing. You can deny access and keep using OmniGart with manual entry.</string>
     <string name="hc_rationale_privacy_policy">Privacy policy</string>
 
     <!-- Calculations settings (formula.* titles/explains resolve via StringCatalog; dotted keys cannot be Android resource names) -->
@@ -177,7 +181,7 @@
     <string name="data_privacy_status_denied">Permission denied — local store still works</string>
     <string name="data_privacy_status_partial">Partial access</string>
     <string name="data_privacy_status_unknown">Not determined</string>
-    <string name="data_privacy_permission_note">OmniGart can read and write wellness workouts and samples when you allow it. You can keep logging without granting access. OmniGart never deletes platform data it did not create, and never writes back data from other apps.</string>
+    <string name="data_privacy_permission_note">OmniGart can read and write wellness workouts and samples when you allow it. You can keep logging without granting access. Platform writes are append-only: OmniGart never deletes or rewrites Apple Health or Health Connect data — including workouts it created. Local edits stay in OmniGart. If a sample is removed from the platform, OmniGart keeps your local copy.</string>
     <string name="pdf_export_button">Export PDF</string>
     <string name="pdf_export_range_button">Export date-range PDF</string>
     <string name="pdf_report_single_title">Workout summary</string>

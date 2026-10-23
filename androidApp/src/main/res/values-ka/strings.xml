@@ -14,7 +14,7 @@
     <string name="info_sheet_title">ამ შეფასების შესახებ</string>
     <string name="info_sheet_body">მაჩვენებლები, როგორიცაა მზადყოფნა, სტრესი, HRV, ბაევსკის ინდექსი, სხეულის ცხიმი და ჰიდრატაცია, არის კეთილდღეობის შეფასებები თქვენს მონაცემებსა და მოწყობილობის ნიმუშებზე დაყრდნობით. გეგმები — მწვრთნელის შეთავაზებებია, არა რეცეპტები.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები — გულისცემა, HRV, ძილი, ვარჯიშები, აქტიური და საბაზისო ენერგია, სხეულის მასა და ჰიდრატაცია — რომ სესიები გამოჩნდეს Apple Fitness-ში ხანგრძლივობით და კალორიებით. მონაცემები არ გამოიყენება რეკლამისთვის. შეგიძლიათ გააგრძელოთ წვდომის გარეშე.</string>
+    <string name="perm_explainer_health_body">OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები — გულისცემა, HRV, ძილი, ვარჯიშები, აქტიური და საბაზისო ენერგია, სხეულის მასა და ჰიდრატაცია — რომ სესიები გამოჩნდეს Apple Fitness-ში. პლატფორმაზე ჩაწერა მხოლოდ დამატებითია: OmniGart არ შლის და არ გადააწერს Apple Health ან Health Connect მონაცემებს, მათ შორის საკუთარს. შეგიძლიათ გააგრძელოთ წვდომის გარეშე.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth აქსესუარები</string>
     <string name="perm_explainer_bluetooth_body">დაუკავშირეთ გულისცემის ან მსგავსი ფიტნეს აქსესუარი ცოცხალი ნიმუშებისთვის. OmniGart სრულად მუშაობს Bluetooth-ის გარეშე.</string>
     <string name="perm_explainer_camera_title">კამერა შტრიხკოდებისთვის</string>
@@ -24,7 +24,11 @@
     <string name="perm_continue">გაგრძელება</string>
     <string name="perm_not_now">ახლა არა</string>
     <string name="hc_rationale_title">Health Connect მონაცემების გამოყენება</string>
-    <string name="hc_rationale_body">OmniGart ითხოვს Health Connect-ზე წვდომას, რათა წაიკითხოს და ჩაწეროს თქვენ მიერ არჩეული ფიტნესისა და კეთილდღეობის მონაცემები — როგორიცაა გულისცემა, HRV, ძილი, ვარჯიშები, სხეულის მასა და ჰიდრატაცია — რათა მზადყოფნისა და ვარჯიშის შეფასებები ზუსტი იყოს თქვენს მოწყობილობაზე.\n\nჩვენ არ ვყიდით ჯანმრთელობის მონაცემებს, არ ვიყენებთ მათ რეკლამისთვის და არ ვუზიარებთ მესამე მხარეებს მარკეტინგისთვის. შეგიძლიათ უარყოთ წვდომა და გამოიყენოთ OmniGart ხელით შეყვანით.</string>
+    <string name="hc_rationale_body">OmniGart ითხოვს Health Connect-ზე წვდომას თქვენ მიერ არჩეული ფიტნესისა და კეთილდღეობის მონაცემების წასაკითხად და ჩასაწერად.
+
+ჩაწერა მხოლოდ დამატებითია: OmniGart არ შლის და არ გადააწერს Health Connect მონაცემებს, მათ შორის საკუთარს. ლოკალური ცვლილებები რჩება OmniGart-ში.
+
+ჯანმრთელობის მონაცემებს არ ვყიდით და რეკლამისთვის არ ვიყენებთ. შეგიძლიათ უარყოთ წვდომა.</string>
     <string name="hc_rationale_privacy_policy">კონფიდენციალობის პოლიტიკა</string>
     <string name="calc_settings_title">გამოთვლები</string>
     <string name="calc_settings_intro">აირჩიეთ, როგორ აფასებს OmniGart კეთილდღეობის მაჩვენებლებს: ენერგიას, გულისცემის ზონებს, სხეულის ცხიმს და ძალას.</string>
@@ -167,7 +171,7 @@
     <string name="data_privacy_status_denied">ნებართვა უარყოფილია — ლოკალური საცავი მუშაობს</string>
     <string name="data_privacy_status_partial">ნაწილობრივი წვდომა</string>
     <string name="data_privacy_status_unknown">განუსაზღვრელი</string>
-    <string name="data_privacy_permission_note">OmniGart-ს შეუძლია წაიკითხოს და ჩაიწეროს კეთილდღეობის ვარჯიშები და ნიმუშები, თუ დართავთ. შეგიძლიათ ჩანაწერი ნებართვის გარეშე. OmniGart არასოდეს შლის პლატფორმის მონაცემებს, რომლებიც არ შეუქმნია, და არ წერს უკან სხვა აპების მონაცემებს.</string>
+    <string name="data_privacy_permission_note">OmniGart-ს შეუძლია წაიკითხოს და ჩაიწეროს კეთილდღეობის ვარჯიშები და ნიმუშები, თუ დართავთ. შეგიძლიათ ჩანაწერი ნებართვის გარეშე. პლატფორმაზე ჩაწერა მხოლოდ დამატებითია: OmniGart არასოდეს შლის ან გადააწერს Apple Health ან Health Connect მონაცემებს — მათ შორის საკუთარ ჩანაწერებს. ლოკალური ცვლილებები რჩება OmniGart-ში. თუ ნიმუში პლატფორმიდან წაიშლება, ლოკალური ასლი ინახება.</string>
     <string name="pdf_export_button">PDF-ის ექსპორტი</string>
     <string name="pdf_export_range_button">თარიღების დიაპაზონის PDF ექსპორტი</string>
     <string name="pdf_report_single_title">ვარჯიშის შეჯამება</string>

@@ -31,6 +31,14 @@ struct WatchStartView: View {
                     .accessibilityIdentifier("watch_start_button")
 
                     NavigationLink {
+                        OmniGartLiveWorkoutView(kind: .treadmillRun)
+                    } label: {
+                        Text("treadmill_run_title")
+                    }
+                    .tint(Color.OmniGart.colorBrandAccent)
+                    .accessibilityIdentifier("watch_treadmill_start")
+
+                    NavigationLink {
                         OmniGartLiveWorkoutView(kind: .traditionalStrength)
                     } label: {
                         Text("watch.workout.strength_traditional")

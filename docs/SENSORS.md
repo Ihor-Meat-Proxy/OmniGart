@@ -4,7 +4,7 @@ Self-contained BLE heart-rate / HRV / Polar modules for inclusion when the Phase
 
 | Module | Role |
 |--------|------|
-| `shared/sensors` | KMP `commonMain`: BLE HR Measurement parser, RR artefact correction, HRV metrics, Baevsky SI, quality score, merge helpers, manager interfaces |
+| `shared/sensors` | KMP `commonMain`: BLE HR Measurement parser, RR artefact correction, HRV metrics, Baevsky SI, quality score, merge helpers, manager interfaces, **treadmill FTMS / FitShow / iConsole parsers** (see `docs/TREADMILL_PROTOCOLS.md`) |
 | `android/sensors` | Android BLE central (standard HR Profile) + Polar BLE SDK 8.4.0 adapter |
 | `ios/Packages/OmniGartSensors` | Swift 6 package: CoreBluetooth HR Profile + optional `OmniGartSensorsPolar` (Polar SPM) |
 

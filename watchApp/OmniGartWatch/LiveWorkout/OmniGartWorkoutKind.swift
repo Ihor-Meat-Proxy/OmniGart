@@ -8,6 +8,7 @@ enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable
     case yoga
     case pilates
     case zone2Run
+    case treadmillRun
 
     var id: String { rawValue }
 
@@ -17,13 +18,14 @@ enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable
         case .functionalStrength: return .functionalStrengthTraining
         case .yoga: return .yoga
         case .pilates: return .pilates
-        case .zone2Run: return .running
+        case .zone2Run, .treadmillRun: return .running
         }
     }
 
     var locationType: HKWorkoutSessionLocationType {
         switch self {
         case .zone2Run: return .outdoor
+        case .treadmillRun: return .indoor
         default: return .indoor
         }
     }
@@ -35,6 +37,7 @@ enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable
         case .yoga: return "watch.workout.yoga"
         case .pilates: return "watch.workout.pilates"
         case .zone2Run: return "watch.zone2.start"
+        case .treadmillRun: return "treadmill_run_title"
         }
     }
 
@@ -47,6 +50,7 @@ enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable
         case .yoga: return .yoga
         case .pilates: return .pilates
         case .running where configuration.locationType == .outdoor: return .zone2Run
+        case .running where configuration.locationType == .indoor: return .treadmillRun
         default: return nil
         }
     }

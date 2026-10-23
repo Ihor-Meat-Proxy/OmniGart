@@ -42,22 +42,18 @@ data class BaevskyResult(
     val moSeconds: Double,
     val mxDMnSeconds: Double,
     val binWidthMs: Double,
-    val variant: BaevskyVariant,
+    val variant: BaevskyVariant
 )
 
 enum class BaevskyVariant {
     HistogramMode,
-    MedianAsMode,
+    MedianAsMode
 }
 
 object BaevskyStressIndex {
     const val DEFAULT_BIN_WIDTH_MS: Double = 50.0
 
-    fun compute(
-        rrMs: List<Double>,
-        binWidthMs: Double = DEFAULT_BIN_WIDTH_MS,
-        modeAsMedian: Boolean = false,
-    ): BaevskyResult {
+    fun compute(rrMs: List<Double>, binWidthMs: Double = DEFAULT_BIN_WIDTH_MS, modeAsMedian: Boolean = false): BaevskyResult {
         require(rrMs.size >= 2) { "Need at least 2 RR intervals" }
         require(rrMs.all { it > 0.0 }) { "RR intervals must be positive" }
         require(binWidthMs > 0.0)
@@ -105,7 +101,7 @@ object BaevskyStressIndex {
             moSeconds = moSeconds,
             mxDMnSeconds = mxDMnSec,
             binWidthMs = binWidthMs,
-            variant = variant,
+            variant = variant
         )
     }
 }

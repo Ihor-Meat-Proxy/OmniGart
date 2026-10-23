@@ -39,7 +39,7 @@
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>OmniGart writes strength, yoga, Pilates, and Zone 2 workouts — with duration, active and resting energy, heart rate, segments, and recovery or effort scores when available — plus optional mindful minutes for yoga and wellness metrics you choose to share into Apple Health so they appear in the Fitness app. Writes are append-only: OmniGart never deletes or rewrites Apple Health data, including workouts it created; later edits stay in OmniGart. Nothing is sent to advertisers or unrelated third parties.</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>OmniGart uses Bluetooth to connect to heart-rate and similar fitness accessories you choose, so live samples can improve on-device wellness estimates. You can keep using the app without connecting any accessory.</string>
+	<string>OmniGart uses Bluetooth to connect to treadmills, heart-rate straps, and similar fitness accessories you choose, so live speed, incline, distance, and heart-rate samples can improve on-device wellness estimates. You can keep using the app without connecting any accessory.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>OmniGart uses the camera only when you scan a food barcode to look up nutrition information. You can log food manually if you prefer not to allow camera access.</string>
 	<key>NSUserNotificationsUsageDescription</key>
@@ -47,6 +47,7 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>processing</string>
+		<string>bluetooth-central</string>
 	</array>
 	<!-- Set to 0 on Personal Team if WorkoutKit signing fails (see docs/WORKOUTKIT.md). -->
 	<key>OMNIGART_ENABLE_WORKOUTKIT</key>

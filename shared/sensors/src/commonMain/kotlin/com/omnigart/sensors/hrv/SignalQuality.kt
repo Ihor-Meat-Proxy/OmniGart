@@ -15,7 +15,7 @@ data class QualityInput(
     val correctedRrMs: List<Double>,
     val artifactCount: Int,
     val sensorContactOk: Boolean? = null,
-    val packetParseSuccessRate: Double = 1.0,
+    val packetParseSuccessRate: Double = 1.0
 )
 
 object SignalQuality {
@@ -31,7 +31,7 @@ object SignalQuality {
             .toDouble() / input.correctedRrMs.size.coerceAtLeast(1)
         val artifactPenalty = 1.0 - min(
             1.0,
-            input.artifactCount.toDouble() / input.rawRrMs.size.coerceAtLeast(1),
+            input.artifactCount.toDouble() / input.rawRrMs.size.coerceAtLeast(1)
         )
         val contact = when (input.sensorContactOk) {
             null -> 1.0
@@ -53,7 +53,7 @@ data class RrProcessingResult(
     val artifacts: List<RrArtifactCorrection.Artifact>,
     val hrv: HrvTimeDomain?,
     val baevsky: BaevskyResult?,
-    val quality: Double,
+    val quality: Double
 )
 
 object RrProcessor {
@@ -61,7 +61,7 @@ object RrProcessor {
         rrMs: List<Double>,
         sensorContactOk: Boolean? = null,
         packetParseSuccessRate: Double = 1.0,
-        correctionParams: RrArtifactCorrection.Params = RrArtifactCorrection.Params(),
+        correctionParams: RrArtifactCorrection.Params = RrArtifactCorrection.Params()
     ): RrProcessingResult {
         if (rrMs.size < 2) {
             return RrProcessingResult(
@@ -69,7 +69,7 @@ object RrProcessor {
                 artifacts = emptyList(),
                 hrv = null,
                 baevsky = null,
-                quality = if (rrMs.isEmpty()) 0.0 else 0.2,
+                quality = if (rrMs.isEmpty()) 0.0 else 0.2
             )
         }
         val correction = RrArtifactCorrection.correct(rrMs, correctionParams)
@@ -86,7 +86,7 @@ object RrProcessor {
                 correctedRrMs = nn,
                 artifactCount = correction.artifacts.size,
                 sensorContactOk = sensorContactOk,
-                packetParseSuccessRate = packetParseSuccessRate,
+                packetParseSuccessRate = packetParseSuccessRate
             )
         )
         return RrProcessingResult(nn, correction.artifacts, hrv, baevsky, quality)

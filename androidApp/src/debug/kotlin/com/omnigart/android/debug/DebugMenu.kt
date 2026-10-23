@@ -29,6 +29,8 @@ fun DebugMenu(modifier: Modifier = Modifier) {
             .testTag("debug_menu")
     ) {
         Text("DebugMenu — development only")
+        Text(text = "Developer")
+        com.omnigart.android.treadmill.TreadmillDiagnosticsSection()
     }
 }
 

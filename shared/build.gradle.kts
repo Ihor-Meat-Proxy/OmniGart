@@ -57,6 +57,8 @@ kotlin {
             implementation(libs.ktor.serialization.json)
             // Zone 2 HR bands for WorkoutKit schedule plans (pure algorithms).
             implementation(project(":shared:activity-algorithms"))
+            // Treadmill / FTMS / FitShow / iConsole parsers (exported into Shared.framework).
+            api(project(":shared:sensors"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

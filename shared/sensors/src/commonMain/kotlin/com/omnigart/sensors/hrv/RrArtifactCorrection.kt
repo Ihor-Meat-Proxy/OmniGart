@@ -25,26 +25,19 @@ object RrArtifactCorrection {
         val alpha: Double = 5.2,
         val windowWidth: Int = 91,
         val medfiltOrder: Int = 11,
-        val iterative: Boolean = true,
+        val iterative: Boolean = true
     )
 
     enum class ArtifactKind {
         Ectopic,
         Missed,
         Extra,
-        LongShort,
+        LongShort
     }
 
-    data class Artifact(
-        val index: Int,
-        val kind: ArtifactKind,
-    )
+    data class Artifact(val index: Int, val kind: ArtifactKind)
 
-    data class Result(
-        val correctedRrMs: List<Double>,
-        val artifacts: List<Artifact>,
-        val iterations: Int,
-    )
+    data class Result(val correctedRrMs: List<Double>, val artifacts: List<Artifact>, val iterations: Int)
 
     fun correct(rrMs: List<Double>, params: Params = Params()): Result {
         require(rrMs.all { it > 0.0 }) { "RR intervals must be positive" }
@@ -108,10 +101,7 @@ object RrArtifactCorrection {
         return out to artifacts
     }
 
-    internal fun findArtifacts(
-        rrMs: List<Double>,
-        params: Params,
-    ): Pair<List<Artifact>, ArtifactSubspaces> {
+    internal fun findArtifacts(rrMs: List<Double>, params: Params): Pair<List<Artifact>, ArtifactSubspaces> {
         val rrSec = rrMs.map { it / 1000.0 }.toMutableList()
         if (rrSec.size > 1) {
             rrSec[0] = rrSec.drop(1).average()
@@ -313,6 +303,6 @@ object RrArtifactCorrection {
         val drrs: List<Double>,
         val mrrs: List<Double>,
         val s12: List<Double>,
-        val s22: List<Double>,
+        val s22: List<Double>
     )
 }

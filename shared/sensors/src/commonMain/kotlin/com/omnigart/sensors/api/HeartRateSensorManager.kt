@@ -71,5 +71,5 @@ enum class OfflineRecordingRequest {
     RrInterval,
     Ecg,
     Acc,
-    Ppi,
+    Ppi
 }

@@ -68,6 +68,17 @@ struct WorkoutsTabView: View {
                         .accessibilityIdentifier("workouts_zone2_status")
                 }
             }
+            Section("treadmill_run_title") {
+                Text("treadmill_run_body")
+                    .font(.footnote)
+                    .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                NavigationLink {
+                    TreadmillRunView(core: core, profileId: profileId)
+                } label: {
+                    Text("treadmill_run_start")
+                }
+                .accessibilityIdentifier("treadmill_run_start")
+            }
             Section("workouts_log_title") {
                 StrengthLoggingView(core: core, profileId: profileId)
             }

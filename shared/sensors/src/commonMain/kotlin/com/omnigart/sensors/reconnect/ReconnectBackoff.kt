@@ -15,7 +15,7 @@ data class ReconnectBackoff(
     val maxDelayMs: Long = 60_000L,
     val multiplier: Double = 2.0,
     val maxAttempts: Int = Int.MAX_VALUE,
-    private val random: Random = Random.Default,
+    private val random: Random = Random.Default
 ) {
     fun delayMsForAttempt(attempt: Int): Long {
         require(attempt >= 0)
@@ -26,6 +26,5 @@ data class ReconnectBackoff(
         return if (capped <= 0L) 0L else random.nextLong(capped + 1)
     }
 
-    fun sequence(limit: Int = 8): List<Long> =
-        (0 until limit).map { delayMsForAttempt(it).coerceAtLeast(0L) }
+    fun sequence(limit: Int = 8): List<Long> = (0 until limit).map { delayMsForAttempt(it).coerceAtLeast(0L) }
 }

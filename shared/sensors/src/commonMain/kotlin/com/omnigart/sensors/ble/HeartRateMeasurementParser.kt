@@ -94,7 +94,7 @@ object HeartRateMeasurementParser {
                 energyExpendedKcal = energyExpendedKcal,
                 rrIntervalsMs = rrIntervalsMs,
                 flags = flags,
-                heartRateUint16 = hrUint16,
+                heartRateUint16 = hrUint16
             )
         )
     }

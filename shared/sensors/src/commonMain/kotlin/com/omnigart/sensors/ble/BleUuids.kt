@@ -40,6 +40,9 @@ object BleUuids {
     /** Client Characteristic Configuration Descriptor — 0x2902 */
     const val CCCD = "00002902$BLUETOOTH_BASE_UUID_SUFFIX"
 
+    /** Fitness Machine Service — 0x1826 (see treadmill/ftms). */
+    const val FITNESS_MACHINE_SERVICE = "00001826$BLUETOOTH_BASE_UUID_SUFFIX"
+
     fun shortUuid16(value: Int): String {
         require(value in 0..0xFFFF) { "16-bit UUID out of range: $value" }
         return "%08x%s".format(value, BLUETOOTH_BASE_UUID_SUFFIX)

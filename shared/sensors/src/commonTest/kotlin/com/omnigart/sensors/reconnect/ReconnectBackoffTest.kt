@@ -13,7 +13,7 @@ class ReconnectBackoffTest {
             initialDelayMs = 1_000,
             maxDelayMs = 8_000,
             multiplier = 2.0,
-            random = Random(42),
+            random = Random(42)
         )
         repeat(10) { attempt ->
             val d = backoff.delayMsForAttempt(attempt)

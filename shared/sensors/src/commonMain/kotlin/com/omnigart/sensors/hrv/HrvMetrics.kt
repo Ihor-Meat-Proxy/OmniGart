@@ -19,7 +19,7 @@ data class HrvTimeDomain(
     val rmssdMs: Double,
     val lnRmssd: Double,
     val pnn50Percent: Double,
-    val nnCount: Int,
+    val nnCount: Int
 )
 
 object HrvMetrics {
@@ -42,7 +42,7 @@ object HrvMetrics {
             rmssdMs = rmssd,
             lnRmssd = lnRmssd,
             pnn50Percent = pnn50,
-            nnCount = nnMs.size,
+            nnCount = nnMs.size
         )
     }
 }

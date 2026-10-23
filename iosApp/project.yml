@@ -18,6 +18,10 @@ settings:
   IPHONEOS_DEPLOYMENT_TARGET: "18.0"
   WATCHOS_DEPLOYMENT_TARGET: "11.0"
 
+packages:
+  OmniGartSensors:
+    path: ../ios/Packages/OmniGartSensors
+
 targets:
   OmniGart:
     type: application
@@ -70,6 +74,15 @@ targets:
         buildPhase: resources
       - path: OmniGart/en-GB.lproj
       - path: OmniGart/uk.lproj
+      - path: OmniGart/pl.lproj
+      - path: OmniGart/be.lproj
+      - path: OmniGart/kk.lproj
+      - path: OmniGart/ka.lproj
+      - path: OmniGart/es.lproj
+      - path: OmniGart/fr.lproj
+      - path: OmniGart/de.lproj
+      - path: OmniGart/cs.lproj
+      - path: OmniGart/zh-Hans.lproj
       - path: OmniGart/ContentBundle
         type: folder
         buildPhase: resources
@@ -92,6 +105,8 @@ targets:
     dependencies:
       - target: OmniGartWatch
         embed: true
+      - package: OmniGartSensors
+        product: OmniGartSensors
     scheme:
       testTargets:
         - OmniGartTests

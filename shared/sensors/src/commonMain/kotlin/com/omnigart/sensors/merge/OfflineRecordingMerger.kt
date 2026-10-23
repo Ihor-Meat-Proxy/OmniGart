@@ -20,11 +20,7 @@ import kotlinx.datetime.Instant
  * 3. If recording has only relative samples, place them from workout start at 1 Hz (H10 HR).
  */
 object OfflineRecordingMerger {
-    fun merge(
-        markers: SwimWorkoutMarkers,
-        recording: OfflineRecordingPayload,
-        alignmentHintMs: Long = 0L,
-    ): MergedWorkoutHeartRate {
+    fun merge(markers: SwimWorkoutMarkers, recording: OfflineRecordingPayload, alignmentHintMs: Long = 0L): MergedWorkoutHeartRate {
         val notes = mutableListOf<String>()
         val offset = alignmentHintMs
 
@@ -38,14 +34,14 @@ object OfflineRecordingMerger {
             samples = hrSamples,
             rrIntervalsMs = rr,
             startedAt = markers.startedAt,
-            endedAt = markers.endedAt,
+            endedAt = markers.endedAt
         )
 
         return MergedWorkoutHeartRate(
             series = series,
             alignmentOffsetMs = offset,
             matchedSampleCount = hrSamples.size,
-            notes = notes,
+            notes = notes
         )
     }
 
@@ -53,10 +49,7 @@ object OfflineRecordingMerger {
      * Estimate clock skew by matching recording start to workout start when both have
      * absolute timestamps; returns recording_start - workout_start in ms.
      */
-    fun estimateAlignmentOffsetMs(
-        workoutStart: Instant,
-        recordingFirstSample: Instant?,
-    ): Long {
+    fun estimateAlignmentOffsetMs(workoutStart: Instant, recordingFirstSample: Instant?): Long {
         if (recordingFirstSample == null) return 0L
         return recordingFirstSample.toEpochMilliseconds() - workoutStart.toEpochMilliseconds()
     }
@@ -65,7 +58,7 @@ object OfflineRecordingMerger {
         markers: SwimWorkoutMarkers,
         recording: OfflineRecordingPayload,
         offsetMs: Long,
-        notes: MutableList<String>,
+        notes: MutableList<String>
     ): List<HeartRateSample> {
         val startMs = markers.startedAt.toEpochMilliseconds()
         val endMs = markers.endedAt.toEpochMilliseconds()
@@ -88,7 +81,7 @@ object OfflineRecordingMerger {
                     timestamp = shifted,
                     bpm = bpm,
                     sensorContact = SensorContactStatus.NotSupported,
-                    sourceDeviceId = recording.entry.deviceId,
+                    sourceDeviceId = recording.entry.deviceId
                 )
             }
         }
@@ -102,20 +95,20 @@ object OfflineRecordingMerger {
         return samples
     }
 
-    private fun synthesizeFromStart(
-        markers: SwimWorkoutMarkers,
-        recording: OfflineRecordingPayload,
-    ): List<HeartRateSample> {
+    private fun synthesizeFromStart(markers: SwimWorkoutMarkers, recording: OfflineRecordingPayload): List<HeartRateSample> {
         val startMs = markers.startedAt.toEpochMilliseconds()
         val endMs = markers.endedAt.toEpochMilliseconds()
         return recording.heartRateBpm.mapIndexedNotNull { index, (_, bpm) ->
             val t = startMs + index * 1000L
-            if (t > endMs) null
-            else HeartRateSample(
-                timestamp = Instant.fromEpochMilliseconds(t),
-                bpm = bpm,
-                sourceDeviceId = recording.entry.deviceId,
-            )
+            if (t > endMs) {
+                null
+            } else {
+                HeartRateSample(
+                    timestamp = Instant.fromEpochMilliseconds(t),
+                    bpm = bpm,
+                    sourceDeviceId = recording.entry.deviceId
+                )
+            }
         }
     }
 
@@ -124,7 +117,7 @@ object OfflineRecordingMerger {
         workoutEnd: Instant,
         recordingSamples: List<Pair<Instant, Int>>,
         searchWindowMs: Long = 120_000L,
-        stepMs: Long = 500L,
+        stepMs: Long = 500L
     ): Long {
         if (recordingSamples.size < 2) return 0L
         var best = 0L

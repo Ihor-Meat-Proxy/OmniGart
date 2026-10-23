@@ -99,4 +99,9 @@ public enum AppleBluetoothUsage {
     public static let watchOSExternalHrLimitation =
         "External BLE HR straps are not substituted into HealthKit workout HR on watchOS; " +
         "use the watch optical sensor for HKWorkoutSession and optionally mirror strap data in-app."
+
+    public static let treadmillUsageDescription =
+        "OmniGart uses Bluetooth to connect to treadmills, heart-rate straps, and similar " +
+        "fitness accessories you choose, so live speed, incline, distance, and heart-rate " +
+        "samples can improve on-device wellness estimates."
 }

@@ -10,11 +10,10 @@ enum class BodySensorLocation(val code: Int) {
     Finger(3),
     Hand(4),
     EarLobe(5),
-    Foot(6),
+    Foot(6)
     ;
 
     companion object {
-        fun fromByte(value: Int): BodySensorLocation? =
-            entries.firstOrNull { it.code == (value and 0xFF) }
+        fun fromByte(value: Int): BodySensorLocation? = entries.firstOrNull { it.code == (value and 0xFF) }
     }
 }

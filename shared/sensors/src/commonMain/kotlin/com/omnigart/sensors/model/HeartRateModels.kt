@@ -12,13 +12,13 @@ data class HeartRateMeasurement(
     val energyExpendedKcal: Int?,
     val rrIntervalsMs: List<Double>,
     val flags: Int,
-    val heartRateUint16: Boolean,
+    val heartRateUint16: Boolean
 )
 
 enum class SensorContactStatus {
     NotSupported,
     SupportedNotDetected,
-    SupportedDetected,
+    SupportedDetected
 }
 
 /**
@@ -29,16 +29,13 @@ data class HeartRateSample(
     val bpm: Int,
     val sensorContact: SensorContactStatus = SensorContactStatus.NotSupported,
     val sourceDeviceId: String? = null,
-    val quality: Double? = null,
+    val quality: Double? = null
 )
 
 /**
  * Single RR interval in milliseconds (from BLE 1/1024 s units or Polar PPI).
  */
-data class RrInterval(
-    val durationMs: Double,
-    val timestamp: Instant? = null,
-)
+data class RrInterval(val durationMs: Double, val timestamp: Instant? = null)
 
 data class DeviceInformation(
     val manufacturerName: String? = null,
@@ -46,7 +43,7 @@ data class DeviceInformation(
     val serialNumber: String? = null,
     val hardwareRevision: String? = null,
     val firmwareRevision: String? = null,
-    val softwareRevision: String? = null,
+    val softwareRevision: String? = null
 )
 
 enum class SensorKind {
@@ -54,7 +51,7 @@ enum class SensorKind {
     PolarH10,
     PolarVeritySense,
     PolarOther,
-    Unknown,
+    Unknown
 }
 
 data class SensorDevice(
@@ -62,7 +59,7 @@ data class SensorDevice(
     val name: String?,
     val kind: SensorKind = SensorKind.Unknown,
     val rssi: Int? = null,
-    val advertisedServiceUuids: List<String> = emptyList(),
+    val advertisedServiceUuids: List<String> = emptyList()
 )
 
 enum class SensorConnectionState {
@@ -72,7 +69,7 @@ enum class SensorConnectionState {
     Connected,
     Ready,
     Reconnecting,
-    Failed,
+    Failed
 }
 
 data class SensorSessionState(
@@ -81,7 +78,7 @@ data class SensorSessionState(
     val batteryPercent: Int? = null,
     val bodySensorLocation: String? = null,
     val deviceInformation: DeviceInformation? = null,
-    val lastError: String? = null,
+    val lastError: String? = null
 )
 
 /**
@@ -95,23 +92,15 @@ data class WorkoutHeartRateSeries(
     val samples: List<HeartRateSample>,
     val rrIntervalsMs: List<Double>,
     val startedAt: Instant,
-    val endedAt: Instant,
+    val endedAt: Instant
 )
 
 enum class HeartRateSource {
     LiveBle,
     PolarOfflineRecording,
-    Merged,
+    Merged
 }
 
-data class AccSample(
-    val timestamp: Instant,
-    val xMg: Int,
-    val yMg: Int,
-    val zMg: Int,
-)
+data class AccSample(val timestamp: Instant, val xMg: Int, val yMg: Int, val zMg: Int)
 
-data class EcgSample(
-    val timestamp: Instant,
-    val microVolts: Int,
-)
+data class EcgSample(val timestamp: Instant, val microVolts: Int)

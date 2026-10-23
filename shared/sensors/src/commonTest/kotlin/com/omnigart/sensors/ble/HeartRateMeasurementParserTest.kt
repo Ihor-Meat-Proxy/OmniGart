@@ -60,10 +60,14 @@ class HeartRateMeasurementParserTest {
     fun multipleRrIntervals() {
         // Three RR values: 800, 810, 790 units → ms = units * 1000/1024
         val m = parse(
-            0x10, 0x4B,
-            0x20, 0x03, // 800
-            0x2A, 0x03, // 810
-            0x16, 0x03, // 790
+            0x10,
+            0x4B,
+            0x20,
+            0x03, // 800
+            0x2A,
+            0x03, // 810
+            0x16,
+            0x03 // 790
         )
         assertEquals(3, m.rrIntervalsMs.size)
         assertEquals(HeartRateMeasurementParser.rrUnitsToMillis(800), m.rrIntervalsMs[0], 1e-9)
@@ -78,9 +82,12 @@ class HeartRateMeasurementParserTest {
         val m = parse(
             0x1E,
             0x55, // 85 bpm
-            0x10, 0x00, // EE 16
-            0x00, 0x04, // RR 1024 → 1000 ms
-            0x00, 0x04,
+            0x10,
+            0x00, // EE 16
+            0x00,
+            0x04, // RR 1024 → 1000 ms
+            0x00,
+            0x04
         )
         assertEquals(85, m.heartRateBpm)
         assertEquals(SensorContactStatus.SupportedDetected, m.sensorContact)
@@ -94,9 +101,12 @@ class HeartRateMeasurementParserTest {
         // flags = 0x1F
         val m = parse(
             0x1F,
-            0x90, 0x01, // 400 bpm
-            0xE8, 0x03, // EE 1000
-            0x00, 0x04,
+            0x90,
+            0x01, // 400 bpm
+            0xE8,
+            0x03, // EE 1000
+            0x00,
+            0x04
         )
         assertEquals(400, m.heartRateBpm)
         assertEquals(true, m.heartRateUint16)
@@ -113,7 +123,7 @@ class HeartRateMeasurementParserTest {
             Case(0x00, SensorContactStatus.NotSupported),
             Case(0x02, SensorContactStatus.NotSupported), // detected bit ignored if unsupported
             Case(0x04, SensorContactStatus.SupportedNotDetected),
-            Case(0x06, SensorContactStatus.SupportedDetected),
+            Case(0x06, SensorContactStatus.SupportedDetected)
         )
         for (c in cases) {
             val m = parse(c.flags, 0x40)
@@ -182,7 +192,7 @@ class HeartRateMeasurementParserTest {
     fun deviceInformationUtf8() {
         val info = DeviceInformationParser.merge(
             manufacturerName = "Polar Electro Oy".encodeToByteArray(),
-            modelNumber = "H10".encodeToByteArray(),
+            modelNumber = "H10".encodeToByteArray()
         )
         assertEquals("Polar Electro Oy", info.manufacturerName)
         assertEquals("H10", info.modelNumber)
@@ -194,6 +204,5 @@ class HeartRateMeasurementParserTest {
         assertEquals(BleUuids.HEART_RATE_MEASUREMENT, BleUuids.shortUuid16(0x2A37))
     }
 
-    private fun parse(vararg bytes: Int) =
-        HeartRateMeasurementParser.parse(bytes.map { it.toByte() }.toByteArray()).getOrThrow()
+    private fun parse(vararg bytes: Int) = HeartRateMeasurementParser.parse(bytes.map { it.toByte() }.toByteArray()).getOrThrow()
 }

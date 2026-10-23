@@ -6,6 +6,7 @@ final class WatchWorkoutTransferTests: XCTestCase {
         XCTAssertEqual(WatchWorkoutTransferBuilder.activityTypeName(for: .yoga), "YOGA")
         XCTAssertEqual(WatchWorkoutTransferBuilder.activityTypeName(for: .pilates), "PILATES")
         XCTAssertEqual(WatchWorkoutTransferBuilder.activityTypeName(for: .zone2Run), "RUNNING")
+        XCTAssertEqual(WatchWorkoutTransferBuilder.activityTypeName(for: .treadmillRun), "RUNNING")
         XCTAssertEqual(
             WatchWorkoutTransferBuilder.activityTypeName(for: .traditionalStrength),
             "STRENGTH"

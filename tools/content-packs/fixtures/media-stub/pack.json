@@ -1,0 +1,7 @@
+{
+  "id": "exercise-videos",
+  "version": "1.0.0",
+  "channel": "media",
+  "minAppVersion": "0.1.0",
+  "description": "Stub optional video index (CDN only; not bundled)"
+}

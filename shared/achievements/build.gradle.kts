@@ -14,8 +14,8 @@ kotlin {
             implementation(kotlin("test"))
         }
         jvmMain.dependencies {
-            implementation("com.networknt:json-schema-validator:2.0.8")
-            implementation("com.fasterxml.jackson.core:jackson-databind:2.22.4")
+            implementation(libs.json.schema.validator)
+            implementation(libs.jackson.databind)
         }
         jvmTest.dependencies {
             implementation(kotlin("test"))

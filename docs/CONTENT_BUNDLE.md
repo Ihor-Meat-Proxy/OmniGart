@@ -37,6 +37,12 @@ Commit `generated/content-bundle/` whenever sources change. CI runs `--verify` i
 
 `com.omnigart.shared.content.LayeredContentLoader` — see unit tests in `shared/src/commonTest/.../content/`.
 
+**Strength logging** consumes the bundle via `BundledExerciseCatalog` (lists
+`exercises/data/*.json`, maps load semantics into `DemoStrengthExercise`, seeds
+`ExerciseRepository`). Android/Wear mount `AssetContentStore` on app assets; host tests inject
+an in-memory `MapContentStore`. If the pack is empty, the logger falls back to the built-in
+demo catalog. See `docs/plans/wire-content.md`.
+
 Update packs must include `signature.txt` (`test-ok:<manifest.sha256>` until production Ed25519 keys are wired).
 
 ## Platform wiring

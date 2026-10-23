@@ -77,20 +77,21 @@ final class PhoneUITests: XCTestCase {
         let shell = app.descendants(matching: .any)["phone_shell"]
         XCTAssertTrue(shell.waitForExistence(timeout: 30))
 
-        // Identifier is set on `Tab` in PhoneRootView. Prefer the tab bar (PhoneRootView
-        // forces `.tabBarOnly` so iPad CI matches iPhone), then fall back to title / any.
+        // Identifier is set once on `Tab` in PhoneRootView (`.tabBarOnly` keeps a bottom
+        // bar on iPad CI). Prefer tabBars, then any button — always resolve via firstMatch
+        // so a stray duplicate never fails tap with "Multiple matching elements".
         let foodById = app.tabBars.buttons["tab_food"]
         let foodByTitle = app.tabBars.buttons["Food"]
-        let foodAnywhere = app.descendants(matching: .any)["tab_food"]
+        let foodByButton = app.buttons.matching(identifier: "tab_food").firstMatch
         let foodTab: XCUIElement
         if foodById.waitForExistence(timeout: 10) {
             foodTab = foodById
         } else if foodByTitle.waitForExistence(timeout: 5) {
             foodTab = foodByTitle
         } else {
-            foodTab = foodAnywhere
+            foodTab = foodByButton
         }
-        XCTAssertTrue(foodTab.waitForExistence(timeout: 10), "Expected Food tab in the tab bar")
+        XCTAssertTrue(foodTab.waitForExistence(timeout: 10), "Expected Food tab control")
         foodTab.tap()
 
         let totals = app.descendants(matching: .any)["food_totals"]

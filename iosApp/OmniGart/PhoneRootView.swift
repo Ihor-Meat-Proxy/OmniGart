@@ -23,11 +23,11 @@ struct PhoneRootView: View {
                         Image(tab.iconAssetName)
                             .renderingMode(.template)
                     }
-                    // Also label the tab item itself — some simulators surface this more reliably.
-                    .accessibilityIdentifier(tab.accessibilityId)
                 }
                 // Identifier must live on `Tab` so XCTest sees it on the tab bar button
                 // (putting it on the page root only exposes the selected tab's content).
+                // Keep a single identifier — labeling both Label and Tab makes UITest
+                // `descendants["tab_*"]` ambiguous ("Multiple matching elements").
                 .accessibilityIdentifier(tab.accessibilityId)
             }
         }

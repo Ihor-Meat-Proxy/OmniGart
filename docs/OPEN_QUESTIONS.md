@@ -1,33 +1,129 @@
-# Open questions (autopilot log)
+# Open questions, assumptions, and decisions needing review
 
-Owner is away — decisions below are provisional. Do not block merges on these.
+Autopilot log (Phase 0 + merged design / planning). Each item: **context**, **choice**, **alternatives**. Do not block merges on these.
 
-## Content & citations
+## Branch naming vs cloud agent prefix
 
-1. **Exercise-specific EMG/biomechanics refs** — Many movements currently cite NSCA essentials + ACSM RT overview rather than movement-specific trials. Prefer adding verified meta-analyses/EMG papers per pattern family in a later pass; omit rather than invent DOIs.
-2. **Yoga / pilates evidence bar** — Pose/exercise descriptions are technique-accurate but mostly backed by ACSM flexibility/neuromotor guidance, not pose-specific RCTs. Should we require discipline-specific systematic reviews before marking a claim “supported”?
-3. **Swim stroke coaching cues** — Competing coach systems (e.g. different kick timings). Confirm preferred cue dialect for freestyle catch and breaststroke kick legality notes.
-4. **Ukrainian terminology** — Confirm preferred sports terms (e.g. присід vs сідати, станова тяга variants) with a native-speaking coach; current strings are working drafts.
+- **Context:** Owner rule prefers `feat/...` / `chore/...`; Cursor Cloud Agent requires `cursor/<name>-2ab3` for PR association.
+- **Choice:** Use `cursor/phase-0-foundation-2ab3` (feature branch, never `main`).
+- **Alternatives:** Rename locally to `feat/phase-0-foundation` for humans and keep cloud mapping documented.
+
+## XcodeGen vs Tuist
+
+- **Context:** Reproducible Apple project without committing brittle `.xcodeproj` as source of truth.
+- **Choice:** **XcodeGen** (`iosApp/project.yml`).
+- **Alternatives:** Tuist (stronger for large native graphs); hand-maintained Xcode project.
+
+## Library versions (Oct 2026)
+
+- **Context:** Owner requires latest **stable** as of Oct 2026.
+- **Choice:** Kotlin **2.4.21**, AGP **9.4.1**, Gradle **9.8.2**, SQLDelight **2.4.1**, Compose BOM **2026.09.00**, Material 3 **1.4.0**, Wear Compose **1.7.1**, Coroutines **1.11.0**, Datetime **0.8.0**, Serialization **1.12.0**. Kotlin **2.5.0** and Material3 **1.5.0** were still pre-release.
+- **Alternatives:** Track 2.5/1.5 betas for Material 3 Expressive APIs earlier.
+
+## Material 3 Expressive
+
+- **Context:** Product asks for Material 3 Expressive on Android.
+- **Choice:** Ship Material 3 **1.4.0** (latest stable) via BOM; treat full Expressive component set as follow-up when 1.5 stable lands.
+- **Alternatives:** Depend on `1.5.0-beta02` now.
+
+## Biological sex model
+
+- **Context:** Mifflin–St Jeor, CUN-BAE, EFSA water are binary sex equations.
+- **Choice:** `BiologicalSex { MALE, FEMALE }` only in Phase 0.
+- **Alternatives:** Add `UNSPECIFIED` with explicit equation opt-in; separate gender identity field for UI.
+
+## Discipline level thresholds
+
+- **Context:** Spec defines structures (4 strength levels; running newbie+5; swimming newbie+4) but not numeric cut-offs.
+- **Choice:** Placeholder thresholds in `DisciplineClassifier` (months / weekly km / pace / 5 km / swim metres). Documented here as **provisional**.
+- **Alternatives:** Import coach-authored tables from content packs.
+
+## Water target extras
+
+- **Context:** EFSA base + drink fraction are cited; weight factor, training bonus, heat bonus, and 4 L cap are product rules.
+- **Choice:** Implement exactly as Phase 0 spec.
+- **Alternatives:** ACSM sweat-rate protocols; climate heat-index instead of fixed 27 °C.
+
+## Readiness heuristic
+
+- **Context:** Point bands and SWC framing are product rules; Buchheit 2014 informs HRV SWC concept only.
+- **Choice:** Implement literal Phase 0 scoring.
+- **Alternatives:** Banister / TRIMP load; validated readiness questionnaires.
+
+## Database encryption
+
+- **Context:** Spec plans encrypted DB; SQLCipher KMP story varies by platform.
+- **Choice:** Plain SQLite in Phase 0; keep `DatabaseDriverFactory` as the injection point.
+- **Alternatives:** SQLCipher Android + SQLCipher Apple; EncryptedSharedPreferences for keys only.
+
+## watchOS KMP framework linking
+
+- **Context:** Both iOS and watchOS consume `Shared.framework` from Gradle. CI failed with `No such module 'Shared'` because XcodeGen searched `shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)` while Gradle only wrote `shared/build/bin/<target>/debugFramework/`.
+- **Choice:** Add `syncXcodeFrameworks` Gradle task + CI rsync into the exact `$(SDK_NAME)` folders; exclude `x86_64` on watch simulator (no `watchosX64` target).
+- **Alternatives:** Fat XCFramework via `./gradlew assembleXCFramework`; Xcode Run Script calling `embedAndSignAppleFrameworkForXcode`.
+
+## iOS / watchOS deployment vs GitHub Actions Xcode
+
+- **Context:** Product intent is iOS 26+ / watchOS 26+ (Liquid Glass). GitHub `macos-15` currently exposes Xcode 16.4 (iOS 18.5 / watchOS 11.5 SDKs). Setting deployment target 26.0 made xcodebuild warn that the supported range tops out at 11.5.99 for watchOS.
+- **Choice:** Set XcodeGen deployment targets to **iOS 18.0 / watchOS 11.0** so CI can compile; CI prefers Xcode 26+ when installed. Document product floor remains 26+ once runners catch up.
+- **Alternatives:** Require a self-hosted macOS runner with Xcode 26; keep 26.0 and accept CI red until GHA images update.
+
+## In-memory SQLDelight tests location
+
+- **Context:** `JdbcSqliteDriver` is JVM-only.
+- **Choice:** Repository tests in `androidHostTest` (runs on Linux CI).
+- **Alternatives:** Add a `jvm()` KMP target solely for tests.
+
+## Wear applicationId
+
+- **Context:** Wear apps often share the phone applicationId for Play packaging; Robolectric also needs a distinct package for reliable activity resolution.
+- **Choice:** `com.omnigart.wear` for the Wear module in Phase 0.
+- **Alternatives:** Same applicationId as phone with a different activity; instrumentation tests on device.
+
+## AGP 9 KMP Android library plugin
+
+- **Context:** AGP 9 rejects pairing `com.android.library` with `org.jetbrains.kotlin.multiplatform`.
+- **Choice:** `com.android.kotlin.multiplatform.library` with `kotlin { android { ... } }` and `androidHostTest`.
+- **Alternatives:** Temporary `android.builtInKotlin=false` / `android.newDsl=false` flags.
+
+## Design package integration
+
+- **Context:** PR #1 shipped `design/` self-contained; Phase 0 shells previously used Material defaults / SF Symbols.
+- **Choice:** Wire generated Compose theme/icons into `androidApp`, Swift colour helpers + icon asset catalogs into iOS/watch shells, default launcher / App Icon from design outputs. Design check runs on every CI push (not only path-filtered).
+- **Alternatives:** Keep design as a docs-only package until a dedicated UI polish PR.
+
+## Planning module shape
+
+- **Context:** PR #3 ships `shared/planning` as a JVM(+common) KMP module with content under `content/exercises/`.
+- **Choice:** Include `:shared:planning` beside `:shared` (foundation). Planning stays **JVM-first** for schema validation; not yet a dependency of the Apple/Android `Shared` framework. CI runs `:shared:planning:jvmTest`.
+- **Alternatives:** Promote planning to full apple/android targets and `api`-link from `:shared` once content loading on device is required.
+
+## Content & citations (from planning PR)
+
+1. **Exercise-specific EMG/biomechanics refs** — Many movements currently cite NSCA essentials + ACSM RT overview rather than movement-specific trials. Prefer adding verified meta-analyses/EMG papers per pattern family later; omit rather than invent DOIs.
+2. **Yoga / pilates evidence bar** — Technique-accurate but mostly ACSM flexibility/neuromotor guidance. Require discipline-specific systematic reviews before marking a claim “supported”?
+3. **Swim stroke coaching cues** — Confirm preferred cue dialect for freestyle catch and breaststroke kick legality notes.
+4. **Ukrainian terminology** — Confirm preferred sports terms with a native-speaking coach; current strings are drafts.
 5. **“Russian twist” naming** — English exercise name retained; no `ru` locale. Rename to “seated rotation” for neutrality?
 
-## Schema & product
+## Schema & product (from planning PR)
 
-6. **Media pipeline** — `media.*Key` placeholders assume a future CDN layout. Confirm key scheme with design-system PR.
-7. **SQLDelight mapping** — This PR ships JSON + Kotlin models only. Confirm table shapes when Phase 0 scaffold lands.
-8. **Equipment model** — Is `none` vs `bodyweight` redundant for filters? Presets currently treat both as always available.
-9. **Tracking types** — Need swim-specific (laps × distance × rest) richer than `laps`/`distance`?
-10. **Contraindications severity** — Free-text tags now; structured ICD-ish codes later?
+6. **Media pipeline** — `media.*Key` placeholders assume a future CDN layout.
+7. **SQLDelight mapping** — Planning ships JSON + Kotlin models; table shapes land with persistence work.
+8. **Equipment model** — Is `none` vs `bodyweight` redundant for filters?
+9. **Tracking types** — Need richer swim-specific tracking than `laps`/`distance`?
+10. **Contraindications severity** — Free-text tags now; structured codes later?
 
-## Planning engine
+## Planning engine (from planning PR)
 
-11. **Sex as input** — Included for future absolute strength norms / relative load heuristics; unused in v1 rules beyond profile plumbing. Keep, gate, or remove?
-12. **Health/readiness sources** — Apple Health / Health Connect field mapping TBD; readiness is an enum stub.
-13. **Deload every 6 weeks** — Heuristic; confirm with owner preference vs readiness-only deloads.
-14. **AI model allow-list** — Re-verify OpenRouter ZDR / no-training endpoints at ship time; slugs churn.
-15. **EU in-region** — `eu.openrouter.ai` needs Business/Enterprise; confirm billing plan before enabling in production.
+11. **Sex as input** — Included for future norms; unused in v1 rules beyond profile plumbing.
+12. **Health/readiness sources** — Apple Health / Health Connect field mapping TBD.
+13. **Deload every 6 weeks** — Heuristic vs readiness-only deloads.
+14. **AI model allow-list** — Re-verify OpenRouter ZDR endpoints at ship time.
+15. **EU in-region** — `eu.openrouter.ai` needs Business/Enterprise confirmation.
 16. **Concurrent training interference** — Lift+run template exists; engine does not yet model interference quantitatively.
 
-## Process
+## Process (from planning PR)
 
 17. **Target library size** — Library grew with pull-up/dip families (~145 total). Grow toward a large commercial-library scale later or keep curated & cited?
 18. **Template localisation** — Session names use i18n keys; confirm UK copy review workflow.
@@ -62,6 +158,19 @@ Owner is away — decisions below are provisional. Do not block merges on these.
 26. **Claim ↔ exercise binding** — Exercises still embed legacy `evidenceRefs`; claims cover formulas/planning. Should each exercise technique bullet get its own claim id in a follow-up, or is family-level mapping enough?
 27. **Retraction Watch feed** — Network job uses Crossref update/relation signals. Wire the Retraction Watch public data dump on a scheduled job, or keep Crossref-only?
 28. **Contact email for polite APIs** — Tooling uses `evidence@omnigart.app` in User-Agent. Confirm mailbox or replace via `OMNIGART_EVIDENCE_EMAIL`.
+
+## Naming: no competitor product names
+
+- **Context:** Owner rule for all current and future work.
+- **Choice:** Never mention competitor app/product names (examples include popular strength loggers, wearable brands, and recovery/coaching apps) in the repo, code, docs, commits, or PR titles/bodies. Use neutral descriptions of product categories and patterns instead. Platform APIs remain allowed: HealthKit, Health Connect, Google Health API, Polar BLE SDK.
+- **Alternatives:** Keep a private research notebook outside the repo if named product comparisons are needed.
+
+## Autopilot v1 roadmap
+
+- **Context:** Owner standing instruction after Phase 0 + health-integration PR.
+- **Choice:** Continue autonomously through `docs/plans/` phases 1→9 (strength → food/water → readiness → calc settings → encrypted backup → achievements → watch → running → swimming). One feature branch/PR per phase, stacked if prior is unmerged; write/update `docs/plans/phase-N.md` before implementing; never block — log questions here.
+- **Alternatives:** Pause after health for explicit go-ahead (rejected by standing instruction).
+
 
 ## Body map
 

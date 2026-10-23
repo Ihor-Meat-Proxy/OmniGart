@@ -109,6 +109,12 @@ private enum DietarySampleFactory {
         let date: Date
     }
 
+    private struct Spec {
+        let typeId: HKQuantityTypeIdentifier
+        let unit: HKUnit
+        let value: Double?
+    }
+
     static func make(_ ctx: Context) -> [HKQuantitySample] {
         let meta: [String: Any] = [
             HKMetadataKeySyncIdentifier: ctx.syncIdentifier,
@@ -116,29 +122,25 @@ private enum DietarySampleFactory {
             "omnigart.origin": "omnigart.food",
             "omnigart.foodName": ctx.displayName
         ]
-        let specs: [(HKQuantityTypeIdentifier, HKUnit, Double?)] = [
-            (.dietaryEnergyConsumed, .kilocalorie(), ctx.macros.energyKcal),
-            (.dietaryProtein, .gram(), ctx.macros.proteinG),
-            (.dietaryCarbohydrates, .gram(), ctx.macros.carbsG),
-            (.dietaryFatTotal, .gram(), ctx.macros.fatG)
+        let specs = [
+            Spec(typeId: .dietaryEnergyConsumed, unit: .kilocalorie(), value: ctx.macros.energyKcal),
+            Spec(typeId: .dietaryProtein, unit: .gram(), value: ctx.macros.proteinG),
+            Spec(typeId: .dietaryCarbohydrates, unit: .gram(), value: ctx.macros.carbsG),
+            Spec(typeId: .dietaryFatTotal, unit: .gram(), value: ctx.macros.fatG)
         ]
-        return specs.compactMap { typeId, unit, value in
-            sample(typeId: typeId, unit: unit, value: value, date: ctx.date, meta: meta)
-        }
+        return specs.compactMap { sample(spec: $0, date: ctx.date, meta: meta) }
     }
 
     private static func sample(
-        typeId: HKQuantityTypeIdentifier,
-        unit: HKUnit,
-        value: Double?,
+        spec: Spec,
         date: Date,
         meta: [String: Any]
     ) -> HKQuantitySample? {
-        guard let value, value > 0,
-              let type = HKQuantityType.quantityType(forIdentifier: typeId) else { return nil }
+        guard let value = spec.value, value > 0,
+              let type = HKQuantityType.quantityType(forIdentifier: spec.typeId) else { return nil }
         return HKQuantitySample(
             type: type,
-            quantity: HKQuantity(unit: unit, doubleValue: value),
+            quantity: HKQuantity(unit: spec.unit, doubleValue: value),
             start: date,
             end: date,
             metadata: meta

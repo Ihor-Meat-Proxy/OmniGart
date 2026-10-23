@@ -116,14 +116,14 @@ private struct FoodImportExportFields: View {
             .lineLimit(2 ... 6)
             .accessibilityIdentifier("food_import_paste")
         Button("food_import_json") {
-            let n = core.foodLogging.importJson(profileId: profileId, text: importPaste)
-            importMessage = String(format: String(localized: "food_import_done"), locale: .current, n)
+            let imported = core.foodLogging.importJson(profileId: profileId, text: importPaste)
+            importMessage = String(format: String(localized: "food_import_done"), locale: .current, imported)
             tick += 1
         }
         .accessibilityIdentifier("food_import_json")
         Button("food_import_csv") {
-            let n = core.foodLogging.importCsv(profileId: profileId, text: importPaste)
-            importMessage = String(format: String(localized: "food_import_done"), locale: .current, n)
+            let imported = core.foodLogging.importCsv(profileId: profileId, text: importPaste)
+            importMessage = String(format: String(localized: "food_import_done"), locale: .current, imported)
             tick += 1
         }
         .accessibilityIdentifier("food_import_csv")

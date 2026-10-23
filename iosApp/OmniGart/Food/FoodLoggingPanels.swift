@@ -291,11 +291,11 @@ struct FoodSettingsPanel: View {
                 .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
         }
         .onAppear {
-            let s = core.foodLogging.settings(profileId: profileId)
-            offlineOnly = s.offlineOnly
-            let startMins = s.dayStartMinutes?.intValue ?? 240
+            let settings = core.foodLogging.settings(profileId: profileId)
+            offlineOnly = settings.offlineOnly
+            let startMins = settings.dayStartMinutes?.intValue ?? 240
             dayStartHour = Int(startMins / 60)
-            reviewHour = Int(s.morningReviewMinutes / 60)
+            reviewHour = Int(settings.morningReviewMinutes / 60)
         }
     }
 

@@ -2,7 +2,19 @@ package com.omnigart.nutrition
 
 /**
  * Primitive-friendly entry points for Swift / simple Android hosts.
+ *
+ * Prefer [computeCardSnapshot] from Swift: [NutritionTargetResult] may not appear in the
+ * ObjC header when nested Kotlin types are present, while this snapshot is primitives only.
  */
+data class NutritionCardSnapshot(
+    val suggestedDailyKcal: Double,
+    val waterLitres: Double,
+    val confidenceKey: String,
+    val reasonKeys: Array<String>,
+    val floorWarning: Boolean,
+    val lowIntakeSupportive: Boolean,
+)
+
 object NutritionFacade {
 
     fun computeForProfile(
@@ -112,4 +124,64 @@ object NutritionFacade {
 
     fun changeReasonKeys(result: NutritionTargetResult): Array<String> =
         result.changeReasons.map { it.key }.toTypedArray()
+
+    /** Swift/ObjC-safe card fields — no nested result type required on the call site. */
+    fun computeCardSnapshot(
+        sexCode: String,
+        ageYears: Int,
+        heightCm: Double,
+        weightKg: Double,
+        bodyFatPercent: Double,
+        hasBodyFat: Boolean,
+        goalKindCode: String,
+        rateFractionPerWeek: Double,
+        targetWeightKg: Double,
+        hasTargetWeight: Boolean,
+        modeCode: String,
+        manualDailyKcal: Double,
+        hasManualDaily: Boolean,
+        addExerciseCalories: Boolean,
+        exerciseKcalToday: Double,
+        previousTargetKcal: Double,
+        hasPreviousTarget: Boolean,
+        recentWeightKg: DoubleArray,
+        recentWeightEpochMs: LongArray,
+        meanSteps: Int,
+        dayStartMinutes: Int,
+        trainingHoursToday: Double = 0.0,
+    ): NutritionCardSnapshot {
+        val result =
+            computeForProfile(
+                sexCode = sexCode,
+                ageYears = ageYears,
+                heightCm = heightCm,
+                weightKg = weightKg,
+                bodyFatPercent = bodyFatPercent,
+                hasBodyFat = hasBodyFat,
+                goalKindCode = goalKindCode,
+                rateFractionPerWeek = rateFractionPerWeek,
+                targetWeightKg = targetWeightKg,
+                hasTargetWeight = hasTargetWeight,
+                modeCode = modeCode,
+                manualDailyKcal = manualDailyKcal,
+                hasManualDaily = hasManualDaily,
+                addExerciseCalories = addExerciseCalories,
+                exerciseKcalToday = exerciseKcalToday,
+                previousTargetKcal = previousTargetKcal,
+                hasPreviousTarget = hasPreviousTarget,
+                recentWeightKg = recentWeightKg,
+                recentWeightEpochMs = recentWeightEpochMs,
+                meanSteps = meanSteps,
+                dayStartMinutes = dayStartMinutes,
+                trainingHoursToday = trainingHoursToday,
+            )
+        return NutritionCardSnapshot(
+            suggestedDailyKcal = result.suggestedDailyKcal ?: -1.0,
+            waterLitres = result.waterLitres ?: -1.0,
+            confidenceKey = confidenceLabelKey(result.confidence),
+            reasonKeys = changeReasonKeys(result),
+            floorWarning = result.floorWarning?.belowFloor == true,
+            lowIntakeSupportive = result.lowIntakeSupportive,
+        )
+    }
 }

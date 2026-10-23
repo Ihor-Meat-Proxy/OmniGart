@@ -99,23 +99,13 @@ private struct NutritionTargetCardSnapshot {
         profile: UserProfile,
         store: NutritionLocalStore
     ) -> NutritionTargetCardSnapshot {
-        let result = compute(core: core, profile: profile, store: store)
-        return format(result: result)
-    }
-
-    @MainActor
-    private static func compute(
-        core: OmniGartCore,
-        profile: UserProfile,
-        store: NutritionLocalStore
-    ) -> NutritionTargetResult {
         let goal = store.loadGoal()
         let weights = store.loadWeights()
         let bodyFat = store.loadBodyFat().last?.bodyFatPercent
         let birthYear = Int(core.birthYear(profile: profile))
         let age = max(1, Calendar.current.component(.year, from: Date()) - birthYear)
         let previous = store.lastTargetKcal()
-        return NutritionFacade.shared.computeForProfile(
+        let card = NutritionFacade.shared.computeCardSnapshot(
             sexCode: profile.biologicalSex == .male ? "MALE" : "FEMALE",
             ageYears: Int32(age),
             heightCm: profile.heightCm,
@@ -139,29 +129,29 @@ private struct NutritionTargetCardSnapshot {
             dayStartMinutes: Int32(goal.dayStartMinutes),
             trainingHoursToday: 0
         )
+        return format(card)
     }
 
-    private static func format(result: NutritionTargetResult) -> NutritionTargetCardSnapshot {
-        let kcal = NutritionFacade.shared.suggestedKcalOrNull(result: result)
+    private static func format(_ card: NutritionCardSnapshot) -> NutritionTargetCardSnapshot {
         let suggested: String
         let persist: Double?
-        if kcal > 0 {
+        if card.suggestedDailyKcal > 0 {
             suggested = String(
                 format: "%.0f %@",
-                kcal,
+                card.suggestedDailyKcal,
                 String(localized: "nutrition_kcal_unit")
             )
-            persist = kcal
+            persist = card.suggestedDailyKcal
         } else {
             suggested = "—"
             persist = nil
         }
         let water: String
-        if let litres = result.waterLitres?.doubleValue, litres > 0 {
+        if card.waterLitres > 0 {
             water = String(
                 format: "%@ %.1f L",
                 String(localized: "nutrition_water_goal"),
-                litres
+                card.waterLitres
             )
         } else {
             water = "—"
@@ -169,10 +159,10 @@ private struct NutritionTargetCardSnapshot {
         return NutritionTargetCardSnapshot(
             suggestedText: suggested,
             waterText: water,
-            confidenceKey: NutritionFacade.shared.confidenceLabelKey(level: result.confidence),
-            reasonKeys: NutritionFacade.shared.changeReasonKeys(result: result).map { $0 as String },
-            floorWarn: result.floorWarning?.belowFloor == true,
-            showSupportive: result.lowIntakeSupportive,
+            confidenceKey: card.confidenceKey,
+            reasonKeys: card.reasonKeys.map { $0 as String },
+            floorWarn: card.floorWarning,
+            showSupportive: card.lowIntakeSupportive,
             kcalToPersist: persist
         )
     }

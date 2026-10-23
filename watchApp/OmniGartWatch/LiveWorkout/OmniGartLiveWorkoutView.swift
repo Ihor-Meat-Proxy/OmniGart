@@ -5,6 +5,13 @@ struct OmniGartLiveWorkoutView: View {
     @StateObject private var session: OmniGartLiveWorkoutSession
     @State private var summary: OmniGartLiveWorkoutSummary?
     @State private var segmentLabel: String = "1"
+    @State private var crownField: StrengthCrownField = .weight
+    @State private var crownValue: Double = 60
+
+    private enum StrengthCrownField {
+        case weight
+        case reps
+    }
 
     init(kind: OmniGartWorkoutKind) {
         _session = StateObject(wrappedValue: OmniGartLiveWorkoutSession(kind: kind))
@@ -16,6 +23,8 @@ struct OmniGartLiveWorkoutView: View {
                 OmniGartLiveWorkoutSummaryView(summary: summary) {
                     self.summary = nil
                 }
+            } else if session.kind.isStrength {
+                strengthLiveContent
             } else {
                 liveContent
             }
@@ -24,6 +33,142 @@ struct OmniGartLiveWorkoutView: View {
         .task {
             if !session.isRunning, summary == nil {
                 await session.start()
+            }
+        }
+        .onAppear {
+            crownValue = session.weightKg
+        }
+    }
+
+    private var strengthLiveContent: some View {
+        TimelineView(.periodic(from: .now, by: 1)) { _ in
+            ScrollView {
+                VStack(spacing: 4) {
+                    Text(session.kind.titleKey)
+                        .font(.caption2.weight(.semibold))
+                        .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+
+                    Text(session.currentExerciseName)
+                        .font(.caption.weight(.semibold))
+                        .lineLimit(2)
+                        .multilineTextAlignment(.center)
+
+                    Text("Set \(session.currentSetNumber)")
+                        .font(.caption2.monospacedDigit())
+                        .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                        .accessibilityLabel(Text("watch.strength.set"))
+
+                    if !session.currentTarget.isEmpty {
+                        Text(session.currentTarget)
+                            .font(.caption2)
+                            .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                            .accessibilityLabel(Text("watch.strength.target"))
+                    }
+
+                    HStack(spacing: 8) {
+                        crownMetric(
+                            labelKey: "watch.strength.weight",
+                            value: String(format: "%.1f", session.weightKg),
+                            selected: crownField == .weight
+                        ) {
+                            crownField = .weight
+                            crownValue = session.weightKg
+                        }
+                        crownMetric(
+                            labelKey: "watch.strength.reps",
+                            value: "\(session.reps)",
+                            selected: crownField == .reps
+                        ) {
+                            crownField = .reps
+                            crownValue = Double(session.reps)
+                        }
+                    }
+                    .focusable(true)
+                    .digitalCrownRotation(
+                        $crownValue,
+                        from: crownField == .weight ? 0 : 1,
+                        through: crownField == .weight ? 400 : 50,
+                        by: crownField == .weight ? 2.5 : 1,
+                        sensitivity: .medium,
+                        isContinuous: false,
+                        isHapticFeedbackEnabled: true
+                    )
+                    .onChange(of: crownValue) { _, newValue in
+                        applyCrown(newValue)
+                    }
+
+                    if session.restRemaining > 0 {
+                        Text("\(String(localized: String.LocalizationValue("watch.strength.rest"))) \(session.restRemaining)s")
+                            .font(.caption.monospacedDigit().weight(.semibold))
+                            .foregroundStyle(Color.OmniGart.colorBrandAccent)
+                            .accessibilityLabel(Text("watch.strength.rest"))
+                    }
+
+                    Text("\(session.heartRateBpm)")
+                        .font(.system(size: 28, weight: .bold, design: .rounded))
+                        .monospacedDigit()
+                        .foregroundStyle(Color.OmniGart.colorBrandAccent)
+                        .accessibilityLabel(Text("watch.zone2.hr_label"))
+
+                    if session.activeEnergyKcal > 0 {
+                        Text("\(Zone2Summary.formatEnergyKcal(session.activeEnergyKcal)) kcal")
+                            .font(.caption2.monospacedDigit())
+                            .accessibilityLabel(Text("watch.zone2.active_kcal"))
+                    }
+
+                    Text(Zone2Summary.formatDuration(session.elapsed))
+                        .font(.caption2.monospacedDigit())
+                        .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                        .accessibilityLabel(Text("watch.workout.duration"))
+
+                    Button {
+                        session.logSet()
+                    } label: {
+                        Text("watch.strength.done")
+                    }
+                    .tint(Color.OmniGart.colorBrandAccent)
+                    .disabled(!session.isRunning || session.restRemaining > 0)
+
+                    HStack(spacing: 6) {
+                        Button {
+                            if session.isPaused {
+                                session.resume()
+                            } else {
+                                session.pause()
+                            }
+                        } label: {
+                            Text(session.isPaused ? "watch.workout.resume" : "watch.workout.pause")
+                        }
+                        .tint(Color.OmniGart.colorBrandAccent)
+                        .disabled(!session.isRunning)
+
+                        Button {
+                            Task {
+                                if let result = await session.stop() {
+                                    summary = result
+                                }
+                            }
+                        } label: {
+                            Text("watch.workout.stop")
+                        }
+                        .tint(Color.OmniGart.colorBrandAccent)
+                    }
+
+                    if session.loggedSets.count > 0 {
+                        Text("\(session.loggedSets.count)")
+                            .font(.caption2)
+                            .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                            .accessibilityLabel(Text("watch.workout.segments"))
+                    }
+
+                    if let err = session.lastError {
+                        Text(err)
+                            .font(.caption2)
+                            .foregroundStyle(Color.OmniGart.colorSemanticDanger)
+                            .lineLimit(2)
+                    }
+                }
+                .padding(.horizontal, 4)
             }
         }
     }
@@ -104,6 +249,36 @@ struct OmniGartLiveWorkoutView: View {
             .padding(.horizontal, 4)
         }
     }
+
+    private func crownMetric(
+        labelKey: LocalizedStringKey,
+        value: String,
+        selected: Bool,
+        onSelect: @escaping () -> Void
+    ) -> some View {
+        Button(action: onSelect) {
+            VStack(spacing: 1) {
+                Text(labelKey)
+                    .font(.caption2)
+                    .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                Text(value)
+                    .font(.caption.monospacedDigit().weight(.semibold))
+                    .foregroundStyle(
+                        selected ? Color.OmniGart.colorBrandAccent : Color.OmniGart.colorTextLightPrimary
+                    )
+            }
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func applyCrown(_ value: Double) {
+        switch crownField {
+        case .weight:
+            session.weightKg = (value * 2).rounded() / 2
+        case .reps:
+            session.reps = max(1, Int(value.rounded()))
+        }
+    }
 }
 
 struct OmniGartLiveWorkoutSummaryView: View {
@@ -145,6 +320,9 @@ struct OmniGartLiveWorkoutSummaryView: View {
                 }
                 if summary.segmentCount > 0 {
                     row("watch.workout.segments", "\(summary.segmentCount)")
+                }
+                if !summary.sets.isEmpty {
+                    row("watch.strength.sets", "\(summary.sets.count)")
                 }
 
                 Button(action: onDone) {

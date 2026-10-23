@@ -1,5 +1,6 @@
 import Foundation
 import HealthKit
+import SwiftUI
 
 /// Indoor / Zone 2 workout kinds the watch can run as live `HKWorkoutSession`s.
 enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable {
@@ -10,6 +11,14 @@ enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable
     case zone2Run
 
     var id: String { rawValue }
+
+    /// Traditional / functional strength — crown set logging + rest haptics.
+    var isStrength: Bool {
+        switch self {
+        case .traditionalStrength, .functionalStrength: return true
+        default: return false
+        }
+    }
 
     var activityType: HKWorkoutActivityType {
         switch self {

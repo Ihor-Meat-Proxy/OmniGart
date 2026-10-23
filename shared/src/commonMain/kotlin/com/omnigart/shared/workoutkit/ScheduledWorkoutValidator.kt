@@ -7,14 +7,30 @@ object ScheduledWorkoutValidator {
     const val MAX_SCHEDULED_WORKOUTS: Int = 50
 
     fun validate(plan: ScheduledWorkoutPlan): ScheduleResult {
-        if (plan.activityType == WorkoutActivityType.STRENGTH ||
-            plan.blocks.any { it.kind == WorkoutBlockKind.STRENGTH_UNSUPPORTED }
-        ) {
+        // STRENGTH_UNSUPPORTED blocks remain rejected. STRENGTH activity with WORK/RECOVERY
+        // steps is allowed for system Workout app follow-along (no weight/rep entry — see docs).
+        if (plan.blocks.any { it.kind == WorkoutBlockKind.STRENGTH_UNSUPPORTED }) {
             return ScheduleResult(
                 ok = false,
                 failure = ScheduleFailureReason.STRENGTH_NOT_SUPPORTED,
-                detail = "WorkoutKit scheduling does not support strength set/rep blocks"
+                detail = "STRENGTH_UNSUPPORTED blocks cannot be scheduled via WorkoutKit"
             )
+        }
+        if (plan.activityType == WorkoutActivityType.STRENGTH) {
+            val okKinds =
+                setOf(
+                    WorkoutBlockKind.WARM_UP,
+                    WorkoutBlockKind.WORK,
+                    WorkoutBlockKind.RECOVERY,
+                    WorkoutBlockKind.COOL_DOWN
+                )
+            if (plan.blocks.any { it.kind !in okKinds }) {
+                return ScheduleResult(
+                    ok = false,
+                    failure = ScheduleFailureReason.STRENGTH_NOT_SUPPORTED,
+                    detail = "Strength WorkoutKit plans may only use warm-up / work / recovery / cool-down"
+                )
+            }
         }
         if (plan.blocks.any { it.repeatCount < 1 }) {
             return ScheduleResult(

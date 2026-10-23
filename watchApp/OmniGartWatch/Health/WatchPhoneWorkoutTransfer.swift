@@ -65,6 +65,15 @@ enum WatchWorkoutTransferBuilder {
     }
 
     static func enqueueLiveSummary(_ summary: OmniGartLiveWorkoutSummary, localId: String, syncIdentifier: String) {
+        enqueueLiveSummary(summary, localId: localId, syncIdentifier: syncIdentifier, sets: summary.sets)
+    }
+
+    static func enqueueLiveSummary(
+        _ summary: OmniGartLiveWorkoutSummary,
+        localId: String,
+        syncIdentifier: String,
+        sets: [OmniGartLoggedStrengthSet]
+    ) {
         let startMs = Int64(summary.startedAt.timeIntervalSince1970 * 1000)
         let json = makeJSON(
             localId: localId,
@@ -79,7 +88,8 @@ enum WatchWorkoutTransferBuilder {
             maxHeartRateBpm: summary.maxHeartRateBpm,
             averageCadenceSpm: nil,
             samples: summary.heartRateSamples,
-            sessionStart: summary.startedAt
+            sessionStart: summary.startedAt,
+            sets: sets
         )
         WatchPhoneWorkoutTransfer.shared.enqueue(jsonPayload: json)
     }
@@ -105,12 +115,13 @@ enum WatchWorkoutTransferBuilder {
             maxHeartRateBpm: summary.maxHeartRateBpm,
             averageCadenceSpm: summary.averageCadenceSpm,
             samples: summary.heartRateSamples,
-            sessionStart: startedAt
+            sessionStart: startedAt,
+            sets: []
         )
         WatchPhoneWorkoutTransfer.shared.enqueue(jsonPayload: json)
     }
 
-    private static func makeJSON(
+    static func makeJSON(
         localId: String,
         syncIdentifier: String,
         activityTypeName: String,
@@ -123,7 +134,8 @@ enum WatchWorkoutTransferBuilder {
         maxHeartRateBpm: Double,
         averageCadenceSpm: Double?,
         samples: [Zone2HeartRateSample],
-        sessionStart: Date
+        sessionStart: Date,
+        sets: [OmniGartLoggedStrengthSet] = []
     ) -> String {
         func esc(_ s: String) -> String {
             s.replacingOccurrences(of: "\\", with: "\\\\")
@@ -137,7 +149,7 @@ enum WatchWorkoutTransferBuilder {
         let hrBpmJson = hrBpm.map { String(format: "%.1f", $0) }.joined(separator: ",")
         var fields: [String] = [
             "\"schema\":\"omnigart.device.workout.transfer\"",
-            "\"schemaVersion\":1",
+            "\"schemaVersion\":2",
             "\"localId\":\"\(esc(localId))\"",
             "\"syncIdentifier\":\"\(esc(syncIdentifier))\"",
             "\"syncVersion\":1",
@@ -159,6 +171,25 @@ enum WatchWorkoutTransferBuilder {
         }
         if let averageCadenceSpm {
             fields.append("\"averageCadenceSpm\":\(averageCadenceSpm)")
+        }
+        if !sets.isEmpty {
+            let setJson = sets.map { set -> String in
+                var parts: [String] = [
+                    "\"id\":\"\(esc(set.id))\"",
+                    "\"exerciseKey\":\"\(esc(set.exerciseId))\"",
+                    "\"setIndex\":\(set.setNumber)",
+                    "\"reps\":\(set.reps)",
+                    "\"loadKg\":\(set.weightKg)",
+                    "\"isWarmup\":\(set.isWarmup ? "true" : "false")"
+                ]
+                if let note = set.target, !note.isEmpty {
+                    parts.append("\"note\":\"\(esc(note))\"")
+                }
+                return "{" + parts.joined(separator: ",") + "}"
+            }.joined(separator: ",")
+            fields.append("\"sets\":[\(setJson)]")
+        } else {
+            fields.append("\"sets\":[]")
         }
         _ = sessionStart // used via startEpochMs; keep signature for call-site clarity
         return "{" + fields.joined(separator: ",") + "}"

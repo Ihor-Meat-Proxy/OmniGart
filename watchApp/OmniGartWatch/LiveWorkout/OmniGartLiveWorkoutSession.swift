@@ -1,8 +1,27 @@
 import Foundation
 import HealthKit
+import WatchKit
+
+/// Default rest between working sets (mirrors shared `DEFAULT_REST_SECONDS`).
+enum OmniGartStrengthDefaults {
+    static let restSeconds: Int = 90
+}
+
+/// One logged strength set for live watch session + device transfer schema v2.
+struct OmniGartLoggedStrengthSet: Equatable, Sendable, Identifiable {
+    var id: String
+    var exerciseName: String
+    var exerciseId: String
+    var setNumber: Int
+    var weightKg: Double
+    var reps: Int
+    var target: String?
+    var isWarmup: Bool
+}
 
 /// Live indoor (or Zone 2) workout via `HKWorkoutSession` + `HKLiveWorkoutBuilder`.
 /// Collects HR, active/basal energy, pause/resume + segment events for Apple Fitness.
+/// Strength kinds also track per-set logs, rest countdown, and wrist haptics.
 @MainActor
 final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
     @Published private(set) var kind: OmniGartWorkoutKind
@@ -16,6 +35,17 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
     @Published private(set) var heartRateSamples: [Zone2HeartRateSample] = []
     @Published private(set) var segmentCount: Int = 0
 
+    // MARK: Strength set logging
+    @Published private(set) var loggedSets: [OmniGartLoggedStrengthSet] = []
+    @Published private(set) var restRemaining: Int = 0
+    @Published var currentExerciseName: String = "Exercise"
+    @Published var currentExerciseId: String = "exercise"
+    @Published private(set) var currentSetNumber: Int = 1
+    @Published var weightKg: Double = 60
+    @Published var reps: Int = 8
+    @Published var currentTarget: String = ""
+    @Published var isWarmup: Bool = false
+
     private let store = HKHealthStore()
     private var session: HKWorkoutSession?
     private var builder: HKLiveWorkoutBuilder?
@@ -25,10 +55,73 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
     private var pauseBeganAt: Date?
     private var events: [HKWorkoutEvent] = []
     private var pendingSegmentLabel: String?
+    private var restWasActive: Bool = false
+    private let hapticsDevice: WKInterfaceDevice
 
-    init(kind: OmniGartWorkoutKind) {
+    init(kind: OmniGartWorkoutKind, hapticsDevice: WKInterfaceDevice = .current()) {
         self.kind = kind
+        self.hapticsDevice = hapticsDevice
         super.init()
+    }
+
+    /// Marks the current set complete, appends to `loggedSets`, starts rest, plays success haptic.
+    @discardableResult
+    func logSet(
+        exerciseName: String? = nil,
+        exerciseId: String? = nil,
+        setNumber: Int? = nil,
+        weightKg: Double? = nil,
+        reps: Int? = nil,
+        target: String? = nil,
+        isWarmup: Bool? = nil,
+        restSeconds: Int = OmniGartStrengthDefaults.restSeconds
+    ) -> OmniGartLoggedStrengthSet {
+        let name = exerciseName ?? currentExerciseName
+        let exId = exerciseId ?? currentExerciseId
+        let number = setNumber ?? currentSetNumber
+        let load = weightKg ?? self.weightKg
+        let repCount = reps ?? self.reps
+        let warmup = isWarmup ?? self.isWarmup
+        let set = OmniGartLoggedStrengthSet(
+            id: UUID().uuidString,
+            exerciseName: name,
+            exerciseId: exId,
+            setNumber: number,
+            weightKg: load,
+            reps: repCount,
+            target: target ?? (currentTarget.isEmpty ? nil : currentTarget),
+            isWarmup: warmup
+        )
+        loggedSets.append(set)
+        currentExerciseName = name
+        currentExerciseId = exId
+        if !warmup {
+            currentSetNumber = number + 1
+        }
+        startRest(seconds: restSeconds)
+        hapticsDevice.play(.success)
+        addSegment(label: "\(name) #\(number)")
+        return set
+    }
+
+    func startRest(seconds: Int = OmniGartStrengthDefaults.restSeconds) {
+        let s = max(0, seconds)
+        restRemaining = s
+        restWasActive = s > 0
+    }
+
+    func skipRest() {
+        restRemaining = 0
+        restWasActive = false
+    }
+
+    private func tickRest() {
+        guard restRemaining > 0 else { return }
+        restRemaining -= 1
+        if restRemaining == 0, restWasActive {
+            restWasActive = false
+            hapticsDevice.play(.success)
+        }
     }
 
     func start() async {
@@ -164,7 +257,8 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
             WatchWorkoutTransferBuilder.enqueueLiveSummary(
                 summary,
                 localId: localId,
-                syncIdentifier: syncId
+                syncIdentifier: syncId,
+                sets: summary.sets
             )
             return summary
         } catch {
@@ -188,7 +282,8 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
             heartRateSamples: heartRateSamples,
             segmentCount: segmentCount,
             startedAt: startedAt ?? endedAt,
-            endedAt: endedAt
+            endedAt: endedAt,
+            sets: loggedSets
         )
     }
 
@@ -204,6 +299,14 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         startedAt = nil
         accumulatedPause = 0
         pauseBeganAt = nil
+        loggedSets = []
+        restRemaining = 0
+        restWasActive = false
+        currentSetNumber = 1
+        weightKg = 60
+        reps = 8
+        currentTarget = ""
+        isWarmup = false
     }
 
     private func startElapsedTimer() {
@@ -216,6 +319,9 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
                     pause += Date().timeIntervalSince(began)
                 }
                 self.elapsed = max(0, Date().timeIntervalSince(start) - pause)
+                if !self.isPaused {
+                    self.tickRest()
+                }
             }
         }
     }
@@ -301,6 +407,7 @@ struct OmniGartLiveWorkoutSummary: Equatable, Sendable {
     var segmentCount: Int
     var startedAt: Date
     var endedAt: Date
+    var sets: [OmniGartLoggedStrengthSet] = []
 
     var totalEnergyKcal: Double { activeEnergyKcal + basalEnergyKcal }
 }

@@ -52,6 +52,41 @@ class DeviceWorkoutTransferTest {
     }
 
     @Test
+    fun codec_roundTripsSets_schemaV2() {
+        val withSets =
+            sampleDoc().copy(
+                activityTypeName = WorkoutActivityType.STRENGTH.name,
+                sets =
+                listOf(
+                    com.omnigart.shared.health.store.device.DeviceWorkoutTransferSet(
+                        id = "set-1",
+                        exerciseKey = "barbell-bench-press",
+                        setIndex = 0,
+                        reps = 8,
+                        loadKg = 60.0,
+                        rpe = 7.0,
+                        isWarmup = false
+                    )
+                )
+            )
+        assertEquals(DeviceWorkoutTransferDocument.SCHEMA_VERSION, withSets.schemaVersion)
+        val decoded = DeviceWorkoutTransferCodec.decode(DeviceWorkoutTransferCodec.encode(withSets))
+        assertEquals(1, decoded.sets.size)
+        assertEquals(60.0, decoded.sets[0].loadKg)
+        val local = DeviceWorkoutTransferCodec.toLocalWorkout(decoded)
+        assertEquals(1, local.sets.size)
+        assertEquals("barbell-bench-press", local.sets[0].exerciseKey)
+    }
+
+    @Test
+    fun ingest_acceptsSchemaV1WithoutSets() {
+        val v1 =
+            sampleDoc().copy(schemaVersion = 1, sets = emptyList())
+        assertEquals(DeviceTransferIngestResult.INSERTED, engine.ingestDeviceTransfer(v1))
+        assertTrue(store.getWorkout(v1.localId)?.sets.isNullOrEmpty())
+    }
+
+    @Test
     fun ingest_isIdempotentBySyncId() {
         val doc = sampleDoc()
         assertEquals(DeviceTransferIngestResult.INSERTED, engine.ingestDeviceTransfer(doc))

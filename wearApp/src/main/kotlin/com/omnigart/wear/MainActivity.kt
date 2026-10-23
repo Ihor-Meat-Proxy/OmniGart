@@ -27,6 +27,8 @@ import com.omnigart.shared.content.AssetContentStore
 import com.omnigart.shared.data.DatabaseDriverFactory
 import com.omnigart.wear.workout.WearExerciseRecorder
 import com.omnigart.wear.workout.WearPhoneWorkoutTransfer
+import com.omnigart.wear.workout.WearStrengthLoggingScreen
+import com.omnigart.wear.workout.WearWorkoutMode
 
 class MainActivity : ComponentActivity() {
     private lateinit var core: OmniGartCore
@@ -46,24 +48,36 @@ class MainActivity : ComponentActivity() {
         val headline = core.summaryLines(profile).take(2)
         setContent {
             MaterialTheme {
-                WearStartScreen(
-                    lines = headline,
-                    onStart = {
-                        // Prefer Health Services ExerciseClient; fall back to manual publish for emulators.
-                        if (recorder.isRunning()) {
-                            recorder.stop { }
-                        } else {
-                            runCatching { recorder.start() }
-                                .onFailure {
+                var strengthActive by remember { mutableStateOf(false) }
+                if (strengthActive) {
+                    WearStrengthLoggingScreen(
+                        recorder = recorder,
+                        onFinished = { strengthActive = false }
+                    )
+                } else {
+                    WearStartScreen(
+                        lines = headline,
+                        onStart = {
+                            // Prefer Health Services ExerciseClient; fall back to manual publish for emulators.
+                            if (recorder.isRunning()) {
+                                recorder.stop { }
+                            } else {
+                                runCatching { recorder.start(WearWorkoutMode.RUNNING) }
+                                    .onFailure {
+                                        recorder.recordManualAndTransfer()
+                                    }
+                                if (!recorder.isRunning()) {
                                     recorder.recordManualAndTransfer()
                                 }
-                            // If ExerciseClient cannot start on this device, still deliver a transfer.
-                            if (!recorder.isRunning()) {
-                                recorder.recordManualAndTransfer()
                             }
+                        },
+                        onStartStrength = {
+                            recorder.setCurrentExercise("Bench press", "barbell-bench-press")
+                            runCatching { recorder.start(WearWorkoutMode.STRENGTH) }
+                            strengthActive = true
                         }
-                    }
-                )
+                    )
+                }
             }
         }
     }
@@ -75,7 +89,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun WearStartScreen(lines: List<String>, onStart: () -> Unit = {}) {
+fun WearStartScreen(lines: List<String>, onStart: () -> Unit = {}, onStartStrength: () -> Unit = {}) {
     var status by remember { mutableStateOf("") }
     Column(
         modifier =
@@ -117,6 +131,18 @@ fun WearStartScreen(lines: List<String>, onStart: () -> Unit = {}) {
                 .testTag("wear_start_button")
         ) {
             Text(text = stringResource(R.string.watch_start))
+        }
+        Button(
+            onClick = {
+                onStartStrength()
+                status = "strength"
+            },
+            modifier =
+            Modifier
+                .padding(top = OmniGartSpacing.space2)
+                .testTag("wear_strength_start_button")
+        ) {
+            Text(text = stringResource(R.string.wear_strength_start))
         }
     }
 }

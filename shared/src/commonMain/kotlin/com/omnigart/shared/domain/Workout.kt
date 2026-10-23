@@ -36,15 +36,29 @@ data class WorkoutSet(
     val distanceMetres: Double? = null,
     /** Reps in reserve (RIR), if logged. */
     val rir: Double? = null,
+    /** Rating of perceived exertion (CR-10 / 0–10), if logged. */
+    val rpe: Double? = null,
     val completed: Boolean = true,
     /** Warm-up sets are excluded from volume by default. */
     val isWarmup: Boolean = false,
+    /** Drop-set flag (same exercise, reduced load continuation). */
+    val isDropSet: Boolean = false,
+    /** Taken to momentary muscular failure. */
+    val isFailure: Boolean = false,
     /** Assistance mass (kg) subtracted from effective load. */
     val assistanceKg: Double? = null,
     /**
      * When true and the exercise is unilateral, volume counts both sides (×2).
      */
-    val loggedPerHand: Boolean = false
+    val loggedPerHand: Boolean = false,
+    /** Optional per-set coach / athlete note. */
+    val note: String? = null,
+    /** Planned rest after this set (seconds); drives the in-workout rest timer. */
+    val restSeconds: Int? = null,
+    /** Target load (kg) used to prefill the input. */
+    val targetWeightKg: Double? = null,
+    /** Target reps used to prefill the input. */
+    val targetReps: Int? = null
 ) {
     init {
         require(setIndex >= 0) { "setIndex must be non-negative" }
@@ -53,7 +67,11 @@ data class WorkoutSet(
         durationSeconds?.let { require(it >= 0) { "durationSeconds must be non-negative" } }
         distanceMetres?.let { require(it >= 0) { "distanceMetres must be non-negative" } }
         rir?.let { require(it in 0.0..10.0) { "rir must be between 0 and 10" } }
+        rpe?.let { require(it in 0.0..10.0) { "rpe must be between 0 and 10" } }
         assistanceKg?.let { require(it >= 0) { "assistanceKg must be non-negative" } }
+        restSeconds?.let { require(it >= 0) { "restSeconds must be non-negative" } }
+        targetWeightKg?.let { require(it >= 0) { "targetWeightKg must be non-negative" } }
+        targetReps?.let { require(it >= 0) { "targetReps must be non-negative" } }
     }
 }
 

@@ -28,7 +28,6 @@ final class WatchWorkoutTransferTests: XCTestCase {
             startedAt: Date(timeIntervalSince1970: 1_700_000_000),
             endedAt: Date(timeIntervalSince1970: 1_700_000_600)
         )
-        // Exercise builder via public enqueue path by constructing expected fragments.
         let localId = "test-local"
         let syncId = "omnigart.workout.\(localId)"
         WatchWorkoutTransferBuilder.enqueueLiveSummary(
@@ -38,5 +37,42 @@ final class WatchWorkoutTransferTests: XCTestCase {
         )
         XCTAssertTrue(syncId.hasPrefix("omnigart.workout."))
         XCTAssertEqual(summary.heartRateSamples.count, 2)
+    }
+
+    func testTransferJSONSchemaVersion2IncludesSets() {
+        let sets = [
+            OmniGartLoggedStrengthSet(
+                id: "s1",
+                exerciseName: "Bench",
+                exerciseId: "barbell-bench-press",
+                setNumber: 1,
+                weightKg: 60,
+                reps: 8,
+                target: "60×8",
+                isWarmup: false
+            )
+        ]
+        let json = WatchWorkoutTransferBuilder.makeJSON(
+            localId: "strength-1",
+            syncIdentifier: "omnigart.workout.strength-1",
+            activityTypeName: "STRENGTH",
+            startEpochMs: 1_700_000_000_000,
+            endEpochMs: 1_700_000_600_000,
+            activeEnergyKcal: 120,
+            basalEnergyKcal: 30,
+            distanceMetres: nil,
+            averageHeartRateBpm: 118,
+            maxHeartRateBpm: 140,
+            averageCadenceSpm: nil,
+            samples: [],
+            sessionStart: Date(timeIntervalSince1970: 1_700_000_000),
+            sets: sets
+        )
+        XCTAssertTrue(json.contains("\"schemaVersion\":2"))
+        XCTAssertTrue(json.contains("\"sets\":["))
+        XCTAssertTrue(json.contains("\"exerciseKey\":\"barbell-bench-press\""))
+        XCTAssertTrue(json.contains("\"loadKg\":60"))
+        XCTAssertTrue(json.contains("\"reps\":8"))
+        XCTAssertTrue(json.contains("\"activityTypeName\":\"STRENGTH\""))
     }
 }

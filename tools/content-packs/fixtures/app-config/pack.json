@@ -1,0 +1,9 @@
+{
+  "id": "app-config",
+  "version": "1.0.0",
+  "channel": "config",
+  "minAppVersion": "0.1.0",
+  "description": "Safe-default remote config (bundled); CDN may publish newer signed overrides",
+  "bundlePath": "Content/Packs/app-config",
+  "sizeBudgetBytes": 16384
+}

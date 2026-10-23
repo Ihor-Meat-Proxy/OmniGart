@@ -101,6 +101,7 @@ struct SessionMusclePreviewWatch: View {
     }
 }
 
+@MainActor
 final class WatchEquipmentSync: NSObject, ObservableObject, WCSessionDelegate {
     static let shared = WatchEquipmentSync()
 
@@ -117,12 +118,19 @@ final class WatchEquipmentSync: NSObject, ObservableObject, WCSessionDelegate {
         session.activate()
     }
 
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        apply(context: session.receivedApplicationContext)
+    nonisolated func session(
+        _ session: WCSession,
+        activationDidCompleteWith activationState: WCSessionActivationState,
+        error: Error?
+    ) {
+        let context = session.receivedApplicationContext
+        Task { @MainActor in
+            self.apply(context: context)
+        }
     }
 
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
-        DispatchQueue.main.async {
+    nonisolated func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
+        Task { @MainActor in
             self.apply(context: applicationContext)
         }
     }

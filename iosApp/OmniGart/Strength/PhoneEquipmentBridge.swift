@@ -4,6 +4,7 @@ import WatchConnectivity
 
 /// Publishes the phone equipment catalogue to the paired watch via application context.
 /// Does not touch HealthKit session recording.
+@MainActor
 final class PhoneEquipmentBridge: NSObject, WCSessionDelegate {
     static let shared = PhoneEquipmentBridge()
 
@@ -28,12 +29,16 @@ final class PhoneEquipmentBridge: NSObject, WCSessionDelegate {
         try? session.updateApplicationContext(payload)
     }
 
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
+    nonisolated func session(
+        _ session: WCSession,
+        activationDidCompleteWith activationState: WCSessionActivationState,
+        error: Error?
+    ) {}
 
     #if os(iOS)
-    func sessionDidBecomeInactive(_ session: WCSession) {}
+    nonisolated func sessionDidBecomeInactive(_ session: WCSession) {}
 
-    func sessionDidDeactivate(_ session: WCSession) {
+    nonisolated func sessionDidDeactivate(_ session: WCSession) {
         session.activate()
     }
     #endif

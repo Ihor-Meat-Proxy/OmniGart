@@ -229,7 +229,7 @@ extension StrengthWorkoutHealthSave {
             heartRateBpm: KotlinPrimitiveArrays.doubleArray(heartRate.during.map(\.bpm)),
             setIds: KotlinPrimitiveArrays.stringArray(input.sets.map(\.id)),
             setExerciseKeys: KotlinPrimitiveArrays.stringArray(input.sets.map(\.exerciseId)),
-            setIndexes: KotlinPrimitiveArrays.intArray(input.sets.map { $0.setIndex }),
+            setIndexes: KotlinPrimitiveArrays.intArray(input.sets.map { Int32($0.setIndex) }),
             setReps: KotlinPrimitiveArrays.intArray(
                 input.sets.map { $0.reps?.int32Value ?? Int32(-1) }
             ),

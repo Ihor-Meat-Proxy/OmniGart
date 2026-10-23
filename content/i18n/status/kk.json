@@ -1,4 +1,100 @@
 {
+  "beverage.almond_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "04f29ad49dc43d0a"
+  },
+  "beverage.americano.name": {
+    "status": "machine-drafted",
+    "source_hash": "86bfb183104e3b86"
+  },
+  "beverage.beer.name": {
+    "status": "machine-drafted",
+    "source_hash": "2758060bedd99ddd"
+  },
+  "beverage.black_tea.name": {
+    "status": "machine-drafted",
+    "source_hash": "ff49ce9a7851305f"
+  },
+  "beverage.cappuccino.name": {
+    "status": "machine-drafted",
+    "source_hash": "479ef320081b6d89"
+  },
+  "beverage.espresso.name": {
+    "status": "machine-drafted",
+    "source_hash": "e25dc4762c339fa6"
+  },
+  "beverage.filter_coffee.name": {
+    "status": "machine-drafted",
+    "source_hash": "6e3ea0a33a75e088"
+  },
+  "beverage.flat_white.name": {
+    "status": "machine-drafted",
+    "source_hash": "b33ea90352ba2901"
+  },
+  "beverage.green_tea.name": {
+    "status": "machine-drafted",
+    "source_hash": "e2029462d80da658"
+  },
+  "beverage.herbal_tea.name": {
+    "status": "machine-drafted",
+    "source_hash": "b4a3336c2aca8a24"
+  },
+  "beverage.instant_coffee.name": {
+    "status": "machine-drafted",
+    "source_hash": "63091135c49d87cc"
+  },
+  "beverage.kefir.name": {
+    "status": "machine-drafted",
+    "source_hash": "2c282ac573772c56"
+  },
+  "beverage.latte.name": {
+    "status": "machine-drafted",
+    "source_hash": "5cf054995329c0e3"
+  },
+  "beverage.oat_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "2a1ed2518bcba130"
+  },
+  "beverage.orange_juice.name": {
+    "status": "machine-drafted",
+    "source_hash": "94bafc06ab843cf8"
+  },
+  "beverage.semi_skimmed_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "5c9e7233624604ef"
+  },
+  "beverage.skimmed_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "fce63bdb6a9f7dd2"
+  },
+  "beverage.soft_drink_cola.name": {
+    "status": "machine-drafted",
+    "source_hash": "82981451f51c631f"
+  },
+  "beverage.soy_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "c7f79bcc99251b6e"
+  },
+  "beverage.sparkling_water.name": {
+    "status": "machine-drafted",
+    "source_hash": "bb1955db1289b592"
+  },
+  "beverage.sports_drink.name": {
+    "status": "machine-drafted",
+    "source_hash": "b06afed2591eaf24"
+  },
+  "beverage.water.name": {
+    "status": "machine-drafted",
+    "source_hash": "7ca7dea906800f87"
+  },
+  "beverage.whole_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "76d8ae3e8b0d595b"
+  },
+  "beverage.wine.name": {
+    "status": "machine-drafted",
+    "source_hash": "3889e6c049489fc3"
+  },
   "exercise.a_skip.breathing": {
     "status": "machine-drafted",
     "source_hash": "53392b7abbba35cd"
@@ -6007,6 +6103,322 @@
     "status": "machine-drafted",
     "source_hash": "c9f0c40104abd914"
   },
+  "hydration.counting.info": {
+    "status": "machine-drafted",
+    "source_hash": "f070c0fbee45c334"
+  },
+  "hydration.norm.efsa_default": {
+    "status": "machine-drafted",
+    "source_hash": "bfcb92745ba478b9"
+  },
+  "hydration.norm.weight_weak": {
+    "status": "machine-drafted",
+    "source_hash": "89333e07a7e8d1a1"
+  },
+  "template.beginner_5k_8w.name": {
+    "status": "machine-drafted",
+    "source_hash": "5bedd91b120effec"
+  },
+  "template.beginner_5k_8w.r1.name": {
+    "status": "machine-drafted",
+    "source_hash": "a55746f4d49e7ee9"
+  },
+  "template.beginner_5k_8w.r2.name": {
+    "status": "machine-drafted",
+    "source_hash": "01f871ada91090ee"
+  },
+  "template.beginner_5k_8w.r3.name": {
+    "status": "machine-drafted",
+    "source_hash": "05d19cbc97e512ff"
+  },
+  "template.beginner_5k_8w.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "6e027d727152bb08"
+  },
+  "template.bodyweight_travel_3x.name": {
+    "status": "machine-drafted",
+    "source_hash": "cf8df0eeb17ca9bc"
+  },
+  "template.bodyweight_travel_3x.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "b7ad37750a43dd95"
+  },
+  "template.bodyweight_travel_3x.session.t1.item.3.notes": {
+    "status": "machine-drafted",
+    "source_hash": "c289be0c88357a56"
+  },
+  "template.bodyweight_travel_3x.t1.name": {
+    "status": "machine-drafted",
+    "source_hash": "2f33e0e7dd0b6c8f"
+  },
+  "template.concurrent_lift_run_4x.cl1.name": {
+    "status": "machine-drafted",
+    "source_hash": "298cdb7680c175df"
+  },
+  "template.concurrent_lift_run_4x.cl2.name": {
+    "status": "machine-drafted",
+    "source_hash": "944f0120fada3975"
+  },
+  "template.concurrent_lift_run_4x.cr1.name": {
+    "status": "machine-drafted",
+    "source_hash": "12ef95712ea04db8"
+  },
+  "template.concurrent_lift_run_4x.cr2.name": {
+    "status": "machine-drafted",
+    "source_hash": "9a0e20c0348df5ff"
+  },
+  "template.concurrent_lift_run_4x.name": {
+    "status": "machine-drafted",
+    "source_hash": "0ad2ad1b596d21db"
+  },
+  "template.concurrent_lift_run_4x.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "52ee965e08ad78f3"
+  },
+  "template.desk_worker_mobility_strength.d1.name": {
+    "status": "machine-drafted",
+    "source_hash": "f167eda60e8167a7"
+  },
+  "template.desk_worker_mobility_strength.d2.name": {
+    "status": "machine-drafted",
+    "source_hash": "722e3f213c6159fc"
+  },
+  "template.desk_worker_mobility_strength.d3.name": {
+    "status": "machine-drafted",
+    "source_hash": "a1dbc6e09bec62e9"
+  },
+  "template.desk_worker_mobility_strength.name": {
+    "status": "machine-drafted",
+    "source_hash": "f24faad70f08253e"
+  },
+  "template.desk_worker_mobility_strength.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "ecaed479e3ed750f"
+  },
+  "template.full_body_beginner_3x.a.name": {
+    "status": "machine-drafted",
+    "source_hash": "75438bbef7c03fac"
+  },
+  "template.full_body_beginner_3x.b.name": {
+    "status": "machine-drafted",
+    "source_hash": "e44e152161ed1a6b"
+  },
+  "template.full_body_beginner_3x.c.name": {
+    "status": "machine-drafted",
+    "source_hash": "d5751058fdd6dc8c"
+  },
+  "template.full_body_beginner_3x.name": {
+    "status": "machine-drafted",
+    "source_hash": "e5c68240ec007dc6"
+  },
+  "template.full_body_beginner_3x.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "240dabc771d1154b"
+  },
+  "template.glute_posterior_emphasis.g1.name": {
+    "status": "machine-drafted",
+    "source_hash": "2d72acbfa47f7f43"
+  },
+  "template.glute_posterior_emphasis.g2.name": {
+    "status": "machine-drafted",
+    "source_hash": "84b8e3655945f22e"
+  },
+  "template.glute_posterior_emphasis.g3.name": {
+    "status": "machine-drafted",
+    "source_hash": "9557b86bb5810b34"
+  },
+  "template.glute_posterior_emphasis.name": {
+    "status": "machine-drafted",
+    "source_hash": "246fd1c5acf15af4"
+  },
+  "template.glute_posterior_emphasis.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "c00a7f2f179f5469"
+  },
+  "template.home_minimal_3x.h1.name": {
+    "status": "machine-drafted",
+    "source_hash": "8f266d67bc922b4f"
+  },
+  "template.home_minimal_3x.h2.name": {
+    "status": "machine-drafted",
+    "source_hash": "073593ebc6558363"
+  },
+  "template.home_minimal_3x.h3.name": {
+    "status": "machine-drafted",
+    "source_hash": "76ead6a87e12e934"
+  },
+  "template.home_minimal_3x.name": {
+    "status": "machine-drafted",
+    "source_hash": "4d303d9b85a4688f"
+  },
+  "template.home_minimal_3x.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "beb0b9bf4cf97f34"
+  },
+  "template.home_minimal_3x.session.h1.item.0.notes": {
+    "status": "machine-drafted",
+    "source_hash": "9ac03f2fe0407872"
+  },
+  "template.hypertrophy_dumbbell_4x.dl1.name": {
+    "status": "machine-drafted",
+    "source_hash": "6eb3bbddbc9cb51e"
+  },
+  "template.hypertrophy_dumbbell_4x.dl2.name": {
+    "status": "machine-drafted",
+    "source_hash": "43ba8235b65581f6"
+  },
+  "template.hypertrophy_dumbbell_4x.du1.name": {
+    "status": "machine-drafted",
+    "source_hash": "41dd03e548807e94"
+  },
+  "template.hypertrophy_dumbbell_4x.du2.name": {
+    "status": "machine-drafted",
+    "source_hash": "ddfcfe231d1a091d"
+  },
+  "template.hypertrophy_dumbbell_4x.name": {
+    "status": "machine-drafted",
+    "source_hash": "523ae72c5d939f54"
+  },
+  "template.hypertrophy_dumbbell_4x.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "7d571bd76f4bb6f5"
+  },
+  "template.hypertrophy_dumbbell_4x.session.du2.item.3.notes": {
+    "status": "machine-drafted",
+    "source_hash": "4bac0b99941de558"
+  },
+  "template.older_adult_functional_3x.name": {
+    "status": "machine-drafted",
+    "source_hash": "e72e6aa4b58553a6"
+  },
+  "template.older_adult_functional_3x.o1.name": {
+    "status": "machine-drafted",
+    "source_hash": "5f33bba63476114a"
+  },
+  "template.older_adult_functional_3x.o2.name": {
+    "status": "machine-drafted",
+    "source_hash": "5a931f9be690d1b6"
+  },
+  "template.older_adult_functional_3x.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "2b0a8e3dcfd5e979"
+  },
+  "template.pilates_core_3x.name": {
+    "status": "machine-drafted",
+    "source_hash": "afbcca546479de98"
+  },
+  "template.pilates_core_3x.p1.name": {
+    "status": "machine-drafted",
+    "source_hash": "9c183cf132016fb4"
+  },
+  "template.pilates_core_3x.p2.name": {
+    "status": "machine-drafted",
+    "source_hash": "429abacf36356a69"
+  },
+  "template.pilates_core_3x.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "4835cf2d5146d14e"
+  },
+  "template.ppl_6x.legs.name": {
+    "status": "machine-drafted",
+    "source_hash": "38557594d0fce7fe"
+  },
+  "template.ppl_6x.name": {
+    "status": "machine-drafted",
+    "source_hash": "9e56fd1ff1c3b189"
+  },
+  "template.ppl_6x.pull.name": {
+    "status": "machine-drafted",
+    "source_hash": "b66d044181a0e296"
+  },
+  "template.ppl_6x.push.name": {
+    "status": "machine-drafted",
+    "source_hash": "731ce7ed808913b2"
+  },
+  "template.ppl_6x.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "9b3881b1b1c344d9"
+  },
+  "template.strength_focus_3x.name": {
+    "status": "machine-drafted",
+    "source_hash": "8e4011fd14ad0ea1"
+  },
+  "template.strength_focus_3x.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "6cbd3dfd18318ece"
+  },
+  "template.strength_focus_3x.s1.name": {
+    "status": "machine-drafted",
+    "source_hash": "f51fa1f69a5751f1"
+  },
+  "template.strength_focus_3x.s2.name": {
+    "status": "machine-drafted",
+    "source_hash": "ec1ff09b752d39c1"
+  },
+  "template.strength_focus_3x.s3.name": {
+    "status": "machine-drafted",
+    "source_hash": "06d09026ac2d2888"
+  },
+  "template.swim_technique_3x.name": {
+    "status": "machine-drafted",
+    "source_hash": "45152c80487718e1"
+  },
+  "template.swim_technique_3x.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "5236bc7b5e2be4e5"
+  },
+  "template.swim_technique_3x.sw1.name": {
+    "status": "machine-drafted",
+    "source_hash": "e24896247487d42b"
+  },
+  "template.swim_technique_3x.sw2.name": {
+    "status": "machine-drafted",
+    "source_hash": "5a59269d9de19354"
+  },
+  "template.swim_technique_3x.sw3.name": {
+    "status": "machine-drafted",
+    "source_hash": "0619927c18b50ed9"
+  },
+  "template.upper_lower_4x.l1.name": {
+    "status": "machine-drafted",
+    "source_hash": "4398f5f1f9ddd356"
+  },
+  "template.upper_lower_4x.l2.name": {
+    "status": "machine-drafted",
+    "source_hash": "0bc88554b339f8a2"
+  },
+  "template.upper_lower_4x.name": {
+    "status": "machine-drafted",
+    "source_hash": "b77b826c6efb9425"
+  },
+  "template.upper_lower_4x.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "7e926a61c2d5921c"
+  },
+  "template.upper_lower_4x.u1.name": {
+    "status": "machine-drafted",
+    "source_hash": "f823d504b702340d"
+  },
+  "template.upper_lower_4x.u2.name": {
+    "status": "machine-drafted",
+    "source_hash": "6434bd54f1bd0bff"
+  },
+  "template.yoga_mobility_flow.name": {
+    "status": "machine-drafted",
+    "source_hash": "12131a51ffd136c2"
+  },
+  "template.yoga_mobility_flow.rationale": {
+    "status": "machine-drafted",
+    "source_hash": "2d7f398a422dfae2"
+  },
+  "template.yoga_mobility_flow.y1.name": {
+    "status": "machine-drafted",
+    "source_hash": "f0a8279565d0d5f9"
+  },
+  "template.yoga_mobility_flow.y2.name": {
+    "status": "machine-drafted",
+    "source_hash": "9aecbd3999664b04"
+  },
   "running.plan.10k_beginner_10w.distribution": {
     "status": "machine-drafted",
     "source_hash": "9a503c5f84aa0fbc"
@@ -7190,309 +7602,5 @@
   "swim.stroke.individual_medley.summary": {
     "status": "machine-drafted",
     "source_hash": "761e5c5b7647ca63"
-  },
-  "template.beginner_5k_8w.name": {
-    "status": "machine-drafted",
-    "source_hash": "5bedd91b120effec"
-  },
-  "template.beginner_5k_8w.r1.name": {
-    "status": "machine-drafted",
-    "source_hash": "a55746f4d49e7ee9"
-  },
-  "template.beginner_5k_8w.r2.name": {
-    "status": "machine-drafted",
-    "source_hash": "01f871ada91090ee"
-  },
-  "template.beginner_5k_8w.r3.name": {
-    "status": "machine-drafted",
-    "source_hash": "05d19cbc97e512ff"
-  },
-  "template.beginner_5k_8w.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "6e027d727152bb08"
-  },
-  "template.bodyweight_travel_3x.name": {
-    "status": "machine-drafted",
-    "source_hash": "cf8df0eeb17ca9bc"
-  },
-  "template.bodyweight_travel_3x.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "b7ad37750a43dd95"
-  },
-  "template.bodyweight_travel_3x.session.t1.item.3.notes": {
-    "status": "machine-drafted",
-    "source_hash": "c289be0c88357a56"
-  },
-  "template.bodyweight_travel_3x.t1.name": {
-    "status": "machine-drafted",
-    "source_hash": "2f33e0e7dd0b6c8f"
-  },
-  "template.concurrent_lift_run_4x.cl1.name": {
-    "status": "machine-drafted",
-    "source_hash": "298cdb7680c175df"
-  },
-  "template.concurrent_lift_run_4x.cl2.name": {
-    "status": "machine-drafted",
-    "source_hash": "944f0120fada3975"
-  },
-  "template.concurrent_lift_run_4x.cr1.name": {
-    "status": "machine-drafted",
-    "source_hash": "12ef95712ea04db8"
-  },
-  "template.concurrent_lift_run_4x.cr2.name": {
-    "status": "machine-drafted",
-    "source_hash": "9a0e20c0348df5ff"
-  },
-  "template.concurrent_lift_run_4x.name": {
-    "status": "machine-drafted",
-    "source_hash": "0ad2ad1b596d21db"
-  },
-  "template.concurrent_lift_run_4x.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "52ee965e08ad78f3"
-  },
-  "template.desk_worker_mobility_strength.d1.name": {
-    "status": "machine-drafted",
-    "source_hash": "f167eda60e8167a7"
-  },
-  "template.desk_worker_mobility_strength.d2.name": {
-    "status": "machine-drafted",
-    "source_hash": "722e3f213c6159fc"
-  },
-  "template.desk_worker_mobility_strength.d3.name": {
-    "status": "machine-drafted",
-    "source_hash": "a1dbc6e09bec62e9"
-  },
-  "template.desk_worker_mobility_strength.name": {
-    "status": "machine-drafted",
-    "source_hash": "f24faad70f08253e"
-  },
-  "template.desk_worker_mobility_strength.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "ecaed479e3ed750f"
-  },
-  "template.full_body_beginner_3x.a.name": {
-    "status": "machine-drafted",
-    "source_hash": "75438bbef7c03fac"
-  },
-  "template.full_body_beginner_3x.b.name": {
-    "status": "machine-drafted",
-    "source_hash": "e44e152161ed1a6b"
-  },
-  "template.full_body_beginner_3x.c.name": {
-    "status": "machine-drafted",
-    "source_hash": "d5751058fdd6dc8c"
-  },
-  "template.full_body_beginner_3x.name": {
-    "status": "machine-drafted",
-    "source_hash": "e5c68240ec007dc6"
-  },
-  "template.full_body_beginner_3x.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "240dabc771d1154b"
-  },
-  "template.glute_posterior_emphasis.g1.name": {
-    "status": "machine-drafted",
-    "source_hash": "2d72acbfa47f7f43"
-  },
-  "template.glute_posterior_emphasis.g2.name": {
-    "status": "machine-drafted",
-    "source_hash": "84b8e3655945f22e"
-  },
-  "template.glute_posterior_emphasis.g3.name": {
-    "status": "machine-drafted",
-    "source_hash": "9557b86bb5810b34"
-  },
-  "template.glute_posterior_emphasis.name": {
-    "status": "machine-drafted",
-    "source_hash": "246fd1c5acf15af4"
-  },
-  "template.glute_posterior_emphasis.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "c00a7f2f179f5469"
-  },
-  "template.home_minimal_3x.h1.name": {
-    "status": "machine-drafted",
-    "source_hash": "8f266d67bc922b4f"
-  },
-  "template.home_minimal_3x.h2.name": {
-    "status": "machine-drafted",
-    "source_hash": "073593ebc6558363"
-  },
-  "template.home_minimal_3x.h3.name": {
-    "status": "machine-drafted",
-    "source_hash": "76ead6a87e12e934"
-  },
-  "template.home_minimal_3x.name": {
-    "status": "machine-drafted",
-    "source_hash": "4d303d9b85a4688f"
-  },
-  "template.home_minimal_3x.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "beb0b9bf4cf97f34"
-  },
-  "template.home_minimal_3x.session.h1.item.0.notes": {
-    "status": "machine-drafted",
-    "source_hash": "9ac03f2fe0407872"
-  },
-  "template.hypertrophy_dumbbell_4x.dl1.name": {
-    "status": "machine-drafted",
-    "source_hash": "6eb3bbddbc9cb51e"
-  },
-  "template.hypertrophy_dumbbell_4x.dl2.name": {
-    "status": "machine-drafted",
-    "source_hash": "43ba8235b65581f6"
-  },
-  "template.hypertrophy_dumbbell_4x.du1.name": {
-    "status": "machine-drafted",
-    "source_hash": "41dd03e548807e94"
-  },
-  "template.hypertrophy_dumbbell_4x.du2.name": {
-    "status": "machine-drafted",
-    "source_hash": "ddfcfe231d1a091d"
-  },
-  "template.hypertrophy_dumbbell_4x.name": {
-    "status": "machine-drafted",
-    "source_hash": "523ae72c5d939f54"
-  },
-  "template.hypertrophy_dumbbell_4x.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "7d571bd76f4bb6f5"
-  },
-  "template.hypertrophy_dumbbell_4x.session.du2.item.3.notes": {
-    "status": "machine-drafted",
-    "source_hash": "4bac0b99941de558"
-  },
-  "template.older_adult_functional_3x.name": {
-    "status": "machine-drafted",
-    "source_hash": "e72e6aa4b58553a6"
-  },
-  "template.older_adult_functional_3x.o1.name": {
-    "status": "machine-drafted",
-    "source_hash": "5f33bba63476114a"
-  },
-  "template.older_adult_functional_3x.o2.name": {
-    "status": "machine-drafted",
-    "source_hash": "5a931f9be690d1b6"
-  },
-  "template.older_adult_functional_3x.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "2b0a8e3dcfd5e979"
-  },
-  "template.pilates_core_3x.name": {
-    "status": "machine-drafted",
-    "source_hash": "afbcca546479de98"
-  },
-  "template.pilates_core_3x.p1.name": {
-    "status": "machine-drafted",
-    "source_hash": "9c183cf132016fb4"
-  },
-  "template.pilates_core_3x.p2.name": {
-    "status": "machine-drafted",
-    "source_hash": "429abacf36356a69"
-  },
-  "template.pilates_core_3x.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "4835cf2d5146d14e"
-  },
-  "template.ppl_6x.legs.name": {
-    "status": "machine-drafted",
-    "source_hash": "38557594d0fce7fe"
-  },
-  "template.ppl_6x.name": {
-    "status": "machine-drafted",
-    "source_hash": "9e56fd1ff1c3b189"
-  },
-  "template.ppl_6x.pull.name": {
-    "status": "machine-drafted",
-    "source_hash": "b66d044181a0e296"
-  },
-  "template.ppl_6x.push.name": {
-    "status": "machine-drafted",
-    "source_hash": "731ce7ed808913b2"
-  },
-  "template.ppl_6x.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "9b3881b1b1c344d9"
-  },
-  "template.strength_focus_3x.name": {
-    "status": "machine-drafted",
-    "source_hash": "8e4011fd14ad0ea1"
-  },
-  "template.strength_focus_3x.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "6cbd3dfd18318ece"
-  },
-  "template.strength_focus_3x.s1.name": {
-    "status": "machine-drafted",
-    "source_hash": "f51fa1f69a5751f1"
-  },
-  "template.strength_focus_3x.s2.name": {
-    "status": "machine-drafted",
-    "source_hash": "ec1ff09b752d39c1"
-  },
-  "template.strength_focus_3x.s3.name": {
-    "status": "machine-drafted",
-    "source_hash": "06d09026ac2d2888"
-  },
-  "template.swim_technique_3x.name": {
-    "status": "machine-drafted",
-    "source_hash": "45152c80487718e1"
-  },
-  "template.swim_technique_3x.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "5236bc7b5e2be4e5"
-  },
-  "template.swim_technique_3x.sw1.name": {
-    "status": "machine-drafted",
-    "source_hash": "e24896247487d42b"
-  },
-  "template.swim_technique_3x.sw2.name": {
-    "status": "machine-drafted",
-    "source_hash": "5a59269d9de19354"
-  },
-  "template.swim_technique_3x.sw3.name": {
-    "status": "machine-drafted",
-    "source_hash": "0619927c18b50ed9"
-  },
-  "template.upper_lower_4x.l1.name": {
-    "status": "machine-drafted",
-    "source_hash": "4398f5f1f9ddd356"
-  },
-  "template.upper_lower_4x.l2.name": {
-    "status": "machine-drafted",
-    "source_hash": "0bc88554b339f8a2"
-  },
-  "template.upper_lower_4x.name": {
-    "status": "machine-drafted",
-    "source_hash": "b77b826c6efb9425"
-  },
-  "template.upper_lower_4x.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "7e926a61c2d5921c"
-  },
-  "template.upper_lower_4x.u1.name": {
-    "status": "machine-drafted",
-    "source_hash": "f823d504b702340d"
-  },
-  "template.upper_lower_4x.u2.name": {
-    "status": "machine-drafted",
-    "source_hash": "6434bd54f1bd0bff"
-  },
-  "template.yoga_mobility_flow.name": {
-    "status": "machine-drafted",
-    "source_hash": "12131a51ffd136c2"
-  },
-  "template.yoga_mobility_flow.rationale": {
-    "status": "machine-drafted",
-    "source_hash": "2d7f398a422dfae2"
-  },
-  "template.yoga_mobility_flow.y1.name": {
-    "status": "machine-drafted",
-    "source_hash": "f0a8279565d0d5f9"
-  },
-  "template.yoga_mobility_flow.y2.name": {
-    "status": "machine-drafted",
-    "source_hash": "9aecbd3999664b04"
   }
 }

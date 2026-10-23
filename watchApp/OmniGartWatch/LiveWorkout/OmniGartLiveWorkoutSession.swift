@@ -7,12 +7,12 @@ import HealthKit
 final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
     @Published private(set) var kind: OmniGartWorkoutKind
     @Published private(set) var heartRateBpm: Int = 0
-    @Published private(set) var activeEnergyKcal: Double = 0
-    @Published private(set) var basalEnergyKcal: Double = 0
+    @Published var activeEnergyKcal: Double = 0
+    @Published var basalEnergyKcal: Double = 0
     @Published private(set) var elapsed: TimeInterval = 0
-    @Published private(set) var isRunning: Bool = false
-    @Published private(set) var isPaused: Bool = false
-    @Published private(set) var lastError: String?
+    @Published var isRunning: Bool = false
+    @Published var isPaused: Bool = false
+    @Published var lastError: String?
     @Published private(set) var heartRateSamples: [Zone2HeartRateSample] = []
     @Published private(set) var segmentCount: Int = 0
 
@@ -107,7 +107,7 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         pauseBeganAt = Date()
         isPaused = true
         let at = Date()
-        events.append(HKWorkoutEvent(type: .pause, dateInterval: DateInterval(start: at, duration: 1)))
+        events.append(HKWorkoutEvent(type: .pause, dateInterval: DateInterval(start: at, duration: 1), metadata: nil))
     }
 
     func resume() {
@@ -119,7 +119,7 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         pauseBeganAt = nil
         isPaused = false
         let at = Date()
-        events.append(HKWorkoutEvent(type: .resume, dateInterval: DateInterval(start: at, duration: 1)))
+        events.append(HKWorkoutEvent(type: .resume, dateInterval: DateInterval(start: at, duration: 1), metadata: nil))
     }
 
     /// Marks a segment boundary (exercise / pose block).
@@ -232,7 +232,7 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         }
     }
 
-    private func ingestHeartRate(_ bpm: Double, at date: Date) {
+    func ingestHeartRate(_ bpm: Double, at date: Date) {
         let value = Int(bpm.rounded())
         heartRateBpm = value
         let offset = startedAt.map { date.timeIntervalSince($0) } ?? elapsed

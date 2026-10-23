@@ -1,23 +1,25 @@
 plugins {
-    kotlin("multiplatform")
-    kotlin("plugin.serialization")
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ktlint)
+    alias(libs.plugins.detekt)
 }
 
 kotlin {
     jvm()
     sourceSets {
         commonMain.dependencies {
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.12.0")
+            implementation(libs.kotlinx.serialization.json)
         }
         commonTest.dependencies {
-            implementation(kotlin("test"))
+            implementation(libs.kotlin.test)
         }
         jvmMain.dependencies {
-            implementation("com.networknt:json-schema-validator:2.0.8")
-            implementation("com.fasterxml.jackson.core:jackson-databind:2.22.4")
+            implementation(libs.json.schema.validator)
+            implementation(libs.jackson.databind)
         }
         jvmTest.dependencies {
-            implementation(kotlin("test"))
+            implementation(libs.kotlin.test)
         }
     }
 }
@@ -29,7 +31,7 @@ tasks.withType<Test>().configureEach {
 tasks.named<Test>("jvmTest") {
     systemProperty(
         "omnigart.content.root",
-        rootProject.projectDir.resolve("content/exercises").absolutePath,
+        rootProject.projectDir.resolve("content/exercises").absolutePath
     )
     systemProperty(
         "omnigart.yoga.root",
@@ -39,4 +41,16 @@ tasks.named<Test>("jvmTest") {
         "omnigart.pilates.root",
         rootProject.projectDir.resolve("content/pilates").absolutePath,
     )
+}
+
+ktlint {
+    filter {
+        exclude("**/generated/**")
+        exclude("**/build/**")
+    }
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    config.setFrom(files("${rootProject.projectDir}/config/detekt/detekt.yml"))
 }

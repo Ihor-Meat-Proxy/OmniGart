@@ -107,7 +107,8 @@ enum WorkoutPdfRenderer {
         )
     }
 
-    private static var fontsRegistered = false
+    // One-shot CTFont registration; safe to race (idempotent register).
+    nonisolated(unsafe) private static var fontsRegistered = false
     private static func registerFontsIfNeeded() {
         guard !fontsRegistered else { return }
         fontsRegistered = true

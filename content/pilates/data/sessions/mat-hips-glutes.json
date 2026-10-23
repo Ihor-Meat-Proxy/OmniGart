@@ -1,0 +1,65 @@
+{
+  "id": "mat-hips-glutes",
+  "nameKeys": {
+    "enGB": "pilates.session.mat_hips_glutes.name",
+    "uk": "pilates.session.mat_hips_glutes.name"
+  },
+  "descriptionKeys": {
+    "enGB": "pilates.session.mat_hips_glutes.description",
+    "uk": "pilates.session.mat_hips_glutes.description"
+  },
+  "level": "intermediate",
+  "durationMinutes": 30,
+  "apparatus": "mat",
+  "focus": "hips_glutes",
+  "exerciseIds": [
+    "pilates-shoulder-bridge",
+    "pilates-side-kick-front-back",
+    "pilates-side-kick-circles",
+    "pilates-side-plank",
+    "pilates-single-leg-circle",
+    "pilates-magic-circle-squeeze"
+  ],
+  "blocks": [
+    {
+      "titleKey": "pilates.session.mat_hips_glutes.block_main",
+      "items": [
+        {
+          "exerciseId": "pilates-shoulder-bridge",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "pilates-side-kick-front-back",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "pilates-side-kick-circles",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "pilates-side-plank",
+          "sets": 1,
+          "seconds": 20
+        },
+        {
+          "exerciseId": "pilates-single-leg-circle",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "pilates-magic-circle-squeeze",
+          "sets": 1,
+          "reps": 12
+        }
+      ]
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber-acsm-2011",
+    "acsm-rt-2026"
+  ],
+  "bundled": true
+}

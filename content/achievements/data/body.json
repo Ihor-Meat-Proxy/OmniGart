@@ -1,0 +1,288 @@
+[
+  {
+    "id": "body.first_measurement",
+    "category": "body",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "measurements_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1,
+      "filters": {
+        "excludeWeightLossRate": true
+      }
+    },
+    "iconId": "measurements",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.body.first_measurement.title",
+    "descriptionKey": "achievement.body.first_measurement.description",
+    "healthyNotes": "Presence of measuring; no target body shape."
+  },
+  {
+    "id": "body.measurement_days",
+    "category": "body",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 4
+      },
+      {
+        "id": "silver",
+        "threshold": 12
+      },
+      {
+        "id": "gold",
+        "threshold": 26
+      },
+      {
+        "id": "platinum",
+        "threshold": 52
+      }
+    ],
+    "rule": {
+      "metric": "measurement_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "excludeWeightLossRate": true
+      }
+    },
+    "iconId": "measurements",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.body.measurement_days.title",
+    "descriptionKey": "achievement.body.measurement_days.description",
+    "healthyNotes": "Consistency of measuring, not reaching a body shape."
+  },
+  {
+    "id": "body.streak",
+    "category": "body",
+    "type": "streak",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 2
+      },
+      {
+        "id": "silver",
+        "threshold": 4
+      },
+      {
+        "id": "gold",
+        "threshold": 8
+      },
+      {
+        "id": "platinum",
+        "threshold": 12
+      }
+    ],
+    "rule": {
+      "metric": "measurement_days",
+      "aggregation": "streak",
+      "window": {
+        "kind": "streak_days",
+        "qualify": "log",
+        "restDayTolerancePerWeek": 3,
+        "freezeTokensAllowed": true,
+        "maxFreezePerStreak": 2
+      },
+      "compare": "gte",
+      "filters": {
+        "excludeWeightLossRate": true
+      }
+    },
+    "iconId": "streak",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.body.streak.title",
+    "descriptionKey": "achievement.body.streak.description",
+    "healthyNotes": "Sparse streak — measuring daily is not required or rewarded."
+  },
+  {
+    "id": "body.month_checkins",
+    "category": "body",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 2
+      }
+    ],
+    "rule": {
+      "metric": "measurement_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "challenge_period",
+        "period": "current_month"
+      },
+      "compare": "gte",
+      "threshold": 2,
+      "filters": {
+        "excludeWeightLossRate": true
+      }
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.body.month_checkins.title",
+    "descriptionKey": "achievement.body.month_checkins.description"
+  },
+  {
+    "id": "body.kinds_variety",
+    "category": "body",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 1
+      },
+      {
+        "id": "silver",
+        "threshold": 2
+      },
+      {
+        "id": "gold",
+        "threshold": 3
+      },
+      {
+        "id": "platinum",
+        "threshold": 4
+      }
+    ],
+    "rule": {
+      "metric": "measurements_logged",
+      "aggregation": "distinct",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "excludeWeightLossRate": true
+      }
+    },
+    "iconId": "measurements",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.body.kinds_variety.title",
+    "descriptionKey": "achievement.body.kinds_variety.description"
+  },
+  {
+    "id": "body.secret_tape",
+    "category": "body",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "measurements_logged",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1,
+      "filters": {
+        "measurementKind": [
+          "girth"
+        ],
+        "excludeWeightLossRate": true
+      }
+    },
+    "iconId": "measurements",
+    "hidden": true,
+    "repeatable": false,
+    "titleKey": "achievement.body.secret_tape.title",
+    "descriptionKey": "achievement.body.secret_tape.description"
+  },
+  {
+    "id": "body.quarter_habit",
+    "category": "body",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 6
+      }
+    ],
+    "rule": {
+      "metric": "measurement_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "rolling_days",
+        "days": 90
+      },
+      "compare": "gte",
+      "threshold": 6,
+      "filters": {
+        "excludeWeightLossRate": true
+      }
+    },
+    "iconId": "measurements",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.body.quarter_habit.title",
+    "descriptionKey": "achievement.body.quarter_habit.description"
+  },
+  {
+    "id": "body.year_of_checkins",
+    "category": "body",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "level_1",
+        "threshold": 6
+      },
+      {
+        "id": "level_2",
+        "threshold": 12
+      },
+      {
+        "id": "level_3",
+        "threshold": 18
+      },
+      {
+        "id": "level_4",
+        "threshold": 24
+      },
+      {
+        "id": "level_5",
+        "threshold": 36
+      }
+    ],
+    "rule": {
+      "metric": "measurement_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "calendar",
+        "unit": "month",
+        "count": 12
+      },
+      "compare": "gte",
+      "filters": {
+        "excludeWeightLossRate": true
+      }
+    },
+    "iconId": "measurements",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.body.year_of_checkins.title",
+    "descriptionKey": "achievement.body.year_of_checkins.description"
+  }
+]

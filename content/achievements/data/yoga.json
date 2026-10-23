@@ -1,0 +1,373 @@
+[
+  {
+    "id": "yoga.first_practice",
+    "category": "yoga",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1,
+      "filters": {
+        "discipline": [
+          "yoga"
+        ]
+      }
+    },
+    "iconId": "yoga",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.yoga.first_practice.title",
+    "descriptionKey": "achievement.yoga.first_practice.description"
+  },
+  {
+    "id": "yoga.minutes",
+    "category": "yoga",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 60
+      },
+      {
+        "id": "silver",
+        "threshold": 300
+      },
+      {
+        "id": "gold",
+        "threshold": 1000
+      },
+      {
+        "id": "platinum",
+        "threshold": 3000
+      }
+    ],
+    "rule": {
+      "metric": "yoga_minutes",
+      "aggregation": "sum",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte"
+    },
+    "iconId": "yoga",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.yoga.minutes.title",
+    "descriptionKey": "achievement.yoga.minutes.description"
+  },
+  {
+    "id": "yoga.sessions",
+    "category": "yoga",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 5
+      },
+      {
+        "id": "silver",
+        "threshold": 20
+      },
+      {
+        "id": "gold",
+        "threshold": 50
+      },
+      {
+        "id": "platinum",
+        "threshold": 150
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "yoga"
+        ]
+      }
+    },
+    "iconId": "yoga",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.yoga.sessions.title",
+    "descriptionKey": "achievement.yoga.sessions.description"
+  },
+  {
+    "id": "yoga.streak",
+    "category": "yoga",
+    "type": "streak",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 3
+      },
+      {
+        "id": "silver",
+        "threshold": 10
+      },
+      {
+        "id": "gold",
+        "threshold": 21
+      },
+      {
+        "id": "platinum",
+        "threshold": 40
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "streak",
+      "window": {
+        "kind": "streak_days",
+        "qualify": "activity_or_planned_rest",
+        "restDayTolerancePerWeek": 2,
+        "freezeTokensAllowed": true,
+        "maxFreezePerStreak": 3
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "yoga"
+        ]
+      }
+    },
+    "iconId": "streak",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.yoga.streak.title",
+    "descriptionKey": "achievement.yoga.streak.description"
+  },
+  {
+    "id": "yoga.long_flow",
+    "category": "yoga",
+    "type": "single_session",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 20
+      },
+      {
+        "id": "silver",
+        "threshold": 45
+      },
+      {
+        "id": "gold",
+        "threshold": 60
+      },
+      {
+        "id": "platinum",
+        "threshold": 90
+      }
+    ],
+    "rule": {
+      "metric": "session_duration_min",
+      "aggregation": "max",
+      "window": {
+        "kind": "single_event"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "yoga"
+        ]
+      }
+    },
+    "iconId": "yoga",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.yoga.long_flow.title",
+    "descriptionKey": "achievement.yoga.long_flow.description"
+  },
+  {
+    "id": "yoga.month_challenge",
+    "category": "yoga",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 8
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "challenge_period",
+        "period": "current_month"
+      },
+      "compare": "gte",
+      "threshold": 8,
+      "filters": {
+        "discipline": [
+          "yoga"
+        ]
+      }
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.yoga.month_challenge.title",
+    "descriptionKey": "achievement.yoga.month_challenge.description"
+  },
+  {
+    "id": "yoga.mobility_pair",
+    "category": "yoga",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 2
+      }
+    ],
+    "rule": {
+      "metric": "disciplines_tried",
+      "aggregation": "distinct",
+      "window": {
+        "kind": "rolling_days",
+        "days": 7
+      },
+      "compare": "gte",
+      "threshold": 2,
+      "filters": {
+        "discipline": [
+          "yoga",
+          "strength"
+        ]
+      }
+    },
+    "iconId": "yoga",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.yoga.mobility_pair.title",
+    "descriptionKey": "achievement.yoga.mobility_pair.description"
+  },
+  {
+    "id": "yoga.secret_stillness",
+    "category": "yoga",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "session_duration_min",
+      "aggregation": "max",
+      "window": {
+        "kind": "single_event"
+      },
+      "compare": "gte",
+      "threshold": 10,
+      "filters": {
+        "discipline": [
+          "yoga"
+        ]
+      }
+    },
+    "iconId": "yoga",
+    "hidden": true,
+    "repeatable": false,
+    "titleKey": "achievement.yoga.secret_stillness.title",
+    "descriptionKey": "achievement.yoga.secret_stillness.description"
+  },
+  {
+    "id": "yoga.week_minutes",
+    "category": "yoga",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 30
+      },
+      {
+        "id": "silver",
+        "threshold": 60
+      },
+      {
+        "id": "gold",
+        "threshold": 90
+      },
+      {
+        "id": "platinum",
+        "threshold": 120
+      }
+    ],
+    "rule": {
+      "metric": "yoga_minutes",
+      "aggregation": "sum",
+      "window": {
+        "kind": "calendar",
+        "unit": "week",
+        "count": 1
+      },
+      "compare": "gte"
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.yoga.week_minutes.title",
+    "descriptionKey": "achievement.yoga.week_minutes.description"
+  },
+  {
+    "id": "yoga.year_practice",
+    "category": "yoga",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "level_1",
+        "threshold": 20
+      },
+      {
+        "id": "level_2",
+        "threshold": 50
+      },
+      {
+        "id": "level_3",
+        "threshold": 80
+      },
+      {
+        "id": "level_4",
+        "threshold": 100
+      },
+      {
+        "id": "level_5",
+        "threshold": 150
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "calendar",
+        "unit": "month",
+        "count": 12
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "yoga"
+        ]
+      }
+    },
+    "iconId": "yoga",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.yoga.year_practice.title",
+    "descriptionKey": "achievement.yoga.year_practice.description"
+  }
+]

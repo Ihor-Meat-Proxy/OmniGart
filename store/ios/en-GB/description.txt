@@ -1,0 +1,3 @@
+OmniGart is a wellness and training companion. Track workouts, food, hydration, and recovery with on-device estimates for readiness, stress, HRV, body composition, and plans tailored to your goals.
+
+These figures are wellness estimates, not medical advice. Consult a qualified professional for health concerns. Stop activity and seek emergency help if you feel chest pain, severe dizziness, or unusual shortness of breath.

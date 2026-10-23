@@ -1,0 +1,80 @@
+{
+  "id": "goblet-lateral-squat",
+  "nameKeys": {
+    "enGB": "exercise.goblet_lateral_squat.name",
+    "uk": "exercise.goblet_lateral_squat.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "lunge",
+  "primaryMuscles": [
+    "quadriceps",
+    "adductors",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "gluteus_medius"
+  ],
+  "equipment": [
+    "kettlebell",
+    "dumbbell"
+  ],
+  "level": "intermediate",
+  "unilateral": true,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Hold a goblet load; shift into one hip like a lateral lunge while the other leg stays long; alternate."
+  ],
+  "setup": [
+    "Wide stance; heels down."
+  ],
+  "breathing": "Exhale to return to centre.",
+  "commonMistakes": [
+    "Collapsing chest",
+    "Twisting the foot of the straight leg"
+  ],
+  "safety": [
+    "Combines squat & frontal plane mobility."
+  ],
+  "contraindications": [
+    "Groin irritation"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "lateral-lunge",
+      "note": "Stepping version"
+    },
+    {
+      "exerciseId": "goblet-squat",
+      "note": "Sagittal"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/goblet-lateral-squat",
+    "videoKey": "media/video/goblet-lateral-squat",
+    "animationKey": "media/anim/goblet-lateral-squat"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

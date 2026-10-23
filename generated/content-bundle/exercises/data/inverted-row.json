@@ -1,0 +1,125 @@
+{
+  "id": "inverted-row",
+  "nameKeys": {
+    "enGB": "exercise.inverted_row.name",
+    "uk": "exercise.inverted_row.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "rhomboids"
+  ],
+  "secondaryMuscles": [
+    "biceps",
+    "rear_deltoid",
+    "rectus_abdominis",
+    "trapezius"
+  ],
+  "equipment": [
+    "suspension",
+    "pull_up_bar",
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Hang under a bar or rings with the body straight, heels down; pull the chest to the bar; lower with control.",
+    "Raise the feet or lower the bar to progress difficulty."
+  ],
+  "setup": [
+    "Bar height sets difficulty; hollow/brace the trunk; neutral neck."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Hips sagging",
+    "Pulling only with the arms and poking the chin"
+  ],
+  "safety": [
+    "Primary regression for vertical pull-ups; keep a rigid plank line."
+  ],
+  "contraindications": [
+    "Acute low-back pain with bridging positions — bend knees"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "seated-cable-row",
+      "note": "Seated machine"
+    },
+    {
+      "exerciseId": "chest-supported-row",
+      "note": "Supported row"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "scapular-pull-up",
+      "note": "Vertical hang pattern"
+    },
+    {
+      "exerciseId": "assisted-pull-up-band",
+      "note": "Vertical with help"
+    },
+    {
+      "exerciseId": "pull-up",
+      "note": "Full vertical pull-up"
+    },
+    {
+      "exerciseId": "negative-pull-up",
+      "note": "Vertical eccentrics"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1016/0021-9290(95)00178-6",
+      "label": "de Leva 1996 — adjusted segmental mass proportions (Zatsiorsky–Seluyanov)",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand (overview of reviews)",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/inverted-row",
+    "videoKey": "media/video/inverted-row",
+    "animationKey": "media/anim/inverted-row"
+  },
+  "aliases": [
+    "Australian pull-up",
+    "bodyweight row"
+  ],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.6,
+    "basis": "estimate",
+    "rationale": "Feet on floor; load scales with body angle. Mid-range estimate ~0.5–0.7 of BM. No dedicated GRF paper cited here — estimate from segmental support logic (de Leva) and closed-chain row practice."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
+}

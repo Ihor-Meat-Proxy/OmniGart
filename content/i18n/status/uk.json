@@ -1,4 +1,100 @@
 {
+  "beverage.almond_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "04f29ad49dc43d0a"
+  },
+  "beverage.americano.name": {
+    "status": "machine-drafted",
+    "source_hash": "86bfb183104e3b86"
+  },
+  "beverage.beer.name": {
+    "status": "machine-drafted",
+    "source_hash": "2758060bedd99ddd"
+  },
+  "beverage.black_tea.name": {
+    "status": "machine-drafted",
+    "source_hash": "ff49ce9a7851305f"
+  },
+  "beverage.cappuccino.name": {
+    "status": "machine-drafted",
+    "source_hash": "479ef320081b6d89"
+  },
+  "beverage.espresso.name": {
+    "status": "machine-drafted",
+    "source_hash": "e25dc4762c339fa6"
+  },
+  "beverage.filter_coffee.name": {
+    "status": "machine-drafted",
+    "source_hash": "6e3ea0a33a75e088"
+  },
+  "beverage.flat_white.name": {
+    "status": "machine-drafted",
+    "source_hash": "b33ea90352ba2901"
+  },
+  "beverage.green_tea.name": {
+    "status": "machine-drafted",
+    "source_hash": "e2029462d80da658"
+  },
+  "beverage.herbal_tea.name": {
+    "status": "machine-drafted",
+    "source_hash": "b4a3336c2aca8a24"
+  },
+  "beverage.instant_coffee.name": {
+    "status": "machine-drafted",
+    "source_hash": "63091135c49d87cc"
+  },
+  "beverage.kefir.name": {
+    "status": "machine-drafted",
+    "source_hash": "2c282ac573772c56"
+  },
+  "beverage.latte.name": {
+    "status": "machine-drafted",
+    "source_hash": "5cf054995329c0e3"
+  },
+  "beverage.oat_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "2a1ed2518bcba130"
+  },
+  "beverage.orange_juice.name": {
+    "status": "machine-drafted",
+    "source_hash": "94bafc06ab843cf8"
+  },
+  "beverage.semi_skimmed_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "5c9e7233624604ef"
+  },
+  "beverage.skimmed_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "fce63bdb6a9f7dd2"
+  },
+  "beverage.soft_drink_cola.name": {
+    "status": "machine-drafted",
+    "source_hash": "82981451f51c631f"
+  },
+  "beverage.soy_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "c7f79bcc99251b6e"
+  },
+  "beverage.sparkling_water.name": {
+    "status": "machine-drafted",
+    "source_hash": "bb1955db1289b592"
+  },
+  "beverage.sports_drink.name": {
+    "status": "machine-drafted",
+    "source_hash": "b06afed2591eaf24"
+  },
+  "beverage.water.name": {
+    "status": "machine-drafted",
+    "source_hash": "7ca7dea906800f87"
+  },
+  "beverage.whole_milk.name": {
+    "status": "machine-drafted",
+    "source_hash": "76d8ae3e8b0d595b"
+  },
+  "beverage.wine.name": {
+    "status": "machine-drafted",
+    "source_hash": "3889e6c049489fc3"
+  },
   "exercise.a_skip.breathing": {
     "status": "machine-drafted",
     "source_hash": "53392b7abbba35cd"
@@ -6006,6 +6102,18 @@
   "exercise.wrist_curl.technique.0": {
     "status": "machine-drafted",
     "source_hash": "c9f0c40104abd914"
+  },
+  "hydration.counting.info": {
+    "status": "machine-drafted",
+    "source_hash": "f070c0fbee45c334"
+  },
+  "hydration.norm.efsa_default": {
+    "status": "machine-drafted",
+    "source_hash": "bfcb92745ba478b9"
+  },
+  "hydration.norm.weight_weak": {
+    "status": "machine-drafted",
+    "source_hash": "89333e07a7e8d1a1"
   },
   "template.beginner_5k_8w.name": {
     "status": "machine-drafted",

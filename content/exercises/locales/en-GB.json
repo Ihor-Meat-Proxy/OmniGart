@@ -1300,5 +1300,22 @@
   "template.strength_focus_3x.rationale": "Novice linear progression on squat/hinge/press/pull compounds with conservative accessories, consistent with ACSM RT overview emphasis on multi-joint loading.",
   "template.swim_technique_3x.rationale": "Prioritise drill density before yardage so aerobic volume does not entrench poor mechanics; easy aerobic dominance still applies when conditioning.",
   "template.upper_lower_4x.rationale": "Four-day upper/lower keeps ~2× weekly frequency per muscle while allowing higher per-session volume within Schoenfeld/Pelland dose–response bands.",
-  "template.yoga_mobility_flow.rationale": "Flexibility and neuromotor practice on ≥2–3 days/week aligns with ACSM quantity/quality guidance; poses stay beginner-accessible."
+  "template.yoga_mobility_flow.rationale": "Flexibility and neuromotor practice on ≥2–3 days/week aligns with ACSM quantity/quality guidance; poses stay beginner-accessible.",
+  "exercise.archer_pull_up.name": "Archer pull-up",
+  "exercise.band_assisted_dip.name": "Band-assisted dip",
+  "exercise.bench_dip.name": "Bench dip",
+  "exercise.close_grip_pull_up.name": "Close-grip pull-up",
+  "exercise.commando_pull_up.name": "Commando pull-up",
+  "exercise.korean_dip.name": "Korean dip",
+  "exercise.l_sit_pull_up.name": "L-sit pull-up",
+  "exercise.machine_assisted_dip.name": "Machine-assisted dip",
+  "exercise.machine_assisted_pull_up.name": "Machine-assisted pull-up",
+  "exercise.negative_dip.name": "Negative dip (eccentric)",
+  "exercise.negative_pull_up.name": "Negative pull-up (eccentric)",
+  "exercise.neutral_grip_pull_up.name": "Neutral-grip pull-up",
+  "exercise.scapular_pull_up.name": "Scapular pull-up",
+  "exercise.straight_bar_dip.name": "Straight-bar dip",
+  "exercise.typewriter_pull_up.name": "Typewriter pull-up",
+  "exercise.weighted_dip.name": "Weighted dip",
+  "exercise.wide_grip_pull_up.name": "Wide-grip pull-up"
 }

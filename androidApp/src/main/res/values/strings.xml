@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OmniGart</string>
+    <string name="tab_food">Food</string>
+    <string name="tab_workouts">Workouts</string>
+    <string name="tab_recovery">Recovery</string>
+    <string name="tab_planner">Planner</string>
+    <string name="tab_profile">Profile</string>
+    <string name="shell_placeholder">Phase 0 shell — data from shared core</string>
+</resources>

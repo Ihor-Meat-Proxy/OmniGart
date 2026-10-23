@@ -166,3 +166,16 @@ data class QuickMacroAdd(
     val carbsG: Double = 0.0,
     val fatG: Double = 0.0
 )
+
+/** Quick serving presets for catalogue foods. */
+enum class QuickServing {
+    ONE_SERVING,
+    PER_100_G,
+    PACK
+}
+
+fun CatalogueFood.gramsFor(serving: QuickServing, packGrams: Double = 100.0): Double = when (serving) {
+    QuickServing.ONE_SERVING -> 100.0
+    QuickServing.PER_100_G -> 100.0
+    QuickServing.PACK -> packGrams.coerceAtLeast(1.0)
+}

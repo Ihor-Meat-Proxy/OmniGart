@@ -85,8 +85,11 @@ struct FoodTabView: View {
                 }
             }
             FoodSearchPanel(core: core, profileId: profileId, tick: $tick)
-            FoodGapsPanel()
+            FoodRecentsFavouritesPanel(core: core, profileId: profileId, tick: $tick)
+            FoodGapsPanel(core: core, profileId: profileId, tick: tick)
+            FoodToolsPanel(core: core, profileId: profileId, tick: $tick)
             FoodMorningReviewPanel(core: core, profileId: profileId)
+            FoodSettingsPanel(core: core, profileId: profileId)
             Section {
                 Text("food_attribution_short")
                     .font(.caption2)

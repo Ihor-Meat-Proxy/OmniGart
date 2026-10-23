@@ -227,6 +227,50 @@ class FoodLoggingTest {
     }
 
     @Test
+    fun usdaPack_parsesFixtureManifest() {
+        val manifest =
+            """
+            {"schema":"omnigart.usda.pack/v1","title":"demo","foodCount":1,"foodsFile":"foods.ndjson"}
+            """.trimIndent()
+        val foods =
+            """
+            {"id":"x","name":"Test","energyKcalPer100g":100.0}
+            """.trimIndent()
+        val pack = com.omnigart.shared.food.catalogue.UsdaPackParser.parsePack(manifest, foods)
+        assertEquals(1, pack.foods.size)
+        assertEquals(FoodSource.USDA, pack.foods.first().source)
+    }
+
+    @Test
+    fun jsonDiary_sealsWithEncryptor() {
+        var blob: String? = null
+        val xor =
+            object : com.omnigart.shared.food.privacy.FoodAtRestEncryptor {
+                override fun seal(plainUtf8: String): String = plainUtf8.reversed()
+
+                override fun open(sealed: String): String = sealed.reversed()
+            }
+        val store =
+            com.omnigart.shared.food.diary.JsonFoodDiaryStore(
+                load = { blob },
+                save = { blob = it },
+                encryptor = xor
+            )
+        val svc = FoodLoggingService(store = store)
+        svc.quickAdd("p1", QuickMacroAdd("Sealed", 100.0), at = Instant.parse("2024-06-01T12:00:00Z"))
+        assertNotNull(blob)
+        assertFalse(blob!!.contains("Sealed"))
+        val dayEntries =
+            store.entriesForRange(
+                "p1",
+                Instant.parse("2024-06-01T00:00:00Z"),
+                Instant.parse("2024-06-02T00:00:00Z")
+            )
+        assertTrue(dayEntries.any { it.name == "Sealed" })
+        assertTrue(com.omnigart.shared.food.catalogue.UsdaSqliteSchema.CREATE_SQL.contains("usda_food"))
+    }
+
+    @Test
     fun copyDay_duplicatesEntries() {
         val svc = FoodLoggingService(store = InMemoryFoodDiaryStore())
         svc.quickAdd(

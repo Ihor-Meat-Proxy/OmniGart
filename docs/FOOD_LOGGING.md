@@ -30,15 +30,20 @@ Food logging depends on a **small read interface** for energy/macro targets and 
 ## Logging features
 
 - Meal groups: breakfast / lunch / dinner / snacks (+ custom label)
-- Quick servings (100 g default from catalogue; quick kcal/macro add)
+- Quick servings: 1 serving / 100 g / pack (`QuickServing`)
 - Recents, favourites, custom foods, repeat item, copy a day
 - Each row records `FoodSource`: `CUSTOM` / `USDA` / `OPEN_FOOD_FACTS`
 - CSV and JSON import/export (reviews included in JSON)
+- Barcode entry + check-digit; Vision / ML Kit label OCR → `NutritionLabelParser`
+- Offline-only toggle; erase-all; start-of-day minutes (coordinates with nutrition-model reader)
+- Attribution screen for USDA + Open Food Facts (ODbL)
 
 ## Nutrient catalogue
 
-- **USDA FoodData Central** (Foundation / SR Legacy / FNDDS) — public domain. Ship a compressed SQLite or optional download; this PR includes a tiny bundled demo slice for tests/UI.
-- **Open Food Facts** — ODbL; Search-a-licious with legacy fallback for branded/barcode. Names follow the user’s language when available.
+- **USDA FoodData Central** (Foundation / SR Legacy / FNDDS) — public domain.
+  - Portable pack: `content/food/fixtures/usda-demo/` (`UsdaPackParser`)
+  - Compressed SQLite: `usda-demo.sqlite` / `.sqlite.gz` (`UsdaSqliteSchema`); optional larger download via `UsdaPackDownloader`
+- **Open Food Facts** — ODbL; `OffOnlineSearchClient` uses Search-a-licious then legacy `search.pl` / product API. Names prefer the user’s language.
 - **Never NCCDB.**
 - Offline-only mode: never send queries online. Online mode privacy note: the query string leaves the device.
 

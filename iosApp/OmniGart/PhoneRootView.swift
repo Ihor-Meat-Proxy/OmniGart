@@ -29,6 +29,9 @@ struct PhoneRootView: View {
                 .accessibilityIdentifier(tab.accessibilityId)
             }
         }
+        // CI boots an iPad simulator; keep a bottom tab bar so tab accessibility
+        // identifiers stay on `tabBars.buttons` instead of the adaptive sidebar.
+        .tabViewStyle(.tabBarOnly)
         .tint(Color.OmniGart.colorBrandAccent)
         .accessibilityIdentifier("phone_shell")
         .sheet(isPresented: $showInfoSheet) {

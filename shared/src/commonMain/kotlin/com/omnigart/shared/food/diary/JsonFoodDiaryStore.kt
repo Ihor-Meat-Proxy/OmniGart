@@ -2,6 +2,8 @@ package com.omnigart.shared.food.diary
 
 import com.omnigart.shared.food.models.CustomFood
 import com.omnigart.shared.food.models.FoodLogEntry
+import com.omnigart.shared.food.privacy.FoodAtRestEncryptor
+import com.omnigart.shared.food.privacy.NoopFoodAtRestEncryptor
 import com.omnigart.shared.food.review.MorningFoodReview
 import com.omnigart.shared.food.settings.FoodSettings
 import kotlin.time.Instant
@@ -11,19 +13,29 @@ import kotlinx.serialization.json.Json
 
 /**
  * File-/string-backed diary so food logging does not fight SQLDelight migrations
- * with parallel nutrition-model work. Platforms persist [snapshot] blobs
- * (Keychain-adjacent app support dir / encrypted prefs when available).
+ * with parallel nutrition-model work. Platforms persist sealed blobs via
+ * [FoodAtRestEncryptor] (AES-GCM / CryptoKit).
  */
-class JsonFoodDiaryStore(private val load: () -> String?, private val save: (String) -> Unit) : FoodDiaryStore {
+class JsonFoodDiaryStore(
+    private val load: () -> String?,
+    private val save: (String) -> Unit,
+    private val encryptor: FoodAtRestEncryptor = NoopFoodAtRestEncryptor
+) : FoodDiaryStore {
     private val json =
         Json {
             ignoreUnknownKeys = true
             encodeDefaults = true
         }
-    private var state: Snapshot = load()?.let { runCatching { json.decodeFromString<Snapshot>(it) }.getOrNull() } ?: Snapshot()
+    private var state: Snapshot =
+        load()
+            ?.let { sealed ->
+                runCatching {
+                    json.decodeFromString<Snapshot>(encryptor.open(sealed))
+                }.getOrNull()
+            } ?: Snapshot()
 
     private fun persist() {
-        save(json.encodeToString(state))
+        save(encryptor.seal(json.encodeToString(state)))
     }
 
     override fun upsert(entry: FoodLogEntry) {

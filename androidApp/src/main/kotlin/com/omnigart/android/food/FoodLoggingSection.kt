@@ -26,8 +26,8 @@ import com.omnigart.shared.compliance.FeatureFlags
 import com.omnigart.shared.food.models.CatalogueFood
 import com.omnigart.shared.food.models.MealGroup
 import com.omnigart.shared.food.models.QuickMacroAdd
+import com.omnigart.shared.food.models.QuickServing
 import com.omnigart.shared.food.nutrients.BiologicalSexBand
-import com.omnigart.shared.food.review.OnDeviceAiAvailability
 import kotlin.time.Clock
 import kotlin.time.Duration.Companion.days
 
@@ -51,24 +51,17 @@ fun FoodLoggingSection(core: OmniGartCore, profileId: String) {
         FoodTotalsBlock(totals.energyKcal, totals.proteinG, totals.carbsG, totals.fatG)
         FoodQuickAddBlock(core, profileId) { tick += 1 }
         FoodSearchBlock(core, profileId) { tick += 1 }
-        Text(
-            text = stringResource(R.string.food_gaps_hint),
-            style = MaterialTheme.typography.bodySmall,
-            color = OmniGartColors.colorTextLightSecondary,
-            modifier = Modifier.testTag("food_gaps")
-        )
+        FoodRecentsBlock(core, profileId) { tick += 1 }
+        FoodFavouritesBlock(core, profileId)
+        FoodBestSourcesBlock(core, profileId)
+        FoodToolsBlock(core, profileId) { tick += 1 }
         FoodMorningReviewBlock(
             core = core,
             profileId = profileId,
             reviewSummary = reviewSummary,
             onSummary = { reviewSummary = it }
         )
-        Text(
-            text = stringResource(R.string.food_attribution_short),
-            style = MaterialTheme.typography.labelSmall,
-            color = OmniGartColors.colorTextLightSecondary,
-            modifier = Modifier.testTag("food_attribution")
-        )
+        FoodSettingsBlock(core, profileId)
     }
 }
 
@@ -146,12 +139,12 @@ private fun FoodSearchBlock(core: OmniGartCore, profileId: String, onLogged: () 
 private fun CatalogueResultButton(core: OmniGartCore, profileId: String, food: CatalogueFood, onLogged: () -> Unit) {
     Button(
         onClick = {
-            core.foodLogging.logFromCatalogue(
-                profileId = profileId,
-                foodId = food.id,
-                grams = 100.0,
-                mealGroup = MealGroup.BREAKFAST,
-                locale = "en-GB"
+            core.foodLogging.logQuickServing(
+                profileId,
+                food.id,
+                QuickServing.PER_100_G,
+                MealGroup.BREAKFAST,
+                "en-GB"
             )
             core.logFood(
                 profileId,
@@ -211,12 +204,6 @@ private fun runMorningReview(core: OmniGartCore, profileId: String): String {
         locale = "en-GB",
         ageYears = age,
         sex = BiologicalSexBand.UNSPECIFIED,
-        availability =
-        OnDeviceAiAvailability(
-            deviceEligible = false,
-            featureEnabled = false,
-            modelReady = false,
-            reasonIfUnavailable = "On-device model not ready on this device"
-        )
+        availability = FoodGeminiNanoAvailability.check()
     ).summary
 }

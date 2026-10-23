@@ -31,18 +31,18 @@ Design + first implementation notes for the rule-based planner and the later Ope
 
 ### Volume landmarks (resistance)
 
-- Weekly hard-set targets per major muscle are guided by the graded dose–response in Schoenfeld et al. 2016 (higher weekly sets → greater hypertrophy on average; DOI `10.1080/02640414.2016.1210197`) and the fractional-set meta-regressions in Pelland et al. 2025/26 (volume helps with diminishing returns; DOI `10.1007/s40279-025-02344-w`).
+- Weekly hard-set targets per major muscle are guided by the graded dose–response in Schoenfeld et al. 2016 (higher weekly sets → greater hypertrophy on average; evidence `schoenfeld_volume_2016`) and the fractional-set meta-regressions in Pelland et al. 2025/26 (volume helps with diminishing returns; evidence `pelland_rt_dose_2025`).
 - Practical default bands used by the engine (explainable constants, not medical orders):
   - Beginner hypertrophy: **~8–12** hard sets / muscle / week
   - Intermediate: **~10–16**
   - Advanced ceiling caution: **~16–20** before prioritising recovery
-- ACSM overview of reviews for RT prescription in healthy adults: DOI `10.1249/MSS.0000000000003897`.
-- Garber et al. ACSM quantity/quality guidance: DOI `10.1249/MSS.0b013e318213fefb`.
+- ACSM overview of reviews for RT prescription in healthy adults: evidence `acsm_resistance_training_2026`.
+- Garber et al. ACSM quantity/quality guidance: evidence `garber_acsm_quantity_2011`.
 
 ### Frequency
 
-- Prefer **≥2 exposures / muscle / week** when volume allows (Schoenfeld et al. 2016 frequency MA favoured ≥2/week vs 1/week when not volume-equated; DOI `10.1007/s40279-016-0543-8`).
-- On a **volume-equated** basis, frequency effects on hypertrophy are small/null (Schoenfeld, Grgic & Krieger 2019; DOI `10.1080/02640414.2018.1555906`) — the engine therefore uses frequency mainly to **spread volume**, not as a magic lever.
+- Prefer **≥2 exposures / muscle / week** when volume allows (Schoenfeld et al. 2016 frequency MA favoured ≥2/week vs 1/week when not volume-equated; evidence `schoenfeld_frequency_2016`).
+- On a **volume-equated** basis, frequency effects on hypertrophy are small/null (Schoenfeld, Grgic & Krieger 2019; evidence `schoenfeld_frequency_2019`) — the engine therefore uses frequency mainly to **spread volume**, not as a magic lever.
 - Pelland et al.: frequency effects clearer for **strength** than hypertrophy under fractional counting.
 
 ### Intensity / RIR
@@ -66,7 +66,7 @@ Design + first implementation notes for the rule-based planner and the later Ope
 
 ### Running / endurance distribution
 
-- Polarised (~80% easy / ~20% hard) mirrors descriptive elite patterns (Seiler 2010; DOI `10.1123/ijspp.5.3.276`, PMID `20861519`) and can work in recreational runners (Muñoz et al.; PMID `23752040`), but is **not** proven universally superior to all other TIDs.
+- Polarised (~80% easy / ~20% hard) mirrors descriptive elite patterns (Seiler 2010; evidence `seiler_intensity_distribution_2010`) and can work in recreational runners (Muñoz et al.; evidence `munoz_polarized_runners_2014`), but is **not** proven universally superior to all other TIDs.
 - **~10% weekly mileage increase**: popular coaching heuristic with **weak trial evidence**; the engine treats it as a soft ceiling with an honest caveat in the `why`, preferring readiness and injury flags over a fixed percent.
 
 ### Readiness daily adjustment

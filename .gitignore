@@ -67,3 +67,7 @@ coverage/
 scripts/content_i18n/_mt_cache/
 scripts/content_i18n/data/
 content/i18n/weblate/
+# Fastlane
+fastlane/vendor/
+fastlane/.bundle/
+

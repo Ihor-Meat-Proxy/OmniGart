@@ -1,0 +1,34 @@
+{
+  "id": "mifflin_st_jeor_1990",
+  "type": "cohort",
+  "title": "A new predictive equation for resting energy expenditure in healthy individuals",
+  "authors": [
+    "Mifflin MD",
+    "St Jeor ST",
+    "Hill LA",
+    "Scott BJ",
+    "Daugherty SA",
+    "Koh YO"
+  ],
+  "year": 1990,
+  "journal": "The American Journal of Clinical Nutrition",
+  "doi": "10.1093/ajcn/51.2.241",
+  "pmid": "2305711",
+  "openAccess": false,
+  "sampleSize": 498,
+  "population": "Healthy adults (indirect calorimetry derivation sample)",
+  "keyFinding": {
+    "enGB": "Derived sex-specific linear equations predicting resting energy expenditure from weight, height, and age in healthy adults.",
+    "keys": {
+      "enGB": "evidence.mifflin_st_jeor_1990.key_finding",
+      "uk": "evidence.mifflin_st_jeor_1990.key_finding"
+    }
+  },
+  "evidenceStrength": "moderate",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.Bmr.mifflinStJeor"
+  ]
+}

@@ -47,6 +47,7 @@ jobs:
               - 'config/detekt/**'
               - 'scripts/check_no_ru_locale.sh'
               - 'scripts/check_app_review_compliance.py'
+              - 'scripts/check_swift_localization_keys.py'
               - 'scripts/pack_bundled_content.py'
               - '.github/workflows/ci.yml'
             ios:
@@ -67,6 +68,7 @@ jobs:
               - '.swiftlint.yml'
               - 'scripts/check_no_ru_locale.sh'
               - 'scripts/check_app_review_compliance.py'
+              - 'scripts/check_swift_localization_keys.py'
               - 'scripts/pack_bundled_content.py'
               - '.github/workflows/ci.yml'
             design:
@@ -89,6 +91,8 @@ jobs:
       - name: App Review compliance (copy, permissions, debug gates)
         # Pure stdlib Python — no pip/PyYAML (macOS runners are PEP 668 managed).
         run: python3 scripts/check_app_review_compliance.py
+      - name: Swift Text keys resolve in String Catalogs
+        run: python3 scripts/check_swift_localization_keys.py
       - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
         with:
           distribution: temurin

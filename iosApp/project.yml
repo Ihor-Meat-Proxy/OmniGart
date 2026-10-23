@@ -1,6 +1,8 @@
 name: OmniGart
 options:
   bundleIdPrefix: com.omnigart
+  # Matches CFBundleDevelopmentRegion / String Catalog sourceLanguage (en-GB).
+  developmentLanguage: en-GB
   deploymentTarget:
     iOS: "18.0"
     watchOS: "11.0"
@@ -145,13 +147,20 @@ targets:
         createIntermediateGroups: false
         excludes:
           - ContentBundle/**
+          # Catalog is listed under resources so it is compiled as a String Catalog
+          # (not treated as an opaque source file).
+          - Localizable.xcstrings
       - *designSwiftSources
     resources:
       - *designColorAssets
       - *designIconAssets
+      # Catalog must live under the watch app tree (not a cross-path to iosApp).
+      # A shared iosApp path was listed before but did not compile into the watch
+      # bundle, so Text("app_name") etc. rendered as raw keys on watchOS 27.2.
+      - path: ../watchApp/OmniGartWatch/Localizable.xcstrings
+        buildPhase: resources
       - path: ../watchApp/OmniGartWatch/en-GB.lproj
       - path: ../watchApp/OmniGartWatch/uk.lproj
-      - path: OmniGart/Localizable.xcstrings
       - path: ../watchApp/OmniGartWatch/ContentBundle
         type: folder
         buildPhase: resources

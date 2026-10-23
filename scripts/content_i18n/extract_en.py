@@ -21,12 +21,18 @@ def sid(value: str) -> str:
 def extract() -> OrderedDict[str, str]:
     catalog: OrderedDict[str, str] = OrderedDict()
     names_path = LOCALES / "en-GB.json"
+    data_ids = {path.stem for path in DATA.glob("*.json")}
     if names_path.exists():
         existing = json.loads(names_path.read_text(encoding="utf-8"))
-        # Prefer existing .name keys; rebuild body keys from data.
+        # Prefer existing .name keys for exercises that still exist; rebuild body from data.
         for key, value in sorted(existing.items()):
-            if key.endswith(".name"):
-                catalog[key] = value
+            if not key.endswith(".name"):
+                continue
+            if key.startswith("exercise."):
+                mid = key[len("exercise.") : -len(".name")]
+                if mid.replace("_", "-") not in data_ids:
+                    continue
+            catalog[key] = value
 
     for path in sorted(DATA.glob("*.json")):
         data = json.loads(path.read_text(encoding="utf-8"))

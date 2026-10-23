@@ -75,37 +75,121 @@
     "status": "machine-drafted",
     "source_hash": "6920acc9939a24d9"
   },
+  "exercise.archer_pull_up.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "6458b3aba1b9bce9"
+  },
+  "exercise.archer_pull_up.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "0d45279a1b365599"
+  },
+  "exercise.archer_pull_up.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "4fa8041f6f6bf401"
+  },
+  "exercise.archer_pull_up.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "2b9f54f44202cb4b"
+  },
+  "exercise.archer_pull_up.name": {
+    "status": "machine-drafted",
+    "source_hash": "9f71f5b71bafd0be"
+  },
+  "exercise.archer_pull_up.progressions.typewriter_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "faaa4713e9aef8ec"
+  },
+  "exercise.archer_pull_up.progressions.weighted_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "0291dcd4a7afa4b7"
+  },
+  "exercise.archer_pull_up.regressions.assisted_pull_up_band.note": {
+    "status": "machine-drafted",
+    "source_hash": "1b451b10ab6a95f1"
+  },
+  "exercise.archer_pull_up.regressions.pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "dc247fc01cfbdfee"
+  },
+  "exercise.archer_pull_up.regressions.typewriter_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "11f2d26968c111b6"
+  },
+  "exercise.archer_pull_up.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "7719a501e4eba1c3"
+  },
+  "exercise.archer_pull_up.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "d16f98edb980117d"
+  },
+  "exercise.archer_pull_up.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "d5c9a09ee2332282"
+  },
+  "exercise.archer_pull_up.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "479c3e9368b83c8e"
+  },
   "exercise.assisted_pull_up_band.breathing": {
     "status": "machine-drafted",
     "source_hash": "f9c67fa4cc6c251b"
   },
   "exercise.assisted_pull_up_band.common_mistakes.0": {
     "status": "machine-drafted",
-    "source_hash": "f26d782c0be00733"
+    "source_hash": "375227b914bbe626"
+  },
+  "exercise.assisted_pull_up_band.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "979200df98b886a0"
+  },
+  "exercise.assisted_pull_up_band.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "bedd167c9a1c9bfe"
   },
   "exercise.assisted_pull_up_band.name": {
     "status": "machine-drafted",
     "source_hash": "8baa1c5ec859a9e2"
   },
+  "exercise.assisted_pull_up_band.progressions.chin_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "4e4e557966e9a192"
+  },
+  "exercise.assisted_pull_up_band.progressions.negative_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "288e3a48a702a065"
+  },
   "exercise.assisted_pull_up_band.progressions.pull_up.note": {
     "status": "machine-drafted",
     "source_hash": "37cc6bbd070b3e35"
   },
-  "exercise.assisted_pull_up_band.regressions.lat_pulldown.note": {
+  "exercise.assisted_pull_up_band.regressions.inverted_row.note": {
     "status": "machine-drafted",
-    "source_hash": "b59b72be37f30c7a"
+    "source_hash": "2b218752f06d2cd0"
+  },
+  "exercise.assisted_pull_up_band.regressions.machine_assisted_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "4ccc1935b100201a"
+  },
+  "exercise.assisted_pull_up_band.regressions.scapular_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "b175d500f0e9e9e7"
   },
   "exercise.assisted_pull_up_band.safety.0": {
     "status": "machine-drafted",
-    "source_hash": "6a08ae8486461975"
+    "source_hash": "a98c72bffd3131cf"
   },
   "exercise.assisted_pull_up_band.setup.0": {
     "status": "machine-drafted",
-    "source_hash": "6dc99d0a20c3a7aa"
+    "source_hash": "2c38ab745014d1e4"
   },
   "exercise.assisted_pull_up_band.technique.0": {
     "status": "machine-drafted",
-    "source_hash": "996c331155a48206"
+    "source_hash": "49b5f22b84dc8be7"
+  },
+  "exercise.assisted_pull_up_band.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "3a2a365d049ef583"
   },
   "exercise.back_extension_roman.breathing": {
     "status": "machine-drafted",
@@ -250,6 +334,62 @@
   "exercise.backstroke.technique.0": {
     "status": "machine-drafted",
     "source_hash": "721d754290f3abd7"
+  },
+  "exercise.band_assisted_dip.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "268c19ce7ce194d1"
+  },
+  "exercise.band_assisted_dip.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "b6cdd2a50f7a9931"
+  },
+  "exercise.band_assisted_dip.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "9a186a29115c651a"
+  },
+  "exercise.band_assisted_dip.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "050f7bdfbb30d219"
+  },
+  "exercise.band_assisted_dip.name": {
+    "status": "machine-drafted",
+    "source_hash": "6ad8783793e4fff1"
+  },
+  "exercise.band_assisted_dip.progressions.dip_parallel_bar.note": {
+    "status": "machine-drafted",
+    "source_hash": "37cc6bbd070b3e35"
+  },
+  "exercise.band_assisted_dip.progressions.negative_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "288e3a48a702a065"
+  },
+  "exercise.band_assisted_dip.progressions.ring_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "73b6e48a1b552d11"
+  },
+  "exercise.band_assisted_dip.regressions.bench_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "5049763f06a1304e"
+  },
+  "exercise.band_assisted_dip.regressions.incline_push_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "3451f2c1cf611188"
+  },
+  "exercise.band_assisted_dip.regressions.machine_assisted_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "8f1cc42d7c1ceb0c"
+  },
+  "exercise.band_assisted_dip.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "2a68aeb038263f26"
+  },
+  "exercise.band_assisted_dip.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "78d39ad27dc74373"
+  },
+  "exercise.band_assisted_dip.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "aa6de5c4ebc5ee18"
   },
   "exercise.band_pull_apart.breathing": {
     "status": "machine-drafted",
@@ -411,37 +551,61 @@
     "status": "machine-drafted",
     "source_hash": "3e016c2065ba27a6"
   },
-  "exercise.bench_dip_assisted.breathing": {
+  "exercise.bench_dip.breathing": {
     "status": "machine-drafted",
     "source_hash": "0ccbe8adb215f834"
   },
-  "exercise.bench_dip_assisted.common_mistakes.0": {
+  "exercise.bench_dip.common_mistakes.0": {
     "status": "machine-drafted",
     "source_hash": "51f313a225f82959"
   },
-  "exercise.bench_dip_assisted.contraindications.0": {
+  "exercise.bench_dip.common_mistakes.1": {
     "status": "machine-drafted",
-    "source_hash": "08acb5d4ebd645a3"
+    "source_hash": "74c03e31c09425b1"
   },
-  "exercise.bench_dip_assisted.name": {
+  "exercise.bench_dip.contraindications.0": {
     "status": "machine-drafted",
-    "source_hash": "845d15aca45b733e"
+    "source_hash": "ca9440594c9cafde"
   },
-  "exercise.bench_dip_assisted.progressions.dip_parallel_bar.note": {
+  "exercise.bench_dip.name": {
     "status": "machine-drafted",
-    "source_hash": "5b25562854860c14"
+    "source_hash": "c21e21689cb9678e"
   },
-  "exercise.bench_dip_assisted.safety.0": {
+  "exercise.bench_dip.progressions.dip_parallel_bar.note": {
     "status": "machine-drafted",
-    "source_hash": "b5ff943a531bd2f6"
+    "source_hash": "97ab4b0573d5a92b"
   },
-  "exercise.bench_dip_assisted.setup.0": {
+  "exercise.bench_dip.progressions.negative_dip.note": {
     "status": "machine-drafted",
-    "source_hash": "5129f258018bce14"
+    "source_hash": "58468094d3cdc6ce"
   },
-  "exercise.bench_dip_assisted.technique.0": {
+  "exercise.bench_dip.progressions.weighted_dip.note": {
     "status": "machine-drafted",
-    "source_hash": "ce46c276b0a08928"
+    "source_hash": "73b6e48a1b552d11"
+  },
+  "exercise.bench_dip.regressions.incline_push_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "a11ee7d1ca543fbd"
+  },
+  "exercise.bench_dip.regressions.tricep_pushdown.note": {
+    "status": "machine-drafted",
+    "source_hash": "45c4fc064e525974"
+  },
+  "exercise.bench_dip.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "d4ae7433bbb9f063"
+  },
+  "exercise.bench_dip.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "7dcbd9d2074e8f70"
+  },
+  "exercise.bench_dip.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "809d9c85f06b2408"
+  },
+  "exercise.bench_dip.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "b3950ca062c75ae6"
   },
   "exercise.bird_dog.breathing": {
     "status": "machine-drafted",
@@ -951,9 +1115,25 @@
     "status": "machine-drafted",
     "source_hash": "7f5ce794ffad5c41"
   },
+  "exercise.chest_to_bar_pull_up.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "199dbcec495a21e1"
+  },
   "exercise.chest_to_bar_pull_up.name": {
     "status": "machine-drafted",
     "source_hash": "50d21e9947bee671"
+  },
+  "exercise.chest_to_bar_pull_up.progressions.typewriter_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "13e699626d28ac93"
+  },
+  "exercise.chest_to_bar_pull_up.progressions.weighted_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "2ba9d470006fc1e4"
+  },
+  "exercise.chest_to_bar_pull_up.regressions.negative_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "288e3a48a702a065"
   },
   "exercise.chest_to_bar_pull_up.regressions.pull_up.note": {
     "status": "machine-drafted",
@@ -961,7 +1141,7 @@
   },
   "exercise.chest_to_bar_pull_up.safety.0": {
     "status": "machine-drafted",
-    "source_hash": "d1ee39deb65385fc"
+    "source_hash": "0ca6344d70b6e466"
   },
   "exercise.chest_to_bar_pull_up.setup.0": {
     "status": "machine-drafted",
@@ -969,7 +1149,7 @@
   },
   "exercise.chest_to_bar_pull_up.technique.0": {
     "status": "machine-drafted",
-    "source_hash": "14b69a5f93a60408"
+    "source_hash": "ba65e73302e01b35"
   },
   "exercise.child_pose.breathing": {
     "status": "machine-drafted",
@@ -1005,51 +1185,75 @@
   },
   "exercise.chin_up.breathing": {
     "status": "machine-drafted",
-    "source_hash": "f9c67fa4cc6c251b"
+    "source_hash": "75c5f081d7705ea2"
   },
   "exercise.chin_up.common_mistakes.0": {
     "status": "machine-drafted",
-    "source_hash": "9507c36856d3e1d6"
+    "source_hash": "3626d23e4efc38f0"
   },
   "exercise.chin_up.common_mistakes.1": {
     "status": "machine-drafted",
-    "source_hash": "63dc9d4bb5ac7b4e"
+    "source_hash": "979200df98b886a0"
   },
   "exercise.chin_up.contraindications.0": {
     "status": "machine-drafted",
-    "source_hash": "3434bde9f2f5aa4e"
+    "source_hash": "e17fc89cf7ce8452"
+  },
+  "exercise.chin_up.contraindications.1": {
+    "status": "machine-drafted",
+    "source_hash": "bedd167c9a1c9bfe"
   },
   "exercise.chin_up.name": {
     "status": "machine-drafted",
-    "source_hash": "6eb2d1eacf908925"
+    "source_hash": "af063667fd832156"
   },
-  "exercise.chin_up.progressions.pull_up.note": {
+  "exercise.chin_up.progressions.l_sit_pull_up.note": {
     "status": "machine-drafted",
-    "source_hash": "878cb8ff10c2d01a"
+    "source_hash": "30830aa570702170"
   },
   "exercise.chin_up.progressions.weighted_pull_up.note": {
     "status": "machine-drafted",
-    "source_hash": "8a6bdb6b18da586f"
+    "source_hash": "b4fb33317d91573c"
   },
   "exercise.chin_up.regressions.assisted_pull_up_band.note": {
     "status": "machine-drafted",
-    "source_hash": "ac9e2cacfba09524"
+    "source_hash": "1b451b10ab6a95f1"
+  },
+  "exercise.chin_up.regressions.inverted_row.note": {
+    "status": "machine-drafted",
+    "source_hash": "41510f8bd6c89bfb"
   },
   "exercise.chin_up.regressions.lat_pulldown.note": {
     "status": "machine-drafted",
-    "source_hash": "8f1cc42d7c1ceb0c"
+    "source_hash": "63ec54419f5a5845"
+  },
+  "exercise.chin_up.regressions.negative_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "67525c722fe73d9b"
   },
   "exercise.chin_up.safety.0": {
     "status": "machine-drafted",
-    "source_hash": "37b7fda772f5f356"
+    "source_hash": "06ed08fe666520a9"
+  },
+  "exercise.chin_up.safety.1": {
+    "status": "machine-drafted",
+    "source_hash": "84522b73d2b5dd79"
   },
   "exercise.chin_up.setup.0": {
     "status": "machine-drafted",
-    "source_hash": "410f9512f0042c5a"
+    "source_hash": "b6d458a13f349461"
   },
   "exercise.chin_up.technique.0": {
     "status": "machine-drafted",
-    "source_hash": "eab5243458047008"
+    "source_hash": "149513380131ab02"
+  },
+  "exercise.chin_up.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "5f0b132e791381c9"
+  },
+  "exercise.chin_up.technique.2": {
+    "status": "machine-drafted",
+    "source_hash": "53d1fb5c038b889c"
   },
   "exercise.close_grip_bench_press.breathing": {
     "status": "machine-drafted",
@@ -1090,6 +1294,118 @@
   "exercise.close_grip_bench_press.technique.0": {
     "status": "machine-drafted",
     "source_hash": "ef0c0ca5cc747b9d"
+  },
+  "exercise.close_grip_pull_up.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "f9c67fa4cc6c251b"
+  },
+  "exercise.close_grip_pull_up.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "4e575f42cc594b26"
+  },
+  "exercise.close_grip_pull_up.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "5588feaa8c13c375"
+  },
+  "exercise.close_grip_pull_up.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "2a04fa62b4730dc2"
+  },
+  "exercise.close_grip_pull_up.name": {
+    "status": "machine-drafted",
+    "source_hash": "d9c0478ffed7bce4"
+  },
+  "exercise.close_grip_pull_up.progressions.l_sit_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "961fb2185885b8ef"
+  },
+  "exercise.close_grip_pull_up.progressions.weighted_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "8a6bdb6b18da586f"
+  },
+  "exercise.close_grip_pull_up.regressions.assisted_pull_up_band.note": {
+    "status": "machine-drafted",
+    "source_hash": "1b451b10ab6a95f1"
+  },
+  "exercise.close_grip_pull_up.regressions.chin_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "e877b0b9d50c2c15"
+  },
+  "exercise.close_grip_pull_up.regressions.inverted_row.note": {
+    "status": "machine-drafted",
+    "source_hash": "f9f0955ea4a62478"
+  },
+  "exercise.close_grip_pull_up.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "238d291d011c15c5"
+  },
+  "exercise.close_grip_pull_up.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "1a3ec46be834d141"
+  },
+  "exercise.close_grip_pull_up.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "1f054b7d62f86dac"
+  },
+  "exercise.close_grip_pull_up.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "8069b16a00a9c80e"
+  },
+  "exercise.commando_pull_up.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "d0eaf82c98411c7b"
+  },
+  "exercise.commando_pull_up.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "4bd0687700babb50"
+  },
+  "exercise.commando_pull_up.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "a03fbba1f345e6a6"
+  },
+  "exercise.commando_pull_up.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "a441d01ff5bc4f0b"
+  },
+  "exercise.commando_pull_up.name": {
+    "status": "machine-drafted",
+    "source_hash": "21a9e366a1d52e65"
+  },
+  "exercise.commando_pull_up.progressions.archer_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "c99b1143ac9fa8c4"
+  },
+  "exercise.commando_pull_up.progressions.typewriter_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "cca19499eb638ddc"
+  },
+  "exercise.commando_pull_up.regressions.assisted_pull_up_band.note": {
+    "status": "machine-drafted",
+    "source_hash": "1b451b10ab6a95f1"
+  },
+  "exercise.commando_pull_up.regressions.neutral_grip_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "7d039c8cc9058b3a"
+  },
+  "exercise.commando_pull_up.regressions.pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "b6833f1715723e75"
+  },
+  "exercise.commando_pull_up.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "947ecc1dbe086d75"
+  },
+  "exercise.commando_pull_up.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "1ece947a910d9b23"
+  },
+  "exercise.commando_pull_up.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "ecc6a2513c5f4769"
+  },
+  "exercise.commando_pull_up.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "cdc7b4458fb58a8b"
   },
   "exercise.conventional_deadlift.breathing": {
     "status": "machine-drafted",
@@ -1257,19 +1573,23 @@
   },
   "exercise.dip_parallel_bar.breathing": {
     "status": "machine-drafted",
-    "source_hash": "268c19ce7ce194d1"
+    "source_hash": "2a81140e66aa80c8"
   },
   "exercise.dip_parallel_bar.common_mistakes.0": {
     "status": "machine-drafted",
-    "source_hash": "ce66b97b19d295af"
+    "source_hash": "cdb6cffb36c286c6"
   },
   "exercise.dip_parallel_bar.common_mistakes.1": {
     "status": "machine-drafted",
-    "source_hash": "4c43bb261de4e52b"
+    "source_hash": "4b82104c2a2589d3"
   },
   "exercise.dip_parallel_bar.contraindications.0": {
     "status": "machine-drafted",
     "source_hash": "03b722a3bd280aad"
+  },
+  "exercise.dip_parallel_bar.contraindications.1": {
+    "status": "machine-drafted",
+    "source_hash": "20bda9c373935974"
   },
   "exercise.dip_parallel_bar.name": {
     "status": "machine-drafted",
@@ -1277,27 +1597,55 @@
   },
   "exercise.dip_parallel_bar.progressions.ring_dip.note": {
     "status": "machine-drafted",
-    "source_hash": "97d2d414a79d3b29"
+    "source_hash": "eaf9fb2f5ac19e10"
   },
-  "exercise.dip_parallel_bar.regressions.bench_dip_assisted.note": {
+  "exercise.dip_parallel_bar.progressions.straight_bar_dip.note": {
     "status": "machine-drafted",
-    "source_hash": "5a053d5eabd1835c"
+    "source_hash": "3f8d57bf71388f43"
+  },
+  "exercise.dip_parallel_bar.progressions.weighted_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "ced01cf7f7b9c892"
+  },
+  "exercise.dip_parallel_bar.regressions.band_assisted_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "d4dca3df8ef84e02"
+  },
+  "exercise.dip_parallel_bar.regressions.bench_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "c2d51f85559978aa"
   },
   "exercise.dip_parallel_bar.regressions.incline_push_up.note": {
     "status": "machine-drafted",
-    "source_hash": "f9f0955ea4a62478"
+    "source_hash": "592e63ea3e6c15c3"
+  },
+  "exercise.dip_parallel_bar.regressions.machine_assisted_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "68f80c62cd9cd04d"
+  },
+  "exercise.dip_parallel_bar.regressions.negative_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "2eec43dc821365b9"
   },
   "exercise.dip_parallel_bar.safety.0": {
     "status": "machine-drafted",
-    "source_hash": "a7d96b4a250688f7"
+    "source_hash": "fb9c301ea5f6f2c4"
+  },
+  "exercise.dip_parallel_bar.safety.1": {
+    "status": "machine-drafted",
+    "source_hash": "b18a956a22a3c811"
   },
   "exercise.dip_parallel_bar.setup.0": {
     "status": "machine-drafted",
-    "source_hash": "5a0e0b93cd6b3d1f"
+    "source_hash": "622775a98ea30de8"
   },
   "exercise.dip_parallel_bar.technique.0": {
     "status": "machine-drafted",
-    "source_hash": "d2247afd6b4d4b38"
+    "source_hash": "95272eb11f12aa72"
+  },
+  "exercise.dip_parallel_bar.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "acce2c0fb0866cf2"
   },
   "exercise.downward_dog.breathing": {
     "status": "machine-drafted",
@@ -2201,31 +2549,55 @@
   },
   "exercise.inverted_row.common_mistakes.1": {
     "status": "machine-drafted",
-    "source_hash": "6097dafd438ef58e"
+    "source_hash": "0480e7e712055964"
+  },
+  "exercise.inverted_row.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "1817853f054716e5"
   },
   "exercise.inverted_row.name": {
     "status": "machine-drafted",
-    "source_hash": "d43b218aec7cd131"
+    "source_hash": "3335460e8372fd5f"
+  },
+  "exercise.inverted_row.progressions.assisted_pull_up_band.note": {
+    "status": "machine-drafted",
+    "source_hash": "7759f486fad07a9e"
+  },
+  "exercise.inverted_row.progressions.negative_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "d6fc11c47af16834"
   },
   "exercise.inverted_row.progressions.pull_up.note": {
     "status": "machine-drafted",
-    "source_hash": "49fe84772b3a178b"
+    "source_hash": "3748a60f74d0e564"
+  },
+  "exercise.inverted_row.progressions.scapular_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "0ec8bccd85269c90"
+  },
+  "exercise.inverted_row.regressions.chest_supported_row.note": {
+    "status": "machine-drafted",
+    "source_hash": "ee7b30bca9b9f0b5"
   },
   "exercise.inverted_row.regressions.seated_cable_row.note": {
     "status": "machine-drafted",
-    "source_hash": "8f1cc42d7c1ceb0c"
+    "source_hash": "390f6f69b3cd72a6"
   },
   "exercise.inverted_row.safety.0": {
     "status": "machine-drafted",
-    "source_hash": "01afe794e6b1947b"
+    "source_hash": "7dff7d3a7a088a74"
   },
   "exercise.inverted_row.setup.0": {
     "status": "machine-drafted",
-    "source_hash": "ab5ad2dea3caff1a"
+    "source_hash": "6ce944a2eb451662"
   },
   "exercise.inverted_row.technique.0": {
     "status": "machine-drafted",
-    "source_hash": "bc0faf560c6562d6"
+    "source_hash": "95a6c295ca5597ec"
+  },
+  "exercise.inverted_row.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "1ecdad96d985fa3d"
   },
   "exercise.kettlebell_swing.breathing": {
     "status": "machine-drafted",
@@ -2350,6 +2722,118 @@
   "exercise.knee_push_up.technique.0": {
     "status": "machine-drafted",
     "source_hash": "0b447a1298a4d858"
+  },
+  "exercise.korean_dip.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "268c19ce7ce194d1"
+  },
+  "exercise.korean_dip.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "8f0d39496cb1eb23"
+  },
+  "exercise.korean_dip.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "b23121b5e3d15b35"
+  },
+  "exercise.korean_dip.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "e0ecc473e1464c3a"
+  },
+  "exercise.korean_dip.contraindications.1": {
+    "status": "machine-drafted",
+    "source_hash": "e1ccc44e33dc6771"
+  },
+  "exercise.korean_dip.name": {
+    "status": "machine-drafted",
+    "source_hash": "bd0d582f8d9d2e5e"
+  },
+  "exercise.korean_dip.regressions.dip_parallel_bar.note": {
+    "status": "machine-drafted",
+    "source_hash": "cb89adcd7ee6c7d1"
+  },
+  "exercise.korean_dip.regressions.ring_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "8a50bdc4beac7794"
+  },
+  "exercise.korean_dip.regressions.straight_bar_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "318dec31eb42ada6"
+  },
+  "exercise.korean_dip.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "d81ce1dde864a99f"
+  },
+  "exercise.korean_dip.safety.1": {
+    "status": "machine-drafted",
+    "source_hash": "5bcad03970a344b4"
+  },
+  "exercise.korean_dip.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "f8b135bffbc97855"
+  },
+  "exercise.korean_dip.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "ac9fb0c830aaf4de"
+  },
+  "exercise.korean_dip.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "e8c12d295493f180"
+  },
+  "exercise.l_sit_pull_up.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "b8cc52f751614965"
+  },
+  "exercise.l_sit_pull_up.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "83b778679f3b900c"
+  },
+  "exercise.l_sit_pull_up.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "e634848d3e6930a3"
+  },
+  "exercise.l_sit_pull_up.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "ae23e755803d210a"
+  },
+  "exercise.l_sit_pull_up.name": {
+    "status": "machine-drafted",
+    "source_hash": "0aaaf31cdc1d1c4d"
+  },
+  "exercise.l_sit_pull_up.progressions.archer_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "56f63cc828136bfb"
+  },
+  "exercise.l_sit_pull_up.progressions.weighted_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "416237b04130032a"
+  },
+  "exercise.l_sit_pull_up.regressions.chin_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "9db64524633e061d"
+  },
+  "exercise.l_sit_pull_up.regressions.hanging_knee_raise.note": {
+    "status": "machine-drafted",
+    "source_hash": "56c5d90f461b44d5"
+  },
+  "exercise.l_sit_pull_up.regressions.pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "9636032c691fb027"
+  },
+  "exercise.l_sit_pull_up.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "bce953c8e6bffd58"
+  },
+  "exercise.l_sit_pull_up.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "38e43efb1e450257"
+  },
+  "exercise.l_sit_pull_up.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "ca659d4f7cc48a8c"
+  },
+  "exercise.l_sit_pull_up.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "007c11bed9f950fa"
   },
   "exercise.landmine_press.breathing": {
     "status": "machine-drafted",
@@ -2655,6 +3139,110 @@
     "status": "machine-drafted",
     "source_hash": "c937a386391bdbd4"
   },
+  "exercise.machine_assisted_dip.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "268c19ce7ce194d1"
+  },
+  "exercise.machine_assisted_dip.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "28cd13a294d49926"
+  },
+  "exercise.machine_assisted_dip.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "050f7bdfbb30d219"
+  },
+  "exercise.machine_assisted_dip.name": {
+    "status": "machine-drafted",
+    "source_hash": "19c92568d03b46e0"
+  },
+  "exercise.machine_assisted_dip.progressions.band_assisted_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "2e5c8ef5fe0a9418"
+  },
+  "exercise.machine_assisted_dip.progressions.dip_parallel_bar.note": {
+    "status": "machine-drafted",
+    "source_hash": "37cc6bbd070b3e35"
+  },
+  "exercise.machine_assisted_dip.regressions.bench_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "3f8c65be8e28b2f7"
+  },
+  "exercise.machine_assisted_dip.regressions.tricep_pushdown.note": {
+    "status": "machine-drafted",
+    "source_hash": "45c4fc064e525974"
+  },
+  "exercise.machine_assisted_dip.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "11f27a6525fea8cf"
+  },
+  "exercise.machine_assisted_dip.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "d8502c87b95421b5"
+  },
+  "exercise.machine_assisted_dip.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "c44b3d919a55eae0"
+  },
+  "exercise.machine_assisted_dip.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "571fd5cab9bb90ad"
+  },
+  "exercise.machine_assisted_pull_up.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "f9c67fa4cc6c251b"
+  },
+  "exercise.machine_assisted_pull_up.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "bf906fa9decd0da2"
+  },
+  "exercise.machine_assisted_pull_up.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "9507c36856d3e1d6"
+  },
+  "exercise.machine_assisted_pull_up.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "bedd167c9a1c9bfe"
+  },
+  "exercise.machine_assisted_pull_up.name": {
+    "status": "machine-drafted",
+    "source_hash": "002d45c64e8940c1"
+  },
+  "exercise.machine_assisted_pull_up.progressions.assisted_pull_up_band.note": {
+    "status": "machine-drafted",
+    "source_hash": "5c15d9cd1639d748"
+  },
+  "exercise.machine_assisted_pull_up.progressions.negative_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "288e3a48a702a065"
+  },
+  "exercise.machine_assisted_pull_up.progressions.pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "37cc6bbd070b3e35"
+  },
+  "exercise.machine_assisted_pull_up.regressions.inverted_row.note": {
+    "status": "machine-drafted",
+    "source_hash": "70826fb54c8fb08f"
+  },
+  "exercise.machine_assisted_pull_up.regressions.lat_pulldown.note": {
+    "status": "machine-drafted",
+    "source_hash": "8349e3eee1e48b0d"
+  },
+  "exercise.machine_assisted_pull_up.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "9efd31a11bf04754"
+  },
+  "exercise.machine_assisted_pull_up.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "4b242b5f77dc4cbb"
+  },
+  "exercise.machine_assisted_pull_up.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "eb3a1259133ae34c"
+  },
+  "exercise.machine_assisted_pull_up.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "6cab80ba7570255f"
+  },
   "exercise.machine_chest_press.breathing": {
     "status": "machine-drafted",
     "source_hash": "268c19ce7ce194d1"
@@ -2762,6 +3350,178 @@
   "exercise.mountain_pose.technique.0": {
     "status": "machine-drafted",
     "source_hash": "7a084ea44b283361"
+  },
+  "exercise.negative_dip.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "d6004a8ec680b166"
+  },
+  "exercise.negative_dip.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "369d4efcd82cfc91"
+  },
+  "exercise.negative_dip.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "527d706d18672b48"
+  },
+  "exercise.negative_dip.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "050f7bdfbb30d219"
+  },
+  "exercise.negative_dip.name": {
+    "status": "machine-drafted",
+    "source_hash": "09f7269deb7852e2"
+  },
+  "exercise.negative_dip.progressions.dip_parallel_bar.note": {
+    "status": "machine-drafted",
+    "source_hash": "fe4ea6e16035874f"
+  },
+  "exercise.negative_dip.progressions.ring_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "6ee605008933bb04"
+  },
+  "exercise.negative_dip.progressions.weighted_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "73b6e48a1b552d11"
+  },
+  "exercise.negative_dip.regressions.band_assisted_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "0bd9cec57e506e1c"
+  },
+  "exercise.negative_dip.regressions.bench_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "75fb84c33d04130f"
+  },
+  "exercise.negative_dip.regressions.machine_assisted_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "7c090185ba9c811f"
+  },
+  "exercise.negative_dip.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "cf9eea65ac57d823"
+  },
+  "exercise.negative_dip.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "b199e6c5072299f0"
+  },
+  "exercise.negative_dip.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "ef61588bbad12f1b"
+  },
+  "exercise.negative_pull_up.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "63034eaacfa698d8"
+  },
+  "exercise.negative_pull_up.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "b798880d9343c9fb"
+  },
+  "exercise.negative_pull_up.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "9afc66bcc656ecc0"
+  },
+  "exercise.negative_pull_up.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "bda1172b11c4a6ab"
+  },
+  "exercise.negative_pull_up.name": {
+    "status": "machine-drafted",
+    "source_hash": "9327d1aab6cb57ca"
+  },
+  "exercise.negative_pull_up.progressions.chin_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "3b8c84a2ceac56d1"
+  },
+  "exercise.negative_pull_up.progressions.pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "fe4ea6e16035874f"
+  },
+  "exercise.negative_pull_up.progressions.weighted_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "e1c426f2eb00324f"
+  },
+  "exercise.negative_pull_up.regressions.inverted_row.note": {
+    "status": "machine-drafted",
+    "source_hash": "75fb84c33d04130f"
+  },
+  "exercise.negative_pull_up.regressions.machine_assisted_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "e9fc396c67548504"
+  },
+  "exercise.negative_pull_up.regressions.scapular_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "78b21c1007f01190"
+  },
+  "exercise.negative_pull_up.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "266068e75cbab1dc"
+  },
+  "exercise.negative_pull_up.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "9de81442b894a593"
+  },
+  "exercise.negative_pull_up.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "f52d1841b33f413d"
+  },
+  "exercise.negative_pull_up.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "650a6e534745ee2b"
+  },
+  "exercise.neutral_grip_pull_up.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "f9c67fa4cc6c251b"
+  },
+  "exercise.neutral_grip_pull_up.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "5f38450ed8e64d34"
+  },
+  "exercise.neutral_grip_pull_up.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "8db174a10190812d"
+  },
+  "exercise.neutral_grip_pull_up.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "bedd167c9a1c9bfe"
+  },
+  "exercise.neutral_grip_pull_up.name": {
+    "status": "machine-drafted",
+    "source_hash": "4ed1079a0cfdaaaf"
+  },
+  "exercise.neutral_grip_pull_up.progressions.archer_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "3044fa0ad4435beb"
+  },
+  "exercise.neutral_grip_pull_up.progressions.weighted_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "ced01cf7f7b9c892"
+  },
+  "exercise.neutral_grip_pull_up.regressions.assisted_pull_up_band.note": {
+    "status": "machine-drafted",
+    "source_hash": "1b451b10ab6a95f1"
+  },
+  "exercise.neutral_grip_pull_up.regressions.inverted_row.note": {
+    "status": "machine-drafted",
+    "source_hash": "f9f0955ea4a62478"
+  },
+  "exercise.neutral_grip_pull_up.regressions.scapular_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "b175d500f0e9e9e7"
+  },
+  "exercise.neutral_grip_pull_up.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "9168ef0c3eac600b"
+  },
+  "exercise.neutral_grip_pull_up.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "4c4593b514c7aae2"
+  },
+  "exercise.neutral_grip_pull_up.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "61d353b9725332c2"
+  },
+  "exercise.neutral_grip_pull_up.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "6e3faa2291dcf846"
   },
   "exercise.nordic_curl_assisted.breathing": {
     "status": "machine-drafted",
@@ -3649,51 +4409,95 @@
   },
   "exercise.pull_up.breathing": {
     "status": "machine-drafted",
-    "source_hash": "f9c67fa4cc6c251b"
+    "source_hash": "c87ea0e4954b5036"
   },
   "exercise.pull_up.common_mistakes.0": {
     "status": "machine-drafted",
-    "source_hash": "9bd4d2fb85cb4d9a"
+    "source_hash": "ed96c869d741a940"
   },
   "exercise.pull_up.common_mistakes.1": {
     "status": "machine-drafted",
-    "source_hash": "644be3170aacb1fc"
+    "source_hash": "7141357e19ebb61b"
+  },
+  "exercise.pull_up.common_mistakes.2": {
+    "status": "machine-drafted",
+    "source_hash": "7df9624c2cf6dceb"
   },
   "exercise.pull_up.contraindications.0": {
     "status": "machine-drafted",
     "source_hash": "bedd167c9a1c9bfe"
   },
+  "exercise.pull_up.contraindications.1": {
+    "status": "machine-drafted",
+    "source_hash": "1bb33f2dcf39dbea"
+  },
   "exercise.pull_up.name": {
     "status": "machine-drafted",
-    "source_hash": "46c2adbf375dcfab"
+    "source_hash": "f91ded4b4e66cb1c"
+  },
+  "exercise.pull_up.progressions.archer_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "4ba62f33762dcc35"
   },
   "exercise.pull_up.progressions.chest_to_bar_pull_up.note": {
     "status": "machine-drafted",
     "source_hash": "017516001af41397"
   },
+  "exercise.pull_up.progressions.l_sit_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "418e0361da3ca199"
+  },
   "exercise.pull_up.progressions.weighted_pull_up.note": {
     "status": "machine-drafted",
-    "source_hash": "ced01cf7f7b9c892"
+    "source_hash": "302e350c5037bce3"
   },
   "exercise.pull_up.regressions.assisted_pull_up_band.note": {
     "status": "machine-drafted",
-    "source_hash": "c22e21ac5e97013b"
+    "source_hash": "c5a4678c585641c1"
+  },
+  "exercise.pull_up.regressions.inverted_row.note": {
+    "status": "machine-drafted",
+    "source_hash": "c3332283d4387191"
   },
   "exercise.pull_up.regressions.lat_pulldown.note": {
     "status": "machine-drafted",
-    "source_hash": "99ec78ad1a84f9eb"
+    "source_hash": "ca04b77da046f756"
+  },
+  "exercise.pull_up.regressions.machine_assisted_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "8ab251d22c65963b"
+  },
+  "exercise.pull_up.regressions.negative_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "f1ca1d8ce16c158d"
+  },
+  "exercise.pull_up.regressions.scapular_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "aa062eba1ffb21d6"
   },
   "exercise.pull_up.safety.0": {
     "status": "machine-drafted",
-    "source_hash": "e90cac5c9e075239"
+    "source_hash": "38d6752865b8e491"
+  },
+  "exercise.pull_up.safety.1": {
+    "status": "machine-drafted",
+    "source_hash": "8a7abe3fc2e7147b"
   },
   "exercise.pull_up.setup.0": {
     "status": "machine-drafted",
-    "source_hash": "ac8fddc79c7471fd"
+    "source_hash": "d604baea68728f71"
   },
   "exercise.pull_up.technique.0": {
     "status": "machine-drafted",
-    "source_hash": "c687eb6e21a18277"
+    "source_hash": "a0eeb00edc4b085f"
+  },
+  "exercise.pull_up.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "a5c4094de79b7578"
+  },
+  "exercise.pull_up.technique.2": {
+    "status": "machine-drafted",
+    "source_hash": "b2abb598fab5a8c3"
   },
   "exercise.push_press.breathing": {
     "status": "machine-drafted",
@@ -3833,7 +4637,7 @@
   },
   "exercise.ring_dip.common_mistakes.1": {
     "status": "machine-drafted",
-    "source_hash": "2cc10f23a4df8545"
+    "source_hash": "74150f84c3be8431"
   },
   "exercise.ring_dip.contraindications.0": {
     "status": "machine-drafted",
@@ -3843,21 +4647,37 @@
     "status": "machine-drafted",
     "source_hash": "646d9d5cee8ab9b5"
   },
+  "exercise.ring_dip.progressions.korean_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "5612bf6d25375532"
+  },
+  "exercise.ring_dip.progressions.weighted_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "4fc63a92fa633036"
+  },
+  "exercise.ring_dip.regressions.band_assisted_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "1b451b10ab6a95f1"
+  },
   "exercise.ring_dip.regressions.dip_parallel_bar.note": {
     "status": "machine-drafted",
     "source_hash": "d6e518a7df69ea63"
   },
+  "exercise.ring_dip.regressions.negative_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "288e3a48a702a065"
+  },
   "exercise.ring_dip.safety.0": {
     "status": "machine-drafted",
-    "source_hash": "49ab56b90cabbd10"
+    "source_hash": "fa905e2074a94747"
   },
   "exercise.ring_dip.setup.0": {
     "status": "machine-drafted",
-    "source_hash": "1ec1a79a6efa7121"
+    "source_hash": "54cfcffb35e25864"
   },
   "exercise.ring_dip.technique.0": {
     "status": "machine-drafted",
-    "source_hash": "2685e7cedf4ce0ac"
+    "source_hash": "0da66e3b3b838bf4"
   },
   "exercise.romanian_deadlift_barbell.breathing": {
     "status": "machine-drafted",
@@ -3990,6 +4810,58 @@
   "exercise.russian_twist.technique.0": {
     "status": "machine-drafted",
     "source_hash": "25c6e82989b8fc7a"
+  },
+  "exercise.scapular_pull_up.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "bf16721d10cca92f"
+  },
+  "exercise.scapular_pull_up.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "2c64823d57bd477d"
+  },
+  "exercise.scapular_pull_up.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "a660b8142d18fdd0"
+  },
+  "exercise.scapular_pull_up.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "bedd167c9a1c9bfe"
+  },
+  "exercise.scapular_pull_up.name": {
+    "status": "machine-drafted",
+    "source_hash": "d32cdc88d98e6167"
+  },
+  "exercise.scapular_pull_up.progressions.assisted_pull_up_band.note": {
+    "status": "machine-drafted",
+    "source_hash": "e3b72ad5d71d33be"
+  },
+  "exercise.scapular_pull_up.progressions.negative_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "fa96656f8a21d227"
+  },
+  "exercise.scapular_pull_up.progressions.pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "beefdd293a6c61c1"
+  },
+  "exercise.scapular_pull_up.regressions.inverted_row.note": {
+    "status": "machine-drafted",
+    "source_hash": "d87523d6e3eeeadd"
+  },
+  "exercise.scapular_pull_up.regressions.lat_pulldown.note": {
+    "status": "machine-drafted",
+    "source_hash": "f792a5b300d4f824"
+  },
+  "exercise.scapular_pull_up.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "fc8c86b2384c4927"
+  },
+  "exercise.scapular_pull_up.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "f92ca286d349d3ef"
+  },
+  "exercise.scapular_pull_up.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "04e132129d89a8f3"
   },
   "exercise.seated_cable_row.breathing": {
     "status": "machine-drafted",
@@ -4351,6 +5223,54 @@
     "status": "machine-drafted",
     "source_hash": "a6c682b8f38eb062"
   },
+  "exercise.straight_bar_dip.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "268c19ce7ce194d1"
+  },
+  "exercise.straight_bar_dip.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "13e4d4025b933a68"
+  },
+  "exercise.straight_bar_dip.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "2cc10f23a4df8545"
+  },
+  "exercise.straight_bar_dip.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "27d69f8655e84051"
+  },
+  "exercise.straight_bar_dip.name": {
+    "status": "machine-drafted",
+    "source_hash": "1fedc15e77e440bd"
+  },
+  "exercise.straight_bar_dip.progressions.ring_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "6ee605008933bb04"
+  },
+  "exercise.straight_bar_dip.progressions.weighted_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "8a6bdb6b18da586f"
+  },
+  "exercise.straight_bar_dip.regressions.band_assisted_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "1b451b10ab6a95f1"
+  },
+  "exercise.straight_bar_dip.regressions.dip_parallel_bar.note": {
+    "status": "machine-drafted",
+    "source_hash": "cb89adcd7ee6c7d1"
+  },
+  "exercise.straight_bar_dip.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "409260dd607d58fe"
+  },
+  "exercise.straight_bar_dip.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "0c4dbe282acc82ba"
+  },
+  "exercise.straight_bar_dip.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "d00b74719c2b6caa"
+  },
   "exercise.suitcase_carry.breathing": {
     "status": "machine-drafted",
     "source_hash": "e252449ebb0bad42"
@@ -4631,7 +5551,7 @@
     "status": "machine-drafted",
     "source_hash": "b13b4bbd622c432d"
   },
-  "exercise.tricep_pushdown.regressions.bench_dip_assisted.note": {
+  "exercise.tricep_pushdown.regressions.bench_dip.note": {
     "status": "machine-drafted",
     "source_hash": "72fd6508107b6c49"
   },
@@ -4646,6 +5566,54 @@
   "exercise.tricep_pushdown.technique.0": {
     "status": "machine-drafted",
     "source_hash": "4c383679468b5f87"
+  },
+  "exercise.typewriter_pull_up.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "577909994e16088c"
+  },
+  "exercise.typewriter_pull_up.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "664d44341ad00118"
+  },
+  "exercise.typewriter_pull_up.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "4b8083d79de823d5"
+  },
+  "exercise.typewriter_pull_up.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "9789fde33a468a75"
+  },
+  "exercise.typewriter_pull_up.name": {
+    "status": "machine-drafted",
+    "source_hash": "b9a03b3c2fbd2bcf"
+  },
+  "exercise.typewriter_pull_up.progressions.archer_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "670218158e387366"
+  },
+  "exercise.typewriter_pull_up.regressions.archer_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "4534959376697f42"
+  },
+  "exercise.typewriter_pull_up.regressions.chest_to_bar_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "d7b4bdc9366148e4"
+  },
+  "exercise.typewriter_pull_up.regressions.pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "ef6691545d2c5523"
+  },
+  "exercise.typewriter_pull_up.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "55a7bcb5309f761f"
+  },
+  "exercise.typewriter_pull_up.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "4305be08c541229e"
+  },
+  "exercise.typewriter_pull_up.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "bd388e042b520379"
   },
   "exercise.walking_lunge.breathing": {
     "status": "machine-drafted",
@@ -4767,21 +5735,97 @@
     "status": "machine-drafted",
     "source_hash": "ba238970f0ebac4e"
   },
+  "exercise.weighted_dip.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "b93aa5c8062d4c81"
+  },
+  "exercise.weighted_dip.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "2367f23d44875145"
+  },
+  "exercise.weighted_dip.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "8b13d6ea6fb958f5"
+  },
+  "exercise.weighted_dip.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "72533480d176296a"
+  },
+  "exercise.weighted_dip.name": {
+    "status": "machine-drafted",
+    "source_hash": "98f14ba1f6fea439"
+  },
+  "exercise.weighted_dip.progressions.ring_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "686db02f7bbab2dd"
+  },
+  "exercise.weighted_dip.progressions.straight_bar_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "846bb8ec0acba8f6"
+  },
+  "exercise.weighted_dip.regressions.band_assisted_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "1b451b10ab6a95f1"
+  },
+  "exercise.weighted_dip.regressions.dip_parallel_bar.note": {
+    "status": "machine-drafted",
+    "source_hash": "6b88fe530b0a4bdd"
+  },
+  "exercise.weighted_dip.regressions.negative_dip.note": {
+    "status": "machine-drafted",
+    "source_hash": "288e3a48a702a065"
+  },
+  "exercise.weighted_dip.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "16fcefc5e5f8707e"
+  },
+  "exercise.weighted_dip.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "54dffffc9830d30d"
+  },
+  "exercise.weighted_dip.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "9c891612048629a1"
+  },
+  "exercise.weighted_dip.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "623a79c21d07c26b"
+  },
   "exercise.weighted_pull_up.breathing": {
     "status": "machine-drafted",
-    "source_hash": "f9c67fa4cc6c251b"
+    "source_hash": "b8588e8ee0d85688"
   },
   "exercise.weighted_pull_up.common_mistakes.0": {
     "status": "machine-drafted",
     "source_hash": "3b6ffb4e894e6018"
   },
+  "exercise.weighted_pull_up.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "74cbbbe049ac3e74"
+  },
   "exercise.weighted_pull_up.contraindications.0": {
     "status": "machine-drafted",
-    "source_hash": "769cb3675c3e42f1"
+    "source_hash": "d589dc25452a5988"
   },
   "exercise.weighted_pull_up.name": {
     "status": "machine-drafted",
     "source_hash": "acb08d7a43554f8c"
+  },
+  "exercise.weighted_pull_up.progressions.archer_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "00e8b4eca7c25d08"
+  },
+  "exercise.weighted_pull_up.progressions.chest_to_bar_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "4fdc8ccc5df3fd70"
+  },
+  "exercise.weighted_pull_up.regressions.chin_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "4e4e557966e9a192"
+  },
+  "exercise.weighted_pull_up.regressions.negative_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "288e3a48a702a065"
   },
   "exercise.weighted_pull_up.regressions.pull_up.note": {
     "status": "machine-drafted",
@@ -4789,15 +5833,19 @@
   },
   "exercise.weighted_pull_up.safety.0": {
     "status": "machine-drafted",
-    "source_hash": "41cf910708f81ecb"
+    "source_hash": "073cb52300b51875"
   },
   "exercise.weighted_pull_up.setup.0": {
     "status": "machine-drafted",
-    "source_hash": "33b0ff4646f92498"
+    "source_hash": "19b05b9a9763c94b"
   },
   "exercise.weighted_pull_up.technique.0": {
     "status": "machine-drafted",
-    "source_hash": "624f246728baaeab"
+    "source_hash": "9db61c13fad21955"
+  },
+  "exercise.weighted_pull_up.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "1e2a299ce6f07766"
   },
   "exercise.wheel_pose.breathing": {
     "status": "machine-drafted",
@@ -4842,6 +5890,62 @@
   "exercise.wheel_pose.technique.0": {
     "status": "machine-drafted",
     "source_hash": "41815fe28c1ca5c7"
+  },
+  "exercise.wide_grip_pull_up.breathing": {
+    "status": "machine-drafted",
+    "source_hash": "f9c67fa4cc6c251b"
+  },
+  "exercise.wide_grip_pull_up.common_mistakes.0": {
+    "status": "machine-drafted",
+    "source_hash": "d44a2cce300bc732"
+  },
+  "exercise.wide_grip_pull_up.common_mistakes.1": {
+    "status": "machine-drafted",
+    "source_hash": "9d26f840ec8bbdb0"
+  },
+  "exercise.wide_grip_pull_up.contraindications.0": {
+    "status": "machine-drafted",
+    "source_hash": "c4c8c94b951d86a4"
+  },
+  "exercise.wide_grip_pull_up.name": {
+    "status": "machine-drafted",
+    "source_hash": "b77bc0c2a2dfae37"
+  },
+  "exercise.wide_grip_pull_up.progressions.chest_to_bar_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "017516001af41397"
+  },
+  "exercise.wide_grip_pull_up.progressions.weighted_pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "8a6bdb6b18da586f"
+  },
+  "exercise.wide_grip_pull_up.regressions.assisted_pull_up_band.note": {
+    "status": "machine-drafted",
+    "source_hash": "1b451b10ab6a95f1"
+  },
+  "exercise.wide_grip_pull_up.regressions.lat_pulldown.note": {
+    "status": "machine-drafted",
+    "source_hash": "8f1cc42d7c1ceb0c"
+  },
+  "exercise.wide_grip_pull_up.regressions.pull_up.note": {
+    "status": "machine-drafted",
+    "source_hash": "22aecb103e76e6f4"
+  },
+  "exercise.wide_grip_pull_up.safety.0": {
+    "status": "machine-drafted",
+    "source_hash": "1d2d586fadd8ef77"
+  },
+  "exercise.wide_grip_pull_up.setup.0": {
+    "status": "machine-drafted",
+    "source_hash": "ef24299ed943f0a4"
+  },
+  "exercise.wide_grip_pull_up.technique.0": {
+    "status": "machine-drafted",
+    "source_hash": "1fd5c44c290ed9bd"
+  },
+  "exercise.wide_grip_pull_up.technique.1": {
+    "status": "machine-drafted",
+    "source_hash": "d4c81d796529ad24"
   },
   "exercise.worlds_greatest_stretch.breathing": {
     "status": "machine-drafted",

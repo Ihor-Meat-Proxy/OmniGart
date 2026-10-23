@@ -1,0 +1,16 @@
+project_name = "omnigart-content"
+cdn_name     = "omnigart-content"
+storage_region = "DE"
+
+# Leave empty and use env vars instead when possible.
+# bunnynet_api_key = ""
+# hcloud_token     = ""
+
+enable_origin_vm = false
+
+# Only when enable_origin_vm = true:
+# ssh_public_keys  = ["ssh-ed25519 AAAA... ops@laptop"]
+# ssh_allowed_cidrs = ["203.0.113.10/32"]
+# vm_location = "nbg1"
+# admin_email = "you@example.com"
+# origin_hostname = "origin.content.example.com"

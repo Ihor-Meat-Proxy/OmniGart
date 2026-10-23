@@ -1,0 +1,27 @@
+{
+  "schema": "omnigart.app-size-budget/1",
+  "updated": "2026-10-22",
+  "totals": {
+    "maxBundledContentBytes": 83886080,
+    "installTargetBytes": 209715200,
+    "minCodeHeadroomBytes": 52428800
+  },
+  "packs": {
+    "exercises": { "maxArchiveBytes": 5242880 },
+    "templates": { "maxArchiveBytes": 1048576 },
+    "translations": { "maxArchiveBytes": 8388608 },
+    "evidence": { "maxArchiveBytes": 3145728 },
+    "icons": { "maxArchiveBytes": 2097152 },
+    "body-maps": { "maxArchiveBytes": 1048576 },
+    "achievements": { "maxArchiveBytes": 524288 },
+    "exercise-images": { "maxArchiveBytes": 47185920 },
+    "formulas": { "maxArchiveBytes": 65536 },
+    "app-config": { "maxArchiveBytes": 16384 }
+  },
+  "assets": {
+    "exerciseImageWebpMaxBytes": 81920,
+    "exerciseImageHeicMaxBytes": 102400,
+    "exerciseImageMaxEdgePx": 1024,
+    "exerciseJsonMaxBytes": 32768
+  }
+}

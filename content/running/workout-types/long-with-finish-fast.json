@@ -1,0 +1,66 @@
+{
+  "id": "long-with-finish-fast",
+  "nameKeys": {
+    "enGB": "running.workout.long_with_finish_fast.name",
+    "uk": "running.workout.long_with_finish_fast.name"
+  },
+  "category": "long",
+  "level": "intermediate",
+  "durationMinutes": {
+    "typical": 90,
+    "min": 75,
+    "max": 120
+  },
+  "structure": [
+    {
+      "phase": "warmup",
+      "descriptionKey": "running.workout.long_with_finish_fast.structure.warmup"
+    },
+    {
+      "phase": "main",
+      "descriptionKey": "running.workout.long_with_finish_fast.structure.main"
+    },
+    {
+      "phase": "cooldown",
+      "descriptionKey": "running.workout.long_with_finish_fast.structure.cooldown"
+    }
+  ],
+  "intensityTargets": {
+    "hrZones": [
+      "z2",
+      "z3"
+    ],
+    "paceZones": [
+      "easy",
+      "marathon"
+    ],
+    "primaryLabel": "mixed",
+    "rpeRange": "3-6"
+  },
+  "cues": [
+    "Easy long run; pick up last 10–20 min.",
+    "Stop or ease if sharp pain appears."
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity/duration distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "programming",
+        "safety"
+      ]
+    }
+  ],
+  "notes": "Bundled prescription content only — pacing/HR algorithms live outside this pack."
+}

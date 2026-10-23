@@ -1,0 +1,75 @@
+{
+  "id": "race-pace-repeats",
+  "nameKeys": {
+    "enGB": "running.workout.race_pace_repeats.name",
+    "uk": "running.workout.race_pace_repeats.name"
+  },
+  "category": "intervals",
+  "level": "intermediate",
+  "durationMinutes": {
+    "typical": 45,
+    "min": 30,
+    "max": 75
+  },
+  "structure": [
+    {
+      "phase": "warmup",
+      "descriptionKey": "running.workout.race_pace_repeats.structure.warmup"
+    },
+    {
+      "phase": "main",
+      "descriptionKey": "running.workout.race_pace_repeats.structure.main"
+    },
+    {
+      "phase": "cooldown",
+      "descriptionKey": "running.workout.race_pace_repeats.structure.cooldown"
+    }
+  ],
+  "intensityTargets": {
+    "hrZones": [
+      "z3",
+      "z4"
+    ],
+    "paceZones": [
+      "marathon",
+      "threshold"
+    ],
+    "primaryLabel": "marathon",
+    "rpeRange": "5-7"
+  },
+  "cues": [
+    "Goal-race pace segments with easy jog.",
+    "Stop or ease if sharp pain appears."
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity/duration distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.3389/fphys.2014.00033",
+      "label": "Stöggl & Sperlich 2014 — polarised vs threshold TID",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "programming",
+        "safety"
+      ]
+    }
+  ],
+  "notes": "Bundled prescription content only — pacing/HR algorithms live outside this pack."
+}

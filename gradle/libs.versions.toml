@@ -18,8 +18,8 @@ androidx-test-espresso = "3.7.0"
 robolectric = "4.17"
 ktlint = "14.2.0"
 detekt = "1.23.8"
-json-schema-validator = "2.0.8"
-jackson = "2.22.4"
+json-schema-validator = "3.0.8"
+jackson = "3.2.1"
 ktor = "3.6.0"
 health-connect = "1.1.0"
 health-connect-testing = "1.0.0-alpha04"
@@ -63,7 +63,7 @@ androidx-test-espresso-core = { module = "androidx.test.espresso:espresso-core",
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 
 json-schema-validator = { module = "com.networknt:json-schema-validator", version.ref = "json-schema-validator" }
-jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+jackson-databind = { module = "tools.jackson.core:jackson-databind", version.ref = "jackson" }
 
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }

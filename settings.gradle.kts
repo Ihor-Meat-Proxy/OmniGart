@@ -22,6 +22,9 @@ include(":shared")
 include(":shared:planning")
 project(":shared:planning").projectDir = file("shared/planning")
 
+include(":shared:achievements")
+project(":shared:achievements").projectDir = file("shared/achievements")
+
 include(":shared:bodymap")
 project(":shared:bodymap").projectDir = file("shared/bodymap")
 
@@ -33,6 +36,12 @@ project(":shared:hydration").projectDir = file("shared/hydration")
 
 include(":shared:body")
 project(":shared:body").projectDir = file("shared/body")
+
+include(":shared:activity-algorithms")
+project(":shared:activity-algorithms").projectDir = file("shared/activity-algorithms")
+
+include(":shared:endurance-content")
+project(":shared:endurance-content").projectDir = file("shared/endurance-content")
 
 include(":shared:nutrition-data")
 project(":shared:nutrition-data").projectDir = file("shared/nutrition-data")

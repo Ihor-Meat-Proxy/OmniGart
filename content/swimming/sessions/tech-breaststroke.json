@@ -1,0 +1,68 @@
+{
+  "id": "tech-breaststroke",
+  "nameKeys": {
+    "enGB": "swim.session.tech_breaststroke.name",
+    "uk": "swim.session.tech_breaststroke.name"
+  },
+  "category": "technique",
+  "level": "intermediate",
+  "strokeIds": [
+    "breaststroke"
+  ],
+  "targetDistanceM": 1500,
+  "durationMinutes": 45,
+  "usesCriticalSwimSpeed": false,
+  "blocks": [
+    {
+      "kind": "warmup",
+      "descriptionKey": "swim.session.tech_breaststroke.block.warmup",
+      "distanceM": 200,
+      "intensityHint": "easy"
+    },
+    {
+      "kind": "drill",
+      "descriptionKey": "swim.session.tech_breaststroke.block.drills",
+      "distanceM": 500,
+      "intensityHint": "easy",
+      "drillIds": [
+        "breast-kick-on-back",
+        "breast-glide-emphasis",
+        "breast-two-kick-one-pull"
+      ]
+    },
+    {
+      "kind": "main",
+      "descriptionKey": "swim.session.tech_breaststroke.block.main",
+      "distanceM": 600,
+      "intensityHint": "steady"
+    },
+    {
+      "kind": "cooldown",
+      "descriptionKey": "swim.session.tech_breaststroke.block.cooldown",
+      "distanceM": 200,
+      "intensityHint": "easy"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "technique",
+        "safety"
+      ]
+    }
+  ],
+  "notes": "Bundled swim session content only — CSS and pacing algorithms are out of scope here."
+}

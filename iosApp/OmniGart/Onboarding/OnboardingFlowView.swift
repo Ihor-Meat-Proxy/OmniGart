@@ -345,6 +345,8 @@ struct OnboardingFlowView: View {
         // Workouts: read existing Fitness history + write OmniGart sessions.
         read.insert(HealthKitPlatformBridge.workoutType())
         write.insert(HealthKitPlatformBridge.workoutType())
+        // Insights / Health tabs: extend read-only coverage (never write/delete these).
+        read.formUnion(HealthMetricsReadTypes.allReadTypes())
         Task {
             defer { requestingHealth = false }
             do {

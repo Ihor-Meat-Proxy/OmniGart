@@ -41,9 +41,9 @@
         "sha256": "23e8ce7f2e51d573e2bc9c8682403387b2c875b697f7ad188097fee5b0294a78"
       },
       {
-        "bytes": 4164,
+        "bytes": 5457,
         "path": "citations.json",
-        "sha256": "6e631f943c8f23f0ea55a5e84c267d037933ec46053ca0c7215aef6d683084e2"
+        "sha256": "9407bce444d5c9c78f474acb507246957cad05ae596c795bc25e6bde92eda9d9"
       }
     ],
     "exercise-images": [
@@ -1113,7 +1113,7 @@
     },
     "evidence": {
       "fileCount": 2,
-      "sha256": "ba157ed05e652001abcb900947ef785314b410ec175d0de8838b5f2a6a263be6"
+      "sha256": "698e316dccad49cbf3dc984ac5dd7c3aefba94be4ae1fe285b5ee5499baf1eac"
     },
     "exercise-images": {
       "fileCount": 1,
@@ -1128,5 +1128,5 @@
       "sha256": "593cbd2111b9b013a64679a3ddf05dee6002a63c099764fe80ccf1302272fa3d"
     }
   },
-  "sha256": "f4aeb4e124a1f4e98199c3364f6c1f1ef68fed337323405d684ff9fd2dbfb1c6"
+  "sha256": "fdda94d457bce24a97c7c746f700e5ef824afe3b3f149df547dc1f6eb5975bae"
 }

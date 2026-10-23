@@ -13,8 +13,9 @@ import kotlinx.serialization.json.Json
 /**
  * Offline exercise catalog from the content bundle (or an injectable [ContentStore] fixture).
  *
- * Reads `exercises/data/*.json` via [ContentStore] / [LayeredContentLoader], maps enough fields
- * for strength logging ([Exercise], [ExerciseLoadSemantics], display name), and falls back to
+ * Reads JSON under [BundledContentPaths.EXERCISES_DATA] via [ContentStore] /
+ * [LayeredContentLoader], maps enough fields for strength logging ([Exercise],
+ * [ExerciseLoadSemantics], display name), and falls back to
  * [StrengthLoggingService.demoCatalog] when the pack has no parseable exercises.
  */
 object BundledExerciseCatalog {
@@ -64,10 +65,7 @@ object BundledExerciseCatalog {
         }.getOrDefault(emptyMap())
     }
 
-    internal fun parseExercise(
-        text: String,
-        localeNames: Map<String, String> = emptyMap()
-    ): DemoStrengthExercise? {
+    internal fun parseExercise(text: String, localeNames: Map<String, String> = emptyMap()): DemoStrengthExercise? {
         val dto =
             runCatching {
                 json.decodeFromString(BundledExerciseDto.serializer(), text)
@@ -108,18 +106,16 @@ object BundledExerciseCatalog {
         return "ex.${dto.id.replace('-', '_')}"
     }
 
-    private fun modalityFor(discipline: String?): ExerciseModality =
-        when (discipline?.lowercase()) {
-            "strength" -> ExerciseModality.STRENGTH
-            "running", "swimming" -> ExerciseModality.CARDIO
-            "yoga", "pilates" -> ExerciseModality.MOBILITY
-            else -> ExerciseModality.STRENGTH
-        }
+    private fun modalityFor(discipline: String?): ExerciseModality = when (discipline?.lowercase()) {
+        "strength" -> ExerciseModality.STRENGTH
+        "running", "swimming" -> ExerciseModality.CARDIO
+        "yoga", "pilates" -> ExerciseModality.MOBILITY
+        else -> ExerciseModality.STRENGTH
+    }
 
-    private fun humanizeId(id: String): String =
-        id.split('-').joinToString(" ") { part ->
-            part.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
-        }
+    private fun humanizeId(id: String): String = id.split('-').joinToString(" ") { part ->
+        part.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+    }
 }
 
 @Serializable

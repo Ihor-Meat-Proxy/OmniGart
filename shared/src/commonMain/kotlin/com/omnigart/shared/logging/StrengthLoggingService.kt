@@ -66,6 +66,7 @@ class StrengthLoggingService(
     private val contentStore: ContentStore? = null
 ) {
     private var seededCatalog: List<DemoStrengthExercise>? = null
+
     /** Swift-friendly overload (Kotlin default args are not exported to Apple). */
     fun startSession(): Session = startSession(workoutId = null, startedAt = clock.now())
 

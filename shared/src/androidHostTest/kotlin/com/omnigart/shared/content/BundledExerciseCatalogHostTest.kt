@@ -1,5 +1,10 @@
 package com.omnigart.shared.content
 
+import com.omnigart.shared.calc.strategy.FormulaSettingsService
+import com.omnigart.shared.data.ExerciseRepository
+import com.omnigart.shared.data.SessionRepository
+import com.omnigart.shared.data.UserProfileRepository
+import com.omnigart.shared.data.createInMemoryDatabase
 import com.omnigart.shared.domain.LoadModel
 import com.omnigart.shared.logging.StrengthLoggingService
 import kotlin.test.Test
@@ -111,14 +116,14 @@ class BundledExerciseCatalogHostTest {
 
     @Test
     fun strengthLoggingService_seedsFromInjectableStore() {
-        val db = com.omnigart.shared.data.createInMemoryDatabase()
-        val exerciseRepo = com.omnigart.shared.data.ExerciseRepository(db)
+        val db = createInMemoryDatabase()
+        val exerciseRepo = ExerciseRepository(db)
         val svc =
             StrengthLoggingService(
-                sessions = com.omnigart.shared.data.SessionRepository(db),
+                sessions = SessionRepository(db),
                 exercises = exerciseRepo,
-                profiles = com.omnigart.shared.data.UserProfileRepository(db),
-                formulaSettings = com.omnigart.shared.calc.strategy.FormulaSettingsService(db),
+                profiles = UserProfileRepository(db),
+                formulaSettings = FormulaSettingsService(db),
                 contentStore = fixtureStore()
             )
         val loaded = svc.loadExercises()

@@ -1,0 +1,101 @@
+{
+  "id": "trap-bar-deadlift",
+  "nameKeys": {
+    "enGB": "exercise.trap_bar_deadlift.name",
+    "uk": "exercise.trap_bar_deadlift.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_maximus",
+    "hamstrings"
+  ],
+  "secondaryMuscles": [
+    "erector_spinae",
+    "trapezius",
+    "forearms"
+  ],
+  "equipment": [
+    "trap_bar"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Stand inside the trap bar, hinge and grip handles, stand tall by pushing the floor away, then hinge back down."
+  ],
+  "setup": [
+    "High or low handles based on mobility; neutral spine."
+  ],
+  "breathing": "Brace, then exhale near lockout.",
+  "commonMistakes": [
+    "Rounding through the lift",
+    "Shrugging early"
+  ],
+  "safety": [
+    "Often friendlier for beginners than straight-bar pulls."
+  ],
+  "contraindications": [
+    "Acute lumbar pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "romanian-deadlift-dumbbell",
+      "note": "Hinge drill"
+    },
+    {
+      "exerciseId": "sit-to-stand",
+      "note": "If loading not ready"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "conventional-deadlift",
+      "note": "Straight bar"
+    },
+    {
+      "exerciseId": "back-squat",
+      "note": "Squat pattern emphasis"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand (overview of reviews)",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/trap-bar-deadlift",
+    "videoKey": "media/video/trap-bar-deadlift",
+    "animationKey": "media/anim/trap-bar-deadlift"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

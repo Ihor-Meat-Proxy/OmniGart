@@ -52,23 +52,32 @@ kotlin {
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.sqldelight.runtime)
             implementation(libs.sqldelight.coroutines)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.json)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
             implementation(libs.kotlinx.coroutines.test)
+            implementation(libs.ktor.client.mock)
         }
         androidMain.dependencies {
             implementation(libs.sqldelight.android)
+            implementation(libs.ktor.client.okhttp)
+            implementation(libs.health.connect.client)
+            implementation(libs.security.crypto)
         }
         // Default hierarchy provides appleMain for iOS + watchOS.
         appleMain.dependencies {
             implementation(libs.sqldelight.native)
+            implementation(libs.ktor.client.darwin)
         }
         getByName("androidHostTest").dependencies {
             implementation(libs.kotlin.test)
             implementation(libs.kotlin.test.junit)
             implementation(libs.sqldelight.sqlite.driver)
             implementation(libs.junit)
+            implementation(libs.health.connect.testing)
         }
     }
 }

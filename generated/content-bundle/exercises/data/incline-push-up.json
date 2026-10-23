@@ -1,0 +1,97 @@
+{
+  "id": "incline-push-up",
+  "nameKeys": {
+    "enGB": "exercise.incline_push_up.name",
+    "uk": "exercise.incline_push_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid",
+    "serratus_anterior"
+  ],
+  "equipment": [
+    "bodyweight",
+    "bench"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Hands on a bench/rail; perform a rigid push-up."
+  ],
+  "setup": [
+    "Stable surface; body in straight line."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Hips piked high"
+  ],
+  "safety": [
+    "Higher surface = easier."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "knee-push-up",
+      "note": "Alternative regression"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "push-up",
+      "note": "Floor"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1519/JSC.0b013e3181bde2cf",
+      "label": "Suprak et al. 2011 — % body mass supported in push-up positions (~69–75% traditional)",
+      "supports": [
+        "biomechanics"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/incline-push-up",
+    "videoKey": "media/video/incline-push-up",
+    "animationKey": "media/anim/incline-push-up"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.72,
+    "basis": "measured",
+    "rationale": "Suprak et al. 2011 reported ~69% BM at the top and ~75% BM at the bottom of a traditional push-up (static positions); 0.72 is the mid-range summary used here."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
+}

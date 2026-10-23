@@ -16,6 +16,7 @@ android {
         targetSdk = 37
         versionCode = 1
         versionName = "0.1.0"
+        manifestPlaceholders["appAuthRedirectScheme"] = "com.omnigart"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -45,8 +46,14 @@ android {
                 rootProject.file("design/generated/android/values"),
                 rootProject.file("design/generated/android/drawable")
             )
+            // Offline baseline: exercises, evidence, icons, body-maps, etc.
+            assets.srcDirs(rootProject.file("generated/content-bundle"))
         }
     }
+}
+
+tasks.named("preBuild").configure {
+    dependsOn(rootProject.tasks.named("packBundledContent"))
 }
 
 kotlin {
@@ -57,6 +64,7 @@ kotlin {
 
 dependencies {
     implementation(project(":shared"))
+    implementation(libs.appauth)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)

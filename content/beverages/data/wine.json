@@ -1,0 +1,40 @@
+{
+  "id": "wine",
+  "category": "wine",
+  "defaultServingMl": 150,
+  "caffeineMgPerServing": 0,
+  "macrosPer100ml": {
+    "energyKcal": 83,
+    "proteinG": 0.1,
+    "carbohydrateG": 2.6,
+    "fatG": 0,
+    "sugarsG": 0.8,
+    "sodiumMg": 5
+  },
+  "hydrationFactor": 1.0,
+  "hydrationFactorEstimated": true,
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.3945/ajcn.115.114769",
+      "label": "Maughan et al. 2016 AJCN — Beverage Hydration Index",
+      "supports": [
+        "hydration_factor"
+      ]
+    },
+    {
+      "kind": "database",
+      "id": "usda-fdc",
+      "label": "USDA FoodData Central (typical values per 100 ml / serving)",
+      "supports": [
+        "macros",
+        "caffeine"
+      ]
+    }
+  ],
+  "notes": "Not in Maughan panel; defaulted to 1.0 like lager. Higher ABV may increase diuresis at larger intakes.",
+  "nameKeys": {
+    "enGB": "beverage.wine.name",
+    "uk": "beverage.wine.name"
+  }
+}

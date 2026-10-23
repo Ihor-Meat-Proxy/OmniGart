@@ -1,0 +1,236 @@
+{
+  "id": "desk-worker-mobility-strength",
+  "nameKeys": {
+    "enGB": "template.desk_worker_mobility_strength.name",
+    "uk": "template.desk_worker_mobility_strength.name"
+  },
+  "disciplines": [
+    "strength",
+    "yoga"
+  ],
+  "level": "beginner",
+  "goal": "general_fitness",
+  "daysPerWeek": 3,
+  "sessionMinutes": 45,
+  "equipmentPreset": "home_gym",
+  "equipmentRequired": [
+    "dumbbell",
+    "bands",
+    "yoga_mat"
+  ],
+  "rationale": "Combines posterior-chain and upper-back strength with thoracic/hip mobility to offset sedentary postures, within ACSM multi-component recommendations.",
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "d1",
+      "nameKeys": {
+        "enGB": "template.desk_worker_mobility_strength.d1.name",
+        "uk": "template.desk_worker_mobility_strength.d1.name"
+      },
+      "blocks": [
+        {
+          "kind": "warmup",
+          "items": [
+            {
+              "exerciseId": "cat-cow",
+              "sets": 1,
+              "reps": "8",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "band-pull-apart",
+              "sets": 2,
+              "reps": "15",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        },
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "romanian-deadlift-dumbbell",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "chest-supported-row",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "face-pull",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "hip-thrust",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "dead-bug",
+              "sets": 3,
+              "reps": "8/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        },
+        {
+          "kind": "cooldown",
+          "items": [
+            {
+              "exerciseId": "downward-dog",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 40
+            },
+            {
+              "exerciseId": "child-pose",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "nameKeys": {
+        "enGB": "template.desk_worker_mobility_strength.d2.name",
+        "uk": "template.desk_worker_mobility_strength.d2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "goblet-squat",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "reverse-lunge-dumbbell",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "glute-bridge",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "worlds-greatest-stretch",
+              "sets": 2,
+              "reps": "4/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "pigeon-pose",
+              "sets": 3,
+              "reps": "hold/side",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3",
+      "nameKeys": {
+        "enGB": "template.desk_worker_mobility_strength.d3.name",
+        "uk": "template.desk_worker_mobility_strength.d3.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "dumbbell-bench-press",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "overhead-press-dumbbell",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "pallof-press",
+              "sets": 3,
+              "reps": "8/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "side-plank",
+              "sets": 3,
+              "reps": "hold/side",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 25
+            },
+            {
+              "exerciseId": "seated-forward-fold",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 45
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

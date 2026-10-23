@@ -4,8 +4,8 @@ import Shared
 @main
 struct OmniGartApp: App {
     private let core: OmniGartCore
-    private let profileId: String
-    private let summary: [String]
+    @State private var profile: UserProfile
+    @State private var showOnboarding: Bool
 
     init() {
         // HealthKit bridge is constructed for JIT use when FeatureFlags.healthSyncEnabled.
@@ -13,17 +13,52 @@ struct OmniGartApp: App {
         _ = HealthKitPlatformBridge.shared
 
         let core = OmniGartCore(driverFactory: DatabaseDriverFactory())
-        let profile = core.ensureDemoProfile()
-        // Kotlin List<String> exports as Swift [String] on current K/N.
-        let lines = core.summaryLines(profile: profile)
+        let args = ProcessInfo.processInfo.arguments
+        let uiTesting = args.contains("-ui-testing")
+        let forceOnboarding = args.contains("-ui-testing-onboarding")
+
+        let profile: UserProfile
+        if uiTesting && !forceOnboarding {
+            profile = core.ensureUiTestProfile()
+        } else if forceOnboarding {
+            // Wipe any leftover local/demo profile so onboarding UI tests start clean.
+            core.profiles.delete(id: OmniGartCore.companion.LOCAL_PROFILE_ID)
+            core.profiles.delete(id: OmniGartCore.companion.DEMO_PROFILE_ID)
+            profile = core.ensureDraftProfile()
+        } else if core.needsOnboarding() {
+            profile = core.ensureDraftProfile()
+        } else {
+            profile = core.activeProfile()
+        }
+
         self.core = core
-        self.profileId = profile.id
-        summary = lines.isEmpty ? ["OmniGart"] : lines
+        _profile = State(initialValue: profile)
+        _showOnboarding = State(
+            initialValue: forceOnboarding || (!uiTesting && core.needsOnboarding())
+        )
     }
 
     var body: some Scene {
         WindowGroup {
-            PhoneRootView(core: core, profileId: profileId, summaryLines: summary)
+            Group {
+                if showOnboarding {
+                    OnboardingFlowView(core: core) { completed in
+                        profile = completed
+                        showOnboarding = false
+                    }
+                } else {
+                    PhoneRootView(
+                        core: core,
+                        profileId: profile.id,
+                        summaryLines: summaryLines(for: profile)
+                    )
+                }
+            }
         }
+    }
+
+    private func summaryLines(for profile: UserProfile) -> [String] {
+        let lines = core.summaryLines(profile: profile)
+        return lines.isEmpty ? ["OmniGart"] : lines
     }
 }

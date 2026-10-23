@@ -4,8 +4,8 @@ import kotlinx.datetime.LocalDate
 import kotlinx.serialization.Serializable
 
 /**
- * Biological sex used by equations that are sex-specific (Mifflin–St Jeor, CUN-BAE, EFSA water).
- * Phase 0 models male/female only; see docs/OPEN_QUESTIONS.md.
+ * Biological sex used by equations that are sex-specific (Mifflin–St Jeor, CUN-BAE, EFSA water)
+ * and for choosing a body-map figure. Phase models male/female only; see docs/OPEN_QUESTIONS.md.
  */
 @Serializable
 enum class BiologicalSex {
@@ -35,7 +35,12 @@ data class UserProfile(
     /** Optional waist circumference in centimetres. */
     val waistCm: Double? = null,
     /** Optional hip circumference in centimetres. */
-    val hipCm: Double? = null
+    val hipCm: Double? = null,
+    val primaryGoal: ProfileGoal = ProfileGoal.GENERAL_FITNESS,
+    val strengthLevel: StrengthLevel = StrengthLevel.BEGINNER,
+    val activityLevel: ActivityLevel = ActivityLevel.MODERATE,
+    /** True after the user finishes (or skips past) first-launch onboarding. */
+    val onboardingCompleted: Boolean = false
 ) {
     init {
         require(heightCm > 0) { "heightCm must be positive" }

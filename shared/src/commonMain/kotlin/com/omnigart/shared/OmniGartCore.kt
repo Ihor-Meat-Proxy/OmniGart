@@ -10,7 +10,12 @@ import com.omnigart.shared.data.SessionRepository
 import com.omnigart.shared.data.UserProfileRepository
 import com.omnigart.shared.data.WorkoutRepository
 import com.omnigart.shared.data.createDatabase
+import com.omnigart.shared.db.OmniGartDatabase
+import com.omnigart.shared.domain.ActivityLevel
 import com.omnigart.shared.domain.BiologicalSex
+import com.omnigart.shared.domain.ProfileGoal
+import com.omnigart.shared.domain.StrengthLevel
+import com.omnigart.shared.domain.UnitSystem
 import com.omnigart.shared.domain.UserProfile
 import com.omnigart.shared.logging.StrengthLoggingService
 import com.omnigart.shared.util.formatOneDecimal
@@ -25,11 +30,13 @@ import kotlinx.datetime.todayIn
  * [contentStore] is the offline content pack (Android/Wear assets). When null, strength
  * logging falls back to the built-in demo exercise catalog.
  */
-class OmniGartCore(driverFactory: DatabaseDriverFactory, contentStore: ContentStore?) {
+class OmniGartCore private constructor(database: OmniGartDatabase, contentStore: ContentStore?) {
+    constructor(driverFactory: DatabaseDriverFactory, contentStore: ContentStore?) :
+        this(createDatabase(driverFactory), contentStore)
+
     /** Swift-friendly overload (Kotlin default args are not exported to Apple). */
     constructor(driverFactory: DatabaseDriverFactory) : this(driverFactory, contentStore = null)
 
-    private val database = createDatabase(driverFactory)
     val profiles = UserProfileRepository(database)
     val exercises = ExerciseRepository(database)
     val workouts = WorkoutRepository(database)
@@ -44,22 +51,114 @@ class OmniGartCore(driverFactory: DatabaseDriverFactory, contentStore: ContentSt
             contentStore = contentStore
         )
 
-    fun ensureDemoProfile(): UserProfile {
-        val existing = profiles.get(DEMO_PROFILE_ID)
+    /** True when a completed local profile exists (first-launch onboarding finished). */
+    fun needsOnboarding(): Boolean {
+        val local = profiles.get(LOCAL_PROFILE_ID)
+        if (local?.onboardingCompleted == true) return false
+        // Legacy demo profile without onboarding completion still needs the flow.
+        val demo = profiles.get(DEMO_PROFILE_ID)
+        return demo?.onboardingCompleted != true && local?.onboardingCompleted != true
+    }
+
+    /**
+     * Active profile for the shell. Prefers the completed local profile; otherwise returns
+     * an in-progress draft (or creates one). Does not mark onboarding complete.
+     */
+    fun activeProfile(): UserProfile {
+        profiles.get(LOCAL_PROFILE_ID)?.let { return it }
+        profiles.get(DEMO_PROFILE_ID)?.takeIf { it.onboardingCompleted }?.let { return it }
+        return ensureDraftProfile()
+    }
+
+    /** Draft profile used while onboarding is incomplete. */
+    fun ensureDraftProfile(): UserProfile {
+        val existing = profiles.get(LOCAL_PROFILE_ID)
         if (existing != null) return existing
-        val demo =
+        val draft =
             UserProfile(
-                id = DEMO_PROFILE_ID,
+                id = LOCAL_PROFILE_ID,
                 biologicalSex = BiologicalSex.FEMALE,
                 heightCm = 168.0,
                 weightKg = 62.0,
                 dateOfBirth = LocalDate(1994, 6, 15),
-                waistCm = 74.0,
-                hipCm = 98.0
+                preferredUnits = UnitSystem.METRIC,
+                primaryGoal = ProfileGoal.GENERAL_FITNESS,
+                strengthLevel = StrengthLevel.BEGINNER,
+                activityLevel = ActivityLevel.MODERATE,
+                onboardingCompleted = false
             )
-        profiles.upsert(demo)
-        return demo
+        profiles.upsert(draft)
+        return draft
     }
+
+    /**
+     * Persist onboarding answers and mark the local profile complete.
+     * Replaces any prior demo profile as the active identity.
+     */
+    fun completeOnboarding(profile: UserProfile): UserProfile {
+        val completed = profile.copy(id = LOCAL_PROFILE_ID, onboardingCompleted = true)
+        profiles.upsert(completed)
+        if (profiles.get(DEMO_PROFILE_ID) != null) {
+            profiles.delete(DEMO_PROFILE_ID)
+        }
+        return completed
+    }
+
+    /**
+     * Swift-friendly onboarding save (avoids exporting kotlinx-datetime constructors).
+     * [birthYear]/[birthMonth]/[birthDay] form the date of birth.
+     */
+    fun completeOnboardingAnswers(
+        biologicalSex: BiologicalSex,
+        heightCm: Double,
+        weightKg: Double,
+        birthYear: Int,
+        birthMonth: Int,
+        birthDay: Int,
+        preferredUnits: UnitSystem,
+        primaryGoal: ProfileGoal,
+        strengthLevel: StrengthLevel,
+        activityLevel: ActivityLevel
+    ): UserProfile {
+        val profile =
+            UserProfile(
+                id = LOCAL_PROFILE_ID,
+                biologicalSex = biologicalSex,
+                heightCm = heightCm,
+                weightKg = weightKg,
+                dateOfBirth = LocalDate(birthYear, birthMonth, birthDay),
+                preferredUnits = preferredUnits,
+                primaryGoal = primaryGoal,
+                strengthLevel = strengthLevel,
+                activityLevel = activityLevel,
+                onboardingCompleted = false
+            )
+        return completeOnboarding(profile)
+    }
+
+    /** UI-test helper: seed a completed profile without showing onboarding. */
+    fun ensureUiTestProfile(): UserProfile {
+        val seeded =
+            UserProfile(
+                id = LOCAL_PROFILE_ID,
+                biologicalSex = BiologicalSex.FEMALE,
+                heightCm = 168.0,
+                weightKg = 62.0,
+                dateOfBirth = LocalDate(1994, 6, 15),
+                preferredUnits = UnitSystem.METRIC,
+                waistCm = 74.0,
+                hipCm = 98.0,
+                primaryGoal = ProfileGoal.GENERAL_FITNESS,
+                strengthLevel = StrengthLevel.BEGINNER,
+                activityLevel = ActivityLevel.MODERATE,
+                onboardingCompleted = true
+            )
+        profiles.upsert(seeded)
+        return seeded
+    }
+
+    @Deprecated("Use activeProfile() / completeOnboarding()", ReplaceWith("activeProfile()"))
+    fun ensureDemoProfile(): UserProfile = activeProfile()
 
     fun ageYears(profile: UserProfile, today: LocalDate = Clock.System.todayIn(TimeZone.currentSystemDefault())): Int {
         var age = today.year - profile.dateOfBirth.year
@@ -87,6 +186,10 @@ class OmniGartCore(driverFactory: DatabaseDriverFactory, contentStore: ContentSt
 
     companion object {
         const val DEMO_PROFILE_ID = "demo-profile"
+        const val LOCAL_PROFILE_ID = "local-profile"
         const val VERSION = "0.1.0-phase1"
+
+        /** Host-test helper: build a core against an existing SQLDelight database. */
+        fun forTesting(database: OmniGartDatabase, contentStore: ContentStore? = null): OmniGartCore = OmniGartCore(database, contentStore)
     }
 }

@@ -1,10 +1,13 @@
 package com.omnigart.shared.data
 
 import com.omnigart.shared.db.OmniGartDatabase
+import com.omnigart.shared.domain.ActivityLevel
 import com.omnigart.shared.domain.BiologicalSex
 import com.omnigart.shared.domain.Exercise
 import com.omnigart.shared.domain.ExerciseModality
+import com.omnigart.shared.domain.ProfileGoal
 import com.omnigart.shared.domain.Session
+import com.omnigart.shared.domain.StrengthLevel
 import com.omnigart.shared.domain.UnitSystem
 import com.omnigart.shared.domain.UserProfile
 import com.omnigart.shared.domain.Workout
@@ -22,7 +25,11 @@ class UserProfileRepository(private val db: OmniGartDatabase) {
             date_of_birth = profile.dateOfBirth.toString(),
             preferred_units = profile.preferredUnits.name,
             waist_cm = profile.waistCm,
-            hip_cm = profile.hipCm
+            hip_cm = profile.hipCm,
+            primary_goal = profile.primaryGoal.name,
+            strength_level = profile.strengthLevel.name,
+            activity_level = profile.activityLevel.name,
+            onboarding_completed = if (profile.onboardingCompleted) 1L else 0L
         )
     }
 
@@ -127,7 +134,11 @@ private fun com.omnigart.shared.db.User_profile.toDomain(): UserProfile = UserPr
     dateOfBirth = LocalDate.parse(date_of_birth),
     preferredUnits = UnitSystem.valueOf(preferred_units),
     waistCm = waist_cm,
-    hipCm = hip_cm
+    hipCm = hip_cm,
+    primaryGoal = runCatching { ProfileGoal.valueOf(primary_goal) }.getOrDefault(ProfileGoal.GENERAL_FITNESS),
+    strengthLevel = runCatching { StrengthLevel.valueOf(strength_level) }.getOrDefault(StrengthLevel.BEGINNER),
+    activityLevel = runCatching { ActivityLevel.valueOf(activity_level) }.getOrDefault(ActivityLevel.MODERATE),
+    onboardingCompleted = onboarding_completed != 0L
 )
 
 private fun com.omnigart.shared.db.Exercise.toDomain(): Exercise = Exercise(

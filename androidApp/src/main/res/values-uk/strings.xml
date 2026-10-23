@@ -29,4 +29,14 @@
     <string name="hc_rationale_title">Використання даних Health Connect</string>
     <string name="hc_rationale_body">OmniGart запитує доступ до Health Connect, щоб читати й записувати обрані вами фітнес-дані та дані самопочуття — пульс, ВСР, сон, тренування, масу тіла, гідратацію — для точніших оцінок готовності й тренувань на пристрої.\n\nМи не продаємо дані здоров’я, не використовуємо їх для реклами і не передаємо третім сторонам для маркетингу. Можна відмовити в доступі й користуватися OmniGart із ручним введенням.</string>
     <string name="hc_rationale_privacy_policy">Політика конфіденційності</string>
+
+    <string name="calc_settings_title">Розрахунки</string>
+    <string name="calc_settings_intro">Оберіть, як OmniGart оцінює показники самопочуття: енергію, зони пульсу, жир у тілі та силу.</string>
+    <string name="calc_mode_simple">Простий</string>
+    <string name="calc_mode_advanced">Розширений</string>
+    <string name="calc_domain_bmr">BMR</string>
+    <string name="calc_domain_hr_max">Макс. пульс</string>
+    <string name="calc_domain_body_fat">Жир у тілі</string>
+    <string name="calc_domain_one_rm">Одноповторений максимум</string>
+    <string name="calc_domain_hr_zones">Зони пульсу</string>
 </resources>

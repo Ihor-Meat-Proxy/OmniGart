@@ -3,6 +3,8 @@ import Shared
 
 @main
 struct OmniGartApp: App {
+    private let core: OmniGartCore
+    private let profileId: String
     private let summary: [String]
 
     init() {
@@ -14,12 +16,14 @@ struct OmniGartApp: App {
         let profile = core.ensureDemoProfile()
         // Kotlin List<String> exports as Swift [String] on current K/N.
         let lines = core.summaryLines(profile: profile)
+        self.core = core
+        self.profileId = profile.id
         summary = lines.isEmpty ? ["OmniGart"] : lines
     }
 
     var body: some Scene {
         WindowGroup {
-            PhoneRootView(summaryLines: summary)
+            PhoneRootView(core: core, profileId: profileId, summaryLines: summary)
         }
     }
 }

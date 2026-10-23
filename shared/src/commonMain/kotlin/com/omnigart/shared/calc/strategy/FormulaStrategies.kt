@@ -106,41 +106,149 @@ data class FormulaPreferences(
 )
 
 object FormulaCatalog {
+    const val DEFAULT_BMR = "mifflin_st_jeor"
+    const val DEFAULT_HR_MAX = "tanaka"
+    const val DEFAULT_BODY_FAT = "cun_bae"
+    const val DEFAULT_ONE_RM = "epley"
+    const val DEFAULT_HR_ZONES = "karvonen_5"
+
     val bmrOptions: Map<String, BmrFormula> =
         mapOf(
-            "mifflin_st_jeor" to MifflinStJeorBmr,
+            DEFAULT_BMR to MifflinStJeorBmr,
             "harris_benedict" to HarrisBenedictBmr
         )
     val hrMaxOptions: Map<String, HrMaxFormula> =
         mapOf(
-            "tanaka" to TanakaHrMax,
+            DEFAULT_HR_MAX to TanakaHrMax,
             "fox" to FoxHrMax
         )
     val bodyFatOptions: Map<String, BodyFatFormula> =
-        mapOf("cun_bae" to CunBaeBodyFat)
+        mapOf(DEFAULT_BODY_FAT to CunBaeBodyFat)
     val oneRepMaxOptions: Map<String, OneRepMaxFormula> =
         mapOf(
-            "epley" to EpleyOneRepMax,
+            DEFAULT_ONE_RM to EpleyOneRepMax,
             "brzycki" to BrzyckiOneRepMax
         )
     val hrZoneOptions: Map<String, HrZoneFormula> =
         mapOf(
-            "karvonen_5" to KarvonenFiveZoneFormula,
+            DEFAULT_HR_ZONES to KarvonenFiveZoneFormula,
             "karvonen_3" to KarvonenThreeZoneFormula,
             "percent_hrmax_5" to PercentHrMaxFiveZoneFormula
         )
 
+    val bmrMeta: List<FormulaOptionMeta> =
+        listOf(
+            FormulaOptionMeta(
+                DEFAULT_BMR,
+                "formula.bmr.mifflin_st_jeor.title",
+                "formula.bmr.mifflin_st_jeor.explain",
+                simpleDefault = true
+            ),
+            FormulaOptionMeta(
+                "harris_benedict",
+                "formula.bmr.harris_benedict.title",
+                "formula.bmr.harris_benedict.explain",
+                simpleDefault = false
+            )
+        )
+
+    val hrMaxMeta: List<FormulaOptionMeta> =
+        listOf(
+            FormulaOptionMeta(
+                DEFAULT_HR_MAX,
+                "formula.hr_max.tanaka.title",
+                "formula.hr_max.tanaka.explain",
+                simpleDefault = true
+            ),
+            FormulaOptionMeta(
+                "fox",
+                "formula.hr_max.fox.title",
+                "formula.hr_max.fox.explain",
+                simpleDefault = false
+            )
+        )
+
+    val bodyFatMeta: List<FormulaOptionMeta> =
+        listOf(
+            FormulaOptionMeta(
+                DEFAULT_BODY_FAT,
+                "formula.body_fat.cun_bae.title",
+                "formula.body_fat.cun_bae.explain",
+                simpleDefault = true
+            )
+        )
+
+    val oneRmMeta: List<FormulaOptionMeta> =
+        listOf(
+            FormulaOptionMeta(
+                DEFAULT_ONE_RM,
+                "formula.one_rm.epley.title",
+                "formula.one_rm.epley.explain",
+                simpleDefault = true
+            ),
+            FormulaOptionMeta(
+                "brzycki",
+                "formula.one_rm.brzycki.title",
+                "formula.one_rm.brzycki.explain",
+                simpleDefault = false
+            )
+        )
+
+    val hrZonesMeta: List<FormulaOptionMeta> =
+        listOf(
+            FormulaOptionMeta(
+                DEFAULT_HR_ZONES,
+                "formula.hr_zones.karvonen_5.title",
+                "formula.hr_zones.karvonen_5.explain",
+                simpleDefault = true
+            ),
+            FormulaOptionMeta(
+                "karvonen_3",
+                "formula.hr_zones.karvonen_3.title",
+                "formula.hr_zones.karvonen_3.explain",
+                simpleDefault = false
+            ),
+            FormulaOptionMeta(
+                "percent_hrmax_5",
+                "formula.hr_zones.percent_hrmax_5.title",
+                "formula.hr_zones.percent_hrmax_5.explain",
+                simpleDefault = false
+            )
+        )
+
+    fun optionsFor(domain: FormulaDomain, mode: FormulaMode): List<FormulaOptionMeta> {
+        val all =
+            when (domain) {
+                FormulaDomain.BMR -> bmrMeta
+                FormulaDomain.HR_MAX -> hrMaxMeta
+                FormulaDomain.BODY_FAT -> bodyFatMeta
+                FormulaDomain.ONE_RM -> oneRmMeta
+                FormulaDomain.HR_ZONES -> hrZonesMeta
+            }
+        return if (mode == FormulaMode.SIMPLE) all.filter { it.simpleDefault } else all
+    }
+
+    fun resolveBmrKey(key: String): String = if (bmrOptions.containsKey(key)) key else DEFAULT_BMR
+
+    fun resolveHrMaxKey(key: String): String = if (hrMaxOptions.containsKey(key)) key else DEFAULT_HR_MAX
+
+    fun resolveBodyFatKey(key: String): String = if (bodyFatOptions.containsKey(key)) key else DEFAULT_BODY_FAT
+
+    fun resolveOneRmKey(key: String): String = if (oneRepMaxOptions.containsKey(key)) key else DEFAULT_ONE_RM
+
+    fun resolveHrZonesKey(key: String): String = if (hrZoneOptions.containsKey(key)) key else DEFAULT_HR_ZONES
+
     fun preferencesFromKeys(
-        bmrKey: String = "mifflin_st_jeor",
-        hrMaxKey: String = "tanaka",
-        bodyFatKey: String = "cun_bae",
-        oneRepMaxKey: String = "epley",
-        hrZonesKey: String = "karvonen_5"
+        bmrKey: String = DEFAULT_BMR,
+        hrMaxKey: String = DEFAULT_HR_MAX,
+        bodyFatKey: String = DEFAULT_BODY_FAT,
+        oneRepMaxKey: String = DEFAULT_ONE_RM,
+        hrZonesKey: String = DEFAULT_HR_ZONES
     ): FormulaPreferences = FormulaPreferences(
-        bmr = bmrOptions[bmrKey] ?: MifflinStJeorBmr,
-        hrMax = hrMaxOptions[hrMaxKey] ?: TanakaHrMax,
-        bodyFat = bodyFatOptions[bodyFatKey] ?: CunBaeBodyFat,
-        oneRepMax = oneRepMaxOptions[oneRepMaxKey] ?: EpleyOneRepMax,
-        hrZones = hrZoneOptions[hrZonesKey] ?: KarvonenFiveZoneFormula
+        bmr = bmrOptions[resolveBmrKey(bmrKey)] ?: MifflinStJeorBmr,
+        hrMax = hrMaxOptions[resolveHrMaxKey(hrMaxKey)] ?: TanakaHrMax,
+        bodyFat = bodyFatOptions[resolveBodyFatKey(bodyFatKey)] ?: CunBaeBodyFat,
+        oneRepMax = oneRepMaxOptions[resolveOneRmKey(oneRepMaxKey)] ?: EpleyOneRepMax,
+        hrZones = hrZoneOptions[resolveHrZonesKey(hrZonesKey)] ?: KarvonenFiveZoneFormula
     )
 }

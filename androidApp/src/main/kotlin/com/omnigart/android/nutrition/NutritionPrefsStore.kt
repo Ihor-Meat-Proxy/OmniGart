@@ -5,6 +5,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 /** Simple SharedPreferences-backed local store for nutrition prefs and measurements. */
+@Suppress("TooManyFunctions")
 object NutritionPrefsStore {
     private const val PREFS = "nutrition_prefs_v1"
     private lateinit var appContext: Context

@@ -20,6 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.omnigart.android.R
 import com.omnigart.design.theme.OmniGartColors
+import java.util.Locale
 import kotlinx.coroutines.launch
 
 @Composable
@@ -85,7 +86,7 @@ fun BodyMeasurementsSection() {
                     NutritionPrefsStore.appendBodyFat(it)
                 }
                 waist.toDoubleOrNull()?.takeIf { it > 0 }?.let {
-                    whtr = String.format("%.2f", it / 170.0)
+                    whtr = String.format(Locale.US, "%.2f", it / 170.0)
                 }
                 saved = true
                 NutritionReminderScheduler.reschedule(context)

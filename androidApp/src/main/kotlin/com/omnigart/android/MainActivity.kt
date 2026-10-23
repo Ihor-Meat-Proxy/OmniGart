@@ -18,7 +18,6 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -32,12 +31,11 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import com.omnigart.android.compliance.WellnessInfoSheet
 import com.omnigart.android.debug.MaybeDebugMenu
-import com.omnigart.android.nutrition.BodyMeasurementsSection
+import com.omnigart.android.nutrition.FoodTabNutritionSection
 import com.omnigart.android.nutrition.NutritionGoalSettingsSection
 import com.omnigart.android.nutrition.NutritionPrefsStore
 import com.omnigart.android.nutrition.NutritionReminderScheduler
 import com.omnigart.android.nutrition.NutritionReminderSettingsSection
-import com.omnigart.android.nutrition.NutritionTargetSection
 import com.omnigart.design.icons.OmniGartIcons
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.design.theme.OmniGartSpacing
@@ -144,31 +142,18 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
                 )
             }
             if (selected == PhoneTab.Food.ordinal) {
-                if (showMeasurements) {
-                    BodyMeasurementsSection()
-                    TextButton(onClick = { showMeasurements = false }) {
-                        Text(stringResource(R.string.tab_food))
-                    }
-                } else {
-                    NutritionTargetSection(
-                        core = core,
-                        profileId = profileId,
-                        onOpenMeasurements = { showMeasurements = true }
-                    )
-                }
+                FoodTabNutritionSection(
+                    core = core,
+                    profileId = profileId,
+                    showMeasurements = showMeasurements,
+                    onShowMeasurements = { showMeasurements = it }
+                )
             }
             if (selected == PhoneTab.Workouts.ordinal) {
                 StrengthLoggingSection(core = core, profileId = profileId)
             }
             if (selected == PhoneTab.Profile.ordinal) {
-                CalculationsSettingsSection(
-                    core = core,
-                    profileId = profileId,
-                    onSelectionChanged = { formulaEpoch += 1 }
-                )
-                NutritionGoalSettingsSection()
-                NutritionReminderSettingsSection()
-                DataPrivacySection(core = core)
+                ProfileNutritionBlocks(core, profileId) { formulaEpoch += 1 }
             }
             // Unfinished surfaces stay behind flags that are off in release.
             if (FeatureFlags.healthSyncEnabled) {
@@ -177,6 +162,18 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
             MaybeDebugMenu()
         }
     }
+}
+
+@Composable
+private fun ProfileNutritionBlocks(core: OmniGartCore, profileId: String, onFormulaChanged: () -> Unit) {
+    CalculationsSettingsSection(
+        core = core,
+        profileId = profileId,
+        onSelectionChanged = onFormulaChanged
+    )
+    NutritionGoalSettingsSection()
+    NutritionReminderSettingsSection()
+    DataPrivacySection(core = core)
 }
 
 @Composable

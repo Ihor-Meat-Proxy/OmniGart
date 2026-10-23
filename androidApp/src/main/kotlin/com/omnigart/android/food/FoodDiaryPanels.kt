@@ -17,10 +17,10 @@ import androidx.compose.ui.res.stringResource
 import com.omnigart.android.R
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.shared.OmniGartCore
+import com.omnigart.shared.food.models.CustomFood
 import com.omnigart.shared.food.models.MealGroup
 import com.omnigart.shared.food.models.QuickMacroAdd
 import com.omnigart.shared.food.models.QuickServing
-import com.omnigart.shared.food.models.CustomFood
 import com.omnigart.shared.food.nutrients.BiologicalSexBand
 import com.omnigart.shared.food.nutrients.NutrientId
 import com.omnigart.shared.food.nutrients.NutrientRankBasis
@@ -108,22 +108,41 @@ fun FoodBestSourcesBlock(core: OmniGartCore, profileId: String) {
 
 @Composable
 fun FoodToolsBlock(core: OmniGartCore, profileId: String, onLogged: () -> Unit) {
-    var barcode by remember { mutableStateOf("") }
-    var labelText by remember { mutableStateOf("") }
     var message by remember { mutableStateOf<String?>(null) }
     Text(text = stringResource(R.string.food_tools_title), style = MaterialTheme.typography.titleSmall)
+    FoodCopyDayButton(core, profileId, onLogged) { message = it }
+    FoodBarcodeLabelFields(core, profileId, onLogged)
+    FoodImportExportFields(core, profileId, onLogged) { message = it }
+    FoodCustomOverrideFields(core, profileId, onLogged)
+    message?.let { Text(text = it, style = MaterialTheme.typography.labelSmall) }
+    Text(
+        text = stringResource(R.string.food_attribution_short),
+        style = MaterialTheme.typography.labelSmall,
+        color = OmniGartColors.colorTextLightSecondary,
+        modifier = Modifier.testTag("food_attribution")
+    )
+}
+
+@Composable
+private fun FoodCopyDayButton(core: OmniGartCore, profileId: String, onLogged: () -> Unit, onMessage: (String) -> Unit) {
     Button(
         onClick = {
             val end = Clock.System.now().toEpochMilliseconds()
             val start = end - 86_400_000L
             core.foodLogging.copyDayEpoch(profileId, start - 86_400_000L, start, start)
             onLogged()
-            message = "Copied"
+            onMessage("Copied")
         },
         modifier = Modifier.testTag("food_copy_day")
     ) {
         Text(stringResource(R.string.food_copy_yesterday))
     }
+}
+
+@Composable
+private fun FoodBarcodeLabelFields(core: OmniGartCore, profileId: String, onLogged: () -> Unit) {
+    var barcode by remember { mutableStateOf("") }
+    var labelText by remember { mutableStateOf("") }
     OutlinedTextField(
         value = barcode,
         onValueChange = { barcode = it },
@@ -167,9 +186,11 @@ fun FoodToolsBlock(core: OmniGartCore, profileId: String, onLogged: () -> Unit) 
     ) {
         Text(stringResource(R.string.food_label_parse))
     }
+}
+
+@Composable
+private fun FoodImportExportFields(core: OmniGartCore, profileId: String, onLogged: () -> Unit, onMessage: (String) -> Unit) {
     var importPaste by remember { mutableStateOf("") }
-    var customName by remember { mutableStateOf("") }
-    var overrideAmount by remember { mutableStateOf("") }
     OutlinedTextField(
         value = importPaste,
         onValueChange = { importPaste = it },
@@ -179,7 +200,7 @@ fun FoodToolsBlock(core: OmniGartCore, profileId: String, onLogged: () -> Unit) 
     Button(
         onClick = {
             val n = core.foodLogging.importJson(profileId, importPaste)
-            message = "Imported $n"
+            onMessage("Imported $n")
             onLogged()
         },
         modifier = Modifier.testTag("food_import_json")
@@ -189,7 +210,7 @@ fun FoodToolsBlock(core: OmniGartCore, profileId: String, onLogged: () -> Unit) 
     Button(
         onClick = {
             val n = core.foodLogging.importCsv(profileId, importPaste)
-            message = "Imported $n"
+            onMessage("Imported $n")
             onLogged()
         },
         modifier = Modifier.testTag("food_import_csv")
@@ -199,12 +220,18 @@ fun FoodToolsBlock(core: OmniGartCore, profileId: String, onLogged: () -> Unit) 
     Button(
         onClick = {
             importPaste = core.foodLogging.exportJson(profileId)
-            message = "Exported"
+            onMessage("Exported")
         },
         modifier = Modifier.testTag("food_export_json")
     ) {
         Text(stringResource(R.string.food_export_json))
     }
+}
+
+@Composable
+private fun FoodCustomOverrideFields(core: OmniGartCore, profileId: String, onLogged: () -> Unit) {
+    var customName by remember { mutableStateOf("") }
+    var overrideAmount by remember { mutableStateOf("") }
     OutlinedTextField(
         value = customName,
         onValueChange = { customName = it },
@@ -247,13 +274,6 @@ fun FoodToolsBlock(core: OmniGartCore, profileId: String, onLogged: () -> Unit) 
     ) {
         Text(stringResource(R.string.food_override_vitamin_c))
     }
-    message?.let { Text(text = it, style = MaterialTheme.typography.labelSmall) }
-    Text(
-        text = stringResource(R.string.food_attribution_short),
-        style = MaterialTheme.typography.labelSmall,
-        color = OmniGartColors.colorTextLightSecondary,
-        modifier = Modifier.testTag("food_attribution")
-    )
 }
 
 @Composable
@@ -280,14 +300,7 @@ fun FoodSettingsBlock(core: OmniGartCore, profileId: String) {
         },
         modifier = Modifier.testTag("food_offline_only")
     ) {
-        Text(
-            text =
-            if (offline) {
-                stringResource(R.string.food_offline_only)
-            } else {
-                stringResource(R.string.food_offline_only)
-            }
-        )
+        Text(text = stringResource(R.string.food_offline_only))
     }
     Button(
         onClick = {

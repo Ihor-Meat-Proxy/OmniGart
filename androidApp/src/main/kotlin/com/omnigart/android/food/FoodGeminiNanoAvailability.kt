@@ -8,12 +8,16 @@ import com.omnigart.shared.food.review.OnDeviceAiGenerator
  * Fully on-device; no cloud fallback. Returns not-ready until AICore is product-wired.
  */
 object FoodGeminiNanoAvailability {
-    fun check(): OnDeviceAiAvailability = OnDeviceAiAvailability(
-        deviceEligible = false,
-        featureEnabled = false,
-        modelReady = false,
-        reasonIfUnavailable = "On-device model not available on this device"
-    )
+    private val unavailable =
+        OnDeviceAiAvailability(
+            deviceEligible = false,
+            featureEnabled = false,
+            modelReady = false,
+            reasonIfUnavailable = "On-device model not available on this device"
+        )
 
-    fun generator(): OnDeviceAiGenerator? = null
+    fun check(): OnDeviceAiAvailability = unavailable
+
+    /** Null until AICore / ML Kit GenAI is product-wired. */
+    val generator: OnDeviceAiGenerator? = null
 }

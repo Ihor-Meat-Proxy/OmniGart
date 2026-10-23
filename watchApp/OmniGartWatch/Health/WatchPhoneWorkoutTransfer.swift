@@ -54,6 +54,7 @@ final class WatchPhoneWorkoutTransfer: NSObject, WCSessionDelegate {
 }
 
 /// Builds device-transfer JSON from a finished watch workout and enqueues WCSession delivery.
+@MainActor
 enum WatchWorkoutTransferBuilder {
     struct TransferPayload {
         var localId: String

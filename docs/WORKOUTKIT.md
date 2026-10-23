@@ -29,6 +29,7 @@ WorkoutKit code is behind `OmniGartCapabilities.workoutKitSchedulingCompiledIn`:
 - Default: enabled when the OS is new enough.
 - If signing fails on a Personal Team, set Info.plist / build setting `OMNIGART_ENABLE_WORKOUTKIT=0` so the app still builds and runs without calling WorkoutKit APIs.
 - HealthKit development installs usually work on a Personal Team; see `docs/INSTALL_DEVICE.md` (install guide PR).
+- Watch HealthKit entitlements live in `watchApp/OmniGartWatch/OmniGartWatch.entitlements` (wired via XcodeGen `CODE_SIGN_ENTITLEMENTS`).
 
 ## Feature flags
 

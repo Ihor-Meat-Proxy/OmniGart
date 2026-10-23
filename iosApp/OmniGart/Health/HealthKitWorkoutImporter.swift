@@ -104,8 +104,8 @@ enum HealthKitWorkoutImporter {
             sourceName: imported.sourceName,
             platformRecordId: imported.uuid.uuidString,
             planId: planId ?? imported.planId,
-            heartRateEpochMs: hrEpoch,
-            heartRateBpm: hrBpm
+            heartRateEpochMs: KotlinPrimitiveArrays.longs(hrEpoch),
+            heartRateBpm: KotlinPrimitiveArrays.doubles(hrBpm)
         )
     }
 

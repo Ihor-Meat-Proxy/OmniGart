@@ -1,0 +1,109 @@
+{
+  "id": "chest-to-bar-pull-up",
+  "nameKeys": {
+    "enGB": "exercise.chest_to_bar_pull_up.name",
+    "uk": "exercise.chest_to_bar_pull_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "pull",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "biceps"
+  ],
+  "secondaryMuscles": [
+    "trapezius",
+    "rear_deltoid",
+    "rhomboids",
+    "forearms"
+  ],
+  "equipment": [
+    "pull_up_bar"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Pull until the chest contacts the bar with control; lower fully."
+  ],
+  "setup": [
+    "Requires strong standard pull-ups first."
+  ],
+  "breathing": "Exhale on the pull.",
+  "commonMistakes": [
+    "Excessive kip if the goal is strength"
+  ],
+  "safety": [
+    "Treat as a strength/skill hybrid; mind bar contact."
+  ],
+  "contraindications": [
+    "Shoulder pain at the top"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "pull-up",
+      "note": "Chin-over-bar standard"
+    },
+    {
+      "exerciseId": "negative-pull-up",
+      "note": "Eccentrics"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "typewriter-pull-up",
+      "note": "Top-position travel"
+    },
+    {
+      "exerciseId": "weighted-pull-up",
+      "note": "Load standard ROM"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1016/0021-9290(95)00178-6",
+      "label": "de Leva 1996 — adjusted segmental mass proportions (Zatsiorsky–Seluyanov)",
+      "supports": [
+        "biomechanics"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1519/JSC.0b013e3181f1598c",
+      "label": "Youdas et al. 2010 — pull-up vs chin-up surface EMG (biceps/pec higher on chin-up)",
+      "supports": [
+        "emg",
+        "biomechanics",
+        "technique"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/chest-to-bar-pull-up",
+    "videoKey": "media/video/chest-to-bar-pull-up",
+    "animationKey": "media/anim/chest-to-bar-pull-up"
+  },
+  "aliases": [],
+  "tags": [
+    "pull-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.96,
+    "basis": "estimate",
+    "rationale": "Hands stay on the bar; estimate ≈1 − 2×(forearm+hand) using de Leva male proportions (2×1.62% + 2×0.61% ≈ 4.5% BM), so ~0.95–0.97 of body mass is moved. Not a force-plate measurement."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": true
+}

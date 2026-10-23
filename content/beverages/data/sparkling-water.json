@@ -1,0 +1,31 @@
+{
+  "id": "sparkling-water",
+  "category": "sparkling_water",
+  "defaultServingMl": 250,
+  "caffeineMgPerServing": 0,
+  "macrosPer100ml": {
+    "energyKcal": 0,
+    "proteinG": 0,
+    "carbohydrateG": 0,
+    "fatG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 5
+  },
+  "hydrationFactor": 1.0,
+  "hydrationFactorEstimated": false,
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.3945/ajcn.115.114769",
+      "label": "Maughan et al. 2016 AJCN — Beverage Hydration Index",
+      "supports": [
+        "hydration_factor"
+      ]
+    }
+  ],
+  "notes": "Maughan 2016: sparkling water BHI not different from still water.",
+  "nameKeys": {
+    "enGB": "beverage.sparkling_water.name",
+    "uk": "beverage.sparkling_water.name"
+  }
+}

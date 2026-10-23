@@ -202,12 +202,16 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
     fun logFood(profileId: String, name: String, energyKcal: Double, proteinG: Double, carbsG: Double, fatG: Double): FoodEntry =
         logFood(profileId, name, energyKcal, proteinG, carbsG, fatG, Clock.System.now())
 
-    fun foodEntriesForToday(profileId: String, timeZone: TimeZone = TimeZone.currentSystemDefault()): List<FoodEntry> {
+    fun foodEntriesForToday(profileId: String, timeZone: TimeZone): List<FoodEntry> {
         val today = Clock.System.todayIn(timeZone)
         val start = today.atStartOfDayIn(timeZone)
         val end = start + 1.days
         return foodEntries.forProfileDay(profileId, start, end)
     }
+
+    /** Swift-friendly overload (ObjC/Swift do not see Kotlin default parameters). */
+    fun foodEntriesForToday(profileId: String): List<FoodEntry> =
+        foodEntriesForToday(profileId, TimeZone.currentSystemDefault())
 
     fun foodDayTotals(profileId: String): FoodDayTotals {
         val entries = foodEntriesForToday(profileId)
@@ -227,9 +231,6 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
 
     fun birthDay(profile: UserProfile): Int = profile.dateOfBirth.day
 
-    /** Swift-friendly overload (default args are not exported to Apple). */
-    fun ageYears(profile: UserProfile): Int = ageYears(profile, Clock.System.todayIn(TimeZone.currentSystemDefault()))
-
     fun ageYears(profile: UserProfile, today: LocalDate): Int {
         var age = today.year - profile.dateOfBirth.year
         val birthdayThisYear =
@@ -237,6 +238,10 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
         if (today < birthdayThisYear) age -= 1
         return age.coerceAtLeast(0)
     }
+
+    /** Swift-friendly overload (ObjC/Swift do not see Kotlin default parameters). */
+    fun ageYears(profile: UserProfile): Int =
+        ageYears(profile, Clock.System.todayIn(TimeZone.currentSystemDefault()))
 
     fun summaryLines(profile: UserProfile): List<String> {
         val age = ageYears(profile)

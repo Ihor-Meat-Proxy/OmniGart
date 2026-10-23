@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.dev/schemas/swim-session.schema.json",
+  "title": "OmniGartSwimSession",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "nameKeys",
+    "category",
+    "level",
+    "targetDistanceM",
+    "blocks",
+    "evidenceRefs"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "nameKeys": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enGB", "uk"],
+      "properties": {
+        "enGB": { "type": "string", "pattern": "^swim\\.session\\.[a-z0-9_]+\\.name$" },
+        "uk": { "type": "string", "pattern": "^swim\\.session\\.[a-z0-9_]+\\.name$" }
+      }
+    },
+    "category": {
+      "type": "string",
+      "enum": ["technique", "endurance", "css_intervals", "mixed"]
+    },
+    "level": {
+      "type": "string",
+      "enum": ["beginner", "intermediate", "advanced"]
+    },
+    "strokeIds": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "targetDistanceM": { "type": "integer", "minimum": 200, "maximum": 8000 },
+    "durationMinutes": { "type": "integer", "minimum": 20, "maximum": 150 },
+    "usesCriticalSwimSpeed": { "type": "boolean" },
+    "blocks": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "descriptionKey"],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": ["warmup", "drill", "main", "css_set", "cooldown"]
+          },
+          "descriptionKey": {
+            "type": "string",
+            "pattern": "^swim\\.session\\.[a-z0-9_]+\\.block\\.[a-z0-9_]+$"
+          },
+          "drillIds": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" }
+          },
+          "distanceM": { "type": "integer", "minimum": 25, "maximum": 4000 },
+          "intensityHint": {
+            "type": "string",
+            "enum": ["easy", "steady", "css", "above_css", "sprint"]
+          }
+        }
+      }
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "id", "label", "supports"],
+        "properties": {
+          "kind": { "type": "string", "enum": ["doi", "pmid", "guideline", "textbook"] },
+          "id": { "type": "string", "minLength": 3 },
+          "label": { "type": "string", "minLength": 3 },
+          "supports": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "notes": { "type": "string", "maxLength": 500 }
+  }
+}

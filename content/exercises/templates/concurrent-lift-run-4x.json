@@ -21,9 +21,7 @@
   "rationale": "Two lifting days plus two easy runs balance musculoskeletal and cardiorespiratory fitness per ACSM multi-component guidance; hard intervals limited.",
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0b013e318213fefb",
-      "label": "Garber et al. 2011 ACSM guidance",
+      "evidenceId": "garber_acsm_quantity_2011",
       "supports": [
         "programming",
         "endurance",
@@ -31,18 +29,14 @@
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1123/ijspp.5.3.276",
-      "label": "Seiler 2010 intensity distribution",
+      "evidenceId": "seiler_intensity_distribution_2010",
       "supports": [
         "endurance",
         "programming"
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0000000000003897",
-      "label": "ACSM 2026 RT Position Stand",
+      "evidenceId": "acsm_resistance_training_2026",
       "supports": [
         "programming",
         "strength",

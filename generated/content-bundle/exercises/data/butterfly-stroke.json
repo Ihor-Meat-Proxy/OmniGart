@@ -1,0 +1,92 @@
+{
+  "id": "butterfly-stroke",
+  "nameKeys": {
+    "enGB": "exercise.butterfly_stroke.name",
+    "uk": "exercise.butterfly_stroke.name"
+  },
+  "discipline": "swimming",
+  "movementPattern": "swim_stroke",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "pectoralis_major",
+    "full_body"
+  ],
+  "secondaryMuscles": [
+    "triceps",
+    "calves"
+  ],
+  "equipment": [
+    "pool"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "skill",
+  "trackingType": "distance",
+  "technique": [
+    "Simultaneous arm pulls with dolphin kick waves; breathe forward sparingly."
+  ],
+  "setup": [
+    "High energy cost — short repeats first."
+  ],
+  "breathing": "Exhale in water; quick inhale forward.",
+  "commonMistakes": [
+    "Two separate kicks poorly timed",
+    "Late breath causing sinking"
+  ],
+  "safety": [
+    "Advanced; prioritise drills before yardage."
+  ],
+  "contraindications": [
+    "Shoulder pain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "catch-up-drill",
+      "note": "Freestyle timing first"
+    },
+    {
+      "exerciseId": "kickboard-kick",
+      "note": "Dolphin on board"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/butterfly-stroke",
+    "videoKey": "media/video/butterfly-stroke",
+    "animationKey": "media/anim/butterfly-stroke"
+  },
+  "aliases": [],
+  "tags": [
+    "swim"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Bodyweight movement with negligible external implement; treat moved mass as ~full BM unless a measured study applies. Estimate."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

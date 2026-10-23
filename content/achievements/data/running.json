@@ -1,0 +1,544 @@
+[
+  {
+    "id": "running.first_run",
+    "category": "running",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1,
+      "filters": {
+        "discipline": [
+          "running"
+        ]
+      }
+    },
+    "iconId": "running",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.running.first_run.title",
+    "descriptionKey": "achievement.running.first_run.description"
+  },
+  {
+    "id": "running.distance_lifetime_km",
+    "category": "running",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 25000
+      },
+      {
+        "id": "silver",
+        "threshold": 100000
+      },
+      {
+        "id": "gold",
+        "threshold": 500000
+      },
+      {
+        "id": "platinum",
+        "threshold": 1000000
+      }
+    ],
+    "rule": {
+      "metric": "distance_m",
+      "aggregation": "sum",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "running"
+        ]
+      }
+    },
+    "iconId": "running",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.running.distance_lifetime_km.title",
+    "descriptionKey": "achievement.running.distance_lifetime_km.description"
+  },
+  {
+    "id": "running.sessions",
+    "category": "running",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 5
+      },
+      {
+        "id": "silver",
+        "threshold": 25
+      },
+      {
+        "id": "gold",
+        "threshold": 75
+      },
+      {
+        "id": "platinum",
+        "threshold": 200
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "running"
+        ]
+      }
+    },
+    "iconId": "running",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.running.sessions.title",
+    "descriptionKey": "achievement.running.sessions.description"
+  },
+  {
+    "id": "running.5k",
+    "category": "running",
+    "type": "single_session",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "distance_m",
+      "aggregation": "max",
+      "window": {
+        "kind": "single_event"
+      },
+      "compare": "gte",
+      "threshold": 5000,
+      "filters": {
+        "discipline": [
+          "running"
+        ],
+        "minDistanceM": 5000
+      }
+    },
+    "iconId": "running",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.running.5k.title",
+    "descriptionKey": "achievement.running.5k.description"
+  },
+  {
+    "id": "running.10k",
+    "category": "running",
+    "type": "single_session",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "distance_m",
+      "aggregation": "max",
+      "window": {
+        "kind": "single_event"
+      },
+      "compare": "gte",
+      "threshold": 10000,
+      "filters": {
+        "discipline": [
+          "running"
+        ],
+        "minDistanceM": 10000
+      }
+    },
+    "iconId": "running",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.running.10k.title",
+    "descriptionKey": "achievement.running.10k.description"
+  },
+  {
+    "id": "running.half",
+    "category": "running",
+    "type": "single_session",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "distance_m",
+      "aggregation": "max",
+      "window": {
+        "kind": "single_event"
+      },
+      "compare": "gte",
+      "threshold": 21097,
+      "filters": {
+        "discipline": [
+          "running"
+        ],
+        "minDistanceM": 21097
+      }
+    },
+    "iconId": "running",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.running.half.title",
+    "descriptionKey": "achievement.running.half.description"
+  },
+  {
+    "id": "running.marathon",
+    "category": "running",
+    "type": "single_session",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "distance_m",
+      "aggregation": "max",
+      "window": {
+        "kind": "single_event"
+      },
+      "compare": "gte",
+      "threshold": 42195,
+      "filters": {
+        "discipline": [
+          "running"
+        ],
+        "minDistanceM": 42195
+      }
+    },
+    "iconId": "running",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.running.marathon.title",
+    "descriptionKey": "achievement.running.marathon.description"
+  },
+  {
+    "id": "running.easy_streak",
+    "category": "running",
+    "type": "streak",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 3
+      },
+      {
+        "id": "silver",
+        "threshold": 8
+      },
+      {
+        "id": "gold",
+        "threshold": 16
+      },
+      {
+        "id": "platinum",
+        "threshold": 32
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "streak",
+      "window": {
+        "kind": "streak_days",
+        "qualify": "activity_or_planned_rest",
+        "restDayTolerancePerWeek": 2,
+        "freezeTokensAllowed": true,
+        "maxFreezePerStreak": 2
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "running"
+        ]
+      }
+    },
+    "iconId": "streak",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.running.easy_streak.title",
+    "descriptionKey": "achievement.running.easy_streak.description",
+    "healthyNotes": "Does not reward consecutive hard days."
+  },
+  {
+    "id": "running.week_distance",
+    "category": "running",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 10000
+      },
+      {
+        "id": "silver",
+        "threshold": 20000
+      },
+      {
+        "id": "gold",
+        "threshold": 30000
+      },
+      {
+        "id": "platinum",
+        "threshold": 40000
+      }
+    ],
+    "rule": {
+      "metric": "distance_m",
+      "aggregation": "sum",
+      "window": {
+        "kind": "calendar",
+        "unit": "week",
+        "count": 1
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "running"
+        ]
+      }
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.running.week_distance.title",
+    "descriptionKey": "achievement.running.week_distance.description",
+    "healthyNotes": "Modest weekly caps; not an escalation race."
+  },
+  {
+    "id": "running.walk_run_start",
+    "category": "running",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 3
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "rolling_days",
+        "days": 14
+      },
+      "compare": "gte",
+      "threshold": 3,
+      "filters": {
+        "discipline": [
+          "running"
+        ]
+      }
+    },
+    "iconId": "running",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.running.walk_run_start.title",
+    "descriptionKey": "achievement.running.walk_run_start.description",
+    "healthyNotes": "Beginner-friendly entry; no pace requirement."
+  },
+  {
+    "id": "running.trail_or_road",
+    "category": "running",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 10
+      },
+      {
+        "id": "silver",
+        "threshold": 40
+      },
+      {
+        "id": "gold",
+        "threshold": 100
+      },
+      {
+        "id": "platinum",
+        "threshold": 250
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "running"
+        ]
+      }
+    },
+    "iconId": "running",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.running.trail_or_road.title",
+    "descriptionKey": "achievement.running.trail_or_road.description"
+  },
+  {
+    "id": "running.pace_pr",
+    "category": "running",
+    "type": "personal_record",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 1
+      },
+      {
+        "id": "silver",
+        "threshold": 3
+      },
+      {
+        "id": "gold",
+        "threshold": 8
+      },
+      {
+        "id": "platinum",
+        "threshold": 15
+      }
+    ],
+    "rule": {
+      "metric": "personal_record_events",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "running"
+        ]
+      }
+    },
+    "iconId": "personal-record",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.running.pace_pr.title",
+    "descriptionKey": "achievement.running.pace_pr.description"
+  },
+  {
+    "id": "running.month_challenge",
+    "category": "running",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 6
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "challenge_period",
+        "period": "current_month"
+      },
+      "compare": "gte",
+      "threshold": 6,
+      "filters": {
+        "discipline": [
+          "running"
+        ]
+      }
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.running.month_challenge.title",
+    "descriptionKey": "achievement.running.month_challenge.description"
+  },
+  {
+    "id": "running.secret_sunrise",
+    "category": "running",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1,
+      "filters": {
+        "discipline": [
+          "running"
+        ]
+      }
+    },
+    "iconId": "running",
+    "hidden": true,
+    "repeatable": false,
+    "titleKey": "achievement.running.secret_sunrise.title",
+    "descriptionKey": "achievement.running.secret_sunrise.description"
+  },
+  {
+    "id": "running.long_run",
+    "category": "running",
+    "type": "single_session",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 8000
+      },
+      {
+        "id": "silver",
+        "threshold": 12000
+      },
+      {
+        "id": "gold",
+        "threshold": 16000
+      },
+      {
+        "id": "platinum",
+        "threshold": 24000
+      }
+    ],
+    "rule": {
+      "metric": "distance_m",
+      "aggregation": "max",
+      "window": {
+        "kind": "single_event"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "running"
+        ]
+      }
+    },
+    "iconId": "running",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.running.long_run.title",
+    "descriptionKey": "achievement.running.long_run.description"
+  }
+]

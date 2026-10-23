@@ -1,0 +1,37 @@
+{
+  "home_gym": [
+    "dumbbell",
+    "kettlebell",
+    "barbell",
+    "bench",
+    "bands",
+    "pull_up_bar",
+    "yoga_mat",
+    "bodyweight",
+    "none"
+  ],
+  "commercial_gym": [
+    "__all__"
+  ],
+  "travel": [
+    "bands",
+    "bodyweight",
+    "yoga_mat",
+    "none"
+  ],
+  "bodyweight": [
+    "bodyweight",
+    "none",
+    "yoga_mat",
+    "pull_up_bar"
+  ],
+  "pool": [
+    "pool",
+    "kickboard",
+    "pull_buoy",
+    "fins",
+    "paddle",
+    "bodyweight",
+    "none"
+  ]
+}

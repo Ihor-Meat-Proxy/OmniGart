@@ -18,18 +18,14 @@
   "rationale": "Mostly easy running with one quality stimulus reflects polarised descriptive distributions; weekly mileage increases softly with an honest caveat that fixed 10% rules are weakly evidenced.",
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1123/ijspp.5.3.276",
-      "label": "Seiler 2010 intensity distribution",
+      "evidenceId": "seiler_intensity_distribution_2010",
       "supports": [
         "endurance",
         "programming"
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0b013e318213fefb",
-      "label": "Garber et al. 2011 ACSM guidance",
+      "evidenceId": "garber_acsm_quantity_2011",
       "supports": [
         "programming",
         "endurance",

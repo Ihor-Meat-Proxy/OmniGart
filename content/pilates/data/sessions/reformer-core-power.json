@@ -1,0 +1,71 @@
+{
+  "id": "reformer-core-power",
+  "nameKeys": {
+    "enGB": "pilates.session.reformer_core_power.name",
+    "uk": "pilates.session.reformer_core_power.name"
+  },
+  "descriptionKeys": {
+    "enGB": "pilates.session.reformer_core_power.description",
+    "uk": "pilates.session.reformer_core_power.description"
+  },
+  "level": "intermediate",
+  "durationMinutes": 35,
+  "apparatus": "reformer",
+  "focus": "core",
+  "exerciseIds": [
+    "reformer-hundred",
+    "reformer-coordination",
+    "reformer-long-stretch",
+    "reformer-knee-stretches",
+    "reformer-short-box-round",
+    "reformer-short-box-flat",
+    "reformer-single-leg-stretch"
+  ],
+  "blocks": [
+    {
+      "titleKey": "pilates.session.reformer_core_power.block_main",
+      "items": [
+        {
+          "exerciseId": "reformer-hundred",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "reformer-coordination",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "reformer-long-stretch",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "reformer-knee-stretches",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "reformer-short-box-round",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "reformer-short-box-flat",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "reformer-single-leg-stretch",
+          "sets": 1,
+          "reps": 10
+        }
+      ]
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "bundled": true
+}

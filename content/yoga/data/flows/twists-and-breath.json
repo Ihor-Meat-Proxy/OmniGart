@@ -1,0 +1,77 @@
+{
+  "id": "twists-and-breath",
+  "nameKeys": {
+    "enGB": "yoga.flow.twists_and_breath.name",
+    "uk": "yoga.flow.twists_and_breath.name"
+  },
+  "descriptionKeys": {
+    "enGB": "yoga.flow.twists_and_breath.description",
+    "uk": "yoga.flow.twists_and_breath.description"
+  },
+  "level": "intermediate",
+  "durationMinutes": 25,
+  "focus": "spinal_mobility",
+  "poseIds": [
+    "easy-pose",
+    "cat-cow",
+    "crescent-lunge-twist",
+    "revolved-head-to-knee",
+    "seated-twist",
+    "supine-twist",
+    "child-pose",
+    "corpse-pose"
+  ],
+  "sequence": [
+    {
+      "poseId": "easy-pose",
+      "holdSeconds": 60,
+      "side": "none"
+    },
+    {
+      "poseId": "cat-cow",
+      "holdSeconds": 60,
+      "side": "none"
+    },
+    {
+      "poseId": "crescent-lunge-twist",
+      "holdSeconds": 25,
+      "side": "both"
+    },
+    {
+      "poseId": "revolved-head-to-knee",
+      "holdSeconds": 30,
+      "side": "both"
+    },
+    {
+      "poseId": "seated-twist",
+      "holdSeconds": 35,
+      "side": "both"
+    },
+    {
+      "poseId": "supine-twist",
+      "holdSeconds": 45,
+      "side": "both"
+    },
+    {
+      "poseId": "child-pose",
+      "holdSeconds": 60,
+      "side": "none"
+    },
+    {
+      "poseId": "corpse-pose",
+      "holdSeconds": 90,
+      "side": "none"
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "bundled": true,
+  "equipmentSuggested": [
+    "yoga_mat",
+    "yoga_block",
+    "yoga_strap",
+    "bodyweight"
+  ]
+}

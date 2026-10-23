@@ -19,12 +19,17 @@ import androidx.wear.compose.material3.Text
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.design.theme.OmniGartSpacing
 import com.omnigart.shared.OmniGartCore
+import com.omnigart.shared.content.AssetContentStore
 import com.omnigart.shared.data.DatabaseDriverFactory
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val core = OmniGartCore(DatabaseDriverFactory(applicationContext))
+        val core =
+            OmniGartCore(
+                DatabaseDriverFactory(applicationContext),
+                contentStore = AssetContentStore(applicationContext.assets)
+            )
         val profile = core.ensureDemoProfile()
         val headline = core.summaryLines(profile).take(2)
         setContent {

@@ -1,0 +1,85 @@
+{
+  "id": "single-leg-hip-thrust",
+  "nameKeys": {
+    "enGB": "exercise.single_leg_hip_thrust.name",
+    "uk": "exercise.single_leg_hip_thrust.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "gluteus_maximus",
+    "gluteus_medius"
+  ],
+  "secondaryMuscles": [
+    "hamstrings"
+  ],
+  "equipment": [
+    "bodyweight",
+    "bench"
+  ],
+  "level": "intermediate",
+  "unilateral": true,
+  "mechanics": "compound",
+  "trackingType": "reps",
+  "technique": [
+    "Same as hip thrust with one foot on the floor; keep hips level."
+  ],
+  "setup": [
+    "Start unloaded."
+  ],
+  "breathing": "Exhale to extend.",
+  "commonMistakes": [
+    "Hip drop on working side"
+  ],
+  "safety": [
+    "Reduce range if control fails."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "glute-bridge",
+      "note": "Bilateral floor"
+    },
+    {
+      "exerciseId": "hip-thrust",
+      "note": "Bilateral loaded"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1123/jab.2014-0301",
+      "label": "Contreras et al. 2015 — hip thrust vs back squat EMG (glute focus)",
+      "supports": [
+        "emg",
+        "biomechanics"
+      ]
+    },
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/single-leg-hip-thrust",
+    "videoKey": "media/video/single-leg-hip-thrust",
+    "animationKey": "media/anim/single-leg-hip-thrust"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Bodyweight movement with negligible external implement; treat moved mass as ~full BM unless a measured study applies. Estimate."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

@@ -1,0 +1,77 @@
+{
+  "id": "balance-focus-flow",
+  "nameKeys": {
+    "enGB": "yoga.flow.balance_focus_flow.name",
+    "uk": "yoga.flow.balance_focus_flow.name"
+  },
+  "descriptionKeys": {
+    "enGB": "yoga.flow.balance_focus_flow.description",
+    "uk": "yoga.flow.balance_focus_flow.description"
+  },
+  "level": "intermediate",
+  "durationMinutes": 25,
+  "focus": "strength_balance",
+  "poseIds": [
+    "mountain-pose",
+    "tree-pose",
+    "eagle-pose",
+    "warrior-iii",
+    "standing-split",
+    "side-plank-yoga",
+    "crow-pose",
+    "child-pose"
+  ],
+  "sequence": [
+    {
+      "poseId": "mountain-pose",
+      "holdSeconds": 30,
+      "side": "none"
+    },
+    {
+      "poseId": "tree-pose",
+      "holdSeconds": 30,
+      "side": "both"
+    },
+    {
+      "poseId": "eagle-pose",
+      "holdSeconds": 25,
+      "side": "both"
+    },
+    {
+      "poseId": "warrior-iii",
+      "holdSeconds": 25,
+      "side": "both"
+    },
+    {
+      "poseId": "standing-split",
+      "holdSeconds": 20,
+      "side": "both"
+    },
+    {
+      "poseId": "side-plank-yoga",
+      "holdSeconds": 20,
+      "side": "both"
+    },
+    {
+      "poseId": "crow-pose",
+      "holdSeconds": 15,
+      "side": "none"
+    },
+    {
+      "poseId": "child-pose",
+      "holdSeconds": 60,
+      "side": "none"
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "bundled": true,
+  "equipmentSuggested": [
+    "yoga_mat",
+    "yoga_block",
+    "yoga_strap",
+    "bodyweight"
+  ]
+}

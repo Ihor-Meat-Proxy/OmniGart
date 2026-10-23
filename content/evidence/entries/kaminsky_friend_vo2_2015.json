@@ -1,0 +1,31 @@
+{
+  "id": "kaminsky_friend_vo2_2015",
+  "type": "cohort",
+  "title": "Reference Standards for Cardiorespiratory Fitness Measured With Cardiopulmonary Exercise Testing",
+  "authors": [
+    "Kaminsky LA",
+    "Arena R",
+    "Myers J"
+  ],
+  "year": 2015,
+  "journal": "Mayo Clinic Proceedings",
+  "doi": "10.1016/j.mayocp.2015.07.026",
+  "pmid": "26455884",
+  "url": "https://doi.org/10.1016/j.mayocp.2015.07.026",
+  "openAccess": false,
+  "population": "FRIEND registry adults with CPET-measured CRF",
+  "keyFinding": {
+    "enGB": "Age- and sex-specific VO2 reference percentiles from the FRIEND registry provide norms for cardiorespiratory fitness interpretation.",
+    "keys": {
+      "enGB": "evidence.kaminsky_friend_vo2_2015.key_finding",
+      "uk": "evidence.kaminsky_friend_vo2_2015.key_finding"
+    }
+  },
+  "evidenceStrength": "high",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "insights"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "description": "Fixture week for readiness/load/sleep wellness estimates",
+  "sleepNeedHours": 8.0,
+  "daysNewestFirst": [
+    { "rmssdMs": 68, "restingHrBpm": 51, "sleepHours": 7.8, "sessionRpe": 6, "durationMinutes": 55 },
+    { "rmssdMs": 62, "restingHrBpm": 53, "sleepHours": 7.2, "sessionRpe": 0, "durationMinutes": 0 },
+    { "rmssdMs": 70, "restingHrBpm": 50, "sleepHours": 8.1, "sessionRpe": 7, "durationMinutes": 60 },
+    { "rmssdMs": 65, "restingHrBpm": 52, "sleepHours": 7.5, "sessionRpe": 5, "durationMinutes": 40 },
+    { "rmssdMs": 58, "restingHrBpm": 55, "sleepHours": 6.5, "sessionRpe": 0, "durationMinutes": 0 },
+    { "rmssdMs": 64, "restingHrBpm": 52, "sleepHours": 7.9, "sessionRpe": 6, "durationMinutes": 50 },
+    { "rmssdMs": 66, "restingHrBpm": 51, "sleepHours": 8.0, "sessionRpe": 4, "durationMinutes": 35 }
+  ]
+}

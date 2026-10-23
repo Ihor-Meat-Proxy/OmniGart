@@ -1,0 +1,26 @@
+{
+  "id": "omnigart_mileage_caveat",
+  "type": "consensus",
+  "title": "OmniGart product caveat: fixed weekly mileage progression heuristics",
+  "authors": [
+    "OmniGart"
+  ],
+  "year": 2026,
+  "journal": "OmniGart planning notes",
+  "openAccess": true,
+  "population": "Endurance planning heuristics inside OmniGart",
+  "keyFinding": {
+    "enGB": "A fixed ~10% weekly mileage increase is a common coach heuristic without strong RCT support; readiness and injury signals should override it.",
+    "keys": {
+      "enGB": "evidence.omnigart_mileage_caveat.key_finding",
+      "uk": "evidence.omnigart_mileage_caveat.key_finding"
+    }
+  },
+  "evidenceStrength": "very-low",
+  "licenceNote": "Product-authored caveat; may be shown verbatim.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "planning"
+  ]
+}

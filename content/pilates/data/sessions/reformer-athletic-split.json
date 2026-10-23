@@ -1,0 +1,71 @@
+{
+  "id": "reformer-athletic-split",
+  "nameKeys": {
+    "enGB": "pilates.session.reformer_athletic_split.name",
+    "uk": "pilates.session.reformer_athletic_split.name"
+  },
+  "descriptionKeys": {
+    "enGB": "pilates.session.reformer_athletic_split.description",
+    "uk": "pilates.session.reformer_athletic_split.description"
+  },
+  "level": "advanced",
+  "durationMinutes": 35,
+  "apparatus": "reformer",
+  "focus": "athletic",
+  "exerciseIds": [
+    "reformer-footwork",
+    "reformer-front-splits",
+    "reformer-side-splits",
+    "reformer-long-stretch",
+    "reformer-down-stretch",
+    "reformer-knee-stretches",
+    "reformer-stomach-massage"
+  ],
+  "blocks": [
+    {
+      "titleKey": "pilates.session.reformer_athletic_split.block_main",
+      "items": [
+        {
+          "exerciseId": "reformer-footwork",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "reformer-front-splits",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "reformer-side-splits",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "reformer-long-stretch",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "reformer-down-stretch",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "reformer-knee-stretches",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "reformer-stomach-massage",
+          "sets": 1,
+          "reps": 8
+        }
+      ]
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "bundled": true
+}

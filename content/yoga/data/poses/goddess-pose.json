@@ -1,0 +1,54 @@
+{
+  "id": "goddess-pose",
+  "englishNameKeys": {
+    "enGB": "yoga.pose.goddess_pose.english",
+    "uk": "yoga.pose.goddess_pose.english"
+  },
+  "sanskritNameKeys": {
+    "enGB": "yoga.pose.goddess_pose.sanskrit",
+    "uk": "yoga.pose.goddess_pose.sanskrit"
+  },
+  "family": "standing",
+  "level": "beginner",
+  "primaryMuscles": [
+    "quadriceps",
+    "adductors",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "calves"
+  ],
+  "equipment": [
+    "yoga_mat",
+    "bodyweight"
+  ],
+  "technique": [
+    "Enter Goddess pose with steady footing and an even pelvis; lengthen the spine without forcing end range.",
+    "Distribute load through the feet or support points; soften the jaw and keep the neck long."
+  ],
+  "cues": [
+    "Breathe steadily; ease out of the shape if sharp pain appears.",
+    "Use blocks or a strap to keep joints stacked and comfortable."
+  ],
+  "breathing": "Inhale to lengthen; exhale to settle into the shape without collapsing.",
+  "safetyNotes": [
+    "Move within a comfortable range; props are encouraged rather than forcing depth.",
+    "Stop and rest if you feel dizziness, numbness, or joint locking."
+  ],
+  "contraindicationNotes": [
+    "General safety: seek clinician guidance for recent injury, uncontrolled hypertension, or acute illness before practising."
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "holdSecondsDefault": 35,
+  "unilateral": false,
+  "bundled": true,
+  "aliases": [],
+  "tags": [
+    "yoga",
+    "standing",
+    "beginner"
+  ]
+}

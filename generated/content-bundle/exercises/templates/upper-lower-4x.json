@@ -1,0 +1,264 @@
+{
+  "id": "upper-lower-4x",
+  "nameKeys": {
+    "enGB": "template.upper_lower_4x.name",
+    "uk": "template.upper_lower_4x.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "intermediate",
+  "goal": "hypertrophy",
+  "daysPerWeek": 4,
+  "sessionMinutes": 60,
+  "equipmentPreset": "commercial_gym",
+  "equipmentRequired": [
+    "barbell",
+    "dumbbell",
+    "cable",
+    "machine"
+  ],
+  "rationale": "Four-day upper/lower keeps ~2× weekly frequency per muscle while allowing higher per-session volume within Schoenfeld/Pelland dose–response bands.",
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1080/02640414.2016.1210197",
+      "label": "Schoenfeld et al. 2016 volume dose–response",
+      "supports": [
+        "hypertrophy",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1007/s40279-025-02344-w",
+      "label": "Pelland et al. volume/frequency meta-regressions",
+      "supports": [
+        "programming",
+        "hypertrophy",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1007/s40279-016-0543-8",
+      "label": "Schoenfeld et al. 2016 frequency meta-analysis",
+      "supports": [
+        "programming",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "u1",
+      "nameKeys": {
+        "enGB": "template.upper_lower_4x.u1.name",
+        "uk": "template.upper_lower_4x.u1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": 3,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 150
+            },
+            {
+              "exerciseId": "chest-supported-row",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "overhead-press-barbell",
+              "sets": 3,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 120
+            },
+            {
+              "exerciseId": "lat-pulldown",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "lateral-raise",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "tricep-pushdown",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l1",
+      "nameKeys": {
+        "enGB": "template.upper_lower_4x.l1.name",
+        "uk": "template.upper_lower_4x.l1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": 3,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 180
+            },
+            {
+              "exerciseId": "romanian-deadlift-barbell",
+              "sets": 3,
+              "reps": "6-10",
+              "rir": "2-3",
+              "restSeconds": 150
+            },
+            {
+              "exerciseId": "walking-lunge",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "leg-curl-machine",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "calf-raise-standing",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u2",
+      "nameKeys": {
+        "enGB": "template.upper_lower_4x.u2.name",
+        "uk": "template.upper_lower_4x.u2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "pull-up",
+              "sets": 3,
+              "reps": "as tolerated",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "dumbbell-incline-press",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "seated-cable-row",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "cable-chest-fly",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "face-pull",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "barbell-curl",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "nameKeys": {
+        "enGB": "template.upper_lower_4x.l2.name",
+        "uk": "template.upper_lower_4x.l2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "trap-bar-deadlift",
+              "sets": 3,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 180
+            },
+            {
+              "exerciseId": "bulgarian-split-squat",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "leg-press",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "hip-thrust",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "cable-woodchop",
+              "sets": 3,
+              "reps": "10/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

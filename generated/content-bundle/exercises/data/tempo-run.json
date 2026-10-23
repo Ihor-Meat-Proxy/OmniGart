@@ -1,0 +1,92 @@
+{
+  "id": "tempo-run",
+  "nameKeys": {
+    "enGB": "exercise.tempo_run.name",
+    "uk": "exercise.tempo_run.name"
+  },
+  "discipline": "running",
+  "movementPattern": "gait",
+  "primaryMuscles": [
+    "quadriceps",
+    "hamstrings",
+    "calves"
+  ],
+  "secondaryMuscles": [
+    "gluteus_maximus"
+  ],
+  "equipment": [
+    "road"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "distance_time",
+  "technique": [
+    "Sustained harder effort near threshold for a controlled block after warm-up; not an all-out race."
+  ],
+  "setup": [
+    "Warm up thoroughly; cool down after."
+  ],
+  "breathing": "Harder breathing but sustainable short phrases.",
+  "commonMistakes": [
+    "Turning tempo into a race",
+    "Skipping warm-up"
+  ],
+  "safety": [
+    "Limit hard sessions; keep most volume easy (Seiler distribution evidence is descriptive)."
+  ],
+  "contraindications": [
+    "Illness / very low readiness"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "easy-run",
+      "note": "Keep easy"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "interval-run",
+      "note": "Intermittent hard"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/tempo-run",
+    "videoKey": "media/video/tempo-run",
+    "animationKey": "media/anim/tempo-run"
+  },
+  "aliases": [],
+  "tags": [
+    "run"
+  ],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

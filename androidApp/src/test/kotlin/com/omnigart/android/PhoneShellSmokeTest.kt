@@ -4,6 +4,7 @@ import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.performScrollTo
 import androidx.test.core.app.ApplicationProvider
 import com.omnigart.shared.OmniGartCore
 import com.omnigart.shared.data.DatabaseDriverFactory
@@ -33,6 +34,6 @@ class PhoneShellSmokeTest {
         composeRule.onNodeWithTag("brand_title").assertIsDisplayed()
         composeRule.onNodeWithTag("tab_profile").assertIsDisplayed()
         composeRule.onNodeWithTag("tab_food").assertIsDisplayed()
-        composeRule.onNodeWithTag("calc_settings").assertIsDisplayed()
+        composeRule.onNodeWithTag("calc_settings").performScrollTo().assertIsDisplayed()
     }
 }

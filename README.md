@@ -55,8 +55,14 @@ See [docs/TRANSLATION.md](docs/TRANSLATION.md).
 
 | Platform | Tooling |
 |----------|---------|
-| Shared / Android / Wear | JDK 17+, Android Studio, AGP 9.x, compileSdk **37** |
+| Shared / Android / Wear | **JDK 21** (Eclipse Temurin 21 recommended), Android Studio, AGP 9.x, compileSdk **37**. JDK 24+ is not supported yet (detekt 1.23.8 crashes on it). |
 | iOS / watchOS | macOS, Xcode, [XcodeGen](https://github.com/yonaskolb/XcodeGen), SwiftLint — deployment **iOS 18** / **watchOS 11** (CI); product may target newer OS when runners allow |
+
+On macOS, point Gradle at JDK 21 if needed:
+
+```bash
+export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+```
 
 ## Build
 

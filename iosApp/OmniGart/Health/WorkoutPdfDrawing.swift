@@ -3,14 +3,6 @@ import UIKit
 
 /// Page layout helpers for [WorkoutPdfRenderer].
 enum WorkoutPdfDrawing {
-    struct PageMetrics {
-        let pageRect: CGRect
-        let margin: CGFloat
-        let width: CGFloat
-        let pageIndex: Int
-        let pageCount: Int
-    }
-
     @discardableResult
     static func drawChrome(
         context _: CGContext,
@@ -28,14 +20,13 @@ enum WorkoutPdfDrawing {
             width: width,
             cursorY: cursorY
         )
-        let metrics = PageMetrics(
+        drawChromeFooter(
+            document: document,
             pageRect: pageRect,
             margin: margin,
             width: width,
-            pageIndex: pageIndex,
-            pageCount: pageCount
+            pageLabel: "\(pageIndex + 1) / \(pageCount)"
         )
-        drawChromeFooter(document: document, metrics: metrics)
         return cursorY + 8
     }
 
@@ -141,29 +132,31 @@ private extension WorkoutPdfDrawing {
         return cursorY + 18
     }
 
-    static func drawChromeFooter(document: WorkoutPdfDocument, metrics: PageMetrics) {
+    static func drawChromeFooter(
+        document: WorkoutPdfDocument,
+        pageRect: CGRect,
+        margin: CGFloat,
+        width: CGFloat,
+        pageLabel: String
+    ) {
         let footer = document.disclaimer as NSString
         let footerFont = WorkoutPdfRenderer.bodyFont(size: 8, spec: document.fontSpec)
         let footerHeight = footer.boundingRect(
-            with: CGSize(width: metrics.width, height: 80),
+            with: CGSize(width: width, height: 80),
             options: [.usesLineFragmentOrigin],
             attributes: [.font: footerFont],
             context: nil
         ).height
         WorkoutPdfRenderer.drawText(
             footer,
-            at: CGPoint(x: metrics.margin, y: metrics.pageRect.height - 28 - footerHeight),
+            at: CGPoint(x: margin, y: pageRect.height - 28 - footerHeight),
             font: footerFont,
             color: .gray,
-            width: metrics.width
+            width: width
         )
-        let pageLabel = "\(metrics.pageIndex + 1) / \(metrics.pageCount)" as NSString
         WorkoutPdfRenderer.drawText(
-            pageLabel,
-            at: CGPoint(
-                x: metrics.pageRect.width - metrics.margin - 40,
-                y: metrics.pageRect.height - 24
-            ),
+            pageLabel as NSString,
+            at: CGPoint(x: pageRect.width - margin - 40, y: pageRect.height - 24),
             font: WorkoutPdfRenderer.bodyFont(size: 9, spec: document.fontSpec),
             color: .gray,
             width: 40

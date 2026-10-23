@@ -58,6 +58,7 @@ extension WorkoutPdfDrawing {
             width: width,
             document: document
         )
+        let body = WorkoutPdfRenderer.bodyFont(size: 11, spec: document.fontSpec)
         for line in heartRate.timeInZoneLines {
             WorkoutPdfRenderer.drawText(
                 line as NSString,

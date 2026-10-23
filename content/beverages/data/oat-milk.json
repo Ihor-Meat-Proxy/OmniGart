@@ -1,0 +1,40 @@
+{
+  "id": "oat-milk",
+  "category": "plant_milk",
+  "defaultServingMl": 200,
+  "caffeineMgPerServing": 0,
+  "macrosPer100ml": {
+    "energyKcal": 46,
+    "proteinG": 1.0,
+    "carbohydrateG": 6.7,
+    "fatG": 1.5,
+    "sugarsG": 4.1,
+    "sodiumMg": 40
+  },
+  "hydrationFactor": 1.0,
+  "hydrationFactorEstimated": true,
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.3945/ajcn.115.114769",
+      "label": "Maughan et al. 2016 AJCN — Beverage Hydration Index",
+      "supports": [
+        "hydration_factor"
+      ]
+    },
+    {
+      "kind": "database",
+      "id": "usda-fdc",
+      "label": "USDA FoodData Central (typical values per 100 ml / serving)",
+      "supports": [
+        "macros",
+        "caffeine"
+      ]
+    }
+  ],
+  "notes": "No Maughan BHI; defaulted to 1.0 pending dedicated trials.",
+  "nameKeys": {
+    "enGB": "beverage.oat_milk.name",
+    "uk": "beverage.oat_milk.name"
+  }
+}

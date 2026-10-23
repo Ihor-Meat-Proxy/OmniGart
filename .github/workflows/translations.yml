@@ -1,0 +1,44 @@
+# Translations — locale/content paths only (keeps macOS/Android CI off for copy-only PRs).
+name: Translations
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/**/locales/**'
+      - 'content/**/locales/*.json'
+      - '**/locales/**/*.json'
+      - 'androidApp/**/res/values*/**'
+      - 'iosApp/**/*InfoPlist.strings'
+      - 'iosApp/**/*.xcstrings'
+      - 'scripts/check_no_ru_locale.sh'
+      - '.github/workflows/translations.yml'
+  pull_request:
+    paths:
+      - 'content/**/locales/**'
+      - 'content/**/locales/*.json'
+      - '**/locales/**/*.json'
+      - 'androidApp/**/res/values*/**'
+      - 'iosApp/**/*InfoPlist.strings'
+      - 'iosApp/**/*.xcstrings'
+      - 'scripts/check_no_ru_locale.sh'
+      - '.github/workflows/translations.yml'
+
+concurrency:
+  group: translations-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  translations:
+    name: Locale gates
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Ban Russian locale catalogs
+        run: bash ./scripts/check_no_ru_locale.sh
+      - name: List touched locale trees
+        run: |
+          set -euo pipefail
+          echo "Locale/content paths present:"
+          find content -type d -name locales 2>/dev/null | sort || true

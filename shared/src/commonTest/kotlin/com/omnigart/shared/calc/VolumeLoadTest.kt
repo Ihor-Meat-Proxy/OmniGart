@@ -1,5 +1,8 @@
 package com.omnigart.shared.calc
 
+import com.omnigart.shared.domain.BodyweightFraction
+import com.omnigart.shared.domain.ExerciseLoadSemantics
+import com.omnigart.shared.domain.LoadModel
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -21,7 +24,18 @@ class VolumeLoadTest {
             exerciseId = "push-up",
             unilateral = false,
             primaryMuscles = listOf("pectoralis_major", "triceps", "front_deltoid"),
-            usesBodyweightLoad = true
+            loadSemantics =
+            ExerciseLoadSemantics(
+                loadModel = LoadModel.BODYWEIGHT_PLUS_EXTERNAL,
+                bodyweightFraction =
+                BodyweightFraction(
+                    proportion = BodyweightLoadCoefficients.PUSH_UP,
+                    basis = "estimate",
+                    rationale = "Phase 1 push-up coefficient"
+                ),
+                allowsAddedWeight = true,
+                allowsAssistance = true
+            )
         )
 
     private val assistedPullUp =
@@ -29,7 +43,18 @@ class VolumeLoadTest {
             exerciseId = "assisted-pull-up-band",
             unilateral = false,
             primaryMuscles = listOf("latissimus_dorsi", "biceps"),
-            usesBodyweightLoad = true
+            loadSemantics =
+            ExerciseLoadSemantics(
+                loadModel = LoadModel.BODYWEIGHT_MINUS_ASSISTANCE,
+                bodyweightFraction =
+                BodyweightFraction(
+                    proportion = BodyweightLoadCoefficients.PULL_UP,
+                    basis = "estimate",
+                    rationale = "Full body mass for vertical pull"
+                ),
+                allowsAddedWeight = false,
+                allowsAssistance = true
+            )
         )
 
     private val weightedPullUp =
@@ -37,7 +62,18 @@ class VolumeLoadTest {
             exerciseId = "weighted-pull-up",
             unilateral = false,
             primaryMuscles = listOf("latissimus_dorsi", "biceps"),
-            usesBodyweightLoad = true
+            loadSemantics =
+            ExerciseLoadSemantics(
+                loadModel = LoadModel.BODYWEIGHT_PLUS_EXTERNAL,
+                bodyweightFraction =
+                BodyweightFraction(
+                    proportion = BodyweightLoadCoefficients.PULL_UP,
+                    basis = "estimate",
+                    rationale = "Full body mass for vertical pull"
+                ),
+                allowsAddedWeight = true,
+                allowsAssistance = false
+            )
         )
 
     private val dbLunge =
@@ -62,8 +98,8 @@ class VolumeLoadTest {
     fun externalLoad_volumeIsWeightTimesReps() {
         val sets =
             listOf(
-                VolumeSetInput(id = "1", exerciseId = bench.exerciseId, reps = 5, weightKg = 100.0),
-                VolumeSetInput(id = "2", exerciseId = bench.exerciseId, reps = 5, weightKg = 100.0)
+                VolumeSetInput(id = "1", exerciseId = bench.exerciseId, reps = 5, addedWeightKg = 100.0),
+                VolumeSetInput(id = "2", exerciseId = bench.exerciseId, reps = 5, addedWeightKg = 100.0)
             )
         val summary = VolumeLoad.summarize(sets, exercises, opts)
         assertEquals(1000.0, summary.totalVolumeKg, absoluteTolerance = 0.001)
@@ -79,10 +115,10 @@ class VolumeLoadTest {
                     id = "w",
                     exerciseId = bench.exerciseId,
                     reps = 8,
-                    weightKg = 60.0,
+                    addedWeightKg = 60.0,
                     isWarmup = true
                 ),
-                VolumeSetInput(id = "1", exerciseId = bench.exerciseId, reps = 5, weightKg = 100.0)
+                VolumeSetInput(id = "1", exerciseId = bench.exerciseId, reps = 5, addedWeightKg = 100.0)
             )
         val without = VolumeLoad.summarize(sets, exercises, opts)
         assertEquals(500.0, without.totalVolumeKg, absoluteTolerance = 0.001)
@@ -122,7 +158,7 @@ class VolumeLoadTest {
                     id = "1",
                     exerciseId = weightedPullUp.exerciseId,
                     reps = 5,
-                    weightKg = 20.0
+                    addedWeightKg = 20.0
                 )
             )
         val summary = VolumeLoad.summarize(sets, exercises, opts)
@@ -167,7 +203,7 @@ class VolumeLoadTest {
                     id = "1",
                     exerciseId = dbLunge.exerciseId,
                     reps = 10,
-                    weightKg = 20.0,
+                    addedWeightKg = 20.0,
                     loggedPerHand = true
                 )
             )
@@ -181,7 +217,7 @@ class VolumeLoadTest {
                     id = "2",
                     exerciseId = dbLunge.exerciseId,
                     reps = 10,
-                    weightKg = 20.0,
+                    addedWeightKg = 20.0,
                     loggedPerHand = false
                 )
             )
@@ -193,7 +229,7 @@ class VolumeLoadTest {
     fun perMuscle_attributesFullVolumeToEachPrimary() {
         val sets =
             listOf(
-                VolumeSetInput(id = "1", exerciseId = bench.exerciseId, reps = 5, weightKg = 100.0)
+                VolumeSetInput(id = "1", exerciseId = bench.exerciseId, reps = 5, addedWeightKg = 100.0)
             )
         val summary = VolumeLoad.summarize(sets, exercises, opts)
         assertEquals(500.0, summary.perMuscleVolumeKg.getValue("pectoralis_major"), absoluteTolerance = 0.001)
@@ -205,7 +241,7 @@ class VolumeLoadTest {
     fun displayUnit_lb() {
         val sets =
             listOf(
-                VolumeSetInput(id = "1", exerciseId = bench.exerciseId, reps = 10, weightKg = 100.0)
+                VolumeSetInput(id = "1", exerciseId = bench.exerciseId, reps = 10, addedWeightKg = 100.0)
             )
         val summary =
             VolumeLoad.summarize(sets, exercises, opts.copy(displayUnit = MassUnit.LB))
@@ -226,10 +262,10 @@ class VolumeLoadTest {
                     id = "1",
                     exerciseId = bench.exerciseId,
                     reps = 5,
-                    weightKg = 100.0,
+                    addedWeightKg = 100.0,
                     completed = false
                 ),
-                VolumeSetInput(id = "2", exerciseId = bench.exerciseId, reps = 0, weightKg = 100.0)
+                VolumeSetInput(id = "2", exerciseId = bench.exerciseId, reps = 0, addedWeightKg = 100.0)
             )
         val summary = VolumeLoad.summarize(sets, exercises, opts)
         assertEquals(0.0, summary.totalVolumeKg, absoluteTolerance = 0.001)
@@ -247,7 +283,7 @@ class VolumeLoadTest {
                 startedAt = t0,
                 sets =
                 listOf(
-                    VolumeSetInput(id = "p1", exerciseId = bench.exerciseId, reps = 5, weightKg = 80.0)
+                    VolumeSetInput(id = "p1", exerciseId = bench.exerciseId, reps = 5, addedWeightKg = 80.0)
                 )
             )
         val current =
@@ -257,7 +293,7 @@ class VolumeLoadTest {
                 startedAt = t1,
                 sets =
                 listOf(
-                    VolumeSetInput(id = "c1", exerciseId = bench.exerciseId, reps = 5, weightKg = 100.0)
+                    VolumeSetInput(id = "c1", exerciseId = bench.exerciseId, reps = 5, addedWeightKg = 100.0)
                 )
             )
         val found = VolumeLoadStats.findPreviousSameWorkout(current, listOf(previous))
@@ -281,7 +317,7 @@ class VolumeLoadTest {
                 startedAt = t0,
                 sets =
                 listOf(
-                    VolumeSetInput(id = "p1", exerciseId = bench.exerciseId, reps = 5, weightKg = 80.0),
+                    VolumeSetInput(id = "p1", exerciseId = bench.exerciseId, reps = 5, addedWeightKg = 80.0),
                     VolumeSetInput(id = "p2", exerciseId = pushUp.exerciseId, reps = 10)
                 )
             )
@@ -293,7 +329,7 @@ class VolumeLoadTest {
                 sets =
                 listOf(
                     VolumeSetInput(id = "c1", exerciseId = pushUp.exerciseId, reps = 12),
-                    VolumeSetInput(id = "c2", exerciseId = bench.exerciseId, reps = 5, weightKg = 90.0)
+                    VolumeSetInput(id = "c2", exerciseId = bench.exerciseId, reps = 5, addedWeightKg = 90.0)
                 )
             )
         assertEquals("prev", VolumeLoadStats.findPreviousSameWorkout(current, listOf(previous))?.id)
@@ -304,7 +340,7 @@ class VolumeLoadTest {
                 startedAt = t0,
                 sets =
                 listOf(
-                    VolumeSetInput(id = "o1", exerciseId = dbLunge.exerciseId, reps = 8, weightKg = 20.0)
+                    VolumeSetInput(id = "o1", exerciseId = dbLunge.exerciseId, reps = 8, addedWeightKg = 20.0)
                 )
             )
         assertNull(VolumeLoadStats.findPreviousSameWorkout(current, listOf(unrelated)))
@@ -320,7 +356,7 @@ class VolumeLoadTest {
                 startedAt = t0,
                 sets =
                 listOf(
-                    VolumeSetInput(id = "p1", exerciseId = bench.exerciseId, reps = 5, weightKg = 80.0)
+                    VolumeSetInput(id = "p1", exerciseId = bench.exerciseId, reps = 5, addedWeightKg = 80.0)
                 )
             )
         val current =
@@ -329,8 +365,8 @@ class VolumeLoadTest {
                 startedAt = t1,
                 sets =
                 listOf(
-                    VolumeSetInput(id = "c1", exerciseId = bench.exerciseId, reps = 5, weightKg = 100.0),
-                    VolumeSetInput(id = "c2", exerciseId = bench.exerciseId, reps = 5, weightKg = 100.0)
+                    VolumeSetInput(id = "c1", exerciseId = bench.exerciseId, reps = 5, addedWeightKg = 100.0),
+                    VolumeSetInput(id = "c2", exerciseId = bench.exerciseId, reps = 5, addedWeightKg = 100.0)
                 )
             )
         val summary = VolumeLoad.summarize(current.sets, exercises, opts)
@@ -351,7 +387,7 @@ class VolumeLoadTest {
                 startedAt = t0,
                 sets =
                 listOf(
-                    VolumeSetInput(id = "a", exerciseId = bench.exerciseId, reps = 5, weightKg = 100.0)
+                    VolumeSetInput(id = "a", exerciseId = bench.exerciseId, reps = 5, addedWeightKg = 100.0)
                 )
             )
         val s2 =

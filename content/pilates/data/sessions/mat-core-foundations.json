@@ -1,0 +1,71 @@
+{
+  "id": "mat-core-foundations",
+  "nameKeys": {
+    "enGB": "pilates.session.mat_core_foundations.name",
+    "uk": "pilates.session.mat_core_foundations.name"
+  },
+  "descriptionKeys": {
+    "enGB": "pilates.session.mat_core_foundations.description",
+    "uk": "pilates.session.mat_core_foundations.description"
+  },
+  "level": "beginner",
+  "durationMinutes": 25,
+  "apparatus": "mat",
+  "focus": "core",
+  "exerciseIds": [
+    "pilates-hundred",
+    "pilates-single-leg-stretch",
+    "pilates-double-leg-stretch",
+    "pilates-spine-stretch-forward",
+    "pilates-saw",
+    "pilates-shoulder-bridge",
+    "pilates-swan"
+  ],
+  "blocks": [
+    {
+      "titleKey": "pilates.session.mat_core_foundations.block_main",
+      "items": [
+        {
+          "exerciseId": "pilates-hundred",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "pilates-single-leg-stretch",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "pilates-double-leg-stretch",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "pilates-spine-stretch-forward",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "pilates-saw",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "pilates-shoulder-bridge",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "pilates-swan",
+          "sets": 1,
+          "reps": 6
+        }
+      ]
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "bundled": true
+}

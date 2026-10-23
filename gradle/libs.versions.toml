@@ -18,8 +18,13 @@ androidx-test-espresso = "3.7.0"
 robolectric = "4.17"
 ktlint = "14.2.0"
 detekt = "1.23.8"
-json-schema-validator = "2.0.8"
-jackson = "2.22.4"
+json-schema-validator = "3.0.8"
+jackson = "3.2.1"
+ktor = "3.6.0"
+health-connect = "1.1.0"
+health-connect-testing = "1.0.0-alpha04"
+security-crypto = "1.1.0"
+appauth = "0.11.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -58,7 +63,19 @@ androidx-test-espresso-core = { module = "androidx.test.espresso:espresso-core",
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 
 json-schema-validator = { module = "com.networknt:json-schema-validator", version.ref = "json-schema-validator" }
-jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+jackson-databind = { module = "tools.jackson.core:jackson-databind", version.ref = "jackson" }
+
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
+
+health-connect-client = { module = "androidx.health.connect:connect-client", version.ref = "health-connect" }
+health-connect-testing = { module = "androidx.health.connect:connect-testing", version.ref = "health-connect-testing" }
+security-crypto = { module = "androidx.security:security-crypto", version.ref = "security-crypto" }
+appauth = { module = "net.openid:appauth", version.ref = "appauth" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

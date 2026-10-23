@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.dev/schemas/pilates-session.schema.json",
+  "title": "OmniGartPilatesSession",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "nameKeys",
+    "level",
+    "durationMinutes",
+    "apparatus",
+    "focus",
+    "exerciseIds",
+    "blocks",
+    "evidenceEntryIds",
+    "bundled"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "nameKeys": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enGB",
+        "uk"
+      ],
+      "properties": {
+        "enGB": {
+          "type": "string",
+          "pattern": "^pilates\\.session\\.[a-z0-9_]+\\.name$"
+        },
+        "uk": {
+          "type": "string",
+          "pattern": "^pilates\\.session\\.[a-z0-9_]+\\.name$"
+        }
+      }
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ]
+    },
+    "durationMinutes": {
+      "type": "integer",
+      "minimum": 15,
+      "maximum": 75
+    },
+    "apparatus": {
+      "type": "string",
+      "enum": [
+        "mat",
+        "reformer",
+        "mixed"
+      ]
+    },
+    "focus": {
+      "type": "string",
+      "enum": [
+        "core",
+        "full_body",
+        "posture",
+        "hips_glutes",
+        "upper_body",
+        "mobility",
+        "athletic"
+      ]
+    },
+    "exerciseIds": {
+      "type": "array",
+      "minItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "blocks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "titleKey",
+          "items"
+        ],
+        "properties": {
+          "titleKey": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "exerciseId"
+              ],
+              "properties": {
+                "exerciseId": {
+                  "type": "string"
+                },
+                "reps": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "seconds": {
+                  "type": "integer",
+                  "minimum": 5
+                },
+                "sets": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 6
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "evidenceEntryIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+([_-][a-z0-9]+)*$"
+      }
+    },
+    "bundled": {
+      "type": "boolean",
+      "const": true
+    },
+    "descriptionKeys": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enGB",
+        "uk"
+      ],
+      "properties": {
+        "enGB": {
+          "type": "string"
+        },
+        "uk": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

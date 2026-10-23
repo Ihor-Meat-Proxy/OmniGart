@@ -74,3 +74,21 @@ Manual: log a mixed session (warmup + BW + assisted + unilateral DB), toggle war
 - Default BW **load coefficients** by movement family (e.g. push-up ≈ 0.64, pull-up ≈ 1.0, dip ≈ 1.0) — documented constants; refine with verified citations when available.
 - Hard set = completed, non-warmup strength set with reps ≥ 1.
 - Previous “same workout” match key = template/workout id if present, else fuzzy exercise-id multiset.
+
+## Shipped (this PR)
+
+- Pure volume load: `VolumeLoad` / `VolumeLoadStats` / `MassUnits` / `BodyweightLoadCoefficients`, refined with `ExerciseLoadSemantics` + `LoadModel` / `BodyweightFraction`
+- Bodyweight helpers: `BodyweightResolver`, `BodyweightOneRepMax`, `BodyweightProgression`; band equipment: `ResistanceBand` / `BandEquipmentProfile`
+- SQLDelight `workout_set`: `is_warmup`, `assistance_kg`, `logged_per_hand` + `WorkoutSet` domain / repository mapping
+- `StrengthLoggingService`: start/end session, add/update/delete set, `sessionSummary` (volume load + total weight lifted, warm-up toggle, e1RM via `FormulaSettingsService`)
+- `OmniGartCore.strengthLogging` + demo exercise catalog for thin shells; bundled catalog wiring in `docs/plans/wire-content.md` (`BundledExerciseCatalog` → SQLDelight)
+- Android `StrengthLoggingSection` + iOS `StrengthLoggingView` on Workouts tab (start / add set / end / summary / count warm-ups)
+- i18n en-GB + uk (`StringCatalog`, Android resources, `Localizable.xcstrings`, shared `strings.json`)
+- Host tests: `VolumeLoadTest`, `StrengthLoggingServiceTest` (BW load, assisted floor 0, unilateral ×2, warm-up exclusion, total weight lifted)
+
+## Still open vs full Phase 1 scope
+
+- Exercise library search/filter UI; templates save/load; full history list/detail edit
+- Rest timer; drop/failure flags; health-adapter workout writes
+- vs-previous + PR surfaces in UI (pure helpers exist); weekly/monthly aggregates UI
+- Body-map heatmap consumption when `shared/bodymap` merges into phone shells

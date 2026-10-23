@@ -1,0 +1,76 @@
+{
+  "id": "floor-press-dumbbell",
+  "nameKeys": {
+    "enGB": "exercise.floor_press_dumbbell.name",
+    "uk": "exercise.floor_press_dumbbell.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid"
+  ],
+  "equipment": [
+    "dumbbell"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Lie on floor; lower elbows to touch floor gently; press to lockout."
+  ],
+  "setup": [
+    "Knees bent; shoulders set."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Bouncing elbows hard into the floor"
+  ],
+  "safety": [
+    "Shorter ROM can spare shoulders."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "push-up",
+      "note": "Different pattern"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "dumbbell-bench-press",
+      "note": "Full ROM"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/floor-press-dumbbell",
+    "videoKey": "media/video/floor-press-dumbbell",
+    "animationKey": "media/anim/floor-press-dumbbell"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

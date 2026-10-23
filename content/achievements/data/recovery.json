@@ -1,0 +1,347 @@
+[
+  {
+    "id": "recovery.first_sleep_import",
+    "category": "recovery",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "sleep_consistent_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1
+    },
+    "iconId": "sleep",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.recovery.first_sleep_import.title",
+    "descriptionKey": "achievement.recovery.first_sleep_import.description"
+  },
+  {
+    "id": "recovery.sleep_consistency",
+    "category": "recovery",
+    "type": "streak",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 3
+      },
+      {
+        "id": "silver",
+        "threshold": 7
+      },
+      {
+        "id": "gold",
+        "threshold": 21
+      },
+      {
+        "id": "platinum",
+        "threshold": 45
+      }
+    ],
+    "rule": {
+      "metric": "sleep_consistent_days",
+      "aggregation": "streak",
+      "window": {
+        "kind": "streak_days",
+        "qualify": "goal_met",
+        "restDayTolerancePerWeek": 1,
+        "freezeTokensAllowed": true,
+        "maxFreezePerStreak": 2
+      },
+      "compare": "gte",
+      "filters": {
+        "sleepMidpointVarianceMin": 60
+      }
+    },
+    "iconId": "streak",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.recovery.sleep_consistency.title",
+    "descriptionKey": "achievement.recovery.sleep_consistency.description",
+    "healthyNotes": "Consistency of timing, not punishing short sleep."
+  },
+  {
+    "id": "recovery.sleep_days",
+    "category": "recovery",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 7
+      },
+      {
+        "id": "silver",
+        "threshold": 30
+      },
+      {
+        "id": "gold",
+        "threshold": 90
+      },
+      {
+        "id": "platinum",
+        "threshold": 180
+      }
+    ],
+    "rule": {
+      "metric": "sleep_consistent_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte"
+    },
+    "iconId": "sleep",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.recovery.sleep_days.title",
+    "descriptionKey": "achievement.recovery.sleep_days.description"
+  },
+  {
+    "id": "recovery.rest_day_honour",
+    "category": "recovery",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 4
+      },
+      {
+        "id": "silver",
+        "threshold": 12
+      },
+      {
+        "id": "gold",
+        "threshold": 26
+      },
+      {
+        "id": "platinum",
+        "threshold": 52
+      }
+    ],
+    "rule": {
+      "metric": "planned_rest_honoured",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte"
+    },
+    "iconId": "recovery",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.recovery.rest_day_honour.title",
+    "descriptionKey": "achievement.recovery.rest_day_honour.description"
+  },
+  {
+    "id": "recovery.month_sleep",
+    "category": "recovery",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 10
+      },
+      {
+        "id": "silver",
+        "threshold": 18
+      },
+      {
+        "id": "gold",
+        "threshold": 24
+      },
+      {
+        "id": "platinum",
+        "threshold": 28
+      }
+    ],
+    "rule": {
+      "metric": "sleep_consistent_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "challenge_period",
+        "period": "current_month"
+      },
+      "compare": "gte"
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.recovery.month_sleep.title",
+    "descriptionKey": "achievement.recovery.month_sleep.description"
+  },
+  {
+    "id": "recovery.readiness_listen",
+    "category": "recovery",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 3
+      }
+    ],
+    "rule": {
+      "metric": "planned_rest_honoured",
+      "aggregation": "count",
+      "window": {
+        "kind": "rolling_days",
+        "days": 14
+      },
+      "compare": "gte",
+      "threshold": 3
+    },
+    "iconId": "readiness",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.recovery.readiness_listen.title",
+    "descriptionKey": "achievement.recovery.readiness_listen.description",
+    "healthyNotes": "Counters overtraining pressure from streaks."
+  },
+  {
+    "id": "recovery.secret_nap_boundary",
+    "category": "recovery",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "planned_rest_honoured",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1
+    },
+    "iconId": "recovery",
+    "hidden": true,
+    "repeatable": false,
+    "titleKey": "achievement.recovery.secret_nap_boundary.title",
+    "descriptionKey": "achievement.recovery.secret_nap_boundary.description"
+  },
+  {
+    "id": "recovery.week_consistency",
+    "category": "recovery",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 5
+      }
+    ],
+    "rule": {
+      "metric": "sleep_consistent_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "calendar",
+        "unit": "week",
+        "count": 1
+      },
+      "compare": "gte",
+      "threshold": 5
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.recovery.week_consistency.title",
+    "descriptionKey": "achievement.recovery.week_consistency.description"
+  },
+  {
+    "id": "recovery.hrv_checkin",
+    "category": "recovery",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 7
+      },
+      {
+        "id": "silver",
+        "threshold": 30
+      },
+      {
+        "id": "gold",
+        "threshold": 90
+      },
+      {
+        "id": "platinum",
+        "threshold": 180
+      }
+    ],
+    "rule": {
+      "metric": "sleep_consistent_days",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte"
+    },
+    "iconId": "hrv",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.recovery.hrv_checkin.title",
+    "descriptionKey": "achievement.recovery.hrv_checkin.description"
+  },
+  {
+    "id": "recovery.balance_block",
+    "category": "recovery",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 2
+      }
+    ],
+    "rule": {
+      "metric": "planned_rest_honoured",
+      "aggregation": "count",
+      "window": {
+        "kind": "challenge_period",
+        "period": "current_week"
+      },
+      "compare": "gte",
+      "threshold": 2
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.recovery.balance_block.title",
+    "descriptionKey": "achievement.recovery.balance_block.description"
+  },
+  {
+    "id": "recovery.stress_down_day",
+    "category": "recovery",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "planned_rest_honoured",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1
+    },
+    "iconId": "stress",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.recovery.stress_down_day.title",
+    "descriptionKey": "achievement.recovery.stress_down_day.description",
+    "healthyNotes": "Pairs with readiness; never rewards training through red flags."
+  }
+]

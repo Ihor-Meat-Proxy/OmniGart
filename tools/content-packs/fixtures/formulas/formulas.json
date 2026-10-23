@@ -1,0 +1,11 @@
+{
+  "schema": "omnigart.formulas/1",
+  "readiness": {
+    "goMinScore": 0.75,
+    "moderateMinScore": 0.5,
+    "easyMinScore": 0.25
+  },
+  "deload": {
+    "defaultEveryWeeks": 6
+  }
+}

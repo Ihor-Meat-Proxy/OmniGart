@@ -162,7 +162,7 @@ object VolumeLoadStats {
     ): Pair<String, Double>? = sets
         .filter { it.exerciseId == exerciseId && VolumeLoad.shouldInclude(it, options.includeWarmups) }
         .mapNotNull { set ->
-            val load = VolumeLoad.effectiveLoadKg(set, meta, options.bodyweightKg).loadKg
+            val load = VolumeLoad.effectiveLoadKg(set, meta, options).loadKg
             if (load <= 0.0) null else set.id to OneRepMax.epley(load, set.reps)
         }
         .maxByOrNull { it.second }

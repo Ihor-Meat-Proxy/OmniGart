@@ -34,4 +34,6 @@ object BodyweightLoadCoefficients {
         )
 
     fun forExerciseId(exerciseId: String): Double = byExerciseId[exerciseId] ?: DEFAULT
+
+    fun isKnownBodyweightMovement(exerciseId: String): Boolean = exerciseId in byExerciseId
 }

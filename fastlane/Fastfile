@@ -1,0 +1,144 @@
+# frozen_string_literal: true
+
+# OmniGart release lanes — prepared, inert without secrets / app projects.
+# Verified fastlane gem: 2.241.1
+
+default_platform(:ios)
+
+def secret_present?(name)
+  value = ENV[name]
+  !(value.nil? || value.strip.empty?)
+end
+
+def require_secrets!(*names)
+  missing = names.reject { |n| secret_present?(n) }
+  return true if missing.empty?
+
+  UI.important("Missing secrets: #{missing.join(', ')} — skipping lane (inert without credentials).")
+  false
+end
+
+def ios_project_ready?
+  Dir.glob("../**/OmniGart.xcodeproj").any? || Dir.glob("../**/OmniGart.xcworkspace").any? ||
+    File.exist?(File.expand_path("../ios/OmniGart.xcodeproj", __dir__))
+end
+
+def android_project_ready?
+  File.exist?(File.expand_path("../android/app/build.gradle.kts", __dir__)) ||
+    File.exist?(File.expand_path("../android/app/build.gradle", __dir__))
+end
+
+def load_asc_api_key!
+  key_id = ENV["APP_STORE_CONNECT_KEY_ID"]
+  issuer_id = ENV["APP_STORE_CONNECT_ISSUER_ID"]
+  key_content = ENV["APP_STORE_CONNECT_API_KEY_CONTENT"]
+  key_path = ENV["APP_STORE_CONNECT_API_KEY_PATH"]
+
+  unless key_id && issuer_id && (key_content || key_path)
+    UI.user_error!("App Store Connect API key incomplete")
+  end
+
+  app_store_connect_api_key(
+    key_id: key_id,
+    issuer_id: issuer_id,
+    key_content: key_content,
+    key_filepath: key_path,
+    is_key_content_base64: ENV["APP_STORE_CONNECT_API_KEY_IS_BASE64"] == "true",
+    duration: 1200,
+    in_house: false
+  )
+end
+
+platform :ios do
+  desc "Build and upload to TestFlight (skips if secrets or Xcode project missing)"
+  lane :beta do
+    unless require_secrets!(
+             "APP_STORE_CONNECT_KEY_ID",
+             "APP_STORE_CONNECT_ISSUER_ID"
+           ) && (secret_present?("APP_STORE_CONNECT_API_KEY_CONTENT") ||
+                 secret_present?("APP_STORE_CONNECT_API_KEY_PATH"))
+      next
+    end
+
+    unless ios_project_ready?
+      UI.important("iOS app project not present yet — skipping TestFlight upload.")
+      next
+    end
+
+    load_asc_api_key!
+
+    if ENV["MATCH_GIT_URL"] && !ENV["MATCH_GIT_URL"].empty? && secret_present?("MATCH_PASSWORD")
+      match(type: "appstore", readonly: true)
+    else
+      UI.important("match not configured — expecting manual/Xcode-managed signing on the build machine.")
+    end
+
+    build_app(
+      scheme: ENV.fetch("IOS_SCHEME", "OmniGart"),
+      export_method: "app-store",
+      clean: true
+    )
+
+    upload_to_testflight(
+      skip_waiting_for_build_processing: ENV["TESTFLIGHT_SKIP_WAITING"] == "true",
+      distribute_external: false,
+      changelog: ENV["TESTFLIGHT_CHANGELOG"]
+    )
+  end
+
+  desc "Dry-run: print iOS readiness without uploading"
+  lane :beta_dry_run do
+    UI.message("fastlane #{Fastlane::VERSION}")
+    UI.message("ASC key id present: #{secret_present?('APP_STORE_CONNECT_KEY_ID')}")
+    UI.message("iOS project ready: #{ios_project_ready?}")
+    UI.success("Dry run complete (no upload).")
+  end
+end
+
+platform :android do
+  desc "Upload AAB/APK to Play internal testing (skips if secrets or Android project missing)"
+  lane :internal do
+    unless secret_present?("PLAY_JSON_KEY_CONTENT") || secret_present?("PLAY_JSON_KEY_FILE")
+      UI.important("Missing PLAY_JSON_KEY_CONTENT or PLAY_JSON_KEY_FILE — skipping internal upload.")
+      next
+    end
+
+    unless android_project_ready?
+      UI.important("Android app project not present yet — skipping Play upload.")
+      next
+    end
+
+    key_file = ENV["PLAY_JSON_KEY_FILE"]
+    if secret_present?("PLAY_JSON_KEY_CONTENT") && (key_file.nil? || key_file.empty?)
+      key_file = File.join(Dir.tmpdir, "play-api-#{Process.pid}.json")
+      File.write(key_file, ENV["PLAY_JSON_KEY_CONTENT"])
+    end
+
+    aab = ENV["ANDROID_AAB_PATH"] || Dir.glob("../**/outputs/bundle/**/*.aab").first
+    apk = ENV["ANDROID_APK_PATH"] || Dir.glob("../**/outputs/apk/**/*.apk").first
+
+    if aab.nil? && apk.nil?
+      UI.important("No AAB/APK artefact found — build the Android app first, then re-run.")
+      next
+    end
+
+    upload_to_play_store(
+      track: "internal",
+      json_key: key_file,
+      aab: aab,
+      apk: aab.nil? ? apk : nil,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      release_status: "completed"
+    )
+  end
+
+  desc "Dry-run: print Android readiness without uploading"
+  lane :internal_dry_run do
+    UI.message("fastlane #{Fastlane::VERSION}")
+    UI.message("Play key present: #{secret_present?('PLAY_JSON_KEY_CONTENT') || secret_present?('PLAY_JSON_KEY_FILE')}")
+    UI.message("Android project ready: #{android_project_ready?}")
+    UI.success("Dry run complete (no upload).")
+  end
+end

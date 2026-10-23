@@ -1,0 +1,7 @@
+{
+  "description": "Evidence registry entry ids cited by bundled yoga content. Validated against content/evidence/entries when that pack is present; otherwise against this allowlist (bundle-first).",
+  "ids": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ]
+}

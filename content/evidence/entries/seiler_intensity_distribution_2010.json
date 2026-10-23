@@ -1,0 +1,30 @@
+{
+  "id": "seiler_intensity_distribution_2010",
+  "type": "systematic-review",
+  "title": "What is best practice for training intensity and duration distribution in endurance athletes?",
+  "authors": [
+    "Seiler S"
+  ],
+  "year": 2010,
+  "journal": "International Journal of Sports Physiology and Performance",
+  "doi": "10.1123/ijspp.5.3.276",
+  "pmid": "20861519",
+  "openAccess": false,
+  "population": "Endurance athletes (descriptive intensity-distribution synthesis)",
+  "keyFinding": {
+    "enGB": "Describes a common ~80/20 easy-to-hard intensity distribution among endurance athletes as a training-organisation pattern, not a universal prescription.",
+    "keys": {
+      "enGB": "evidence.seiler_intensity_distribution_2010.key_finding",
+      "uk": "evidence.seiler_intensity_distribution_2010.key_finding"
+    }
+  },
+  "evidenceStrength": "moderate",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "content.exercises",
+    "content.templates",
+    "planning"
+  ]
+}

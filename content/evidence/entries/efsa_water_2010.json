@@ -1,0 +1,27 @@
+{
+  "id": "efsa_water_2010",
+  "type": "guideline",
+  "title": "Scientific Opinion on Dietary Reference Values for water",
+  "authors": [
+    "EFSA Panel on Dietetic Products, Nutrition and Allergies (NDA)"
+  ],
+  "year": 2010,
+  "journal": "EFSA Journal",
+  "doi": "10.2903/j.efsa.2010.1459",
+  "openAccess": true,
+  "population": "European general population dietary reference values for water",
+  "keyFinding": {
+    "enGB": "Sets adequate total water intakes for European age/sex groups from dietary reference value evidence.",
+    "keys": {
+      "enGB": "evidence.efsa_water_2010.key_finding",
+      "uk": "evidence.efsa_water_2010.key_finding"
+    }
+  },
+  "evidenceStrength": "high",
+  "licenceNote": "Open-access or public-agency text: title and short finding may be shown; link out for full document. Do not paste copyrighted abstracts wholesale.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.WaterTarget.litresPerDay"
+  ]
+}

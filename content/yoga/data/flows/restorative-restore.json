@@ -1,0 +1,77 @@
+{
+  "id": "restorative-restore",
+  "nameKeys": {
+    "enGB": "yoga.flow.restorative_restore.name",
+    "uk": "yoga.flow.restorative_restore.name"
+  },
+  "descriptionKeys": {
+    "enGB": "yoga.flow.restorative_restore.description",
+    "uk": "yoga.flow.restorative_restore.description"
+  },
+  "level": "beginner",
+  "durationMinutes": 30,
+  "focus": "restorative",
+  "poseIds": [
+    "child-pose",
+    "legs-up-wall",
+    "reclining-bound-angle",
+    "supine-twist",
+    "happy-baby",
+    "knee-to-chest",
+    "corpse-pose",
+    "easy-pose"
+  ],
+  "sequence": [
+    {
+      "poseId": "child-pose",
+      "holdSeconds": 60,
+      "side": "none"
+    },
+    {
+      "poseId": "legs-up-wall",
+      "holdSeconds": 90,
+      "side": "none"
+    },
+    {
+      "poseId": "reclining-bound-angle",
+      "holdSeconds": 90,
+      "side": "none"
+    },
+    {
+      "poseId": "supine-twist",
+      "holdSeconds": 45,
+      "side": "both"
+    },
+    {
+      "poseId": "happy-baby",
+      "holdSeconds": 45,
+      "side": "none"
+    },
+    {
+      "poseId": "knee-to-chest",
+      "holdSeconds": 40,
+      "side": "none"
+    },
+    {
+      "poseId": "corpse-pose",
+      "holdSeconds": 90,
+      "side": "none"
+    },
+    {
+      "poseId": "easy-pose",
+      "holdSeconds": 60,
+      "side": "none"
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "bundled": true,
+  "equipmentSuggested": [
+    "yoga_mat",
+    "yoga_block",
+    "yoga_strap",
+    "bodyweight"
+  ]
+}

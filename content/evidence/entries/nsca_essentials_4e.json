@@ -1,0 +1,29 @@
+{
+  "id": "nsca_essentials_4e",
+  "type": "textbook",
+  "title": "Essentials of Strength Training and Conditioning (4th edition)",
+  "authors": [
+    "Haff GG",
+    "Triplett NT",
+    "National Strength and Conditioning Association"
+  ],
+  "year": 2016,
+  "journal": "Human Kinetics",
+  "url": "https://us.humankinetics.com/products/essentials-of-strength-training-and-conditioning-4th-edition-with-web-resource",
+  "openAccess": false,
+  "population": "Coaching and strength-conditioning education (technique and safety norms)",
+  "keyFinding": {
+    "enGB": "Standard coaching reference for resistance-exercise technique, spotting, and programme design conventions used as technique/safety norms.",
+    "keys": {
+      "enGB": "evidence.nsca_essentials_4e.key_finding",
+      "uk": "evidence.nsca_essentials_4e.key_finding"
+    }
+  },
+  "evidenceStrength": "low",
+  "licenceNote": "Textbook citation for technique norms only; do not quote substantial passages.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "content.exercises"
+  ]
+}

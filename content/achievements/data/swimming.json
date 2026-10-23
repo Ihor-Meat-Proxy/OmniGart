@@ -1,0 +1,453 @@
+[
+  {
+    "id": "swimming.first_swim",
+    "category": "swimming",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1,
+      "filters": {
+        "discipline": [
+          "swimming"
+        ]
+      }
+    },
+    "iconId": "swimming",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.swimming.first_swim.title",
+    "descriptionKey": "achievement.swimming.first_swim.description"
+  },
+  {
+    "id": "swimming.distance_lifetime",
+    "category": "swimming",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 5000
+      },
+      {
+        "id": "silver",
+        "threshold": 25000
+      },
+      {
+        "id": "gold",
+        "threshold": 100000
+      },
+      {
+        "id": "platinum",
+        "threshold": 250000
+      }
+    ],
+    "rule": {
+      "metric": "distance_m",
+      "aggregation": "sum",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "swimming"
+        ]
+      }
+    },
+    "iconId": "swimming",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.swimming.distance_lifetime.title",
+    "descriptionKey": "achievement.swimming.distance_lifetime.description"
+  },
+  {
+    "id": "swimming.sessions",
+    "category": "swimming",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 5
+      },
+      {
+        "id": "silver",
+        "threshold": 20
+      },
+      {
+        "id": "gold",
+        "threshold": 50
+      },
+      {
+        "id": "platinum",
+        "threshold": 150
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "swimming"
+        ]
+      }
+    },
+    "iconId": "swimming",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.swimming.sessions.title",
+    "descriptionKey": "achievement.swimming.sessions.description"
+  },
+  {
+    "id": "swimming.stroke_variety",
+    "category": "swimming",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 2
+      },
+      {
+        "id": "silver",
+        "threshold": 3
+      },
+      {
+        "id": "gold",
+        "threshold": 4
+      },
+      {
+        "id": "platinum",
+        "threshold": 5
+      }
+    ],
+    "rule": {
+      "metric": "swim_strokes_distinct",
+      "aggregation": "distinct",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "swimming"
+        ]
+      }
+    },
+    "iconId": "swimming",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.swimming.stroke_variety.title",
+    "descriptionKey": "achievement.swimming.stroke_variety.description"
+  },
+  {
+    "id": "swimming.session_distance",
+    "category": "swimming",
+    "type": "single_session",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 500
+      },
+      {
+        "id": "silver",
+        "threshold": 1000
+      },
+      {
+        "id": "gold",
+        "threshold": 2000
+      },
+      {
+        "id": "platinum",
+        "threshold": 3000
+      }
+    ],
+    "rule": {
+      "metric": "distance_m",
+      "aggregation": "max",
+      "window": {
+        "kind": "single_event"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "swimming"
+        ]
+      }
+    },
+    "iconId": "swimming",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.swimming.session_distance.title",
+    "descriptionKey": "achievement.swimming.session_distance.description"
+  },
+  {
+    "id": "swimming.rhythm",
+    "category": "swimming",
+    "type": "streak",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 2
+      },
+      {
+        "id": "silver",
+        "threshold": 6
+      },
+      {
+        "id": "gold",
+        "threshold": 12
+      },
+      {
+        "id": "platinum",
+        "threshold": 24
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "streak",
+      "window": {
+        "kind": "streak_days",
+        "qualify": "activity_or_planned_rest",
+        "restDayTolerancePerWeek": 2,
+        "freezeTokensAllowed": true,
+        "maxFreezePerStreak": 2
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "swimming"
+        ]
+      }
+    },
+    "iconId": "streak",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.swimming.rhythm.title",
+    "descriptionKey": "achievement.swimming.rhythm.description"
+  },
+  {
+    "id": "swimming.month_challenge",
+    "category": "swimming",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 4
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "challenge_period",
+        "period": "current_month"
+      },
+      "compare": "gte",
+      "threshold": 4,
+      "filters": {
+        "discipline": [
+          "swimming"
+        ]
+      }
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.swimming.month_challenge.title",
+    "descriptionKey": "achievement.swimming.month_challenge.description"
+  },
+  {
+    "id": "swimming.drill_focus",
+    "category": "swimming",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 3
+      },
+      {
+        "id": "silver",
+        "threshold": 10
+      },
+      {
+        "id": "gold",
+        "threshold": 25
+      },
+      {
+        "id": "platinum",
+        "threshold": 50
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "swimming"
+        ],
+        "stroke": [
+          "drill"
+        ]
+      }
+    },
+    "iconId": "swimming",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.swimming.drill_focus.title",
+    "descriptionKey": "achievement.swimming.drill_focus.description"
+  },
+  {
+    "id": "swimming.secret_flip",
+    "category": "swimming",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "swim_strokes_distinct",
+      "aggregation": "distinct",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1,
+      "filters": {
+        "discipline": [
+          "swimming"
+        ]
+      }
+    },
+    "iconId": "swimming",
+    "hidden": true,
+    "repeatable": false,
+    "titleKey": "achievement.swimming.secret_flip.title",
+    "descriptionKey": "achievement.swimming.secret_flip.description"
+  },
+  {
+    "id": "swimming.week_distance",
+    "category": "swimming",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 2000
+      },
+      {
+        "id": "silver",
+        "threshold": 4000
+      },
+      {
+        "id": "gold",
+        "threshold": 6000
+      },
+      {
+        "id": "platinum",
+        "threshold": 8000
+      }
+    ],
+    "rule": {
+      "metric": "distance_m",
+      "aggregation": "sum",
+      "window": {
+        "kind": "calendar",
+        "unit": "week",
+        "count": 1
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "swimming"
+        ]
+      }
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.swimming.week_distance.title",
+    "descriptionKey": "achievement.swimming.week_distance.description"
+  },
+  {
+    "id": "swimming.butterfly_try",
+    "category": "swimming",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "swim_strokes_distinct",
+      "aggregation": "exists",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1,
+      "filters": {
+        "discipline": [
+          "swimming"
+        ],
+        "stroke": [
+          "butterfly"
+        ]
+      }
+    },
+    "iconId": "swimming",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.swimming.butterfly_try.title",
+    "descriptionKey": "achievement.swimming.butterfly_try.description"
+  },
+  {
+    "id": "swimming.im_builder",
+    "category": "swimming",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 4
+      }
+    ],
+    "rule": {
+      "metric": "swim_strokes_distinct",
+      "aggregation": "distinct",
+      "window": {
+        "kind": "rolling_days",
+        "days": 30
+      },
+      "compare": "gte",
+      "threshold": 4,
+      "filters": {
+        "discipline": [
+          "swimming"
+        ]
+      }
+    },
+    "iconId": "swimming",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.swimming.im_builder.title",
+    "descriptionKey": "achievement.swimming.im_builder.description"
+  }
+]

@@ -1,1 +1,0 @@
-Limitar la extensión al final del rango; disminuir gradualmente la asistencia al progreso.

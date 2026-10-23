@@ -1,1 +1,0 @@
-Tira de manera que la cabeza pase a un lado de la barra, luego alterna los lados en cada repetición o serie.

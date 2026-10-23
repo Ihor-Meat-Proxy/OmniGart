@@ -224,3 +224,15 @@ B7. **Path JSON packaging** — **Decided (bundle-first):** ship `design/body-ma
 - **Context:** Effective load for BW movements needs a fraction of body mass; published GRF %BM varies by variation and study.
 - **Choice:** Ship `BodyweightLoadCoefficients` + content `bodyweightFraction` / `ExerciseLoadSemantics` (push-up ≈ 0.64, pull-up/dip ≈ 1.0, inverted row ≈ 0.5) as provisional estimates; mark volume as estimated; prompt when body mass is missing/stale via `BodyweightResolver`.
 - **Alternatives:** Require always-on scale/Health body mass; per-user calibrated fractions; omit BW contribution until cited.
+
+## Sensors / BLE / Polar
+
+S1. **Polar licence acceptance** — Polar SDK Limited License is proprietary (not AGPL). Confirm owner acceptance for shipping Android/iOS binaries that link Polar 8.4.0, and whether NOTICE text must appear in-app.
+S2. **Android minSdk vs Polar** — Phone shell targets minSdk 26; Polar getting-started recommends 33. Keep 26 until AAR merge forces a bump?
+S3. **Multi-sensor simultaneous connections** — Façade currently one active strap; allow N concurrent GATT sessions for dual-strap experiments?
+S4. **Baevsky detrending** — Kubios applies smoothness-priors VLF removal before √SI. Implement detrending in a follow-up, or ship raw SI + √SI only?
+S5. **H10 offline sample type default for swimming** — Prefer RR (richer HRV) vs HR 1 Hz (smaller, easier merge)? Provisional: RR when battery/memory allows.
+S6. **watchOS product policy** — Show strap HR in-app only, or also write mirrored samples to a non-workout HealthKit type? Health layer owns writes; confirm UX.
+S7. **Remembered-device storage** — SharedPreferences / UserDefaults now; migrate into SQLDelight when Phase 0 DB lands?
+S8. **iOS Polar SPM in CI** — `OmniGartSensorsPolar` pulls Polar SPM; run on macOS only after Phase 0 iOS job exists, or keep Polar target optional in XcodeGen?
+S9. **Smoothness of Lipponen constants** — Using paper defaults (c1=0.13, c2=0.17, α=5.2). Tune for swimming artefact profiles?

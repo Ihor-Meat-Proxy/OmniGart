@@ -1,0 +1,81 @@
+name: Content packs release
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type release to publish signed packs to CDN'
+        required: true
+        type: string
+
+# Owner must configure Environment "content-release" with required reviewers + secrets.
+# This workflow never runs on pull_request.
+
+jobs:
+  sign-upload:
+    if: github.event.inputs.confirm == 'release'
+    runs-on: ubuntu-latest
+    environment: content-release
+    permissions:
+      contents: read
+    defaults:
+      run:
+        working-directory: tools/content-packs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+
+      - name: Install minisign
+        run: |
+          set -euo pipefail
+          curl -fsSL -o /tmp/minisign.tar.gz \
+            https://github.com/jedisct1/minisign/releases/download/0.12/minisign-0.12-linux.tar.gz
+          tar -xzf /tmp/minisign.tar.gz -C /tmp
+          sudo install -m 755 /tmp/minisign-linux/x86_64/minisign /usr/local/bin/minisign
+
+      - name: Build
+        run: npm run build && npm run verify && npm run check-size
+
+      - name: Sign update packs
+        env:
+          MINISIGN_SECRET_KEY: ${{ secrets.MINISIGN_SECRET_KEY }}
+          MINISIGN_PUBKEY_PATH: ${{ vars.MINISIGN_PUBKEY_PATH }}
+        run: |
+          set -euo pipefail
+          if [ -z "${MINISIGN_SECRET_KEY:-}" ]; then
+            echo "MINISIGN_SECRET_KEY missing — prefer offline signing; aborting upload."
+            exit 1
+          fi
+          PUBKEY="${MINISIGN_PUBKEY_PATH:-keys/omnigart-content.pub}"
+          if [ ! -f "$PUBKEY" ]; then
+            echo "Public key file missing at $PUBKEY — add owner key or set MINISIGN_PUBKEY_PATH."
+            exit 1
+          fi
+          find dist/updates dist/cdn -type d -name 'v*' | while read -r d; do
+            if [ -f "$d/manifest.json" ]; then
+              node src/sign.mjs --dir "$d"
+              node src/verify.mjs --dir "$d" --pubkey "$PUBKEY" --require-sig
+            fi
+          done
+
+      - name: Upload + purge (stub)
+        env:
+          BUNNYNET_API_KEY: ${{ secrets.BUNNYNET_API_KEY }}
+          BUNNY_STORAGE_ZONE: ${{ secrets.BUNNY_STORAGE_ZONE }}
+          BUNNY_STORAGE_PASSWORD: ${{ secrets.BUNNY_STORAGE_PASSWORD }}
+          BUNNY_PULLZONE_ID: ${{ secrets.BUNNY_PULLZONE_ID }}
+        run: |
+          set -euo pipefail
+          echo "Upload immutable packs/{id}/v/{semver}/* then current.json to Bunny Storage."
+          echo "Purge pull zone $BUNNY_PULLZONE_ID paths for current.json only."
+          echo "Wire storage API client when credentials exist; failing closed if unset."
+          test -n "${BUNNYNET_API_KEY:-}"
+          test -n "${BUNNY_STORAGE_ZONE:-}"
+          # Intentionally no live upload in-repo until owner supplies secrets —
+          # documents the contract without mutating cloud from a dry run.
+          echo "Release artefacts ready under dist/; connect upload script in a follow-up once secrets exist."

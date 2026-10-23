@@ -25,7 +25,10 @@ import kotlinx.datetime.todayIn
  * [contentStore] is the offline content pack (Android/Wear assets). When null, strength
  * logging falls back to the built-in demo exercise catalog.
  */
-class OmniGartCore(driverFactory: DatabaseDriverFactory, contentStore: ContentStore? = null) {
+class OmniGartCore(driverFactory: DatabaseDriverFactory, contentStore: ContentStore?) {
+    /** Swift-friendly overload (Kotlin default args are not exported to Apple). */
+    constructor(driverFactory: DatabaseDriverFactory) : this(driverFactory, contentStore = null)
+
     private val database = createDatabase(driverFactory)
     val profiles = UserProfileRepository(database)
     val exercises = ExerciseRepository(database)

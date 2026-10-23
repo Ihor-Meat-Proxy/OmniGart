@@ -49,6 +49,7 @@ jobs:
               - '.github/workflows/ci.yml'
             ios:
               - 'iosApp/**'
+              - 'watchApp/**'
               - 'ios/**'
               - 'shared/**'
               - 'content/**'

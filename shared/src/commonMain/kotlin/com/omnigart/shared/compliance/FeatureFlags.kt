@@ -35,4 +35,16 @@ object FeatureFlags {
 
     /** Achievement gallery / share sheets. */
     val achievementsEnabled: Boolean = false
+
+    /**
+     * Schedule OmniGart plans into the system Workout app via WorkoutKit.
+     * Stays false until product-ready; Personal Team builds still compile when off.
+     */
+    val workoutKitSchedulingEnabled: Boolean = false
+
+    /**
+     * Import completed HealthKit workouts into load/recovery even when
+     * [healthSyncEnabled] is false (read-only path). Default false until validated.
+     */
+    val healthWorkoutImportEnabled: Boolean = false
 }

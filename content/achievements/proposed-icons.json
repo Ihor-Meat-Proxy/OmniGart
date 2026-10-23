@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "description": "Icon names referenced by achievements that are not yet in design/icons/manifest.json. Design can author SVG sources later; the Achievements CI accepts these as provisional.",
+  "icons": [
+    {
+      "name": "challenge",
+      "category": "achievement",
+      "keywords": ["calendar", "target", "monthly"],
+      "notes": "Time-boxed challenge badge"
+    },
+    {
+      "name": "discovery",
+      "category": "achievement",
+      "keywords": ["spark", "first-time", "explore"],
+      "notes": "First-time / exploration unlocks"
+    },
+    {
+      "name": "freeze-token",
+      "category": "achievement",
+      "keywords": ["pause", "snowflake", "streak-protect"],
+      "notes": "Streak freeze token; communicates rest is allowed"
+    },
+    {
+      "name": "personal-record",
+      "category": "achievement",
+      "keywords": ["pr", "record", "star"],
+      "notes": "Personal record marker"
+    }
+  ]
+}

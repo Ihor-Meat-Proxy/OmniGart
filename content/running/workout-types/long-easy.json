@@ -1,0 +1,65 @@
+{
+  "id": "long-easy",
+  "nameKeys": {
+    "enGB": "running.workout.long_easy.name",
+    "uk": "running.workout.long_easy.name"
+  },
+  "category": "long",
+  "level": "beginner",
+  "durationMinutes": {
+    "typical": 75,
+    "min": 60,
+    "max": 105
+  },
+  "structure": [
+    {
+      "phase": "warmup",
+      "descriptionKey": "running.workout.long_easy.structure.warmup"
+    },
+    {
+      "phase": "main",
+      "descriptionKey": "running.workout.long_easy.structure.main"
+    },
+    {
+      "phase": "cooldown",
+      "descriptionKey": "running.workout.long_easy.structure.cooldown"
+    }
+  ],
+  "intensityTargets": {
+    "hrZones": [
+      "z1",
+      "z2"
+    ],
+    "paceZones": [
+      "easy"
+    ],
+    "primaryLabel": "easy",
+    "rpeRange": "3-4"
+  },
+  "cues": [
+    "Time on feet; stay conversational.",
+    "Stop or ease if sharp pain appears."
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity/duration distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "programming",
+        "safety"
+      ]
+    }
+  ],
+  "notes": "Bundled prescription content only — pacing/HR algorithms live outside this pack."
+}

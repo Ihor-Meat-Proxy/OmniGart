@@ -1,0 +1,71 @@
+{
+  "id": "mat-athletic-core",
+  "nameKeys": {
+    "enGB": "pilates.session.mat_athletic_core.name",
+    "uk": "pilates.session.mat_athletic_core.name"
+  },
+  "descriptionKeys": {
+    "enGB": "pilates.session.mat_athletic_core.description",
+    "uk": "pilates.session.mat_athletic_core.description"
+  },
+  "level": "advanced",
+  "durationMinutes": 30,
+  "apparatus": "mat",
+  "focus": "athletic",
+  "exerciseIds": [
+    "pilates-hundred",
+    "pilates-teaser",
+    "pilates-corkscrew",
+    "pilates-jackknife",
+    "pilates-leg-pull-front",
+    "pilates-leg-pull-back",
+    "pilates-open-leg-rocker"
+  ],
+  "blocks": [
+    {
+      "titleKey": "pilates.session.mat_athletic_core.block_main",
+      "items": [
+        {
+          "exerciseId": "pilates-hundred",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "pilates-teaser",
+          "sets": 1,
+          "reps": 5
+        },
+        {
+          "exerciseId": "pilates-corkscrew",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "pilates-jackknife",
+          "sets": 1,
+          "reps": 5
+        },
+        {
+          "exerciseId": "pilates-leg-pull-front",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "pilates-leg-pull-back",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "pilates-open-leg-rocker",
+          "sets": 1,
+          "reps": 6
+        }
+      ]
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber-acsm-2011",
+    "acsm-rt-2026"
+  ],
+  "bundled": true
+}

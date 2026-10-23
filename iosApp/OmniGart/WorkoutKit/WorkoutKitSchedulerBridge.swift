@@ -1,9 +1,7 @@
 import Foundation
 import HealthKit
 #if canImport(WorkoutKit)
-// WorkoutScheduler is not Sendable; Xcode 26 Swift 6 treats cross-isolation
-// access to scheduledWorkouts as an error without this.
-@preconcurrency import WorkoutKit
+import WorkoutKit
 #endif
 
 /// Schedules OmniGart plans into the system Workout app via WorkoutKit.
@@ -43,7 +41,8 @@ final class WorkoutKitSchedulerBridge {
             let draft = try WorkoutKitPlanBuilder.draft(from: planJSON)
 #if canImport(WorkoutKit)
             if #available(iOS 17.0, *) {
-                return try await scheduleAvailable(draft: draft)
+                // Hop off MainActor: WorkoutScheduler is not Sendable (Xcode 26.2 / 27.2).
+                return try await Self.scheduleAvailable(draft: draft)
             }
 #endif
             return ScheduleOutcome(
@@ -71,19 +70,12 @@ final class WorkoutKitSchedulerBridge {
     }
 
 #if canImport(WorkoutKit)
+    /// All `WorkoutScheduler` use stays in this nonisolated helper so the non-Sendable
+    /// type never crosses out of a MainActor context (Swift 6 / Xcode 26.2 and 27.2).
     @available(iOS 17.0, *)
-    private func scheduleAvailable(draft: WorkoutKitPlanBuilder.Draft) async throws -> ScheduleOutcome {
-        let scheduler = WorkoutScheduler.shared
-        try await scheduler.requestAuthorization()
-        let existing = await scheduler.scheduledWorkouts
-        if existing.count >= Self.maxScheduledWorkouts {
-            return ScheduleOutcome(
-                ok: false,
-                scheduledCount: existing.count,
-                failureCode: "SCHEDULE_CAP_REACHED",
-                detail: "At WorkoutScheduler cap (\(Self.maxScheduledWorkouts))"
-            )
-        }
+    nonisolated private static func scheduleAvailable(
+        draft: WorkoutKitPlanBuilder.Draft
+    ) async throws -> ScheduleOutcome {
         let custom = try WorkoutKitPlanBuilder.makeCustomWorkout(from: draft)
         let plan = WorkoutPlan(.custom(custom))
         let date = draft.scheduledStart ?? Date().addingTimeInterval(3600)
@@ -91,14 +83,33 @@ final class WorkoutKitSchedulerBridge {
             [.year, .month, .day, .hour, .minute],
             from: date
         )
+
+        let existingCount = await scheduledWorkoutCount()
+        if existingCount >= maxScheduledWorkouts {
+            return ScheduleOutcome(
+                ok: false,
+                scheduledCount: existingCount,
+                failureCode: "SCHEDULE_CAP_REACHED",
+                detail: "At WorkoutScheduler cap (\(maxScheduledWorkouts))"
+            )
+        }
+
+        let scheduler = WorkoutScheduler.shared
+        // Xcode 26.2: non-throwing; ignore authorization state for soft-fail scheduling.
+        _ = await scheduler.requestAuthorization()
         await scheduler.schedule(plan, at: components)
-        let after = await scheduler.scheduledWorkouts
+        let afterCount = await scheduledWorkoutCount()
         return ScheduleOutcome(
             ok: true,
-            scheduledCount: after.count,
+            scheduledCount: afterCount,
             failureCode: nil,
             detail: nil
         )
+    }
+
+    @available(iOS 17.0, *)
+    nonisolated private static func scheduledWorkoutCount() async -> Int {
+        await WorkoutScheduler.shared.scheduledWorkouts.count
     }
 #endif
 }

@@ -23,12 +23,17 @@ struct PhoneRootView: View {
                         Image(tab.iconAssetName)
                             .renderingMode(.template)
                     }
+                    // Also label the tab item itself — some simulators surface this more reliably.
+                    .accessibilityIdentifier(tab.accessibilityId)
                 }
                 // Identifier must live on `Tab` so XCTest sees it on the tab bar button
                 // (putting it on the page root only exposes the selected tab's content).
                 .accessibilityIdentifier(tab.accessibilityId)
             }
         }
+        // CI boots an iPad simulator; keep a bottom tab bar so tab accessibility
+        // identifiers stay on `tabBars.buttons` instead of the adaptive sidebar.
+        .tabViewStyle(.tabBarOnly)
         .tint(Color.OmniGart.colorBrandAccent)
         .accessibilityIdentifier("phone_shell")
         .sheet(isPresented: $showInfoSheet) {

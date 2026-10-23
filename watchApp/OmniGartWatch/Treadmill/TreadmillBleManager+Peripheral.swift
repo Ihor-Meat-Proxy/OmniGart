@@ -2,11 +2,12 @@ import CoreBluetooth
 import Foundation
 
 extension TreadmillBleManager: CBPeripheralDelegate {
+    // Peripheral callbacks share the central's main queue (queue: nil).
     nonisolated func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        Task { @MainActor in
+        MainActor.assumeIsolated {
             guard let services = peripheral.services else { return }
             for service in services {
-                self.appendDiag("SERVICE \(service.uuid.uuidString)")
+                appendDiag("SERVICE \(service.uuid.uuidString)")
                 peripheral.discoverCharacteristics(nil, for: service)
             }
         }
@@ -17,8 +18,8 @@ extension TreadmillBleManager: CBPeripheralDelegate {
         didDiscoverCharacteristicsFor service: CBService,
         error: Error?
     ) {
-        Task { @MainActor in
-            self.handleDiscoveredCharacteristics(peripheral: peripheral, service: service)
+        MainActor.assumeIsolated {
+            handleDiscoveredCharacteristics(peripheral: peripheral, service: service)
         }
     }
 
@@ -27,8 +28,8 @@ extension TreadmillBleManager: CBPeripheralDelegate {
         didUpdateValueFor characteristic: CBCharacteristic,
         error: Error?
     ) {
-        Task { @MainActor in
-            self.handleValueUpdate(characteristic: characteristic)
+        MainActor.assumeIsolated {
+            handleValueUpdate(characteristic: characteristic)
         }
     }
 

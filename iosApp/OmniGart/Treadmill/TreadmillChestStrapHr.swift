@@ -43,6 +43,7 @@ final class TreadmillChestStrapHr: NSObject, ObservableObject {
 }
 
 extension TreadmillChestStrapHr: CBCentralManagerDelegate {
+    // CBCentralManager(queue: nil) delivers callbacks on the main queue.
     nonisolated func centralManagerDidUpdateState(_ central: CBCentralManager) {}
 
     nonisolated func centralManager(
@@ -51,8 +52,8 @@ extension TreadmillChestStrapHr: CBCentralManagerDelegate {
         advertisementData: [String: Any],
         rssi RSSI: NSNumber
     ) {
-        Task { @MainActor in
-            self.scanning = false
+        MainActor.assumeIsolated {
+            scanning = false
             central.stopScan()
             self.peripheral = peripheral
             peripheral.delegate = self
@@ -61,8 +62,8 @@ extension TreadmillChestStrapHr: CBCentralManagerDelegate {
     }
 
     nonisolated func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        Task { @MainActor in
-            self.connected = true
+        MainActor.assumeIsolated {
+            connected = true
             peripheral.discoverServices([CBUUID(string: "180D")])
         }
     }
@@ -72,16 +73,16 @@ extension TreadmillChestStrapHr: CBCentralManagerDelegate {
         didDisconnectPeripheral peripheral: CBPeripheral,
         error: Error?
     ) {
-        Task { @MainActor in
-            self.connected = false
-            self.bpm = nil
+        MainActor.assumeIsolated {
+            connected = false
+            bpm = nil
         }
     }
 }
 
 extension TreadmillChestStrapHr: CBPeripheralDelegate {
     nonisolated func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        Task { @MainActor in
+        MainActor.assumeIsolated {
             guard let services = peripheral.services else { return }
             for service in services where service.uuid == CBUUID(string: "180D") {
                 peripheral.discoverCharacteristics([CBUUID(string: "2A37")], for: service)
@@ -94,7 +95,7 @@ extension TreadmillChestStrapHr: CBPeripheralDelegate {
         didDiscoverCharacteristicsFor service: CBService,
         error: Error?
     ) {
-        Task { @MainActor in
+        MainActor.assumeIsolated {
             guard let chars = service.characteristics else { return }
             for char in chars where char.uuid == CBUUID(string: "2A37") {
                 peripheral.setNotifyValue(true, for: char)
@@ -107,7 +108,7 @@ extension TreadmillChestStrapHr: CBPeripheralDelegate {
         didUpdateValueFor characteristic: CBCharacteristic,
         error: Error?
     ) {
-        Task { @MainActor in
+        MainActor.assumeIsolated {
             guard let data = characteristic.value, !data.isEmpty else { return }
             let flags = Int(data[0])
             let value: Int
@@ -119,8 +120,8 @@ extension TreadmillChestStrapHr: CBPeripheralDelegate {
                 return
             }
             if value > 0 {
-                self.bpm = value
-                self.lastSampleAt = Date()
+                bpm = value
+                lastSampleAt = Date()
             }
         }
     }

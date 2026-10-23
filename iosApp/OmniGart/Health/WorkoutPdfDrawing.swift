@@ -3,16 +3,6 @@ import UIKit
 
 /// Page layout helpers for [WorkoutPdfRenderer].
 enum WorkoutPdfDrawing {
-    struct PdfLayout {
-        var margin: CGFloat
-        var width: CGFloat
-
-        static func standard(pageRect: CGRect) -> PdfLayout {
-            let margin: CGFloat = 40
-            return PdfLayout(margin: margin, width: pageRect.width - margin * 2)
-        }
-    }
-
     @discardableResult
     static func drawChrome(
         context _: CGContext,
@@ -22,19 +12,20 @@ enum WorkoutPdfDrawing {
         pageCount: Int
     ) -> CGFloat {
         var cursorY: CGFloat = 36
-        let layout = PdfLayout.standard(pageRect: pageRect)
+        let margin: CGFloat = 40
+        let width = pageRect.width - margin * 2
         cursorY = drawChromeHeader(
             document: document,
-            margin: layout.margin,
-            width: layout.width,
+            margin: margin,
+            width: width,
             cursorY: cursorY
         )
         drawChromeFooter(
             document: document,
             pageRect: pageRect,
-            layout: layout,
-            pageIndex: pageIndex,
-            pageCount: pageCount
+            margin: margin,
+            width: width,
+            pageLabel: "\(pageIndex + 1) / \(pageCount)"
         )
         return cursorY + 8
     }
@@ -45,9 +36,8 @@ enum WorkoutPdfDrawing {
         pageRect: CGRect,
         document: WorkoutPdfDocument
     ) -> CGFloat {
-        let layout = PdfLayout.standard(pageRect: pageRect)
-        let margin = layout.margin
-        let width = layout.width
+        let margin: CGFloat = 40
+        let width = pageRect.width - margin * 2
         let fonts = sectionFonts(document: document)
         var cursorY = drawHeaderAndMetrics(
             workout,
@@ -59,9 +49,9 @@ enum WorkoutPdfDrawing {
         cursorY = drawHeartRateSection(
             workout.heartRate,
             cursorY: cursorY,
-            layout: layout,
-            document: document,
-            body: fonts.body
+            margin: margin,
+            width: width,
+            document: document
         )
         cursorY = drawCardioSection(
             workout.cardio,
@@ -145,29 +135,28 @@ private extension WorkoutPdfDrawing {
     static func drawChromeFooter(
         document: WorkoutPdfDocument,
         pageRect: CGRect,
-        layout: PdfLayout,
-        pageIndex: Int,
-        pageCount: Int
+        margin: CGFloat,
+        width: CGFloat,
+        pageLabel: String
     ) {
         let footer = document.disclaimer as NSString
         let footerFont = WorkoutPdfRenderer.bodyFont(size: 8, spec: document.fontSpec)
         let footerHeight = footer.boundingRect(
-            with: CGSize(width: layout.width, height: 80),
+            with: CGSize(width: width, height: 80),
             options: [.usesLineFragmentOrigin],
             attributes: [.font: footerFont],
             context: nil
         ).height
         WorkoutPdfRenderer.drawText(
             footer,
-            at: CGPoint(x: layout.margin, y: pageRect.height - 28 - footerHeight),
+            at: CGPoint(x: margin, y: pageRect.height - 28 - footerHeight),
             font: footerFont,
             color: .gray,
-            width: layout.width
+            width: width
         )
-        let pageLabel = "\(pageIndex + 1) / \(pageCount)" as NSString
         WorkoutPdfRenderer.drawText(
-            pageLabel,
-            at: CGPoint(x: pageRect.width - layout.margin - 40, y: pageRect.height - 24),
+            pageLabel as NSString,
+            at: CGPoint(x: pageRect.width - margin - 40, y: pageRect.height - 24),
             font: WorkoutPdfRenderer.bodyFont(size: 9, spec: document.fontSpec),
             color: .gray,
             width: 40

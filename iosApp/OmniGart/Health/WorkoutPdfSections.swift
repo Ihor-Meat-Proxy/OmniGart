@@ -44,26 +44,27 @@ extension WorkoutPdfDrawing {
     static func drawHeartRateSection(
         _ heartRate: WorkoutPdfHeartRate?,
         cursorY startY: CGFloat,
-        layout: PdfLayout,
-        document: WorkoutPdfDocument,
-        body: UIFont
+        margin: CGFloat,
+        width: CGFloat,
+        document: WorkoutPdfDocument
     ) -> CGFloat {
         guard let heartRate else { return startY }
         var cursorY = startY + 8
         cursorY = drawHeartRateChart(
             heartRate,
             at: cursorY,
-            margin: layout.margin,
-            width: layout.width,
+            margin: margin,
+            width: width,
             document: document
         )
+        let body = WorkoutPdfRenderer.bodyFont(size: 11, spec: document.fontSpec)
         for line in heartRate.timeInZoneLines {
             WorkoutPdfRenderer.drawText(
                 line as NSString,
-                at: CGPoint(x: layout.margin, y: cursorY),
+                at: CGPoint(x: margin, y: cursorY),
                 font: body,
                 color: .darkGray,
-                width: layout.width
+                width: width
             )
             cursorY += 14
         }

@@ -73,17 +73,18 @@
     "evidenceRefs": {
       "type": "array",
       "minItems": 1,
+      "description": "Pointers into content/evidence catalog (stable evidenceId).",
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["kind", "id", "label", "supports"],
+        "required": ["evidenceId", "supports"],
         "properties": {
-          "kind": {
+          "evidenceId": {
             "type": "string",
-            "enum": ["doi", "pmid", "guideline", "textbook"]
+            "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$",
+            "minLength": 4,
+            "maxLength": 80
           },
-          "id": { "type": "string" },
-          "label": { "type": "string" },
           "supports": {
             "type": "array",
             "minItems": 1,

@@ -48,9 +48,7 @@
   ],
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0b013e318213fefb",
-      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "evidenceId": "garber_acsm_quantity_2011",
       "supports": [
         "programming",
         "endurance",
@@ -59,9 +57,7 @@
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1123/ijspp.5.3.276",
-      "label": "Seiler 2010 — endurance intensity distribution",
+      "evidenceId": "seiler_intensity_distribution_2010",
       "supports": [
         "endurance",
         "programming"

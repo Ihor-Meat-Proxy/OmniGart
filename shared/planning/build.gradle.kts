@@ -10,6 +10,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlinx.serialization.json)
+            api(project(":shared:evidence"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

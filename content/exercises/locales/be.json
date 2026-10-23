@@ -1576,5 +1576,22 @@
   "template.strength_focus_3x.rationale": "Лінейная прагрэсія пачаткоўца на комплексах прысед/шарнір/жым/цяга з кансерватыўнымі дапаможнымі, адпаведна агляду сілавых трэніровак ACSM з акцэнтам на шматсустаўную нагрузку.",
   "template.swim_technique_3x.rationale": "Спачатку шчыльнасць дрылаў, потым метраж, каб аэробны аб'ём не замацоўваў дрэнную механіку; дамінаванне лёгкага аэробу захоўваецца падчас кандыцыянавання.",
   "template.upper_lower_4x.rationale": "Чатырохдзённы верх/ніз захоўвае ~2× тыднёвую частату на мышцу, дазваляючы вышэйшы аб'ём за сесію ў межах дозава-адпаведных дыяпазонаў Schoenfeld/Pelland.",
-  "template.yoga_mobility_flow.rationale": "Гнуткасць і нейрамоторная практыка ≥2–3 дзён/тыдзень узгадняюцца з рэкамендацыямі ACSM пра колькасць/якасць; позы застаюцца даступнымі пачаткоўцам."
+  "template.yoga_mobility_flow.rationale": "Гнуткасць і нейрамоторная практыка ≥2–3 дзён/тыдзень узгадняюцца з рэкамендацыямі ACSM пра колькасць/якасць; позы застаюцца даступнымі пачаткоўцам.",
+  "exercise.archer_pull_up.name": "Archer pull-up",
+  "exercise.band_assisted_dip.name": "Band-assisted dip",
+  "exercise.bench_dip.name": "Bench dip",
+  "exercise.close_grip_pull_up.name": "Close-grip pull-up",
+  "exercise.commando_pull_up.name": "Commando pull-up",
+  "exercise.korean_dip.name": "Korean dip",
+  "exercise.l_sit_pull_up.name": "L-sit pull-up",
+  "exercise.machine_assisted_dip.name": "Machine-assisted dip",
+  "exercise.machine_assisted_pull_up.name": "Machine-assisted pull-up",
+  "exercise.negative_dip.name": "Negative dip (eccentric)",
+  "exercise.negative_pull_up.name": "Negative pull-up (eccentric)",
+  "exercise.neutral_grip_pull_up.name": "Neutral-grip pull-up",
+  "exercise.scapular_pull_up.name": "Scapular pull-up",
+  "exercise.straight_bar_dip.name": "Straight-bar dip",
+  "exercise.typewriter_pull_up.name": "Typewriter pull-up",
+  "exercise.weighted_dip.name": "Weighted dip",
+  "exercise.wide_grip_pull_up.name": "Wide-grip pull-up"
 }

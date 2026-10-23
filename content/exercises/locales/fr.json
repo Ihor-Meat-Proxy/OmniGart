@@ -1576,5 +1576,22 @@
   "template.strength_focus_3x.rationale": "Progression linéaire novice sur les composés squat/charnière/développé/traction avec accessoires conservateurs, cohérente avec l’accent ACSM RT sur la charge polyarticulaire.",
   "template.swim_technique_3x.rationale": "Priorisez la densité de drills avant le volume de mètres pour que le volume aérobie n’ancre pas une mauvaise mécanique ; la dominance aérobie facile s’applique encore en conditionnement.",
   "template.upper_lower_4x.rationale": "Le haut/bas sur quatre jours maintient ~2× de fréquence hebdomadaire par muscle tout en permettant un volume par séance plus élevé dans les bandes dose–réponse de Schoenfeld/Pelland.",
-  "template.yoga_mobility_flow.rationale": "La pratique de flexibilité et neuromotrice ≥2–3 jours/semaine s’aligne sur les recommandations ACSM quantité/qualité ; les postures restent accessibles aux débutants."
+  "template.yoga_mobility_flow.rationale": "La pratique de flexibilité et neuromotrice ≥2–3 jours/semaine s’aligne sur les recommandations ACSM quantité/qualité ; les postures restent accessibles aux débutants.",
+  "exercise.archer_pull_up.name": "Archer pull-up",
+  "exercise.band_assisted_dip.name": "Band-assisted dip",
+  "exercise.bench_dip.name": "Bench dip",
+  "exercise.close_grip_pull_up.name": "Close-grip pull-up",
+  "exercise.commando_pull_up.name": "Commando pull-up",
+  "exercise.korean_dip.name": "Korean dip",
+  "exercise.l_sit_pull_up.name": "L-sit pull-up",
+  "exercise.machine_assisted_dip.name": "Machine-assisted dip",
+  "exercise.machine_assisted_pull_up.name": "Machine-assisted pull-up",
+  "exercise.negative_dip.name": "Negative dip (eccentric)",
+  "exercise.negative_pull_up.name": "Negative pull-up (eccentric)",
+  "exercise.neutral_grip_pull_up.name": "Neutral-grip pull-up",
+  "exercise.scapular_pull_up.name": "Scapular pull-up",
+  "exercise.straight_bar_dip.name": "Straight-bar dip",
+  "exercise.typewriter_pull_up.name": "Typewriter pull-up",
+  "exercise.weighted_dip.name": "Weighted dip",
+  "exercise.wide_grip_pull_up.name": "Wide-grip pull-up"
 }

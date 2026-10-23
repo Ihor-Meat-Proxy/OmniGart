@@ -1,0 +1,30 @@
+build:
+  maxIssues: 0
+
+complexity:
+  LongMethod:
+    threshold: 80
+  LongParameterList:
+    constructorThreshold: 12
+    functionThreshold: 10
+  TooManyFunctions:
+    thresholdInClasses: 25
+    thresholdInFiles: 30
+  LargeClass:
+    # Generated OmniGartIcons ImageVector object is intentionally large.
+    excludes:
+      - '**/com/omnigart/design/**'
+
+style:
+  MagicNumber:
+    active: false
+  WildcardImport:
+    active: true
+  ReturnCount:
+    max: 4
+  MaxLineLength:
+    maxLineLength: 140
+
+naming:
+  FunctionNaming:
+    ignoreAnnotated: ['Composable', 'Test']

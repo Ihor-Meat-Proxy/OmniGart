@@ -16,7 +16,7 @@ data class ExerciseQuery(
     val levels: Set<Level> = emptySet(),
     val disciplines: Set<Discipline> = emptySet(),
     val text: String? = null,
-    val excludeIds: Set<String> = emptySet(),
+    val excludeIds: Set<String> = emptySet()
 )
 
 object ExerciseSearch {
@@ -34,11 +34,13 @@ object ExerciseSearch {
                 query.patterns.isEmpty() || ex.movementPattern in query.patterns
             }
             .filter { ex ->
-                if (query.muscles.isEmpty()) true
-                else {
+                if (query.muscles.isEmpty()) {
+                    true
+                } else {
                     val hitPrimary = ex.primaryMuscles.any { it in query.muscles }
                     val hitSecondary =
-                        query.matchSecondaryMuscles && ex.secondaryMuscles.any { it in query.muscles }
+                        query.matchSecondaryMuscles &&
+                            ex.secondaryMuscles.any { it in query.muscles }
                     hitPrimary || hitSecondary
                 }
             }
@@ -53,8 +55,9 @@ object ExerciseSearch {
                 }
             }
             .filter { ex ->
-                if (needle.isEmpty()) true
-                else {
+                if (needle.isEmpty()) {
+                    true
+                } else {
                     ex.id.contains(needle) ||
                         ex.aliases.any { it.lowercase().contains(needle) } ||
                         ex.tags.any { it.lowercase().contains(needle) } ||

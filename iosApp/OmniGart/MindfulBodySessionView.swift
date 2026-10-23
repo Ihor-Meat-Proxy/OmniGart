@@ -118,7 +118,7 @@ struct MindfulBodySessionView: View {
             return
         }
         let saveMindful = kind == .yoga && mindfulMinutesEnabled
-        Task {
+        Task { @MainActor in
             defer { saving = false }
             let saved = await MindfulBodyHealthSave.saveEstimate(
                 MindfulBodySaveRequest(
@@ -136,14 +136,12 @@ struct MindfulBodySessionView: View {
                 basalKcal: saved?.basalKcal ?? 0,
                 isEstimate: true
             )
-            await MainActor.run {
-                summaryLines = makeSummaryLines(
-                    start: start,
-                    end: end,
-                    result: saved,
-                    estimate: estimate
-                )
-            }
+            summaryLines = makeSummaryLines(
+                start: start,
+                end: end,
+                result: saved,
+                estimate: estimate
+            )
         }
     }
 

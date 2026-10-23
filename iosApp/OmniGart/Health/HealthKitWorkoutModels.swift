@@ -31,6 +31,8 @@ extension HealthKitWorkoutWriter {
         var start: Date
         var end: Date
         var energy: EnergyInput
+        /// Stable OmniGart id; required so Health writes stay append-only / once-only.
+        var syncIdentifier: String
         var heartRate: [HeartRatePoint] = []
         var pauseResumeDates: [(pause: Date, resume: Date?)] = []
         var segments: [Segment] = []
@@ -50,5 +52,7 @@ extension HealthKitWorkoutWriter {
         var energyIsEstimate: Bool
         var effortScore: Double?
         var heartRateRecoveryBpm: Double?
+        /// True when Health already had this sync identifier — no new samples were written.
+        var skippedBecauseAlreadyExists: Bool = false
     }
 }

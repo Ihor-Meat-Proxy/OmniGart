@@ -32,6 +32,7 @@ struct MindfulBodySessionView: View {
     @AppStorage("omnigart.yoga.mindful_minutes.enabled") private var mindfulMinutesEnabled = false
     @State private var running = false
     @State private var startedAt: Date?
+    @State private var syncSessionId: String?
     @State private var summaryLines: [String] = []
     @State private var watchStatus: String?
     @State private var saving = false
@@ -59,6 +60,7 @@ struct MindfulBodySessionView: View {
                 Button(catalog("workout_start_iphone_estimate")) {
                     running = true
                     startedAt = Date()
+                    syncSessionId = UUID().uuidString
                     summaryLines = []
                 }
                 .accessibilityIdentifier("\(kind.rawValue)_start_iphone")
@@ -107,6 +109,7 @@ struct MindfulBodySessionView: View {
 
     private func endAndSave() {
         guard let start = startedAt else { return }
+        let sessionKey = syncSessionId ?? UUID().uuidString
         let end = Date()
         running = false
         saving = true
@@ -162,6 +165,7 @@ struct MindfulBodySessionView: View {
                         start: start,
                         end: end,
                         energy: energy,
+                        syncIdentifier: HealthKitWorkoutWriter.syncIdentifier(forSessionId: sessionKey),
                         heartRate: during,
                         indoor: true,
                         saveMindfulMinutes: saveMindful,

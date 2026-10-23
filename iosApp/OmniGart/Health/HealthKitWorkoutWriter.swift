@@ -3,6 +3,9 @@ import HealthKit
 
 /// Saves completed OmniGart sessions into Apple Health via `HKWorkoutBuilder`
 /// so they appear in the Fitness app with duration, energy, heart rate, and events.
+///
+/// **Append-only:** never deletes or rewrites Health samples (including OmniGart’s own).
+/// Each workout is written once; a matching `HKMetadataKeySyncIdentifier` skips the save.
 enum HealthKitWorkoutWriter {
     static func activeEnergyType() -> HKQuantityType? {
         HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)
@@ -93,10 +96,26 @@ enum HealthKitWorkoutWriter {
     private static func persist(_ options: SaveOptions) async throws -> Result? {
         guard HKHealthStore.isHealthDataAvailable() else { return nil }
         guard options.end >= options.start else { return nil }
+        guard !options.syncIdentifier.isEmpty else { return nil }
 
-        let store = HKHealthStore()
         try await requestWorkoutAuthorization()
 
+        if let existing = try await existingWorkoutUUID(syncIdentifier: options.syncIdentifier) {
+            let bpms = options.heartRate.map(\.bpm).filter { $0 > 0 }
+            return Result(
+                workoutUUID: existing,
+                activeKcal: options.energy.activeKcal,
+                basalKcal: options.energy.basalKcal,
+                averageHeartRateBpm: bpms.isEmpty ? nil : bpms.reduce(0, +) / Double(bpms.count),
+                maxHeartRateBpm: bpms.max(),
+                energyIsEstimate: options.energy.isEstimate,
+                effortScore: options.estimatedEffortScore,
+                heartRateRecoveryBpm: options.heartRateRecoveryBpm,
+                skippedBecauseAlreadyExists: true
+            )
+        }
+
+        let store = HKHealthStore()
         let configuration = HKWorkoutConfiguration()
         configuration.activityType = options.activityType
         configuration.locationType = options.indoor ? .indoor : .outdoor
@@ -131,7 +150,8 @@ enum HealthKitWorkoutWriter {
             maxHeartRateBpm: bpms.max(),
             energyIsEstimate: options.energy.isEstimate,
             effortScore: options.estimatedEffortScore,
-            heartRateRecoveryBpm: options.heartRateRecoveryBpm
+            heartRateRecoveryBpm: options.heartRateRecoveryBpm,
+            skippedBecauseAlreadyExists: false
         )
     }
 }

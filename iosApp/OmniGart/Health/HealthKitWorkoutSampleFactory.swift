@@ -119,7 +119,10 @@ extension HealthKitWorkoutWriter {
 
     static func buildMetadata(for options: SaveOptions) -> [String: Any] {
         var metadata: [String: Any] = [
-            HKMetadataKeyIndoorWorkout: options.indoor
+            HKMetadataKeyIndoorWorkout: options.indoor,
+            // Append-only: sync id + version 1; never bump version / never updateRecords.
+            HKMetadataKeySyncIdentifier: options.syncIdentifier,
+            HKMetadataKeySyncVersion: NSNumber(value: 1)
         ]
         if options.energy.isEstimate {
             metadata["OmniGartEnergyIsEstimate"] = true

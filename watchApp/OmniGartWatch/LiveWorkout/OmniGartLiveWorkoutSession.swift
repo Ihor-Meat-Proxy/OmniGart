@@ -25,6 +25,7 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
     private var pauseBeganAt: Date?
     private var events: [HKWorkoutEvent] = []
     private var pendingSegmentLabel: String?
+    private var syncIdentifier: String = ""
 
     init(kind: OmniGartWorkoutKind) {
         self.kind = kind
@@ -34,6 +35,7 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
     func start() async {
         lastError = nil
         resetMetrics()
+        syncIdentifier = OmniGartWatchHealthSync.makeSyncIdentifier()
         guard HKHealthStore.isHealthDataAvailable() else {
             lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
             return
@@ -141,12 +143,23 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         session?.end()
         do {
             if let builder {
+                // Append-only: never finish a second copy for the same sync id.
+                if await OmniGartWatchHealthSync.workoutExists(
+                    syncIdentifier: syncIdentifier,
+                    store: store
+                ) {
+                    builder.discardWorkout()
+                    isRunning = false
+                    isPaused = false
+                    return makeSummary(endedAt: end)
+                }
                 if !events.isEmpty {
                     try await builder.addWorkoutEvents(events)
                 }
-                var metadata: [String: Any] = [
-                    HKMetadataKeyIndoorWorkout: kind.isIndoor
-                ]
+                var metadata = OmniGartWatchHealthSync.syncMetadata(
+                    syncIdentifier: syncIdentifier,
+                    indoor: kind.isIndoor
+                )
                 if let label = pendingSegmentLabel {
                     metadata["OmniGartLastSegment"] = label
                 }

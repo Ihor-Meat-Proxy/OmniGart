@@ -287,7 +287,8 @@ class SdkHealthConnectGateway(
         client.readRecords(ReadRecordsRequest(ExerciseSessionRecord::class, range.toFilter()))
             .records.map {
                 HealthWorkout(
-                    id = it.metadata.id,
+                    // Prefer clientRecordId so append-only dedupe matches OmniGart session ids.
+                    id = it.metadata.clientRecordId ?: it.metadata.id,
                     activityType = WorkoutActivityType.OTHER,
                     start = it.startTime.toKotlin(),
                     end = it.endTime.toKotlin(),
@@ -296,10 +297,20 @@ class SdkHealthConnectGateway(
             }
     }
 
+    /**
+     * Append-only: [insertRecords] only for workouts whose [HealthWorkout.id] is not already
+     * present as a clientRecordId. Never calls deleteRecords / updateRecords.
+     */
     override suspend fun writeWorkouts(workouts: List<HealthWorkout>) {
         withContext(Dispatchers.IO) {
+            if (workouts.isEmpty()) return@withContext
+            val spanStart = workouts.minOf { it.start }
+            val spanEnd = workouts.maxOf { it.end }
+            val existingIds = readWorkouts(TimeRange(spanStart, spanEnd)).map { it.id }.toSet()
+            val fresh = workouts.filter { it.id.isNotBlank() && it.id !in existingIds }
+            if (fresh.isEmpty()) return@withContext
             client.insertRecords(
-                workouts.map {
+                fresh.map {
                     ExerciseSessionRecord(
                         startTime = it.start.toJava(),
                         startZoneOffset = null,
@@ -307,7 +318,11 @@ class SdkHealthConnectGateway(
                         endZoneOffset = null,
                         exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_OTHER_WORKOUT,
                         title = it.sourceName,
-                        metadata = Metadata.manualEntry()
+                        metadata =
+                        Metadata.manualEntry(
+                            clientRecordId = it.id,
+                            clientRecordVersion = 0
+                        )
                     )
                 }
             )

@@ -31,6 +31,7 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
     private var startedAt: Date?
     private var lastSampleAt: Date?
     private var cadenceReadings: [Double] = []
+    private var syncIdentifier: String = ""
 
     init(band: Zone2Band, haptics: Zone2HapticsController = Zone2HapticsController()) {
         self.band = band
@@ -41,6 +42,7 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
     func start() async {
         lastError = nil
         resetMetrics()
+        syncIdentifier = OmniGartWatchHealthSync.makeSyncIdentifier()
         guard HKHealthStore.isHealthDataAvailable() else {
             lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
             return
@@ -94,6 +96,7 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
     }
 
     /// Ends the workout. On success returns a summary for the post-run screen.
+    /// Append-only: discards the builder if this sync id was already saved.
     @discardableResult
     func stop() async -> Zone2Summary? {
         elapsedTimer?.invalidate()
@@ -101,6 +104,20 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
         session?.end()
         do {
             if let builder {
+                if await OmniGartWatchHealthSync.workoutExists(
+                    syncIdentifier: syncIdentifier,
+                    store: store
+                ) {
+                    builder.discardWorkout()
+                    isRunning = false
+                    return makeSummary()
+                }
+                try await builder.addMetadata(
+                    OmniGartWatchHealthSync.syncMetadata(
+                        syncIdentifier: syncIdentifier,
+                        indoor: false
+                    )
+                )
                 try await builder.endCollection(at: Date())
                 _ = try await builder.finishWorkout()
             }

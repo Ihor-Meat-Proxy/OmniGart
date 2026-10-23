@@ -70,6 +70,7 @@ enum StrengthWorkoutHealthSave {
                     start: start,
                     end: end,
                     energy: energy,
+                    syncIdentifier: HealthKitWorkoutWriter.syncIdentifier(forSessionId: sessionId),
                     heartRate: hrSamples.filter { $0.date <= end },
                     strength: strengthMeta,
                     indoor: true,

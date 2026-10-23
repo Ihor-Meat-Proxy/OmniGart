@@ -1,0 +1,91 @@
+{
+  "id": "machine-chest-press",
+  "nameKeys": {
+    "enGB": "exercise.machine_chest_press.name",
+    "uk": "exercise.machine_chest_press.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps",
+    "front_deltoid"
+  ],
+  "secondaryMuscles": [],
+  "equipment": [
+    "machine"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Press handles to extension without slamming; return to a controlled stretch."
+  ],
+  "setup": [
+    "Seat so handles align with mid-chest."
+  ],
+  "breathing": "Exhale to press.",
+  "commonMistakes": [
+    "Shrugging",
+    "Uneven lockout"
+  ],
+  "safety": [
+    "Good learning tool before free weights."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "push-up",
+      "note": "Bodyweight"
+    },
+    {
+      "exerciseId": "dumbbell-bench-press",
+      "note": "Free weights"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "barbell-bench-press",
+      "note": "Barbell"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/machine-chest-press",
+    "videoKey": "media/video/machine-chest-press",
+    "animationKey": "media/anim/machine-chest-press"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

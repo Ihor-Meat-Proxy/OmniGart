@@ -1,0 +1,86 @@
+{
+  "id": "sumo-deadlift",
+  "nameKeys": {
+    "enGB": "exercise.sumo_deadlift.name",
+    "uk": "exercise.sumo_deadlift.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "gluteus_maximus",
+    "adductors",
+    "quadriceps"
+  ],
+  "secondaryMuscles": [
+    "hamstrings",
+    "erector_spinae",
+    "forearms"
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Wide stance, toes out, hands inside knees; keep chest up and push floor apart as you stand."
+  ],
+  "setup": [
+    "Bar over mid-foot; shins vertical-ish; brace hard."
+  ],
+  "breathing": "Brace before pull; exhale at lockout.",
+  "commonMistakes": [
+    "Hips shooting up early",
+    "Losing toe-knee alignment"
+  ],
+  "safety": [
+    "Mind adductors/groin; warm up thoroughly."
+  ],
+  "contraindications": [
+    "Acute groin strain"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "trap-bar-deadlift",
+      "note": "Neutral alternative"
+    },
+    {
+      "exerciseId": "goblet-squat",
+      "note": "If hinge capacity limited"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "conventional-deadlift",
+      "note": "Narrow stance variant"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/sumo-deadlift",
+    "videoKey": "media/video/sumo-deadlift",
+    "animationKey": "media/anim/sumo-deadlift"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

@@ -1,0 +1,240 @@
+{
+  "id": "hypertrophy-dumbbell-4x",
+  "nameKeys": {
+    "enGB": "template.hypertrophy_dumbbell_4x.name",
+    "uk": "template.hypertrophy_dumbbell_4x.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "intermediate",
+  "goal": "hypertrophy",
+  "daysPerWeek": 4,
+  "sessionMinutes": 50,
+  "equipmentPreset": "home_gym",
+  "equipmentRequired": [
+    "dumbbell",
+    "bench"
+  ],
+  "rationale": "Upper/lower with dumbbells targets ~10–16 weekly hard sets per region using double progression in 8–12 rep ranges.",
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1080/02640414.2016.1210197",
+      "label": "Schoenfeld et al. 2016 volume dose–response",
+      "supports": [
+        "hypertrophy",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "du1",
+      "nameKeys": {
+        "enGB": "template.hypertrophy_dumbbell_4x.du1.name",
+        "uk": "template.hypertrophy_dumbbell_4x.du1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "dumbbell-bench-press",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "one-arm-dumbbell-row",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "overhead-press-dumbbell",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "lateral-raise",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "dumbbell-curl",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dl1",
+      "nameKeys": {
+        "enGB": "template.hypertrophy_dumbbell_4x.dl1.name",
+        "uk": "template.hypertrophy_dumbbell_4x.dl1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "goblet-squat",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "romanian-deadlift-dumbbell",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "bulgarian-split-squat",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "hip-thrust",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "calf-raise-standing",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "du2",
+      "nameKeys": {
+        "enGB": "template.hypertrophy_dumbbell_4x.du2.name",
+        "uk": "template.hypertrophy_dumbbell_4x.du2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "dumbbell-incline-press",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "chest-supported-row",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "floor-press-dumbbell",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "face-pull",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "notes": "Band OK"
+            },
+            {
+              "exerciseId": "overhead-press-dumbbell",
+              "sets": 2,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dl2",
+      "nameKeys": {
+        "enGB": "template.hypertrophy_dumbbell_4x.dl2.name",
+        "uk": "template.hypertrophy_dumbbell_4x.dl2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "reverse-lunge-dumbbell",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "single-leg-rdl",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "lateral-lunge",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "glute-bridge",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "dead-bug",
+              "sets": 3,
+              "reps": "8/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

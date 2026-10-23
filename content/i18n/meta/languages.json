@@ -1,0 +1,18 @@
+{
+  "$comment": "Mirror of i18n/locales.yml — locales.yml is authoritative.",
+  "source": "en-GB",
+  "required": [
+    "en-GB",
+    "uk",
+    "pl",
+    "be",
+    "kk",
+    "ka",
+    "es",
+    "fr",
+    "de",
+    "cs",
+    "zh-Hans"
+  ],
+  "forbidden": ["ru", "ru-RU", "ru-UA", "ru-BY", "ru-KZ"]
+}

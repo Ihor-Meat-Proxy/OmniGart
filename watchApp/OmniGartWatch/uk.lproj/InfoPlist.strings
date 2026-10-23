@@ -1,0 +1,5 @@
+"NSHealthShareUsageDescription" = "OmniGart на Apple Watch читає пульс, ВСР і тренування з Apple Health, щоб показувати оцінки самопочуття на годиннику. Дані здоров’я не використовуються для реклами і не передаються третім сторонам.";
+"NSHealthUpdateUsageDescription" = "OmniGart на Apple Watch може зберігати завершені тренування в Apple Health, щоб телефон і годинник залишалися узгодженими. Дані не використовуються для реклами і не продаються.";
+"NSBluetoothAlwaysUsageDescription" = "OmniGart може використовувати Bluetooth для сумісних пульсометрів під час тренувань. Додаток на годиннику працює і без аксесуара.";
+"NSCameraUsageDescription" = "Камера на Apple Watch для OmniGart не потрібна; цей опис узгоджений із дозволами iPhone-додатка.";
+"NSUserNotificationsUsageDescription" = "OmniGart може нагадувати про тренування та перевірки самопочуття, які ви вмикаєте. Додаток працює зі вимкненими сповіщеннями.";

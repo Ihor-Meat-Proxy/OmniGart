@@ -1,0 +1,91 @@
+{
+  "id": "bodyweight-travel-3x",
+  "nameKeys": {
+    "enGB": "template.bodyweight_travel_3x.name",
+    "uk": "template.bodyweight_travel_3x.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "beginner",
+  "goal": "fat_loss_support",
+  "daysPerWeek": 3,
+  "sessionMinutes": 30,
+  "equipmentPreset": "bodyweight",
+  "equipmentRequired": [
+    "bodyweight"
+  ],
+  "rationale": "Short full-body circuits maintain stimulus while travelling; pair with walking for energy expenditure per ACSM activity guidance.",
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "t1",
+      "nameKeys": {
+        "enGB": "template.bodyweight_travel_3x.t1.name",
+        "uk": "template.bodyweight_travel_3x.t1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "sit-to-stand",
+              "sets": 3,
+              "reps": "12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "split-squat-bodyweight",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "inverted-row",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "notes": "Use table if safe"
+            },
+            {
+              "exerciseId": "plank",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 90,
+              "durationSeconds": 40
+            },
+            {
+              "exerciseId": "bird-dog",
+              "sets": 3,
+              "reps": "8/side",
+              "rir": "2-3",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

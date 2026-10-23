@@ -1,0 +1,98 @@
+{
+  "id": "easy-run",
+  "nameKeys": {
+    "enGB": "exercise.easy_run.name",
+    "uk": "exercise.easy_run.name"
+  },
+  "discipline": "running",
+  "movementPattern": "gait",
+  "primaryMuscles": [
+    "quadriceps",
+    "hamstrings",
+    "calves",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "tibialis_anterior",
+    "hip_flexors"
+  ],
+  "equipment": [
+    "road"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "distance_time",
+  "technique": [
+    "Run at a conversational pace (roughly easy aerobic); relaxed shoulders; cadence comfortable."
+  ],
+  "setup": [
+    "Supportive shoes; safe route or treadmill."
+  ],
+  "breathing": "Rhythmic breathing; nasal+mouth as needed.",
+  "commonMistakes": [
+    "Starting too fast",
+    "Overstriding with hard heel braking"
+  ],
+  "safety": [
+    "Most weekly volume should feel easy in polarised models — descriptive, not dogma."
+  ],
+  "contraindications": [
+    "Chest pain / uncontrolled medical red flags — seek care"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "brisk-walk",
+      "note": "If run not ready"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "tempo-run",
+      "note": "Higher intensity"
+    },
+    {
+      "exerciseId": "interval-run",
+      "note": "Intervals"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/easy-run",
+    "videoKey": "media/video/easy-run",
+    "animationKey": "media/anim/easy-run"
+  },
+  "aliases": [],
+  "tags": [
+    "run"
+  ],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

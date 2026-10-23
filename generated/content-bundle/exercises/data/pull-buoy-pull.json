@@ -1,0 +1,91 @@
+{
+  "id": "pull-buoy-pull",
+  "nameKeys": {
+    "enGB": "exercise.pull_buoy_pull.name",
+    "uk": "exercise.pull_buoy_pull.name"
+  },
+  "discipline": "swimming",
+  "movementPattern": "swim_drill",
+  "primaryMuscles": [
+    "latissimus_dorsi",
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [],
+  "equipment": [
+    "pool",
+    "pull_buoy"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "skill",
+  "trackingType": "distance",
+  "technique": [
+    "Place pull buoy between thighs; swim freestyle emphasising the pull without kick."
+  ],
+  "setup": [
+    "Buoy secure; optional paddles later."
+  ],
+  "breathing": "Normal freestyle breathing.",
+  "commonMistakes": [
+    "Overreaching with poor catch",
+    "Lumbar sway"
+  ],
+  "safety": [
+    "Good for upper-body aerobic work."
+  ],
+  "contraindications": [
+    "Shoulder irritation — reduce paddles/intensity"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "freestyle-stroke",
+      "note": "Full stroke"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "paddle-freestyle",
+      "note": "Add paddles"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/pull-buoy-pull",
+    "videoKey": "media/video/pull-buoy-pull",
+    "animationKey": "media/anim/pull-buoy-pull"
+  },
+  "aliases": [],
+  "tags": [
+    "swim"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Bodyweight movement with negligible external implement; treat moved mass as ~full BM unless a measured study applies. Estimate."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

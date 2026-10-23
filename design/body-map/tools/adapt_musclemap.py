@@ -76,6 +76,8 @@ REQUIRED_IDS = {
     "rhomboids_r",
     "rotator_cuff_l",
     "rotator_cuff_r",
+    "sartorius_l",
+    "sartorius_r",
     "serratus_anterior_l",
     "serratus_anterior_r",
     "soleus_l",
@@ -232,54 +234,77 @@ def as_polys(mlist: list[dict]) -> list[tuple[dict, Polygon]]:
     return out
 
 
+def _scanline_xs(body: Polygon, y: float, minx: float, maxx: float) -> list[float]:
+    inter = body.intersection(LineString([(minx - 20, y), (maxx + 20, y)]))
+    xs: list[float] = []
+    if inter.is_empty:
+        return xs
+    if inter.geom_type == "LineString":
+        xs = [c[0] for c in inter.coords]
+    elif inter.geom_type == "MultiLineString":
+        for g in inter.geoms:
+            xs.extend(c[0] for c in g.coords)
+    elif inter.geom_type == "Point":
+        xs = [inter.x]
+    xs.sort()
+    return xs
+
+
 def neck_from_outline(outline_d: str, center_x: float) -> str:
-    """Organic neck carved from silhouette using per-scanline width (not a rectangle)."""
-    body = path_to_polygon(outline_d, samples=18)
+    """
+    Organic neck + upper trapezius flare from the silhouette.
+    Narrow under the jaw, soft SCM belly mid-neck, then flares toward the acromion —
+    not a flat trapezoid / rectangle.
+    """
+    body = path_to_polygon(outline_d, samples=24)
     if body is None or body.is_empty:
         return ""
     minx, miny, maxx, maxy = body.bounds
     h = maxy - miny
-    y0, y1 = miny + h * 0.095, miny + h * 0.168
+    # Chin → base of neck → soft trap flare into shoulders
+    y0, y1 = miny + h * 0.086, miny + h * 0.178
     left_pts: list[tuple[float, float]] = []
     right_pts: list[tuple[float, float]] = []
-    steps = 16
+    steps = 28
     for i in range(steps + 1):
-        y = y0 + (y1 - y0) * i / steps
-        inter = body.intersection(LineString([(minx - 20, y), (maxx + 20, y)]))
-        xs: list[float] = []
-        if inter.is_empty:
-            continue
-        if inter.geom_type == "LineString":
-            xs = [c[0] for c in inter.coords]
-        elif inter.geom_type == "MultiLineString":
-            for g in inter.geoms:
-                xs.extend(c[0] for c in g.coords)
-        elif inter.geom_type == "Point":
-            xs = [inter.x]
+        t = i / steps
+        y = y0 + (y1 - y0) * t
+        xs = _scanline_xs(body, y, minx, maxx)
         if len(xs) < 2:
             continue
-        # Prefer the segment nearest the midline (true neck, not arms)
-        xs.sort()
-        # pick contiguous run that contains center_x when possible
+        # Contiguous run containing midline
         lo, hi = xs[0], xs[-1]
         for a, b in zip(xs, xs[1:]):
-            if a <= center_x <= b and (b - a) < (hi - lo):
+            if a <= center_x <= b:
                 lo, hi = a, b
-        # Clamp to a neck-like width around center if the slice is the whole shoulders
-        if hi - lo > 140:
-            mid = (lo + hi) / 2
-            # find local minimum width near center by shrinking toward center_x
-            lo = max(lo, center_x - 48)
-            hi = min(hi, center_x + 48)
+                break
+        # Half-width: jaw pinch, slight mid-neck waist (SCM), then accelerating trap flare.
+        # The −sin term pulls sides inward so the silhouette is not a flat trapezoid.
+        half = 17.0 + 52.0 * (t ** 2.35) - 8.0 * math.sin(math.pi * t)
+        half = max(12.0, half)
+        lo = max(lo, center_x - half)
+        hi = min(hi, center_x + half)
         left_pts.append((lo, y))
         right_pts.append((hi, y))
     if len(left_pts) < 4:
         return ""
-    ring = left_pts + list(reversed(right_pts))
-    poly = Polygon(ring).buffer(0.8).intersection(body)
+    # Soft clavicular bottom: bow the base edge downward at the midline
+    y_base = left_pts[-1][1]
+    bow = (y1 - y0) * 0.08
+    base_mid = [
+        (left_pts[-1][0], y_base),
+        (center_x - 18, y_base + bow * 0.55),
+        (center_x, y_base + bow),
+        (center_x + 18, y_base + bow * 0.55),
+        (right_pts[-1][0], y_base),
+    ]
+    # Drop the duplicated corner points when stitching
+    ring = left_pts[:-1] + base_mid + list(reversed(right_pts[:-1]))
+    # Round joins; keep dense polyline so concave sides stay visible
+    poly = Polygon(ring).buffer(2.4, join_style=1).intersection(body)
     if isinstance(poly, MultiPolygon):
         poly = max(poly.geoms, key=lambda g: g.area)
-    return geom_to_d(poly, 0.15)
+    return geom_to_d(poly, 0.04)
 
 
 def build_front(data: dict) -> dict[str, str]:
@@ -287,13 +312,9 @@ def build_front(data: dict) -> dict[str, str]:
     by = collect_by_group(data["muscles"])
     regions: dict[str, str] = {}
 
-    # Prefer MuscleMap anterior upper-trap paths (organic neck/shoulder junction);
-    # fall back to silhouette carving.
-    front_traps = [m["d"] for m in by.get("TRAPEZIUS", []) if m.get("d")]
-    if front_traps:
-        regions["neck_front"] = multi_d(*front_traps)
-    else:
-        regions["neck_front"] = neck_from_outline(data["outline"][0]["d"], cx)
+    # Outline carve only: MuscleMap anterior traps are shallow bars that jaggedly
+    # shatter when unioned. The silhouette flare already suggests SCM → upper trap.
+    regions["neck_front"] = neck_from_outline(data["outline"][0]["d"], cx)
 
     # Chest → clavicular / sternal (curved fibre-line split; keep organic edges)
     for m, poly in as_polys(by.get("CHEST", [])):
@@ -348,7 +369,7 @@ def build_front(data: dict) -> dict[str, str]:
         if d:
             regions[f"serratus_anterior_{side}"] = d
 
-    # Classify thigh medial/lateral by distance to midline (handles female label quirks)
+    # Classify thigh medial/lateral by distance to midline (handles female label swaps)
     thigh_medial = []
     thigh_lateral = []
     for g in ("ADDUCTORS", "ABDUCTORS"):
@@ -362,52 +383,87 @@ def build_front(data: dict) -> dict[str, str]:
     for m, poly in thigh_medial:
         side = side_suffix(cx, poly)
         regions[f"adductors_{side}"] = keep_d(m["d"])
-        # hip flexors: upper portion of adductors / iliac area
         top, _ = split_horizontal(poly, 0.35)
-        # expand upward slightly using a translated band if needed
-        hf = top
-        if hf is not None and not hf.is_empty:
-            regions[f"hip_flexors_{side}"] = geom_to_d(hf)
+        if top is not None and not top.is_empty:
+            regions[f"hip_flexors_{side}"] = geom_to_d(top)
 
-    # If hip flexors missing, derive from upper quads
+    # Quads: pick the largest path per side as RF (main belly), smaller/distal as VM.
+    # Do NOT use a median-y gate — female VM tear-drops sat just under the threshold
+    # and overwrote RF with the last write.
     quads = as_polys(by.get("QUADS", []))
-    # Separate main thigh quads vs lower VM tear-drops by vertical position
+    main: list[tuple[dict, Polygon]] = []
+    vm: list[tuple[dict, Polygon]] = []
     if quads:
-        quads_sorted = sorted(quads, key=lambda mp: mp[1].bounds[1])
-        # upper group = rectus/vastus; lower group = VM
-        ys = [p.bounds[1] for _, p in quads]
-        median_y = sorted(ys)[len(ys) // 2]
-        main, vm = [], []
+        by_side: dict[str, list[tuple[dict, Polygon]]] = {"l": [], "r": []}
         for m, p in quads:
-            if p.bounds[1] < median_y + 40 and (p.bounds[3] - p.bounds[1]) > 150:
-                main.append((m, p))
-            else:
-                vm.append((m, p))
-        if not main:
-            main = quads_sorted[:2]
-        if not vm:
-            vm = quads_sorted[2:]
+            by_side[side_suffix(cx, p)].append((m, p))
+        for side, items in by_side.items():
+            items_sorted = sorted(items, key=lambda mp: mp[1].area, reverse=True)
+            if not items_sorted:
+                continue
+            main.append(items_sorted[0])
+            vm.extend(items_sorted[1:])
 
         for m, poly in main:
             side = side_suffix(cx, poly)
-            # Keep organic main quad as rectus femoris; VL = soft lateral strip
             regions[f"rectus_femoris_{side}"] = keep_d(m["d"])
-            minx, miny, maxx, maxy = poly.bounds
-            w = maxx - minx
-            if side == "r":
-                lat = poly.intersection(box(minx + w * 0.52, miny - 2, maxx + 2, maxy + 2))
+            # Prefer organic lateral abductor/IT-band path for VL when available
+            lat_match = next(
+                ((mm, p) for mm, p in thigh_lateral if side_suffix(cx, p) == side),
+                None,
+            )
+            if lat_match is not None:
+                regions[f"vastus_lateralis_{side}"] = keep_d(lat_match[0]["d"])
             else:
-                lat = poly.intersection(box(minx - 2, miny - 2, minx + w * 0.48, maxy + 2))
-            regions[f"vastus_lateralis_{side}"] = geom_to_d(lat, 0.2) or keep_d(m["d"])
+                minx, miny, maxx, maxy = poly.bounds
+                w = maxx - minx
+                if side == "r":
+                    lat = poly.intersection(box(minx + w * 0.52, miny - 2, maxx + 2, maxy + 2))
+                else:
+                    lat = poly.intersection(box(minx - 2, miny - 2, minx + w * 0.48, maxy + 2))
+                regions[f"vastus_lateralis_{side}"] = geom_to_d(lat, 0.2) or keep_d(m["d"])
             if f"hip_flexors_{side}" not in regions:
                 top = poly.intersection(curved_h_mask(poly, 0.20, bulge=0.04))
                 regions[f"hip_flexors_{side}"] = geom_to_d(top, 0.2)
+
+            # Sartorius: long thin diagonal ribbon ASIS (lateral) → medial knee.
+            # Clip against the full thigh (RF + VL + adductors) — RF alone can be a
+            # sparse polygonization that fragments the ribbon on one side.
+            minx, miny, maxx, maxy = poly.bounds
+            w, h = maxx - minx, maxy - miny
+            thigh_parts = [poly]
+            for _, lp in thigh_lateral:
+                if side_suffix(cx, lp) == side:
+                    thigh_parts.append(lp)
+            for _, mp in thigh_medial:
+                if side_suffix(cx, mp) == side:
+                    thigh_parts.append(mp)
+            thigh = unary_union(thigh_parts)
+            if side == "r":
+                # Anatomical right: lateral = larger x, medial = smaller x
+                x0, x1 = minx + w * 0.82, minx + w * 0.18
+            else:
+                x0, x1 = minx + w * 0.18, minx + w * 0.82
+            spine = LineString(
+                [
+                    (x0, miny + h * 0.02),
+                    (x0 * 0.55 + x1 * 0.45, miny + h * 0.35),
+                    (x0 * 0.35 + x1 * 0.65, miny + h * 0.70),
+                    (x1, maxy - h * 0.04),
+                ]
+            )
+            ribbon = spine.buffer(max(7.0, w * 0.085), cap_style=2, join_style=1)
+            # Convex hull avoids RF/VL/adductor seams that shatter the ribbon into fragments
+            sart = ribbon.intersection(thigh.convex_hull)
+            if sart is not None and not sart.is_empty:
+                if isinstance(sart, MultiPolygon):
+                    sart = max(sart.geoms, key=lambda g: g.area)
+                regions[f"sartorius_{side}"] = geom_to_d(sart, 0.1)
 
         for m, poly in vm:
             side = side_suffix(cx, poly)
             regions[f"vastus_medialis_{side}"] = keep_d(m["d"])
 
-        # Ensure VM exists: take distal medial of main if missing
         for side in ("l", "r"):
             if f"vastus_medialis_{side}" not in regions:
                 cand = [p for m, p in main if side_suffix(cx, p) == side]
@@ -702,6 +758,8 @@ def main() -> None:
                         "vastus_lateralis_r",
                         "vastus_medialis_l",
                         "vastus_medialis_r",
+                        "sartorius_l",
+                        "sartorius_r",
                         "tibialis_anterior_l",
                         "tibialis_anterior_r",
                         "gastrocnemius_front_l",

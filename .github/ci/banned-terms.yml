@@ -1,0 +1,120 @@
+# App Review / health-app copy gates for OmniGart.
+# Scanned by scripts/check_app_review_compliance.py in existing CI jobs.
+# Keep competitor product names ONLY in this file — never in app copy, store text, or test notes.
+
+version: 1
+
+# Terms that imply medical claims unless literally true and cited.
+# Matching is case-insensitive whole-word / phrase (see script).
+medical_claim_terms:
+  - diagnose
+  - diagnoses
+  - diagnosis
+  - diagnosing
+  - "detect disease"
+  - "disease detection"
+  - "detects disease"
+  - treat
+  - treats
+  - treating
+  - treatment
+  - treatments
+  - cure
+  - cures
+  - cured
+  - curing
+  - medical-grade
+  - "medical grade"
+  - "clinically proven"
+  - "clinically validated"
+  - "FDA approved"
+  - "FDA-approved"
+  - "prescribes medicine"
+  - "prescription medicine"
+
+# Competitor app / product names (neutral file name: banned-terms).
+# Platform APIs (HealthKit, Health Connect, Google Health API, Polar BLE SDK) are allowed elsewhere.
+competitor_names:
+  - Strong
+  - Hevy
+  - Fitbod
+  - "JEFIT"
+  - "MyFitnessPal"
+  - MacroFactor
+  - Cronometer
+  - Strava
+  - Garmin
+  - "Garmin Connect"
+  - Whoop
+  - Oura
+  - Athlytic
+  - TrainingPeaks
+  - "Final Surge"
+  - Zwift
+  - Peloton
+  - Future
+  - "Nike Training Club"
+  - Freeletics
+  - "Adidas Running"
+  - Runkeeper
+  - "MapMyRun"
+  - "Apple Fitness+"
+  - Calm
+  - Headspace
+  - "Eight Sleep"
+
+# Patterns that must not appear in user-facing string values (release copy).
+placeholder_patterns:
+  - "lorem ipsum"
+  - "lorem ipsum dolor"
+  - "TODO"
+  - "FIXME"
+  - "XXX"
+  - "coming soon"
+  - "Coming Soon"
+  - "COMING SOON"
+  - "under construction"
+  - "not implemented"
+  - "TBD"
+  - "placeholder"
+
+# Required Info.plist / usage-description keys (non-empty in every locale that ships them).
+required_usage_description_keys:
+  - NSHealthShareUsageDescription
+  - NSHealthUpdateUsageDescription
+  - NSBluetoothAlwaysUsageDescription
+  - NSCameraUsageDescription
+  - NSUserNotificationsUsageDescription
+
+# Locales that must carry usage descriptions (InfoPlist.strings) and string catalogs.
+required_locales:
+  - en-GB
+  - uk
+
+# Paths relative to repo root scanned for user-facing copy.
+scan_globs:
+  - "androidApp/src/main/res/values*/strings.xml"
+  - "wearApp/src/main/res/values*/strings.xml"
+  - "iosApp/**/*.xcstrings"
+  - "watchApp/**/*.xcstrings"
+  - "shared/src/commonMain/resources/i18n/**/*.json"
+  - "store/**/*.txt"
+  - "store/**/*.md"
+  - "iosApp/**/InfoPlist.strings"
+  - "watchApp/**/InfoPlist.strings"
+
+# Source files that must not expose debug menus in release (non-DEBUG) paths.
+debug_menu_markers:
+  - "DebugMenu"
+  - "DebugSettings"
+  - "debug_menu"
+  - "DebugDrawer"
+
+# Allowed debug-only source roots / compile gates (path substrings or markers).
+debug_allowlist_path_substrings:
+  - "/debug/"
+  - "/Debug/"
+  - "src/debug/"
+
+# Feature-flag source of truth: unfinished features must default off for release.
+feature_flags_file: "shared/src/commonMain/kotlin/com/omnigart/shared/compliance/FeatureFlags.kt"

@@ -25,6 +25,9 @@ project(":shared:planning").projectDir = file("shared/planning")
 include(":shared:evidence")
 project(":shared:evidence").projectDir = file("shared/evidence")
 
+include(":shared:insights")
+project(":shared:insights").projectDir = file("shared/insights")
+
 include(":shared:achievements")
 project(":shared:achievements").projectDir = file("shared/achievements")
 

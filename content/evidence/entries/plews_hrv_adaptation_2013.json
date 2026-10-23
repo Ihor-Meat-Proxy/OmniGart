@@ -27,6 +27,7 @@
   "retracted": false,
   "lastVerified": "2026-10-22",
   "usedBy": [
-    "calc.Readiness.hrv"
+    "calc.Readiness.hrv",
+    "insights"
   ]
 }

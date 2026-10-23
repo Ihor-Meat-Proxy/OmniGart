@@ -30,6 +30,7 @@
   "retracted": false,
   "lastVerified": "2026-10-22",
   "usedBy": [
-    "calc.TrainingLoad.srpe"
+    "calc.TrainingLoad.srpe",
+    "insights"
   ]
 }

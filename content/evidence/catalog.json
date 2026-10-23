@@ -33,6 +33,38 @@
     ]
   },
   {
+    "id": "al_haddad_hr_reliability_2011",
+    "type": "cohort",
+    "title": "Reliability of Resting and Postexercise Heart Rate Measures",
+    "authors": [
+      "Al Haddad H",
+      "Laursen PB",
+      "Chollet D",
+      "Ahmaidi S",
+      "Buchheit M"
+    ],
+    "year": 2011,
+    "journal": "International Journal of Sports Medicine",
+    "doi": "10.1055/s-0031-1275356",
+    "pmid": "21574126",
+    "url": "https://doi.org/10.1055/s-0031-1275356",
+    "openAccess": false,
+    "keyFinding": {
+      "enGB": "Resting and post-exercise heart-rate and HRV-related measures show quantifiable reliability that informs day-to-day monitoring thresholds.",
+      "keys": {
+        "enGB": "evidence.al_haddad_hr_reliability_2011.key_finding",
+        "uk": "evidence.al_haddad_hr_reliability_2011.key_finding"
+      }
+    },
+    "evidenceStrength": "moderate",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "insights"
+    ]
+  },
+  {
     "id": "ashwell_wth_2016",
     "type": "cohort",
     "title": "Waist-to-height ratio as an indicator of early health risk: simpler and more predictive than using a matrix based on BMI and waist circumference",
@@ -92,6 +124,69 @@
     ]
   },
   {
+    "id": "banister_trimp_1990",
+    "type": "cohort",
+    "title": "Modeling human performance in running",
+    "authors": [
+      "Morton RH",
+      "Fitz-Clarke JR",
+      "Banister EW"
+    ],
+    "year": 1990,
+    "journal": "Journal of Applied Physiology",
+    "doi": "10.1152/jappl.1990.69.3.1171",
+    "pmid": "2246166",
+    "url": "https://doi.org/10.1152/jappl.1990.69.3.1171",
+    "openAccess": false,
+    "keyFinding": {
+      "enGB": "Impulse–response (TRIMP-style) modelling relates training dose over time to performance fitness and fatigue components.",
+      "keys": {
+        "enGB": "evidence.banister_trimp_1990.key_finding",
+        "uk": "evidence.banister_trimp_1990.key_finding"
+      }
+    },
+    "evidenceStrength": "low",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "insights"
+    ]
+  },
+  {
+    "id": "bellenger_hrv_status_2016",
+    "type": "meta-analysis",
+    "title": "Monitoring Athletic Training Status Through Autonomic Heart Rate Regulation: A Systematic Review and Meta-Analysis",
+    "authors": [
+      "Bellenger CR",
+      "Fuller JT",
+      "Thomson RL",
+      "Davison K",
+      "Robertson EY",
+      "Buckley JD"
+    ],
+    "year": 2016,
+    "journal": "Sports Medicine",
+    "doi": "10.1007/s40279-016-0484-2",
+    "pmid": "26888648",
+    "url": "https://doi.org/10.1007/s40279-016-0484-2",
+    "openAccess": false,
+    "keyFinding": {
+      "enGB": "Pooled evidence links autonomic heart-rate regulation markers, including HRV, with changes in athletic training status.",
+      "keys": {
+        "enGB": "evidence.bellenger_hrv_status_2016.key_finding",
+        "uk": "evidence.bellenger_hrv_status_2016.key_finding"
+      }
+    },
+    "evidenceStrength": "moderate",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "insights"
+    ]
+  },
+  {
     "id": "brzycki_1rm_1993",
     "type": "consensus",
     "title": "Strength testing—predicting a one-rep max from reps-to-fatigue",
@@ -144,7 +239,8 @@
     "retracted": false,
     "lastVerified": "2026-10-22",
     "usedBy": [
-      "calc.Readiness.evaluate"
+      "calc.Readiness.evaluate",
+      "insights"
     ]
   },
   {
@@ -350,7 +446,8 @@
     "retracted": false,
     "lastVerified": "2026-10-22",
     "usedBy": [
-      "calc.TrainingLoad.srpe"
+      "calc.TrainingLoad.srpe",
+      "insights"
     ]
   },
   {
@@ -431,6 +528,72 @@
     ]
   },
   {
+    "id": "hirshkowitz_sleep_duration_2015",
+    "type": "consensus",
+    "title": "National Sleep Foundation's updated sleep duration recommendations: final report",
+    "authors": [
+      "Hirshkowitz M",
+      "Whiton K",
+      "Albert SM",
+      "Alessi C",
+      "Bruni O",
+      "et al."
+    ],
+    "year": 2015,
+    "journal": "Sleep Health",
+    "doi": "10.1016/j.sleh.2015.10.004",
+    "pmid": "29073398",
+    "url": "https://doi.org/10.1016/j.sleh.2015.10.004",
+    "openAccess": false,
+    "keyFinding": {
+      "enGB": "Recommended sleep duration ranges by age band guide how much nightly sleep most healthy adults need.",
+      "keys": {
+        "enGB": "evidence.hirshkowitz_sleep_duration_2015.key_finding",
+        "uk": "evidence.hirshkowitz_sleep_duration_2015.key_finding"
+      }
+    },
+    "evidenceStrength": "moderate",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "insights"
+    ]
+  },
+  {
+    "id": "impellizzeri_acwr_2021",
+    "type": "systematic-review",
+    "title": "What role do chronic workloads play in the acute to chronic workload ratio? Time to dismiss ACWR and its underlying theory",
+    "authors": [
+      "Impellizzeri FM",
+      "Woodcock S",
+      "Coutts AJ",
+      "Fanchini M",
+      "McCall A",
+      "Vigotsky AD"
+    ],
+    "year": 2021,
+    "journal": "Sports Medicine",
+    "doi": "10.1007/s40279-020-01378-6",
+    "pmid": "33332011",
+    "url": "https://doi.org/10.1007/s40279-020-01378-6",
+    "openAccess": false,
+    "keyFinding": {
+      "enGB": "The acute:chronic workload ratio rests on shaky causal assumptions; chronic load terms do not justify using ACWR as a universal injury predictor.",
+      "keys": {
+        "enGB": "evidence.impellizzeri_acwr_2021.key_finding",
+        "uk": "evidence.impellizzeri_acwr_2021.key_finding"
+      }
+    },
+    "evidenceStrength": "moderate",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "insights"
+    ]
+  },
+  {
     "id": "iom_water_2005",
     "type": "guideline",
     "title": "Dietary Reference Intakes for Water, Potassium, Sodium, Chloride, and Sulfate",
@@ -456,6 +619,37 @@
     "lastVerified": "2026-10-22",
     "usedBy": [
       "calc.WaterTarget"
+    ]
+  },
+  {
+    "id": "kaminsky_friend_vo2_2015",
+    "type": "cohort",
+    "title": "Reference Standards for Cardiorespiratory Fitness Measured With Cardiopulmonary Exercise Testing",
+    "authors": [
+      "Kaminsky LA",
+      "Arena R",
+      "Myers J"
+    ],
+    "year": 2015,
+    "journal": "Mayo Clinic Proceedings",
+    "doi": "10.1016/j.mayocp.2015.07.026",
+    "pmid": "26455884",
+    "url": "https://doi.org/10.1016/j.mayocp.2015.07.026",
+    "openAccess": false,
+    "population": "FRIEND registry adults with CPET-measured CRF",
+    "keyFinding": {
+      "enGB": "Age- and sex-specific VO2 reference percentiles from the FRIEND registry provide norms for cardiorespiratory fitness interpretation.",
+      "keys": {
+        "enGB": "evidence.kaminsky_friend_vo2_2015.key_finding",
+        "uk": "evidence.kaminsky_friend_vo2_2015.key_finding"
+      }
+    },
+    "evidenceStrength": "high",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "insights"
     ]
   },
   {
@@ -514,6 +708,37 @@
     "lastVerified": "2026-10-22",
     "usedBy": [
       "calc.HeartRate.karvonenTarget"
+    ]
+  },
+  {
+    "id": "loe_hunt_vo2_2016",
+    "type": "cohort",
+    "title": "Predicting VO2peak from Submaximal- and Peak Exercise Models: The HUNT 3 Fitness Study, Norway",
+    "authors": [
+      "Loe H",
+      "Nes BM",
+      "Wisløff U"
+    ],
+    "year": 2016,
+    "journal": "PLOS ONE",
+    "doi": "10.1371/journal.pone.0144873",
+    "pmid": "26794677",
+    "url": "https://doi.org/10.1371/journal.pone.0144873",
+    "openAccess": true,
+    "population": "HUNT 3 Fitness Study adults",
+    "keyFinding": {
+      "enGB": "Population fitness models from HUNT support estimating VO2peak for wellness fitness comparisons when direct CPET is unavailable.",
+      "keys": {
+        "enGB": "evidence.loe_hunt_vo2_2016.key_finding",
+        "uk": "evidence.loe_hunt_vo2_2016.key_finding"
+      }
+    },
+    "evidenceStrength": "moderate",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "insights"
     ]
   },
   {
@@ -801,7 +1026,8 @@
     "retracted": false,
     "lastVerified": "2026-10-22",
     "usedBy": [
-      "calc.Readiness.hrv"
+      "calc.Readiness.hrv",
+      "insights"
     ]
   },
   {
@@ -984,6 +1210,66 @@
     "lastVerified": "2026-10-22",
     "usedBy": [
       "calc.HeartRate.tanakaMax"
+    ]
+  },
+  {
+    "id": "van_dongen_sleep_debt_2003",
+    "type": "rct",
+    "title": "The Cumulative Cost of Additional Wakefulness: Dose-Response Effects on Neurobehavioral Functions and Sleep Physiology From Chronic Sleep Restriction and Total Sleep Deprivation",
+    "authors": [
+      "Van Dongen HPA",
+      "Maislin G",
+      "Mullington JM",
+      "Dinges DF"
+    ],
+    "year": 2003,
+    "journal": "Sleep",
+    "doi": "10.1093/sleep/26.2.117",
+    "pmid": "12683469",
+    "url": "https://doi.org/10.1093/sleep/26.2.117",
+    "openAccess": false,
+    "population": "Healthy adults under controlled sleep restriction",
+    "keyFinding": {
+      "enGB": "Cumulative sleep restriction produces dose-dependent neurobehavioral deficits, supporting the concept of accumulating sleep debt.",
+      "keys": {
+        "enGB": "evidence.van_dongen_sleep_debt_2003.key_finding",
+        "uk": "evidence.van_dongen_sleep_debt_2003.key_finding"
+      }
+    },
+    "evidenceStrength": "high",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "insights"
+    ]
+  },
+  {
+    "id": "watson_sleep_performance_2017",
+    "type": "systematic-review",
+    "title": "Sleep and athletic performance",
+    "authors": [
+      "Watson AM"
+    ],
+    "year": 2017,
+    "journal": "Current Sports Medicine Reports",
+    "doi": "10.1249/JSR.0000000000000418",
+    "pmid": "29135639",
+    "url": "https://doi.org/10.1249/JSR.0000000000000418",
+    "openAccess": false,
+    "keyFinding": {
+      "enGB": "Insufficient sleep impairs athletic performance, cognition and injury risk markers; extending sleep and protecting sleep opportunity support recovery.",
+      "keys": {
+        "enGB": "evidence.watson_sleep_performance_2017.key_finding",
+        "uk": "evidence.watson_sleep_performance_2017.key_finding"
+      }
+    },
+    "evidenceStrength": "moderate",
+    "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+    "retracted": false,
+    "lastVerified": "2026-10-22",
+    "usedBy": [
+      "insights"
     ]
   },
   {

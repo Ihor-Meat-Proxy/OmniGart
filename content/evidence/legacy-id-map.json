@@ -38,6 +38,18 @@
     "omnigart-mileage-caveat": "omnigart_mileage_caveat",
     "pmid:20861519": "seiler_intensity_distribution_2010",
     "pmid:23752040": "munoz_polarized_runners_2014",
-    "textbook:nsca-essentials-4e": "nsca_essentials_4e"
+    "textbook:nsca-essentials-4e": "nsca_essentials_4e",
+    "al-haddad-hr-reliability-2011": "al_haddad_hr_reliability_2011",
+    "banister-trimp-1990": "banister_trimp_1990",
+    "bellenger-hrv-status-2016": "bellenger_hrv_status_2016",
+    "hirshkowitz-sleep-duration-2015": "hirshkowitz_sleep_duration_2015",
+    "impellizzeri-acwr-2021": "impellizzeri_acwr_2021",
+    "kaminsky-friend-vo2-2015": "kaminsky_friend_vo2_2015",
+    "loe-hunt-vo2-2016": "loe_hunt_vo2_2016",
+    "van-dongen-sleep-debt-2003": "van_dongen_sleep_debt_2003",
+    "watson-sleep-performance-2017": "watson_sleep_performance_2017",
+    "plews-hrv-monitoring-2013": "plews_hrv_adaptation_2013",
+    "buchheit-hr-monitoring-2014": "buchheit_hrv_monitoring_2014",
+    "foster-session-rpe-2001": "foster_srpe_2001"
   }
 }

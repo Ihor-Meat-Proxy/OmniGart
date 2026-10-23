@@ -116,51 +116,9 @@ enum StrengthWorkoutHealthSave {
 
     private static func persist(_ input: PersistInput) async -> HealthKitWorkoutWriter.Result? {
         do {
-            let hrSamples =
-                (try? await HealthKitWorkoutWriter.fetchHeartRate(
-                    from: input.window.start,
-                    to: input.window.end.addingTimeInterval(90)
-                )) ?? []
-            let during = hrSamples.filter { $0.date <= input.window.end }
-            let avg = during.map(\.bpm).filter { $0 > 0 }
-            let avgBpm = avg.isEmpty ? nil : avg.reduce(0, +) / Double(avg.count)
-            let maxBpm = avg.max()
-            let syncId = input.core.localHealth.recordOmniGartWorkout(
-                localId: input.sessionId,
-                activityTypeName: "STRENGTH",
-                startEpochMs: Int64(input.window.start.timeIntervalSince1970 * 1000),
-                endEpochMs: Int64(input.window.end.timeIntervalSince1970 * 1000),
-                activeEnergyKcal: KotlinDouble(value: input.energy.activeKcal),
-                basalEnergyKcal: KotlinDouble(value: input.energy.basalKcal),
-                distanceMetres: nil,
-                averageHeartRateBpm: avgBpm.map { KotlinDouble(value: $0) },
-                maxHeartRateBpm: maxBpm.map { KotlinDouble(value: $0) },
-                sessionId: input.sessionId,
-                planId: nil,
-                heartRateEpochMs: during.map { Int64($0.date.timeIntervalSince1970 * 1000) },
-                heartRateBpm: during.map(\.bpm),
-                syncVersion: 1
-            )
-            let saved = try await HealthKitWorkoutWriter.save(
-                options: .init(
-                    activityType: .traditionalStrengthTraining,
-                    start: input.window.start,
-                    end: input.window.end,
-                    energy: input.energy,
-                    syncIdentifier: syncId,
-                    heartRate: during,
-                    strength: input.strengthMeta,
-                    indoor: true,
-                    estimatedEffortScore: HealthKitWorkoutWriter.estimateEffortScore(
-                        averageBpm: avgBpm,
-                        ageYears: input.ageYears
-                    ),
-                    heartRateRecoveryBpm: HealthKitWorkoutWriter.estimateHeartRateRecoveryBpm(
-                        samples: hrSamples,
-                        workoutEnd: input.window.end
-                    )
-                )
-            )
+            let hrContext = await heartRateContext(for: input.window)
+            let syncId = recordLocalWorkout(input: input, hrContext: hrContext)
+            let saved = try await saveToHealthKit(input: input, syncId: syncId, hrContext: hrContext)
             if let saved, !saved.skippedBecauseAlreadyExists {
                 input.core.localHealth.markPlatformLinked(
                     localId: input.sessionId,
@@ -180,6 +138,79 @@ enum StrengthWorkoutHealthSave {
                 heartRateRecoveryBpm: nil
             )
         }
+    }
+
+    private struct HeartRateContext {
+        var samples: [HealthKitWorkoutWriter.HeartRatePoint]
+        var during: [HealthKitWorkoutWriter.HeartRatePoint]
+        var avgBpm: Double?
+        var maxBpm: Double?
+    }
+
+    private static func heartRateContext(for window: SessionWindow) async -> HeartRateContext {
+        let samples =
+            (try? await HealthKitWorkoutWriter.fetchHeartRate(
+                from: window.start,
+                to: window.end.addingTimeInterval(90)
+            )) ?? []
+        let during = samples.filter { $0.date <= window.end }
+        let avg = during.map(\.bpm).filter { $0 > 0 }
+        let avgBpm = avg.isEmpty ? nil : avg.reduce(0, +) / Double(avg.count)
+        return HeartRateContext(
+            samples: samples,
+            during: during,
+            avgBpm: avgBpm,
+            maxBpm: avg.max()
+        )
+    }
+
+    private static func recordLocalWorkout(
+        input: PersistInput,
+        hrContext: HeartRateContext
+    ) -> String {
+        input.core.localHealth.recordOmniGartWorkout(
+            localId: input.sessionId,
+            activityTypeName: "STRENGTH",
+            startEpochMs: Int64(input.window.start.timeIntervalSince1970 * 1000),
+            endEpochMs: Int64(input.window.end.timeIntervalSince1970 * 1000),
+            activeEnergyKcal: KotlinDouble(value: input.energy.activeKcal),
+            basalEnergyKcal: KotlinDouble(value: input.energy.basalKcal),
+            distanceMetres: nil,
+            averageHeartRateBpm: hrContext.avgBpm.map { KotlinDouble(value: $0) },
+            maxHeartRateBpm: hrContext.maxBpm.map { KotlinDouble(value: $0) },
+            sessionId: input.sessionId,
+            planId: nil,
+            heartRateEpochMs: hrContext.during.map { Int64($0.date.timeIntervalSince1970 * 1000) },
+            heartRateBpm: hrContext.during.map(\.bpm),
+            syncVersion: 1
+        )
+    }
+
+    private static func saveToHealthKit(
+        input: PersistInput,
+        syncId: String,
+        hrContext: HeartRateContext
+    ) async throws -> HealthKitWorkoutWriter.Result? {
+        try await HealthKitWorkoutWriter.save(
+            options: .init(
+                activityType: .traditionalStrengthTraining,
+                start: input.window.start,
+                end: input.window.end,
+                energy: input.energy,
+                syncIdentifier: syncId,
+                heartRate: hrContext.during,
+                strength: input.strengthMeta,
+                indoor: true,
+                estimatedEffortScore: HealthKitWorkoutWriter.estimateEffortScore(
+                    averageBpm: hrContext.avgBpm,
+                    ageYears: input.ageYears
+                ),
+                heartRateRecoveryBpm: HealthKitWorkoutWriter.estimateHeartRateRecoveryBpm(
+                    samples: hrContext.samples,
+                    workoutEnd: input.window.end
+                )
+            )
+        )
     }
 
     private static func dateFromEpochMillis(_ millis: Int64) -> Date {

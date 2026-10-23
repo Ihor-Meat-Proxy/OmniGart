@@ -1,7 +1,5 @@
 package com.omnigart.content
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.networknt.schema.Schema
 import com.networknt.schema.SchemaRegistry
 import com.networknt.schema.SpecificationVersion
@@ -12,6 +10,8 @@ import kotlin.io.path.isDirectory
 import kotlin.io.path.isRegularFile
 import kotlin.io.path.name
 import kotlin.io.path.readText
+import tools.jackson.databind.JsonNode
+import tools.jackson.databind.ObjectMapper
 
 data class MovementValidationReport(
     val yogaPoseCount: Int,
@@ -60,7 +60,7 @@ class YogaPilatesContentValidator(
         for (file in poseFiles) {
             val node = mapper.readTree(file.readText())
             poseSchema.validate(node).forEach { issues += ValidationIssue(file.toString(), it.message) }
-            val id = node.path("id").asText()
+            val id = node.path("id").asString()
             if (!poseIds.add(id)) issues += ValidationIssue(file.toString(), "Duplicate pose id $id")
             if (file.name != "$id.json") issues += ValidationIssue(file.toString(), "Filename must match id.json")
             if (node.path("bundled").asBoolean(false) != true) {
@@ -75,7 +75,7 @@ class YogaPilatesContentValidator(
         for (file in flowFiles) {
             val node = mapper.readTree(file.readText())
             flowSchema.validate(node).forEach { issues += ValidationIssue(file.toString(), it.message) }
-            val id = node.path("id").asText()
+            val id = node.path("id").asString()
             if (file.name != "$id.json") issues += ValidationIssue(file.toString(), "Filename must match id.json")
             if (node.path("bundled").asBoolean(false) != true) {
                 issues += ValidationIssue(file.toString(), "bundled must be true (bundle-first)")
@@ -83,11 +83,11 @@ class YogaPilatesContentValidator(
             checkKeys(node, listOf("nameKeys", "descriptionKeys"), yogaEn, yogaUk, file, issues)
             checkEvidenceIds(node, yogaEvidenceAllow, onDiskEvidence, file, issues)
             node.path("poseIds").forEach { ref ->
-                val pid = ref.asText()
+                val pid = ref.asString()
                 if (pid !in poseIds) issues += ValidationIssue(file.toString(), "Flow references missing pose $pid")
             }
             node.path("sequence").forEach { step ->
-                val pid = step.path("poseId").asText()
+                val pid = step.path("poseId").asString()
                 if (pid.isNotBlank() && pid !in poseIds) {
                     issues += ValidationIssue(file.toString(), "Sequence references missing pose $pid")
                 }
@@ -99,7 +99,7 @@ class YogaPilatesContentValidator(
         for (file in exerciseFiles) {
             val node = mapper.readTree(file.readText())
             exerciseSchema.validate(node).forEach { issues += ValidationIssue(file.toString(), it.message) }
-            val id = node.path("id").asText()
+            val id = node.path("id").asString()
             if (!exerciseIds.add(id)) issues += ValidationIssue(file.toString(), "Duplicate exercise id $id")
             if (file.name != "$id.json") issues += ValidationIssue(file.toString(), "Filename must match id.json")
             if (node.path("bundled").asBoolean(false) != true) {
@@ -114,7 +114,7 @@ class YogaPilatesContentValidator(
         for (file in sessionFiles) {
             val node = mapper.readTree(file.readText())
             sessionSchema.validate(node).forEach { issues += ValidationIssue(file.toString(), it.message) }
-            val id = node.path("id").asText()
+            val id = node.path("id").asString()
             if (file.name != "$id.json") issues += ValidationIssue(file.toString(), "Filename must match id.json")
             if (node.path("bundled").asBoolean(false) != true) {
                 issues += ValidationIssue(file.toString(), "bundled must be true (bundle-first)")
@@ -122,13 +122,13 @@ class YogaPilatesContentValidator(
             checkKeys(node, listOf("nameKeys", "descriptionKeys"), pilatesEn, pilatesUk, file, issues)
             checkEvidenceIds(node, pilatesEvidenceAllow, onDiskEvidence, file, issues)
             node.path("exerciseIds").forEach { ref ->
-                val eid = ref.asText()
+                val eid = ref.asString()
                 if (eid !in exerciseIds) {
                     issues += ValidationIssue(file.toString(), "Session references missing exercise $eid")
                 }
             }
             node.path("blocks").forEach { block ->
-                val titleKey = block.path("titleKey").asText()
+                val titleKey = block.path("titleKey").asString()
                 if (titleKey.isNotBlank() && titleKey !in pilatesEn) {
                     issues += ValidationIssue(file.toString(), "Missing en-GB block title $titleKey")
                 }
@@ -136,7 +136,7 @@ class YogaPilatesContentValidator(
                     issues += ValidationIssue(file.toString(), "Missing uk block title $titleKey")
                 }
                 block.path("items").forEach { item ->
-                    val eid = item.path("exerciseId").asText()
+                    val eid = item.path("exerciseId").asString()
                     if (eid.isNotBlank() && eid !in exerciseIds) {
                         issues += ValidationIssue(file.toString(), "Block references missing exercise $eid")
                     }
@@ -155,7 +155,7 @@ class YogaPilatesContentValidator(
 
     private fun checkContraindicationFraming(node: JsonNode, file: Path, issues: MutableList<ValidationIssue>) {
         node.path("contraindicationNotes").forEach { note ->
-            val text = note.asText()
+            val text = note.asString()
             if (text.isNotBlank() && !text.lowercase().contains("general safety")) {
                 issues += ValidationIssue(
                     file.toString(),
@@ -177,8 +177,8 @@ class YogaPilatesContentValidator(
             issues += ValidationIssue(file.toString(), "Missing evidenceEntryIds")
             return
         }
-        refs.forEach { ref ->
-            val id = ref.asText()
+        refs.values().forEach { ref ->
+            val id = ref.asString()
             if (id !in allow) {
                 issues += ValidationIssue(file.toString(), "evidenceEntryId not in known allowlist: $id")
             }
@@ -203,7 +203,7 @@ class YogaPilatesContentValidator(
             val obj = node.path(field)
             if (obj.isMissingNode || obj.isNull) continue
             listOf("enGB", "uk").forEach { localeField ->
-                val key = obj.path(localeField).asText()
+                val key = obj.path(localeField).asString()
                 if (key.isBlank()) return@forEach
                 if (key !in en) issues += ValidationIssue(file.toString(), "Missing en-GB string for $key")
                 if (key !in uk) issues += ValidationIssue(file.toString(), "Missing uk string for $key")
@@ -221,14 +221,14 @@ class YogaPilatesContentValidator(
         if (!file.isRegularFile()) return emptyMap()
         val node = mapper.readTree(file.readText())
         val out = mutableMapOf<String, String>()
-        for ((k, v) in node.properties()) out[k] = v.asText()
+        for ((k, v) in node.properties()) out[k] = v.asString()
         return out
     }
 
     private fun loadAllowlist(path: Path): Set<String> {
         if (!path.isRegularFile()) return emptySet()
         val node = mapper.readTree(path.readText())
-        return node.path("ids").map { it.asText() }.toSet()
+        return node.path("ids").values().map { it.asString() }.toSet()
     }
 
     private fun loadOnDiskEvidenceIds(): Set<String>? {

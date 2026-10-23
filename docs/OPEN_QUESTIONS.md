@@ -253,3 +253,15 @@ Provisional — do not block merges. IDs are `H1`…`Hn` so they do not collide 
 - **H10.** **Health caloric drinks** — Always write NutritionRecord/HKCorrelation for any energy > 0, or only when user opts into nutrition sync?
 - **H11.** **Late-caffeine threshold** — Drake used 400 mg; should the insight trigger on any caffeine in the 6 h window (current) or only above a mg floor?
 - **H12.** **Reminder copy / localisation** — Notification strings not shipped in this module; confirm en-GB + uk ownership in the app shell.
+
+## § Body composition
+
+Provisional — do not block merges. IDs are `BC1`…`BCn` (body composition) so they do not collide with numeric items or body-map `B1`…`Bn`.
+
+- **BC1.** **Default body-fat method** — CUN-BAE is the product default (height/weight/age/sex only). Confirm vs U.S. Navy for users who already tape-measure.
+- **BC2.** **Siri vs Brozek** — Skinfold density currently uses Siri. Offer Brozek as an option for older adults / different assumptions?
+- **BC3.** **Extra girths in Health** — Only waist has a stable cross-platform Health type today; keep hip/neck/arms OmniGart-only or map via vendor extensions?
+- **BC4.** **Progress photo cloud backup** — Contract is local-only. If encrypted private backup is added later, keep Health export forbidden?
+- **BC5.** **EWMA alpha** — Default 0.3 for weight/girth series. Expose per-metric alphas in settings?
+- **BC6.** **Ethnicity adjustments** — BMI/WHtR wellness bands are population averages; any locale-specific screening copy beyond en-GB/uk?
+- **BC7.** **Navy abdomen vs waist** — Male equation prefers abdomen, falls back to waist. Confirm landmark copy in the app shell.

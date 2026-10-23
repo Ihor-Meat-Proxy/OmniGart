@@ -50,6 +50,7 @@ jobs:
             :shared:testAndroidHostTest \
             :shared:planning:jvmTest \
             :shared:hydration:jvmTest \
+            :shared:body:jvmTest \
             :androidApp:assembleDebug \
             :androidApp:testDebugUnitTest \
             :wearApp:assembleDebug \

@@ -25,11 +25,7 @@ import com.omnigart.shared.OmniGartCore
 import com.omnigart.shared.domain.BiologicalSex
 
 @Composable
-fun NutritionTargetSection(
-    core: OmniGartCore,
-    profileId: String,
-    onOpenMeasurements: () -> Unit,
-) {
+fun NutritionTargetSection(core: OmniGartCore, profileId: String, onOpenMeasurements: () -> Unit) {
     val profile = remember(profileId) { core.profiles.get(profileId) }
     var suggested by remember { mutableStateOf("—") }
     var waterText by remember { mutableStateOf("—") }
@@ -68,7 +64,7 @@ fun NutritionTargetSection(
                 recentWeightEpochMs = weights.map { it.epochMs }.toLongArray(),
                 meanSteps = 8_000,
                 dayStartMinutes = goal.dayStartMinutes,
-                trainingHoursToday = 0.0,
+                trainingHoursToday = 0.0
             )
         val kcal = NutritionFacade.suggestedKcalOrNull(result)
         suggested =
@@ -95,48 +91,48 @@ fun NutritionTargetSection(
 
     Column(
         modifier = Modifier.fillMaxWidth().testTag("nutrition_target_card"),
-        verticalArrangement = Arrangement.spacedBy(6.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp)
     ) {
         Text(
             text = stringResource(R.string.nutrition_target_title),
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.titleMedium
         )
         Text(
             text =
-                if (suggested == "—") {
-                    suggested
-                } else {
-                    "$suggested ${stringResource(R.string.nutrition_kcal_unit)}"
-                },
+            if (suggested == "—") {
+                suggested
+            } else {
+                "$suggested ${stringResource(R.string.nutrition_kcal_unit)}"
+            },
             style = MaterialTheme.typography.headlineSmall,
-            modifier = Modifier.testTag("nutrition_target_kcal"),
+            modifier = Modifier.testTag("nutrition_target_kcal")
         )
         Text(
             text = "${stringResource(R.string.nutrition_water_goal)}: $waterText",
             style = MaterialTheme.typography.bodyMedium,
-            modifier = Modifier.testTag("nutrition_water_goal"),
+            modifier = Modifier.testTag("nutrition_water_goal")
         )
         Text(
             text = stringResource(R.string.nutrition_target_disclaimer),
             color = OmniGartColors.colorTextLightSecondary,
-            style = MaterialTheme.typography.bodySmall,
+            style = MaterialTheme.typography.bodySmall
         )
         Text(
             text =
-                "${stringResource(R.string.nutrition_confidence_title)}: " +
-                    stringResource(confidenceRes),
-            modifier = Modifier.testTag("nutrition_confidence"),
+            "${stringResource(R.string.nutrition_confidence_title)}: " +
+                stringResource(confidenceRes),
+            modifier = Modifier.testTag("nutrition_confidence")
         )
         if (reasonResIds.isNotEmpty()) {
             Text(
                 text = stringResource(R.string.nutrition_reason_title),
-                style = MaterialTheme.typography.titleSmall,
+                style = MaterialTheme.typography.titleSmall
             )
             reasonResIds.forEach { resId ->
                 Text(
                     text = stringResource(resId),
                     style = MaterialTheme.typography.bodySmall,
-                    color = OmniGartColors.colorTextLightSecondary,
+                    color = OmniGartColors.colorTextLightSecondary
                 )
             }
         }
@@ -145,39 +141,38 @@ fun NutritionTargetSection(
                 text = stringResource(R.string.nutrition_floor_warning),
                 color = Color.Red,
                 style = MaterialTheme.typography.bodySmall,
-                modifier = Modifier.testTag("nutrition_floor_warning"),
+                modifier = Modifier.testTag("nutrition_floor_warning")
             )
         }
         if (supportive) {
             Text(
                 text = stringResource(R.string.nutrition_low_intake_title),
-                style = MaterialTheme.typography.titleSmall,
+                style = MaterialTheme.typography.titleSmall
             )
             Text(
                 text = stringResource(R.string.nutrition_low_intake_body),
-                style = MaterialTheme.typography.bodySmall,
+                style = MaterialTheme.typography.bodySmall
             )
         }
         TextButton(
             onClick = onOpenMeasurements,
-            modifier = Modifier.testTag("nutrition_open_measurements"),
+            modifier = Modifier.testTag("nutrition_open_measurements")
         ) {
             Text(stringResource(R.string.nutrition_open_measurements))
         }
     }
 }
 
-private fun reasonStringRes(key: String): Int? =
-    when (key) {
-        "nutrition_reason_no_weight" -> R.string.nutrition_reason_no_weight
-        "nutrition_reason_rough_bmr" -> R.string.nutrition_reason_rough_bmr
-        "nutrition_reason_baseline" -> R.string.nutrition_reason_baseline
-        "nutrition_reason_adaptive_ewma" -> R.string.nutrition_reason_adaptive_ewma
-        "nutrition_reason_energy_balance" -> R.string.nutrition_reason_energy_balance
-        "nutrition_reason_paused_insufficient" -> R.string.nutrition_reason_paused_insufficient
-        "nutrition_reason_logging_break" -> R.string.nutrition_reason_logging_break
-        "nutrition_reason_floor" -> R.string.nutrition_reason_floor
-        "nutrition_reason_auto_raise" -> R.string.nutrition_reason_auto_raise
-        "nutrition_reason_exercise_credit" -> R.string.nutrition_reason_exercise_credit
-        else -> null
-    }
+private fun reasonStringRes(key: String): Int? = when (key) {
+    "nutrition_reason_no_weight" -> R.string.nutrition_reason_no_weight
+    "nutrition_reason_rough_bmr" -> R.string.nutrition_reason_rough_bmr
+    "nutrition_reason_baseline" -> R.string.nutrition_reason_baseline
+    "nutrition_reason_adaptive_ewma" -> R.string.nutrition_reason_adaptive_ewma
+    "nutrition_reason_energy_balance" -> R.string.nutrition_reason_energy_balance
+    "nutrition_reason_paused_insufficient" -> R.string.nutrition_reason_paused_insufficient
+    "nutrition_reason_logging_break" -> R.string.nutrition_reason_logging_break
+    "nutrition_reason_floor" -> R.string.nutrition_reason_floor
+    "nutrition_reason_auto_raise" -> R.string.nutrition_reason_auto_raise
+    "nutrition_reason_exercise_credit" -> R.string.nutrition_reason_exercise_credit
+    else -> null
+}

@@ -31,16 +31,16 @@ fun NutritionReminderSettingsSection() {
 
     Column(
         modifier = Modifier.fillMaxWidth().testTag("nutrition_reminders"),
-        verticalArrangement = Arrangement.spacedBy(6.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp)
     ) {
         Text(
             text = stringResource(R.string.nutrition_reminders_title),
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.titleMedium
         )
         labeledSwitch(
             labelRes = R.string.nutrition_reminders_pause,
             checked = paused,
-            tag = "nutrition_reminders_pause",
+            tag = "nutrition_reminders_pause"
         ) {
             paused = it
             persist(context, paused, weighIn, weeks)
@@ -49,7 +49,7 @@ fun NutritionReminderSettingsSection() {
             labelRes = R.string.nutrition_reminders_weigh_in,
             checked = weighIn,
             enabled = !paused,
-            tag = "nutrition_reminders_weigh_in",
+            tag = "nutrition_reminders_weigh_in"
         ) {
             weighIn = it
             persist(context, paused, weighIn, weeks)
@@ -60,7 +60,7 @@ fun NutritionReminderSettingsSection() {
                 weeks = (weeks - 1).coerceAtLeast(2)
                 persist(context, paused, weighIn, weeks)
             },
-            enabled = !paused,
+            enabled = !paused
         ) { Text("-") }
         TextButton(
             onClick = {
@@ -68,23 +68,17 @@ fun NutritionReminderSettingsSection() {
                 persist(context, paused, weighIn, weeks)
             },
             enabled = !paused,
-            modifier = Modifier.testTag("nutrition_reminders_measurements"),
+            modifier = Modifier.testTag("nutrition_reminders_measurements")
         ) { Text("+") }
         Text(
             text = stringResource(R.string.nutrition_checkin_title),
-            style = MaterialTheme.typography.bodyMedium,
+            style = MaterialTheme.typography.bodyMedium
         )
     }
 }
 
 @Composable
-private fun labeledSwitch(
-    labelRes: Int,
-    checked: Boolean,
-    tag: String,
-    enabled: Boolean = true,
-    onChecked: (Boolean) -> Unit,
-) {
+private fun labeledSwitch(labelRes: Int, checked: Boolean, tag: String, enabled: Boolean = true, onChecked: (Boolean) -> Unit) {
     Column(modifier = Modifier.testTag(tag)) {
         Text(stringResource(labelRes))
         Switch(checked = checked, onCheckedChange = onChecked, enabled = enabled)

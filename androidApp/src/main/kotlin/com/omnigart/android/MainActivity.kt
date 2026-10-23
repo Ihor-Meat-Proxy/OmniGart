@@ -153,7 +153,7 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
                     NutritionTargetSection(
                         core = core,
                         profileId = profileId,
-                        onOpenMeasurements = { showMeasurements = true },
+                        onOpenMeasurements = { showMeasurements = true }
                     )
                 }
             }

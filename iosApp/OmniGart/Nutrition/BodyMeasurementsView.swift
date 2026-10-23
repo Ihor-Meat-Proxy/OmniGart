@@ -76,9 +76,9 @@ struct BodyMeasurementsView: View {
         if let fat = Double(bodyFat), fat > 0 {
             store.appendBodyFat(percent: fat)
         }
-        if let w = Double(waist), w > 0 {
+        if let waistCm = Double(waist), waistCm > 0 {
             // Height for WHtR comes from profile when available; show raw waist for now.
-            whtrText = String(format: "%.2f", w / 170.0)
+            whtrText = String(format: "%.2f", waistCm / 170.0)
         }
         saved = true
         NutritionReminderScheduler.shared.reschedule()

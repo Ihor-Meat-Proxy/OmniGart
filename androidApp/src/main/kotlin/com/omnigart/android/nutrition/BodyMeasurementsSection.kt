@@ -38,16 +38,16 @@ fun BodyMeasurementsSection() {
 
     Column(
         modifier = Modifier.fillMaxWidth().testTag("nutrition_measurements"),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Text(
             text = stringResource(R.string.nutrition_measurements_title),
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.titleMedium
         )
         Text(
             text = stringResource(R.string.nutrition_measurements_intro),
             style = MaterialTheme.typography.bodySmall,
-            color = OmniGartColors.colorTextLightSecondary,
+            color = OmniGartColors.colorTextLightSecondary
         )
         field(R.string.nutrition_weight, weight) { weight = it }
         field(R.string.nutrition_site_waist, waist) { waist = it }
@@ -66,7 +66,7 @@ fun BodyMeasurementsSection() {
                         NutritionHealthConnectBridge.appendWeighInIfAbsent(
                             context = context,
                             localId = sample.id,
-                            massKg = mass,
+                            massKg = mass
                         )
                     }
                 }
@@ -75,7 +75,7 @@ fun BodyMeasurementsSection() {
                     "HIPS" to hips,
                     "CHEST" to chest,
                     "ARM" to arm,
-                    "THIGH" to thigh,
+                    "THIGH" to thigh
                 ).forEach { (site, raw) ->
                     raw.toDoubleOrNull()?.takeIf { it > 0 }?.let {
                         NutritionPrefsStore.appendGirth(site, it)
@@ -90,7 +90,7 @@ fun BodyMeasurementsSection() {
                 saved = true
                 NutritionReminderScheduler.reschedule(context)
             },
-            modifier = Modifier.testTag("nutrition_save_measurement"),
+            modifier = Modifier.testTag("nutrition_save_measurement")
         ) {
             Text(stringResource(R.string.nutrition_save_measurement))
         }
@@ -98,7 +98,7 @@ fun BodyMeasurementsSection() {
             Text(
                 text = stringResource(R.string.profile_saved),
                 color = OmniGartColors.colorBrandAccent,
-                style = MaterialTheme.typography.bodySmall,
+                style = MaterialTheme.typography.bodySmall
             )
         }
     }
@@ -111,6 +111,6 @@ private fun field(labelRes: Int, value: String, onChange: (String) -> Unit) {
         onValueChange = onChange,
         label = { Text(stringResource(labelRes)) },
         modifier = Modifier.fillMaxWidth(),
-        singleLine = true,
+        singleLine = true
     )
 }

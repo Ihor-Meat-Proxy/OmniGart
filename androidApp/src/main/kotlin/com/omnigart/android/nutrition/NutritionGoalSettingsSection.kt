@@ -33,7 +33,7 @@ fun NutritionGoalSettingsSection() {
     var mode by remember { mutableStateOf(initial.mode) }
     var ratePercent by remember {
         mutableDoubleStateOf(
-            (kotlin.math.abs(initial.rateFractionPerWeek) * 100.0).takeIf { it > 0 } ?: 0.5,
+            (kotlin.math.abs(initial.rateFractionPerWeek) * 100.0).takeIf { it > 0 } ?: 0.5
         )
     }
     var dayStartHour by remember { mutableIntStateOf((initial.dayStartMinutes / 60).coerceIn(0, 12)) }
@@ -46,40 +46,40 @@ fun NutritionGoalSettingsSection() {
 
     Column(
         modifier = Modifier.fillMaxWidth().testTag("nutrition_goal_settings"),
-        verticalArrangement = Arrangement.spacedBy(6.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp)
     ) {
         Text(
             text = stringResource(R.string.nutrition_goal_settings_title),
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.titleMedium
         )
         if (showFirst) {
             Text(
                 text = stringResource(R.string.nutrition_goal_first_set),
                 style = MaterialTheme.typography.bodySmall,
-                color = OmniGartColors.colorTextLightSecondary,
+                color = OmniGartColors.colorTextLightSecondary
             )
         }
         RowChoices(
             options =
-                listOf(
-                    "LOSE" to R.string.nutrition_goal_lose,
-                    "MAINTAIN" to R.string.nutrition_goal_maintain,
-                    "GAIN" to R.string.nutrition_goal_gain,
-                ),
+            listOf(
+                "LOSE" to R.string.nutrition_goal_lose,
+                "MAINTAIN" to R.string.nutrition_goal_maintain,
+                "GAIN" to R.string.nutrition_goal_gain
+            ),
             selected = kind,
             onSelect = { kind = it },
-            tag = "nutrition_goal_kind",
+            tag = "nutrition_goal_kind"
         )
         RowChoices(
             options =
-                listOf(
-                    "GUIDED" to R.string.nutrition_mode_guided,
-                    "FLEXIBLE_WEEKLY" to R.string.nutrition_mode_flexible,
-                    "MANUAL" to R.string.nutrition_mode_manual,
-                ),
+            listOf(
+                "GUIDED" to R.string.nutrition_mode_guided,
+                "FLEXIBLE_WEEKLY" to R.string.nutrition_mode_flexible,
+                "MANUAL" to R.string.nutrition_mode_manual
+            ),
             selected = mode,
             onSelect = { mode = it },
-            tag = "nutrition_goal_mode",
+            tag = "nutrition_goal_mode"
         )
         if (kind != "MAINTAIN") {
             Text(String.format("%.2f%% / wk", ratePercent))
@@ -94,12 +94,12 @@ fun NutritionGoalSettingsSection() {
                 onValueChange = { targetWeight = it },
                 label = { Text(stringResource(R.string.nutrition_target_weight)) },
                 modifier = Modifier.fillMaxWidth().testTag("nutrition_target_weight"),
-                singleLine = true,
+                singleLine = true
             )
         }
         Text(
             text = "${stringResource(R.string.nutrition_day_start)}: %02d:00".format(dayStartHour),
-            modifier = Modifier.testTag("nutrition_day_start"),
+            modifier = Modifier.testTag("nutrition_day_start")
         )
         TextButton(onClick = { dayStartHour = (dayStartHour - 1).coerceAtLeast(0) }) { Text("-") }
         TextButton(onClick = { dayStartHour = (dayStartHour + 1).coerceAtMost(12) }) { Text("+") }
@@ -107,7 +107,7 @@ fun NutritionGoalSettingsSection() {
         Switch(
             checked = addExercise,
             onCheckedChange = { addExercise = it },
-            modifier = Modifier.testTag("nutrition_add_exercise"),
+            modifier = Modifier.testTag("nutrition_add_exercise")
         )
         Button(
             onClick = {
@@ -124,7 +124,7 @@ fun NutritionGoalSettingsSection() {
                 saved = true
                 NutritionReminderScheduler.reschedule(context)
             },
-            modifier = Modifier.testTag("nutrition_goal_save"),
+            modifier = Modifier.testTag("nutrition_goal_save")
         ) {
             Text(stringResource(R.string.profile_save))
         }
@@ -132,19 +132,14 @@ fun NutritionGoalSettingsSection() {
             Text(
                 text = stringResource(R.string.profile_saved),
                 color = OmniGartColors.colorBrandAccent,
-                style = MaterialTheme.typography.bodySmall,
+                style = MaterialTheme.typography.bodySmall
             )
         }
     }
 }
 
 @Composable
-private fun RowChoices(
-    options: List<Pair<String, Int>>,
-    selected: String,
-    onSelect: (String) -> Unit,
-    tag: String,
-) {
+private fun RowChoices(options: List<Pair<String, Int>>, selected: String, onSelect: (String) -> Unit, tag: String) {
     Column(modifier = Modifier.testTag(tag)) {
         options.forEach { (code, res) ->
             TextButton(onClick = { onSelect(code) }) {

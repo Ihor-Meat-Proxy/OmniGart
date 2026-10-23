@@ -1,12 +1,12 @@
 package com.omnigart.android.nutrition
 
 import android.app.AlarmManager
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.omnigart.android.R
@@ -33,7 +33,7 @@ object NutritionReminderScheduler {
             context,
             requestCode = 1002,
             days = goal.measurementReminderWeeks.coerceIn(2, 4) * 7,
-            kind = "measurements",
+            kind = "measurements"
         )
         scheduleAfterDays(context, requestCode = 1003, days = 7, kind = "checkin")
     }
@@ -49,7 +49,7 @@ object NutritionReminderScheduler {
                 context,
                 requestCode,
                 intent,
-                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
         val triggerAt = System.currentTimeMillis() + days.toLong() * 86_400_000L
         am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAt, pi)
@@ -63,7 +63,7 @@ object NutritionReminderScheduler {
                 context,
                 requestCode,
                 intent,
-                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
         am.cancel(pi)
     }
@@ -75,8 +75,8 @@ object NutritionReminderScheduler {
             NotificationChannel(
                 CHANNEL_ID,
                 context.getString(R.string.nutrition_reminders_title),
-                NotificationManager.IMPORTANCE_DEFAULT,
-            ),
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
         )
     }
 

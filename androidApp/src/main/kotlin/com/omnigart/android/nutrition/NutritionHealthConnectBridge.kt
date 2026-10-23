@@ -43,26 +43,25 @@ object NutritionHealthConnectBridge {
                 time = now,
                 zoneOffset = null,
                 metadata =
-                    Metadata.manualEntry(
-                        clientRecordId = syncId,
-                        clientRecordVersion = 1L,
-                    ),
+                Metadata.manualEntry(
+                    clientRecordId = syncId,
+                    clientRecordVersion = 1L
+                )
             )
         // Insert only — never updateRecords / deleteRecords.
         client.insertRecords(listOf(record))
         return true
     }
 
-    private fun clientOrNull(context: Context): HealthConnectClient? =
-        runCatching { HealthConnectClient.getOrCreate(context) }.getOrNull()
+    private fun clientOrNull(context: Context): HealthConnectClient? = runCatching { HealthConnectClient.getOrCreate(context) }.getOrNull()
 
     private suspend fun latestWeight(client: HealthConnectClient): WeightRecord? {
         val response =
             client.readRecords(
                 ReadRecordsRequest(
                     recordType = WeightRecord::class,
-                    timeRangeFilter = TimeRangeFilter.after(Instant.EPOCH),
-                ),
+                    timeRangeFilter = TimeRangeFilter.after(Instant.EPOCH)
+                )
             )
         return response.records.maxByOrNull { it.time }
     }
@@ -72,8 +71,8 @@ object NutritionHealthConnectBridge {
             client.readRecords(
                 ReadRecordsRequest(
                     recordType = HeightRecord::class,
-                    timeRangeFilter = TimeRangeFilter.after(Instant.EPOCH),
-                ),
+                    timeRangeFilter = TimeRangeFilter.after(Instant.EPOCH)
+                )
             )
         return response.records.maxByOrNull { it.time }
     }
@@ -83,8 +82,8 @@ object NutritionHealthConnectBridge {
             client.readRecords(
                 ReadRecordsRequest(
                     recordType = BodyFatRecord::class,
-                    timeRangeFilter = TimeRangeFilter.after(Instant.EPOCH),
-                ),
+                    timeRangeFilter = TimeRangeFilter.after(Instant.EPOCH)
+                )
             )
         return response.records.maxByOrNull { it.time }
     }
@@ -94,8 +93,8 @@ object NutritionHealthConnectBridge {
             client.readRecords(
                 ReadRecordsRequest(
                     recordType = WeightRecord::class,
-                    timeRangeFilter = TimeRangeFilter.after(Instant.EPOCH),
-                ),
+                    timeRangeFilter = TimeRangeFilter.after(Instant.EPOCH)
+                )
             )
         return response.records.any { it.metadata.clientRecordId == syncId }
     }

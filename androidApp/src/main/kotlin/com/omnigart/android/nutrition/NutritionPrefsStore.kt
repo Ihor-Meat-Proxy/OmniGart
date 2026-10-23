@@ -27,7 +27,7 @@ object NutritionPrefsStore {
         var remindersPaused: Boolean = false,
         var weighInNudgeEnabled: Boolean = true,
         var measurementReminderWeeks: Int = 3,
-        var firstGoalAcknowledged: Boolean = false,
+        var firstGoalAcknowledged: Boolean = false
     )
 
     data class WeightSample(val id: String, val epochMs: Long, val massKg: Double)
@@ -51,7 +51,7 @@ object NutritionPrefsStore {
             remindersPaused = o.optBoolean("remindersPaused", false),
             weighInNudgeEnabled = o.optBoolean("weighInNudgeEnabled", true),
             measurementReminderWeeks = o.optInt("measurementReminderWeeks", 3),
-            firstGoalAcknowledged = o.optBoolean("firstGoalAcknowledged", false),
+            firstGoalAcknowledged = o.optBoolean("firstGoalAcknowledged", false)
         )
     }
 
@@ -82,8 +82,8 @@ object NutritionPrefsStore {
                     WeightSample(
                         id = o.getString("id"),
                         epochMs = o.getLong("epochMs"),
-                        massKg = o.getDouble("massKg"),
-                    ),
+                        massKg = o.getDouble("massKg")
+                    )
                 )
             }
         }
@@ -94,14 +94,14 @@ object NutritionPrefsStore {
             WeightSample(
                 id = java.util.UUID.randomUUID().toString(),
                 epochMs = System.currentTimeMillis(),
-                massKg = massKg,
+                massKg = massKg
             )
         val arr = JSONArray(prefs().getString("weights", "[]"))
         arr.put(
             JSONObject()
                 .put("id", sample.id)
                 .put("epochMs", sample.epochMs)
-                .put("massKg", sample.massKg),
+                .put("massKg", sample.massKg)
         )
         prefs().edit().putString("weights", arr.toString()).apply()
         return sample
@@ -117,8 +117,8 @@ object NutritionPrefsStore {
                         id = o.getString("id"),
                         epochMs = o.getLong("epochMs"),
                         site = o.getString("site"),
-                        valueCm = o.getDouble("valueCm"),
-                    ),
+                        valueCm = o.getDouble("valueCm")
+                    )
                 )
             }
         }
@@ -131,7 +131,7 @@ object NutritionPrefsStore {
                 .put("id", java.util.UUID.randomUUID().toString())
                 .put("epochMs", System.currentTimeMillis())
                 .put("site", site)
-                .put("valueCm", valueCm),
+                .put("valueCm", valueCm)
         )
         prefs().edit().putString("girths", arr.toString()).apply()
     }
@@ -145,8 +145,8 @@ object NutritionPrefsStore {
                     BodyFatSample(
                         id = o.getString("id"),
                         epochMs = o.getLong("epochMs"),
-                        bodyFatPercent = o.getDouble("bodyFatPercent"),
-                    ),
+                        bodyFatPercent = o.getDouble("bodyFatPercent")
+                    )
                 )
             }
         }
@@ -158,7 +158,7 @@ object NutritionPrefsStore {
             JSONObject()
                 .put("id", java.util.UUID.randomUUID().toString())
                 .put("epochMs", System.currentTimeMillis())
-                .put("bodyFatPercent", percent),
+                .put("bodyFatPercent", percent)
         )
         prefs().edit().putString("bodyFat", arr.toString()).apply()
     }

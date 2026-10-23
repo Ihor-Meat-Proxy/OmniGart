@@ -15,10 +15,10 @@ final class NutritionLocalStore: ObservableObject {
     struct GoalPrefs: Codable {
         var kind: String = "MAINTAIN"
         var rateFractionPerWeek: Double = 0.0
-        var targetWeightKg: Double? = nil
+        var targetWeightKg: Double?
         var mode: String = "GUIDED"
-        var manualDailyKcal: Double? = nil
-        var flexibleWeeklyBudgetKcal: Double? = nil
+        var manualDailyKcal: Double?
+        var flexibleWeeklyBudgetKcal: Double?
         var addExerciseCalories: Bool = false
         var dayStartMinutes: Int = 4 * 60
         var weeklyCheckInWeekday: Int = 0

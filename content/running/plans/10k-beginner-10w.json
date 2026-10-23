@@ -1,0 +1,131 @@
+{
+  "id": "10k-beginner-10w",
+  "nameKeys": {
+    "enGB": "running.plan.10k_beginner_10w.name",
+    "uk": "running.plan.10k_beginner_10w.name"
+  },
+  "distance": "10k",
+  "level": "beginner",
+  "weeks": 10,
+  "daysPerWeek": 3,
+  "intensityDistribution": {
+    "model": "polarized",
+    "easyPercentTarget": 80,
+    "notesKey": "running.plan.10k_beginner_10w.distribution"
+  },
+  "progression": {
+    "weeklyVolumeIncreaseCapPercent": 10,
+    "tenPercentRuleCaveat": true,
+    "deloadEveryWeeks": 4,
+    "notesKey": "running.plan.10k_beginner_10w.progression"
+  },
+  "weeklyTemplates": [
+    {
+      "weekFrom": 1,
+      "weekTo": 8,
+      "themeKey": "running.plan.10k_beginner_10w.theme.build",
+      "sessions": [
+        {
+          "dayOffset": 0,
+          "workoutTypeId": "easy-aerobic"
+        },
+        {
+          "dayOffset": 2,
+          "workoutTypeId": "strides-after-easy"
+        },
+        {
+          "dayOffset": 4,
+          "workoutTypeId": "long-easy"
+        }
+      ]
+    },
+    {
+      "weekFrom": 9,
+      "weekTo": 9,
+      "themeKey": "running.plan.10k_beginner_10w.theme.peak",
+      "sessions": [
+        {
+          "dayOffset": 0,
+          "workoutTypeId": "easy-aerobic"
+        },
+        {
+          "dayOffset": 2,
+          "workoutTypeId": "strides-after-easy"
+        },
+        {
+          "dayOffset": 4,
+          "workoutTypeId": "long-easy"
+        }
+      ]
+    },
+    {
+      "weekFrom": 10,
+      "weekTo": 10,
+      "themeKey": "running.plan.10k_beginner_10w.theme.taper",
+      "sessions": [
+        {
+          "dayOffset": 0,
+          "workoutTypeId": "easy-aerobic"
+        },
+        {
+          "dayOffset": 3,
+          "workoutTypeId": "strides-pre-quality"
+        },
+        {
+          "dayOffset": 5,
+          "workoutTypeId": "race-pace-repeats",
+          "optional": true
+        }
+      ]
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity/duration distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.3389/fphys.2014.00033",
+      "label": "Stöggl & Sperlich 2014 — polarised vs threshold TID",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "pmid",
+      "id": "23752040",
+      "label": "Muñoz et al. — polarised vs between-thresholds in recreational runners",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "guideline",
+      "id": "omnigart-mileage-caveat",
+      "label": "OmniGart caveat — fixed ~10% weekly mileage rule lacks strong RCT support; prefer readiness/injury signals",
+      "supports": [
+        "programming",
+        "safety"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "programming",
+        "safety"
+      ]
+    }
+  ],
+  "rationale": "Bundled 10k plan for beginner runners emphasising mostly easy running with limited quality work, a polarized intensity distribution target, and an honest caveat that fixed ~10% weekly mileage rules are weakly evidenced."
+}

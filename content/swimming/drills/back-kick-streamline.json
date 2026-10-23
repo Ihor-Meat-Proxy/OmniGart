@@ -1,0 +1,40 @@
+{
+  "id": "back-kick-streamline",
+  "nameKeys": {
+    "enGB": "swim.drill.back_kick_streamline.name",
+    "uk": "swim.drill.back_kick_streamline.name"
+  },
+  "strokeIds": [
+    "backstroke"
+  ],
+  "focus": [
+    "kick",
+    "streamline"
+  ],
+  "level": "beginner",
+  "equipment": [
+    "none"
+  ],
+  "technique": [
+    "Kick on the back in streamline; keep ribs down and kick small."
+  ],
+  "cues": [
+    "Streamline lock",
+    "Small fast kick"
+  ],
+  "commonMistakes": [
+    "Arching low back"
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "technique",
+        "safety"
+      ]
+    }
+  ]
+}

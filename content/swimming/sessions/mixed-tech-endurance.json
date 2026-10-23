@@ -1,0 +1,67 @@
+{
+  "id": "mixed-tech-endurance",
+  "nameKeys": {
+    "enGB": "swim.session.mixed_tech_endurance.name",
+    "uk": "swim.session.mixed_tech_endurance.name"
+  },
+  "category": "mixed",
+  "level": "beginner",
+  "strokeIds": [
+    "freestyle"
+  ],
+  "targetDistanceM": 1600,
+  "durationMinutes": 45,
+  "usesCriticalSwimSpeed": false,
+  "blocks": [
+    {
+      "kind": "warmup",
+      "descriptionKey": "swim.session.mixed_tech_endurance.block.warmup",
+      "distanceM": 200,
+      "intensityHint": "easy"
+    },
+    {
+      "kind": "drill",
+      "descriptionKey": "swim.session.mixed_tech_endurance.block.drills",
+      "distanceM": 400,
+      "intensityHint": "easy",
+      "drillIds": [
+        "fingertip-drag-freestyle",
+        "side-kick-freestyle"
+      ]
+    },
+    {
+      "kind": "main",
+      "descriptionKey": "swim.session.mixed_tech_endurance.block.main",
+      "distanceM": 800,
+      "intensityHint": "steady"
+    },
+    {
+      "kind": "cooldown",
+      "descriptionKey": "swim.session.mixed_tech_endurance.block.cooldown",
+      "distanceM": 200,
+      "intensityHint": "easy"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1123/ijspp.5.3.276",
+      "label": "Seiler 2010 — endurance intensity distribution",
+      "supports": [
+        "endurance",
+        "programming"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "technique",
+        "safety"
+      ]
+    }
+  ],
+  "notes": "Bundled swim session content only — CSS and pacing algorithms are out of scope here."
+}

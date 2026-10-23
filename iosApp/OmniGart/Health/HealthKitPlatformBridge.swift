@@ -69,11 +69,11 @@ final class HealthKitPlatformBridge: NSObject, @unchecked Sendable {
     }
 
     static func activeEnergyType() -> HKQuantityType? {
-        HealthKitWorkoutWriter.activeEnergyType()
+        HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)
     }
 
     static func basalEnergyType() -> HKQuantityType? {
-        HealthKitWorkoutWriter.basalEnergyType()
+        HKQuantityType.quantityType(forIdentifier: .basalEnergyBurned)
     }
 }
 

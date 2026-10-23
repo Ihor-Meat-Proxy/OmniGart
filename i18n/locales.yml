@@ -66,6 +66,7 @@ paths:
     - androidApp/src/main/res
     - wearApp/src/main/res
     - iosApp/OmniGart/Localizable.xcstrings
+    - watchApp/OmniGartWatch/Localizable.xcstrings
 
 # Review status values allowed in status sidecars.
 status_values:

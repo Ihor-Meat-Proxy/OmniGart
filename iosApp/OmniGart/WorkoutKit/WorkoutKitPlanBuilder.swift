@@ -24,7 +24,7 @@ enum WorkoutKitPlanBuilder {
         }
     }
 
-    struct DraftBlock {
+    struct DraftBlock: Sendable {
         let kind: String
         let displayName: String
         let goalKind: String
@@ -35,7 +35,7 @@ enum WorkoutKitPlanBuilder {
         let repeatCount: Int
     }
 
-    struct Draft {
+    struct Draft: Sendable {
         let id: String
         let activity: String
         let displayName: String

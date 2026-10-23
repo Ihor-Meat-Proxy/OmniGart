@@ -25,7 +25,7 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     @Published private(set) var lastError: String?
     @Published private(set) var live = TreadmillLiveSnapshot()
     @Published private(set) var diagnosticsText: String = ""
-    @Published private(set) var activeProtocol: TreadmillProtocolKind = .none
+    @Published var activeProtocol: TreadmillProtocolKind = .none
 
     var allowRemoteControl = false
     var watchHeartRateBpm: Int?
@@ -33,12 +33,12 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     private var central: CBCentralManager?
     private var peripheral: CBPeripheral?
     private var preferredId: UUID?
-    private var controlPoint: CBCharacteristic?
-    private var fitShowWrite: CBCharacteristic?
-    private var iconsoleRx: CBCharacteristic?
+    var controlPoint: CBCharacteristic?
+    var fitShowWrite: CBCharacteristic?
+    var iconsoleRx: CBCharacteristic?
     private var reconnectTask: Task<Void, Never>?
-    private var iconsolePollTask: Task<Void, Never>?
-    private var fitShowPollTask: Task<Void, Never>?
+    var iconsolePollTask: Task<Void, Never>?
+    var fitShowPollTask: Task<Void, Never>?
     private var reconnectAttempt = 0
     private var diagLines: [String] = []
     private let rememberedKey = "omnigart.treadmill.remembered"
@@ -178,7 +178,7 @@ final class TreadmillBleManager: NSObject, ObservableObject {
         }
     }
 
-    private func appendDiag(_ line: String) {
+    func appendDiag(_ line: String) {
         diagLines.append("t=\(diagLines.count) \(line)")
         diagnosticsText = diagLines.joined(separator: "\n")
     }
@@ -197,7 +197,7 @@ final class TreadmillBleManager: NSObject, ObservableObject {
         }
     }
 
-    private func apply(_ parsed: TreadmillParsedMetrics) {
+    func apply(_ parsed: TreadmillParsedMetrics) {
         let displayHr = watchHeartRateBpm ?? parsed.machineHeartRateBpm
         live = TreadmillLiveSnapshot(
             protocolKind: parsed.protocolKind,

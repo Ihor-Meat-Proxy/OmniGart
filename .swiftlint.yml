@@ -1,0 +1,21 @@
+disabled_rules:
+  - trailing_comma
+opt_in_rules:
+  - empty_count
+  - closure_end_indentation
+  - force_unwrapping
+included:
+  - iosApp
+  - watchApp
+excluded:
+  - Pods
+  - .build
+  - shared/build
+  - design/generated
+line_length:
+  warning: 140
+  error: 200
+identifier_name:
+  min_length:
+    warning: 2
+force_unwrapping: warning

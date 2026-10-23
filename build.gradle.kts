@@ -1,4 +1,29 @@
 plugins {
-    kotlin("multiplatform") version "2.4.21" apply false
-    kotlin("plugin.serialization") version "2.4.21" apply false
+    base
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.android.kotlin.multiplatform.library) apply false
+    alias(libs.plugins.kotlin.multiplatform) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
+    alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.sqldelight) apply false
+    alias(libs.plugins.ktlint) apply false
+    alias(libs.plugins.detekt) apply false
+}
+
+/**
+ * Fail the build if any Russian (ru / ru-*) locale catalogs or resource
+ * directories appear. Wired into the root [check] lifecycle so CI catches it
+ * inside "KMP + Android + Wear" rather than as a separate required job.
+ */
+tasks.register<Exec>("checkNoRuLocale") {
+    group = LifecycleBasePlugin.VERIFICATION_GROUP
+    description =
+        "Fail if any ru/ru-* locale resource directories or string catalogs exist"
+    workingDir = rootDir
+    commandLine("bash", "./scripts/check_no_ru_locale.sh")
+}
+
+tasks.named("check") {
+    dependsOn("checkNoRuLocale")
 }

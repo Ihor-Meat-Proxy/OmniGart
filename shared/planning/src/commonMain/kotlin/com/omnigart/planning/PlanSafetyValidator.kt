@@ -7,14 +7,8 @@ import kotlin.math.min
 /**
  * Clamps AI (or any) proposals to rule-engine safety bounds.
  */
-class PlanSafetyValidator(
-    private val maxSetsPerSessionExercise: Int = 6,
-    private val maxSessionsPerWeek: Int = 6,
-) {
-    fun validateAndClamp(
-        proposal: AiPlanProposal,
-        profile: UserTrainingProfile,
-    ): Pair<AiPlanProposal, List<PlanExplanation>> {
+class PlanSafetyValidator(private val maxSetsPerSessionExercise: Int = 6, private val maxSessionsPerWeek: Int = 6) {
+    fun validateAndClamp(proposal: AiPlanProposal, profile: UserTrainingProfile): Pair<AiPlanProposal, List<PlanExplanation>> {
         val explanations = mutableListOf<PlanExplanation>()
         val level = profile.levels.firstOrNull()?.level ?: Level.BEGINNER
         val goal = profile.goals.firstOrNull() ?: TrainingGoal.GENERAL_FITNESS
@@ -31,11 +25,11 @@ class PlanSafetyValidator(
                             explanations += PlanExplanation(
                                 code = "clamp.sets_per_exercise",
                                 message = "Clamped sets for ${rx.exerciseId} to $sets for safety.",
-                                evidence = EvidenceCatalog.ACSM_RT_2026,
+                                evidence = EvidenceCatalog.ACSM_RT_2026
                             )
                         }
                         rx.copy(sets = sets, rir = normalizeRir(rx.rir, profile))
-                    },
+                    }
                 )
             }
 
@@ -45,7 +39,7 @@ class PlanSafetyValidator(
                 explanations += PlanExplanation(
                     code = "clamp.weekly_volume",
                     message = "Capped ${target.muscle} weekly hard sets to $capped (goal band ${band.first}-${band.last}).",
-                    evidence = EvidenceCatalog.PELLAND_DOSE_2025,
+                    evidence = EvidenceCatalog.PELLAND_DOSE_2025
                 )
             }
             target.copy(hardSets = capped)

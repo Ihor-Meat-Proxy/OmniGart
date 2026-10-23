@@ -21,7 +21,7 @@ class ExerciseSearchTest {
         pattern: MovementPattern = MovementPattern.SQUAT,
         muscles: List<Muscle> = listOf(Muscle.QUADRICEPS),
         equipment: List<Equipment> = listOf(Equipment.BARBELL),
-        level: Level = Level.BEGINNER,
+        level: Level = Level.BEGINNER
     ) = Exercise(
         id = id,
         nameKeys = LocalizedNameKeys("exercise.$id.name", "exercise.$id.name"),
@@ -38,22 +38,48 @@ class ExerciseSearchTest {
         breathing = "Breathe steadily throughout.",
         commonMistakes = listOf("Common mistake example"),
         safety = listOf("Safety note example here"),
-        media = MediaPlaceholders(),
+        media = MediaPlaceholders()
     )
 
     private val library = listOf(
-        sample("back-squat", equipment = listOf(Equipment.BARBELL), muscles = listOf(Muscle.QUADRICEPS)),
-        sample("goblet-squat", equipment = listOf(Equipment.DUMBBELL), muscles = listOf(Muscle.QUADRICEPS)),
-        sample("push-up", pattern = MovementPattern.PUSH, equipment = listOf(Equipment.BODYWEIGHT), muscles = listOf(Muscle.PECTORALIS_MAJOR)),
-        sample("freestyle-stroke", Discipline.SWIMMING, MovementPattern.SWIM_STROKE, listOf(Muscle.LATISSIMUS_DORSI), listOf(Equipment.POOL)),
-        sample("easy-run", Discipline.RUNNING, MovementPattern.GAIT, listOf(Muscle.QUADRICEPS), listOf(Equipment.ROAD), Level.BEGINNER),
+        sample(
+            "back-squat",
+            equipment = listOf(Equipment.BARBELL),
+            muscles = listOf(Muscle.QUADRICEPS)
+        ),
+        sample(
+            "goblet-squat",
+            equipment = listOf(Equipment.DUMBBELL),
+            muscles = listOf(Muscle.QUADRICEPS)
+        ),
+        sample(
+            "push-up",
+            pattern = MovementPattern.PUSH,
+            equipment = listOf(Equipment.BODYWEIGHT),
+            muscles = listOf(Muscle.PECTORALIS_MAJOR)
+        ),
+        sample(
+            "freestyle-stroke",
+            Discipline.SWIMMING,
+            MovementPattern.SWIM_STROKE,
+            listOf(Muscle.LATISSIMUS_DORSI),
+            listOf(Equipment.POOL)
+        ),
+        sample(
+            "easy-run",
+            Discipline.RUNNING,
+            MovementPattern.GAIT,
+            listOf(Muscle.QUADRICEPS),
+            listOf(Equipment.ROAD),
+            Level.BEGINNER
+        )
     )
 
     @Test
     fun filtersByEquipmentProfile() {
         val travel = ExerciseSearch.filter(
             library,
-            ExerciseQuery(equipmentProfile = EquipmentProfile.TRAVEL),
+            ExerciseQuery(equipmentProfile = EquipmentProfile.TRAVEL)
         )
         assertEquals(listOf("push-up"), travel.map { it.id })
     }
@@ -66,8 +92,8 @@ class ExerciseSearchTest {
                 muscles = setOf(Muscle.QUADRICEPS),
                 patterns = setOf(MovementPattern.SQUAT),
                 levels = setOf(Level.BEGINNER),
-                disciplines = setOf(Discipline.STRENGTH),
-            ),
+                disciplines = setOf(Discipline.STRENGTH)
+            )
         )
         assertTrue(result.all { it.id.contains("squat") })
         assertEquals(2, result.size)
@@ -77,7 +103,7 @@ class ExerciseSearchTest {
     fun homeGymIncludesDumbbellNotPool() {
         val result = ExerciseSearch.filter(
             library,
-            ExerciseQuery(equipmentProfile = EquipmentProfile.HOME_GYM),
+            ExerciseQuery(equipmentProfile = EquipmentProfile.HOME_GYM)
         )
         assertTrue(result.any { it.id == "goblet-squat" })
         assertTrue(result.none { it.id == "freestyle-stroke" })
@@ -87,7 +113,7 @@ class ExerciseSearchTest {
     fun commercialGymIncludesEverything() {
         val result = ExerciseSearch.filter(
             library,
-            ExerciseQuery(equipmentProfile = EquipmentProfile.COMMERCIAL_GYM),
+            ExerciseQuery(equipmentProfile = EquipmentProfile.COMMERCIAL_GYM)
         )
         assertEquals(library.size, result.size)
     }

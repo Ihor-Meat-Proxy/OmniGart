@@ -147,4 +147,25 @@
     <string name="workout_mindful_minutes_toggle">Achtsamkeitsminuten für Yoga speichern</string>
     <string name="workout_mindful_minutes_body">Optional. Standardmäßig aus. Schreibt nur, wenn Sie es aktivieren.</string>
     <string name="workout_mindful_settings_title">Yoga-Achtsamkeitsminuten</string>
+    <string name="data_privacy_title">Daten und Datenschutz</string>
+    <string name="data_privacy_intro">OmniGart speichert eine vollständige lokale Kopie Ihrer Workouts und Messwerte auf diesem Gerät. Der Export bleibt auf dem Gerät. Die Synchronisierung ist optional.</string>
+    <string name="data_privacy_sync_status">Plattform-Synchronisierung</string>
+    <string name="data_privacy_sync_status_line">Plattform-Synchronisierung: %1$s</string>
+    <string name="data_privacy_last_sync">Letzte Synchronisierung</string>
+    <string name="data_privacy_last_sync_line">Letzte Synchronisierung: %1$s</string>
+    <string name="data_privacy_sync_now">Jetzt von der Plattform synchronisieren</string>
+    <string name="data_privacy_export">Wellness-Daten exportieren</string>
+    <string name="data_privacy_export_share">Export teilen</string>
+    <string name="data_privacy_import_json">OmniGart-JSON importieren</string>
+    <string name="data_privacy_conflicts_title">Konfliktprüfung</string>
+    <string name="data_privacy_resolve_all">Konflikte als geprüft markieren</string>
+    <string name="data_privacy_export_ready">Export bereit zum Teilen oder Speichern.</string>
+    <string name="data_privacy_export_failed">Export konnte nicht vorbereitet werden.</string>
+    <string name="data_privacy_import_ok">%d Workouts importiert.</string>
+    <string name="data_privacy_import_failed">Diese Datei konnte nicht importiert werden.</string>
+    <string name="data_privacy_status_authorized">Verbunden</string>
+    <string name="data_privacy_status_denied">Berechtigung verweigert — lokaler Speicher funktioniert</string>
+    <string name="data_privacy_status_partial">Teilzugriff</string>
+    <string name="data_privacy_status_unknown">Nicht festgelegt</string>
+    <string name="data_privacy_permission_note">OmniGart kann Wellness-Workouts und Messwerte lesen und schreiben, wenn Sie es erlauben. Protokollieren geht auch ohne Zugriff. OmniGart löscht keine Plattformdaten, die es nicht erstellt hat, und schreibt keine Daten anderer Apps zurück.</string>
 </resources>

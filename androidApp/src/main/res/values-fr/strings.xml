@@ -147,4 +147,25 @@
     <string name="workout_mindful_minutes_toggle">Enregistrer les minutes mindful pour le yoga</string>
     <string name="workout_mindful_minutes_body">Optionnel. Désactivé par défaut. N’écrit que si vous l’activez.</string>
     <string name="workout_mindful_settings_title">Minutes mindful du yoga</string>
+    <string name="data_privacy_title">Données et confidentialité</string>
+    <string name="data_privacy_intro">OmniGart conserve une copie locale complète de vos séances et échantillons sur cet appareil. L’export reste sur l’appareil. La synchronisation est facultative.</string>
+    <string name="data_privacy_sync_status">Synchronisation plateforme</string>
+    <string name="data_privacy_sync_status_line">Synchronisation plateforme : %1$s</string>
+    <string name="data_privacy_last_sync">Dernière synchronisation</string>
+    <string name="data_privacy_last_sync_line">Dernière synchronisation : %1$s</string>
+    <string name="data_privacy_sync_now">Synchroniser depuis la plateforme</string>
+    <string name="data_privacy_export">Exporter les données de bien-être</string>
+    <string name="data_privacy_export_share">Partager l’export</string>
+    <string name="data_privacy_import_json">Importer le JSON OmniGart</string>
+    <string name="data_privacy_conflicts_title">Revue des conflits</string>
+    <string name="data_privacy_resolve_all">Marquer les conflits comme revus</string>
+    <string name="data_privacy_export_ready">Export prêt à partager ou enregistrer.</string>
+    <string name="data_privacy_export_failed">Impossible de préparer l’export.</string>
+    <string name="data_privacy_import_ok">Séances importées : %d.</string>
+    <string name="data_privacy_import_failed">Impossible d’importer ce fichier.</string>
+    <string name="data_privacy_status_authorized">Connecté</string>
+    <string name="data_privacy_status_denied">Permission refusée — le stockage local fonctionne</string>
+    <string name="data_privacy_status_partial">Accès partiel</string>
+    <string name="data_privacy_status_unknown">Non déterminé</string>
+    <string name="data_privacy_permission_note">OmniGart peut lire et écrire des séances et échantillons de bien-être si vous l’autorisez. Vous pouvez journaliser sans accès. OmniGart ne supprime jamais les données plateforme qu’il n’a pas créées, et n’écrit pas les données d’autres apps.</string>
 </resources>

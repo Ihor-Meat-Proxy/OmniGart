@@ -147,4 +147,25 @@
     <string name="workout_mindful_minutes_toggle">იოგისთვის mindful წუთების შენახვა</string>
     <string name="workout_mindful_minutes_body">სურვილისამებრ. ნაგულისხმევად გამორთულია. იწერს მხოლოდ ჩართვისას.</string>
     <string name="workout_mindful_settings_title">იოგის mindful წუთები</string>
+    <string name="data_privacy_title">მონაცემები და კონფიდენციალობა</string>
+    <string name="data_privacy_intro">OmniGart ინახავს ვარჯიშებისა და ნიმუშების სრულ ლოკალურ ასლს ამ მოწყობილობაზე. ექსპორტი რჩება მოწყობილობაზე. პლატფორმასთან სინქრონიზაცია არასავალდებულოა.</string>
+    <string name="data_privacy_sync_status">პლატფორმის სინქრონიზაცია</string>
+    <string name="data_privacy_sync_status_line">პლატფორმის სინქრონიზაცია: %1$s</string>
+    <string name="data_privacy_last_sync">ბოლო სინქრონიზაცია</string>
+    <string name="data_privacy_last_sync_line">ბოლო სინქრონიზაცია: %1$s</string>
+    <string name="data_privacy_sync_now">პლატფორმიდან სინქრონიზაცია ახლა</string>
+    <string name="data_privacy_export">კეთილდღეობის მონაცემების ექსპორტი</string>
+    <string name="data_privacy_export_share">ექსპორტის გაზიარება</string>
+    <string name="data_privacy_import_json">OmniGart JSON-ის იმპორტი</string>
+    <string name="data_privacy_conflicts_title">კონფლიქტების განხილვა</string>
+    <string name="data_privacy_resolve_all">კონფლიქტების მონიშვნა განხილულად</string>
+    <string name="data_privacy_export_ready">ექსპორტი მზად არის გასაზიარებლად ან შესანახად.</string>
+    <string name="data_privacy_export_failed">ექსპორტის მომზადება ვერ მოხერხდა.</string>
+    <string name="data_privacy_import_ok">იმპორტირებული ვარჯიშები: %d.</string>
+    <string name="data_privacy_import_failed">ამ ფაილის იმპორტი ვერ მოხერხდა.</string>
+    <string name="data_privacy_status_authorized">დაკავშირებულია</string>
+    <string name="data_privacy_status_denied">ნებართვა უარყოფილია — ლოკალური საცავი მუშაობს</string>
+    <string name="data_privacy_status_partial">ნაწილობრივი წვდომა</string>
+    <string name="data_privacy_status_unknown">განუსაზღვრელი</string>
+    <string name="data_privacy_permission_note">OmniGart-ს შეუძლია წაიკითხოს და ჩაიწეროს კეთილდღეობის ვარჯიშები და ნიმუშები, თუ დართავთ. შეგიძლიათ ჩანაწერი ნებართვის გარეშე. OmniGart არასოდეს შლის პლატფორმის მონაცემებს, რომლებიც არ შეუქმნია, და არ წერს უკან სხვა აპების მონაცემებს.</string>
 </resources>

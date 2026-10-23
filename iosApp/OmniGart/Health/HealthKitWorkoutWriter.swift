@@ -41,6 +41,10 @@ enum HealthKitWorkoutWriter {
         var saveMindfulMinutes: Bool = false
         var estimatedEffortScore: Double? = nil
         var heartRateRecoveryBpm: Double? = nil
+        /// Stable OmniGart sync id (`HKMetadataKeySyncIdentifier`). Re-saves update in place.
+        var syncIdentifier: String? = nil
+        /// Monotonic version (`HKMetadataKeySyncVersion`).
+        var syncVersion: Int = 1
     }
 
     struct Result: Sendable {
@@ -292,6 +296,12 @@ enum HealthKitWorkoutWriter {
         var metadata: [String: Any] = [
             HKMetadataKeyIndoorWorkout: options.indoor
         ]
+        if let syncId = options.syncIdentifier, !syncId.isEmpty {
+            metadata[HKMetadataKeySyncIdentifier] = syncId
+            metadata[HKMetadataKeySyncVersion] = options.syncVersion
+            metadata["omnigart.origin"] = "omnigart"
+            metadata["omnigart.healthSchemaVersion"] = 1
+        }
         if options.energy.isEstimate {
             metadata["OmniGartEnergyIsEstimate"] = true
         }

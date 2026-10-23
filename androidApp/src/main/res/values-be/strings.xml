@@ -147,4 +147,25 @@
     <string name="workout_mindful_minutes_toggle">Захоўваць хвіліны ўсвядомленасці для йогі</string>
     <string name="workout_mindful_minutes_body">Па жаданні. Па змаўчанні выключана. Запісвае mindful-сесію толькі калі ўключана.</string>
     <string name="workout_mindful_settings_title">Усвядомленасць у йозе</string>
+    <string name="data_privacy_title">Дадзеныя і прыватнасць</string>
+    <string name="data_privacy_intro">OmniGart захоўвае поўную лакальную копію трэніровак і ўзораў на гэтай прыладзе. Экспарт застаецца на прыладзе. Сінхранізацыя з платформай неабавязковая.</string>
+    <string name="data_privacy_sync_status">Сінхранізацыя з платформай</string>
+    <string name="data_privacy_sync_status_line">Сінхранізацыя з платформай: %1$s</string>
+    <string name="data_privacy_last_sync">Апошняя сінхранізацыя</string>
+    <string name="data_privacy_last_sync_line">Апошняя сінхранізацыя: %1$s</string>
+    <string name="data_privacy_sync_now">Сінхранізаваць з платформы зараз</string>
+    <string name="data_privacy_export">Экспартаваць дадзеныя самаадчування</string>
+    <string name="data_privacy_export_share">Падзяліцца экспартам</string>
+    <string name="data_privacy_import_json">Імпартаваць OmniGart JSON</string>
+    <string name="data_privacy_conflicts_title">Прагляд канфліктаў</string>
+    <string name="data_privacy_resolve_all">Пазначыць канфлікты прагледжанымі</string>
+    <string name="data_privacy_export_ready">Экспарт гатовы да перадачы або захавання.</string>
+    <string name="data_privacy_export_failed">Не атрымалася падрыхтаваць экспарт.</string>
+    <string name="data_privacy_import_ok">Імпартавана трэніровак: %d.</string>
+    <string name="data_privacy_import_failed">Не атрымалася імпартаваць гэты файл.</string>
+    <string name="data_privacy_status_authorized">Падключана</string>
+    <string name="data_privacy_status_denied">Дазвол адхілены — лакальнае сховішча працуе</string>
+    <string name="data_privacy_status_partial">Частковы доступ</string>
+    <string name="data_privacy_status_unknown">Не вызначана</string>
+    <string name="data_privacy_permission_note">OmniGart можа чытаць і запісваць трэніроўкі і ўзоры самаадчування, калі вы дазволіце. Можна весьці журнал без доступу. OmniGart ніколі не выдаляе дадзеныя платформы, якія не ствараў, і не запісвае дадзеныя іншых праграм.</string>
 </resources>

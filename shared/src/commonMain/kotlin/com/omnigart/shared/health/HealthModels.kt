@@ -118,6 +118,7 @@ enum class WorkoutActivityType {
     WALKING,
     HIIT,
     YOGA,
+    PILATES,
     OTHER
 }
 

@@ -107,6 +107,11 @@ object StringKeys {
     const val WORKOUT_MINDFUL_MINUTES_TOGGLE = "workout_mindful_minutes_toggle"
     const val WORKOUT_MINDFUL_MINUTES_BODY = "workout_mindful_minutes_body"
     const val WORKOUT_MINDFUL_SETTINGS_TITLE = "workout_mindful_settings_title"
+
+    const val DATA_PRIVACY_TITLE = "data_privacy_title"
+    const val DATA_PRIVACY_INTRO = "data_privacy_intro"
+    const val DATA_PRIVACY_EXPORT = "data_privacy_export"
+    const val DATA_PRIVACY_IMPORT_JSON = "data_privacy_import_json"
 }
 
 object StringCatalog {
@@ -243,7 +248,13 @@ object StringCatalog {
             StringKeys.WORKOUT_MINDFUL_MINUTES_TOGGLE to "Save mindful minutes for yoga",
             StringKeys.WORKOUT_MINDFUL_MINUTES_BODY to
                 "Optional. Off by default. Writes a mindful session only when you enable this.",
-            StringKeys.WORKOUT_MINDFUL_SETTINGS_TITLE to "Yoga mindful minutes"
+            StringKeys.WORKOUT_MINDFUL_SETTINGS_TITLE to "Yoga mindful minutes",
+            StringKeys.DATA_PRIVACY_TITLE to "Data and privacy",
+            StringKeys.DATA_PRIVACY_INTRO to
+                "OmniGart keeps a full local copy of your workouts and samples on this device. " +
+                "Export stays on-device. Platform sync is optional and never required for logging.",
+            StringKeys.DATA_PRIVACY_EXPORT to "Export health data",
+            StringKeys.DATA_PRIVACY_IMPORT_JSON to "Import OmniGart JSON"
         )
 
     private val uk: Map<String, String> =
@@ -376,7 +387,13 @@ object StringCatalog {
             StringKeys.WORKOUT_MINDFUL_MINUTES_TOGGLE to "Зберігати хвилини усвідомленості для йоги",
             StringKeys.WORKOUT_MINDFUL_MINUTES_BODY to
                 "За бажанням. Типово вимкнено. Записує mindful-сесію лише коли ви це вмикаєте.",
-            StringKeys.WORKOUT_MINDFUL_SETTINGS_TITLE to "Усвідомленість у йозі"
+            StringKeys.WORKOUT_MINDFUL_SETTINGS_TITLE to "Усвідомленість у йозі",
+            StringKeys.DATA_PRIVACY_TITLE to "Дані та приватність",
+            StringKeys.DATA_PRIVACY_INTRO to
+                "OmniGart зберігає повну локальну копію тренувань і зразків на цьому пристрої. " +
+                "Експорт лишається на пристрої. Синхронізація з платформою необов’язкова.",
+            StringKeys.DATA_PRIVACY_EXPORT to "Експортувати дані самопочуття",
+            StringKeys.DATA_PRIVACY_IMPORT_JSON to "Імпортувати OmniGart JSON"
         )
 
     private val catalogs: Map<String, Map<String, String>> =

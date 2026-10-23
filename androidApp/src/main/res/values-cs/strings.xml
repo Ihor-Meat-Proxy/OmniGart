@@ -147,4 +147,25 @@
     <string name="workout_mindful_minutes_toggle">Ukládat mindful minuty pro jógu</string>
     <string name="workout_mindful_minutes_body">Volitelné. Ve výchozím stavu vypnuto. Zapisuje jen po zapnutí.</string>
     <string name="workout_mindful_settings_title">Mindful minuty jógy</string>
+    <string name="data_privacy_title">Data a soukromí</string>
+    <string name="data_privacy_intro">OmniGart uchovává úplnou místní kopii tréninků a vzorků na tomto zařízení. Export zůstává v zařízení. Synchronizace s platformou je volitelná.</string>
+    <string name="data_privacy_sync_status">Synchronizace s platformou</string>
+    <string name="data_privacy_sync_status_line">Synchronizace s platformou: %1$s</string>
+    <string name="data_privacy_last_sync">Poslední synchronizace</string>
+    <string name="data_privacy_last_sync_line">Poslední synchronizace: %1$s</string>
+    <string name="data_privacy_sync_now">Synchronizovat z platformy nyní</string>
+    <string name="data_privacy_export">Exportovat wellness data</string>
+    <string name="data_privacy_export_share">Sdílet export</string>
+    <string name="data_privacy_import_json">Importovat OmniGart JSON</string>
+    <string name="data_privacy_conflicts_title">Kontrola konfliktů</string>
+    <string name="data_privacy_resolve_all">Označit konflikty jako zkontrolované</string>
+    <string name="data_privacy_export_ready">Export je připraven ke sdílení nebo uložení.</string>
+    <string name="data_privacy_export_failed">Export se nepodařilo připravit.</string>
+    <string name="data_privacy_import_ok">Importováno tréninků: %d.</string>
+    <string name="data_privacy_import_failed">Tento soubor se nepodařilo importovat.</string>
+    <string name="data_privacy_status_authorized">Připojeno</string>
+    <string name="data_privacy_status_denied">Oprávnění odepřeno — místní úložiště funguje</string>
+    <string name="data_privacy_status_partial">Částečný přístup</string>
+    <string name="data_privacy_status_unknown">Neurčeno</string>
+    <string name="data_privacy_permission_note">OmniGart může číst a zapisovat wellness tréninky a vzorky, pokud to povolíte. Záznamy fungují i bez oprávnění. OmniGart nikdy nemaže data platformy, která nevytvořil, a nezapisuje zpět data jiných aplikací.</string>
 </resources>

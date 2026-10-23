@@ -147,4 +147,25 @@
     <string name="workout_mindful_minutes_toggle">Йога үшін mindful минуттарды сақтау</string>
     <string name="workout_mindful_minutes_body">Қосымша. Әдепкі өшірулі. Тек қосқанда mindful сеансын жазады.</string>
     <string name="workout_mindful_settings_title">Йога mindful минуттары</string>
+    <string name="data_privacy_title">Деректер және құпиялылық</string>
+    <string name="data_privacy_intro">OmniGart жаттығулар мен үлгілердің толық жергілікті көшірмесін осы құрылғыда сақтайды. Экспорт құрылғыда қалады. Платформамен синхрондау міндетті емес.</string>
+    <string name="data_privacy_sync_status">Платформа синхрондауы</string>
+    <string name="data_privacy_sync_status_line">Платформа синхрондауы: %1$s</string>
+    <string name="data_privacy_last_sync">Соңғы синхрондау</string>
+    <string name="data_privacy_last_sync_line">Соңғы синхрондау: %1$s</string>
+    <string name="data_privacy_sync_now">Платформадан қазір синхрондау</string>
+    <string name="data_privacy_export">Сауықтыру деректерін экспорттау</string>
+    <string name="data_privacy_export_share">Экспортпен бөлісу</string>
+    <string name="data_privacy_import_json">OmniGart JSON импорттау</string>
+    <string name="data_privacy_conflicts_title">Қақтығыстарды қарау</string>
+    <string name="data_privacy_resolve_all">Қақтығыстарды қаралған деп белгілеу</string>
+    <string name="data_privacy_export_ready">Экспорт бөлісуге немесе сақтауға дайын.</string>
+    <string name="data_privacy_export_failed">Экспортты дайындау мүмкін болмады.</string>
+    <string name="data_privacy_import_ok">Импортталған жаттығулар: %d.</string>
+    <string name="data_privacy_import_failed">Бұл файлды импорттау мүмкін болмады.</string>
+    <string name="data_privacy_status_authorized">Қосылған</string>
+    <string name="data_privacy_status_denied">Рұқсат қабылданбады — жергілікті қойма жұмыс істейді</string>
+    <string name="data_privacy_status_partial">Ішінара қолжетімділік</string>
+    <string name="data_privacy_status_unknown">Анықталмаған</string>
+    <string name="data_privacy_permission_note">Рұқсат берсеңіз, OmniGart сауықтыру жаттығуларын және үлгілерін оқи және жаза алады. Рұқсатсыз журнал жүргізуге болады. OmniGart өзі жасамаган платформа деректерін жоймайды және басқа қолданба деректерін кері жазбайды.</string>
 </resources>

@@ -286,9 +286,13 @@ class SdkHealthConnectGateway(
     override suspend fun readWorkouts(range: TimeRange): List<HealthWorkout> = withContext(Dispatchers.IO) {
         client.readRecords(ReadRecordsRequest(ExerciseSessionRecord::class, range.toFilter()))
             .records.map {
+                val omnigartId =
+                    it.metadata.clientRecordId
+                        ?.removePrefix("omnigart.workout.")
+                        ?.takeIf { id -> id.isNotBlank() }
                 HealthWorkout(
-                    id = it.metadata.id,
-                    activityType = WorkoutActivityType.OTHER,
+                    id = omnigartId ?: it.metadata.id,
+                    activityType = activityTypeFor(it.exerciseType),
                     start = it.startTime.toKotlin(),
                     end = it.endTime.toKotlin(),
                     sourceName = it.title
@@ -300,14 +304,21 @@ class SdkHealthConnectGateway(
         withContext(Dispatchers.IO) {
             client.insertRecords(
                 workouts.map {
+                    // clientRecordId + clientRecordVersion keep re-saves idempotent
+                    // (update in place instead of duplicating).
+                    val syncId = "omnigart.workout.${it.id}"
                     ExerciseSessionRecord(
                         startTime = it.start.toJava(),
                         startZoneOffset = null,
                         endTime = it.end.toJava(),
                         endZoneOffset = null,
-                        exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_OTHER_WORKOUT,
+                        exerciseType = exerciseTypeFor(it.activityType),
                         title = it.sourceName,
-                        metadata = Metadata.manualEntry()
+                        metadata =
+                        Metadata.manualEntry(
+                            clientRecordId = syncId,
+                            clientRecordVersion = 1L
+                        )
                     )
                 }
             )
@@ -377,3 +388,31 @@ private fun TimeRange.toFilter(): TimeRangeFilter = TimeRangeFilter.between(star
 private fun Instant.toJava(): JavaInstant = JavaInstant.ofEpochMilli(toEpochMilliseconds())
 
 private fun JavaInstant.toKotlin(): Instant = Instant.fromEpochMilliseconds(toEpochMilli())
+
+private fun exerciseTypeFor(type: WorkoutActivityType): Int = when (type) {
+    WorkoutActivityType.STRENGTH -> ExerciseSessionRecord.EXERCISE_TYPE_STRENGTH_TRAINING
+    WorkoutActivityType.RUNNING -> ExerciseSessionRecord.EXERCISE_TYPE_RUNNING
+    WorkoutActivityType.CYCLING -> ExerciseSessionRecord.EXERCISE_TYPE_BIKING
+    WorkoutActivityType.SWIMMING -> ExerciseSessionRecord.EXERCISE_TYPE_SWIMMING_POOL
+    WorkoutActivityType.WALKING -> ExerciseSessionRecord.EXERCISE_TYPE_WALKING
+    WorkoutActivityType.HIIT -> ExerciseSessionRecord.EXERCISE_TYPE_HIGH_INTENSITY_INTERVAL_TRAINING
+    WorkoutActivityType.YOGA -> ExerciseSessionRecord.EXERCISE_TYPE_YOGA
+    WorkoutActivityType.PILATES -> ExerciseSessionRecord.EXERCISE_TYPE_PILATES
+    WorkoutActivityType.OTHER -> ExerciseSessionRecord.EXERCISE_TYPE_OTHER_WORKOUT
+}
+
+private fun activityTypeFor(exerciseType: Int): WorkoutActivityType = when (exerciseType) {
+    ExerciseSessionRecord.EXERCISE_TYPE_STRENGTH_TRAINING -> WorkoutActivityType.STRENGTH
+    ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
+    ExerciseSessionRecord.EXERCISE_TYPE_RUNNING_TREADMILL -> WorkoutActivityType.RUNNING
+    ExerciseSessionRecord.EXERCISE_TYPE_BIKING,
+    ExerciseSessionRecord.EXERCISE_TYPE_BIKING_STATIONARY -> WorkoutActivityType.CYCLING
+    ExerciseSessionRecord.EXERCISE_TYPE_SWIMMING_POOL,
+    ExerciseSessionRecord.EXERCISE_TYPE_SWIMMING_OPEN_WATER -> WorkoutActivityType.SWIMMING
+    ExerciseSessionRecord.EXERCISE_TYPE_WALKING,
+    ExerciseSessionRecord.EXERCISE_TYPE_HIKING -> WorkoutActivityType.WALKING
+    ExerciseSessionRecord.EXERCISE_TYPE_HIGH_INTENSITY_INTERVAL_TRAINING -> WorkoutActivityType.HIIT
+    ExerciseSessionRecord.EXERCISE_TYPE_YOGA -> WorkoutActivityType.YOGA
+    ExerciseSessionRecord.EXERCISE_TYPE_PILATES -> WorkoutActivityType.PILATES
+    else -> WorkoutActivityType.OTHER
+}

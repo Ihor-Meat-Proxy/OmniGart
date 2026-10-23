@@ -147,4 +147,25 @@
     <string name="workout_mindful_minutes_toggle">Zapisuj minuty uważności dla jogi</string>
     <string name="workout_mindful_minutes_body">Opcjonalne. Domyślnie wyłączone. Zapisuje sesję uważności tylko po włączeniu.</string>
     <string name="workout_mindful_settings_title">Uważność w jodze</string>
+    <string name="data_privacy_title">Dane i prywatność</string>
+    <string name="data_privacy_intro">OmniGart przechowuje pełną lokalną kopię treningów i próbek na tym urządzeniu. Eksport pozostaje na urządzeniu. Synchronizacja z platformą jest opcjonalna.</string>
+    <string name="data_privacy_sync_status">Synchronizacja z platformą</string>
+    <string name="data_privacy_sync_status_line">Synchronizacja z platformą: %1$s</string>
+    <string name="data_privacy_last_sync">Ostatnia synchronizacja</string>
+    <string name="data_privacy_last_sync_line">Ostatnia synchronizacja: %1$s</string>
+    <string name="data_privacy_sync_now">Synchronizuj z platformy teraz</string>
+    <string name="data_privacy_export">Eksportuj dane wellness</string>
+    <string name="data_privacy_export_share">Udostępnij eksport</string>
+    <string name="data_privacy_import_json">Importuj JSON OmniGart</string>
+    <string name="data_privacy_conflicts_title">Przegląd konfliktów</string>
+    <string name="data_privacy_resolve_all">Oznacz konflikty jako przejrzane</string>
+    <string name="data_privacy_export_ready">Eksport gotowy do udostępnienia lub zapisania.</string>
+    <string name="data_privacy_export_failed">Nie udało się przygotować eksportu.</string>
+    <string name="data_privacy_import_ok">Zaimportowano treningów: %d.</string>
+    <string name="data_privacy_import_failed">Nie udało się zaimportować tego pliku.</string>
+    <string name="data_privacy_status_authorized">Połączono</string>
+    <string name="data_privacy_status_denied">Odmowa dostępu — lokalny magazyn działa</string>
+    <string name="data_privacy_status_partial">Częściowy dostęp</string>
+    <string name="data_privacy_status_unknown">Nie określono</string>
+    <string name="data_privacy_permission_note">OmniGart może czytać i zapisywać treningi oraz próbki wellness, gdy na to pozwolisz. Możesz logować bez dostępu. OmniGart nie usuwa danych platformy, których nie utworzył, i nie zapisuje danych z innych aplikacji.</string>
 </resources>

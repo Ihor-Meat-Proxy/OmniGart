@@ -142,6 +142,7 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
                     profileId = profileId,
                     onSelectionChanged = { formulaEpoch += 1 }
                 )
+                DataPrivacySection(core = core)
             }
             // Unfinished surfaces stay behind flags that are off in release.
             if (FeatureFlags.healthSyncEnabled) {

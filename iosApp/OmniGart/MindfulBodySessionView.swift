@@ -156,6 +156,25 @@ struct MindfulBodySessionView: View {
                     averageBpm: avgBpm,
                     ageYears: age
                 )
+                let maxBpm = avg.max()
+                let localId = "mindful-\(kind.rawValue)-\(Int(start.timeIntervalSince1970))"
+                let activityName = kind == .yoga ? "YOGA" : "PILATES"
+                let syncId = core.localHealth.recordOmniGartWorkout(
+                    localId: localId,
+                    activityTypeName: activityName,
+                    startEpochMs: Int64(start.timeIntervalSince1970 * 1000),
+                    endEpochMs: Int64(end.timeIntervalSince1970 * 1000),
+                    activeEnergyKcal: KotlinDouble(value: energy.activeKcal),
+                    basalEnergyKcal: KotlinDouble(value: energy.basalKcal),
+                    distanceMetres: nil,
+                    averageHeartRateBpm: avgBpm.map { KotlinDouble(value: $0) },
+                    maxHeartRateBpm: maxBpm.map { KotlinDouble(value: $0) },
+                    sessionId: nil,
+                    planId: nil,
+                    heartRateEpochMs: during.map { Int64($0.date.timeIntervalSince1970 * 1000) },
+                    heartRateBpm: during.map(\.bpm),
+                    syncVersion: 1
+                )
                 let saved = try await HealthKitWorkoutWriter.save(
                     options: .init(
                         activityType: kind.activityType,
@@ -166,7 +185,9 @@ struct MindfulBodySessionView: View {
                         indoor: true,
                         saveMindfulMinutes: saveMindful,
                         estimatedEffortScore: effort,
-                        heartRateRecoveryBpm: recovery
+                        heartRateRecoveryBpm: recovery,
+                        syncIdentifier: syncId,
+                        syncVersion: 1
                     )
                 )
                 await MainActor.run {

@@ -216,8 +216,10 @@ struct StrengthLoggingView: View {
                 let recoveryEnd = end.addingTimeInterval(90)
                 let hrSamples =
                     (try? await HealthKitWorkoutWriter.fetchHeartRate(from: start, to: recoveryEnd)) ?? []
-                let avg = hrSamples.map(\.bpm).filter { $0 > 0 }
+                let sessionHr = hrSamples.filter { $0.date <= end }
+                let avg = sessionHr.map(\.bpm).filter { $0 > 0 }
                 let avgBpm = avg.isEmpty ? nil : avg.reduce(0, +) / Double(avg.count)
+                let maxBpm = avg.max()
                 let recovery = HealthKitWorkoutWriter.estimateHeartRateRecoveryBpm(
                     samples: hrSamples,
                     workoutEnd: end
@@ -226,17 +228,36 @@ struct StrengthLoggingView: View {
                     averageBpm: avgBpm,
                     ageYears: age
                 )
+                // Local-first: always persist in OmniGart DB, even without Health permission.
+                let syncId = core.localHealth.recordOmniGartWorkout(
+                    localId: id,
+                    activityTypeName: "STRENGTH",
+                    startEpochMs: Int64(start.timeIntervalSince1970 * 1000),
+                    endEpochMs: Int64(end.timeIntervalSince1970 * 1000),
+                    activeEnergyKcal: KotlinDouble(value: energy.activeKcal),
+                    basalEnergyKcal: KotlinDouble(value: energy.basalKcal),
+                    distanceMetres: nil,
+                    averageHeartRateBpm: avgBpm.map { KotlinDouble(value: $0) },
+                    maxHeartRateBpm: maxBpm.map { KotlinDouble(value: $0) },
+                    sessionId: id,
+                    planId: nil,
+                    heartRateEpochMs: sessionHr.map { Int64($0.date.timeIntervalSince1970 * 1000) },
+                    heartRateBpm: sessionHr.map(\.bpm),
+                    syncVersion: 1
+                )
                 let saved = try await HealthKitWorkoutWriter.save(
                     options: .init(
                         activityType: .traditionalStrengthTraining,
                         start: start,
                         end: end,
                         energy: energy,
-                        heartRate: hrSamples.filter { $0.date <= end },
+                        heartRate: sessionHr,
                         strength: strengthMeta,
                         indoor: true,
                         estimatedEffortScore: effort,
-                        heartRateRecoveryBpm: recovery
+                        heartRateRecoveryBpm: recovery,
+                        syncIdentifier: syncId,
+                        syncVersion: 1
                     )
                 )
                 await MainActor.run {
@@ -244,6 +265,7 @@ struct StrengthLoggingView: View {
                     refreshSummary(id: id)
                 }
             } catch {
+                // Local store already has the workout; platform write is optional.
                 await MainActor.run {
                     lastEnergy = HealthKitWorkoutWriter.Result(
                         workoutUUID: UUID(),

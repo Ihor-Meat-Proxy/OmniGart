@@ -6419,6 +6419,186 @@
     "status": "machine-drafted",
     "source_hash": "9aecbd3999664b04"
   },
+  "body.error.invalid_density": {
+    "status": "machine-drafted",
+    "source_hash": "691b53da13ca82fd"
+  },
+  "body.error.invalid_height": {
+    "status": "machine-drafted",
+    "source_hash": "08fee0f29f0acea5"
+  },
+  "body.error.missing_abdomen": {
+    "status": "machine-drafted",
+    "source_hash": "833081fd07037157"
+  },
+  "body.error.missing_hip": {
+    "status": "machine-drafted",
+    "source_hash": "8e8f04b40f3c6aa8"
+  },
+  "body.error.missing_neck": {
+    "status": "machine-drafted",
+    "source_hash": "0a600e8f23b5851b"
+  },
+  "body.error.missing_skinfolds": {
+    "status": "machine-drafted",
+    "source_hash": "335e635854f504a2"
+  },
+  "body.error.missing_waist": {
+    "status": "machine-drafted",
+    "source_hash": "63e2eff0ccdedad6"
+  },
+  "body.error.missing_weight": {
+    "status": "machine-drafted",
+    "source_hash": "49045cc22e238ddd"
+  },
+  "body.error.navy_female_geometry": {
+    "status": "machine-drafted",
+    "source_hash": "94fd8f9e1a438ad1"
+  },
+  "body.error.navy_male_geometry": {
+    "status": "machine-drafted",
+    "source_hash": "76c7157ca94301dc"
+  },
+  "body.error.sex_required": {
+    "status": "machine-drafted",
+    "source_hash": "1cd3a3d93f3615fd"
+  },
+  "body.method.bmi_waist_height.name": {
+    "status": "machine-drafted",
+    "source_hash": "fa0077c54c982565"
+  },
+  "body.method.bmi_waist_height.summary": {
+    "status": "machine-drafted",
+    "source_hash": "403b51605a5837f4"
+  },
+  "body.method.cun_bae.name": {
+    "status": "machine-drafted",
+    "source_hash": "36ba9a956ec0477a"
+  },
+  "body.method.cun_bae.summary": {
+    "status": "machine-drafted",
+    "source_hash": "07f28e5f2ee72f9e"
+  },
+  "body.method.jackson_pollock_3.name": {
+    "status": "machine-drafted",
+    "source_hash": "e54639e40b619928"
+  },
+  "body.method.jackson_pollock_3.summary": {
+    "status": "machine-drafted",
+    "source_hash": "e2e2aecb62e83a56"
+  },
+  "body.method.jackson_pollock_7.name": {
+    "status": "machine-drafted",
+    "source_hash": "b9a3f9299e3028f6"
+  },
+  "body.method.jackson_pollock_7.summary": {
+    "status": "machine-drafted",
+    "source_hash": "8ce8a97bbb68fb7a"
+  },
+  "body.method.us_navy.name": {
+    "status": "machine-drafted",
+    "source_hash": "16d60408ab8aa9c8"
+  },
+  "body.method.us_navy.summary": {
+    "status": "machine-drafted",
+    "source_hash": "46e9107454527e43"
+  },
+  "body.photo.local_only": {
+    "status": "machine-drafted",
+    "source_hash": "2d224a20d359961f"
+  },
+  "body.site.abdomen": {
+    "status": "machine-drafted",
+    "source_hash": "3ba2375490b6e9b6"
+  },
+  "body.site.calf": {
+    "status": "machine-drafted",
+    "source_hash": "bd7b1f474d4da923"
+  },
+  "body.site.chest": {
+    "status": "machine-drafted",
+    "source_hash": "378d83808237a445"
+  },
+  "body.site.forearm": {
+    "status": "machine-drafted",
+    "source_hash": "abc45bb531b70cc3"
+  },
+  "body.site.hip": {
+    "status": "machine-drafted",
+    "source_hash": "46dd9790bf6a04f2"
+  },
+  "body.site.neck": {
+    "status": "machine-drafted",
+    "source_hash": "6b27a97151bbf20f"
+  },
+  "body.site.thigh": {
+    "status": "machine-drafted",
+    "source_hash": "c6b5d7fd9e0a0a80"
+  },
+  "body.site.upper_arm": {
+    "status": "machine-drafted",
+    "source_hash": "60aff010dfd6b7dd"
+  },
+  "body.site.waist": {
+    "status": "machine-drafted",
+    "source_hash": "8470df662662ad9a"
+  },
+  "body.skinfold.abdomen": {
+    "status": "machine-drafted",
+    "source_hash": "4b988f96de9d3348"
+  },
+  "body.skinfold.chest": {
+    "status": "machine-drafted",
+    "source_hash": "daca82f82653660a"
+  },
+  "body.skinfold.midaxillary": {
+    "status": "machine-drafted",
+    "source_hash": "d65f270a414d1d25"
+  },
+  "body.skinfold.subscapular": {
+    "status": "machine-drafted",
+    "source_hash": "73147068e751b609"
+  },
+  "body.skinfold.suprailiac": {
+    "status": "machine-drafted",
+    "source_hash": "2efb94df407249be"
+  },
+  "body.skinfold.thigh": {
+    "status": "machine-drafted",
+    "source_hash": "de7ad619416e3844"
+  },
+  "body.skinfold.triceps": {
+    "status": "machine-drafted",
+    "source_hash": "8ca137750b687681"
+  },
+  "body.wellness.bmi_elevated": {
+    "status": "machine-drafted",
+    "source_hash": "bb0f5c2a8a0a2983"
+  },
+  "body.wellness.bmi_high": {
+    "status": "machine-drafted",
+    "source_hash": "bfc771ab12e28bb4"
+  },
+  "body.wellness.bmi_mid": {
+    "status": "machine-drafted",
+    "source_hash": "0bf9c02bf24eac1a"
+  },
+  "body.wellness.bmi_under": {
+    "status": "machine-drafted",
+    "source_hash": "d18a396cca4ff283"
+  },
+  "body.wellness.whtr_at_or_above_half": {
+    "status": "machine-drafted",
+    "source_hash": "2df31248a37baa34"
+  },
+  "body.wellness.whtr_below_half": {
+    "status": "machine-drafted",
+    "source_hash": "d23c7dd7c4fe6178"
+  },
+  "body.wellness.whtr_unknown": {
+    "status": "machine-drafted",
+    "source_hash": "c87d808ab6689fd5"
+  },
   "achievement.body.first_measurement.description": {
     "status": "machine-drafted",
     "source_hash": "24bd86fab222cdc0"

@@ -21,18 +21,14 @@
   "rationale": "Four-day upper/lower keeps ~2× weekly frequency per muscle while allowing higher per-session volume within Schoenfeld/Pelland dose–response bands.",
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1080/02640414.2016.1210197",
-      "label": "Schoenfeld et al. 2016 volume dose–response",
+      "evidenceId": "schoenfeld_volume_2016",
       "supports": [
         "hypertrophy",
         "programming"
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1007/s40279-025-02344-w",
-      "label": "Pelland et al. volume/frequency meta-regressions",
+      "evidenceId": "pelland_rt_dose_2025",
       "supports": [
         "programming",
         "hypertrophy",
@@ -40,9 +36,7 @@
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1007/s40279-016-0543-8",
-      "label": "Schoenfeld et al. 2016 frequency meta-analysis",
+      "evidenceId": "schoenfeld_frequency_2016",
       "supports": [
         "programming",
         "hypertrophy"

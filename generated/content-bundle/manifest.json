@@ -2,36 +2,201 @@
   "fileIndex": {
     "achievements": [
       {
+        "bytes": 3985,
+        "path": "BEHAVIOURAL_SCIENCE.md",
+        "sha256": "231f91a153a2ba532b237b1798b0b1478aaf830be216393edbe2e9df6d3a9c41"
+      },
+      {
+        "bytes": 732,
+        "path": "README.md",
+        "sha256": "9f2e90bf1e90aacfca1b83d2fa635ccf1523a86b4f0541aef27f43778155e03f"
+      },
+      {
+        "bytes": 505,
+        "path": "catalogue.json",
+        "sha256": "faf71ce4908ae0d950ada61299c9a33c8077089955a6a6378c0984dbf5dee38f"
+      },
+      {
+        "bytes": 6319,
+        "path": "data/body.json",
+        "sha256": "8a4fd6d844acc039a2b066cec4c2c40b68c3980e9d4059e4bf8cacc54ed7d060"
+      },
+      {
+        "bytes": 12310,
+        "path": "data/general.json",
+        "sha256": "c6f0f6f947a362f0f8784c27e3e0f4a1c1d06965a79a14a1738a94545be40954"
+      },
+      {
+        "bytes": 8452,
+        "path": "data/nutrition.json",
+        "sha256": "0476646b40ec90a8c4798890db65114d64f3e8a42bb4206784b848eae8ef7879"
+      },
+      {
+        "bytes": 6115,
+        "path": "data/pilates.json",
+        "sha256": "31c383acc6c3845473b5c44dee5317c866d39a2aa0cac794b6357227a5bfba18"
+      },
+      {
+        "bytes": 7856,
+        "path": "data/recovery.json",
+        "sha256": "7425e2ddc642a3e5004f53f958f40a5dfb3f935f0dce3384b63750043c6bbba3"
+      },
+      {
+        "bytes": 11496,
+        "path": "data/running.json",
+        "sha256": "137414b6749e324323ba6920471cfbb824db98870f54c8ebe9df466b759ff317"
+      },
+      {
+        "bytes": 16391,
+        "path": "data/strength.json",
+        "sha256": "a680384cd5f70a654fad1ab2dc03a9f8134899d8834ed15d4dfc196caf6b0ec7"
+      },
+      {
+        "bytes": 9467,
+        "path": "data/swimming.json",
+        "sha256": "87d13e1fbe557e301a9ccffe773fca9c23267fabc07c35835877066f86d7e912"
+      },
+      {
+        "bytes": 5299,
+        "path": "data/water.json",
+        "sha256": "3b28b36481f7bd661aa908bd014f74029157360cc63379f82094ce25b8f6992c"
+      },
+      {
+        "bytes": 7596,
+        "path": "data/yoga.json",
+        "sha256": "9b5539a9117d470c79dc87ea5252c4d083471d98b1acc90a686a5b6fc3766241"
+      },
+      {
+        "bytes": 51216,
+        "path": "engine-a67e/achievements.json",
+        "sha256": "33550fc03b9b80feb1be950ed50e79333d149b4ed8e0576b6f15e85602ca3253"
+      },
+      {
+        "bytes": 2840,
+        "path": "engine-a67e/challenge-templates.json",
+        "sha256": "51439ac7dab3d2704f360435d9326159be434e89917bdd0f559275e788d699e5"
+      },
+      {
+        "bytes": 46505,
+        "path": "locales/be.json",
+        "sha256": "5b4319f83cad1beca916a5726e6b3c33b6f4bdba1287aa9f4dd62123fde28c9f"
+      },
+      {
+        "bytes": 36436,
+        "path": "locales/cs.json",
+        "sha256": "4b170d19df53c5c4b88cf43d57ab93cac2f73d6ff6d0a665a95de83c3b564a1b"
+      },
+      {
+        "bytes": 36170,
+        "path": "locales/de.json",
+        "sha256": "e16234ed22191d9e57b8ab509a573bf18aaed3f19e37cbd276f63f2d3b933f15"
+      },
+      {
+        "bytes": 34329,
+        "path": "locales/en-GB.json",
+        "sha256": "01ac8932dde9a1afadb62f664ed92c7a918855f842055156333d16ca4db220bf"
+      },
+      {
+        "bytes": 37038,
+        "path": "locales/es.json",
+        "sha256": "e021bb33c75e567758338c310006f098515e0562cfea1fbd411eba4b0e161ac6"
+      },
+      {
+        "bytes": 37987,
+        "path": "locales/fr.json",
+        "sha256": "e595b7df01275ec80473917636d5d792b6c88515849e428649bc87cf562f25a2"
+      },
+      {
+        "bytes": 58650,
+        "path": "locales/ka.json",
+        "sha256": "0c94c3584326856b3e7c510298f29dd7ec84ddb089717ba0449542c8b92b6f44"
+      },
+      {
+        "bytes": 45550,
+        "path": "locales/kk.json",
+        "sha256": "1a37ad745d4c95ccb7200554fe3834bf75f09cfed8cf4d7c48839d0e33b4f733"
+      },
+      {
+        "bytes": 35897,
+        "path": "locales/pl.json",
+        "sha256": "00a2507f610c6cfadc33a33ac38ffbe7436fe1a3e9ed7017bf39562f3c690999"
+      },
+      {
+        "bytes": 46355,
+        "path": "locales/uk.json",
+        "sha256": "04dc8363c18203050eb675f42a535f77429006f1ae1f9ba6db41b4999b7df83d"
+      },
+      {
+        "bytes": 32872,
+        "path": "locales/zh-Hans.json",
+        "sha256": "dfd7db56bc270f2dca9dc11eaa38f92ded67eaea4ebeb46827a3aa0eb0f5b71c"
+      },
+      {
         "bytes": 79,
         "path": "pack.json",
         "sha256": "971702949b98b5402311f83f536ae0b419b3658d6dc41fafaa65b49a44a23a6b"
+      },
+      {
+        "bytes": 942,
+        "path": "proposed-icons.json",
+        "sha256": "a54b0363936b789a77c598c51721dd4a78dcf2c3e8a06aebae27a5303e4e1a41"
+      },
+      {
+        "bytes": 8168,
+        "path": "schema/achievement.schema.json",
+        "sha256": "be2fb27f6c060c22e81cebe6b7379e3c7b84dbdf126daf55558c9291d58aaa93"
+      },
+      {
+        "bytes": 2586,
+        "path": "schema/challenge-template.schema.json",
+        "sha256": "a19e040ee3edd4415aaf78af4cacb316df5df6ac426c60dcbf6122aa8a2fd538"
+      },
+      {
+        "bytes": 80022,
+        "path": "tools/generate_catalogue.py",
+        "sha256": "364b6e21fd0372cef893c39dc50b685296f89cf06a9a88b78dbc85f8bd26f000"
+      },
+      {
+        "bytes": 2953,
+        "path": "tools/package-lock.json",
+        "sha256": "6b47ce1fbe152934203875f4bde4ec8bada092823879bdb38dabc20e617180d6"
+      },
+      {
+        "bytes": 322,
+        "path": "tools/package.json",
+        "sha256": "5f0107720f6773572f9ba6bf65a7cd08de57fe513d4c3b2b2ebc6922ba2e79e4"
+      },
+      {
+        "bytes": 6042,
+        "path": "tools/validate.mjs",
+        "sha256": "68f8ad8714e4a6b0fa848a8de3a017d4f7ab8397c2a954eece5dd36708f806b1"
       }
     ],
     "body-maps": [
       {
-        "bytes": 38068,
+        "bytes": 39044,
         "path": "paths/female-back.json",
-        "sha256": "69bea1e11173d19e0045dbae05bddd2a5eea3941b6f8aa4ba3d1f1229303cb74"
+        "sha256": "218ada0d798759596a310ab588c4bc9da0c721633a9a2b480f56b5b0cbd50545"
       },
       {
-        "bytes": 33327,
+        "bytes": 39099,
         "path": "paths/female-front.json",
-        "sha256": "817b92ef50d0e7b76aa8d37327e50e6fa0692336b968304326ce3f0f75d9876e"
+        "sha256": "a783113a74f2c68a8e8346dae0a9384997e7506ecd234c3eaa9aa2cc69775fed"
       },
       {
-        "bytes": 4714,
+        "bytes": 4806,
         "path": "paths/index.json",
-        "sha256": "ade5ab45ab2c511a410ab850bbb4369474fc00ad6c592f98f4e16279d0e0f29d"
+        "sha256": "39a00c5fe11fdeb9e766448d4136bdfaacb0e22b1db5812b5bbf5f4e5fc05602"
       },
       {
-        "bytes": 56459,
+        "bytes": 57659,
         "path": "paths/male-back.json",
-        "sha256": "3dcdc175479a67950df7f68f7292196bccf44ed66e41eb896cb5bbceff7f550f"
+        "sha256": "079a782c290eb9c7fdc7c5aae58ce430bdd4603f5eed66418f724c36c17f696e"
       },
       {
-        "bytes": 35194,
+        "bytes": 38196,
         "path": "paths/male-front.json",
-        "sha256": "657bf28ed24ff3469439b4f12f147d964d805eab4e5af51be4cdc0e4ba8adf5c"
+        "sha256": "ffaa5f4939e2885bbc640b3ef3ab31ef41f71d3b3192dc7652af5a3fb0666b63"
       }
     ],
     "evidence": [
@@ -55,729 +220,729 @@
     ],
     "exercises": [
       {
-        "bytes": 1848,
+        "bytes": 1764,
         "path": "data/a-skip.json",
-        "sha256": "43f089fad0249ee418ae462d1192f3d7ffd1686b93daa758aea53face3defb96"
+        "sha256": "91dcf79858fbfef2b07dd5291e558c26e79734ace700ac37d437fc8d1cc46465"
       },
       {
-        "bytes": 1961,
+        "bytes": 1846,
         "path": "data/ab-wheel-rollout.json",
-        "sha256": "d2ca05c4dc496498b55f29a056abe65cabe1a1b94fb0dc7f277e1b6ba7084e73"
+        "sha256": "cf28ddf7fcaa04f8554de64b3bc222ec6884315cbca92f76d28ea68e6ea0d738"
       },
       {
-        "bytes": 2916,
+        "bytes": 2573,
         "path": "data/archer-pull-up.json",
-        "sha256": "666d8f1e38ff1a404572bc1567f9ae49232c03e947818eb1a9ac82281e0fe35b"
+        "sha256": "0d6e8b00d6d448716e88ef4606dfa972c8d8d169a64a2b2d67858b76f1d57dfe"
       },
       {
-        "bytes": 3057,
+        "bytes": 2712,
         "path": "data/assisted-pull-up-band.json",
-        "sha256": "53c51dbc23700fda8c46cd9b11f9bee55cc6add8289791dcd18c03689ca5e7e0"
+        "sha256": "c8bb10a6a963e7fa0f9905e7e4f1dcd498ce0f20dc4f6d0f1bb693f2d9c25128"
       },
       {
-        "bytes": 1985,
+        "bytes": 1870,
         "path": "data/back-extension-roman.json",
-        "sha256": "43a44d835074f8cff8e5e55c6417a188b7c5351b2c42b1cd0cd0c4f0a9c9c7e2"
+        "sha256": "79f32eb72c9a663c4b574926a65056c31a5e1ecc2ad9cb0b801fc92791786ca4"
       },
       {
-        "bytes": 3134,
+        "bytes": 2851,
         "path": "data/back-squat.json",
-        "sha256": "d320adeca63f21466a35b06bdb5c62da21662daebd5e8cfd8b21c4a50b0612f6"
-      },
-      {
-        "bytes": 2019,
-        "path": "data/backstroke.json",
-        "sha256": "c9d895092c4e77972febc583aaf3d95a3e5967e334a0e92a7b0e25ede52b1941"
-      },
-      {
-        "bytes": 2808,
-        "path": "data/band-assisted-dip.json",
-        "sha256": "1cbecca337ad3f9915cce5077698e56b7ce06a517bb881abb578fe880f530d1c"
-      },
-      {
-        "bytes": 1976,
-        "path": "data/band-pull-apart.json",
-        "sha256": "7099f98173d7d0fe9f7342f701eea2fa113487f7fb61b74e0e49e5a9a0b242fa"
-      },
-      {
-        "bytes": 2570,
-        "path": "data/barbell-bench-press.json",
-        "sha256": "f6c641b2309faa9ae38c029826f7e03da5d06b36385b3b4c4e82f8cb6d5ca83e"
-      },
-      {
-        "bytes": 1642,
-        "path": "data/barbell-curl.json",
-        "sha256": "42d80b5e3f94f374dc5969cec68224047491e226f443dd6f3f8c50f842971d20"
-      },
-      {
-        "bytes": 1947,
-        "path": "data/barbell-row.json",
-        "sha256": "db2c96b9747109a0b35c75985279c0936dcedc9378a8547cc9657910af3f0f99"
-      },
-      {
-        "bytes": 3273,
-        "path": "data/bench-dip.json",
-        "sha256": "9a62900f2f67849d9d95a6a557adcc92c239be8d6546aabcc0115a0db61ba6a4"
-      },
-      {
-        "bytes": 1796,
-        "path": "data/bird-dog.json",
-        "sha256": "2115df6938699738194c67ca83ab0a160370f31e234f88eb4f7ba99b62cbc9e8"
-      },
-      {
-        "bytes": 2204,
-        "path": "data/box-squat.json",
-        "sha256": "d9aaa7bd1cb41be177c493d7f787a50f1e1bbe009b025c5e1e9f91447bd57228"
-      },
-      {
-        "bytes": 2113,
-        "path": "data/breaststroke.json",
-        "sha256": "120b0d92a3dcd5cd10958eac418395ce32db1711fd4e48e202a052d3effb6173"
-      },
-      {
-        "bytes": 1985,
-        "path": "data/bridge-pose-yoga.json",
-        "sha256": "a9b8c76ad87072a96f874eff37614fde0e9890a9b24e8bc096993438cf51f5dd"
-      },
-      {
-        "bytes": 1903,
-        "path": "data/brisk-walk.json",
-        "sha256": "1cfdbbb4e2af046575d1883d7f72a95acaa002caec0603505d7cdc75d2333707"
-      },
-      {
-        "bytes": 2014,
-        "path": "data/bulgarian-split-squat.json",
-        "sha256": "f2173b092dfbaba579e6035220ddfc2bc56a2c3848c8bee6b4612d3e47dcc9fa"
-      },
-      {
-        "bytes": 1796,
-        "path": "data/butt-kicks.json",
-        "sha256": "4ec1d0906ab146d8569b7b3d1d7155867fcc6641e0b098ffab45f3d6d6bf1d99"
-      },
-      {
-        "bytes": 2190,
-        "path": "data/butterfly-stroke.json",
-        "sha256": "e488c2bfdeace78367d0996977f2a52eead9c0306e397ff793b99e09585fbfc5"
-      },
-      {
-        "bytes": 1841,
-        "path": "data/cable-chest-fly.json",
-        "sha256": "98390281fe8bffa68045d115dec3eea7036c04027587effd17bd0f3e9e562d8f"
-      },
-      {
-        "bytes": 1829,
-        "path": "data/cable-woodchop.json",
-        "sha256": "5005a5dd4d90badf41fccba3568f361f1cab633855d581677e910eb7c5205d14"
-      },
-      {
-        "bytes": 1980,
-        "path": "data/calf-raise-standing.json",
-        "sha256": "fbf07fd180a257d87407e6c48451471c15b1f430f3cebc4802f72434a4392971"
-      },
-      {
-        "bytes": 1708,
-        "path": "data/cat-cow.json",
-        "sha256": "3cb32b845e7dd9dea14cf5c84ecec85fcbf46fd0b5a3978c713582dd1b6fed97"
-      },
-      {
-        "bytes": 2088,
-        "path": "data/catch-up-drill.json",
-        "sha256": "14b9e8b723d8d80cc73cdb7c5cb408638239a478ff74fa5dbc97e484e3f32d99"
-      },
-      {
-        "bytes": 2118,
-        "path": "data/chest-supported-row.json",
-        "sha256": "e9ad6610b293401a22e13a864ebbf0d5a5a46abd134ad24c26d80e3b1a6092e0"
-      },
-      {
-        "bytes": 2728,
-        "path": "data/chest-to-bar-pull-up.json",
-        "sha256": "8c6c72e41e92539d30e77c02e7c2590180f7907dc5d4b2a33a2f56e0094449cb"
-      },
-      {
-        "bytes": 1804,
-        "path": "data/child-pose.json",
-        "sha256": "82bdd20f6d756e9a49b7ddda1f04ce4ac0823c4cb08118bcb7ef70581cc13710"
-      },
-      {
-        "bytes": 3431,
-        "path": "data/chin-up.json",
-        "sha256": "39d571da21c6acd23af5db2e6baaa2a7ee0a91d5645517250f6eec15e3eafc20"
-      },
-      {
-        "bytes": 1904,
-        "path": "data/close-grip-bench-press.json",
-        "sha256": "3466543048a5a72d14a8bf4378ede7bd146a919f1b166051267cb5b21e502714"
-      },
-      {
-        "bytes": 2834,
-        "path": "data/close-grip-pull-up.json",
-        "sha256": "5b5813dfa4cbf6be4a359e8313e5cdd2c3fb9a5115a833a9599569603ccaef27"
-      },
-      {
-        "bytes": 3003,
-        "path": "data/commando-pull-up.json",
-        "sha256": "7f151bd50f024b2728e2b8a95e46d3cc5c709a21e3e088d90e3de5f83dcbf671"
-      },
-      {
-        "bytes": 2761,
-        "path": "data/conventional-deadlift.json",
-        "sha256": "77d2d480326443482a00b188aa18b36d64cdbbac7f11ecf04f430e5fa7bd56c7"
-      },
-      {
-        "bytes": 2128,
-        "path": "data/dead-bug.json",
-        "sha256": "e3262f20eabb7a3752cad57146c6ae853fee7164ed92f9cd03a18ca50982f21d"
-      },
-      {
-        "bytes": 1882,
-        "path": "data/deficit-deadlift.json",
-        "sha256": "d8c8bd1e85da9d46e0628c00f4f188ab45f8e0b01b891be7732d4087e5e81589"
-      },
-      {
-        "bytes": 2163,
-        "path": "data/diamond-push-up.json",
-        "sha256": "b4a7544ffba0855bb00700302f2a8c37190911d5723f1bdd45a0b6fe16865ecc"
-      },
-      {
-        "bytes": 3724,
-        "path": "data/dip-parallel-bar.json",
-        "sha256": "1adac789841b5e88a76b24ea50ca74dad3376dcba200b6f8db8efa1c2ae78dde"
-      },
-      {
-        "bytes": 2024,
-        "path": "data/downward-dog.json",
-        "sha256": "c52d8afb2e7efd7c9d253f3100a9f3b8870ad0baecea63d2e5cf93f56dd44e01"
-      },
-      {
-        "bytes": 2389,
-        "path": "data/dumbbell-bench-press.json",
-        "sha256": "d92aba3a26110047293e098ef6e24209295b37ca6808f53678bc16e02653d4e4"
-      },
-      {
-        "bytes": 1642,
-        "path": "data/dumbbell-curl.json",
-        "sha256": "c6648ef5dfee1e0580a6d06740cc99fadad18bdc510250a90f31a6ea0c20c7c3"
-      },
-      {
-        "bytes": 1924,
-        "path": "data/dumbbell-incline-press.json",
-        "sha256": "b7388d33dbfd74535855b308ba4907e0a8053e855679ee60d3fd27809fc682f3"
-      },
-      {
-        "bytes": 2302,
-        "path": "data/easy-run.json",
-        "sha256": "1cdc4fc05b3a72672c190bf9d8db5d013266382e07c4d01159bc6b81d3df8406"
-      },
-      {
-        "bytes": 1683,
-        "path": "data/face-pull.json",
-        "sha256": "f78eeb4ea70e2330deced56eb21029fe751b9650e7c6959fc3c387b7b99e58cf"
-      },
-      {
-        "bytes": 2266,
-        "path": "data/farmers-carry.json",
-        "sha256": "f562234eb5d42183a9a15bab7c76bf7951c7903696a4bbc4ec942b0e859f7542"
-      },
-      {
-        "bytes": 1815,
-        "path": "data/floor-press-dumbbell.json",
-        "sha256": "a4515dc1929f87626e9663b0e5d9b1cbbdcd65f58612148dbbe188f073e476ec"
-      },
-      {
-        "bytes": 2386,
-        "path": "data/freestyle-stroke.json",
-        "sha256": "d74560e81bd9fc0d9361b951c08db3e3a20d9c5d0cb232ec4ed86984af4c1ee3"
-      },
-      {
-        "bytes": 2540,
-        "path": "data/front-squat.json",
-        "sha256": "47ac083adb1d22c2b840739e4df9fbaf0fa97c2eaf438d8ef367dbe7c68a69e7"
-      },
-      {
-        "bytes": 2029,
-        "path": "data/glute-bridge.json",
-        "sha256": "489c05456b3c8062a535e52fd136d2ecbc3c5229cf340fa835d3950c64bec72f"
-      },
-      {
-        "bytes": 1956,
-        "path": "data/goblet-lateral-squat.json",
-        "sha256": "a4ab8388e6bbb8b9d6df51cea047dfffbe74edd4972fd5d147bf44c2402e5883"
-      },
-      {
-        "bytes": 2438,
-        "path": "data/goblet-squat.json",
-        "sha256": "baeabe1cbb701e05bc2984a0e85eede403ab7e4a581ba16bb3820bce09544064"
-      },
-      {
-        "bytes": 1891,
-        "path": "data/good-morning.json",
-        "sha256": "75e9309240b984eaf8a13047f802709ae499c9ba497b56b5e8a1b478b3acd8f7"
-      },
-      {
-        "bytes": 1988,
-        "path": "data/hack-squat-machine.json",
-        "sha256": "f6283cc21110122ef334f4e28b1749528903fd29db8d78454036b95ad492a243"
-      },
-      {
-        "bytes": 1833,
-        "path": "data/hanging-knee-raise.json",
-        "sha256": "d4a169eb1c0b3a1784286f4dd559aefb6a4bf60bc2d072a5a63b7f3b76112655"
-      },
-      {
-        "bytes": 1708,
-        "path": "data/high-knees-drill.json",
-        "sha256": "f4cf21bcb90b2eddb74d640165e40b97924a83627c9c94239c9180e93f232878"
-      },
-      {
-        "bytes": 1726,
-        "path": "data/hip-abduction-machine.json",
-        "sha256": "7cc9b7f7ebb36f7b3c15a4b17722a18e38ee172020b6cc6e03230fe616d49794"
-      },
-      {
-        "bytes": 1606,
-        "path": "data/hip-adduction-machine.json",
-        "sha256": "015b146e4bb56fd84fff17f46fc13b5f88e2555db2a3fef9b0e613fb45a134ca"
-      },
-      {
-        "bytes": 1819,
-        "path": "data/hip-hinge-dowel.json",
-        "sha256": "16c744f1082732797ac9d2e6e06fccddb578f9f6f118289ff3e5f41caf9df0b5"
-      },
-      {
-        "bytes": 2223,
-        "path": "data/hip-thrust.json",
-        "sha256": "aeab229f3b875b9ad48bc50c01729ff84639ca16c65058343e838af6c057ae6d"
-      },
-      {
-        "bytes": 2334,
-        "path": "data/incline-push-up.json",
-        "sha256": "183843f3b30f9137880b55f4673d377bbae179d54e70a3c2f9f9f174dc7993b1"
-      },
-      {
-        "bytes": 2111,
-        "path": "data/interval-run.json",
-        "sha256": "e802e973284a4741c373d6ef4f9f4d7ccd8eb34180be4c84ff477a10cacd69b5"
-      },
-      {
-        "bytes": 3159,
-        "path": "data/inverted-row.json",
-        "sha256": "6855942d8356dd0944aa7ae3a32179182ed1a1da46104b13f8dea6323dffcdff"
-      },
-      {
-        "bytes": 2214,
-        "path": "data/kettlebell-swing.json",
-        "sha256": "33c7037dd41d2b5b58898d36fe001367cab864abd2ab577c88b8b87f05d37f01"
-      },
-      {
-        "bytes": 2006,
-        "path": "data/kickboard-kick.json",
-        "sha256": "de865cd37596f98d95dc24ea7a2fa2cfafbacdff25daa07eb4c7b9c27bcd5f39"
-      },
-      {
-        "bytes": 2039,
-        "path": "data/knee-push-up.json",
-        "sha256": "184daf26ec9e7caf6e98f622da37410ebf74031f993a1d792339c153a5009f73"
-      },
-      {
-        "bytes": 2939,
-        "path": "data/korean-dip.json",
-        "sha256": "c0776d9fab76fcf28f16f556b4a7246967269e28b968a2a778c3d180abe46bd3"
-      },
-      {
-        "bytes": 2982,
-        "path": "data/l-sit-pull-up.json",
-        "sha256": "fac9a0212dca4641e0a47ad90c17b957db470ca6476157cea474ffc96c20e6f6"
-      },
-      {
-        "bytes": 1910,
-        "path": "data/landmine-press.json",
-        "sha256": "b91050b61b338922ae0b034d02f1b1f63cfc6ab7e56cd2894315b61d7a4671ba"
-      },
-      {
-        "bytes": 2168,
-        "path": "data/lat-pulldown.json",
-        "sha256": "e02d59d95077fa80547264d0cb708e9e57246b06b5e50395b071f1a16d2b3391"
-      },
-      {
-        "bytes": 1808,
-        "path": "data/lateral-lunge.json",
-        "sha256": "5015e52885129b3df3cbc8b1412f8d478cd3fcb5d85bf1038db665b7cfc762c9"
-      },
-      {
-        "bytes": 1714,
-        "path": "data/lateral-raise.json",
-        "sha256": "e2accc9a53eb670dd49b5e4fababc2a11d0f00f6a5a46b13c8e94c69ae20b84e"
-      },
-      {
-        "bytes": 1845,
-        "path": "data/leg-curl-machine.json",
-        "sha256": "34165bb47a4aa4c353ee8bab1e1a67215111ae1c691c22272a35baa206314e6b"
-      },
-      {
-        "bytes": 1855,
-        "path": "data/leg-extension-machine.json",
-        "sha256": "117ea59c0d54129c230e8ccb4d3d939d0430c13c1991e006136d9add9076078a"
-      },
-      {
-        "bytes": 2286,
-        "path": "data/leg-press.json",
-        "sha256": "77778141d163ee6f702f7996842b2f56df9a1f24face2832fa2636c64fdce8e6"
-      },
-      {
-        "bytes": 1844,
-        "path": "data/low-lunge.json",
-        "sha256": "b410fe863153fa08cf047a0bb128dec3b9c9a7c8cdb06db9ffaec0e3e3ca4930"
-      },
-      {
-        "bytes": 2794,
-        "path": "data/machine-assisted-dip.json",
-        "sha256": "f5eafec037392855f809d8be6ea7229305ed2f42c36ef5630d3d66302674bc88"
-      },
-      {
-        "bytes": 3047,
-        "path": "data/machine-assisted-pull-up.json",
-        "sha256": "d074bb2624ca3c5283793accf218740550ff94a96054055a8d01dca1b7669eb2"
-      },
-      {
-        "bytes": 2161,
-        "path": "data/machine-chest-press.json",
-        "sha256": "88b322af62f93d8d132b1d7989470ab8c4bdaadf94e1946c0f763d5163a85016"
-      },
-      {
-        "bytes": 1848,
-        "path": "data/machine-shoulder-press.json",
-        "sha256": "7e33b1d362977bcee254426f0fac9c5a711524b00a645c028a88d9af42a2ba7a"
-      },
-      {
-        "bytes": 1737,
-        "path": "data/mountain-pose.json",
-        "sha256": "d7e0af813c83ee1b554fd69cfe7780a95128f11fbab13c3616235523f3b6c1a3"
-      },
-      {
-        "bytes": 2878,
-        "path": "data/negative-dip.json",
-        "sha256": "27f2101a6ea17e2120d030ed548328e5653f27c888bd386c4f1ce71ca292df17"
-      },
-      {
-        "bytes": 3058,
-        "path": "data/negative-pull-up.json",
-        "sha256": "dacf9d9685feb8a57c67c4595da8350afc1b06056c1dadb16fce2af3981e677a"
-      },
-      {
-        "bytes": 2970,
-        "path": "data/neutral-grip-pull-up.json",
-        "sha256": "f6435a4e7b639385bf44b6dce28c7d33b264119895f4248c218c224929413893"
-      },
-      {
-        "bytes": 1989,
-        "path": "data/nordic-curl-assisted.json",
-        "sha256": "f41242105f8f439ea74072644920660c4134f189f02fe2d77faf84233f8273b0"
-      },
-      {
-        "bytes": 2243,
-        "path": "data/one-arm-dumbbell-row.json",
-        "sha256": "046b30b1cd8226fb1e2e604444295c8d986236532b50bf9e090ca75c076bb997"
-      },
-      {
-        "bytes": 2437,
-        "path": "data/overhead-press-barbell.json",
-        "sha256": "af038a5ce69cde835de7aa07661d289a789dbdae9af3e9161b56beed15e5bebc"
-      },
-      {
-        "bytes": 2203,
-        "path": "data/overhead-press-dumbbell.json",
-        "sha256": "c23eea4eff55553d74f15d8d857a8e8200a3fa6128163008a1d8786714feba6b"
-      },
-      {
-        "bytes": 2156,
-        "path": "data/paddle-freestyle.json",
-        "sha256": "bcaae442f7bce94d587b5a2071b21f9e74d8a814f9dd521f1788f515cbd8c2cd"
-      },
-      {
-        "bytes": 1771,
-        "path": "data/pallof-press.json",
-        "sha256": "947e891afc4128efba804450d24fd9210d043bb33962f71c09d38c7c381951af"
-      },
-      {
-        "bytes": 2131,
-        "path": "data/pause-back-squat.json",
-        "sha256": "bf259717132e46b6a856bf9e73e313ce023d3967c786a9344c183a3653ebf93d"
-      },
-      {
-        "bytes": 1721,
-        "path": "data/pause-bench-press.json",
-        "sha256": "9b31e54d05332cf3a429a075ffea9fe9f8c1fe3a8a8742c09bca339605e55ce3"
-      },
-      {
-        "bytes": 1788,
-        "path": "data/pause-deadlift.json",
-        "sha256": "ac10e128fbc29aea7d2ec56131654d4778b59c840dd256a6e6b9e037def8e528"
-      },
-      {
-        "bytes": 2014,
-        "path": "data/pause-front-squat.json",
-        "sha256": "84cb7160fe10ffe107748f20af9e96680fede5e37eff7c36535a2e2f89fc9220"
-      },
-      {
-        "bytes": 1742,
-        "path": "data/pec-deck.json",
-        "sha256": "51318f9f9a6f5358ec7d63cd846f92dc327151d5ab425f39ab2ab5f97edd6129"
-      },
-      {
-        "bytes": 1886,
-        "path": "data/pigeon-pose.json",
-        "sha256": "47695a6321dd8b9880c9d04b47193e573511b497aeb170e5e46b780b3d9a0fb2"
-      },
-      {
-        "bytes": 1890,
-        "path": "data/pilates-double-leg-stretch.json",
-        "sha256": "2c3f9f6d58e00ffe3979a01e89c4a8a08a88cfc1b72a0dfa6a85cd81283f8328"
-      },
-      {
-        "bytes": 2082,
-        "path": "data/pilates-hundred.json",
-        "sha256": "d7757ba53f71486743f32865e653fa6d02e8f32c71f49c8702e11233d6ce9896"
-      },
-      {
-        "bytes": 1864,
-        "path": "data/pilates-leg-circles.json",
-        "sha256": "1ea0f742a77fa69114fc713d2bb21fbb59b716317dd1d87e29c7dfcf89d3a44d"
-      },
-      {
-        "bytes": 2080,
-        "path": "data/pilates-plank-variations.json",
-        "sha256": "87d2e41135a81a967fcfe3ecfcebe59bad98e069b9243951f601ceafaf8afb13"
+        "sha256": "e624a6537a5247fcde2517c4c98851e3a47ff8234ece5e8b59e72e2959e111cd"
       },
       {
         "bytes": 1868,
-        "path": "data/pilates-roll-up.json",
-        "sha256": "b641b8574ff24944437e5e4021491217fd5d1958679702d4e8df4f5158d4ded4"
+        "path": "data/backstroke.json",
+        "sha256": "538c78f4f0a29f735d12e8efbf498e2b999bcc6167434d90dc0e8e51095c7ecb"
       },
       {
-        "bytes": 1926,
-        "path": "data/pilates-saw.json",
-        "sha256": "0390c2e3aac40cf62542d10ec9e7d4424951fb395a2258cd8c6c6b503fe5f3a7"
+        "bytes": 2466,
+        "path": "data/band-assisted-dip.json",
+        "sha256": "ff4944afc2715fc515ceb8229942d59ea0e999e4e6cbafa096bcbc89ddcd69e6"
       },
       {
-        "bytes": 1935,
-        "path": "data/pilates-shoulder-bridge.json",
-        "sha256": "5ec8e44327f78e57bd3022ef930eafa5496c1635b55065a3996203d7fe46acea"
+        "bytes": 1777,
+        "path": "data/band-pull-apart.json",
+        "sha256": "d96087fa5031184a9039c91a4603703ab48c991188678c54979d14dc1bcd9caf"
       },
       {
-        "bytes": 1862,
-        "path": "data/pilates-side-kick.json",
-        "sha256": "1ba2e20ca8833c43971aee578ca9005a063cfdaba60df00cd21147cbf5ce3592"
+        "bytes": 2375,
+        "path": "data/barbell-bench-press.json",
+        "sha256": "a7b5ec4bbeb93752e26574a7e39bd0f854932d29d25dfb20c1725b70db069e52"
       },
       {
-        "bytes": 1987,
-        "path": "data/pilates-single-leg-stretch.json",
-        "sha256": "0c9b5c26afdea5a45fe143c9f1468626f8d512997289528a84ff6f7d211e36c3"
+        "bytes": 1527,
+        "path": "data/barbell-curl.json",
+        "sha256": "b310566d27678dddc225c4c29a7aee87753be642332942b01911af7a625f8cc1"
       },
       {
-        "bytes": 1942,
-        "path": "data/pilates-swan.json",
-        "sha256": "1f4578c05692079c34f560364ad02fd32bfc9a7df97fa053b9c1245b09793f38"
+        "bytes": 1832,
+        "path": "data/barbell-row.json",
+        "sha256": "a8fe8dbb9370930f5d9534f2ef55c6ed60c2c835d2290c313ccf46fc1ab7c6e3"
       },
       {
-        "bytes": 2286,
-        "path": "data/plank.json",
-        "sha256": "831c94cde44cf111c722fdb0fe8c83721c4100cd971daa9233c3091dde60fcc8"
+        "bytes": 2813,
+        "path": "data/bench-dip.json",
+        "sha256": "4b5dc2552d210ad1fcf236b04ee8c6b5b4e675639a0c1abadba768f5db8ba354"
       },
       {
-        "bytes": 2148,
-        "path": "data/pull-buoy-pull.json",
-        "sha256": "98c5621e798fc33d61a770fe22d6cdc265e34d51fbf8c903f23562200a6477cb"
+        "bytes": 1712,
+        "path": "data/bird-dog.json",
+        "sha256": "736c32888ba5fe179f06dcc34e0086e2bb49d79f2947ab53f6f8e9219e4f9a2d"
       },
       {
-        "bytes": 3969,
-        "path": "data/pull-up.json",
-        "sha256": "8138c877e825066908295c771e312a7472bac0b52486d77766eec4769615594e"
+        "bytes": 2001,
+        "path": "data/box-squat.json",
+        "sha256": "9aec383a60d4128cd863b52fdaf461a11138c143ba44608d16058e4f40209e63"
       },
       {
-        "bytes": 1798,
-        "path": "data/push-press.json",
-        "sha256": "badc1482151841d9ea9106eb6a62acc53524a427f1ec4be3e80b8e718cb1de23"
+        "bytes": 1962,
+        "path": "data/breaststroke.json",
+        "sha256": "e4c3115eccb67690af1ea23a45406b718ac7b543b6c09f58f76136aab40e845e"
       },
       {
-        "bytes": 2666,
-        "path": "data/push-up.json",
-        "sha256": "47d2a5981052f451e075887fde641d23605dab77f267b7b38f5be584120ea878"
+        "bytes": 1901,
+        "path": "data/bridge-pose-yoga.json",
+        "sha256": "c9e44b9e254bfe6704b67d91c2f2faf307d865cdb945d40b0024abd21ff75f43"
       },
       {
-        "bytes": 1988,
-        "path": "data/reverse-lunge-dumbbell.json",
-        "sha256": "bf8a6058375cb516e398ee575ba8d857b5e95a0ffea82b775a789a6969822f82"
+        "bytes": 1752,
+        "path": "data/brisk-walk.json",
+        "sha256": "6fe1dd8e0f5e8a6bd669dbb726c4c1ca243660d26054e61e0271236e0176c8d4"
       },
       {
-        "bytes": 3232,
-        "path": "data/ring-dip.json",
-        "sha256": "52eb2e34471d9558f766b64cde7068c47540141069d53dcae5564e9394710e8e"
+        "bytes": 1899,
+        "path": "data/bulgarian-split-squat.json",
+        "sha256": "7027e41a674f3f4cf52f3d0c4bccdaaf5efc87f941e4f2451b9d66c7dd6379bd"
       },
       {
-        "bytes": 2257,
-        "path": "data/romanian-deadlift-barbell.json",
-        "sha256": "70bd3bfd8f111053a84b892c246016a4348ac635a6953e3a783c03ab79c9e6a6"
+        "bytes": 1712,
+        "path": "data/butt-kicks.json",
+        "sha256": "192e836315a9bf6b0a71294f8c3f466260ddb75f1fcfd03174eefda05b91f78e"
       },
       {
-        "bytes": 2309,
-        "path": "data/romanian-deadlift-dumbbell.json",
-        "sha256": "5d02d9abed5b7928e07b8fc543f099254b534d0a468213a31e9c9620df725705"
+        "bytes": 2039,
+        "path": "data/butterfly-stroke.json",
+        "sha256": "e6c0eeac569c5a6437a4ac4cbd24fa7db4ab43b720a515b413a2f7e2ae62e7a5"
+      },
+      {
+        "bytes": 1726,
+        "path": "data/cable-chest-fly.json",
+        "sha256": "87366bd19d456557536280155733385cc7463994c28d649b759045ea18be9f0c"
+      },
+      {
+        "bytes": 1714,
+        "path": "data/cable-woodchop.json",
+        "sha256": "171add744576095cfb31bd1d0d5be9cf3d69a79c5e3da1dcd02a9205238a1c10"
+      },
+      {
+        "bytes": 1781,
+        "path": "data/calf-raise-standing.json",
+        "sha256": "e6bbc518aa2fba31fe473e16cf6590e7109f34b31721355014c7744d4ee384a2"
+      },
+      {
+        "bytes": 1624,
+        "path": "data/cat-cow.json",
+        "sha256": "82ec7b02a5341298456dc2da43d2f4832ab83869781e9e88eedb0f7abc89cabe"
+      },
+      {
+        "bytes": 1937,
+        "path": "data/catch-up-drill.json",
+        "sha256": "a1d5cc5adde67ce57b01cc46b1740ae94e34dceb0fd47047ea8b775d2c073a34"
+      },
+      {
+        "bytes": 1919,
+        "path": "data/chest-supported-row.json",
+        "sha256": "e6a1b6d08a726862aef6ae311da6809eefa831911eebec78398c7795221b2ff5"
+      },
+      {
+        "bytes": 2383,
+        "path": "data/chest-to-bar-pull-up.json",
+        "sha256": "0f19dfc6f34e3ce3ce682a3b71d97844b687d8027716d536c09d6be1fd044610"
+      },
+      {
+        "bytes": 1720,
+        "path": "data/child-pose.json",
+        "sha256": "fa731fb82fa9175ff6966757bcc443ff686d9a3a4913cc19af0590c18fde73c7"
+      },
+      {
+        "bytes": 2973,
+        "path": "data/chin-up.json",
+        "sha256": "3d95c3c85b9d8501844a1f009a5b9de324fead8d9dff42d83ef20dc4fca4ad86"
+      },
+      {
+        "bytes": 1789,
+        "path": "data/close-grip-bench-press.json",
+        "sha256": "fdbb86a9a77e1c5939eb43e7b49476e86e4d496c4cf419eb17e62aabc4f2578c"
+      },
+      {
+        "bytes": 2491,
+        "path": "data/close-grip-pull-up.json",
+        "sha256": "e02606e8de5fd2eec2bf5b21943bcc3de85ff258af67f07261d2bcd8dd79e730"
+      },
+      {
+        "bytes": 2660,
+        "path": "data/commando-pull-up.json",
+        "sha256": "465f888aa85a1a5cda5b820cfac4014ed1a96894930d3210344be5ce0a72d87b"
+      },
+      {
+        "bytes": 2566,
+        "path": "data/conventional-deadlift.json",
+        "sha256": "b9e60fa44b570153c4ae3a7652cba57398271450b5c850f1d3046a6a95b798d3"
+      },
+      {
+        "bytes": 1929,
+        "path": "data/dead-bug.json",
+        "sha256": "521327c90d981973f0f1917d698b221f113e28191a8fe7a22f734b1d874e8d53"
+      },
+      {
+        "bytes": 1767,
+        "path": "data/deficit-deadlift.json",
+        "sha256": "836ce78b64d195b642f7d206ab71e6ee8c4a56e93bc1317ae8d38cf830bc77b3"
       },
       {
         "bytes": 1922,
-        "path": "data/russian-twist.json",
-        "sha256": "9a72640ac22f0337d6ddf2041054dbfbe9239205bab74671a99967cfa05c6e15"
+        "path": "data/diamond-push-up.json",
+        "sha256": "5485e28b48eaff6e959d02a1e74394a687ddf0ab8fc801d02122a368502164fd"
       },
       {
-        "bytes": 2980,
-        "path": "data/scapular-pull-up.json",
-        "sha256": "634033e1d1d3d18fd9038a6064968462dbf10f86bc7daa1ba7b2ff2c6e6dc030"
+        "bytes": 3275,
+        "path": "data/dip-parallel-bar.json",
+        "sha256": "a601fba7c794d0dee32fe2714cd07da770a989f992fdedd0b369d05b11c1525d"
       },
       {
-        "bytes": 1875,
-        "path": "data/seated-cable-row.json",
-        "sha256": "2aa294e10fb0eb001e10ec3e541151d0f6417ec563a4c0f6ba16d37d4f392e16"
+        "bytes": 1940,
+        "path": "data/downward-dog.json",
+        "sha256": "aa148f8f88b86c3393b9506fe20dee961806b9f68f8d925ea8ef2d3081aec016"
       },
       {
-        "bytes": 1860,
-        "path": "data/seated-forward-fold.json",
-        "sha256": "8c73f3eeff202824011fbaba181aeb030bc010ba4b44cd5307d5d3215362e155"
+        "bytes": 2190,
+        "path": "data/dumbbell-bench-press.json",
+        "sha256": "395189b7fbc45e2bc99d31e870a3eb8275b83609c967b817c9176066c1e2878f"
       },
       {
-        "bytes": 1636,
-        "path": "data/shrug-dumbbell.json",
-        "sha256": "9cdfaf72e1b58632919483a35e9cdebf14f0412a5785560e55812414f1dfdbb6"
+        "bytes": 1527,
+        "path": "data/dumbbell-curl.json",
+        "sha256": "465ccf175634dee7f04f2eedf6a92703e934ca45708f953418a4e7bec43ebbfa"
       },
       {
-        "bytes": 1779,
-        "path": "data/side-plank.json",
-        "sha256": "7138380e0ab5b234597a5cb8f51fb2658c8b369692e323c3ad2e0660d5b80d00"
+        "bytes": 1809,
+        "path": "data/dumbbell-incline-press.json",
+        "sha256": "611e20b3aa9437d90581cd43afc55b9e901b069a5e485fcbed3b3cb1c555b4a5"
       },
       {
-        "bytes": 2057,
-        "path": "data/single-leg-hip-thrust.json",
-        "sha256": "5528a75c8d48f6335bf61f5b2469cd2031b372b703e7f69a224f2eb3e1c8b192"
+        "bytes": 2151,
+        "path": "data/easy-run.json",
+        "sha256": "3566e3e7c4b1f0ef15c6471b66870cca707335374e1bfcbd97ff8cbee5524cda"
       },
       {
-        "bytes": 1978,
-        "path": "data/single-leg-rdl.json",
-        "sha256": "0ad3faa42fa1931566f70bcd31ac888eb3f6169bd558d3333eb561c165e28869"
+        "bytes": 1568,
+        "path": "data/face-pull.json",
+        "sha256": "f8dcf15022d0eeb0672a263b37b9d32db71fded884d66245b5552b7f97f07d7e"
       },
       {
-        "bytes": 2109,
-        "path": "data/sit-to-stand.json",
-        "sha256": "8cf8b6c1e3eb15a10429de0a8aed19207c88aadfcf55f1997b355ab581219322"
+        "bytes": 2067,
+        "path": "data/farmers-carry.json",
+        "sha256": "5ca0a0881b6feb7011ebc7e9e0b483c065149d7ac4bbcd8265c0a7e3e0daaebd"
       },
       {
-        "bytes": 2195,
-        "path": "data/smith-machine-squat.json",
-        "sha256": "a4d8d517097031dfc9549392b33c583bb8c3d1728ab2e35884b2925cf2324e6c"
+        "bytes": 1700,
+        "path": "data/floor-press-dumbbell.json",
+        "sha256": "02d9e2e1da9a02a4bc238b94196f7eba2e93d297e4b6119c9e2ea540d48b7ca9"
       },
       {
-        "bytes": 2140,
-        "path": "data/split-squat-bodyweight.json",
-        "sha256": "c2e18fc0978ab9f1014619bb7ddeadff9be7172452a8e85472ec8dbeff4550ab"
+        "bytes": 2235,
+        "path": "data/freestyle-stroke.json",
+        "sha256": "09652d903c5feadb97871a9660c4fd6e574262e8c62d79318bc83cd0a75d96b9"
       },
       {
-        "bytes": 2214,
-        "path": "data/step-up.json",
-        "sha256": "199c2beb6cb6869ed6dbde6a4e26151b6bae804c971fd3cf3afe0edb3fd71134"
+        "bytes": 2337,
+        "path": "data/front-squat.json",
+        "sha256": "3df1fe15b5bfd6ec0d9d5fa786641bbccb9aae47089ad4682e08b5e7c41629bc"
       },
       {
-        "bytes": 2806,
-        "path": "data/straight-bar-dip.json",
-        "sha256": "4ebd18a0e9140da38a4d77251e820e8a38ecd6ea4d781f028146bc45d3d8af51"
+        "bytes": 1853,
+        "path": "data/glute-bridge.json",
+        "sha256": "dbd9f0cbd2f53b047de37651783ce798801f6616cb9e381de334bcfd99cdbfbe"
+      },
+      {
+        "bytes": 1841,
+        "path": "data/goblet-lateral-squat.json",
+        "sha256": "397c8c6c0d866548cfb712d9b58eba138feecd466aa90fe03dccf10d60962391"
+      },
+      {
+        "bytes": 2239,
+        "path": "data/goblet-squat.json",
+        "sha256": "c7a73048fb484d8cfd589815ea6f3e6a35717df005959349311e82dc730f2c50"
       },
       {
         "bytes": 1776,
+        "path": "data/good-morning.json",
+        "sha256": "14ba35a3bdec73bbce99d76b4b736387c89a2c4715e455cf91d2a0a64f44e5a8"
+      },
+      {
+        "bytes": 1873,
+        "path": "data/hack-squat-machine.json",
+        "sha256": "b90fec14d01aeb02d6a21140a80981f11061869105698323c6471346c42c0645"
+      },
+      {
+        "bytes": 1718,
+        "path": "data/hanging-knee-raise.json",
+        "sha256": "a7e486393e8929aef76f218b03d5ca2c90a25fdd94663209b9fef45e3fc9f653"
+      },
+      {
+        "bytes": 1624,
+        "path": "data/high-knees-drill.json",
+        "sha256": "c7a8d9faba0776ac41e1be603712f92afb97de247eed936b3e490edeeb4adf2d"
+      },
+      {
+        "bytes": 1611,
+        "path": "data/hip-abduction-machine.json",
+        "sha256": "a7e455a75815ffd96266847134996b9a441ebe4888805f7c937795364095965a"
+      },
+      {
+        "bytes": 1491,
+        "path": "data/hip-adduction-machine.json",
+        "sha256": "858bd57237cde5efe3128318fb02ec63667123b7673bae971354b302d2853a4e"
+      },
+      {
+        "bytes": 1704,
+        "path": "data/hip-hinge-dowel.json",
+        "sha256": "4488f2227ea12a8dea04b69f9a235bee798a55f3f469e31588301fc8da554093"
+      },
+      {
+        "bytes": 2016,
+        "path": "data/hip-thrust.json",
+        "sha256": "940b781534c5a43c6cf1d106812699626e9b6f6f35a820febbd6106162e4f88b"
+      },
+      {
+        "bytes": 2009,
+        "path": "data/incline-push-up.json",
+        "sha256": "fa2abb5d67409a3b93021ee8018a2248f28703865962ac27b62f6346ec1fa7b0"
+      },
+      {
+        "bytes": 1960,
+        "path": "data/interval-run.json",
+        "sha256": "36a16af2f3fd15d5c98da1940eee9df71190c7131ad17ed4dc8f876c7224ad57"
+      },
+      {
+        "bytes": 2849,
+        "path": "data/inverted-row.json",
+        "sha256": "abc47cafa2c67e26e7b73a181012766d6a890c96b933c790c905ed0e8d87758a"
+      },
+      {
+        "bytes": 2099,
+        "path": "data/kettlebell-swing.json",
+        "sha256": "a5db428baaf9f27c0d55171dbd5b32fdc09b75ca48bfeffad425974413252c9b"
+      },
+      {
+        "bytes": 1855,
+        "path": "data/kickboard-kick.json",
+        "sha256": "748a849ebb6110a10b5625d65b72856e56a87d0ed74df5779417ae1499643599"
+      },
+      {
+        "bytes": 1829,
+        "path": "data/knee-push-up.json",
+        "sha256": "7d7781a1d72a3883d532c5918ed4f3434e6820c15e7b0f22729bba83e8b53477"
+      },
+      {
+        "bytes": 2597,
+        "path": "data/korean-dip.json",
+        "sha256": "776e74930c561e098525c35709d824c1fda07913cd5cf679b49cb0dcb79e935c"
+      },
+      {
+        "bytes": 2637,
+        "path": "data/l-sit-pull-up.json",
+        "sha256": "03b641244ab84c96cdc533c852b4ca084d093bf974f1df7d8b17634723367f64"
+      },
+      {
+        "bytes": 1795,
+        "path": "data/landmine-press.json",
+        "sha256": "248e0a0c951ff31060ae5150a9b15917a1813ba15bbe8d9c574aae1ec381d010"
+      },
+      {
+        "bytes": 1969,
+        "path": "data/lat-pulldown.json",
+        "sha256": "cef16924654685c88887297b71721a8185610fdbde4ced5091a5c81c29e8d6c1"
+      },
+      {
+        "bytes": 1693,
+        "path": "data/lateral-lunge.json",
+        "sha256": "99558af57042ede37b031325e245890f208c843be9a9d7f6fcad0e334cddfd81"
+      },
+      {
+        "bytes": 1599,
+        "path": "data/lateral-raise.json",
+        "sha256": "02f31b6dd4f262d236a3b5c93753fdf92d7754cd66063ba3a17eccaa9ceab568"
+      },
+      {
+        "bytes": 1730,
+        "path": "data/leg-curl-machine.json",
+        "sha256": "a7208f85f9ff5f78065ed8315283928b94f8ef4381bdbd4df6e2b6115bda83d0"
+      },
+      {
+        "bytes": 1740,
+        "path": "data/leg-extension-machine.json",
+        "sha256": "c4e374f83485a845f377dbc0b090658de42746074cb85696150e0273f7782e66"
+      },
+      {
+        "bytes": 2091,
+        "path": "data/leg-press.json",
+        "sha256": "b0c0533372dd29fae7bafda87f3cd4e3de5d803d043f243355571d40ba76c2af"
+      },
+      {
+        "bytes": 1760,
+        "path": "data/low-lunge.json",
+        "sha256": "2d97a8c9de7868ee19da8e947dc3358dc8452cd8c3cac3ab096cadfda12e5ec6"
+      },
+      {
+        "bytes": 2487,
+        "path": "data/machine-assisted-dip.json",
+        "sha256": "96995830c244177e00ee53e79d519b8f2ab502dc3dd0fbcf7e3d56ddd8fd9046"
+      },
+      {
+        "bytes": 2737,
+        "path": "data/machine-assisted-pull-up.json",
+        "sha256": "8d4d3bf9fa557c02658fc48b2091cd4208843d4e821bad25ede57c9f0944617e"
+      },
+      {
+        "bytes": 1962,
+        "path": "data/machine-chest-press.json",
+        "sha256": "5f8fcb095690fbaf96a4d8b0389cef7012daa61b7971cb15765cecc67eacf84c"
+      },
+      {
+        "bytes": 1733,
+        "path": "data/machine-shoulder-press.json",
+        "sha256": "8cb607a05875ded633d334d3d36ca6662e65cf53cc790dd7990baf9d36e9e147"
+      },
+      {
+        "bytes": 1653,
+        "path": "data/mountain-pose.json",
+        "sha256": "4a16402b5a609b7543807b6929700151fa74d04f3cffeb61364d6343e316c47a"
+      },
+      {
+        "bytes": 2536,
+        "path": "data/negative-dip.json",
+        "sha256": "5f9ba4ab405b32dfdd5b6ce7275ba49004adf390eeeb83f4c08ee386e5355043"
+      },
+      {
+        "bytes": 2715,
+        "path": "data/negative-pull-up.json",
+        "sha256": "af974dfaeca7cde36b634ae0cec80bda6fea84e7a9469e7eba552a245ce38cae"
+      },
+      {
+        "bytes": 2627,
+        "path": "data/neutral-grip-pull-up.json",
+        "sha256": "395067b58793d2e1a2e4359101c1bfbb9e82d4751e7cb30826b94690dc81ae36"
+      },
+      {
+        "bytes": 1874,
+        "path": "data/nordic-curl-assisted.json",
+        "sha256": "418dcabaabbb00ab8e4dd0f19de1e72123cc61196d9a8d5f2f501339849bc74a"
+      },
+      {
+        "bytes": 2044,
+        "path": "data/one-arm-dumbbell-row.json",
+        "sha256": "56a601423db42c41e94006ace5092bdfa53ecd202a7f263860739ff513fbe517"
+      },
+      {
+        "bytes": 2242,
+        "path": "data/overhead-press-barbell.json",
+        "sha256": "3068ee91c7dc95a7d051810e25ae784f75df0d4d0662b33d22851ffcc4bab500"
+      },
+      {
+        "bytes": 2004,
+        "path": "data/overhead-press-dumbbell.json",
+        "sha256": "1b22f496d497fed0b266e0da5ad6a92f82a83600f1326b0d47bb0e389773d6fe"
+      },
+      {
+        "bytes": 2005,
+        "path": "data/paddle-freestyle.json",
+        "sha256": "10c81aa070f189c27eb36b9a8f14bfb5c313043056f9ccd4ec977651348eba37"
+      },
+      {
+        "bytes": 1656,
+        "path": "data/pallof-press.json",
+        "sha256": "a193e65c3f63ee261263e8c0b5c1acbc7aa4bdeac6ce79e3ef5b102635764cb4"
+      },
+      {
+        "bytes": 1928,
+        "path": "data/pause-back-squat.json",
+        "sha256": "5871ef3bc6abc0aceda87b9280a949dc58f654bd690835c79e4025a451d24214"
+      },
+      {
+        "bytes": 1606,
+        "path": "data/pause-bench-press.json",
+        "sha256": "e0f4eaf0c09b027097c7e6be08b67692befb919028d64ddc42c73c913067953a"
+      },
+      {
+        "bytes": 1673,
+        "path": "data/pause-deadlift.json",
+        "sha256": "a3a3f2c1014286833f4edb9007ba8c5b3505df21fe0eaedf120a2a5a5fff8050"
+      },
+      {
+        "bytes": 1811,
+        "path": "data/pause-front-squat.json",
+        "sha256": "df1577c38ea2fa1a90307372f6b662950f10a2f6bf50000835255425bc33b70e"
+      },
+      {
+        "bytes": 1627,
+        "path": "data/pec-deck.json",
+        "sha256": "e4303a42032ba1a19a8ff88a0d2fc2835c88bddbad88fd69f109cbde88a435e2"
+      },
+      {
+        "bytes": 1802,
+        "path": "data/pigeon-pose.json",
+        "sha256": "2cb52d36253174a4a261b75c5a0c18bf490f838c9106051ec3efb50e4702e1c5"
+      },
+      {
+        "bytes": 1806,
+        "path": "data/pilates-double-leg-stretch.json",
+        "sha256": "b2768066d0bdee14aefd5b22c783e410274658ee9568203f83d71810b59ee4aa"
+      },
+      {
+        "bytes": 1998,
+        "path": "data/pilates-hundred.json",
+        "sha256": "6a98323fae027b6843ea18b77e6ce02d4d7c9f0abe93284ce6fca613af4c544a"
+      },
+      {
+        "bytes": 1780,
+        "path": "data/pilates-leg-circles.json",
+        "sha256": "cf6bfe8249cf0c7a99f6be5414b7a11f00cc9d304c827aae27dc9b9660cdee3d"
+      },
+      {
+        "bytes": 1996,
+        "path": "data/pilates-plank-variations.json",
+        "sha256": "36afa7dbb15d54482eb273c1c74a98ed6d7f78c0484d3821800730d1e4c5abe9"
+      },
+      {
+        "bytes": 1784,
+        "path": "data/pilates-roll-up.json",
+        "sha256": "e9730cf1ca305d1eeb3afe041cb8af26087816112e1e9aa5fe6b06780ffe62df"
+      },
+      {
+        "bytes": 1842,
+        "path": "data/pilates-saw.json",
+        "sha256": "87265ede0d6523ab8d7a8577550b65c67ff76e87ddc950eafcb2635728d8d6ac"
+      },
+      {
+        "bytes": 1851,
+        "path": "data/pilates-shoulder-bridge.json",
+        "sha256": "3100427c0985637c03cb4349f74f80ca13f97236f64588258b9d7fac2ea47d35"
+      },
+      {
+        "bytes": 1778,
+        "path": "data/pilates-side-kick.json",
+        "sha256": "57f491e4819f2efd44f0cb71fb6f225acbf15ea8cb11dfa31b2873018cc365c1"
+      },
+      {
+        "bytes": 1903,
+        "path": "data/pilates-single-leg-stretch.json",
+        "sha256": "1bf3c3363d4b28759341ceb913e7bc541461640da72f55b05c90a30524c88fb1"
+      },
+      {
+        "bytes": 1858,
+        "path": "data/pilates-swan.json",
+        "sha256": "3134cc824739bb34b916451aff7167b0cbcf0322941b3f53b2af609c8835ee7d"
+      },
+      {
+        "bytes": 2087,
+        "path": "data/plank.json",
+        "sha256": "6a9994339a3b07c7debb27e9248a8a9eaf6ad6e28c0b28c0bcbee6f5223c15eb"
+      },
+      {
+        "bytes": 1997,
+        "path": "data/pull-buoy-pull.json",
+        "sha256": "19aded6f893db949434e775b7991d1a6de98b518c413d2bbf32d5ba8354d5bc2"
+      },
+      {
+        "bytes": 3511,
+        "path": "data/pull-up.json",
+        "sha256": "fed31185ab589444f24085509ca85b2ea43fb51804a09d6bd44bcfaa1319a867"
+      },
+      {
+        "bytes": 1683,
+        "path": "data/push-press.json",
+        "sha256": "851ebdfa1c72ba85734e739d51f6d7cc38413a07591c42e3109e9e8e9d0a5d73"
+      },
+      {
+        "bytes": 2341,
+        "path": "data/push-up.json",
+        "sha256": "efee6edd5eff83244c59d056b981dda41b8881b7894e8d7c9833d164dbb548d7"
+      },
+      {
+        "bytes": 1873,
+        "path": "data/reverse-lunge-dumbbell.json",
+        "sha256": "6d5d5247557a62964de55469ed176c83cbad7bdeeb077a325796e70b45972adf"
+      },
+      {
+        "bytes": 2783,
+        "path": "data/ring-dip.json",
+        "sha256": "b0319906554ef2124fc1b930aa6c12185725c063c073eda1c40d73cdb4cab2b3"
+      },
+      {
+        "bytes": 2142,
+        "path": "data/romanian-deadlift-barbell.json",
+        "sha256": "b0fab4b1b23076b04edc5d45ba27ec1a13af5968c841868937318b1e89ea9b84"
+      },
+      {
+        "bytes": 2110,
+        "path": "data/romanian-deadlift-dumbbell.json",
+        "sha256": "df0cb4dcd10f03810a3f0f10ec8f34591c451ba3b6d0e00be3cfa2cc384473ca"
+      },
+      {
+        "bytes": 1807,
+        "path": "data/russian-twist.json",
+        "sha256": "8b2c2d71be57b55d169ffb9204fae28f82d622737c987e5689e08c0f3ed06145"
+      },
+      {
+        "bytes": 2635,
+        "path": "data/scapular-pull-up.json",
+        "sha256": "db6362d2f4ecfbc238cf4cfb82c92ad86178f5efa63ac73e71de3429daa98db2"
+      },
+      {
+        "bytes": 1760,
+        "path": "data/seated-cable-row.json",
+        "sha256": "88751a9ba28061306cba6e86a0bb29148d19aa4a7522e60f5a7b3d004f785404"
+      },
+      {
+        "bytes": 1776,
+        "path": "data/seated-forward-fold.json",
+        "sha256": "42d51c9c2adfda3e709741a37371c4ca8f7bb0c4c10e1e59fda3fe2a1385c685"
+      },
+      {
+        "bytes": 1521,
+        "path": "data/shrug-dumbbell.json",
+        "sha256": "88dc888e3fb822c42aa37ad62d9a4c74c13d4e3e16fad9486212d218cedc712d"
+      },
+      {
+        "bytes": 1695,
+        "path": "data/side-plank.json",
+        "sha256": "385e1c263653cf03beefcc2a0cadedefa2be1dd2e66973585280bbefb65b4394"
+      },
+      {
+        "bytes": 1850,
+        "path": "data/single-leg-hip-thrust.json",
+        "sha256": "7ddc3f56a8d7d2c782a65a6fdbfb57e5f277dc2083d5ac22231b114a910a27c2"
+      },
+      {
+        "bytes": 1863,
+        "path": "data/single-leg-rdl.json",
+        "sha256": "6cfec80e096967298082ef0f1262ccbce8e863aa8a1e0a1371e6a1c9cf0a0b38"
+      },
+      {
+        "bytes": 1910,
+        "path": "data/sit-to-stand.json",
+        "sha256": "88cbc6dff3da45ee00e0cd307a8437ed30e236977026ff11944502d2e6dcf468"
+      },
+      {
+        "bytes": 1992,
+        "path": "data/smith-machine-squat.json",
+        "sha256": "adcae094db02ac0bd2d9a274da86af3e30d1a1145f7476719822fb075055e993"
+      },
+      {
+        "bytes": 1941,
+        "path": "data/split-squat-bodyweight.json",
+        "sha256": "41be9649b6d3e36b50eb3fa62ef49ff537eef538478d8dd869b3b786af6d3e06"
+      },
+      {
+        "bytes": 2015,
+        "path": "data/step-up.json",
+        "sha256": "49947604fd8ee4a2bfd031e3ccc2a616c0ecee3d1e8f2bfd36c405f3e3b7f3c7"
+      },
+      {
+        "bytes": 2464,
+        "path": "data/straight-bar-dip.json",
+        "sha256": "2f5c001f13fb89e44058284820012e4bd8193f43141c16347e0da0a4e1ce2f4d"
+      },
+      {
+        "bytes": 1661,
         "path": "data/suitcase-carry.json",
-        "sha256": "398d0ad11fcdac058351b5eede2c59bc9ab1030f71d489bdb01430342140a6a1"
+        "sha256": "d148d4a33e44fa3d02248791599f7729c49d3ca608f7b220eaa4f14a390d1afd"
       },
       {
-        "bytes": 2074,
+        "bytes": 1959,
         "path": "data/sumo-deadlift.json",
-        "sha256": "72b86aaca0dde3d5d3c95d58d4c24b387c9cbc2ed5e9973ba0e71a0b5726f81a"
+        "sha256": "da843585f2246c15c0434d6f9f4a11d9d8d0e96b73918f0e40f71d14c84c63f4"
       },
       {
-        "bytes": 2158,
+        "bytes": 2007,
         "path": "data/tempo-run.json",
-        "sha256": "2cca1d1cccb5a24933fb5312730b8a5ca873ce9018d93ad362337e5cc45f382b"
+        "sha256": "768349e839020e2b740c009fb3e2ad566a22ace0151d861ba0df08fbc9379985"
       },
       {
-        "bytes": 1844,
+        "bytes": 1760,
         "path": "data/three-legged-dog.json",
-        "sha256": "d46606267a42169c4923402d5fc845b9ff4ffcf0f3131020a19e6e6ec285ebc5"
+        "sha256": "2086218df2fbfd7ee25896785cd78a520e72c83914acb9a2852466d50c0a161b"
       },
       {
-        "bytes": 2448,
+        "bytes": 2253,
         "path": "data/trap-bar-deadlift.json",
-        "sha256": "39c4db99c35095447fe000a530c7a958716d4ad431ccf6f7570b3b2b504bd197"
+        "sha256": "da50fca247b116b14b1ec5c5c77e4b7e8a205397ab79f11bb04a67adf87aa773"
       },
       {
-        "bytes": 1765,
+        "bytes": 1681,
         "path": "data/tree-pose.json",
-        "sha256": "5ff541e37591e5358b7a7fab472bc262395505ecb11482e07fbc3fc2d1cf1087"
+        "sha256": "c654ab56a42b9fdffbcb28b438e2e9878ea664ce4463c7fc5d767de5191913b7"
       },
       {
-        "bytes": 1838,
+        "bytes": 1754,
         "path": "data/triangle-pose.json",
-        "sha256": "85a861d3fd92d0f3d88d1237d7ae70bcfefd243adb0679842169102cca319c20"
+        "sha256": "f2b931543cdd423ca419b0ce5b13271d6b2136be3d00f003b922192ea8c31081"
       },
       {
-        "bytes": 1813,
+        "bytes": 1698,
         "path": "data/tricep-pushdown.json",
-        "sha256": "585f4b16a374096e3567f169ce94fc8ccf55d6ab8ad178e069b1700c3ba01507"
+        "sha256": "f5766087075b6bd49902a684a1cbab0398291cf4466cbdef3a28ffeb96fb074a"
       },
       {
-        "bytes": 2575,
+        "bytes": 2345,
         "path": "data/typewriter-pull-up.json",
-        "sha256": "143fe75c4edb35a14932262d0994fc9f3b4c60146150eea0c0e144509a4ec1b6"
+        "sha256": "29a5bff9d0c0b23e1e100b3621ac1fe10dedf018d2a85309940f1c6c6ec3c47b"
       },
       {
-        "bytes": 2291,
+        "bytes": 2092,
         "path": "data/walking-lunge.json",
-        "sha256": "f7711c8d684b6cf72fdcce6a64f90827d576d9613c1a2026acd79348deab3902"
+        "sha256": "418c4a8afa588f7e6e80443eac9b37f53894f2c7982d65e23658a7ad40ec1494"
       },
       {
-        "bytes": 1898,
+        "bytes": 1814,
         "path": "data/warrior-i.json",
-        "sha256": "78db68d54db85c2db0278d9eb4c5bcf950ab062786dbe0a421c10170751349ca"
+        "sha256": "e20ad78b98895ee56830dd35a24e5b129483f71182f79ac8bd04dbf69e33acc1"
       },
       {
-        "bytes": 1869,
+        "bytes": 1785,
         "path": "data/warrior-ii.json",
-        "sha256": "531b17ad86f511a61ac1813f16cd239c6e0ba9795ea166448a4bf2dae4bdda65"
+        "sha256": "38a256bd264b8432d197d159b083062f0962fb4dcef91e42b56e117c87b090c5"
       },
       {
-        "bytes": 3173,
+        "bytes": 2724,
         "path": "data/weighted-dip.json",
-        "sha256": "12d70569e67310446f25010285b5cf14e905b00de947bfa59ae8b737dfe3199c"
+        "sha256": "a0ba274c6633b8a1dcc6e43e329157ef240cee1942a179a3a522358e86687a95"
       },
       {
-        "bytes": 3269,
+        "bytes": 2844,
         "path": "data/weighted-pull-up.json",
-        "sha256": "7f612238f6652245009a740570039291f3871121c92f3d9afb0e2bd90accb9df"
+        "sha256": "15537fcd0ac5e3c9faad86e5b9725624ef4719a2d3704dc1a50b032f645a5607"
       },
       {
-        "bytes": 1967,
+        "bytes": 1883,
         "path": "data/wheel-pose.json",
-        "sha256": "919d273c70153d21eb5203392efc9b79042b05e5a9d2134cb4758668e14fe45a"
+        "sha256": "67ca98dff5b4cb45e6d84a259d284c458fa24f5669574d85b984b8479414fe24"
       },
       {
-        "bytes": 3261,
+        "bytes": 2803,
         "path": "data/wide-grip-pull-up.json",
-        "sha256": "a59fda225214998a5c2ceb4e4a7f461c40dfe3b16793c13fed17376b0eab9302"
+        "sha256": "704f02afed38378e385b8aa21d659148908678ad9ad64d08c17c1fe9d8c97d13"
       },
       {
-        "bytes": 1911,
+        "bytes": 1827,
         "path": "data/worlds-greatest-stretch.json",
-        "sha256": "ba0188e6e47146c86e23a13856269b0cf25c1f3c747de4d93ce27624bdeaab4d"
+        "sha256": "00766323c8422bf3c0659e8222bc8a4c28f564819d96ce2f9849f1863e0dc6d1"
       },
       {
-        "bytes": 1583,
+        "bytes": 1468,
         "path": "data/wrist-curl.json",
-        "sha256": "ab0093dcbd468f9bf15da07cb3289dce1106da15579d44736ca508326c7b298a"
+        "sha256": "f6fa20ba7b3bb4080d09ebd611b2faf0acc7140e615fbf0e99a152abfd06afac"
       },
       {
         "bytes": 486,
@@ -785,99 +950,144 @@
         "sha256": "86760cf1e0a139c7df639fbd4ad95580a0f96e5d7efbf151b42ff3977fee0108"
       },
       {
-        "bytes": 11414,
+        "bytes": 191264,
+        "path": "locales/be.json",
+        "sha256": "234a98401fc27711875cd51236fd10f9c78ce0c0fadfe32bf59fbe7ca0091c34"
+      },
+      {
+        "bytes": 145578,
+        "path": "locales/cs.json",
+        "sha256": "a11bd29d68123977720afd0b7a7a394233f3c93517471a7d84434a69304c33a6"
+      },
+      {
+        "bytes": 148085,
+        "path": "locales/de.json",
+        "sha256": "3a6dc545dae3c1884f369ed058a38dab9f969c103fd9dfe8a53eddfb2d8560ae"
+      },
+      {
+        "bytes": 133392,
         "path": "locales/en-GB.json",
-        "sha256": "f9f681a887c0ca0f7b2c11529be423e5be8a63cc943c5165923a187207fbe7d4"
+        "sha256": "5b54ce95cb9bddc8a8217b0372509b77aeb5e9810e1bef9dfad8c72d714644c5"
       },
       {
-        "bytes": 15465,
+        "bytes": 145394,
+        "path": "locales/es.json",
+        "sha256": "47d694116c958f96031594c892a26e53dc2b6f199430ab5e689c4cd39350f079"
+      },
+      {
+        "bytes": 149220,
+        "path": "locales/fr.json",
+        "sha256": "4a3e310d351a53b93395434f4b79b830104e74976c4d1a20ddd2bc11a22b5535"
+      },
+      {
+        "bytes": 240121,
+        "path": "locales/ka.json",
+        "sha256": "699f6367f7108b8f7d6929c849819c4891ae7e9dce087fdb29eb2258672871a7"
+      },
+      {
+        "bytes": 181204,
+        "path": "locales/kk.json",
+        "sha256": "e2daa17f6fa47f31a93b9816c641a216e5b75b2a17d8f62ce5d7f2c76dc2f650"
+      },
+      {
+        "bytes": 149535,
+        "path": "locales/pl.json",
+        "sha256": "4c03a918942c9b733309a01280e129dcba8dc00513317f7238daf3dd78df3170"
+      },
+      {
+        "bytes": 190762,
         "path": "locales/uk.json",
-        "sha256": "20a4cce524dd5ac8f98499cea62536a2e7219d0abbf343805a9430e1bc64e2a8"
+        "sha256": "17d20c235f570a346bb7fcb7950b86ccc5f11231ec4aad6058711b3bb770055a"
       },
       {
-        "bytes": 8661,
+        "bytes": 127489,
+        "path": "locales/zh-Hans.json",
+        "sha256": "eeede640d2bf355d89a70efcf6ada6784c3bd2851ea2e52d15b3603cd0ea9533"
+      },
+      {
+        "bytes": 8622,
         "path": "schema/exercise.schema.json",
-        "sha256": "c6b73cbb6f32dd409ec9d875fabd12fcdc928eed9edc7a19c218f4d0ab615fbf"
+        "sha256": "0a8043b7487b3766cc374f979d1c89d97663fabecf2db5ae6a3bf5587e02244a"
       },
       {
-        "bytes": 4252,
+        "bytes": 4305,
         "path": "schema/workout-template.schema.json",
-        "sha256": "dc3181138671e91364311cc03076c62e9a577005fdbaf60957adb75fe5838904"
+        "sha256": "e33dba9c60cbe9a5b80179367fb7f8c475ccb57ac9c706186c7b0da5e019efe4"
       },
       {
-        "bytes": 3358,
+        "bytes": 3238,
         "path": "templates/beginner-5k-8w.json",
-        "sha256": "85ea508fe1f2f2b386ae7d5bc8eb9844671be2e34e3751d719f628457e77e614"
+        "sha256": "a7eeb045a6eb9d34466c9ee8cf1144366ce058a373484b8123a0b7aaa7307837"
       },
       {
-        "bytes": 2262,
+        "bytes": 2195,
         "path": "templates/bodyweight-travel-3x.json",
-        "sha256": "af4e157d43313bbda32c241e53c37435a11cfc96bb09f2b1db1addcceb5dcf61"
+        "sha256": "465eaccf9b9dfb9b80fbe62dce88f8cb761c9d942217d152486dc228df54e980"
       },
       {
-        "bytes": 5029,
+        "bytes": 4851,
         "path": "templates/concurrent-lift-run-4x.json",
-        "sha256": "36cd173d74d013e1faa9994a1c2105b173b81c6ba6fb65ed1b2b41250425e978"
+        "sha256": "40994b8084d2d881b5c8c95143970d1894005e0604c9b7610cd196f48ebd589f"
       },
       {
-        "bytes": 5948,
+        "bytes": 5823,
         "path": "templates/desk-worker-mobility-strength.json",
-        "sha256": "5532d602de83a7390301857f1eb2a7f3389abc727da74d22f3060f5d2d59d5e2"
+        "sha256": "a88e9870402d51f6530d6af1f8495d0d191736b3b34d35504b9d1516b744bbea"
       },
       {
-        "bytes": 5333,
+        "bytes": 5113,
         "path": "templates/full-body-beginner-3x.json",
-        "sha256": "4c1be27ac8713c9230690a17fe8616180331cd07e86e0c26dfe289d0ccea217f"
+        "sha256": "cc1b3502a0a536a85cdae9ff6250dfc2fad6bb970c32e29c7073c4652aee8ebb"
       },
       {
-        "bytes": 4399,
+        "bytes": 4246,
         "path": "templates/glute-posterior-emphasis.json",
-        "sha256": "c00d0f6fcc0dd7d01dc25edc3dd6d9e125fc6cbbd6900dd265745e462ada9412"
+        "sha256": "f38256530f0f0f2ba504ff43a74abe0bb6833a9b48c302d03fd94fb53e4dcaae"
       },
       {
-        "bytes": 4971,
+        "bytes": 4846,
         "path": "templates/home-minimal-3x.json",
-        "sha256": "357dc3b4e7c2f7e99b639c813d637e1a5f6b9832a9a852b3b24c71be201df27e"
+        "sha256": "43786dcdf1aa2170676069a02f5c8bc9265479e555e8aa71f75ce6f72bcf5574"
       },
       {
-        "bytes": 6037,
+        "bytes": 5895,
         "path": "templates/hypertrophy-dumbbell-4x.json",
-        "sha256": "165623c66b37724b28a65f4ac99802666caaffabce78a8a195c23d255b5dfbaf"
+        "sha256": "69bbcb644db93bed795c2c186f1f88959a42f81bab2864554c6b99316f27aba8"
       },
       {
-        "bytes": 3568,
+        "bytes": 3443,
         "path": "templates/older-adult-functional-3x.json",
-        "sha256": "b38d4f4a94476632fbe7048c828c57948d4f4e2783920c178f8a4f0eda17c139"
+        "sha256": "5cc3636f51171746cf7d210ce882f37048b89cba55a4978a04d01dbfdec2790c"
       },
       {
-        "bytes": 3326,
+        "bytes": 3259,
         "path": "templates/pilates-core-3x.json",
-        "sha256": "6e5c81c0ffc4b90d9769bed78f65ca1bc3cd239bbc57473a032028b634c1fd78"
+        "sha256": "dbf0c6fecf7cc5891ecc25320144c8d214f6c974b8b74dac241decde0ced3b74"
       },
       {
-        "bytes": 4913,
+        "bytes": 4685,
         "path": "templates/ppl-6x.json",
-        "sha256": "9fa84fdcab590e811c660be0c30c9c72fe926212cc40cb2218f9740b135b0ac9"
+        "sha256": "26a2be8c7b8df22c9f42f981754d29b731c1825aeedc516af8570dce28057ada"
       },
       {
-        "bytes": 4205,
+        "bytes": 4061,
         "path": "templates/strength-focus-3x.json",
-        "sha256": "f9ddbcd5ed119b5f31f8e4220424f8380e275063998dd9c54519f6d54f48748f"
+        "sha256": "1e5ebd4088035c1f4c7a266323e704364a303b371beb0da2d144558ae7dd21e7"
       },
       {
-        "bytes": 3851,
+        "bytes": 3731,
         "path": "templates/swim-technique-3x.json",
-        "sha256": "37952e065f946fb9da00b94ecdff9dbcc06a37352912f48cbfb5f35fb146c963"
+        "sha256": "560eafcefbf3da8bdea9e9ccf98833528bc557372eb09dac76907858c8a630c8"
       },
       {
-        "bytes": 6547,
+        "bytes": 6299,
         "path": "templates/upper-lower-4x.json",
-        "sha256": "99b8131cc6cf025ef52d21f2eaaf13d47afdb5d36af02bb46267fedeeaa7e317"
+        "sha256": "c86aba52c5ee163125e56560e1ad5810f5887e4eeff4eddd8de98a5e1f1819df"
       },
       {
-        "bytes": 3986,
+        "bytes": 3919,
         "path": "templates/yoga-mobility-flow.json",
-        "sha256": "d182d544b1b42554a1a756947c9a17022b34255689833a107feec45fa9d588bf"
+        "sha256": "3bce89e09ce6ff18db775ee04cbdca3355b7d7b3e26f60b96c5e627979294dc1"
       }
     ],
     "icons": [
@@ -1104,12 +1314,12 @@
   "schemaVersion": 1,
   "sections": {
     "achievements": {
-      "fileCount": 1,
-      "sha256": "9413cdcc69117090d21afb4bf41d693f510b18d637649e0034ccc2e5100631fd"
+      "fileCount": 34,
+      "sha256": "cd185469c3fd7f21fc353f526e7d8572d63f9ac677284643eb5f0296d80aab3a"
     },
     "body-maps": {
       "fileCount": 5,
-      "sha256": "5be235f9795251bb9dd3296c6ff0a1892bda2b9acf2b446649a827f0209f8826"
+      "sha256": "d3f2e977c384d13994fc7582a0f92172e632ad5420a649bf7aa3ebf1c5fb1513"
     },
     "evidence": {
       "fileCount": 2,
@@ -1120,13 +1330,13 @@
       "sha256": "535b6c9859d08d25d36a3097500b4124a6ddca220f130726fe2f88ec9853d470"
     },
     "exercises": {
-      "fileCount": 165,
-      "sha256": "7f36813787423cec8c32e6a52436b4984f31646bbda8720fc9036d829fc840ce"
+      "fileCount": 174,
+      "sha256": "cee0d8d49c5fa281c951bb1299522c94f0ecfa86e84ec2aa07b10aa6ffdcc451"
     },
     "icons": {
       "fileCount": 41,
       "sha256": "593cbd2111b9b013a64679a3ddf05dee6002a63c099764fe80ccf1302272fa3d"
     }
   },
-  "sha256": "fdda94d457bce24a97c7c746f700e5ef824afe3b3f149df547dc1f6eb5975bae"
+  "sha256": "dfe209e05a5a006623bac7d6c3690d974006670d9009366c73be604f134d62c3"
 }

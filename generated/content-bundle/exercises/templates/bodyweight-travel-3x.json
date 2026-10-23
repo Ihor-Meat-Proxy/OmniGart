@@ -18,9 +18,7 @@
   "rationale": "Short full-body circuits maintain stimulus while travelling; pair with walking for energy expenditure per ACSM activity guidance.",
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0b013e318213fefb",
-      "label": "Garber et al. 2011 ACSM guidance",
+      "evidenceId": "garber_acsm_quantity_2011",
       "supports": [
         "programming",
         "endurance",

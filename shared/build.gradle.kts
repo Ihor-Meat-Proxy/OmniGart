@@ -111,20 +111,20 @@ detekt {
 
 /**
  * Copy already-linked Shared.frameworks into the XcodeGen search path:
- * shared/build/xcode-frameworks/<Configuration>/<sdkName>/Shared.framework
+ * shared/build/xcode-frameworks/<Configuration>/<PLATFORM_NAME>/Shared.framework
  *
- * Root cause of CI "No such module 'Shared'": Gradle writes frameworks under
- * build/bin/<target>/<debug|release>Framework/, while project.yml looks under
- * build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)/.
+ * Use Xcode `$(PLATFORM_NAME)` (iphonesimulator, iphoneos, watchsimulator, watchos),
+ * not versioned `$(SDK_NAME)` (e.g. watchsimulator27.2), so new SDKs do not require
+ * Gradle list updates. Xcode pre-build: `scripts/xcode_sync_shared_framework.sh`.
  */
 tasks.register("syncXcodeFrameworks") {
     group = "build"
     description =
-        "Sync linked Shared.framework into xcode-frameworks/\$(CONFIGURATION)/\$(SDK_NAME)"
+        "Sync linked Shared.framework into xcode-frameworks/\$(CONFIGURATION)/\$(PLATFORM_NAME)"
     doLast {
         val outRoot = layout.buildDirectory.get().asFile.resolve("xcode-frameworks")
 
-        fun sync(targetName: String, buildType: NativeBuildType, sdkPrefixes: List<String>) {
+        fun sync(targetName: String, buildType: NativeBuildType, platformName: String) {
             val typeDir =
                 if (buildType == NativeBuildType.DEBUG) "debugFramework" else "releaseFramework"
             val configDir = if (buildType == NativeBuildType.DEBUG) "Debug" else "Release"
@@ -134,48 +134,20 @@ tasks.register("syncXcodeFrameworks") {
                     .asFile
                     .resolve("bin/$targetName/$typeDir/Shared.framework")
             if (!framework.isDirectory) return
-            sdkPrefixes.forEach { prefix ->
-                val destParent = outRoot.resolve("$configDir/$prefix")
-                destParent.mkdirs()
-                val dest = destParent.resolve("Shared.framework")
-                if (dest.exists()) dest.deleteRecursively()
-                framework.copyRecursively(dest, overwrite = true)
-            }
+            val destParent = outRoot.resolve("$configDir/$platformName")
+            destParent.mkdirs()
+            val dest = destParent.resolve("Shared.framework")
+            if (dest.exists()) dest.deleteRecursively()
+            framework.copyRecursively(dest, overwrite = true)
         }
 
-        val iosSimSdks =
-            listOf(
-                "iphonesimulator",
-                "iphonesimulator18.0",
-                "iphonesimulator18.1",
-                "iphonesimulator18.2",
-                "iphonesimulator18.4",
-                "iphonesimulator18.5",
-                "iphonesimulator26.0",
-                "iphonesimulator26.1",
-                "iphonesimulator26.2"
-            )
-        val iosDeviceSdks =
-            listOf("iphoneos", "iphoneos18.0", "iphoneos18.5", "iphoneos26.0", "iphoneos26.2")
-        val watchSimSdks =
-            listOf(
-                "watchsimulator",
-                "watchsimulator11.0",
-                "watchsimulator11.2",
-                "watchsimulator11.5",
-                "watchsimulator26.0",
-                "watchsimulator26.1",
-                "watchsimulator26.2"
-            )
-        val watchDeviceSdks =
-            listOf("watchos", "watchos11.0", "watchos11.5", "watchos26.0", "watchos26.2")
-
         listOf(NativeBuildType.DEBUG, NativeBuildType.RELEASE).forEach { type ->
-            sync("iosSimulatorArm64", type, iosSimSdks)
-            sync("iosArm64", type, iosDeviceSdks)
-            sync("iosX64", type, iosSimSdks)
-            sync("watchosSimulatorArm64", type, watchSimSdks)
-            sync("watchosArm64", type, watchDeviceSdks)
+            // Prefer arm64 simulator output when both arm64 and x64 exist.
+            sync("iosX64", type, "iphonesimulator")
+            sync("iosSimulatorArm64", type, "iphonesimulator")
+            sync("iosArm64", type, "iphoneos")
+            sync("watchosSimulatorArm64", type, "watchsimulator")
+            sync("watchosArm64", type, "watchos")
         }
     }
 }

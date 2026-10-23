@@ -61,18 +61,14 @@
   ],
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1519/SSC.0000000000000579",
-      "label": "McKenzie et al. 2020 — glenohumeral extension risk considerations in the dip",
+      "evidenceId": "mckenzie_dip_shoulder_2020",
       "supports": [
         "safety",
         "technique"
       ]
     },
     {
-      "kind": "textbook",
-      "id": "nsca-essentials-4e",
-      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "evidenceId": "nsca_essentials_4e",
       "supports": [
         "technique",
         "safety",
@@ -80,9 +76,7 @@
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1016/0021-9290(95)00178-6",
-      "label": "de Leva 1996 — adjusted segmental mass proportions (Zatsiorsky–Seluyanov)",
+      "evidenceId": "de_leva_segmental_1996",
       "supports": [
         "biomechanics"
       ]

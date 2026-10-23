@@ -17,13 +17,13 @@ struct Zone2Summary: Equatable, Sendable {
     /// Compact `m:ss` / `h:mm:ss` for watch glances.
     static func formatDuration(_ interval: TimeInterval) -> String {
         let total = max(0, Int(interval.rounded()))
-        let h = total / 3600
-        let m = (total % 3600) / 60
-        let s = total % 60
-        if h > 0 {
-            return String(format: "%d:%02d:%02d", h, m, s)
+        let hours = total / 3600
+        let minutes = (total % 3600) / 60
+        let seconds = total % 60
+        if hours > 0 {
+            return String(format: "%d:%02d:%02d", hours, minutes, seconds)
         }
-        return String(format: "%d:%02d", m, s)
+        return String(format: "%d:%02d", minutes, seconds)
     }
 
     /// Metres below 1 km as whole metres; otherwise km with two decimals.
@@ -48,11 +48,11 @@ struct Zone2Summary: Equatable, Sendable {
         var out: [Zone2HeartRateSample] = []
         out.reserveCapacity(maxPoints)
         let lastIndex = samples.count - 1
-        for i in 0..<maxPoints {
-            let idx = i == maxPoints - 1
+        for pointIndex in 0..<maxPoints {
+            let sampleIndex = pointIndex == maxPoints - 1
                 ? lastIndex
-                : (i * lastIndex) / (maxPoints - 1)
-            out.append(samples[idx])
+                : (pointIndex * lastIndex) / (maxPoints - 1)
+            out.append(samples[sampleIndex])
         }
         return out
     }

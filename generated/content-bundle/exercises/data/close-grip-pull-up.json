@@ -66,26 +66,20 @@
   ],
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1016/j.jelekin.2016.11.004",
-      "label": "Dickie et al. 2017 — EMG across pronated/supinated/neutral/rope pull-up grips",
+      "evidenceId": "dickie_pullup_grip_emg_2017",
       "supports": [
         "emg",
         "biomechanics"
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1016/0021-9290(95)00178-6",
-      "label": "de Leva 1996 — adjusted segmental mass proportions (Zatsiorsky–Seluyanov)",
+      "evidenceId": "de_leva_segmental_1996",
       "supports": [
         "biomechanics"
       ]
     },
     {
-      "kind": "textbook",
-      "id": "nsca-essentials-4e",
-      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "evidenceId": "nsca_essentials_4e",
       "supports": [
         "technique",
         "safety",

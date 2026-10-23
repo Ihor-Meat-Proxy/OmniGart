@@ -21,9 +21,7 @@
   "rationale": "Combines posterior-chain and upper-back strength with thoracic/hip mobility to offset sedentary postures, within ACSM multi-component recommendations.",
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0b013e318213fefb",
-      "label": "Garber et al. 2011 ACSM guidance",
+      "evidenceId": "garber_acsm_quantity_2011",
       "supports": [
         "programming",
         "endurance",
@@ -31,9 +29,7 @@
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0000000000003897",
-      "label": "ACSM 2026 RT Position Stand",
+      "evidenceId": "acsm_resistance_training_2026",
       "supports": [
         "programming",
         "strength",

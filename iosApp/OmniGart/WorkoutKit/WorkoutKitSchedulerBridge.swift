@@ -83,9 +83,13 @@ final class WorkoutKitSchedulerBridge {
             )
         }
         let custom = try WorkoutKitPlanBuilder.makeCustomWorkout(from: draft)
-        let plan = WorkoutPlan(custom)
+        let plan = WorkoutPlan(.custom(custom))
         let date = draft.scheduledStart ?? Date().addingTimeInterval(3600)
-        try await scheduler.schedule(plan, at: date)
+        let components = Calendar.current.dateComponents(
+            [.year, .month, .day, .hour, .minute],
+            from: date
+        )
+        await scheduler.schedule(plan, at: components)
         let after = await scheduler.scheduledWorkouts
         return ScheduleOutcome(
             ok: true,

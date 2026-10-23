@@ -104,10 +104,10 @@ enum WorkoutKitPlanBuilder {
                 cooldown = step
             case "WORK", "RECOVERY":
                 let purpose: IntervalStep.Purpose = block.kind == "RECOVERY" ? .recovery : .work
-                let interval = IntervalStep(purpose: purpose, step: step)
+                let interval = IntervalStep(purpose, step: step)
                 blocks.append(IntervalBlock(steps: [interval], iterations: block.repeatCount))
             default:
-                let interval = IntervalStep(purpose: .work, step: step)
+                let interval = IntervalStep(.work, step: step)
                 blocks.append(IntervalBlock(steps: [interval], iterations: block.repeatCount))
             }
         }
@@ -140,10 +140,13 @@ enum WorkoutKitPlanBuilder {
         // Heart-rate band alerts are attached when the OS API accepts a bpm range.
         // Zone 2 PR wires explicit bands; builder keeps goal-only steps if alert helpers differ by SDK.
         if block.alertKind == "HEART_RATE_ZONE",
-           let lower = block.alertLower,
-           let upper = block.alertUpper,
-           lower <= upper {
-            let alert = HeartRateRangeAlert(target: lower...upper)
+           let lowerBpm = block.alertLower,
+           let upperBpm = block.alertUpper,
+           lowerBpm <= upperBpm {
+            // WorkoutKit expects heart-rate bounds as Hz (beats per second).
+            let lowerHertz = Measurement(value: lowerBpm / 60.0, unit: UnitFrequency.hertz)
+            let upperHertz = Measurement(value: upperBpm / 60.0, unit: UnitFrequency.hertz)
+            let alert = HeartRateRangeAlert(target: lowerHertz...upperHertz)
             return WorkoutStep(goal: goal, alert: alert)
         }
         return WorkoutStep(goal: goal)

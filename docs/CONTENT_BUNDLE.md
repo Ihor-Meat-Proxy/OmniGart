@@ -28,6 +28,10 @@ bundled baseline  <  verified update pack (newer packVersion)
 ```bash
 python3 scripts/pack_bundled_content.py          # write generated/content-bundle/
 python3 scripts/pack_bundled_content.py --verify # CI: fail if stale
+
+Xcode pre-build packs into a **temp directory** then copies into the app’s gitignored
+`ContentBundle/` folder, so pressing Run does not rewrite `generated/content-bundle/`.
+After editing `content/` or design sources, regenerate and **commit** the baseline:
 ./gradlew packBundledContent verifyBundledContent
 ```
 

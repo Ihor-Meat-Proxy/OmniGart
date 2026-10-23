@@ -111,6 +111,7 @@ User-triggered; local only (iOS share sheet / Files, Android SAF).
 | **CSV** | Per type: workouts, heart-rate series, other samples |
 | **GPX** | Routes (`trk` / `trkpt`) |
 | **TCX** | Workouts, laps/segments, trackpoints, calories, avg HR |
+| **PDF** | Coach-ready summary (single workout or date range). Shared layout model `WorkoutPdfDocument` rendered on-device with `UIGraphicsPDFRenderer` (iOS) / `PdfDocument` (Android). Includes date, activity, duration, active/total kcal, avg/max HR, HR chart with zones + time-in-zone, distance/pace/cadence when applicable, strength sets/reps/load + total weight + muscle intensity bars, yoga/Pilates segments, OmniGart branding, wellness disclaimer footer. Locale strings for all 11 app languages; fonts: bundled Noto Sans (Latin/Cyrillic), Noto Sans Georgian (ka), platform CJK cascade for zh-Hans. |
 | **FIT** | **Not shipped.** No AGPL-compatible FOSS FIT writer is vendored (Garmin FIT SDK is proprietary). Export emits a plain-text note artifact instead. |
 
 ## Import

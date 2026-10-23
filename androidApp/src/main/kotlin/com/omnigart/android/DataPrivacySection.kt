@@ -63,6 +63,24 @@ fun DataPrivacySection(core: OmniGartCore) {
             Text(text = stringResource(R.string.data_privacy_export_share))
         }
         Button(
+            onClick = {
+                OmnigartPdfShare.shareLatest(context, core)
+                exportMessage = context.getString(R.string.pdf_export_ready)
+            },
+            modifier = Modifier.testTag("pdf_export_button")
+        ) {
+            Text(text = stringResource(R.string.pdf_export_button))
+        }
+        Button(
+            onClick = {
+                OmnigartPdfShare.shareLast30Days(context, core)
+                exportMessage = context.getString(R.string.pdf_export_ready)
+            },
+            modifier = Modifier.testTag("pdf_export_range_button")
+        ) {
+            Text(text = stringResource(R.string.pdf_export_range_button))
+        }
+        Button(
             onClick = { importLauncher.launch(arrayOf("application/json", "text/*")) },
             modifier = Modifier.testTag("data_privacy_import_json")
         ) {

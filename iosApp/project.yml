@@ -66,6 +66,8 @@ targets:
         createIntermediateGroups: false
       - path: OmniGart/PrivacyInfo.xcprivacy
         buildPhase: resources
+      - path: OmniGart/Fonts
+        buildPhase: resources
       - path: OmniGart/en-GB.lproj
       - path: OmniGart/uk.lproj
       - path: OmniGart/ContentBundle

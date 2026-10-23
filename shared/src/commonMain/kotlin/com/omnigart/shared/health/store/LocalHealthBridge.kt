@@ -3,6 +3,9 @@ package com.omnigart.shared.health.store
 import com.omnigart.shared.health.WorkoutActivityType
 import com.omnigart.shared.health.store.export.HealthExportArtifact
 import com.omnigart.shared.health.store.export.HealthExportService
+import com.omnigart.shared.health.store.pdf.WorkoutPdfBuilder
+import com.omnigart.shared.health.store.pdf.WorkoutPdfDocument
+import com.omnigart.shared.health.store.pdf.WorkoutPdfLabelCatalog
 import kotlin.time.Clock
 import kotlin.time.Instant
 
@@ -183,4 +186,66 @@ class LocalHealthBridge(
     fun exportArtifactUtf8(fileName: String): String? = export.exportAll().firstOrNull { it.fileName == fileName }?.utf8Content
 
     fun exportArtifacts(): List<HealthExportArtifact> = export.exportAll()
+
+    /**
+     * Build a single-workout PDF layout document (host renders bytes).
+     * [strengthJson] optional compact extras: totalKg|exKey=name,exKey2=name2|muscle=kg,muscle2=kg
+     */
+    fun buildWorkoutPdf(
+        workoutId: String,
+        locale: String,
+        hrMaxBpm: Int = 190,
+        hrRestBpm: Int = 60,
+        strengthJson: String? = null
+    ): WorkoutPdfDocument? {
+        val workout = store.getWorkout(workoutId) ?: return null
+        val labels = WorkoutPdfLabelCatalog.fromCatalog(locale)
+        return WorkoutPdfBuilder(labels).buildSingle(
+            workout = workout,
+            locale = locale,
+            hrMaxBpm = hrMaxBpm,
+            hrRestBpm = hrRestBpm,
+            strength = parseStrengthExtras(strengthJson)
+        )
+    }
+
+    /** Date-range PDF layout (inclusive start, exclusive end as epoch ms). */
+    fun buildRangePdf(startEpochMs: Long, endEpochMs: Long, locale: String, hrMaxBpm: Int = 190, hrRestBpm: Int = 60): WorkoutPdfDocument {
+        val range =
+            HealthExportRange(
+                start = Instant.fromEpochMilliseconds(startEpochMs),
+                endExclusive = Instant.fromEpochMilliseconds(endEpochMs)
+            )
+        val workouts = store.listWorkouts(range)
+        val labels = WorkoutPdfLabelCatalog.fromCatalog(locale)
+        return WorkoutPdfBuilder(labels).buildRange(
+            workouts = workouts,
+            locale = locale,
+            hrMaxBpm = hrMaxBpm,
+            hrRestBpm = hrRestBpm
+        )
+    }
+
+    fun latestWorkoutId(): String? = store.listWorkouts().firstOrNull()?.id
+
+    private fun parseStrengthExtras(raw: String?): WorkoutPdfBuilder.StrengthExtras? {
+        if (raw.isNullOrBlank()) return null
+        val parts = raw.split('|')
+        val total = parts.getOrNull(0)?.toDoubleOrNull() ?: 0.0
+        val names =
+            parts.getOrNull(1).orEmpty().split(',').mapNotNull { pair ->
+                val kv = pair.split('=', limit = 2)
+                if (kv.size == 2) kv[0] to kv[1] else null
+            }.toMap()
+        val muscles =
+            parts.getOrNull(2).orEmpty().split(',').mapNotNull { pair ->
+                val kv = pair.split('=', limit = 2)
+                if (kv.size == 2) kv[0] to (kv[1].toDoubleOrNull() ?: return@mapNotNull null) else null
+            }.toMap()
+        return WorkoutPdfBuilder.StrengthExtras(
+            totalWeightLiftedKg = total,
+            exerciseNames = names,
+            muscleVolumeKg = muscles
+        )
+    }
 }

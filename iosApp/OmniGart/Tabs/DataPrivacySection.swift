@@ -44,6 +44,18 @@ struct DataPrivacySection: View {
             }
             .accessibilityIdentifier("data_privacy_export")
 
+            Button("pdf_export_button") {
+                WorkoutPdfExport.shareLatest(core: core)
+            }
+            .accessibilityIdentifier("pdf_export_button")
+
+            Button("pdf_export_range_button") {
+                let end = Date()
+                let start = Calendar.current.date(byAdding: .day, value: -30, to: end) ?? end
+                WorkoutPdfExport.shareRange(core: core, start: start, end: end)
+            }
+            .accessibilityIdentifier("pdf_export_range_button")
+
             Button("data_privacy_import_json") {
                 showImporter = true
             }

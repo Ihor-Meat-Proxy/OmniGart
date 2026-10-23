@@ -51,5 +51,12 @@
 	<!-- Set to 0 on Personal Team if WorkoutKit signing fails (see docs/WORKOUTKIT.md). -->
 	<key>OMNIGART_ENABLE_WORKOUTKIT</key>
 	<string>1</string>
+	<!-- Noto fonts for PDF export (Cyrillic / Georgian); zh-Hans uses PingFang SC cascade. -->
+	<key>UIAppFonts</key>
+	<array>
+		<string>Fonts/NotoSans-Regular.ttf</string>
+		<string>Fonts/NotoSans-Bold.ttf</string>
+		<string>Fonts/NotoSansGeorgian-Regular.ttf</string>
+	</array>
 </dict>
 </plist>

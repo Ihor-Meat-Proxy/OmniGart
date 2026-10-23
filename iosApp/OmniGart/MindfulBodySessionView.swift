@@ -86,6 +86,12 @@ struct MindfulBodySessionView: View {
                 ForEach(summaryLines, id: \.self) { line in
                     Text(line).font(.footnote)
                 }
+                Button("pdf_export_button") {
+                    if let id = core.localHealth.latestWorkoutId() {
+                        WorkoutPdfExport.shareSingle(core: core, workoutId: id)
+                    }
+                }
+                .accessibilityIdentifier("pdf_export_button")
             }
         }
     }

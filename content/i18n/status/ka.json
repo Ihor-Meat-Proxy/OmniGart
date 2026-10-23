@@ -6007,6 +6007,1190 @@
     "status": "machine-drafted",
     "source_hash": "c9f0c40104abd914"
   },
+  "running.plan.10k_beginner_10w.distribution": {
+    "status": "machine-drafted",
+    "source_hash": "9a503c5f84aa0fbc"
+  },
+  "running.plan.10k_beginner_10w.name": {
+    "status": "machine-drafted",
+    "source_hash": "d1e8223b52188e0f"
+  },
+  "running.plan.10k_beginner_10w.progression": {
+    "status": "machine-drafted",
+    "source_hash": "d241226848eb1814"
+  },
+  "running.plan.10k_beginner_10w.theme.build": {
+    "status": "machine-drafted",
+    "source_hash": "628c134a76dbfa5d"
+  },
+  "running.plan.10k_beginner_10w.theme.peak": {
+    "status": "machine-drafted",
+    "source_hash": "ec8bc58546c0baa1"
+  },
+  "running.plan.10k_beginner_10w.theme.taper": {
+    "status": "machine-drafted",
+    "source_hash": "2c24492be48f5f2b"
+  },
+  "running.plan.10k_intermediate_10w.distribution": {
+    "status": "machine-drafted",
+    "source_hash": "8460b9660116a9e3"
+  },
+  "running.plan.10k_intermediate_10w.name": {
+    "status": "machine-drafted",
+    "source_hash": "9871cd9e0de25f7c"
+  },
+  "running.plan.10k_intermediate_10w.progression": {
+    "status": "machine-drafted",
+    "source_hash": "d241226848eb1814"
+  },
+  "running.plan.10k_intermediate_10w.theme.build": {
+    "status": "machine-drafted",
+    "source_hash": "628c134a76dbfa5d"
+  },
+  "running.plan.10k_intermediate_10w.theme.peak": {
+    "status": "machine-drafted",
+    "source_hash": "ec8bc58546c0baa1"
+  },
+  "running.plan.10k_intermediate_10w.theme.taper": {
+    "status": "machine-drafted",
+    "source_hash": "2c24492be48f5f2b"
+  },
+  "running.plan.5k_beginner_8w.distribution": {
+    "status": "machine-drafted",
+    "source_hash": "9a503c5f84aa0fbc"
+  },
+  "running.plan.5k_beginner_8w.name": {
+    "status": "machine-drafted",
+    "source_hash": "88adc930cd3147b6"
+  },
+  "running.plan.5k_beginner_8w.progression": {
+    "status": "machine-drafted",
+    "source_hash": "d241226848eb1814"
+  },
+  "running.plan.5k_beginner_8w.theme.build": {
+    "status": "machine-drafted",
+    "source_hash": "628c134a76dbfa5d"
+  },
+  "running.plan.5k_beginner_8w.theme.peak": {
+    "status": "machine-drafted",
+    "source_hash": "ec8bc58546c0baa1"
+  },
+  "running.plan.5k_beginner_8w.theme.taper": {
+    "status": "machine-drafted",
+    "source_hash": "2c24492be48f5f2b"
+  },
+  "running.plan.5k_intermediate_8w.distribution": {
+    "status": "machine-drafted",
+    "source_hash": "35df814093119d6a"
+  },
+  "running.plan.5k_intermediate_8w.name": {
+    "status": "machine-drafted",
+    "source_hash": "560f8a1509a6dc34"
+  },
+  "running.plan.5k_intermediate_8w.progression": {
+    "status": "machine-drafted",
+    "source_hash": "d241226848eb1814"
+  },
+  "running.plan.5k_intermediate_8w.theme.build": {
+    "status": "machine-drafted",
+    "source_hash": "628c134a76dbfa5d"
+  },
+  "running.plan.5k_intermediate_8w.theme.peak": {
+    "status": "machine-drafted",
+    "source_hash": "ec8bc58546c0baa1"
+  },
+  "running.plan.5k_intermediate_8w.theme.taper": {
+    "status": "machine-drafted",
+    "source_hash": "2c24492be48f5f2b"
+  },
+  "running.plan.half_beginner_12w.distribution": {
+    "status": "machine-drafted",
+    "source_hash": "9a503c5f84aa0fbc"
+  },
+  "running.plan.half_beginner_12w.name": {
+    "status": "machine-drafted",
+    "source_hash": "db0866fb1b6cafed"
+  },
+  "running.plan.half_beginner_12w.progression": {
+    "status": "machine-drafted",
+    "source_hash": "d241226848eb1814"
+  },
+  "running.plan.half_beginner_12w.theme.build": {
+    "status": "machine-drafted",
+    "source_hash": "628c134a76dbfa5d"
+  },
+  "running.plan.half_beginner_12w.theme.peak": {
+    "status": "machine-drafted",
+    "source_hash": "ec8bc58546c0baa1"
+  },
+  "running.plan.half_beginner_12w.theme.taper": {
+    "status": "machine-drafted",
+    "source_hash": "2c24492be48f5f2b"
+  },
+  "running.plan.half_intermediate_12w.distribution": {
+    "status": "machine-drafted",
+    "source_hash": "8460b9660116a9e3"
+  },
+  "running.plan.half_intermediate_12w.name": {
+    "status": "machine-drafted",
+    "source_hash": "b3a5b465e763f3e2"
+  },
+  "running.plan.half_intermediate_12w.progression": {
+    "status": "machine-drafted",
+    "source_hash": "d241226848eb1814"
+  },
+  "running.plan.half_intermediate_12w.theme.build": {
+    "status": "machine-drafted",
+    "source_hash": "628c134a76dbfa5d"
+  },
+  "running.plan.half_intermediate_12w.theme.peak": {
+    "status": "machine-drafted",
+    "source_hash": "ec8bc58546c0baa1"
+  },
+  "running.plan.half_intermediate_12w.theme.taper": {
+    "status": "machine-drafted",
+    "source_hash": "2c24492be48f5f2b"
+  },
+  "running.plan.marathon_beginner_16w.distribution": {
+    "status": "machine-drafted",
+    "source_hash": "3d644faeed62ca09"
+  },
+  "running.plan.marathon_beginner_16w.name": {
+    "status": "machine-drafted",
+    "source_hash": "0b713f8b598da58d"
+  },
+  "running.plan.marathon_beginner_16w.progression": {
+    "status": "machine-drafted",
+    "source_hash": "d241226848eb1814"
+  },
+  "running.plan.marathon_beginner_16w.theme.build": {
+    "status": "machine-drafted",
+    "source_hash": "628c134a76dbfa5d"
+  },
+  "running.plan.marathon_beginner_16w.theme.peak": {
+    "status": "machine-drafted",
+    "source_hash": "ec8bc58546c0baa1"
+  },
+  "running.plan.marathon_beginner_16w.theme.taper": {
+    "status": "machine-drafted",
+    "source_hash": "2c24492be48f5f2b"
+  },
+  "running.plan.marathon_intermediate_16w.distribution": {
+    "status": "machine-drafted",
+    "source_hash": "7f76f389247eefad"
+  },
+  "running.plan.marathon_intermediate_16w.name": {
+    "status": "machine-drafted",
+    "source_hash": "e64e0a6176bac7cc"
+  },
+  "running.plan.marathon_intermediate_16w.progression": {
+    "status": "machine-drafted",
+    "source_hash": "d241226848eb1814"
+  },
+  "running.plan.marathon_intermediate_16w.theme.build": {
+    "status": "machine-drafted",
+    "source_hash": "628c134a76dbfa5d"
+  },
+  "running.plan.marathon_intermediate_16w.theme.peak": {
+    "status": "machine-drafted",
+    "source_hash": "ec8bc58546c0baa1"
+  },
+  "running.plan.marathon_intermediate_16w.theme.taper": {
+    "status": "machine-drafted",
+    "source_hash": "2c24492be48f5f2b"
+  },
+  "running.workout.acceleration_strides.name": {
+    "status": "machine-drafted",
+    "source_hash": "e06d3ffdc3c840d7"
+  },
+  "running.workout.acceleration_strides.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.acceleration_strides.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "98cc96725b04b014"
+  },
+  "running.workout.acceleration_strides.structure.strides": {
+    "status": "machine-drafted",
+    "source_hash": "7a052e36b34ed1f8"
+  },
+  "running.workout.acceleration_strides.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.anaerobic_200s.name": {
+    "status": "machine-drafted",
+    "source_hash": "d4c4e817895328ab"
+  },
+  "running.workout.anaerobic_200s.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.anaerobic_200s.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "b9426dcf8e730774"
+  },
+  "running.workout.anaerobic_200s.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.classic_fartlek.name": {
+    "status": "machine-drafted",
+    "source_hash": "807ce554a73caac7"
+  },
+  "running.workout.classic_fartlek.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.classic_fartlek.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "4ca416402ca98c07"
+  },
+  "running.workout.classic_fartlek.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.easy_aerobic.name": {
+    "status": "machine-drafted",
+    "source_hash": "1587af0e9ffa1d61"
+  },
+  "running.workout.easy_aerobic.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.easy_aerobic.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "6e99cd6f00797caf"
+  },
+  "running.workout.easy_aerobic.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.easy_progressive.name": {
+    "status": "machine-drafted",
+    "source_hash": "35e5b113c92ef150"
+  },
+  "running.workout.easy_progressive.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.easy_progressive.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "9554a453023f732a"
+  },
+  "running.workout.easy_progressive.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.hill_fartlek.name": {
+    "status": "machine-drafted",
+    "source_hash": "eb28e0cd0090f5b6"
+  },
+  "running.workout.hill_fartlek.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.hill_fartlek.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "1ee511819fa840f8"
+  },
+  "running.workout.hill_fartlek.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.hill_repeats_long.name": {
+    "status": "machine-drafted",
+    "source_hash": "b98826cf6387afa7"
+  },
+  "running.workout.hill_repeats_long.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.hill_repeats_long.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "91b50f761d2b38ba"
+  },
+  "running.workout.hill_repeats_long.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.hill_repeats_short.name": {
+    "status": "machine-drafted",
+    "source_hash": "076ea1d82f2822ea"
+  },
+  "running.workout.hill_repeats_short.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.hill_repeats_short.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "9c186d32bfc0a6da"
+  },
+  "running.workout.hill_repeats_short.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.hilly_endurance.name": {
+    "status": "machine-drafted",
+    "source_hash": "374a964efe34f534"
+  },
+  "running.workout.hilly_endurance.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.hilly_endurance.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "5eafa7da872d34f4"
+  },
+  "running.workout.hilly_endurance.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.long_easy.name": {
+    "status": "machine-drafted",
+    "source_hash": "4fc01ee73743b54f"
+  },
+  "running.workout.long_easy.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.long_easy.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "33ff248ffa62301a"
+  },
+  "running.workout.long_easy.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.long_with_finish_fast.name": {
+    "status": "machine-drafted",
+    "source_hash": "9ccd3d46674ffcc6"
+  },
+  "running.workout.long_with_finish_fast.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.long_with_finish_fast.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "4a4aafafe1e890ba"
+  },
+  "running.workout.long_with_finish_fast.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.long_with_mid_tempo.name": {
+    "status": "machine-drafted",
+    "source_hash": "67a8d79c89d0ac7d"
+  },
+  "running.workout.long_with_mid_tempo.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.long_with_mid_tempo.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "65807c741842beba"
+  },
+  "running.workout.long_with_mid_tempo.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.mixed_intervals.name": {
+    "status": "machine-drafted",
+    "source_hash": "5ff8cc8daec6ad53"
+  },
+  "running.workout.mixed_intervals.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.mixed_intervals.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "b8ce40ec04b967f8"
+  },
+  "running.workout.mixed_intervals.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.progression_run.name": {
+    "status": "machine-drafted",
+    "source_hash": "2126969c6d6e2e12"
+  },
+  "running.workout.progression_run.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.progression_run.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "ef3cb9e8bfb3e640"
+  },
+  "running.workout.progression_run.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.race_pace_repeats.name": {
+    "status": "machine-drafted",
+    "source_hash": "9beb4382cfc2e889"
+  },
+  "running.workout.race_pace_repeats.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.race_pace_repeats.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "2051e5b9d895e464"
+  },
+  "running.workout.race_pace_repeats.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.recovery_jog.name": {
+    "status": "machine-drafted",
+    "source_hash": "4285b376f13429d1"
+  },
+  "running.workout.recovery_jog.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.recovery_jog.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "35eb10b5c283212e"
+  },
+  "running.workout.recovery_jog.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.strides_after_easy.name": {
+    "status": "machine-drafted",
+    "source_hash": "d9fa00c182afa16c"
+  },
+  "running.workout.strides_after_easy.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.strides_after_easy.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "778f12f4520ca306"
+  },
+  "running.workout.strides_after_easy.structure.strides": {
+    "status": "machine-drafted",
+    "source_hash": "7a052e36b34ed1f8"
+  },
+  "running.workout.strides_after_easy.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.strides_pre_quality.name": {
+    "status": "machine-drafted",
+    "source_hash": "7af21070d0a48493"
+  },
+  "running.workout.strides_pre_quality.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.strides_pre_quality.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "24f5e4076b787798"
+  },
+  "running.workout.strides_pre_quality.structure.strides": {
+    "status": "machine-drafted",
+    "source_hash": "7a052e36b34ed1f8"
+  },
+  "running.workout.strides_pre_quality.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.structured_fartlek.name": {
+    "status": "machine-drafted",
+    "source_hash": "0923e806ebfb7591"
+  },
+  "running.workout.structured_fartlek.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.structured_fartlek.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "5b519d0218a8edb9"
+  },
+  "running.workout.structured_fartlek.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.tempo_continuous.name": {
+    "status": "machine-drafted",
+    "source_hash": "3d2bde2567aaf96e"
+  },
+  "running.workout.tempo_continuous.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.tempo_continuous.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "f5e6b3e3cd5e26c1"
+  },
+  "running.workout.tempo_continuous.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.tempo_cruise_intervals.name": {
+    "status": "machine-drafted",
+    "source_hash": "048ee77dc78ad613"
+  },
+  "running.workout.tempo_cruise_intervals.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.tempo_cruise_intervals.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "ffb0978f99176054"
+  },
+  "running.workout.tempo_cruise_intervals.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.threshold_repeats.name": {
+    "status": "machine-drafted",
+    "source_hash": "bade98ddf660012a"
+  },
+  "running.workout.threshold_repeats.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.threshold_repeats.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "aaa52b1b698cb570"
+  },
+  "running.workout.threshold_repeats.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.vo2max_intervals_1000.name": {
+    "status": "machine-drafted",
+    "source_hash": "6159fa5b03c18cfd"
+  },
+  "running.workout.vo2max_intervals_1000.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.vo2max_intervals_1000.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "828cbc33f8cfb196"
+  },
+  "running.workout.vo2max_intervals_1000.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.vo2max_intervals_400.name": {
+    "status": "machine-drafted",
+    "source_hash": "f60ccb04e228bf9e"
+  },
+  "running.workout.vo2max_intervals_400.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.vo2max_intervals_400.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "17e19831eb184185"
+  },
+  "running.workout.vo2max_intervals_400.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.workout.vo2max_intervals_800.name": {
+    "status": "machine-drafted",
+    "source_hash": "afd1dbac0858cd83"
+  },
+  "running.workout.vo2max_intervals_800.structure.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "f180d6c57d2cf570"
+  },
+  "running.workout.vo2max_intervals_800.structure.main": {
+    "status": "machine-drafted",
+    "source_hash": "8ee3fa6837047d31"
+  },
+  "running.workout.vo2max_intervals_800.structure.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "86e2f2d35a3fd2a4"
+  },
+  "running.zone.hr.z1": {
+    "status": "machine-drafted",
+    "source_hash": "550a42ee75b9bf85"
+  },
+  "running.zone.hr.z2": {
+    "status": "machine-drafted",
+    "source_hash": "e1b135442d29929c"
+  },
+  "running.zone.hr.z3": {
+    "status": "machine-drafted",
+    "source_hash": "0ce9a41eb00c6602"
+  },
+  "running.zone.hr.z4": {
+    "status": "machine-drafted",
+    "source_hash": "22e58ca0a859a8c2"
+  },
+  "running.zone.hr.z5": {
+    "status": "machine-drafted",
+    "source_hash": "91e640a7b3eac35c"
+  },
+  "running.zone.pace.easy": {
+    "status": "machine-drafted",
+    "source_hash": "c87a01a6ad823b8b"
+  },
+  "running.zone.pace.interval": {
+    "status": "machine-drafted",
+    "source_hash": "42fd6daadd145fdb"
+  },
+  "running.zone.pace.marathon": {
+    "status": "machine-drafted",
+    "source_hash": "0dad55ad5b29e835"
+  },
+  "running.zone.pace.repetition": {
+    "status": "machine-drafted",
+    "source_hash": "61dffeea49603fcd"
+  },
+  "running.zone.pace.threshold": {
+    "status": "machine-drafted",
+    "source_hash": "cb2403403bfc8968"
+  },
+  "swim.drill.back_catch_up.name": {
+    "status": "machine-drafted",
+    "source_hash": "e9cd5d8cfb2bc5f6"
+  },
+  "swim.drill.back_kick_streamline.name": {
+    "status": "machine-drafted",
+    "source_hash": "f976af012258da5c"
+  },
+  "swim.drill.back_shoulder_shrug.name": {
+    "status": "machine-drafted",
+    "source_hash": "9b57af60e5831995"
+  },
+  "swim.drill.back_single_arm.name": {
+    "status": "machine-drafted",
+    "source_hash": "a73178abee9c190d"
+  },
+  "swim.drill.breast_glide_emphasis.name": {
+    "status": "machine-drafted",
+    "source_hash": "57346f8228e7de4b"
+  },
+  "swim.drill.breast_kick_on_back.name": {
+    "status": "machine-drafted",
+    "source_hash": "1a1087188ba31cab"
+  },
+  "swim.drill.breast_pull_out_focus.name": {
+    "status": "machine-drafted",
+    "source_hash": "f33f8471a18d2c26"
+  },
+  "swim.drill.breast_two_kick_one_pull.name": {
+    "status": "machine-drafted",
+    "source_hash": "833d643f79d584d8"
+  },
+  "swim.drill.catch_up_freestyle.name": {
+    "status": "machine-drafted",
+    "source_hash": "908835a1c77229e6"
+  },
+  "swim.drill.fingertip_drag_freestyle.name": {
+    "status": "machine-drafted",
+    "source_hash": "44e8fdfb552fa628"
+  },
+  "swim.drill.fist_freestyle.name": {
+    "status": "machine-drafted",
+    "source_hash": "f97abee8b277b15c"
+  },
+  "swim.drill.fly_3_3_3.name": {
+    "status": "machine-drafted",
+    "source_hash": "1093c1be2df94279"
+  },
+  "swim.drill.fly_body_dolphin.name": {
+    "status": "machine-drafted",
+    "source_hash": "daafa33ca3d66789"
+  },
+  "swim.drill.fly_kick_on_side.name": {
+    "status": "machine-drafted",
+    "source_hash": "edbf7b5fcc123e87"
+  },
+  "swim.drill.fly_single_arm.name": {
+    "status": "machine-drafted",
+    "source_hash": "c3081158e059e922"
+  },
+  "swim.drill.im_transition_practice.name": {
+    "status": "machine-drafted",
+    "source_hash": "47a7ad9526dccefa"
+  },
+  "swim.drill.kickboard_flutter.name": {
+    "status": "machine-drafted",
+    "source_hash": "fe75f5077d0fc3ec"
+  },
+  "swim.drill.paddle_catch_freestyle.name": {
+    "status": "machine-drafted",
+    "source_hash": "aab141b73cb814bc"
+  },
+  "swim.drill.pull_buoy_freestyle.name": {
+    "status": "machine-drafted",
+    "source_hash": "b3e2543fd5c3500c"
+  },
+  "swim.drill.scull_front_freestyle.name": {
+    "status": "machine-drafted",
+    "source_hash": "2828523a3faaf21d"
+  },
+  "swim.drill.scull_head_lead.name": {
+    "status": "machine-drafted",
+    "source_hash": "836febd658cccc75"
+  },
+  "swim.drill.scull_mid_freestyle.name": {
+    "status": "machine-drafted",
+    "source_hash": "92aeec123c984e96"
+  },
+  "swim.drill.shark_fin_freestyle.name": {
+    "status": "machine-drafted",
+    "source_hash": "540ffe9c01da9950"
+  },
+  "swim.drill.side_kick_freestyle.name": {
+    "status": "machine-drafted",
+    "source_hash": "6ad4deb48f4b8ee7"
+  },
+  "swim.drill.single_arm_freestyle.name": {
+    "status": "machine-drafted",
+    "source_hash": "e0eab6be68d9c86e"
+  },
+  "swim.drill.six_kick_switch_freestyle.name": {
+    "status": "machine-drafted",
+    "source_hash": "65a415c7dad65d58"
+  },
+  "swim.drill.snorkel_freestyle_balance.name": {
+    "status": "machine-drafted",
+    "source_hash": "cfc17502ac2c8ee6"
+  },
+  "swim.drill.streamline_push_offs.name": {
+    "status": "machine-drafted",
+    "source_hash": "bc13f2061cb38707"
+  },
+  "swim.drill.underwater_dolphin_kick.name": {
+    "status": "machine-drafted",
+    "source_hash": "f15982d679fc9ea3"
+  },
+  "swim.drill.zipper_freestyle.name": {
+    "status": "machine-drafted",
+    "source_hash": "6c35ebbd1f896960"
+  },
+  "swim.session.css_broken_swim.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.css_broken_swim.block.css": {
+    "status": "machine-drafted",
+    "source_hash": "9f7c6779d3c0839d"
+  },
+  "swim.session.css_broken_swim.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.css_broken_swim.name": {
+    "status": "machine-drafted",
+    "source_hash": "11416a52d7ad810d"
+  },
+  "swim.session.css_intro_repeats.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.css_intro_repeats.block.css": {
+    "status": "machine-drafted",
+    "source_hash": "9f7c6779d3c0839d"
+  },
+  "swim.session.css_intro_repeats.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.css_intro_repeats.name": {
+    "status": "machine-drafted",
+    "source_hash": "d3b31e3b8d1cde4c"
+  },
+  "swim.session.css_longer_reps.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.css_longer_reps.block.css": {
+    "status": "machine-drafted",
+    "source_hash": "9f7c6779d3c0839d"
+  },
+  "swim.session.css_longer_reps.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.css_longer_reps.name": {
+    "status": "machine-drafted",
+    "source_hash": "59c8b1bd0afcc852"
+  },
+  "swim.session.css_threshold_mix.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.css_threshold_mix.block.css": {
+    "status": "machine-drafted",
+    "source_hash": "9f7c6779d3c0839d"
+  },
+  "swim.session.css_threshold_mix.block.pre_css": {
+    "status": "machine-drafted",
+    "source_hash": "4b1adecbb78a2e00"
+  },
+  "swim.session.css_threshold_mix.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.css_threshold_mix.name": {
+    "status": "machine-drafted",
+    "source_hash": "a12ebeed741e8f8b"
+  },
+  "swim.session.endurance_distance_build.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.endurance_distance_build.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.endurance_distance_build.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.endurance_distance_build.name": {
+    "status": "machine-drafted",
+    "source_hash": "ccbe6e3fa0f4c1d1"
+  },
+  "swim.session.endurance_easy_aerobic.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.endurance_easy_aerobic.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.endurance_easy_aerobic.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.endurance_easy_aerobic.name": {
+    "status": "machine-drafted",
+    "source_hash": "74c40eccd93f37e1"
+  },
+  "swim.session.endurance_mixed_strokes.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.endurance_mixed_strokes.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.endurance_mixed_strokes.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.endurance_mixed_strokes.name": {
+    "status": "machine-drafted",
+    "source_hash": "e861990e5600fa68"
+  },
+  "swim.session.endurance_pull_kick.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.endurance_pull_kick.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.endurance_pull_kick.block.pull_kick": {
+    "status": "machine-drafted",
+    "source_hash": "1b88cb48ebc26639"
+  },
+  "swim.session.endurance_pull_kick.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.endurance_pull_kick.name": {
+    "status": "machine-drafted",
+    "source_hash": "b1c13f99152a2f4a"
+  },
+  "swim.session.endurance_with_drills.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.endurance_with_drills.block.drills": {
+    "status": "machine-drafted",
+    "source_hash": "f8b1a0fe08531d3f"
+  },
+  "swim.session.endurance_with_drills.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.endurance_with_drills.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.endurance_with_drills.name": {
+    "status": "machine-drafted",
+    "source_hash": "57fae825a76ac932"
+  },
+  "swim.session.mixed_im_endurance.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.mixed_im_endurance.block.drills": {
+    "status": "machine-drafted",
+    "source_hash": "f8b1a0fe08531d3f"
+  },
+  "swim.session.mixed_im_endurance.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.mixed_im_endurance.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.mixed_im_endurance.name": {
+    "status": "machine-drafted",
+    "source_hash": "6741e64b531f1045"
+  },
+  "swim.session.mixed_quality_free.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.mixed_quality_free.block.drills": {
+    "status": "machine-drafted",
+    "source_hash": "f8b1a0fe08531d3f"
+  },
+  "swim.session.mixed_quality_free.block.finish": {
+    "status": "machine-drafted",
+    "source_hash": "2d30d764f28ffd0e"
+  },
+  "swim.session.mixed_quality_free.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.mixed_quality_free.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.mixed_quality_free.name": {
+    "status": "machine-drafted",
+    "source_hash": "c29ebe094b292cb6"
+  },
+  "swim.session.mixed_tech_endurance.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.mixed_tech_endurance.block.drills": {
+    "status": "machine-drafted",
+    "source_hash": "f8b1a0fe08531d3f"
+  },
+  "swim.session.mixed_tech_endurance.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.mixed_tech_endurance.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.mixed_tech_endurance.name": {
+    "status": "machine-drafted",
+    "source_hash": "632866f222d35c7e"
+  },
+  "swim.session.tech_backstroke.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.tech_backstroke.block.drills": {
+    "status": "machine-drafted",
+    "source_hash": "f8b1a0fe08531d3f"
+  },
+  "swim.session.tech_backstroke.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.tech_backstroke.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.tech_backstroke.name": {
+    "status": "machine-drafted",
+    "source_hash": "744b026e874600e0"
+  },
+  "swim.session.tech_breaststroke.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.tech_breaststroke.block.drills": {
+    "status": "machine-drafted",
+    "source_hash": "f8b1a0fe08531d3f"
+  },
+  "swim.session.tech_breaststroke.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.tech_breaststroke.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.tech_breaststroke.name": {
+    "status": "machine-drafted",
+    "source_hash": "184b555a32de94cd"
+  },
+  "swim.session.tech_butterfly_intro.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.tech_butterfly_intro.block.drills": {
+    "status": "machine-drafted",
+    "source_hash": "f8b1a0fe08531d3f"
+  },
+  "swim.session.tech_butterfly_intro.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.tech_butterfly_intro.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.tech_butterfly_intro.name": {
+    "status": "machine-drafted",
+    "source_hash": "f57f36f5a3867efb"
+  },
+  "swim.session.tech_catch_focus.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.tech_catch_focus.block.drills": {
+    "status": "machine-drafted",
+    "source_hash": "f8b1a0fe08531d3f"
+  },
+  "swim.session.tech_catch_focus.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.tech_catch_focus.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.tech_catch_focus.name": {
+    "status": "machine-drafted",
+    "source_hash": "1c9e904d990a82bc"
+  },
+  "swim.session.tech_freestyle_basics.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.tech_freestyle_basics.block.drills": {
+    "status": "machine-drafted",
+    "source_hash": "f8b1a0fe08531d3f"
+  },
+  "swim.session.tech_freestyle_basics.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.tech_freestyle_basics.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.tech_freestyle_basics.name": {
+    "status": "machine-drafted",
+    "source_hash": "86eed19b47b28037"
+  },
+  "swim.session.tech_im_skills.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.tech_im_skills.block.drills": {
+    "status": "machine-drafted",
+    "source_hash": "f8b1a0fe08531d3f"
+  },
+  "swim.session.tech_im_skills.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.tech_im_skills.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.tech_im_skills.name": {
+    "status": "machine-drafted",
+    "source_hash": "574e92b9c3f1a5af"
+  },
+  "swim.session.tech_rotation_balance.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.tech_rotation_balance.block.drills": {
+    "status": "machine-drafted",
+    "source_hash": "f8b1a0fe08531d3f"
+  },
+  "swim.session.tech_rotation_balance.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.tech_rotation_balance.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.tech_rotation_balance.name": {
+    "status": "machine-drafted",
+    "source_hash": "b011594f776a8466"
+  },
+  "swim.session.tech_scull_feel.block.cooldown": {
+    "status": "machine-drafted",
+    "source_hash": "c005771ae3810dff"
+  },
+  "swim.session.tech_scull_feel.block.drills": {
+    "status": "machine-drafted",
+    "source_hash": "f8b1a0fe08531d3f"
+  },
+  "swim.session.tech_scull_feel.block.main": {
+    "status": "machine-drafted",
+    "source_hash": "1505992981cb0f08"
+  },
+  "swim.session.tech_scull_feel.block.warmup": {
+    "status": "machine-drafted",
+    "source_hash": "089dad85fb77f949"
+  },
+  "swim.session.tech_scull_feel.name": {
+    "status": "machine-drafted",
+    "source_hash": "185bc779ee77d1de"
+  },
+  "swim.stroke.backstroke.name": {
+    "status": "machine-drafted",
+    "source_hash": "d067a569168f3474"
+  },
+  "swim.stroke.backstroke.summary": {
+    "status": "machine-drafted",
+    "source_hash": "ab29405591cb9142"
+  },
+  "swim.stroke.breaststroke.name": {
+    "status": "machine-drafted",
+    "source_hash": "daa37687c2395971"
+  },
+  "swim.stroke.breaststroke.summary": {
+    "status": "machine-drafted",
+    "source_hash": "5f535890118290d2"
+  },
+  "swim.stroke.butterfly.name": {
+    "status": "machine-drafted",
+    "source_hash": "a30f6a02eaa26200"
+  },
+  "swim.stroke.butterfly.summary": {
+    "status": "machine-drafted",
+    "source_hash": "5755605025a2bde3"
+  },
+  "swim.stroke.freestyle.name": {
+    "status": "machine-drafted",
+    "source_hash": "7084e24c2c326762"
+  },
+  "swim.stroke.freestyle.summary": {
+    "status": "machine-drafted",
+    "source_hash": "5e9294d166dfd1f3"
+  },
+  "swim.stroke.individual_medley.name": {
+    "status": "machine-drafted",
+    "source_hash": "a14f4c5d11894f01"
+  },
+  "swim.stroke.individual_medley.summary": {
+    "status": "machine-drafted",
+    "source_hash": "761e5c5b7647ca63"
+  },
   "template.beginner_5k_8w.name": {
     "status": "machine-drafted",
     "source_hash": "5bedd91b120effec"

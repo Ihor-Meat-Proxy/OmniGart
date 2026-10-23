@@ -100,7 +100,7 @@
   "onboarding_activity_very_active": "非常活跃",
   "onboarding_health_privacy": "健康数据保留在您的设备上。OmniGart 不会出售或将其用于广告。",
   "perm_explainer_health_title": "Apple Health / Health Connect",
-  "perm_explainer_health_body": "OmniGart 可读写健康样本（心率、心率变异、睡眠、训练、体重、补水），以改进设备上的估算。数据不用于广告，也不会发送给无关第三方。您可以不授予访问权限继续使用。",
+  "perm_explainer_health_body": "OmniGart 可读写健康样本——心率、心率变异、睡眠、训练、活动与基础能量、体重和补水——以便会话以时长和热量出现在 Apple Fitness 中。数据不用于广告，也不发送给无关第三方。您也可不授予权限并继续。",
   "perm_continue": "继续",
   "perm_not_now": "暂时不要",
   "food_intro": "离线记录餐食。每日合计为健康教练参考，不是医疗建议。",
@@ -140,5 +140,16 @@
   "profile_intro": "编辑新手引导中的信息。更改仅保存在本设备。",
   "profile_edit_title": "您的个人资料",
   "profile_save": "保存个人资料",
-  "profile_saved": "个人资料已保存。"
+  "profile_saved": "个人资料已保存。",
+  "workout_summary_duration": "时长",
+  "workout_summary_active_kcal": "活动千卡",
+  "workout_summary_total_kcal": "总千卡",
+  "workout_summary_avg_hr": "平均心率",
+  "workout_summary_max_hr": "最大心率",
+  "watch.zone2.active_kcal": "活动千卡",
+  "watch.zone2.summary.duration": "时长",
+  "watch.zone2.summary.active_kcal": "活动千卡",
+  "watch.zone2.summary.total_kcal": "总千卡",
+  "watch.zone2.summary.avg_hr": "平均心率",
+  "watch.zone2.summary.max_hr": "最大心率"
 }

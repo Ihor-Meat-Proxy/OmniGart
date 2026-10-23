@@ -227,7 +227,10 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
 
     fun birthDay(profile: UserProfile): Int = profile.dateOfBirth.day
 
-    fun ageYears(profile: UserProfile, today: LocalDate = Clock.System.todayIn(TimeZone.currentSystemDefault())): Int {
+    /** Swift-friendly overload (default args are not exported to Apple). */
+    fun ageYears(profile: UserProfile): Int = ageYears(profile, Clock.System.todayIn(TimeZone.currentSystemDefault()))
+
+    fun ageYears(profile: UserProfile, today: LocalDate): Int {
         var age = today.year - profile.dateOfBirth.year
         val birthdayThisYear =
             LocalDate(today.year, profile.dateOfBirth.month, profile.dateOfBirth.day)

@@ -14,7 +14,7 @@
     <string name="info_sheet_title">Пра гэтую ацэнку</string>
     <string name="info_sheet_body">Паказчыкі накшталт гатоўнасці, стрэсу, ВСР, індэкса Баеўскага, тлушчу ў целе і гідратацыі — гэта ацэнкі самаадчування на аснове вашых даных і ўзораў з прылады. Планы — трэнерскія прапановы, а не прыпісы лекара.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart можа чытаць і запісваць узоры самаадчування (пульс, ВСР, сон, трэніроўкі, маса цела, гідратацыя), каб паляпшаць ацэнкі на прыладзе. Даныя не выкарыстоўваюцца для рэкламы і не адпраўляюцца староннім сэрвісам. Можна працягнуць без доступу.</string>
+    <string name="perm_explainer_health_body">OmniGart можа чытаць і запісваць узоры самаадчування — пульс, ВСР, сон, трэніроўкі, актыўную і базальную энергію, масу цела і гідратацыю — каб сесіі з’яўляліся ў Apple Fitness з працягласцю і калорыямі. Дадзеныя не для рэкламы і не перадаюцца трэцім бакам. Можна працягнуць без доступу.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth-аксэсуары</string>
     <string name="perm_explainer_bluetooth_body">Падключыце пульсаметр або падобны фітнес-аксэсуар для жывых узораў. OmniGart цалкам працуе без Bluetooth.</string>
     <string name="perm_explainer_camera_title">Камера для штыхкодаў</string>
@@ -129,4 +129,9 @@
     <string name="profile_edit_title">Ваш профіль</string>
     <string name="profile_save">Захаваць профіль</string>
     <string name="profile_saved">Профіль захаваны.</string>
+    <string name="workout_summary_duration">Працягласць</string>
+    <string name="workout_summary_active_kcal">Актыўныя ккал</string>
+    <string name="workout_summary_total_kcal">Усяго ккал</string>
+    <string name="workout_summary_avg_hr">Сярэдні пульс</string>
+    <string name="workout_summary_max_hr">Максімальны пульс</string>
 </resources>

@@ -100,7 +100,7 @@
   "onboarding_activity_very_active": "ძალიან აქტიური",
   "onboarding_health_privacy": "ჯანმრთელობის მონაცემები რჩება თქვენს მოწყობილობებზე. OmniGart არ ყიდის და არ იყენებს რეკლამისთვის.",
   "perm_explainer_health_title": "Apple Health / Health Connect",
-  "perm_explainer_health_body": "OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები (გულისცემა, HRV, ძილი, ვარჯიშები, სხეულის მასა, ჰიდრატაცია) მოწყობილობაზე შეფასებების გასაუმჯობესებლად. მონაცემები არ გამოიყენება რეკლამისთვის და არ იგზავნება უცხო მესამე მხარეებთან. შეგიძლიათ გააგრძელოთ წვდომის მინიჭების გარეშე.",
+  "perm_explainer_health_body": "OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები — გულისცემა, HRV, ძილი, ვარჯიშები, აქტიური და საბაზისო ენერგია, სხეულის მასა და ჰიდრატაცია — რომ სესიები გამოჩნდეს Apple Fitness-ში ხანგრძლივობით და კალორიებით. მონაცემები არ გამოიყენება რეკლამისთვის. შეგიძლიათ გააგრძელოთ წვდომის გარეშე.",
   "perm_continue": "გაგრძელება",
   "perm_not_now": "ახლა არა",
   "food_intro": "ჩაიწერეთ საკვები ოფლაინ. დღიური ჯამები კეთილდღეობის რჩევაა, არა სამედიცინო კონსულტაცია.",
@@ -140,5 +140,16 @@
   "profile_intro": "შეცვალეთ ონბორდინგის მონაცემები. ცვლილებები რჩება ამ მოწყობილობაზე.",
   "profile_edit_title": "თქვენი პროფილი",
   "profile_save": "პროფილის შენახვა",
-  "profile_saved": "პროფილი შენახულია."
+  "profile_saved": "პროფილი შენახულია.",
+  "workout_summary_duration": "ხანგრძლივობა",
+  "workout_summary_active_kcal": "აქტიური კკალ",
+  "workout_summary_total_kcal": "სულ კკალ",
+  "workout_summary_avg_hr": "საშუალო გულისცემა",
+  "workout_summary_max_hr": "მაქს. გულისცემა",
+  "watch.zone2.active_kcal": "აქტიური კკალ",
+  "watch.zone2.summary.duration": "ხანგრძლივობა",
+  "watch.zone2.summary.active_kcal": "აქტიური კკალ",
+  "watch.zone2.summary.total_kcal": "სულ კკალ",
+  "watch.zone2.summary.avg_hr": "საშ. გც",
+  "watch.zone2.summary.max_hr": "მაქს. გც"
 }

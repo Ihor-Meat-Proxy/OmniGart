@@ -14,7 +14,7 @@
     <string name="info_sheet_title">O tomto odhadu</string>
     <string name="info_sheet_body">Údaje jako připravenost, stres, HRV, Bajevského index, tělesný tuk a hydratace jsou wellness odhady založené na vašich vstupech a vzorcích ze zařízení. Plány jsou koučovací návrhy, nikoli předpisy.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart může číst a zapisovat wellness vzorky (tep, HRV, spánek, tréninky, tělesná hmotnost, hydratace), aby zlepšil odhady na zařízení. Data se nepoužívají k reklamě ani se neodesílají nesouvisejícím třetím stranám. Můžete pokračovat bez udělení přístupu.</string>
+    <string name="perm_explainer_health_body">OmniGart může číst a zapisovat wellness vzorky — tep, HRV, spánek, tréninky, aktivní a bazální energii, tělesnou hmotnost a hydrataci — aby se sezení zobrazila v Apple Fitness s délkou a kaloriemi. Data se nepoužívají k reklamě. Můžete pokračovat bez přístupu.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth příslušenství</string>
     <string name="perm_explainer_bluetooth_body">Připojte tepoměr nebo podobné fitness příslušenství pro živé vzorky. OmniGart plně funguje bez Bluetooth.</string>
     <string name="perm_explainer_camera_title">Fotoaparát pro čárové kódy</string>
@@ -129,4 +129,9 @@
     <string name="profile_edit_title">Váš profil</string>
     <string name="profile_save">Uložit profil</string>
     <string name="profile_saved">Profil uložen.</string>
+    <string name="workout_summary_duration">Trvání</string>
+    <string name="workout_summary_active_kcal">Aktivní kcal</string>
+    <string name="workout_summary_total_kcal">Celkem kcal</string>
+    <string name="workout_summary_avg_hr">Průměrný tep</string>
+    <string name="workout_summary_max_hr">Max. tep</string>
 </resources>

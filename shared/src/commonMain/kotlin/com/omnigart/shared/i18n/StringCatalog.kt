@@ -89,6 +89,11 @@ object StringKeys {
     const val WORKOUT_HARD_SETS = "workout_hard_sets"
     const val WORKOUT_PER_EXERCISE = "workout_per_exercise"
     const val WORKOUT_INTRO = "workout_intro"
+    const val WORKOUT_SUMMARY_DURATION = "workout_summary_duration"
+    const val WORKOUT_SUMMARY_ACTIVE_KCAL = "workout_summary_active_kcal"
+    const val WORKOUT_SUMMARY_TOTAL_KCAL = "workout_summary_total_kcal"
+    const val WORKOUT_SUMMARY_AVG_HR = "workout_summary_avg_hr"
+    const val WORKOUT_SUMMARY_MAX_HR = "workout_summary_max_hr"
 }
 
 object StringCatalog {
@@ -133,9 +138,10 @@ object StringCatalog {
             StringKeys.ONBOARDING_ACTIVITY_TITLE to "Typical daily activity",
             StringKeys.PERM_EXPLAINER_HEALTH_TITLE to "Apple Health / Health Connect",
             StringKeys.PERM_EXPLAINER_HEALTH_BODY to
-                "OmniGart can read and write wellness samples (heart rate, HRV, sleep, workouts, " +
-                "body mass, hydration) to improve on-device estimates. Data is not used for ads " +
-                "or sent to unrelated third parties. You can continue without granting access.",
+                "OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, " +
+                "active and resting energy, body mass, and hydration — so sessions can appear in " +
+                "Apple Fitness with duration and calories. Data is not used for ads or sent to " +
+                "unrelated third parties. You can continue without granting access.",
             StringKeys.PERM_CONTINUE to "Continue",
             StringKeys.PERM_NOT_NOW to "Not now",
             StringKeys.INFO_SHEET_TITLE to "About this estimate",
@@ -202,7 +208,12 @@ object StringCatalog {
             StringKeys.WORKOUT_PER_EXERCISE to "Per exercise",
             StringKeys.WORKOUT_INTRO to
                 "Log strength sets for wellness training estimates. Figures are coaching aids, " +
-                "not medical advice."
+                "not medical advice.",
+            StringKeys.WORKOUT_SUMMARY_DURATION to "Duration",
+            StringKeys.WORKOUT_SUMMARY_ACTIVE_KCAL to "Active kcal",
+            StringKeys.WORKOUT_SUMMARY_TOTAL_KCAL to "Total kcal",
+            StringKeys.WORKOUT_SUMMARY_AVG_HR to "Average heart rate",
+            StringKeys.WORKOUT_SUMMARY_MAX_HR to "Max heart rate"
         )
 
     private val uk: Map<String, String> =
@@ -244,10 +255,10 @@ object StringCatalog {
             StringKeys.ONBOARDING_ACTIVITY_TITLE to "Типова щоденна активність",
             StringKeys.PERM_EXPLAINER_HEALTH_TITLE to "Apple Health / Health Connect",
             StringKeys.PERM_EXPLAINER_HEALTH_BODY to
-                "OmniGart може читати й записувати зразки самопочуття (пульс, ВСР, сон, " +
-                "тренування, маса тіла, гідратація), щоб покращувати оцінки на пристрої. " +
-                "Дані не використовуються для реклами і не надсилаються стороннім сервісам. " +
-                "Можна продовжити без доступу.",
+                "OmniGart може читати й записувати зразки самопочуття — пульс, ВСР, сон, тренування, " +
+                "активну й базальну енергію, масу тіла та гідратацію — щоб сесії з’являлися в " +
+                "Apple Fitness із тривалістю та калоріями. Дані не використовуються для реклами " +
+                "й не передаються стороннім. Можна продовжити без доступу.",
             StringKeys.PERM_CONTINUE to "Продовжити",
             StringKeys.PERM_NOT_NOW to "Не зараз",
             StringKeys.INFO_SHEET_TITLE to "Про цю оцінку",
@@ -314,7 +325,12 @@ object StringCatalog {
             StringKeys.WORKOUT_PER_EXERCISE to "За вправами",
             StringKeys.WORKOUT_INTRO to
                 "Записуйте силові сети для оцінок тренувань. Показники — тренерські підказки, " +
-                "а не медична консультація."
+                "а не медична консультація.",
+            StringKeys.WORKOUT_SUMMARY_DURATION to "Тривалість",
+            StringKeys.WORKOUT_SUMMARY_ACTIVE_KCAL to "Активні ккал",
+            StringKeys.WORKOUT_SUMMARY_TOTAL_KCAL to "Усього ккал",
+            StringKeys.WORKOUT_SUMMARY_AVG_HR to "Середній пульс",
+            StringKeys.WORKOUT_SUMMARY_MAX_HR to "Максимальний пульс"
         )
 
     private val catalogs: Map<String, Map<String, String>> =

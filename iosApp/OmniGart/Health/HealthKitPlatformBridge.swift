@@ -67,6 +67,14 @@ final class HealthKitPlatformBridge: NSObject, @unchecked Sendable {
     static func dietaryWaterType() -> HKQuantityType? {
         HKQuantityType.quantityType(forIdentifier: .dietaryWater)
     }
+
+    static func activeEnergyType() -> HKQuantityType? {
+        HealthKitWorkoutWriter.activeEnergyType()
+    }
+
+    static func basalEnergyType() -> HKQuantityType? {
+        HealthKitWorkoutWriter.basalEnergyType()
+    }
 }
 
 /// Sample injection helpers for XCTest / Simulator validation of HealthKit write paths.

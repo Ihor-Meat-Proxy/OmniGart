@@ -17,6 +17,10 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
     @Published private(set) var heartRateSamples: [Zone2HeartRateSample] = []
     /// Mean of recorded cadence readings (spm); updated as steps arrive.
     @Published private(set) var averageCadenceSpm: Double = 0
+    /// Active energy from `HKLiveWorkoutDataSource` (kilocalories).
+    @Published private(set) var activeEnergyKcal: Double = 0
+    /// Basal energy when HealthKit provides it (kilocalories).
+    @Published private(set) var basalEnergyKcal: Double = 0
 
     let band: Zone2Band
     private let haptics: Zone2HapticsController
@@ -44,7 +48,9 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
         guard
             let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate),
             let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning),
-            let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount)
+            let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount),
+            let activeEnergyType = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned),
+            let basalEnergyType = HKQuantityType.quantityType(forIdentifier: .basalEnergyBurned)
         else {
             lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
             return
@@ -53,6 +59,8 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
             heartRateType,
             distanceType,
             stepType,
+            activeEnergyType,
+            basalEnergyType,
             HKObjectType.workoutType()
         ]
         do {
@@ -62,7 +70,13 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
             config.locationType = .outdoor
             let session = try HKWorkoutSession(healthStore: store, configuration: config)
             let builder = session.associatedWorkoutBuilder()
-            builder.dataSource = HKLiveWorkoutDataSource(healthStore: store, workoutConfiguration: config)
+            let dataSource = HKLiveWorkoutDataSource(healthStore: store, workoutConfiguration: config)
+            // Ensure Fitness-critical quantities are collected for the outdoor run.
+            dataSource.enableCollection(for: activeEnergyType, predicate: nil)
+            dataSource.enableCollection(for: basalEnergyType, predicate: nil)
+            dataSource.enableCollection(for: heartRateType, predicate: nil)
+            dataSource.enableCollection(for: distanceType, predicate: nil)
+            builder.dataSource = dataSource
             session.delegate = self
             builder.delegate = self
             self.session = session
@@ -100,12 +114,19 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
     }
 
     func makeSummary() -> Zone2Summary {
-        Zone2Summary(
+        let bpms = heartRateSamples.map(\.bpm)
+        return Zone2Summary(
             timeInZone: timeInZone,
             distanceMetres: distanceMetres,
             averageCadenceSpm: averageCadenceSpm,
             elapsed: elapsed,
-            heartRateSamples: heartRateSamples
+            heartRateSamples: heartRateSamples,
+            activeEnergyKcal: activeEnergyKcal,
+            basalEnergyKcal: basalEnergyKcal,
+            averageHeartRateBpm: bpms.isEmpty
+                ? 0
+                : Double(bpms.reduce(0, +)) / Double(bpms.count),
+            maxHeartRateBpm: bpms.max().map(Double.init) ?? 0
         )
     }
 
@@ -119,6 +140,8 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
         zoneState = .below
         heartRateSamples = []
         cadenceReadings = []
+        activeEnergyKcal = 0
+        basalEnergyKcal = 0
         startedAt = nil
         lastSampleAt = nil
     }
@@ -193,6 +216,8 @@ extension Zone2WorkoutSession: HKLiveWorkoutBuilderDelegate {
             let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)
             let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)
             let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount)
+            let activeEnergyType = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)
+            let basalEnergyType = HKQuantityType.quantityType(forIdentifier: .basalEnergyBurned)
             for type in collectedTypes {
                 guard let quantityType = type as? HKQuantityType else { continue }
                 guard let stats = workoutBuilder.statistics(for: quantityType) else { continue }
@@ -211,6 +236,12 @@ extension Zone2WorkoutSession: HKLiveWorkoutBuilderDelegate {
                         let steps = stats.sumQuantity()?.doubleValue(for: .count()) ?? 0
                         recordCadence((steps / elapsed) * 60.0)
                     }
+                } else if quantityType == activeEnergyType {
+                    activeEnergyKcal =
+                        stats.sumQuantity()?.doubleValue(for: .kilocalorie()) ?? activeEnergyKcal
+                } else if quantityType == basalEnergyType {
+                    basalEnergyKcal =
+                        stats.sumQuantity()?.doubleValue(for: .kilocalorie()) ?? basalEnergyKcal
                 }
             }
         }

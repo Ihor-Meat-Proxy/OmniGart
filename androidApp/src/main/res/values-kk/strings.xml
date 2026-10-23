@@ -14,7 +14,7 @@
     <string name="info_sheet_title">Осы бағалау туралы</string>
     <string name="info_sheet_body">Дайындық, стресс, ЖЖВ, Баевский индексі, дене майы және су балансы сияқты көрсеткіштер — сіздің деректеріңіз бен құрылғы үлгілеріне негізделген сауықтыру бағалаулары. Жоспарлар — жаттықтырушы ұсыныстары, рецепт емес.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart құрылғыдағы бағалауларды жақсарту үшін сауықтыру үлгілерін (жүрек соғуы, ЖЖВ, ұйқы, жаттығулар, дене массасы, су балансы) оқи және жаза алады. Деректер жарнамаға пайдаланылмайды және қатысы жоқ үшінші тараптарға жіберілмейді. Қолжетімділік берместен жалғастыра аласыз.</string>
+    <string name="perm_explainer_health_body">OmniGart сауықтыру үлгілерін оқи және жаза алады — жүрек соғысы, HRV, ұйқы, жаттығулар, белсенді және базалық энергия, дене салмағы және су ішу — сеанстар Apple Fitness-те ұзақтық пен калориямен көрінуі үшін. Деректер жарнамаға немесе үшінші тарапқа берілмейді. Рұқсатсыз жалғастыруға болады.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth аксессуарлары</string>
     <string name="perm_explainer_bluetooth_body">Тірі үлгілер үшін жүрек соғу немесе ұқсас фитнес аксессуарын қосыңыз. OmniGart Bluetoothсыз толық жұмыс істейді.</string>
     <string name="perm_explainer_camera_title">Штрихкод камерасы</string>
@@ -129,4 +129,9 @@
     <string name="profile_edit_title">Сіздің профиліңіз</string>
     <string name="profile_save">Профильді сақтау</string>
     <string name="profile_saved">Профиль сақталды.</string>
+    <string name="workout_summary_duration">Ұзақтық</string>
+    <string name="workout_summary_active_kcal">Белсенді ккал</string>
+    <string name="workout_summary_total_kcal">Барлық ккал</string>
+    <string name="workout_summary_avg_hr">Орташа жүрек соғысы</string>
+    <string name="workout_summary_max_hr">Макс. жүрек соғысы</string>
 </resources>

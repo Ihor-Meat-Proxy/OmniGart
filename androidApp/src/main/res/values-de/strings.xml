@@ -14,7 +14,7 @@
     <string name="info_sheet_title">Über diese Schätzung</string>
     <string name="info_sheet_body">Kennzahlen wie Bereitschaft, Stress, HRV, Baevsky-Index, Körperfett und Hydration sind Wellness-Schätzungen auf Basis Ihrer Eingaben und Geräteproben. Pläne sind Coaching-Vorschläge, keine Verordnungen.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart kann Wellness-Proben (Herzfrequenz, HRV, Schlaf, Workouts, Körpermasse, Hydration) lesen und schreiben, um Schätzungen auf dem Gerät zu verbessern. Daten werden nicht für Werbung genutzt und nicht an unverbundene Dritte gesendet. Sie können ohne Zugriff fortfahren.</string>
+    <string name="perm_explainer_health_body">OmniGart kann Wellness-Proben lesen und schreiben — Herzfrequenz, HRV, Schlaf, Workouts, aktive und Ruheenergie, Körpermasse und Hydration — damit Sitzungen in Apple Fitness mit Dauer und Kalorien erscheinen. Daten werden nicht für Werbung genutzt. Sie können ohne Zugriff fortfahren.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth-Zubehör</string>
     <string name="perm_explainer_bluetooth_body">Verbinden Sie einen Herzfrequenzmesser oder ähnliches Fitness-Zubehör für Live-Proben. OmniGart funktioniert vollständig ohne Bluetooth.</string>
     <string name="perm_explainer_camera_title">Kamera für Barcodes</string>
@@ -129,4 +129,9 @@
     <string name="profile_edit_title">Ihr Profil</string>
     <string name="profile_save">Profil speichern</string>
     <string name="profile_saved">Profil gespeichert.</string>
+    <string name="workout_summary_duration">Dauer</string>
+    <string name="workout_summary_active_kcal">Aktive kcal</string>
+    <string name="workout_summary_total_kcal">Gesamt-kcal</string>
+    <string name="workout_summary_avg_hr">Mittlere Herzfrequenz</string>
+    <string name="workout_summary_max_hr">Max. Herzfrequenz</string>
 </resources>

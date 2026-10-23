@@ -14,7 +14,7 @@
     <string name="info_sheet_title">Sobre esta estimación</string>
     <string name="info_sheet_body">Cifras como preparación, estrés, VFC, índice de Baevsky, grasa corporal e hidratación son estimaciones de bienestar basadas en tus datos y muestras del dispositivo. Los planes son sugerencias de coaching, no prescripciones.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart puede leer y escribir muestras de bienestar (frecuencia cardíaca, VFC, sueño, entrenamientos, masa corporal, hidratación) para mejorar las estimaciones en el dispositivo. Los datos no se usan para anuncios ni se envían a terceros no relacionados. Puedes continuar sin conceder acceso.</string>
+    <string name="perm_explainer_health_body">OmniGart puede leer y escribir muestras de bienestar — frecuencia cardiaca, VFC, sueño, entrenamientos, energía activa y en reposo, masa corporal e hidratación — para que las sesiones aparezcan en Apple Fitness con duración y calorías. Los datos no se usan para publicidad. Puedes continuar sin conceder acceso.</string>
     <string name="perm_explainer_bluetooth_title">Accesorios Bluetooth</string>
     <string name="perm_explainer_bluetooth_body">Conecta un monitor de frecuencia cardíaca o un accesorio de fitness similar para muestras en vivo. OmniGart funciona por completo sin Bluetooth.</string>
     <string name="perm_explainer_camera_title">Cámara para códigos de barras</string>
@@ -129,4 +129,9 @@
     <string name="profile_edit_title">Tu perfil</string>
     <string name="profile_save">Guardar perfil</string>
     <string name="profile_saved">Perfil guardado.</string>
+    <string name="workout_summary_duration">Duración</string>
+    <string name="workout_summary_active_kcal">Kcal activas</string>
+    <string name="workout_summary_total_kcal">Kcal totales</string>
+    <string name="workout_summary_avg_hr">Frecuencia media</string>
+    <string name="workout_summary_max_hr">Frecuencia máx.</string>
 </resources>

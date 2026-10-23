@@ -100,7 +100,7 @@
   "onboarding_activity_very_active": "Өте белсенді",
   "onboarding_health_privacy": "Денсаулық деректері құрылғыларыңызда қалады. OmniGart оларды сатпайды және жарнамаға пайдаланбайды.",
   "perm_explainer_health_title": "Apple Health / Health Connect",
-  "perm_explainer_health_body": "OmniGart құрылғыдағы бағалауларды жақсарту үшін сауықтыру үлгілерін (жүрек соғуы, ЖЖВ, ұйқы, жаттығулар, дене массасы, су балансы) оқи және жаза алады. Деректер жарнамаға пайдаланылмайды және қатысы жоқ үшінші тараптарға жіберілмейді. Қолжетімділік берместен жалғастыра аласыз.",
+  "perm_explainer_health_body": "OmniGart сауықтыру үлгілерін оқи және жаза алады — жүрек соғысы, HRV, ұйқы, жаттығулар, белсенді және базалық энергия, дене салмағы және су ішу — сеанстар Apple Fitness-те ұзақтық пен калориямен көрінуі үшін. Деректер жарнамаға немесе үшінші тарапқа берілмейді. Рұқсатсыз жалғастыруға болады.",
   "perm_continue": "Жалғастыру",
   "perm_not_now": "Қазір емес",
   "food_intro": "Тамақты офлайн жазыңыз. Күнделікті қорытындылар — сауықтыру кеңестері, медициналық кеңес емес.",
@@ -140,5 +140,16 @@
   "profile_intro": "Онбординг деректерін өңдеңіз. Өзгерістер осы құрылғыда қалады.",
   "profile_edit_title": "Сіздің профиліңіз",
   "profile_save": "Профильді сақтау",
-  "profile_saved": "Профиль сақталды."
+  "profile_saved": "Профиль сақталды.",
+  "workout_summary_duration": "Ұзақтық",
+  "workout_summary_active_kcal": "Белсенді ккал",
+  "workout_summary_total_kcal": "Барлық ккал",
+  "workout_summary_avg_hr": "Орташа жүрек соғысы",
+  "workout_summary_max_hr": "Макс. жүрек соғысы",
+  "watch.zone2.active_kcal": "Белсенді ккал",
+  "watch.zone2.summary.duration": "Ұзақтық",
+  "watch.zone2.summary.active_kcal": "Белсенді ккал",
+  "watch.zone2.summary.total_kcal": "Барлық ккал",
+  "watch.zone2.summary.avg_hr": "Орт. ЖС",
+  "watch.zone2.summary.max_hr": "Макс. ЖС"
 }

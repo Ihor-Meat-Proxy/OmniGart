@@ -100,7 +100,7 @@
   "onboarding_activity_very_active": "Bardzo aktywna",
   "onboarding_health_privacy": "Dane zdrowotne zostają na Twoich urządzeniach. OmniGart ich nie sprzedaje ani nie używa do reklam.",
   "perm_explainer_health_title": "Apple Health / Health Connect",
-  "perm_explainer_health_body": "OmniGart może odczytywać i zapisywać próbki wellness (tętno, HRV, sen, treningi, masa ciała, nawodnienie), aby poprawiać szacunki na urządzeniu. Dane nie są używane do reklam ani wysyłane do niezwiązanych stron trzecich. Możesz kontynuować bez przyznawania dostępu.",
+  "perm_explainer_health_body": "OmniGart może czytać i zapisywać próbki wellness — tętno, HRV, sen, treningi, energię aktywną i spoczynkową, masę ciała i nawodnienie — aby sesje pojawiały się w Apple Fitness z czasem i kaloriami. Dane nie służą reklamom ani stronom trzecim. Możesz kontynuować bez dostępu.",
   "perm_continue": "Kontynuuj",
   "perm_not_now": "Nie teraz",
   "food_intro": "Zapisuj posiłki offline. Dzienne sumy to wskazówki wellness, nie porada medyczna.",
@@ -140,5 +140,16 @@
   "profile_intro": "Edytuj dane z onboardingu. Zmiany zostają na tym urządzeniu.",
   "profile_edit_title": "Twój profil",
   "profile_save": "Zapisz profil",
-  "profile_saved": "Profil zapisany."
+  "profile_saved": "Profil zapisany.",
+  "workout_summary_duration": "Czas trwania",
+  "workout_summary_active_kcal": "Aktywne kcal",
+  "workout_summary_total_kcal": "Suma kcal",
+  "workout_summary_avg_hr": "Średnie tętno",
+  "workout_summary_max_hr": "Maks. tętno",
+  "watch.zone2.active_kcal": "Aktywne kcal",
+  "watch.zone2.summary.duration": "Czas",
+  "watch.zone2.summary.active_kcal": "Aktywne kcal",
+  "watch.zone2.summary.total_kcal": "Suma kcal",
+  "watch.zone2.summary.avg_hr": "Śr. tętno",
+  "watch.zone2.summary.max_hr": "Maks. tętno"
 }

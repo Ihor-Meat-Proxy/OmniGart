@@ -2,6 +2,7 @@ import SwiftUI
 import Shared
 
 /// Thin Workouts-tab strength logger over Shared StrengthLoggingService.
+/// On end, saves an `HKWorkout` (traditional strength) with MET energy estimates.
 struct StrengthLoggingView: View {
     let core: OmniGartCore
     let profileId: String
@@ -17,6 +18,8 @@ struct StrengthLoggingView: View {
     @State private var summaryLines: [String] = []
     @State private var setCount: Int = 0
     @State private var tick = 0
+    @State private var lastEnergy: HealthKitWorkoutWriter.Result?
+    @State private var savingHealth = false
 
     private var demos: [DemoStrengthExercise] {
         _ = tick
@@ -38,6 +41,7 @@ struct StrengthLoggingView: View {
                     sessionId = started.id
                     lastSessionId = started.id
                     summaryLines = []
+                    lastEnergy = nil
                     setCount = 0
                     tick += 1
                 }
@@ -91,12 +95,9 @@ struct StrengthLoggingView: View {
 
                 Button(catalog("workout_end")) {
                     guard let id = sessionId else { return }
-                    _ = core.strengthLogging.endSession(sessionId: id)
-                    refreshSummary(id: id)
-                    lastSessionId = id
-                    sessionId = nil
-                    tick += 1
+                    endAndSave(sessionId: id)
                 }
+                .disabled(savingHealth)
                 .accessibilityIdentifier("workout_end")
             }
 
@@ -134,6 +135,65 @@ struct StrengthLoggingView: View {
         }
     }
 
+    private func endAndSave(sessionId id: String) {
+        savingHealth = true
+        _ = core.strengthLogging.endSession(sessionId: id)
+        lastSessionId = id
+        sessionId = nil
+        refreshSummary(id: id)
+        tick += 1
+
+        guard let profile = core.profiles.get(id: profileId) else {
+            savingHealth = false
+            return
+        }
+        let start = dateFromEpochMillis(core.strengthLogging.sessionStartEpochMillis(sessionId: id))
+        let end = dateFromEpochMillis(core.strengthLogging.sessionEndEpochMillis(sessionId: id))
+        let durationHours = max(0, end.timeIntervalSince(start) / 3600.0)
+        let age = Int32(core.ageYears(profile: profile))
+        let breakdown = WorkoutEnergyEstimate.shared.strengthBreakdown(
+            weightKg: profile.weightKg,
+            heightCm: profile.heightCm,
+            ageYears: age,
+            sex: profile.biologicalSex,
+            durationHours: durationHours,
+            met: WorkoutEnergyEstimate.shared.STRENGTH_MET
+        )
+        let energy = HealthKitWorkoutWriter.EnergyInput(
+            activeKcal: breakdown.activeKcal,
+            basalKcal: breakdown.basalKcal
+        )
+
+        Task {
+            defer { savingHealth = false }
+            do {
+                let hrSamples = (try? await HealthKitWorkoutWriter.fetchHeartRate(from: start, to: end)) ?? []
+                let saved = try await HealthKitWorkoutWriter.saveStrengthWorkout(
+                    start: start,
+                    end: end,
+                    energy: energy,
+                    heartRate: hrSamples
+                )
+                await MainActor.run {
+                    lastEnergy = saved
+                    refreshSummary(id: id)
+                }
+            } catch {
+                // Permission denied or Health unavailable — local summary still shown.
+                await MainActor.run {
+                    lastEnergy = HealthKitWorkoutWriter.Result(
+                        workoutUUID: UUID(),
+                        activeKcal: energy.activeKcal,
+                        basalKcal: energy.basalKcal,
+                        averageHeartRateBpm: nil,
+                        maxHeartRateBpm: nil
+                    )
+                    refreshSummary(id: id)
+                }
+            }
+        }
+    }
+
     private func refreshSummary(id: String) {
         let profile = core.profiles.get(id: profileId)
         let bw = profile.map { KotlinDouble(value: $0.weightKg) }
@@ -146,17 +206,60 @@ struct StrengthLoggingView: View {
         setCount = Int(core.strengthLogging.getSession(sessionId: id)?.sets.count ?? 0)
         let volume = summary.volume.totalVolumeDisplay
         let lifted = summary.totalWeightLiftedDisplay
-        var lines = [
+
+        var lines: [String] = []
+        if core.strengthLogging.getSession(sessionId: id) != nil {
+            let start = dateFromEpochMillis(core.strengthLogging.sessionStartEpochMillis(sessionId: id))
+            let end = dateFromEpochMillis(core.strengthLogging.sessionEndEpochMillis(sessionId: id))
+            let seconds = max(0, end.timeIntervalSince(start))
+            lines.append(
+                "\(catalog("workout_summary_duration")): \(formatDuration(seconds))"
+            )
+        }
+        if let energy = lastEnergy {
+            lines.append(
+                "\(catalog("workout_summary_active_kcal")): \(String(format: "%.0f", energy.activeKcal))"
+            )
+            lines.append(
+                "\(catalog("workout_summary_total_kcal")): \(String(format: "%.0f", energy.activeKcal + energy.basalKcal))"
+            )
+            if let avg = energy.averageHeartRateBpm {
+                lines.append(
+                    "\(catalog("workout_summary_avg_hr")): \(String(format: "%.0f", avg))"
+                )
+            }
+            if let maxHr = energy.maxHeartRateBpm {
+                lines.append(
+                    "\(catalog("workout_summary_max_hr")): \(String(format: "%.0f", maxHr))"
+                )
+            }
+        }
+        lines.append(contentsOf: [
             "\(catalog("workout_volume_load")): \(String(format: "%.1f", volume)) kg",
             "\(catalog("workout_total_weight_lifted")): \(String(format: "%.1f", lifted)) kg",
             "\(catalog("workout_hard_sets")): \(summary.volume.hardSets)"
-        ]
+        ])
         lines.append(catalog("workout_per_exercise"))
         for row in summary.volume.perExercise {
             lines.append("\(row.exerciseId): \(String(format: "%.1f", row.volumeKg)) kg · \(row.hardSets)")
         }
         summaryLines = lines
         tick += 1
+    }
+
+    private func dateFromEpochMillis(_ millis: Int64) -> Date {
+        Date(timeIntervalSince1970: TimeInterval(millis) / 1000.0)
+    }
+
+    private func formatDuration(_ seconds: TimeInterval) -> String {
+        let total = max(0, Int(seconds.rounded()))
+        let hours = total / 3600
+        let minutes = (total % 3600) / 60
+        let secs = total % 60
+        if hours > 0 {
+            return String(format: "%d:%02d:%02d", hours, minutes, secs)
+        }
+        return String(format: "%d:%02d", minutes, secs)
     }
 
     private func catalog(_ key: String) -> String {

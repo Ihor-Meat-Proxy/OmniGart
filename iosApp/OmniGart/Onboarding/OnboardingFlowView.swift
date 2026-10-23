@@ -311,7 +311,10 @@ struct OnboardingFlowView: View {
         requestingHealth = true
         var read: Set<HKObjectType> = []
         var write: Set<HKSampleType> = []
-        if let heart = HealthKitPlatformBridge.heartRateType() { read.insert(heart) }
+        if let heart = HealthKitPlatformBridge.heartRateType() {
+            read.insert(heart)
+            write.insert(heart)
+        }
         if let resting = HealthKitPlatformBridge.restingHeartRateType() { read.insert(resting) }
         if let hrv = HealthKitPlatformBridge.hrvType() { read.insert(hrv) }
         if let sleep = HealthKitPlatformBridge.sleepType() { read.insert(sleep) }
@@ -319,6 +322,16 @@ struct OnboardingFlowView: View {
             read.insert(water)
             write.insert(water)
         }
+        if let active = HealthKitPlatformBridge.activeEnergyType() {
+            read.insert(active)
+            write.insert(active)
+        }
+        if let basal = HealthKitPlatformBridge.basalEnergyType() {
+            read.insert(basal)
+            write.insert(basal)
+        }
+        // Workouts: read existing Fitness history + write OmniGart sessions.
+        read.insert(HealthKitPlatformBridge.workoutType())
         write.insert(HealthKitPlatformBridge.workoutType())
         Task {
             defer { requestingHealth = false }

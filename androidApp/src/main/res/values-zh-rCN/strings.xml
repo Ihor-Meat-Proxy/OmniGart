@@ -14,7 +14,7 @@
     <string name="info_sheet_title">关于此估算</string>
     <string name="info_sheet_body">准备度、压力、心率变异、Baevsky 指数、体脂和补水等数值是基于您的输入和设备样本的健康估算。计划是教练建议，不是处方。</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart 可读写健康样本（心率、心率变异、睡眠、训练、体重、补水），以改进设备上的估算。数据不用于广告，也不会发送给无关第三方。您可以不授予访问权限继续使用。</string>
+    <string name="perm_explainer_health_body">OmniGart 可读写健康样本——心率、心率变异、睡眠、训练、活动与基础能量、体重和补水——以便会话以时长和热量出现在 Apple Fitness 中。数据不用于广告，也不发送给无关第三方。您也可不授予权限并继续。</string>
     <string name="perm_explainer_bluetooth_title">蓝牙配件</string>
     <string name="perm_explainer_bluetooth_body">连接心率或其他健身配件以获取实时样本。OmniGart 在无蓝牙时也可完整使用。</string>
     <string name="perm_explainer_camera_title">条码相机</string>
@@ -129,4 +129,9 @@
     <string name="profile_edit_title">您的个人资料</string>
     <string name="profile_save">保存个人资料</string>
     <string name="profile_saved">个人资料已保存。</string>
+    <string name="workout_summary_duration">时长</string>
+    <string name="workout_summary_active_kcal">活动千卡</string>
+    <string name="workout_summary_total_kcal">总千卡</string>
+    <string name="workout_summary_avg_hr">平均心率</string>
+    <string name="workout_summary_max_hr">最大心率</string>
 </resources>

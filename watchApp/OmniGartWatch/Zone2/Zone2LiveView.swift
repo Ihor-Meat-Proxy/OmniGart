@@ -37,10 +37,19 @@ struct Zone2LiveView: View {
                         .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
                     Spacer(minLength: 0)
                     if session.isRunning {
-                        Text(timeString(session.elapsed))
-                            .font(.caption2.monospacedDigit())
-                            .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
-                            .accessibilityLabel(Text("watch.zone2.elapsed"))
+                        HStack(spacing: 4) {
+                            Text(timeString(session.elapsed))
+                                .font(.caption2.monospacedDigit())
+                                .accessibilityLabel(Text("watch.zone2.elapsed"))
+                            if session.activeEnergyKcal > 0 {
+                                Text(
+                                    "\(Zone2Summary.formatEnergyKcal(session.activeEnergyKcal)) kcal"
+                                )
+                                .font(.caption2.monospacedDigit())
+                                .accessibilityLabel(Text("watch.zone2.active_kcal"))
+                            }
+                        }
+                        .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
                     }
                 }
 

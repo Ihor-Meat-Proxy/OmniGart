@@ -1001,67 +1001,67 @@
         "en-GB": {
           "stringUnit": {
             "state": "translated",
-            "value": "OmniGart can read and write wellness samples (heart rate, HRV, sleep, workouts, body mass, hydration) to improve on-device estimates. Data is not used for ads or sent to unrelated third parties. You can continue without granting access."
+            "value": "OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, active and resting energy, body mass, and hydration — so sessions can appear in Apple Fitness with duration and calories. Data is not used for ads or sent to unrelated third parties. You can continue without granting access."
           }
         },
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "OmniGart може читати й записувати зразки самопочуття (пульс, ВСР, сон, тренування, маса тіла, гідратація), щоб покращувати оцінки на пристрої. Дані не використовуються для реклами і не надсилаються стороннім сервісам. Можна продовжити без доступу."
+            "value": "OmniGart може читати й записувати зразки самопочуття — пульс, ВСР, сон, тренування, активну й базальну енергію, масу тіла та гідратацію — щоб сесії з’являлися в Apple Fitness із тривалістю та калоріями. Дані не використовуються для реклами й не передаються стороннім. Можна продовжити без доступу."
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "OmniGart może odczytywać i zapisywać próbki wellness (tętno, HRV, sen, treningi, masa ciała, nawodnienie), aby poprawiać szacunki na urządzeniu. Dane nie są używane do reklam ani wysyłane do niezwiązanych stron trzecich. Możesz kontynuować bez przyznawania dostępu."
+            "value": "OmniGart może czytać i zapisywać próbki wellness — tętno, HRV, sen, treningi, energię aktywną i spoczynkową, masę ciała i nawodnienie — aby sesje pojawiały się w Apple Fitness z czasem i kaloriami. Dane nie służą reklamom ani stronom trzecim. Możesz kontynuować bez dostępu."
           }
         },
         "be": {
           "stringUnit": {
             "state": "translated",
-            "value": "OmniGart можа чытаць і запісваць узоры самаадчування (пульс, ВСР, сон, трэніроўкі, маса цела, гідратацыя), каб паляпшаць ацэнкі на прыладзе. Даныя не выкарыстоўваюцца для рэкламы і не адпраўляюцца староннім сэрвісам. Можна працягнуць без доступу."
+            "value": "OmniGart можа чытаць і запісваць узоры самаадчування — пульс, ВСР, сон, трэніроўкі, актыўную і базальную энергію, масу цела і гідратацыю — каб сесіі з’яўляліся ў Apple Fitness з працягласцю і калорыямі. Дадзеныя не для рэкламы і не перадаюцца трэцім бакам. Можна працягнуць без доступу."
           }
         },
         "kk": {
           "stringUnit": {
             "state": "translated",
-            "value": "OmniGart құрылғыдағы бағалауларды жақсарту үшін сауықтыру үлгілерін (жүрек соғуы, ЖЖВ, ұйқы, жаттығулар, дене массасы, су балансы) оқи және жаза алады. Деректер жарнамаға пайдаланылмайды және қатысы жоқ үшінші тараптарға жіберілмейді. Қолжетімділік берместен жалғастыра аласыз."
+            "value": "OmniGart сауықтыру үлгілерін оқи және жаза алады — жүрек соғысы, HRV, ұйқы, жаттығулар, белсенді және базалық энергия, дене салмағы және су ішу — сеанстар Apple Fitness-те ұзақтық пен калориямен көрінуі үшін. Деректер жарнамаға немесе үшінші тарапқа берілмейді. Рұқсатсыз жалғастыруға болады."
           }
         },
         "ka": {
           "stringUnit": {
             "state": "translated",
-            "value": "OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები (გულისცემა, HRV, ძილი, ვარჯიშები, სხეულის მასა, ჰიდრატაცია) მოწყობილობაზე შეფასებების გასაუმჯობესებლად. მონაცემები არ გამოიყენება რეკლამისთვის და არ იგზავნება უცხო მესამე მხარეებთან. შეგიძლიათ გააგრძელოთ წვდომის მინიჭების გარეშე."
+            "value": "OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები — გულისცემა, HRV, ძილი, ვარჯიშები, აქტიური და საბაზისო ენერგია, სხეულის მასა და ჰიდრატაცია — რომ სესიები გამოჩნდეს Apple Fitness-ში ხანგრძლივობით და კალორიებით. მონაცემები არ გამოიყენება რეკლამისთვის. შეგიძლიათ გააგრძელოთ წვდომის გარეშე."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "OmniGart puede leer y escribir muestras de bienestar (frecuencia cardíaca, VFC, sueño, entrenamientos, masa corporal, hidratación) para mejorar las estimaciones en el dispositivo. Los datos no se usan para anuncios ni se envían a terceros no relacionados. Puedes continuar sin conceder acceso."
+            "value": "OmniGart puede leer y escribir muestras de bienestar — frecuencia cardiaca, VFC, sueño, entrenamientos, energía activa y en reposo, masa corporal e hidratación — para que las sesiones aparezcan en Apple Fitness con duración y calorías. Los datos no se usan para publicidad. Puedes continuar sin conceder acceso."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "OmniGart peut lire et écrire des échantillons de bien-être (fréquence cardiaque, VRC, sommeil, entraînements, masse corporelle, hydratation) pour améliorer les estimations sur l’appareil. Les données ne sont pas utilisées pour la publicité ni envoyées à des tiers non liés. Vous pouvez continuer sans accorder l’accès."
+            "value": "OmniGart peut lire et écrire des échantillons bien-être — fréquence cardiaque, VRC, sommeil, séances, énergie active et basale, masse corporelle et hydratation — pour afficher les séances dans Apple Fitness avec durée et calories. Les données ne servent pas à la pub. Vous pouvez continuer sans accorder l’accès."
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "OmniGart kann Wellness-Proben (Herzfrequenz, HRV, Schlaf, Workouts, Körpermasse, Hydration) lesen und schreiben, um Schätzungen auf dem Gerät zu verbessern. Daten werden nicht für Werbung genutzt und nicht an unverbundene Dritte gesendet. Sie können ohne Zugriff fortfahren."
+            "value": "OmniGart kann Wellness-Proben lesen und schreiben — Herzfrequenz, HRV, Schlaf, Workouts, aktive und Ruheenergie, Körpermasse und Hydration — damit Sitzungen in Apple Fitness mit Dauer und Kalorien erscheinen. Daten werden nicht für Werbung genutzt. Sie können ohne Zugriff fortfahren."
           }
         },
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "OmniGart může číst a zapisovat wellness vzorky (tep, HRV, spánek, tréninky, tělesná hmotnost, hydratace), aby zlepšil odhady na zařízení. Data se nepoužívají k reklamě ani se neodesílají nesouvisejícím třetím stranám. Můžete pokračovat bez udělení přístupu."
+            "value": "OmniGart může číst a zapisovat wellness vzorky — tep, HRV, spánek, tréninky, aktivní a bazální energii, tělesnou hmotnost a hydrataci — aby se sezení zobrazila v Apple Fitness s délkou a kaloriemi. Data se nepoužívají k reklamě. Můžete pokračovat bez přístupu."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "OmniGart 可读写健康样本（心率、心率变异、睡眠、训练、体重、补水），以改进设备上的估算。数据不用于广告，也不会发送给无关第三方。您可以不授予访问权限继续使用。"
+            "value": "OmniGart 可读写健康样本——心率、心率变异、睡眠、训练、活动与基础能量、体重和补水——以便会话以时长和热量出现在 Apple Fitness 中。数据不用于广告，也不发送给无关第三方。您也可不授予权限并继续。"
           }
         }
       }
@@ -9886,6 +9886,787 @@
           "stringUnit": {
             "state": "translated",
             "value": "个人资料已保存。"
+          }
+        }
+      }
+    },
+    "workout_summary_duration": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duration"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Тривалість"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Czas trwania"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Працягласць"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ұзақтық"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ხანგრძლივობა"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duración"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durée"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dauer"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trvání"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "时长"
+          }
+        }
+      }
+    },
+    "workout_summary_active_kcal": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Active kcal"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Активні ккал"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktywne kcal"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Актыўныя ккал"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Белсенді ккал"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "აქტიური კკალ"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kcal activas"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kcal actives"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktive kcal"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktivní kcal"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "活动千卡"
+          }
+        }
+      }
+    },
+    "workout_summary_total_kcal": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total kcal"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Усього ккал"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suma kcal"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Усяго ккал"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Барлық ккал"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "სულ კკალ"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kcal totales"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kcal totales"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gesamt-kcal"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Celkem kcal"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "总千卡"
+          }
+        }
+      }
+    },
+    "workout_summary_avg_hr": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Average heart rate"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Середній пульс"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Średnie tętno"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сярэдні пульс"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Орташа жүрек соғысы"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "საშუალო გულისცემა"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frecuencia media"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fréquence moyenne"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mittlere Herzfrequenz"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Průměrný tep"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "平均心率"
+          }
+        }
+      }
+    },
+    "workout_summary_max_hr": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Max heart rate"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Максимальний пульс"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maks. tętno"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Максімальны пульс"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Макс. жүрек соғысы"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "მაქს. გულისცემა"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frecuencia máx."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fréquence max."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Max. Herzfrequenz"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Max. tep"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最大心率"
+          }
+        }
+      }
+    },
+    "watch.zone2.active_kcal": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Active kcal"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Активні ккал"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktywne kcal"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Актыўныя ккал"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Белсенді ккал"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "აქტიური კკალ"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kcal activas"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kcal actives"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktive kcal"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktivní kcal"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "活动千卡"
+          }
+        }
+      }
+    },
+    "watch.zone2.summary.duration": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duration"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Тривалість"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Czas"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Працягласць"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ұзақтық"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ხანგრძლივობა"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duración"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durée"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dauer"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trvání"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "时长"
+          }
+        }
+      }
+    },
+    "watch.zone2.summary.active_kcal": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Active kcal"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Активні ккал"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktywne kcal"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Актыўныя ккал"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Белсенді ккал"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "აქტიური კკალ"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kcal activas"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kcal actives"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktive kcal"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktivní kcal"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "活动千卡"
+          }
+        }
+      }
+    },
+    "watch.zone2.summary.total_kcal": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total kcal"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Усього ккал"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suma kcal"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Усяго ккал"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Барлық ккал"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "სულ კკალ"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kcal totales"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kcal totales"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gesamt-kcal"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Celkem kcal"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "总千卡"
+          }
+        }
+      }
+    },
+    "watch.zone2.summary.avg_hr": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avg HR"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сер. пульс"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Śr. tętno"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сяр. пульс"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Орт. ЖС"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "საშ. გც"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "FC media"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "FC moy."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ø HF"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prům. tep"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "平均心率"
+          }
+        }
+      }
+    },
+    "watch.zone2.summary.max_hr": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Max HR"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Макс. пульс"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maks. tętno"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Макс. пульс"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Макс. ЖС"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "მაქს. გც"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "FC máx."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "FC max."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Max. HF"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Max. tep"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最大心率"
           }
         }
       }

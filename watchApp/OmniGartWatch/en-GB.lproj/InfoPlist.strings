@@ -1,5 +1,5 @@
-"NSHealthShareUsageDescription" = "OmniGart on Apple Watch reads heart rate, HRV, and workout samples from Apple Health to show on-watch wellness estimates. Health data is not used for advertising or shared with third parties.";
-"NSHealthUpdateUsageDescription" = "OmniGart on Apple Watch can save workouts you complete to Apple Health so your phone and watch stay aligned. Data is not used for ads or sold to third parties.";
+"NSHealthShareUsageDescription" = "OmniGart on Apple Watch reads heart rate, HRV, workouts, and active and resting energy from Apple Health to show on-watch wellness estimates. Health data is not used for advertising or shared with third parties.";
+"NSHealthUpdateUsageDescription" = "OmniGart on Apple Watch saves workouts you complete — with duration, active and resting energy, distance, and heart rate — to Apple Health so they appear in the Fitness app. Data is not used for ads or sold to third parties.";
 "NSBluetoothAlwaysUsageDescription" = "OmniGart may use Bluetooth for compatible heart-rate accessories during workouts. The watch app remains usable without an accessory.";
 "NSCameraUsageDescription" = "Camera access is not required on Apple Watch for OmniGart; this description exists for shared permission strings with the iPhone app.";
 "NSUserNotificationsUsageDescription" = "OmniGart can remind you about workouts and wellness check-ins you enable. The app works with notifications disabled.";

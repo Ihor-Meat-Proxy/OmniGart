@@ -100,7 +100,7 @@
   "onboarding_activity_very_active": "Sehr aktiv",
   "onboarding_health_privacy": "Gesundheitsdaten bleiben auf Ihren Geräten. OmniGart verkauft sie nicht und nutzt sie nicht für Werbung.",
   "perm_explainer_health_title": "Apple Health / Health Connect",
-  "perm_explainer_health_body": "OmniGart kann Wellness-Proben (Herzfrequenz, HRV, Schlaf, Workouts, Körpermasse, Hydration) lesen und schreiben, um Schätzungen auf dem Gerät zu verbessern. Daten werden nicht für Werbung genutzt und nicht an unverbundene Dritte gesendet. Sie können ohne Zugriff fortfahren.",
+  "perm_explainer_health_body": "OmniGart kann Wellness-Proben lesen und schreiben — Herzfrequenz, HRV, Schlaf, Workouts, aktive und Ruheenergie, Körpermasse und Hydration — damit Sitzungen in Apple Fitness mit Dauer und Kalorien erscheinen. Daten werden nicht für Werbung genutzt. Sie können ohne Zugriff fortfahren.",
   "perm_continue": "Weiter",
   "perm_not_now": "Nicht jetzt",
   "food_intro": "Mahlzeiten offline erfassen. Tageswerte sind Wellness-Hilfen, keine medizinische Beratung.",
@@ -140,5 +140,16 @@
   "profile_intro": "Bearbeiten Sie die Onboarding-Angaben. Änderungen bleiben auf diesem Gerät.",
   "profile_edit_title": "Ihr Profil",
   "profile_save": "Profil speichern",
-  "profile_saved": "Profil gespeichert."
+  "profile_saved": "Profil gespeichert.",
+  "workout_summary_duration": "Dauer",
+  "workout_summary_active_kcal": "Aktive kcal",
+  "workout_summary_total_kcal": "Gesamt-kcal",
+  "workout_summary_avg_hr": "Mittlere Herzfrequenz",
+  "workout_summary_max_hr": "Max. Herzfrequenz",
+  "watch.zone2.active_kcal": "Aktive kcal",
+  "watch.zone2.summary.duration": "Dauer",
+  "watch.zone2.summary.active_kcal": "Aktive kcal",
+  "watch.zone2.summary.total_kcal": "Gesamt-kcal",
+  "watch.zone2.summary.avg_hr": "Ø HF",
+  "watch.zone2.summary.max_hr": "Max. HF"
 }

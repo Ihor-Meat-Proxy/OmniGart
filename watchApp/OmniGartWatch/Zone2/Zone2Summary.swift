@@ -13,6 +13,12 @@ struct Zone2Summary: Equatable, Sendable {
     var averageCadenceSpm: Double
     var elapsed: TimeInterval
     var heartRateSamples: [Zone2HeartRateSample]
+    var activeEnergyKcal: Double
+    var basalEnergyKcal: Double
+    var averageHeartRateBpm: Double
+    var maxHeartRateBpm: Double
+
+    var totalEnergyKcal: Double { activeEnergyKcal + basalEnergyKcal }
 
     /// Compact `m:ss` / `h:mm:ss` for watch glances.
     static func formatDuration(_ interval: TimeInterval) -> String {
@@ -37,6 +43,11 @@ struct Zone2Summary: Equatable, Sendable {
     /// Whole steps/min for glanceable summary.
     static func formatCadence(_ spm: Double) -> String {
         String(format: "%.0f", max(0, spm))
+    }
+
+    /// Whole kilocalories for live + summary glances.
+    static func formatEnergyKcal(_ kcal: Double) -> String {
+        String(format: "%.0f", max(0, kcal.rounded()))
     }
 
     /// Downsample densely collected HR for Charts / sparkline (keeps endpoints).

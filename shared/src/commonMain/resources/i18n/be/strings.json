@@ -100,7 +100,7 @@
   "onboarding_activity_very_active": "Вельмі актыўная",
   "onboarding_health_privacy": "Дадзеныя здароўя застаюцца на вашых прыладах. OmniGart ніколі не прадае іх і не выкарыстоўвае для рэкламы.",
   "perm_explainer_health_title": "Apple Health / Health Connect",
-  "perm_explainer_health_body": "OmniGart можа чытаць і запісваць узоры самаадчування (пульс, ВСР, сон, трэніроўкі, маса цела, гідратацыя), каб паляпшаць ацэнкі на прыладзе. Даныя не выкарыстоўваюцца для рэкламы і не адпраўляюцца староннім сэрвісам. Можна працягнуць без доступу.",
+  "perm_explainer_health_body": "OmniGart можа чытаць і запісваць узоры самаадчування — пульс, ВСР, сон, трэніроўкі, актыўную і базальную энергію, масу цела і гідратацыю — каб сесіі з’яўляліся ў Apple Fitness з працягласцю і калорыямі. Дадзеныя не для рэкламы і не перадаюцца трэцім бакам. Можна працягнуць без доступу.",
   "perm_continue": "Працягнуць",
   "perm_not_now": "Не зараз",
   "food_intro": "Запісвайце ежу афлайн. Дзённыя вынікі — трэнерскія ацэнкі, не медыцынская кансультацыя.",
@@ -140,5 +140,16 @@
   "profile_intro": "Рэдагуйце дадзеныя з анбордынгу. Змены застаюцца на гэтай прыладзе.",
   "profile_edit_title": "Ваш профіль",
   "profile_save": "Захаваць профіль",
-  "profile_saved": "Профіль захаваны."
+  "profile_saved": "Профіль захаваны.",
+  "workout_summary_duration": "Працягласць",
+  "workout_summary_active_kcal": "Актыўныя ккал",
+  "workout_summary_total_kcal": "Усяго ккал",
+  "workout_summary_avg_hr": "Сярэдні пульс",
+  "workout_summary_max_hr": "Максімальны пульс",
+  "watch.zone2.active_kcal": "Актыўныя ккал",
+  "watch.zone2.summary.duration": "Працягласць",
+  "watch.zone2.summary.active_kcal": "Актыўныя ккал",
+  "watch.zone2.summary.total_kcal": "Усяго ккал",
+  "watch.zone2.summary.avg_hr": "Сяр. пульс",
+  "watch.zone2.summary.max_hr": "Макс. пульс"
 }

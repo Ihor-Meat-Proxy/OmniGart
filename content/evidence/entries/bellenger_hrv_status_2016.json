@@ -1,0 +1,33 @@
+{
+  "id": "bellenger_hrv_status_2016",
+  "type": "meta-analysis",
+  "title": "Monitoring Athletic Training Status Through Autonomic Heart Rate Regulation: A Systematic Review and Meta-Analysis",
+  "authors": [
+    "Bellenger CR",
+    "Fuller JT",
+    "Thomson RL",
+    "Davison K",
+    "Robertson EY",
+    "Buckley JD"
+  ],
+  "year": 2016,
+  "journal": "Sports Medicine",
+  "doi": "10.1007/s40279-016-0484-2",
+  "pmid": "26888648",
+  "url": "https://doi.org/10.1007/s40279-016-0484-2",
+  "openAccess": false,
+  "keyFinding": {
+    "enGB": "Pooled evidence links autonomic heart-rate regulation markers, including HRV, with changes in athletic training status.",
+    "keys": {
+      "enGB": "evidence.bellenger_hrv_status_2016.key_finding",
+      "uk": "evidence.bellenger_hrv_status_2016.key_finding"
+    }
+  },
+  "evidenceStrength": "moderate",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "insights"
+  ]
+}

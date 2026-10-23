@@ -1,0 +1,30 @@
+{
+  "id": "buchheit_hrv_monitoring_2014",
+  "type": "systematic-review",
+  "title": "Monitoring training status with HR measures: do all roads lead to Rome?",
+  "authors": [
+    "Buchheit M"
+  ],
+  "year": 2014,
+  "journal": "Frontiers in Physiology",
+  "doi": "10.3389/fphys.2014.00073",
+  "pmid": "24578692",
+  "pmcid": "PMC3939688",
+  "openAccess": true,
+  "population": "Athletes using heart-rate and HRV monitoring",
+  "keyFinding": {
+    "enGB": "Reviews practical HR/HRV monitoring, including smallest worthwhile change framing for interpreting day-to-day variation.",
+    "keys": {
+      "enGB": "evidence.buchheit_hrv_monitoring_2014.key_finding",
+      "uk": "evidence.buchheit_hrv_monitoring_2014.key_finding"
+    }
+  },
+  "evidenceStrength": "moderate",
+  "licenceNote": "Open-access or public-agency text: title and short finding may be shown; link out for full document. Do not paste copyrighted abstracts wholesale.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.Readiness.evaluate",
+    "insights"
+  ]
+}

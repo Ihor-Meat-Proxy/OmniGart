@@ -1,0 +1,33 @@
+{
+  "id": "munoz_polarized_runners_2014",
+  "type": "rct",
+  "title": "Does polarized training improve performance in recreational runners?",
+  "authors": [
+    "Muñoz I",
+    "Seiler S",
+    "Bautista J",
+    "España J",
+    "Larumbe E",
+    "Esteve-Lanao J"
+  ],
+  "year": 2014,
+  "journal": "International Journal of Sports Physiology and Performance",
+  "pmid": "23752040",
+  "doi": "10.1123/ijspp.2012-0350",
+  "openAccess": false,
+  "population": "Recreational runners comparing polarized vs between-thresholds distributions",
+  "keyFinding": {
+    "enGB": "In recreational runners, a polarized intensity distribution improved performance markers relative to a between-thresholds emphasis in this trial.",
+    "keys": {
+      "enGB": "evidence.munoz_polarized_runners_2014.key_finding",
+      "uk": "evidence.munoz_polarized_runners_2014.key_finding"
+    }
+  },
+  "evidenceStrength": "moderate",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "planning"
+  ]
+}

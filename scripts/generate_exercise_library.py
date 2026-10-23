@@ -11,47 +11,33 @@ LOCALES = ROOT / "content/exercises/locales"
 TEMPLATES = ROOT / "content/exercises/templates"
 PRESETS = ROOT / "content/exercises/equipment-presets.json"
 
-# Verified refs only
+# Verified refs only — stable ids from content/evidence
 REF_ACSM_RT = {
-    "kind": "doi",
-    "id": "10.1249/MSS.0000000000003897",
-    "label": "ACSM 2026 RT Position Stand (overview of reviews)",
+    "evidenceId": "acsm_resistance_training_2026",
     "supports": ["programming", "strength", "hypertrophy", "safety"],
 }
 REF_ACSM_GARBER = {
-    "kind": "doi",
-    "id": "10.1249/MSS.0b013e318213fefb",
-    "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+    "evidenceId": "garber_acsm_quantity_2011",
     "supports": ["programming", "endurance", "mobility", "safety"],
 }
 REF_SCHOENFELD_VOL = {
-    "kind": "doi",
-    "id": "10.1080/02640414.2016.1210197",
-    "label": "Schoenfeld et al. 2016 weekly set volume meta-analysis",
+    "evidenceId": "schoenfeld_volume_2016",
     "supports": ["hypertrophy", "programming"],
 }
 REF_ESCAMILLA_SQUAT = {
-    "kind": "doi",
-    "id": "10.1097/00005768-200101000-00020",
-    "label": "Escamilla 2001 — knee biomechanics of the squat",
+    "evidenceId": "escamilla_squat_biomechanics_2001",
     "supports": ["biomechanics", "technique", "safety"],
 }
 REF_CONTRERAS_HIP = {
-    "kind": "doi",
-    "id": "10.1123/jab.2014-0301",
-    "label": "Contreras et al. — hip thrust vs back squat EMG (glute focus)",
+    "evidenceId": "contreras_hip_thrust_emg_2015",
     "supports": ["emg", "biomechanics"],
 }
 REF_SEILER = {
-    "kind": "doi",
-    "id": "10.1123/ijspp.5.3.276",
-    "label": "Seiler 2010 — endurance intensity distribution",
+    "evidenceId": "seiler_intensity_distribution_2010",
     "supports": ["endurance", "programming"],
 }
 REF_NSCA_ESSENTIALS = {
-    "kind": "textbook",
-    "id": "nsca-essentials-4e",
-    "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+    "evidenceId": "nsca_essentials_4e",
     "supports": ["technique", "safety", "strength"],
 }
 

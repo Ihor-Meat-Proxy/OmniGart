@@ -1,0 +1,36 @@
+{
+  "id": "foster_srpe_2001",
+  "type": "cohort",
+  "title": "A new approach to monitoring exercise training",
+  "authors": [
+    "Foster C",
+    "Florhaug JA",
+    "Franklin J",
+    "Gottschall L",
+    "Hrovatin LA",
+    "Parker S",
+    "Doleshal P",
+    "Dodge C"
+  ],
+  "year": 2001,
+  "journal": "Journal of Strength and Conditioning Research",
+  "doi": "10.1519/00124278-200102000-00019",
+  "pmid": "11708692",
+  "openAccess": false,
+  "population": "Athletes using session rating of perceived exertion (sRPE) load monitoring",
+  "keyFinding": {
+    "enGB": "Validates session-RPE × duration as a practical internal training-load metric across exercise modes.",
+    "keys": {
+      "enGB": "evidence.foster_srpe_2001.key_finding",
+      "uk": "evidence.foster_srpe_2001.key_finding"
+    }
+  },
+  "evidenceStrength": "moderate",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.TrainingLoad.srpe",
+    "insights"
+  ]
+}

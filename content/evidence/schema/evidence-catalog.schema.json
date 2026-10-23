@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.dev/schemas/evidence-catalog.schema.json",
+  "title": "OmniGartEvidenceCatalog",
+  "description": "Array of evidence entries (content/evidence/catalog.json).",
+  "type": "array",
+  "minItems": 1,
+  "items": { "$ref": "evidence-entry.schema.json" }
+}

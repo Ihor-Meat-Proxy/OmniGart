@@ -70,3 +70,7 @@ watchApp/OmniGartWatch/ContentBundle/
 coverage/
 *.exec
 .rapid/
+
+# Fastlane
+fastlane/vendor/
+fastlane/.bundle/

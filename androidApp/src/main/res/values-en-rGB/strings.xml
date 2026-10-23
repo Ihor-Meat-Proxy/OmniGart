@@ -39,4 +39,22 @@
     <string name="calc_domain_body_fat">Body fat</string>
     <string name="calc_domain_one_rm">One-rep max</string>
     <string name="calc_domain_hr_zones">Heart-rate zones</string>
+
+    <string name="workout_start">Start workout</string>
+    <string name="workout_end">End workout</string>
+    <string name="workout_add_set">Add set</string>
+    <string name="workout_active">Workout in progress</string>
+    <string name="workout_idle">No active workout</string>
+    <string name="workout_exercise">Exercise</string>
+    <string name="workout_weight_kg">Weight (kg)</string>
+    <string name="workout_reps">Reps</string>
+    <string name="workout_rir">RIR</string>
+    <string name="workout_warmup">Warm-up set</string>
+    <string name="workout_include_warmups">Count warm-ups in volume</string>
+    <string name="workout_summary_title">Session summary</string>
+    <string name="workout_volume_load">Volume load</string>
+    <string name="workout_total_weight_lifted">Total weight lifted</string>
+    <string name="workout_hard_sets">Hard sets</string>
+    <string name="workout_per_exercise">Per exercise</string>
+    <string name="workout_intro">Log strength sets for wellness training estimates. Figures are coaching aids, not medical advice.</string>
 </resources>

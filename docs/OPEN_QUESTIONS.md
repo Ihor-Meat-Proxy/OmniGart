@@ -212,3 +212,9 @@ B7. **Path JSON packaging** — **Decided (bundle-first):** ship path JSON insid
 - **Context:** Users may pick alternative formulae later.
 - **Choice:** Strategy interfaces + `FormulaCatalog` / `FormulaPreferences`; Phase 0 defaults remain Mifflin–St Jeor, Tanaka, CUN-BAE, Epley, Karvonen 5-zone. Added Harris–Benedict and Fox as first alternatives.
 - **Alternatives:** Content-pack driven formula tables.
+
+## Phase 1 volume load — bodyweight coefficients
+
+- **Context:** Effective load for BW movements needs a fraction of body mass; published GRF %BM varies by variation and study.
+- **Choice:** Ship `BodyweightLoadCoefficients` + content `bodyweightFraction` / `ExerciseLoadSemantics` (push-up ≈ 0.64, pull-up/dip ≈ 1.0, inverted row ≈ 0.5) as provisional estimates; mark volume as estimated; prompt when body mass is missing/stale via `BodyweightResolver`.
+- **Alternatives:** Require always-on scale/Health body mass; per-user calibrated fractions; omit BW contribution until cited.

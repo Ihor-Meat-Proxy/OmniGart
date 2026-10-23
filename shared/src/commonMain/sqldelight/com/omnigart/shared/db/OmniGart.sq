@@ -43,6 +43,9 @@ CREATE TABLE workout_set (
   distance_metres REAL,
   rir REAL,
   completed INTEGER NOT NULL DEFAULT 1,
+  is_warmup INTEGER NOT NULL DEFAULT 0,
+  assistance_kg REAL,
+  logged_per_hand INTEGER NOT NULL DEFAULT 0,
   FOREIGN KEY(session_id) REFERENCES session(id) ON DELETE CASCADE
 );
 
@@ -95,8 +98,12 @@ SELECT * FROM workout_set WHERE session_id = ? ORDER BY set_index ASC;
 
 upsertSet:
 INSERT OR REPLACE INTO workout_set(
-  id, session_id, exercise_id, set_index, reps, weight_kg, duration_seconds, distance_metres, rir, completed
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+  id, session_id, exercise_id, set_index, reps, weight_kg, duration_seconds, distance_metres, rir, completed,
+  is_warmup, assistance_kg, logged_per_hand
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+deleteSet:
+DELETE FROM workout_set WHERE id = ?;
 
 deleteSetsForSession:
 DELETE FROM workout_set WHERE session_id = ?;

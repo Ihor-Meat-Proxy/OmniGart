@@ -11,6 +11,7 @@ import com.omnigart.shared.data.WorkoutRepository
 import com.omnigart.shared.data.createDatabase
 import com.omnigart.shared.domain.BiologicalSex
 import com.omnigart.shared.domain.UserProfile
+import com.omnigart.shared.logging.StrengthLoggingService
 import com.omnigart.shared.util.formatOneDecimal
 import kotlin.time.Clock
 import kotlinx.datetime.LocalDate
@@ -27,6 +28,13 @@ class OmniGartCore(driverFactory: DatabaseDriverFactory) {
     val workouts = WorkoutRepository(database)
     val sessions = SessionRepository(database)
     val formulaSettings = FormulaSettingsService(database)
+    val strengthLogging =
+        StrengthLoggingService(
+            sessions = sessions,
+            exercises = exercises,
+            profiles = profiles,
+            formulaSettings = formulaSettings
+        )
 
     fun ensureDemoProfile(): UserProfile {
         val existing = profiles.get(DEMO_PROFILE_ID)
@@ -71,6 +79,6 @@ class OmniGartCore(driverFactory: DatabaseDriverFactory) {
 
     companion object {
         const val DEMO_PROFILE_ID = "demo-profile"
-        const val VERSION = "0.1.0-phase4"
+        const val VERSION = "0.1.0-phase1"
     }
 }

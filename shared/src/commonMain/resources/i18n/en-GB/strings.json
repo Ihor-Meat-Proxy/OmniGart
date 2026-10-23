@@ -42,5 +42,22 @@
   "formula.hr_zones.karvonen_3.title": "Karvonen (3 zones)",
   "formula.hr_zones.karvonen_3.explain": "Simpler three-zone heart-rate reserve layout.",
   "formula.hr_zones.percent_hrmax_5.title": "% HRmax (5 zones)",
-  "formula.hr_zones.percent_hrmax_5.explain": "Five zones as percentages of estimated max heart rate."
+  "formula.hr_zones.percent_hrmax_5.explain": "Five zones as percentages of estimated max heart rate.",
+  "workout_start": "Start workout",
+  "workout_end": "End workout",
+  "workout_add_set": "Add set",
+  "workout_active": "Workout in progress",
+  "workout_idle": "No active workout",
+  "workout_exercise": "Exercise",
+  "workout_weight_kg": "Weight (kg)",
+  "workout_reps": "Reps",
+  "workout_rir": "RIR",
+  "workout_warmup": "Warm-up set",
+  "workout_include_warmups": "Count warm-ups in volume",
+  "workout_summary_title": "Session summary",
+  "workout_volume_load": "Volume load",
+  "workout_total_weight_lifted": "Total weight lifted",
+  "workout_hard_sets": "Hard sets",
+  "workout_per_exercise": "Per exercise",
+  "workout_intro": "Log strength sets for wellness training estimates. Figures are coaching aids, not medical advice."
 }

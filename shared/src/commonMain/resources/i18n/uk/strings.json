@@ -42,5 +42,22 @@
   "formula.hr_zones.karvonen_3.title": "Karvonen (3 зони)",
   "formula.hr_zones.karvonen_3.explain": "Простіша розкладка з трьох зон резерву пульсу.",
   "formula.hr_zones.percent_hrmax_5.title": "% HRmax (5 зон)",
-  "formula.hr_zones.percent_hrmax_5.explain": "П’ять зон як відсотки від оціненого макс. пульсу."
+  "formula.hr_zones.percent_hrmax_5.explain": "П’ять зон як відсотки від оціненого макс. пульсу.",
+  "workout_start": "Почати тренування",
+  "workout_end": "Завершити тренування",
+  "workout_add_set": "Додати сет",
+  "workout_active": "Тренування триває",
+  "workout_idle": "Немає активного тренування",
+  "workout_exercise": "Вправа",
+  "workout_weight_kg": "Вага (кг)",
+  "workout_reps": "Повторення",
+  "workout_rir": "RIR",
+  "workout_warmup": "Розминочний сет",
+  "workout_include_warmups": "Рахувати розминку в обсязі",
+  "workout_summary_title": "Підсумок сесії",
+  "workout_volume_load": "Обсяг навантаження",
+  "workout_total_weight_lifted": "Загальна піднята вага",
+  "workout_hard_sets": "Важкі сети",
+  "workout_per_exercise": "За вправами",
+  "workout_intro": "Записуйте силові сети для оцінок тренувань. Показники — тренерські підказки, а не медична консультація."
 }

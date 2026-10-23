@@ -128,6 +128,9 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
                     onToggleInfoSheet = { showInfoSheet = !showInfoSheet }
                 )
             }
+            if (selected == PhoneTab.Workouts.ordinal) {
+                StrengthLoggingSection(core = core, profileId = profileId)
+            }
             if (selected == PhoneTab.Profile.ordinal) {
                 CalculationsSettingsSection(
                     core = core,

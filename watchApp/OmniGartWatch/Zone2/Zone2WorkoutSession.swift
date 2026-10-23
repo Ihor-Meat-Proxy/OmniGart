@@ -13,6 +13,10 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
     @Published private(set) var zoneState: Zone2ZoneState = .below
     @Published private(set) var isRunning: Bool = false
     @Published private(set) var lastError: String?
+    /// HR series for the post-run chart (offset from session start).
+    @Published private(set) var heartRateSamples: [Zone2HeartRateSample] = []
+    /// Mean of recorded cadence readings (spm); updated as steps arrive.
+    @Published private(set) var averageCadenceSpm: Double = 0
 
     let band: Zone2Band
     private let haptics: Zone2HapticsController
@@ -22,6 +26,7 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
     private var elapsedTimer: Timer?
     private var startedAt: Date?
     private var lastSampleAt: Date?
+    private var cadenceReadings: [Double] = []
 
     init(band: Zone2Band, haptics: Zone2HapticsController = Zone2HapticsController()) {
         self.band = band
@@ -31,6 +36,7 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
 
     func start() async {
         lastError = nil
+        resetMetrics()
         guard HKHealthStore.isHealthDataAvailable() else {
             lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
             return
@@ -65,7 +71,9 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
         }
     }
 
-    func stop() async {
+    /// Ends the workout. On success returns a summary for the post-run screen.
+    @discardableResult
+    func stop() async -> Zone2Summary? {
         elapsedTimer?.invalidate()
         elapsedTimer = nil
         session?.end()
@@ -74,10 +82,37 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
                 try await builder.endCollection(at: Date())
                 _ = try await builder.finishWorkout()
             }
+            isRunning = false
+            return makeSummary()
         } catch {
             lastError = error.localizedDescription
+            isRunning = false
+            return nil
         }
-        isRunning = false
+    }
+
+    func makeSummary() -> Zone2Summary {
+        Zone2Summary(
+            timeInZone: timeInZone,
+            distanceMetres: distanceMetres,
+            averageCadenceSpm: averageCadenceSpm,
+            elapsed: elapsed,
+            heartRateSamples: heartRateSamples
+        )
+    }
+
+    private func resetMetrics() {
+        heartRateBpm = 0
+        distanceMetres = 0
+        cadenceSpm = 0
+        averageCadenceSpm = 0
+        elapsed = 0
+        timeInZone = 0
+        zoneState = .below
+        heartRateSamples = []
+        cadenceReadings = []
+        startedAt = nil
+        lastSampleAt = nil
     }
 
     private func startElapsedTimer() {
@@ -104,7 +139,16 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
         }
         zoneState = haptics.state(bpm: value, band: band)
         lastSampleAt = date
+        let offset = startedAt.map { date.timeIntervalSince($0) } ?? elapsed
+        heartRateSamples.append(Zone2HeartRateSample(offsetSeconds: max(0, offset), bpm: value))
         haptics.process(bpm: value, band: band, now: date)
+    }
+
+    private func recordCadence(_ spm: Double) {
+        cadenceSpm = spm
+        guard spm > 0 else { return }
+        cadenceReadings.append(spm)
+        averageCadenceSpm = Zone2Summary.averageCadence(samples: cadenceReadings)
     }
 }
 
@@ -153,7 +197,7 @@ extension Zone2WorkoutSession: HKLiveWorkoutBuilderDelegate {
                     // Rough cadence: steps in last rolling window approximated from total / elapsed.
                     if elapsed > 10 {
                         let steps = stats.sumQuantity()?.doubleValue(for: .count()) ?? 0
-                        cadenceSpm = (steps / elapsed) * 60.0
+                        recordCadence((steps / elapsed) * 60.0)
                     }
                 default:
                     break

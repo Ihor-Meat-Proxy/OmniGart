@@ -2,15 +2,33 @@ import SwiftUI
 
 /// One glanceable Zone 2 screen: HR, zone colour, time in zone, cadence, distance.
 /// Always-On friendly (no dense chrome). Elapsed shown only as a compact trailing label.
+/// After a successful stop, presents `Zone2SummaryView`.
 struct Zone2LiveView: View {
     @StateObject private var session: Zone2WorkoutSession
     @AppStorage("watch.zone2.haptics.enabled") private var hapticsEnabled = true
+    @State private var summary: Zone2Summary?
 
     init(band: Zone2Band = .karvonen(hrMax: 180, hrRest: 60)) {
         _session = StateObject(wrappedValue: Zone2WorkoutSession(band: band))
     }
 
     var body: some View {
+        Group {
+            if let summary {
+                Zone2SummaryView(summary: summary) {
+                    self.summary = nil
+                }
+            } else {
+                liveContent
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .task {
+            session.setHapticsEnabled(hapticsEnabled)
+        }
+    }
+
+    private var liveContent: some View {
         TimelineView(.periodic(from: .now, by: 1)) { _ in
             VStack(spacing: 2) {
                 HStack {
@@ -58,7 +76,9 @@ struct Zone2LiveView: View {
                 Button {
                     Task {
                         if session.isRunning {
-                            await session.stop()
+                            if let result = await session.stop() {
+                                summary = result
+                            }
                         } else {
                             session.setHapticsEnabled(hapticsEnabled)
                             await session.start()
@@ -79,10 +99,6 @@ struct Zone2LiveView: View {
                 }
             }
             .padding(.horizontal, 4)
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .task {
-            session.setHapticsEnabled(hapticsEnabled)
         }
     }
 
@@ -115,10 +131,7 @@ struct Zone2LiveView: View {
     }
 
     private func timeString(_ t: TimeInterval) -> String {
-        let s = Int(t.rounded())
-        let m = s / 60
-        let r = s % 60
-        return String(format: "%d:%02d", m, r)
+        Zone2Summary.formatDuration(t)
     }
 
     private func distanceString(_ metres: Double) -> String {

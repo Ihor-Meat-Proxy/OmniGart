@@ -1,0 +1,41 @@
+{
+  "id": "scull-front-freestyle",
+  "nameKeys": {
+    "enGB": "swim.drill.scull_front_freestyle.name",
+    "uk": "swim.drill.scull_front_freestyle.name"
+  },
+  "strokeIds": [
+    "freestyle"
+  ],
+  "focus": [
+    "scull",
+    "catch"
+  ],
+  "level": "intermediate",
+  "equipment": [
+    "none"
+  ],
+  "technique": [
+    "Support the body with gentle figure-eight sculls near the front catch position."
+  ],
+  "cues": [
+    "Soft wrists",
+    "Steady pressure"
+  ],
+  "commonMistakes": [
+    "Over-sculling",
+    "Tense neck"
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "technique",
+        "safety"
+      ]
+    }
+  ]
+}

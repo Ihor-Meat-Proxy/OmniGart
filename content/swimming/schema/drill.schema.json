@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.dev/schemas/swim-drill.schema.json",
+  "title": "OmniGartSwimDrill",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "nameKeys",
+    "strokeIds",
+    "focus",
+    "level",
+    "technique",
+    "cues",
+    "commonMistakes",
+    "evidenceRefs"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "nameKeys": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enGB", "uk"],
+      "properties": {
+        "enGB": { "type": "string", "pattern": "^swim\\.drill\\.[a-z0-9_]+\\.name$" },
+        "uk": { "type": "string", "pattern": "^swim\\.drill\\.[a-z0-9_]+\\.name$" }
+      }
+    },
+    "strokeIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+      "uniqueItems": true
+    },
+    "focus": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "catch",
+          "pull",
+          "recovery",
+          "kick",
+          "rotation",
+          "balance",
+          "timing",
+          "breathing",
+          "streamline",
+          "scull"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "level": {
+      "type": "string",
+      "enum": ["beginner", "intermediate", "advanced"]
+    },
+    "equipment": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["none", "kickboard", "pull_buoy", "fins", "paddles", "snorkel"]
+      },
+      "uniqueItems": true
+    },
+    "technique": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 12, "maxLength": 400 }
+    },
+    "cues": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 4, "maxLength": 200 }
+    },
+    "commonMistakes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 4, "maxLength": 200 }
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "id", "label", "supports"],
+        "properties": {
+          "kind": { "type": "string", "enum": ["doi", "pmid", "guideline", "textbook"] },
+          "id": { "type": "string", "minLength": 3 },
+          "label": { "type": "string", "minLength": 3 },
+          "supports": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

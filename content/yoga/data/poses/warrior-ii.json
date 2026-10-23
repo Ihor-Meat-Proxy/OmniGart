@@ -1,0 +1,54 @@
+{
+  "id": "warrior-ii",
+  "englishNameKeys": {
+    "enGB": "yoga.pose.warrior_ii.english",
+    "uk": "yoga.pose.warrior_ii.english"
+  },
+  "sanskritNameKeys": {
+    "enGB": "yoga.pose.warrior_ii.sanskrit",
+    "uk": "yoga.pose.warrior_ii.sanskrit"
+  },
+  "family": "standing",
+  "level": "beginner",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_medius"
+  ],
+  "secondaryMuscles": [
+    "adductors",
+    "lateral_deltoid"
+  ],
+  "equipment": [
+    "yoga_mat",
+    "bodyweight"
+  ],
+  "technique": [
+    "Enter Warrior II with steady footing and an even pelvis; lengthen the spine without forcing end range.",
+    "Distribute load through the feet or support points; soften the jaw and keep the neck long."
+  ],
+  "cues": [
+    "Breathe steadily; ease out of the shape if sharp pain appears.",
+    "Use blocks or a strap to keep joints stacked and comfortable."
+  ],
+  "breathing": "Inhale to lengthen; exhale to settle into the shape without collapsing.",
+  "safetyNotes": [
+    "Move within a comfortable range; props are encouraged rather than forcing depth.",
+    "Stop and rest if you feel dizziness, numbness, or joint locking."
+  ],
+  "contraindicationNotes": [
+    "General safety: seek clinician guidance for recent injury, uncontrolled hypertension, or acute illness before practising."
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "holdSecondsDefault": 40,
+  "unilateral": true,
+  "bundled": true,
+  "aliases": [],
+  "tags": [
+    "yoga",
+    "standing",
+    "beginner"
+  ]
+}

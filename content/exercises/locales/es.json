@@ -1576,5 +1576,22 @@
   "template.strength_focus_3x.rationale": "Progresión lineal novata en compuestos de sentadilla/bisagra/press/tirón con accesorios conservadores, coherente con el énfasis ACSM RT en la carga multiarticular.",
   "template.swim_technique_3x.rationale": "Prioriza la densidad de drills antes del volumen de metros para que el volumen aeróbico no fije mala mecánica; la dominancia aeróbica fácil sigue aplicando al acondicionar.",
   "template.upper_lower_4x.rationale": "El superior/inferior de cuatro días mantiene ~2× frecuencia semanal por músculo permitiendo más volumen por sesión dentro de las bandas dosis-respuesta de Schoenfeld/Pelland.",
-  "template.yoga_mobility_flow.rationale": "La práctica de flexibilidad y neuromotora ≥2–3 días/semana se alinea con la guía ACSM de cantidad/calidad; las posturas siguen accesibles para principiantes."
+  "template.yoga_mobility_flow.rationale": "La práctica de flexibilidad y neuromotora ≥2–3 días/semana se alinea con la guía ACSM de cantidad/calidad; las posturas siguen accesibles para principiantes.",
+  "exercise.archer_pull_up.name": "Archer pull-up",
+  "exercise.band_assisted_dip.name": "Band-assisted dip",
+  "exercise.bench_dip.name": "Bench dip",
+  "exercise.close_grip_pull_up.name": "Close-grip pull-up",
+  "exercise.commando_pull_up.name": "Commando pull-up",
+  "exercise.korean_dip.name": "Korean dip",
+  "exercise.l_sit_pull_up.name": "L-sit pull-up",
+  "exercise.machine_assisted_dip.name": "Machine-assisted dip",
+  "exercise.machine_assisted_pull_up.name": "Machine-assisted pull-up",
+  "exercise.negative_dip.name": "Negative dip (eccentric)",
+  "exercise.negative_pull_up.name": "Negative pull-up (eccentric)",
+  "exercise.neutral_grip_pull_up.name": "Neutral-grip pull-up",
+  "exercise.scapular_pull_up.name": "Scapular pull-up",
+  "exercise.straight_bar_dip.name": "Straight-bar dip",
+  "exercise.typewriter_pull_up.name": "Typewriter pull-up",
+  "exercise.weighted_dip.name": "Weighted dip",
+  "exercise.wide_grip_pull_up.name": "Wide-grip pull-up"
 }

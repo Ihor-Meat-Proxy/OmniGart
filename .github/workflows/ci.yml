@@ -1,34 +1,110 @@
+# Main CI — path-filtered jobs, draft skip, macOS behind a cheap Linux lint gate.
+# Stack (#23): also pack/verify content bundle, hydration/body tests, App Review gates.
+# Action SHAs pinned (Oct 2026).
 name: CI
 
 on:
+  # Avoid double-runs: do not also push-trigger every cursor/** branch (PRs already fire pull_request).
   push:
-    branches: [main, cursor/**, feat/**, chore/**]
-  pull_request:
     branches: [main]
+  pull_request:
 
 concurrency:
-  group: ci-${{ github.ref }}
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  design-check:
-    name: Design check
+  changes:
+    name: Detect changes
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: design/tools
+    outputs:
+      android: ${{ steps.filter.outputs.android }}
+      ios: ${{ steps.filter.outputs.ios }}
+      design: ${{ steps.filter.outputs.design }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+      - uses: dorny/paths-filter@0e4a8c6effa4802afeda77dc8d303f8176d7dfad # v3.0.4
+        id: filter
         with:
-          node-version: "22"
-          cache: npm
-          cache-dependency-path: design/tools/package-lock.json
-      - run: npm ci
-      - run: npm run check
+          filters: |
+            android:
+              - 'androidApp/**'
+              - 'wearApp/**'
+              - 'android/**'
+              - 'shared/**'
+              - 'content/**'
+              - 'generated/content-bundle/**'
+              - 'gradle/**'
+              - 'gradlew'
+              - 'gradlew.bat'
+              - 'build.gradle.kts'
+              - 'settings.gradle.kts'
+              - 'gradle.properties'
+              - 'gradle/libs.versions.toml'
+              - 'config/detekt/**'
+              - 'scripts/check_no_ru_locale.sh'
+              - 'scripts/check_app_review_compliance.py'
+              - 'scripts/pack_bundled_content.py'
+              - '.github/workflows/ci.yml'
+            ios:
+              - 'iosApp/**'
+              - 'ios/**'
+              - 'shared/**'
+              - 'content/**'
+              - 'generated/content-bundle/**'
+              - 'gradle/**'
+              - 'gradlew'
+              - 'gradlew.bat'
+              - 'build.gradle.kts'
+              - 'settings.gradle.kts'
+              - 'gradle.properties'
+              - 'gradle/libs.versions.toml'
+              - 'design/generated/ios/**'
+              - '.swiftlint.yml'
+              - 'scripts/check_no_ru_locale.sh'
+              - 'scripts/check_app_review_compliance.py'
+              - 'scripts/pack_bundled_content.py'
+              - '.github/workflows/ci.yml'
+            design:
+              - 'design/**'
+              - '.github/workflows/design-check.yml'
+
+  # Cheap Linux gate — fails fast before macOS minutes are spent.
+  lint-gate:
+    name: Lint gate
+    needs: changes
+    if: |
+      always()
+      && needs.changes.result == 'success'
+      && (needs.changes.outputs.android == 'true' || needs.changes.outputs.ios == 'true')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: No Russian locales
+        run: bash ./scripts/check_no_ru_locale.sh
+      - name: App Review compliance (copy, permissions, debug gates)
+        # Pure stdlib Python — no pip/PyYAML (macOS runners are PEP 668 managed).
+        run: python3 scripts/check_app_review_compliance.py
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
+      - name: ktlint + detekt
+        run: ./gradlew --stacktrace ktlintCheck detekt
+      # SwiftLint stays on the macOS job: the official Linux binary needs libxml2
+      # and is a poor fit for ubuntu-latest as a pre-gate.
 
   kmp-android:
     name: KMP + Android + Wear
+    needs: [changes, lint-gate]
+    if: |
+      always()
+      && needs.changes.result == 'success'
+      && needs.lint-gate.result == 'success'
+      && needs.changes.outputs.android == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -38,21 +114,36 @@ jobs:
           java-version: "21"
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
+      - name: Pack and verify offline content bundle
+        # Bundle-first: generated/content-bundle must match content/ + design sources.
+        run: |
+          python3 scripts/pack_bundled_content.py
+          python3 scripts/pack_bundled_content.py --verify
+          ./gradlew verifyBundledContent
       - name: Unit tests and assemble
         run: |
           ./gradlew --stacktrace \
             :shared:testAndroidHostTest \
             :shared:planning:jvmTest \
+            :shared:hydration:jvmTest \
+            :shared:body:jvmTest \
             :androidApp:assembleDebug \
             :androidApp:testDebugUnitTest \
             :wearApp:assembleDebug \
             :wearApp:testDebugUnitTest
-      - name: Lint and verify
-        # checkNoRuLocale is also a dependency of root `check` for local builds.
-        run: ./gradlew checkNoRuLocale ktlintCheck detekt
+      - name: Gradle verification hooks
+        # checkNoRuLocale / checkAppReviewCompliance / verifyBundledContent also hang off root `check`.
+        run: ./gradlew checkNoRuLocale checkAppReviewCompliance verifyBundledContent
 
   ios-watchos:
     name: iOS + watchOS
+    needs: [changes, lint-gate]
+    # Expensive macOS job — only after Linux lint-gate, and only when iOS/shared/KMP paths change.
+    if: |
+      always()
+      && needs.changes.result == 'success'
+      && needs.lint-gate.result == 'success'
+      && needs.changes.outputs.ios == 'true'
     runs-on: macos-15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -65,7 +156,6 @@ jobs:
       - name: Select newest available Xcode
         run: |
           ls /Applications | grep -i Xcode || true
-          # Prefer Xcode 26+ when present; otherwise keep the runner default (16.4 on macos-15).
           for candidate in \
             /Applications/Xcode_26.2.app \
             /Applications/Xcode_26.1.app \
@@ -101,14 +191,15 @@ jobs:
           done
           test -d "$ROOT/design/generated/ios/OmniGartColors.xcassets"
           test -d "$ROOT/design/generated/ios/OmniGartIcons.xcassets"
-          # Spec must keep design sources as ../design/generated/... from iosApp/.
           if ! grep -q 'path: ../design/generated/ios/Sources' iosApp/project.yml; then
             echo "::error::iosApp/project.yml missing ../design/generated/ios/Sources"
             exit 1
           fi
       - name: Install XcodeGen and SwiftLint
-        run: |
-          brew install xcodegen swiftlint
+        run: brew install xcodegen swiftlint
+      - name: App Review compliance (copy, permissions, privacy manifest)
+        # Same gates as the Linux job; keeps iOS-only plist/PrivacyInfo regressions visible here.
+        run: python3 scripts/check_app_review_compliance.py
       - name: SwiftLint
         run: swiftlint lint --config .swiftlint.yml --strict
       - name: Link and sync Shared frameworks (simulator)
@@ -118,7 +209,6 @@ jobs:
             linkDebugFrameworkWatchosSimulatorArm64 \
             syncXcodeFrameworks \
             --stacktrace
-          # Ensure the exact SDK_NAME folders Xcode will request also exist.
           IOS_SDK=$(xcrun --sdk iphonesimulator --show-sdk-version)
           WATCH_SDK=$(xcrun --sdk watchsimulator --show-sdk-version)
           mkdir -p "shared/build/xcode-frameworks/Debug/iphonesimulator${IOS_SDK}"
@@ -127,29 +217,23 @@ jobs:
             "shared/build/xcode-frameworks/Debug/iphonesimulator${IOS_SDK}/"
           rsync -a shared/build/bin/watchosSimulatorArm64/debugFramework/Shared.framework \
             "shared/build/xcode-frameworks/Debug/watchsimulator${WATCH_SDK}/"
-          ls -la "shared/build/xcode-frameworks/Debug/iphonesimulator${IOS_SDK}"
-          ls -la "shared/build/xcode-frameworks/Debug/watchsimulator${WATCH_SDK}"
       - name: Generate Xcode project
         run: |
           set -euo pipefail
           cd iosApp
           xcodegen generate
           PBX=OmniGart.xcodeproj/project.pbxproj
-          # Fail fast if XcodeGen nested design under an already-design-relative group.
           if grep -E 'design/generated/.+/design/generated' "$PBX" 2>/dev/null; then
             echo "::error::XcodeGen produced a nested design/generated path in $PBX"
             exit 1
           fi
-          # Expect SRCROOT-relative ../design/generated/... entries for Design sources.
           if ! grep -q '\.\./design/generated/ios/Sources' "$PBX"; then
             echo "::error::$PBX missing ../design/generated/ios/Sources references"
             exit 1
           fi
-          echo "XcodeGen design paths look sane"
       - name: Build iOS + watchOS (simulator, arm64)
         run: |
           set -euo pipefail
-          # Force arm64 so we do not need the deprecated watchosX64 slice.
           xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart \
             -destination 'generic/platform=iOS Simulator' \
             ARCHS=arm64 ONLY_ACTIVE_ARCH=YES \
@@ -188,15 +272,12 @@ jobs:
           test -n "${IOS_DEST}"
           test -n "${WATCH_DEST}"
 
-          # Boot and wait so XCUITest does not race a cold simulator
-          # (flake: "Timed out while acquiring background assertion").
           IOS_UDID=$(xcrun simctl list devices available | grep -F "${IOS_DEST}" | grep -oE '[0-9A-F-]{36}' | head -1 || true)
           if [[ -n "${IOS_UDID}" ]]; then
             xcrun simctl boot "${IOS_UDID}" 2>/dev/null || true
             xcrun simctl bootstatus "${IOS_UDID}" -b
           fi
 
-          # Unit tests first (no UI launch), then UI tests with retry for CI flakes.
           xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart \
             -destination "platform=iOS Simulator,name=${IOS_DEST},arch=arm64" \
             CODE_SIGNING_ALLOWED=NO \

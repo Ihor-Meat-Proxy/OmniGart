@@ -1,0 +1,143 @@
+{
+  "id": "older-adult-functional-3x",
+  "nameKeys": {
+    "enGB": "template.older_adult_functional_3x.name",
+    "uk": "template.older_adult_functional_3x.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "beginner",
+  "goal": "general_fitness",
+  "daysPerWeek": 3,
+  "sessionMinutes": 40,
+  "equipmentPreset": "home_gym",
+  "equipmentRequired": [
+    "dumbbell",
+    "bodyweight"
+  ],
+  "rationale": "Sit-to-stand, carries, and supported patterns emphasise function and balance with conservative RIR, consistent with ACSM guidance for older adults' multi-component training.",
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility"
+      ]
+    },
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0000000000003897",
+      "label": "ACSM 2026 RT Position Stand",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "o1",
+      "nameKeys": {
+        "enGB": "template.older_adult_functional_3x.o1.name",
+        "uk": "template.older_adult_functional_3x.o1.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "sit-to-stand",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "3-4",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "incline-push-up",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "3-4",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "one-arm-dumbbell-row",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "3-4",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "farmers-carry",
+              "sets": 3,
+              "reps": "carry",
+              "rir": "3-4",
+              "restSeconds": 90,
+              "distanceMeters": 20
+            },
+            {
+              "exerciseId": "bird-dog",
+              "sets": 3,
+              "reps": "6/side",
+              "rir": "4",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "o2",
+      "nameKeys": {
+        "enGB": "template.older_adult_functional_3x.o2.name",
+        "uk": "template.older_adult_functional_3x.o2.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "goblet-squat",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "3-4",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "hip-hinge-dowel",
+              "sets": 2,
+              "reps": "8",
+              "rir": "4",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "overhead-press-dumbbell",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "3-4",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "step-up",
+              "sets": 3,
+              "reps": "6/leg",
+              "rir": "3-4",
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "dead-bug",
+              "sets": 3,
+              "reps": "6/side",
+              "rir": "4",
+              "restSeconds": 90
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

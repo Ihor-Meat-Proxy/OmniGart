@@ -1,0 +1,30 @@
+name: Movement content
+
+on:
+  push:
+    paths:
+      - 'content/yoga/**'
+      - 'content/pilates/**'
+      - 'shared/planning/**'
+      - 'scripts/generate_yoga_pilates.py'
+      - '.github/workflows/movement-content.yml'
+  pull_request:
+    paths:
+      - 'content/yoga/**'
+      - 'content/pilates/**'
+      - 'shared/planning/**'
+      - 'scripts/generate_yoga_pilates.py'
+      - '.github/workflows/movement-content.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v5
+      - name: Validate yoga and pilates content
+        run: ./gradlew :shared:planning:jvmTest --tests 'com.omnigart.content.YogaPilatesContentValidatorTest'

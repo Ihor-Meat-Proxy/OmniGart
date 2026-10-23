@@ -1,0 +1,42 @@
+{
+  "id": "side-kick-freestyle",
+  "nameKeys": {
+    "enGB": "swim.drill.side_kick_freestyle.name",
+    "uk": "swim.drill.side_kick_freestyle.name"
+  },
+  "strokeIds": [
+    "freestyle"
+  ],
+  "focus": [
+    "balance",
+    "kick",
+    "breathing"
+  ],
+  "level": "beginner",
+  "equipment": [
+    "none"
+  ],
+  "technique": [
+    "Kick on your side with the lower arm extended and top arm along the body."
+  ],
+  "cues": [
+    "Ear in water",
+    "Long line"
+  ],
+  "commonMistakes": [
+    "Lifting head",
+    "Hips sinking"
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "technique",
+        "safety"
+      ]
+    }
+  ]
+}

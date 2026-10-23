@@ -1,0 +1,3 @@
+Data from Open Food Facts — https://world.openfoodfacts.org/
+Available under the Open Database Licence (ODbL):
+https://opendatacommons.org/licenses/odbl/1.0/

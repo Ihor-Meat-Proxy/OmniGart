@@ -1,356 +1,354 @@
 package com.omnigart.achievements
 
-import kotlin.time.Instant
+import com.omnigart.achievements.engine.AchievementEngine
+import com.omnigart.achievements.engine.DayBoundaries
+import com.omnigart.achievements.engine.EvaluationState
+import com.omnigart.achievements.events.FoodLogged
+import com.omnigart.achievements.events.FreezeTokenUsed
+import com.omnigart.achievements.events.MeasurementAdded
+import com.omnigart.achievements.events.PlannedRestHonoured
+import com.omnigart.achievements.events.SleepImported
+import com.omnigart.achievements.events.WaterLogged
+import com.omnigart.achievements.events.WorkoutCompleted
+import com.omnigart.achievements.model.AchievementCategory
+import com.omnigart.achievements.model.AchievementDefinition
+import com.omnigart.achievements.model.AchievementRule
+import com.omnigart.achievements.model.AchievementTier
+import com.omnigart.achievements.model.AchievementType
+import com.omnigart.achievements.model.Aggregation
+import com.omnigart.achievements.model.MetricId
+import com.omnigart.achievements.model.RuleFilters
+import com.omnigart.achievements.model.RuleWindow
+import com.omnigart.achievements.model.StreakQualify
+import com.omnigart.achievements.model.TierId
+import com.omnigart.achievements.model.WindowKind
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toInstant
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
 import kotlin.test.assertTrue
+import kotlin.time.Instant
 
 class AchievementEngineTest {
-    private val catalog = AchievementCatalog(
-        version = 1,
-        achievements = listOf(
-            AchievementDefinition(
-                id = "strength.sessions.5",
-                category = AchievementCategory.STRENGTH,
-                tier = AchievementTier.Metal(MetalTier.BRONZE),
-                familyId = "strength.sessions",
-                iconId = "strength",
-                titleKey = "achievement.strength_sessions_5.title",
-                descriptionKey = "achievement.strength_sessions_5.description",
-                rule = AchievementRule(
-                    kind = RuleKind.COUNTER,
-                    metric = "workout_completed",
-                    value = 5.0,
-                    filters = mapOf("discipline" to "strength"),
-                ),
-                sortOrder = 20,
-            ),
-            AchievementDefinition(
-                id = "strength.sessions.15",
-                category = AchievementCategory.STRENGTH,
-                tier = AchievementTier.Metal(MetalTier.SILVER),
-                familyId = "strength.sessions",
-                iconId = "strength",
-                titleKey = "achievement.strength_sessions_15.title",
-                descriptionKey = "achievement.strength_sessions_15.description",
-                rule = AchievementRule(
-                    kind = RuleKind.COUNTER,
-                    metric = "workout_completed",
-                    value = 15.0,
-                    filters = mapOf("discipline" to "strength"),
-                ),
-                sortOrder = 30,
-            ),
-            AchievementDefinition(
-                id = "consistency.streak.7",
-                category = AchievementCategory.CONSISTENCY,
-                tier = AchievementTier.Metal(MetalTier.BRONZE),
-                familyId = "consistency.streak",
-                iconId = "streak",
-                titleKey = "achievement.consistency_streak_7.title",
-                descriptionKey = "achievement.consistency_streak_7.description",
-                rule = AchievementRule(
-                    kind = RuleKind.STREAK,
-                    metric = "active_or_rest_day",
-                    value = 7.0,
-                    streakPolicy = StreakPolicy(
-                        allowPlannedRest = true,
-                        allowStreakFreeze = true,
-                        maxFreezeDaysPer30Days = 2,
-                    ),
-                ),
-            ),
-            AchievementDefinition(
-                id = "running.single.5k",
-                category = AchievementCategory.RUNNING,
-                tier = AchievementTier.Metal(MetalTier.BRONZE),
-                familyId = "running.distance_single",
-                iconId = "running",
-                titleKey = "achievement.running_single_5k.title",
-                descriptionKey = "achievement.running_single_5k.description",
-                rule = AchievementRule(
-                    kind = RuleKind.THRESHOLD,
-                    metric = "distance_m",
-                    value = 5000.0,
-                    filters = mapOf("discipline" to "running"),
-                ),
-            ),
-            AchievementDefinition(
-                id = "strength.first_pr",
-                category = AchievementCategory.STRENGTH,
-                tier = AchievementTier.Metal(MetalTier.SILVER),
-                familyId = "strength.pr",
-                iconId = "trophy",
-                titleKey = "achievement.strength_first_pr.title",
-                descriptionKey = "achievement.strength_first_pr.description",
-                rule = AchievementRule(
-                    kind = RuleKind.PERSONAL_RECORD,
-                    metric = "load_kg",
-                    comparator = ComparatorOp.GT,
-                    value = 0.0,
-                    filters = mapOf("discipline" to "strength"),
-                ),
-            ),
-            AchievementDefinition(
-                id = "water.goal_days.3",
-                category = AchievementCategory.WATER,
-                tier = AchievementTier.Metal(MetalTier.BRONZE),
-                familyId = "water.goal_streak",
-                iconId = "water",
-                titleKey = "achievement.water_goal_days_3.title",
-                descriptionKey = "achievement.water_goal_days_3.description",
-                rule = AchievementRule(
-                    kind = RuleKind.STREAK,
-                    metric = "water_goal_day",
-                    value = 3.0,
-                    streakPolicy = StreakPolicy(),
-                ),
-            ),
-            AchievementDefinition(
-                id = "recovery.rest_when_low.3",
-                category = AchievementCategory.RECOVERY,
-                tier = AchievementTier.Metal(MetalTier.GOLD),
-                familyId = "recovery.wise_rest",
-                iconId = "readiness",
-                titleKey = "achievement.recovery_rest_when_low_3.title",
-                descriptionKey = "achievement.recovery_rest_when_low_3.description",
-                rule = AchievementRule(
-                    kind = RuleKind.COUNTER,
-                    metric = "rest_taken_on_low_readiness",
-                    value = 3.0,
-                ),
-            ),
-            AchievementDefinition(
-                id = "yoga.challenge.30d_mobility",
-                category = AchievementCategory.YOGA,
-                tier = AchievementTier.Metal(MetalTier.GOLD),
-                familyId = "yoga.challenge",
-                iconId = "achievement",
-                titleKey = "achievement.yoga_challenge_30d_mobility.title",
-                descriptionKey = "achievement.yoga_challenge_30d_mobility.description",
-                rule = AchievementRule(
-                    kind = RuleKind.CHALLENGE,
-                    metric = "challenge_completed",
-                    value = 1.0,
-                    filters = mapOf("challengeType" to "mobility_30_day"),
-                ),
-            ),
-        ),
-    )
-
-    private fun engine() = AchievementEngine(catalog, InMemoryAchievementStore())
 
     private fun workout(
         id: String,
-        iso: String,
+        day: String,
         zone: String = "Europe/London",
         discipline: String = "strength",
-        distanceM: Double = 0.0,
-    ) = DomainEvent.WorkoutCompleted(
-        eventId = id,
-        occurredAt = Instant.parse(iso),
-        timeZoneId = zone,
-        discipline = discipline,
-        distanceM = distanceM,
+        volumeKg: Double? = 1000.0,
+        durationMin: Double = 45.0,
+        distanceM: Double? = null,
+        sets: Int = 10,
+        pr: Boolean = false,
+        deleted: Boolean = false,
+        strokes: List<String> = emptyList(),
+    ): WorkoutCompleted {
+        val date = LocalDate.parse(day)
+        val instant = LocalDateTime(
+            date.year,
+            date.month,
+            date.day,
+            12,
+            0,
+        ).toInstant(TimeZone.of(zone))
+        return WorkoutCompleted(
+            eventId = id,
+            occurredAt = instant,
+            timeZoneId = zone,
+            deleted = deleted,
+            discipline = discipline,
+            durationMin = durationMin,
+            distanceM = distanceM,
+            volumeKg = volumeKg,
+            setsCount = sets,
+            swimStrokes = strokes,
+            isPersonalRecord = pr,
+        )
+    }
+
+    private fun firstWorkoutDef() = AchievementDefinition(
+        id = "general.first_workout",
+        category = AchievementCategory.GENERAL,
+        type = AchievementType.DISCOVERY,
+        tiers = listOf(AchievementTier(TierId.UNLOCKED, 1.0)),
+        rule = AchievementRule(
+            metric = MetricId.WORKOUTS_COMPLETED,
+            aggregation = Aggregation.COUNT,
+            window = RuleWindow(kind = WindowKind.LIFETIME),
+            threshold = 1.0,
+        ),
+        iconId = "workouts",
+        titleKey = "achievement.general.first_workout.title",
+        descriptionKey = "achievement.general.first_workout.description",
+    )
+
+    private fun volumeDef() = AchievementDefinition(
+        id = "strength.volume_tonnes",
+        category = AchievementCategory.STRENGTH,
+        type = AchievementType.MILESTONE,
+        tiers = listOf(
+            AchievementTier(TierId.BRONZE, 1000.0),
+            AchievementTier(TierId.SILVER, 10000.0),
+        ),
+        rule = AchievementRule(
+            metric = MetricId.VOLUME_KG,
+            aggregation = Aggregation.SUM,
+            window = RuleWindow(kind = WindowKind.LIFETIME),
+            filters = RuleFilters(discipline = listOf("strength")),
+        ),
+        iconId = "weight",
+        titleKey = "achievement.strength.volume_tonnes.title",
+        descriptionKey = "achievement.strength.volume_tonnes.description",
+    )
+
+    private fun streakDef() = AchievementDefinition(
+        id = "general.weekly_consistency",
+        category = AchievementCategory.GENERAL,
+        type = AchievementType.STREAK,
+        tiers = listOf(
+            AchievementTier(TierId.BRONZE, 2.0),
+            AchievementTier(TierId.SILVER, 4.0),
+        ),
+        rule = AchievementRule(
+            metric = MetricId.WORKOUTS_COMPLETED,
+            aggregation = Aggregation.STREAK,
+            window = RuleWindow(
+                kind = WindowKind.STREAK_DAYS,
+                qualify = StreakQualify.ACTIVITY_OR_PLANNED_REST,
+                restDayTolerancePerWeek = 1,
+                freezeTokensAllowed = true,
+                maxFreezePerStreak = 2,
+            ),
+        ),
+        iconId = "streak",
+        titleKey = "achievement.general.weekly_consistency.title",
+        descriptionKey = "achievement.general.weekly_consistency.description",
     )
 
     @Test
-    fun counterUnlocksAtThreshold() {
-        val eng = engine()
-        repeat(4) { i ->
-            val r = eng.ingest(workout("w$i", "2026-03-0${i + 1}T12:00:00Z"))
-            assertTrue(r.unlocks.none { it.achievementId == "strength.sessions.5" })
-        }
-        val fifth = eng.ingest(workout("w4", "2026-03-05T12:00:00Z"))
-        assertTrue(fifth.unlocks.any { it.achievementId == "strength.sessions.5" })
-        val snap = eng.progress("strength.sessions.5")!!
-        assertTrue(snap.unlocked)
-        assertEquals(5.0, snap.currentValue)
-        assertEquals("strength.sessions.15", snap.nextInFamily?.achievementId)
+    fun idempotentReplayDoesNotDoubleCount() {
+        val engine = AchievementEngine(listOf(firstWorkoutDef(), volumeDef()))
+        val e = workout("w1", "2026-03-10", volumeKg = 2000.0)
+        val now = Instant.parse("2026-03-10T18:00:00Z")
+        val r1 = engine.evaluate(EvaluationState(), listOf(e), now, "Europe/London")
+        val r2 = engine.evaluate(r1.state, listOf(e), now, "Europe/London")
+        assertEquals(1, r2.summary.skippedDuplicates)
+        assertEquals(2000.0, r2.state.progressOf("strength.volume_tonnes").value)
+        assertTrue(TierId.BRONZE in r2.state.progressOf("strength.volume_tonnes").unlockedTier)
     }
 
     @Test
-    fun idempotentEventIds() {
-        val eng = engine()
-        val e = workout("same", "2026-03-01T12:00:00Z")
-        assertFalse(eng.ingest(e).ignoredDuplicate)
-        val again = eng.ingest(e)
-        assertTrue(again.ignoredDuplicate)
-        assertEquals(0, again.unlocks.size)
+    fun deletedWorkoutRevokesProgress() {
+        val engine = AchievementEngine(listOf(volumeDef()))
+        val e = workout("w1", "2026-03-10", volumeKg = 5000.0)
+        val now = Instant.parse("2026-03-10T18:00:00Z")
+        val r1 = engine.evaluate(EvaluationState(), listOf(e), now, "Europe/London")
+        assertEquals(5000.0, r1.state.progressOf("strength.volume_tonnes").value)
+        val deleted = e.copy(deleted = true)
+        val r2 = engine.evaluate(r1.state, listOf(deleted), now, "Europe/London")
+        assertEquals(0.0, r2.state.progressOf("strength.volume_tonnes").value)
+        assertTrue(r2.state.progressOf("strength.volume_tonnes").unlockedTier.isEmpty())
     }
 
     @Test
-    fun streakCountsPlannedRest() {
-        val eng = engine()
-        // Days 1-3 active, day 4 planned rest, days 5-7 active → streak 7
-        listOf(1, 2, 3).forEach { d ->
-            eng.ingest(workout("a$d", "2026-04-0${d}T18:00:00Z"))
-        }
-        eng.ingest(
-            DomainEvent.PlannedRestDay(
-                eventId = "rest4",
-                occurredAt = Instant.parse("2026-04-04T12:00:00Z"),
-                timeZoneId = "Europe/London",
-            ),
+    fun backfillSuppressesIndividualNotifications() {
+        val engine = AchievementEngine(listOf(firstWorkoutDef(), volumeDef()))
+        val events = listOf(
+            workout("w1", "2026-01-01", volumeKg = 1500.0),
+            workout("w2", "2026-01-02", volumeKg = 1500.0),
         )
-        listOf(5, 6, 7).forEach { d ->
-            eng.ingest(workout("a$d", "2026-04-0${d}T18:00:00Z"))
-        }
-        val snap = eng.progress("consistency.streak.7")!!
-        assertTrue(snap.unlocked)
-        assertEquals(7.0, snap.currentValue)
+        val now = Instant.parse("2026-01-03T12:00:00Z")
+        val r = engine.evaluate(EvaluationState(), events, now, "Europe/London", backfill = true)
+        assertTrue(r.summary.unlocks.isEmpty())
+        assertTrue(r.summary.backfill)
+        assertEquals("achievement.backfill.summary", r.summary.summaryMessageKey)
+        assertTrue(r.summary.summaryUnlockCount >= 1)
     }
 
     @Test
-    fun streakFreezeBridgesGap() {
-        val eng = engine()
-        eng.ingest(workout("d1", "2026-05-01T12:00:00Z"))
-        eng.ingest(workout("d2", "2026-05-02T12:00:00Z"))
-        eng.ingest(
-            DomainEvent.StreakFreeze(
-                eventId = "fz",
+    fun dstSpringForwardLondonStillCountsLocalDay() {
+        // 2026-03-29 is the UK spring-forward (01:00 → 02:00).
+        val engine = AchievementEngine(listOf(firstWorkoutDef()))
+        val before = workout("w1", "2026-03-28", zone = "Europe/London")
+        val after = workout("w2", "2026-03-29", zone = "Europe/London")
+        val now = Instant.parse("2026-03-29T20:00:00Z")
+        val r = engine.evaluate(EvaluationState(), listOf(before, after), now, "Europe/London")
+        assertEquals(2.0, r.state.progressOf("general.first_workout").value)
+        assertEquals("2026-03-28", DayBoundaries.localDayKey(before.occurredAt, "Europe/London"))
+        assertEquals("2026-03-29", DayBoundaries.localDayKey(after.occurredAt, "Europe/London"))
+    }
+
+    @Test
+    fun travelTimezoneChangeUsesEventLocalZone() {
+        val engine = AchievementEngine(listOf(firstWorkoutDef()))
+        // Same UTC instant can be different local days — we key off event zone.
+        val london = workout("w1", "2026-06-01", zone = "Europe/London")
+        val tokyo = workout("w2", "2026-06-02", zone = "Asia/Tokyo")
+        val now = Instant.parse("2026-06-02T12:00:00Z")
+        val r = engine.evaluate(EvaluationState(), listOf(london, tokyo), now, "Europe/London")
+        assertEquals(2.0, r.state.progressOf("general.first_workout").value)
+        assertEquals("2026-06-01", DayBoundaries.localDayKey(london.occurredAt, london.timeZoneId))
+        assertEquals("2026-06-02", DayBoundaries.localDayKey(tokyo.occurredAt, tokyo.timeZoneId))
+    }
+
+    @Test
+    fun plannedRestCountsTowardRestTolerantStreak() {
+        val engine = AchievementEngine(listOf(streakDef()))
+        val w1 = workout("w1", "2026-04-01")
+        val rest = PlannedRestHonoured(
+            eventId = "r1",
+            occurredAt = Instant.parse("2026-04-02T12:00:00Z"),
+            timeZoneId = "Europe/London",
+            localDay = "2026-04-02",
+        )
+        val w2 = workout("w2", "2026-04-03")
+        val now = Instant.parse("2026-04-03T20:00:00Z")
+        val r = engine.evaluate(EvaluationState(), listOf(w1, rest, w2), now, "Europe/London")
+        assertTrue(r.state.progressOf("general.weekly_consistency").value >= 3.0)
+    }
+
+    @Test
+    fun freezeTokenPreservesStreakAcrossMiss() {
+        val engine = AchievementEngine(listOf(streakDef()))
+        val events = listOf(
+            workout("w1", "2026-05-01"),
+            workout("w2", "2026-05-02"),
+            FreezeTokenUsed(
+                eventId = "f1",
                 occurredAt = Instant.parse("2026-05-03T12:00:00Z"),
                 timeZoneId = "Europe/London",
-                metric = "active_or_rest_day",
+                localDay = "2026-05-03",
             ),
+            workout("w3", "2026-05-04"),
         )
-        listOf(4, 5, 6, 7).forEach { d ->
-            eng.ingest(workout("d$d", "2026-05-0${d}T12:00:00Z"))
-        }
-        assertTrue(eng.progress("consistency.streak.7")!!.unlocked)
+        val now = Instant.parse("2026-05-04T20:00:00Z")
+        val r = engine.evaluate(EvaluationState(), events, now, "Europe/London")
+        assertTrue(r.state.progressOf("general.weekly_consistency").value >= 4.0)
     }
 
     @Test
-    fun midnightBoundaryUsesLocalZone() {
-        val eng = engine()
-        // 23:30 in London on 10 Mar, and 00:30 on 11 Mar — two distinct local days
-        eng.ingest(workout("late", "2026-03-10T23:30:00Z", zone = "Europe/London"))
-        eng.ingest(workout("early", "2026-03-11T00:30:00Z", zone = "Europe/London"))
-        // Water goal streak uses day keys — two water goal days
-        eng.ingest(
-            DomainEvent.WaterLogged(
-                eventId = "w1",
-                occurredAt = Instant.parse("2026-03-10T23:30:00Z"),
-                timeZoneId = "Europe/London",
-                amountMl = 500.0,
-                dailyTotalMl = 2000.0,
-                goalMl = 2000.0,
+    fun foodWaterSleepMeasurementImportPath() {
+        val foodDef = AchievementDefinition(
+            id = "nutrition.days_logged",
+            category = AchievementCategory.NUTRITION,
+            type = AchievementType.MILESTONE,
+            tiers = listOf(AchievementTier(TierId.BRONZE, 7.0)),
+            rule = AchievementRule(
+                metric = MetricId.FOOD_DAYS_LOGGED,
+                aggregation = Aggregation.COUNT,
+                window = RuleWindow(kind = WindowKind.LIFETIME),
             ),
+            iconId = "food",
+            titleKey = "achievement.nutrition.days_logged.title",
+            descriptionKey = "achievement.nutrition.days_logged.description",
         )
-        eng.ingest(
-            DomainEvent.WaterLogged(
-                eventId = "w2",
-                occurredAt = Instant.parse("2026-03-11T00:30:00Z"),
-                timeZoneId = "Europe/London",
-                amountMl = 500.0,
-                dailyTotalMl = 2000.0,
-                goalMl = 2000.0,
+        val waterDef = AchievementDefinition(
+            id = "water.days",
+            category = AchievementCategory.WATER,
+            type = AchievementType.MILESTONE,
+            tiers = listOf(AchievementTier(TierId.BRONZE, 7.0)),
+            rule = AchievementRule(
+                metric = MetricId.WATER_GOAL_DAYS,
+                aggregation = Aggregation.COUNT,
+                window = RuleWindow(kind = WindowKind.LIFETIME),
             ),
+            iconId = "water",
+            titleKey = "achievement.water.days.title",
+            descriptionKey = "achievement.water.days.description",
         )
-        eng.ingest(
-            DomainEvent.WaterLogged(
-                eventId = "w3",
-                occurredAt = Instant.parse("2026-03-12T12:00:00Z"),
-                timeZoneId = "Europe/London",
-                amountMl = 500.0,
-                dailyTotalMl = 2000.0,
-                goalMl = 2000.0,
+        val sleepDef = AchievementDefinition(
+            id = "recovery.sleep_days",
+            category = AchievementCategory.RECOVERY,
+            type = AchievementType.MILESTONE,
+            tiers = listOf(AchievementTier(TierId.BRONZE, 7.0)),
+            rule = AchievementRule(
+                metric = MetricId.SLEEP_CONSISTENT_DAYS,
+                aggregation = Aggregation.COUNT,
+                window = RuleWindow(kind = WindowKind.LIFETIME),
             ),
+            iconId = "sleep",
+            titleKey = "achievement.recovery.sleep_days.title",
+            descriptionKey = "achievement.recovery.sleep_days.description",
         )
-        assertTrue(eng.progress("water.goal_days.3")!!.unlocked)
-    }
-
-    @Test
-    fun dstSpringForwardStillDistinctDays() {
-        // US Pacific DST spring forward 2026-03-08
-        val eng = engine()
-        eng.ingest(workout("a", "2026-03-07T20:00:00Z", zone = "America/Los_Angeles"))
-        eng.ingest(workout("b", "2026-03-08T20:00:00Z", zone = "America/Los_Angeles"))
-        eng.ingest(workout("c", "2026-03-09T20:00:00Z", zone = "America/Los_Angeles"))
-        val dayA = DayBoundary.dayKey(Instant.parse("2026-03-07T20:00:00Z"), "America/Los_Angeles")
-        val dayB = DayBoundary.dayKey(Instant.parse("2026-03-08T20:00:00Z"), "America/Los_Angeles")
-        val dayC = DayBoundary.dayKey(Instant.parse("2026-03-09T20:00:00Z"), "America/Los_Angeles")
-        assertEquals("2026-03-07", dayA)
-        assertEquals("2026-03-08", dayB)
-        assertEquals("2026-03-09", dayC)
-        assertTrue(dayA != dayB && dayB != dayC)
-    }
-
-    @Test
-    fun travelKeepsEventLocalDay() {
-        val kyivDay = DayBoundary.dayKey(Instant.parse("2026-06-01T22:30:00Z"), "Europe/Kyiv")
-        val nyDay = DayBoundary.dayKey(Instant.parse("2026-06-01T22:30:00Z"), "America/New_York")
-        assertEquals("2026-06-02", kyivDay)
-        assertEquals("2026-06-01", nyDay)
-    }
-
-    @Test
-    fun thresholdSingleRun() {
-        val eng = engine()
-        eng.ingest(workout("r1", "2026-07-01T10:00:00Z", discipline = "running", distanceM = 4999.0))
-        assertFalse(eng.progress("running.single.5k")!!.unlocked)
-        eng.ingest(workout("r2", "2026-07-02T10:00:00Z", discipline = "running", distanceM = 5000.0))
-        assertTrue(eng.progress("running.single.5k")!!.unlocked)
-    }
-
-    @Test
-    fun personalRecordUnlocks() {
-        val eng = engine()
-        val r = eng.ingest(
-            DomainEvent.PersonalRecord(
-                eventId = "pr1",
-                occurredAt = Instant.parse("2026-08-01T10:00:00Z"),
-                timeZoneId = "Europe/London",
-                discipline = "strength",
-                metric = "load_kg",
-                value = 100.0,
+        val bodyDef = AchievementDefinition(
+            id = "body.measurement_days",
+            category = AchievementCategory.BODY,
+            type = AchievementType.MILESTONE,
+            tiers = listOf(AchievementTier(TierId.BRONZE, 4.0)),
+            rule = AchievementRule(
+                metric = MetricId.MEASUREMENT_DAYS,
+                aggregation = Aggregation.COUNT,
+                window = RuleWindow(kind = WindowKind.LIFETIME),
+                filters = RuleFilters(excludeWeightLossRate = true),
             ),
+            iconId = "measurements",
+            titleKey = "achievement.body.measurement_days.title",
+            descriptionKey = "achievement.body.measurement_days.description",
         )
-        assertTrue(r.unlocks.any { it.achievementId == "strength.first_pr" })
-    }
-
-    @Test
-    fun backfillBatchesWithoutDuplicateSpam() {
-        val eng = engine()
-        val events = (1..5).map { i ->
-            workout("bf$i", "2026-09-0${i}T12:00:00Z")
-        }
-        val result = eng.backfill(events + events) // second copy duplicates
-        assertEquals(5, result.processedEvents)
-        assertEquals(5, result.skippedDuplicates)
-        assertTrue(result.batchSummaryCount >= 1)
-        assertTrue(eng.progress("strength.sessions.5")!!.unlocked)
-    }
-
-    @Test
-    fun wiseRestOnLowReadiness() {
-        val eng = engine()
-        repeat(3) { i ->
-            eng.ingest(
-                DomainEvent.PlannedRestDay(
-                    eventId = "lr$i",
-                    occurredAt = Instant.parse("2026-10-0${i + 1}T12:00:00Z"),
-                    timeZoneId = "Europe/London",
-                    lowReadiness = true,
-                ),
+        val engine = AchievementEngine(listOf(foodDef, waterDef, sleepDef, bodyDef))
+        val events = (1..7).flatMap { d ->
+            val day = "2026-07-${d.toString().padStart(2, '0')}"
+            val at = Instant.parse("${day}T12:00:00Z")
+            listOf(
+                FoodLogged("f$d", at, "Europe/London", localDay = day),
+                WaterLogged("wa$d", at, "Europe/London", localDay = day, amountMl = 2000, goalMl = 2000, goalMet = true),
+                SleepImported("s$d", at, "Europe/London", localDay = day, midpointVarianceMin = 20.0, consistent = true),
+                MeasurementAdded("m$d", at, "Europe/London", localDay = day, kind = "weight"),
             )
         }
-        assertTrue(eng.progress("recovery.rest_when_low.3")!!.unlocked)
+        val now = Instant.parse("2026-07-07T20:00:00Z")
+        val r = engine.evaluate(EvaluationState(), events, now, "Europe/London", backfill = true)
+        assertEquals(7.0, r.state.progressOf("nutrition.days_logged").value)
+        assertEquals(7.0, r.state.progressOf("water.days").value)
+        assertEquals(7.0, r.state.progressOf("recovery.sleep_days").value)
+        assertEquals(7.0, r.state.progressOf("body.measurement_days").value)
+        assertTrue(r.summary.backfill)
     }
 
     @Test
-    fun challengeCompletionUnlocksAchievement() {
-        val eng = engine()
-        val r = eng.ingest(
-            DomainEvent.ChallengeCompleted(
-                eventId = "ch1",
-                occurredAt = Instant.parse("2026-11-01T12:00:00Z"),
-                timeZoneId = "Europe/London",
-                challengeType = "mobility_30_day",
-                challengeInstanceId = "inst-1",
+    fun progressTowardNextTier() {
+        val engine = AchievementEngine(listOf(volumeDef()))
+        val e = workout("w1", "2026-03-10", volumeKg = 5000.0)
+        val now = Instant.parse("2026-03-10T18:00:00Z")
+        val r = engine.evaluate(EvaluationState(), listOf(e), now, "Europe/London")
+        val p = r.state.progressOf("strength.volume_tonnes").progress
+        assertEquals(TierId.BRONZE, p.currentTier)
+        assertEquals(TierId.SILVER, p.nextTier)
+        assertEquals(10000.0, p.nextThreshold)
+        assertTrue(p.progressRatio > 0.0 && p.progressRatio < 1.0)
+    }
+
+    @Test
+    fun swimStrokeVarietyDistinct() {
+        val def = AchievementDefinition(
+            id = "swimming.stroke_variety",
+            category = AchievementCategory.SWIMMING,
+            type = AchievementType.DISCOVERY,
+            tiers = listOf(
+                AchievementTier(TierId.BRONZE, 2.0),
+                AchievementTier(TierId.SILVER, 3.0),
             ),
+            rule = AchievementRule(
+                metric = MetricId.SWIM_STROKES_DISTINCT,
+                aggregation = Aggregation.DISTINCT,
+                window = RuleWindow(kind = WindowKind.LIFETIME),
+                filters = RuleFilters(discipline = listOf("swimming")),
+            ),
+            iconId = "swimming",
+            titleKey = "achievement.swimming.stroke_variety.title",
+            descriptionKey = "achievement.swimming.stroke_variety.description",
         )
-        assertTrue(r.unlocks.any { it.achievementId == "yoga.challenge.30d_mobility" })
+        val engine = AchievementEngine(listOf(def))
+        val events = listOf(
+            workout("s1", "2026-08-01", discipline = "swimming", strokes = listOf("freestyle", "backstroke")),
+            workout("s2", "2026-08-02", discipline = "swimming", strokes = listOf("breaststroke")),
+        )
+        val now = Instant.parse("2026-08-02T20:00:00Z")
+        val r = engine.evaluate(EvaluationState(), events, now, "Europe/London")
+        assertEquals(3.0, r.state.progressOf("swimming.stroke_variety").value)
+        assertTrue(TierId.SILVER in r.state.progressOf("swimming.stroke_variety").unlockedTier)
     }
 }

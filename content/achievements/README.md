@@ -1,36 +1,20 @@
 # OmniGart achievements content
 
-Data-driven achievement definitions, challenge templates, and en-GB / uk copy. Evaluation lives in `shared/achievements` (pure Kotlin; no app wiring).
-
-## Layout
-
-| Path | Role |
+| Path | Purpose |
 | --- | --- |
-| `schema/achievement.schema.json` | Catalog + rule schema |
-| `schema/challenge-template.schema.json` | Local-only challenge templates |
-| `data/achievements.json` | ~80 achievements across 10 categories |
-| `data/challenge-templates.json` | Personal time-boxed challenges |
-| `locales/en-GB.json` / `locales/uk.json` | Title & description strings |
-| `BEHAVIOURAL_SCIENCE.md` | Healthy-by-design rationale + verified refs |
+| `schema/achievement.schema.json` | JSON Schema (Draft 2020-12) for achievement definitions + rule DSL |
+| `data/*.json` | Catalogue by category (~120 achievements) |
+| `catalogue.json` | Index with counts |
+| `locales/en-GB.json`, `locales/uk.json` | Title/description strings only (no `ru`) |
+| `proposed-icons.json` | Icon names not yet in `design/icons` |
+| `tools/` | Generator + Node validator (CI) |
 
-## Rule kinds
-
-| Kind | Meaning |
-| --- | --- |
-| `counter` | Accumulate a metric (lifetime or windowed) |
-| `streak` | Consecutive local-calendar days; planned rest + streak freeze supported |
-| `threshold` | Single-event value (e.g. one run ≥ 5 km) |
-| `personal_record` | First / successive PRs |
-| `challenge` | Completing a personal challenge type |
-
-## Regenerate
+Kotlin models, rule DSL checks, and evaluation engine: `shared/achievements`.
 
 ```bash
-python3 scripts/generate_achievements.py
+python3 tools/generate_catalogue.py
+cd tools && npm ci && npm run validate
+./gradlew :shared:achievements:jvmTest
 ```
 
-Icon ids must exist in `design/icons/manifest.json` (reuse existing set; extend via `design/tools` if new glyphs are needed).
-
-## Locales
-
-Ship **en-GB** and **uk** only here. Other languages are owned by the translation agent — list new keys in `docs/OPEN_QUESTIONS.md`. Never add `ru`.
+Design notes and evidence: `docs/ACHIEVEMENTS.md`.

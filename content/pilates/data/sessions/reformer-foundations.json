@@ -1,0 +1,71 @@
+{
+  "id": "reformer-foundations",
+  "nameKeys": {
+    "enGB": "pilates.session.reformer_foundations.name",
+    "uk": "pilates.session.reformer_foundations.name"
+  },
+  "descriptionKeys": {
+    "enGB": "pilates.session.reformer_foundations.description",
+    "uk": "pilates.session.reformer_foundations.description"
+  },
+  "level": "beginner",
+  "durationMinutes": 30,
+  "apparatus": "reformer",
+  "focus": "full_body",
+  "exerciseIds": [
+    "reformer-footwork",
+    "reformer-leg-circles",
+    "reformer-hundred",
+    "reformer-row-arms",
+    "reformer-elephant",
+    "reformer-running",
+    "reformer-pelvic-press"
+  ],
+  "blocks": [
+    {
+      "titleKey": "pilates.session.reformer_foundations.block_main",
+      "items": [
+        {
+          "exerciseId": "reformer-footwork",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "reformer-leg-circles",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "reformer-hundred",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "reformer-row-arms",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "reformer-elephant",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "reformer-running",
+          "sets": 1,
+          "reps": 20
+        },
+        {
+          "exerciseId": "reformer-pelvic-press",
+          "sets": 1,
+          "reps": 8
+        }
+      ]
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "bundled": true
+}

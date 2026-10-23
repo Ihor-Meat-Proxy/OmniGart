@@ -1,0 +1,40 @@
+{
+  "id": "sports-drink",
+  "category": "sports_drink",
+  "defaultServingMl": 500,
+  "caffeineMgPerServing": 0,
+  "macrosPer100ml": {
+    "energyKcal": 24,
+    "proteinG": 0,
+    "carbohydrateG": 5.9,
+    "fatG": 0,
+    "sugarsG": 5.5,
+    "sodiumMg": 41
+  },
+  "hydrationFactor": 1.0,
+  "hydrationFactorEstimated": false,
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.3945/ajcn.115.114769",
+      "label": "Maughan et al. 2016 AJCN — Beverage Hydration Index",
+      "supports": [
+        "hydration_factor"
+      ]
+    },
+    {
+      "kind": "database",
+      "id": "usda-fdc",
+      "label": "USDA FoodData Central (typical values per 100 ml / serving)",
+      "supports": [
+        "macros",
+        "caffeine"
+      ]
+    }
+  ],
+  "notes": "Maughan sports drink BHI ≈ water. Oral rehydration solution was higher (BHI 1.54) — separate product.",
+  "nameKeys": {
+    "enGB": "beverage.sports_drink.name",
+    "uk": "beverage.sports_drink.name"
+  }
+}

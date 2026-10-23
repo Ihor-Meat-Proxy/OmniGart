@@ -1,0 +1,9 @@
+# Optional code-signing via match (git-backed certs/profiles).
+# Leave unused when using manual / Xcode Cloud / local signing — see docs/RELEASE_TESTFLIGHT.md.
+
+git_url(ENV.fetch("MATCH_GIT_URL", "git@example.com:OWNER/omnigart-certificates.git"))
+storage_mode("git")
+type("appstore") # appstore covers TestFlight distribution profiles
+app_identifier([ENV.fetch("IOS_BUNDLE_ID", "app.omnigart.ios")])
+username(ENV["APPLE_ID"]) if ENV["APPLE_ID"]
+team_id(ENV["APPLE_TEAM_ID"]) if ENV["APPLE_TEAM_ID"]

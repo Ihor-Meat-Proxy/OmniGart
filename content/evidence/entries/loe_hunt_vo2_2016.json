@@ -1,0 +1,31 @@
+{
+  "id": "loe_hunt_vo2_2016",
+  "type": "cohort",
+  "title": "Predicting VO2peak from Submaximal- and Peak Exercise Models: The HUNT 3 Fitness Study, Norway",
+  "authors": [
+    "Loe H",
+    "Nes BM",
+    "Wisløff U"
+  ],
+  "year": 2016,
+  "journal": "PLOS ONE",
+  "doi": "10.1371/journal.pone.0144873",
+  "pmid": "26794677",
+  "url": "https://doi.org/10.1371/journal.pone.0144873",
+  "openAccess": true,
+  "population": "HUNT 3 Fitness Study adults",
+  "keyFinding": {
+    "enGB": "Population fitness models from HUNT support estimating VO2peak for wellness fitness comparisons when direct CPET is unavailable.",
+    "keys": {
+      "enGB": "evidence.loe_hunt_vo2_2016.key_finding",
+      "uk": "evidence.loe_hunt_vo2_2016.key_finding"
+    }
+  },
+  "evidenceStrength": "moderate",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "insights"
+  ]
+}

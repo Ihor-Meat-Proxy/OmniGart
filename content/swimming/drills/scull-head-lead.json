@@ -1,0 +1,41 @@
+{
+  "id": "scull-head-lead",
+  "nameKeys": {
+    "enGB": "swim.drill.scull_head_lead.name",
+    "uk": "swim.drill.scull_head_lead.name"
+  },
+  "strokeIds": [
+    "freestyle",
+    "breaststroke"
+  ],
+  "focus": [
+    "scull",
+    "balance"
+  ],
+  "level": "intermediate",
+  "equipment": [
+    "none"
+  ],
+  "technique": [
+    "Head-lead sculling on the chest to build water feel without full strokes."
+  ],
+  "cues": [
+    "Quiet hands",
+    "Stable hips"
+  ],
+  "commonMistakes": [
+    "Lifting head to breathe poorly"
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "technique",
+        "safety"
+      ]
+    }
+  ]
+}

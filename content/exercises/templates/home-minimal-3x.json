@@ -19,9 +19,7 @@
   "rationale": "Band + bodyweight full-body work preserves multi-joint stimulus when a gym is unavailable, aligned with ACSM guidance that some resistance is better than none.",
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0b013e318213fefb",
-      "label": "Garber et al. 2011 ACSM guidance",
+      "evidenceId": "garber_acsm_quantity_2011",
       "supports": [
         "programming",
         "endurance",
@@ -29,9 +27,7 @@
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0000000000003897",
-      "label": "ACSM 2026 RT Position Stand",
+      "evidenceId": "acsm_resistance_training_2026",
       "supports": [
         "programming",
         "strength",

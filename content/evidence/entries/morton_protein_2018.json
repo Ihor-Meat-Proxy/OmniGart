@@ -1,0 +1,39 @@
+{
+  "id": "morton_protein_2018",
+  "type": "meta-analysis",
+  "title": "A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults",
+  "authors": [
+    "Morton RW",
+    "Murphy KT",
+    "McKellar SR",
+    "Schoenfeld BJ",
+    "Henselmans M",
+    "Helms E",
+    "Aragon AA",
+    "Devries MC",
+    "Banfield L",
+    "Krieger JW",
+    "Phillips SM"
+  ],
+  "year": 2018,
+  "journal": "British Journal of Sports Medicine",
+  "doi": "10.1136/bjsports-2017-097608",
+  "pmid": "28698222",
+  "pmcid": "PMC5867436",
+  "openAccess": true,
+  "population": "Healthy adults performing resistance training with or without protein supplementation",
+  "keyFinding": {
+    "enGB": "Meta-regression supports diminishing returns for hypertrophy beyond roughly 1.6 g protein per kg body mass per day in healthy adults who lift.",
+    "keys": {
+      "enGB": "evidence.morton_protein_2018.key_finding",
+      "uk": "evidence.morton_protein_2018.key_finding"
+    }
+  },
+  "evidenceStrength": "high",
+  "licenceNote": "Open-access or public-agency text: title and short finding may be shown; link out for full document. Do not paste copyrighted abstracts wholesale.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.ProteinTarget"
+  ]
+}

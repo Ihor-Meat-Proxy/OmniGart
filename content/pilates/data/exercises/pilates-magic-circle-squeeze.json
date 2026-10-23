@@ -1,0 +1,52 @@
+{
+  "id": "pilates-magic-circle-squeeze",
+  "nameKeys": {
+    "enGB": "pilates.exercise.pilates_magic_circle_squeeze.name",
+    "uk": "pilates.exercise.pilates_magic_circle_squeeze.name"
+  },
+  "apparatus": "mat",
+  "level": "beginner",
+  "primaryMuscles": [
+    "adductors",
+    "transverse_abdominis"
+  ],
+  "secondaryMuscles": [
+    "gluteus_medius"
+  ],
+  "equipment": [
+    "pilates_mat",
+    "magic_circle",
+    "bodyweight"
+  ],
+  "technique": [
+    "Perform Magic circle squeeze with a braced centre, neutral or imprinted pelvis as coached, and smooth carriage or limb control.",
+    "Prioritise articulation and breath over range; reduce springs or amplitude if form breaks."
+  ],
+  "cues": [
+    "Keep ribs heavy and shoulders away from the ears.",
+    "Exhale on effort; inhale to prepare or lengthen."
+  ],
+  "breathing": "Coordinate breath with each repetition; never hold the breath through effort.",
+  "safetyNotes": [
+    "Use a head support or keep the head down if the neck fatigues.",
+    "Reduce load (springs, lever, or range) rather than forcing lumbar flexion or extension."
+  ],
+  "contraindicationNotes": [
+    "General safety: seek clinician guidance for acute spinal pain, recent surgery, or unmanaged medical conditions before loaded pilates work.",
+    "General safety: during pregnancy or postpartum, favour clinician-cleared regressions and avoid breath-holding or extreme abdominal pressure."
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "trackingType": "reps",
+  "unilateral": false,
+  "bundled": true,
+  "aliases": [],
+  "tags": [
+    "pilates",
+    "mat",
+    "beginner"
+  ],
+  "defaultReps": 12
+}

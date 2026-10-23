@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.dev/schemas/running-race-plan.schema.json",
+  "title": "OmniGartRunningRacePlan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "nameKeys",
+    "distance",
+    "level",
+    "weeks",
+    "daysPerWeek",
+    "intensityDistribution",
+    "progression",
+    "weeklyTemplates",
+    "evidenceRefs"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "nameKeys": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enGB", "uk"],
+      "properties": {
+        "enGB": { "type": "string", "pattern": "^running\\.plan\\.[a-z0-9_]+\\.name$" },
+        "uk": { "type": "string", "pattern": "^running\\.plan\\.[a-z0-9_]+\\.name$" }
+      }
+    },
+    "distance": {
+      "type": "string",
+      "enum": ["5k", "10k", "half_marathon", "marathon"]
+    },
+    "level": {
+      "type": "string",
+      "enum": ["beginner", "intermediate"]
+    },
+    "weeks": { "type": "integer", "minimum": 6, "maximum": 24 },
+    "daysPerWeek": { "type": "integer", "minimum": 3, "maximum": 6 },
+    "intensityDistribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model", "easyPercentTarget", "notesKey"],
+      "properties": {
+        "model": {
+          "type": "string",
+          "enum": ["polarized", "pyramidal", "mixed"]
+        },
+        "easyPercentTarget": { "type": "number", "minimum": 50, "maximum": 95 },
+        "notesKey": {
+          "type": "string",
+          "pattern": "^running\\.plan\\.[a-z0-9_]+\\.distribution$"
+        }
+      }
+    },
+    "progression": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["weeklyVolumeIncreaseCapPercent", "tenPercentRuleCaveat", "deloadEveryWeeks", "notesKey"],
+      "properties": {
+        "weeklyVolumeIncreaseCapPercent": { "type": "number", "minimum": 0, "maximum": 20 },
+        "tenPercentRuleCaveat": { "type": "boolean" },
+        "deloadEveryWeeks": { "type": "integer", "minimum": 3, "maximum": 8 },
+        "notesKey": {
+          "type": "string",
+          "pattern": "^running\\.plan\\.[a-z0-9_]+\\.progression$"
+        }
+      }
+    },
+    "weeklyTemplates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["weekFrom", "weekTo", "sessions"],
+        "properties": {
+          "weekFrom": { "type": "integer", "minimum": 1 },
+          "weekTo": { "type": "integer", "minimum": 1 },
+          "themeKey": { "type": "string" },
+          "sessions": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["dayOffset", "workoutTypeId"],
+              "properties": {
+                "dayOffset": { "type": "integer", "minimum": 0, "maximum": 6 },
+                "workoutTypeId": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                },
+                "optional": { "type": "boolean" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "id", "label", "supports"],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": ["doi", "pmid", "guideline", "textbook"]
+          },
+          "id": { "type": "string", "minLength": 3 },
+          "label": { "type": "string", "minLength": 3 },
+          "supports": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "rationale": { "type": "string", "minLength": 40, "maxLength": 800 }
+  }
+}

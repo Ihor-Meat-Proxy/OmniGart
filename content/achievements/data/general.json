@@ -1,0 +1,547 @@
+[
+  {
+    "id": "general.first_workout",
+    "category": "general",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1
+    },
+    "iconId": "workouts",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.general.first_workout.title",
+    "descriptionKey": "achievement.general.first_workout.description"
+  },
+  {
+    "id": "general.disciplines_explorer",
+    "category": "general",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 2
+      },
+      {
+        "id": "silver",
+        "threshold": 3
+      },
+      {
+        "id": "gold",
+        "threshold": 4
+      },
+      {
+        "id": "platinum",
+        "threshold": 5
+      }
+    ],
+    "rule": {
+      "metric": "disciplines_tried",
+      "aggregation": "distinct",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte"
+    },
+    "iconId": "discovery",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.general.disciplines_explorer.title",
+    "descriptionKey": "achievement.general.disciplines_explorer.description"
+  },
+  {
+    "id": "general.weekly_consistency",
+    "category": "general",
+    "type": "streak",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 2
+      },
+      {
+        "id": "silver",
+        "threshold": 4
+      },
+      {
+        "id": "gold",
+        "threshold": 8
+      },
+      {
+        "id": "platinum",
+        "threshold": 12
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "streak",
+      "window": {
+        "kind": "streak_days",
+        "qualify": "activity_or_planned_rest",
+        "restDayTolerancePerWeek": 1,
+        "freezeTokensAllowed": true,
+        "maxFreezePerStreak": 2
+      },
+      "compare": "gte",
+      "filters": {
+        "discipline": [
+          "strength",
+          "running",
+          "swimming",
+          "yoga",
+          "pilates"
+        ]
+      }
+    },
+    "iconId": "streak",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.general.weekly_consistency.title",
+    "descriptionKey": "achievement.general.weekly_consistency.description",
+    "healthyNotes": "Rest-tolerant streak; freeze tokens allowed; does not require daily hard sessions."
+  },
+  {
+    "id": "general.logging_habit",
+    "category": "general",
+    "type": "streak",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 7
+      },
+      {
+        "id": "silver",
+        "threshold": 30
+      },
+      {
+        "id": "gold",
+        "threshold": 90
+      },
+      {
+        "id": "platinum",
+        "threshold": 180
+      }
+    ],
+    "rule": {
+      "metric": "food_days_logged",
+      "aggregation": "streak",
+      "window": {
+        "kind": "streak_days",
+        "qualify": "log",
+        "restDayTolerancePerWeek": 1,
+        "freezeTokensAllowed": true,
+        "maxFreezePerStreak": 3
+      },
+      "compare": "gte"
+    },
+    "iconId": "food-log",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.general.logging_habit.title",
+    "descriptionKey": "achievement.general.logging_habit.description",
+    "healthyNotes": "Rewards logging consistency, not calorie targets."
+  },
+  {
+    "id": "general.workout_milestones",
+    "category": "general",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 10
+      },
+      {
+        "id": "silver",
+        "threshold": 50
+      },
+      {
+        "id": "gold",
+        "threshold": 100
+      },
+      {
+        "id": "platinum",
+        "threshold": 250
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte"
+    },
+    "iconId": "trophy",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.general.workout_milestones.title",
+    "descriptionKey": "achievement.general.workout_milestones.description"
+  },
+  {
+    "id": "general.honour_rest",
+    "category": "general",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 4
+      },
+      {
+        "id": "silver",
+        "threshold": 12
+      },
+      {
+        "id": "gold",
+        "threshold": 26
+      },
+      {
+        "id": "platinum",
+        "threshold": 52
+      }
+    ],
+    "rule": {
+      "metric": "planned_rest_honoured",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte"
+    },
+    "iconId": "recovery",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.general.honour_rest.title",
+    "descriptionKey": "achievement.general.honour_rest.description",
+    "healthyNotes": "Explicitly rewards resting when recovery signals call for it."
+  },
+  {
+    "id": "general.freeze_wise",
+    "category": "general",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "freeze_tokens_used",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1
+    },
+    "iconId": "freeze-token",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.general.freeze_wise.title",
+    "descriptionKey": "achievement.general.freeze_wise.description",
+    "healthyNotes": "Normalises protecting streaks without overtraining."
+  },
+  {
+    "id": "general.morning_or_evening_rhythm",
+    "category": "general",
+    "type": "streak",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 5
+      },
+      {
+        "id": "silver",
+        "threshold": 14
+      },
+      {
+        "id": "gold",
+        "threshold": 30
+      },
+      {
+        "id": "platinum",
+        "threshold": 60
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "streak",
+      "window": {
+        "kind": "streak_days",
+        "qualify": "activity_or_planned_rest",
+        "restDayTolerancePerWeek": 2,
+        "freezeTokensAllowed": true,
+        "maxFreezePerStreak": 2
+      },
+      "compare": "gte"
+    },
+    "iconId": "streak",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.general.morning_or_evening_rhythm.title",
+    "descriptionKey": "achievement.general.morning_or_evening_rhythm.description"
+  },
+  {
+    "id": "general.multi_discipline_week",
+    "category": "general",
+    "type": "single_session",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 2
+      },
+      {
+        "id": "silver",
+        "threshold": 3
+      },
+      {
+        "id": "gold",
+        "threshold": 4
+      },
+      {
+        "id": "platinum",
+        "threshold": 5
+      }
+    ],
+    "rule": {
+      "metric": "disciplines_tried",
+      "aggregation": "distinct",
+      "window": {
+        "kind": "calendar",
+        "unit": "week",
+        "count": 1
+      },
+      "compare": "gte"
+    },
+    "iconId": "discovery",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.general.multi_discipline_week.title",
+    "descriptionKey": "achievement.general.multi_discipline_week.description"
+  },
+  {
+    "id": "general.session_minutes",
+    "category": "general",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "bronze",
+        "threshold": 300
+      },
+      {
+        "id": "silver",
+        "threshold": 1000
+      },
+      {
+        "id": "gold",
+        "threshold": 3000
+      },
+      {
+        "id": "platinum",
+        "threshold": 10000
+      }
+    ],
+    "rule": {
+      "metric": "session_duration_min",
+      "aggregation": "sum",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte"
+    },
+    "iconId": "timer",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.general.session_minutes.title",
+    "descriptionKey": "achievement.general.session_minutes.description"
+  },
+  {
+    "id": "general.early_consistency",
+    "category": "general",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 3
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "challenge_period",
+        "period": "current_month"
+      },
+      "compare": "gte",
+      "threshold": 3
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.general.early_consistency.title",
+    "descriptionKey": "achievement.general.early_consistency.description"
+  },
+  {
+    "id": "general.balanced_month",
+    "category": "general",
+    "type": "challenge",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 8
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "challenge_period",
+        "period": "current_month"
+      },
+      "compare": "gte",
+      "threshold": 8,
+      "filters": {
+        "discipline": [
+          "strength",
+          "running",
+          "swimming",
+          "yoga",
+          "pilates"
+        ]
+      }
+    },
+    "iconId": "challenge",
+    "hidden": false,
+    "repeatable": true,
+    "titleKey": "achievement.general.balanced_month.title",
+    "descriptionKey": "achievement.general.balanced_month.description",
+    "healthyNotes": "Volume target sits below daily grind; rest is expected."
+  },
+  {
+    "id": "general.secret_comeback",
+    "category": "general",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "rolling_days",
+        "days": 14
+      },
+      "compare": "gte",
+      "threshold": 3
+    },
+    "iconId": "achievement",
+    "hidden": true,
+    "repeatable": false,
+    "titleKey": "achievement.general.secret_comeback.title",
+    "descriptionKey": "achievement.general.secret_comeback.description"
+  },
+  {
+    "id": "general.year_of_movement",
+    "category": "general",
+    "type": "milestone",
+    "tiers": [
+      {
+        "id": "level_1",
+        "threshold": 50
+      },
+      {
+        "id": "level_2",
+        "threshold": 100
+      },
+      {
+        "id": "level_3",
+        "threshold": 150
+      },
+      {
+        "id": "level_4",
+        "threshold": 200
+      },
+      {
+        "id": "level_5",
+        "threshold": 300
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "calendar",
+        "unit": "month",
+        "count": 12
+      },
+      "compare": "gte"
+    },
+    "iconId": "trophy",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.general.year_of_movement.title",
+    "descriptionKey": "achievement.general.year_of_movement.description"
+  },
+  {
+    "id": "general.share_ready",
+    "category": "general",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 5
+    },
+    "iconId": "share",
+    "hidden": false,
+    "repeatable": false,
+    "titleKey": "achievement.general.share_ready.title",
+    "descriptionKey": "achievement.general.share_ready.description"
+  },
+  {
+    "id": "general.evidence_curious",
+    "category": "general",
+    "type": "discovery",
+    "tiers": [
+      {
+        "id": "unlocked",
+        "threshold": 1
+      }
+    ],
+    "rule": {
+      "metric": "workouts_completed",
+      "aggregation": "count",
+      "window": {
+        "kind": "lifetime"
+      },
+      "compare": "gte",
+      "threshold": 1
+    },
+    "iconId": "evidence",
+    "hidden": true,
+    "repeatable": false,
+    "titleKey": "achievement.general.evidence_curious.title",
+    "descriptionKey": "achievement.general.evidence_curious.description"
+  }
+]

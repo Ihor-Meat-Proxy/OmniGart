@@ -1,0 +1,40 @@
+{
+  "id": "fly-single-arm",
+  "nameKeys": {
+    "enGB": "swim.drill.fly_single_arm.name",
+    "uk": "swim.drill.fly_single_arm.name"
+  },
+  "strokeIds": [
+    "butterfly"
+  ],
+  "focus": [
+    "timing",
+    "pull"
+  ],
+  "level": "intermediate",
+  "equipment": [
+    "none"
+  ],
+  "technique": [
+    "One-arm butterfly with the idle arm extended; match kick to pull."
+  ],
+  "cues": [
+    "Two kicks per arm cycle",
+    "Chest press"
+  ],
+  "commonMistakes": [
+    "Late second kick"
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "technique",
+        "safety"
+      ]
+    }
+  ]
+}

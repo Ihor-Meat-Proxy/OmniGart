@@ -84,15 +84,8 @@ jobs:
         uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
       - name: ktlint + detekt
         run: ./gradlew --stacktrace ktlintCheck detekt
-      - name: SwiftLint (Linux, before macOS)
-        if: needs.changes.outputs.ios == 'true'
-        run: |
-          set -euo pipefail
-          curl -fsSL -o /tmp/swiftlint.zip \
-            https://github.com/realm/SwiftLint/releases/download/0.57.1/swiftlint_linux.zip
-          sudo unzip -o /tmp/swiftlint.zip -d /usr/local/bin swiftlint
-          sudo chmod +x /usr/local/bin/swiftlint
-          swiftlint lint --config .swiftlint.yml --strict
+      # SwiftLint stays on the macOS job: the official Linux binary needs libxml2
+      # and is a poor fit for ubuntu-latest as a pre-gate.
 
   kmp-android:
     name: KMP + Android + Wear
@@ -181,8 +174,10 @@ jobs:
             echo "::error::iosApp/project.yml missing ../design/generated/ios/Sources"
             exit 1
           fi
-      - name: Install XcodeGen
-        run: brew install xcodegen
+      - name: Install XcodeGen and SwiftLint
+        run: brew install xcodegen swiftlint
+      - name: SwiftLint
+        run: swiftlint lint --config .swiftlint.yml --strict
       - name: Link and sync Shared frameworks (simulator)
         run: |
           ./gradlew \

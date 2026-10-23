@@ -18,7 +18,7 @@ object VolumeLandmarks {
         Muscle.BICEPS,
         Muscle.TRICEPS,
         Muscle.ERECTOR_SPINAE,
-        Muscle.RECTUS_ABDOMINIS,
+        Muscle.RECTUS_ABDOMINIS
     )
 
     fun weeklyHardSetTarget(level: Level, goal: TrainingGoal): IntRange = when (goal) {
@@ -52,6 +52,5 @@ object VolumeLandmarks {
         ReadinessBand.VERY_LOW -> (sets * 0.5).roundToInt().coerceAtLeast(0)
     }
 
-    fun applyDeload(sets: Int, deload: Boolean): Int =
-        if (deload) (sets * 0.55).roundToInt().coerceAtLeast(1) else sets
+    fun applyDeload(sets: Int, deload: Boolean): Int = if (deload) (sets * 0.55).roundToInt().coerceAtLeast(1) else sets
 }

@@ -12,6 +12,7 @@ struct MindfulBodySaveRequest {
     var saveMindfulMinutes: Bool
 }
 
+@MainActor
 enum MindfulBodyHealthSave {
     static func saveEstimate(_ request: MindfulBodySaveRequest) async -> HealthKitWorkoutWriter.Result? {
         let age = Int(request.core.ageYears(profile: request.profile))

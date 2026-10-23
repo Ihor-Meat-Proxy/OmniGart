@@ -183,7 +183,7 @@ struct StrengthLoggingView: View {
         refreshSummary(id: id)
         tick += 1
 
-        Task {
+        Task { @MainActor in
             let saved = await StrengthWorkoutHealthSave.saveEstimate(
                 StrengthHealthSaveRequest(
                     core: core,
@@ -192,11 +192,9 @@ struct StrengthLoggingView: View {
                     includeWarmups: includeWarmups
                 )
             )
-            await MainActor.run {
-                lastEnergy = saved
-                refreshSummary(id: id)
-                savingHealth = false
-            }
+            lastEnergy = saved
+            refreshSummary(id: id)
+            savingHealth = false
         }
     }
 

@@ -8,6 +8,7 @@ struct StrengthHealthSaveRequest {
     var includeWarmups: Bool
 }
 
+@MainActor
 enum StrengthWorkoutHealthSave {
     private struct SessionWindow {
         var start: Date

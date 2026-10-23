@@ -101,14 +101,16 @@ extension HealthKitWorkoutWriter {
             events.append(
                 HKWorkoutEvent(
                     type: .pause,
-                    dateInterval: DateInterval(start: pair.pause, duration: 1)
+                    dateInterval: DateInterval(start: pair.pause, duration: 1),
+                    metadata: nil
                 )
             )
             if let resume = pair.resume {
                 events.append(
                     HKWorkoutEvent(
                         type: .resume,
-                        dateInterval: DateInterval(start: resume, duration: 1)
+                        dateInterval: DateInterval(start: resume, duration: 1),
+                        metadata: nil
                     )
                 )
             }

@@ -49,6 +49,7 @@ jobs:
           ./gradlew --stacktrace \
             :shared:testAndroidHostTest \
             :shared:planning:jvmTest \
+            :shared:hydration:jvmTest \
             :androidApp:assembleDebug \
             :androidApp:testDebugUnitTest \
             :wearApp:assembleDebug \

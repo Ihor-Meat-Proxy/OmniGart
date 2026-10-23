@@ -28,6 +28,9 @@ project(":shared:bodymap").projectDir = file("shared/bodymap")
 include(":shared:sensors")
 project(":shared:sensors").projectDir = file("shared/sensors")
 
+include(":shared:hydration")
+project(":shared:hydration").projectDir = file("shared/hydration")
+
 include(":androidApp")
 include(":wearApp")
 

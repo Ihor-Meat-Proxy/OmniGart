@@ -1,0 +1,11 @@
+{
+  "schema": "omnigart.app-config/1",
+  "featureFlags": {
+    "contentUpdatesEnabled": true,
+    "exerciseVideosEnabled": false,
+    "foodOfflinePackEnabled": false
+  },
+  "cdn": {
+    "pointerBaseUrl": "https://content.example.com"
+  }
+}

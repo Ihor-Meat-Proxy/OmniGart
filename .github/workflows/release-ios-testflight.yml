@@ -1,0 +1,63 @@
+name: Release iOS TestFlight
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+# Inert without secrets: job succeeds after a dry-run skip when credentials are absent.
+
+jobs:
+  testflight:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: fastlane
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Detect secrets
+        id: secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${{ secrets.APP_STORE_CONNECT_KEY_ID }}" ] && \
+             [ -n "${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}" ] && \
+             { [ -n "${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}" ] || [ -n "${{ secrets.APP_STORE_CONNECT_API_KEY_PATH }}" ]; }; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "App Store Connect secrets missing — will dry-run / skip upload (exit 0)."
+          fi
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@e1bd6146574da5e0795075b5319b300edb30c5b0 # v1.333.0
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: fastlane
+
+      - name: Dry run (always)
+        run: bundle exec fastlane ios beta_dry_run
+
+      - name: Upload to TestFlight
+        if: steps.secrets.outputs.present == 'true'
+        env:
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}
+          APP_STORE_CONNECT_API_KEY_PATH: ${{ secrets.APP_STORE_CONNECT_API_KEY_PATH }}
+          APP_STORE_CONNECT_API_KEY_IS_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_IS_BASE64 }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          TESTFLIGHT_CHANGELOG: ${{ github.event.head_commit.message }}
+        run: bundle exec fastlane ios beta
+
+      - name: Skip notice
+        if: steps.secrets.outputs.present != 'true'
+        run: echo "Skipped TestFlight upload — secrets not configured."

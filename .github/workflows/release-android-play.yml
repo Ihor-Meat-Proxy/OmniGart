@@ -1,0 +1,55 @@
+name: Release Android Play internal
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+# Inert without secrets: dry-run succeeds; upload only when Play JSON key is present.
+
+jobs:
+  play-internal:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: fastlane
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Detect secrets
+        id: secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${{ secrets.PLAY_JSON_KEY_CONTENT }}" ] || [ -n "${{ secrets.PLAY_JSON_KEY_FILE }}" ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "Play API secrets missing — will dry-run / skip upload (exit 0)."
+          fi
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@e1bd6146574da5e0795075b5319b300edb30c5b0 # v1.333.0
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: fastlane
+
+      - name: Dry run (always)
+        run: bundle exec fastlane android internal_dry_run
+
+      - name: Upload to Play internal
+        if: steps.secrets.outputs.present == 'true'
+        env:
+          PLAY_JSON_KEY_CONTENT: ${{ secrets.PLAY_JSON_KEY_CONTENT }}
+          PLAY_JSON_KEY_FILE: ${{ secrets.PLAY_JSON_KEY_FILE }}
+          ANDROID_APPLICATION_ID: ${{ secrets.ANDROID_APPLICATION_ID }}
+          ANDROID_AAB_PATH: ${{ secrets.ANDROID_AAB_PATH }}
+          ANDROID_APK_PATH: ${{ secrets.ANDROID_APK_PATH }}
+        run: bundle exec fastlane android internal
+
+      - name: Skip notice
+        if: steps.secrets.outputs.present != 'true'
+        run: echo "Skipped Play upload — secrets not configured."

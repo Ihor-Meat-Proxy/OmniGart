@@ -63,3 +63,7 @@ content/i18n/weblate/
 coverage/
 *.exec
 .rapid/
+
+# Fastlane
+fastlane/vendor/
+fastlane/.bundle/

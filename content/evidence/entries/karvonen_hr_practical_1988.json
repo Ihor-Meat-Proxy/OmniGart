@@ -1,0 +1,29 @@
+{
+  "id": "karvonen_hr_practical_1988",
+  "type": "systematic-review",
+  "title": "Heart rate and exercise intensity during sports activities: practical application",
+  "authors": [
+    "Karvonen J",
+    "Vuorimaa T"
+  ],
+  "year": 1988,
+  "journal": "Sports Medicine",
+  "doi": "10.2165/00007256-198805050-00002",
+  "pmid": "3387734",
+  "openAccess": false,
+  "population": "Sport and exercise settings using HR-based intensity",
+  "keyFinding": {
+    "enGB": "Practical review of applying heart-rate methods, including reserve-based targets, during sports activities.",
+    "keys": {
+      "enGB": "evidence.karvonen_hr_practical_1988.key_finding",
+      "uk": "evidence.karvonen_hr_practical_1988.key_finding"
+    }
+  },
+  "evidenceStrength": "low",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.HeartRate.karvonenTarget"
+  ]
+}

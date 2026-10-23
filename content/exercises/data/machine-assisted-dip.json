@@ -59,18 +59,14 @@
   ],
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1519/SSC.0000000000000579",
-      "label": "McKenzie et al. 2020 — glenohumeral extension risk considerations in the dip",
+      "evidenceId": "mckenzie_dip_shoulder_2020",
       "supports": [
         "safety",
         "technique"
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0000000000003897",
-      "label": "ACSM 2026 RT Position Stand (overview of reviews)",
+      "evidenceId": "acsm_resistance_training_2026",
       "supports": [
         "programming",
         "strength",
@@ -79,9 +75,7 @@
       ]
     },
     {
-      "kind": "textbook",
-      "id": "nsca-essentials-4e",
-      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "evidenceId": "nsca_essentials_4e",
       "supports": [
         "technique",
         "safety",

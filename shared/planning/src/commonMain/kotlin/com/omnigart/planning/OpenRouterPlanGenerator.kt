@@ -14,7 +14,7 @@ package com.omnigart.planning
 class OpenRouterPlanGenerator(
     private val fallback: PlanGenerator = RuleBasedPlanGenerator(),
     private val safety: PlanSafetyValidator = PlanSafetyValidator(),
-    private val networkEnabled: Boolean = false,
+    private val networkEnabled: Boolean = false
 ) : PlanGenerator {
     override val id: String = "openrouter-stub-v1"
 
@@ -25,14 +25,14 @@ class OpenRouterPlanGenerator(
     override fun generate(input: PlanGenerationInput): PlanRecommendation {
         if (networkEnabled) {
             throw UnsupportedOperationException(
-                "OpenRouter client is not implemented in this release; keep networkEnabled=false.",
+                "OpenRouter client is not implemented in this release; keep networkEnabled=false."
             )
         }
         // Demonstrate the validate/clamp path using the rule output as a stand-in proposal.
         val rules = fallback.generate(input)
         val proposal = AiPlanProposal(
             sessions = rules.sessions,
-            claimedVolume = rules.volumeTargets,
+            claimedVolume = rules.volumeTargets
         )
         val (_, clampNotes) = safety.validateAndClamp(proposal, input.profile)
         return rules.copy(
@@ -40,8 +40,8 @@ class OpenRouterPlanGenerator(
             explanations = rules.explanations + clampNotes + PlanExplanation(
                 code = "ai.disabled",
                 message = "AI planning disabled; served deterministic rule-based plan.",
-                evidence = EvidenceCatalog.ACSM_RT_2026,
-            ),
+                evidence = EvidenceCatalog.ACSM_RT_2026
+            )
         )
     }
 
@@ -55,7 +55,7 @@ class OpenRouterPlanGenerator(
         val DEFAULT_PROVIDER_HINTS: Map<String, String> = mapOf(
             "data_collection" to "deny",
             "zdr" to "true",
-            "eu_base_url" to "https://eu.openrouter.ai",
+            "eu_base_url" to "https://eu.openrouter.ai"
         )
     }
 }

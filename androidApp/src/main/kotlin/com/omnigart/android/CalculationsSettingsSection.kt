@@ -14,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.design.theme.OmniGartSpacing
 import com.omnigart.shared.OmniGartCore
@@ -22,7 +23,6 @@ import com.omnigart.shared.calc.strategy.FormulaDomain
 import com.omnigart.shared.calc.strategy.FormulaMode
 import com.omnigart.shared.calc.strategy.FormulaSelection
 import com.omnigart.shared.i18n.StringCatalog
-import com.omnigart.shared.i18n.StringKeys
 
 @Composable
 fun CalculationsSettingsSection(core: OmniGartCore, profileId: String, onSelectionChanged: () -> Unit = {}) {
@@ -37,12 +37,12 @@ fun CalculationsSettingsSection(core: OmniGartCore, profileId: String, onSelecti
         verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space2)
     ) {
         Text(
-            text = StringCatalog.t(StringKeys.CALC_SETTINGS_TITLE),
+            text = stringResource(R.string.calc_settings_title),
             style = MaterialTheme.typography.titleMedium,
             color = OmniGartColors.colorTextLightPrimary
         )
         Text(
-            text = StringCatalog.t(StringKeys.CALC_SETTINGS_INTRO),
+            text = stringResource(R.string.calc_settings_intro),
             style = MaterialTheme.typography.bodySmall,
             color = OmniGartColors.colorTextLightSecondary
         )
@@ -70,13 +70,13 @@ fun CalculationsSettingsSection(core: OmniGartCore, profileId: String, onSelecti
 private fun ModeRow(mode: FormulaMode, onSelect: (FormulaMode) -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space1)) {
         ModeChoice(
-            label = StringCatalog.t(StringKeys.CALC_MODE_SIMPLE),
+            label = stringResource(R.string.calc_mode_simple),
             selected = mode == FormulaMode.SIMPLE,
             onClick = { onSelect(FormulaMode.SIMPLE) },
             testTag = "calc_mode_simple"
         )
         ModeChoice(
-            label = StringCatalog.t(StringKeys.CALC_MODE_ADVANCED),
+            label = stringResource(R.string.calc_mode_advanced),
             selected = mode == FormulaMode.ADVANCED,
             onClick = { onSelect(FormulaMode.ADVANCED) },
             testTag = "calc_mode_advanced"
@@ -116,8 +116,14 @@ private fun DomainPicker(domain: FormulaDomain, selection: FormulaSelection, onS
         )
         options.forEach { option ->
             val selected = option.key == selectedKey
+            // formula.* keys live in StringCatalog (dotted keys are not valid Android resource names).
             Text(
-                text = if (selected) "● ${StringCatalog.t(option.titleKey)}" else "○ ${StringCatalog.t(option.titleKey)}",
+                text =
+                if (selected) {
+                    "● ${StringCatalog.t(option.titleKey)}"
+                } else {
+                    "○ ${StringCatalog.t(option.titleKey)}"
+                },
                 style = MaterialTheme.typography.bodyMedium,
                 color =
                 if (selected) {
@@ -142,10 +148,11 @@ private fun DomainPicker(domain: FormulaDomain, selection: FormulaSelection, onS
     }
 }
 
+@Composable
 private fun domainLabel(domain: FormulaDomain): String = when (domain) {
-    FormulaDomain.BMR -> StringCatalog.t("calc_domain_bmr")
-    FormulaDomain.HR_MAX -> StringCatalog.t("calc_domain_hr_max")
-    FormulaDomain.BODY_FAT -> StringCatalog.t("calc_domain_body_fat")
-    FormulaDomain.ONE_RM -> StringCatalog.t("calc_domain_one_rm")
-    FormulaDomain.HR_ZONES -> StringCatalog.t("calc_domain_hr_zones")
+    FormulaDomain.BMR -> stringResource(R.string.calc_domain_bmr)
+    FormulaDomain.HR_MAX -> stringResource(R.string.calc_domain_hr_max)
+    FormulaDomain.BODY_FAT -> stringResource(R.string.calc_domain_body_fat)
+    FormulaDomain.ONE_RM -> stringResource(R.string.calc_domain_one_rm)
+    FormulaDomain.HR_ZONES -> stringResource(R.string.calc_domain_hr_zones)
 }

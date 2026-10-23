@@ -31,7 +31,12 @@
     <string name="hc_rationale_privacy_policy">Privacy policy</string>
 
     <string name="calc_settings_title">Calculations</string>
-    <string name="calc_settings_intro">Choose how OmniGart estimates BMR, heart-rate, body fat, and strength figures. These are wellness estimates, not medical advice.</string>
+    <string name="calc_settings_intro">Choose how OmniGart estimates wellness figures such as energy use, heart-rate zones, body fat, and strength.</string>
     <string name="calc_mode_simple">Simple</string>
     <string name="calc_mode_advanced">Advanced</string>
+    <string name="calc_domain_bmr">BMR</string>
+    <string name="calc_domain_hr_max">Max heart rate</string>
+    <string name="calc_domain_body_fat">Body fat</string>
+    <string name="calc_domain_one_rm">One-rep max</string>
+    <string name="calc_domain_hr_zones">Heart-rate zones</string>
 </resources>

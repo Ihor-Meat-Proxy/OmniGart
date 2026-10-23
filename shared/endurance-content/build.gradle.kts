@@ -6,7 +6,7 @@ kotlin {
     jvm()
     sourceSets {
         jvmMain.dependencies {
-            implementation("com.networknt:json-schema-validator:2.0.8")
+            implementation("com.networknt:json-schema-validator:3.0.8")
             implementation("com.fasterxml.jackson.core:jackson-databind:2.22.4")
         }
         jvmTest.dependencies {

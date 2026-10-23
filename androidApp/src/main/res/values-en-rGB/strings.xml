@@ -266,7 +266,7 @@ We do not sell health data, use it for advertising, or share it with third parti
     <string name="insights_workouts">Workouts</string>
     <string name="insights_active_kcal">Active energy</string>
     <string name="insights_hours">Hours</string>
-    <string name="insights_wellness_note">Wellness estimates only — not a medical diagnosis or treatment.</string>
+    <string name="insights_wellness_note">Wellness estimates only — not medical advice.</string>
     <string name="insights_chart_a11y">Trend chart</string>
     <string name="insights_heatmap_a11y">Activity heatmap</string>
     <string name="health_metrics_intro">Health metrics from Apple Health or Health Connect. Read-only. Wellness display only.</string>
@@ -302,7 +302,7 @@ We do not sell health data, use it for advertising, or share it with third parti
     <string name="health_permission_needed">Health access is needed to show this metric.</string>
     <string name="health_no_data">No data for this period.</string>
     <string name="health_request_access">Request access</string>
-    <string name="health_wellness_note">Wellness display only — not a medical diagnosis or treatment. OmniGart never writes or deletes these health records from this tab.</string>
+    <string name="health_wellness_note">Wellness display only — not medical advice. OmniGart never writes or deletes these health records from this tab.</string>
     <string name="health_unit_kcal">kcal</string>
     <string name="health_unit_min">min</string>
     <string name="health_unit_steps">steps</string>

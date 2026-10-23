@@ -261,7 +261,7 @@ Nie sprzedajemy danych zdrowotnych, nie używamy ich do reklam i nie udostępnia
     <string name="insights_workouts">Treningi</string>
     <string name="insights_active_kcal">Energia aktywna</string>
     <string name="insights_hours">Godziny</string>
-    <string name="insights_wellness_note">Tylko szacunki wellness — nie diagnoza ani leczenie.</string>
+    <string name="insights_wellness_note">Tylko szacunki wellness — nie porada medyczna.</string>
     <string name="insights_chart_a11y">Wykres trendu</string>
     <string name="insights_heatmap_a11y">Mapa ciepła aktywności</string>
     <string name="health_metrics_intro">Wskaźniki zdrowia z Apple Health lub Health Connect. Tylko odczyt. Tylko wellness.</string>
@@ -297,7 +297,7 @@ Nie sprzedajemy danych zdrowotnych, nie używamy ich do reklam i nie udostępnia
     <string name="health_permission_needed">Aby pokazać ten wskaźnik, potrzebny jest dostęp do zdrowia.</string>
     <string name="health_no_data">Brak danych w tym okresie.</string>
     <string name="health_request_access">Poproś o dostęp</string>
-    <string name="health_wellness_note">Tylko wyświetlanie wellness — nie diagnoza ani leczenie. OmniGart nigdy nie zapisuje ani nie usuwa tych rekordów zdrowia z tej karty.</string>
+    <string name="health_wellness_note">Tylko wyświetlanie wellness — nie porada medyczna. OmniGart nigdy nie zapisuje ani nie usuwa tych rekordów zdrowia z tej karty.</string>
     <string name="health_unit_kcal">kcal</string>
     <string name="health_unit_min">min</string>
     <string name="health_unit_steps">kroki</string>

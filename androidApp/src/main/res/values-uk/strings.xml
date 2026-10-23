@@ -266,7 +266,7 @@
     <string name="insights_workouts">Тренування</string>
     <string name="insights_active_kcal">Активна енергія</string>
     <string name="insights_hours">Години</string>
-    <string name="insights_wellness_note">Лише оцінки добробуту — не медичний діагноз і не лікування.</string>
+    <string name="insights_wellness_note">Лише оцінки добробуту — не медична порада.</string>
     <string name="insights_chart_a11y">Графік тренду</string>
     <string name="insights_heatmap_a11y">Теплова карта активності</string>
     <string name="health_metrics_intro">Показники здоров’я з Apple Health або Health Connect. Лише читання. Лише відображення добробуту.</string>
@@ -302,7 +302,7 @@
     <string name="health_permission_needed">Щоб показати цей показник, потрібен доступ до здоров’я.</string>
     <string name="health_no_data">Немає даних за цей період.</string>
     <string name="health_request_access">Запитати доступ</string>
-    <string name="health_wellness_note">Лише відображення добробуту — не діагноз і не лікування. OmniGart ніколи не записує й не видаляє ці записи здоров’я з цієї вкладки.</string>
+    <string name="health_wellness_note">Лише відображення добробуту — не медична порада. OmniGart ніколи не записує й не видаляє ці записи здоров’я з цієї вкладки.</string>
     <string name="health_unit_kcal">ккал</string>
     <string name="health_unit_min">хв</string>
     <string name="health_unit_steps">кроки</string>

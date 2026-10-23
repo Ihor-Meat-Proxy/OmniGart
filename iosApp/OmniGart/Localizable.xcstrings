@@ -19945,7 +19945,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todo el tiempo"
+            "value": "Histórico"
           }
         },
         "fr": {
@@ -20193,67 +20193,67 @@
         "en-GB": {
           "stringUnit": {
             "state": "translated",
-            "value": "Wellness estimates only — not a medical diagnosis or treatment."
+            "value": "Wellness estimates only — not medical advice."
           }
         },
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Лише оцінки добробуту — не медичний діагноз і не лікування."
+            "value": "Лише оцінки добробуту — не медична порада."
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tylko szacunki wellness — nie diagnoza ani leczenie."
+            "value": "Tylko szacunki wellness — nie porada medyczna."
           }
         },
         "be": {
           "stringUnit": {
             "state": "translated",
-            "value": "Толькі ацэнкі дабрабыту — не медыцынскі дыягназ і не лячэнне."
+            "value": "Толькі ацэнкі дабрабыту — не медыцынская парада."
           }
         },
         "kk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Тек сауықтыру бағалаулары — медициналық диагноз немесе ем емес."
+            "value": "Тек сауықтыру бағалаулары — медициналық кеңес емес."
           }
         },
         "ka": {
           "stringUnit": {
             "state": "translated",
-            "value": "მხოლოდ კეთილდღეობის შეფასებები — არა დიაგნოზი ან მკურნალობა."
+            "value": "მხოლოდ კეთილდღეობის შეფასებები — არა სამედიცინო რჩევა."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Solo estimaciones de bienestar — no diagnóstico ni tratamiento."
+            "value": "Solo estimaciones de bienestar — no consejo médico."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Estimations bien-être uniquement — pas un diagnostic ni un traitement."
+            "value": "Estimations bien-être uniquement — pas un avis médical."
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nur Wellness-Schätzungen — keine Diagnose oder Behandlung."
+            "value": "Nur Wellness-Schätzungen — keine medizinische Beratung."
           }
         },
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pouze wellness odhady — ne diagnóza ani léčba."
+            "value": "Pouze wellness odhady — ne lékařská rada."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "仅为健康估算，不是诊断或治疗。"
+            "value": "仅为健康估算，不是医疗建议。"
           }
         }
       }
@@ -21081,7 +21081,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todo el tiempo"
+            "value": "Histórico"
           }
         },
         "fr": {
@@ -22749,67 +22749,67 @@
         "en-GB": {
           "stringUnit": {
             "state": "translated",
-            "value": "Wellness display only — not a medical diagnosis or treatment. OmniGart never writes or deletes these health records from this tab."
+            "value": "Wellness display only — not medical advice. OmniGart never writes or deletes these health records from this tab."
           }
         },
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Лише відображення добробуту — не діагноз і не лікування. OmniGart ніколи не записує й не видаляє ці записи здоров’я з цієї вкладки."
+            "value": "Лише відображення добробуту — не медична порада. OmniGart ніколи не записує й не видаляє ці записи здоров’я з цієї вкладки."
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tylko wyświetlanie wellness — nie diagnoza ani leczenie. OmniGart nigdy nie zapisuje ani nie usuwa tych rekordów zdrowia z tej karty."
+            "value": "Tylko wyświetlanie wellness — nie porada medyczna. OmniGart nigdy nie zapisuje ani nie usuwa tych rekordów zdrowia z tej karty."
           }
         },
         "be": {
           "stringUnit": {
             "state": "translated",
-            "value": "Толькі адлюстраванне дабрабыту — не дыягназ і не лячэнне. OmniGart ніколі не запісвае і не выдаляе гэтыя запісы здароўя з гэтай укладкі."
+            "value": "Толькі адлюстраванне дабрабыту — не медыцынская парада. OmniGart ніколі не запісвае і не выдаляе гэтыя запісы здароўя з гэтай укладкі."
           }
         },
         "kk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Тек сауықтыру көрсетілімі — диагноз немесе ем емес. OmniGart осы қойыншықтан бұл денсаулық жазбаларын ешқашан жазбайды және жоймайды."
+            "value": "Тек сауықтыру көрсетілімі — медициналық кеңес емес. OmniGart осы қойыншықтан бұл денсаулық жазбаларын ешқашан жазбайды және жоймайды."
           }
         },
         "ka": {
           "stringUnit": {
             "state": "translated",
-            "value": "მხოლოდ კეთილდღეობის ჩვენება — არა დიაგნოზი ან მკურნალობა. OmniGart ამ ჩანართიდან ამ ჯანმრთელობის ჩანაწერებს არასდროს წერს ან შლის."
+            "value": "მხოლოდ კეთილდღეობის ჩვენება — არა სამედიცინო რჩევა. OmniGart ამ ჩანართიდან ამ ჯანმრთელობის ჩანაწერებს არასდროს წერს ან შლის."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Solo visualización de bienestar — no diagnóstico ni tratamiento. OmniGart nunca escribe ni elimina estos registros de salud desde esta pestaña."
+            "value": "Solo visualización de bienestar — no consejo médico. OmniGart nunca escribe ni elimina estos registros de salud desde esta pestaña."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Affichage bien-être uniquement — pas un diagnostic ni un traitement. OmniGart n’écrit ni ne supprime jamais ces enregistrements depuis cet onglet."
+            "value": "Affichage bien-être uniquement — pas un avis médical. OmniGart n’écrit ni ne supprime jamais ces enregistrements depuis cet onglet."
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nur Wellness-Anzeige — keine Diagnose oder Behandlung. OmniGart schreibt oder löscht diese Gesundheitsdaten von diesem Tab nie."
+            "value": "Nur Wellness-Anzeige — keine medizinische Beratung. OmniGart schreibt oder löscht diese Gesundheitsdaten von diesem Tab nie."
           }
         },
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jen wellness zobrazení — ne diagnóza ani léčba. OmniGart z této karty tyto zdravotní záznamy nikdy nezapisuje ani nemaže."
+            "value": "Jen wellness zobrazení — ne lékařská rada. OmniGart z této karty tyto zdravotní záznamy nikdy nezapisuje ani nemaže."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "仅为健康展示，不是诊断或治疗。OmniGart 不会从此页写入或删除这些健康记录。"
+            "value": "仅为健康展示，不是医疗建议。OmniGart 不会从此页写入或删除这些健康记录。"
           }
         }
       }

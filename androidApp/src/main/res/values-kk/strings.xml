@@ -261,7 +261,7 @@
     <string name="insights_workouts">Жаттығулар</string>
     <string name="insights_active_kcal">Белсенді энергия</string>
     <string name="insights_hours">Сағат</string>
-    <string name="insights_wellness_note">Тек сауықтыру бағалаулары — медициналық диагноз немесе ем емес.</string>
+    <string name="insights_wellness_note">Тек сауықтыру бағалаулары — медициналық кеңес емес.</string>
     <string name="insights_chart_a11y">Тренд диаграммасы</string>
     <string name="insights_heatmap_a11y">Белсенділік жылу картасы</string>
     <string name="health_metrics_intro">Apple Health немесе Health Connect көрсеткіштері. Тек оқу. Тек сауықтыру көрсетілімі.</string>
@@ -297,7 +297,7 @@
     <string name="health_permission_needed">Бұл көрсеткішті көрсету үшін денсаулыққа қолжетімділік керек.</string>
     <string name="health_no_data">Осы кезеңде дерек жоқ.</string>
     <string name="health_request_access">Қолжетімділік сұрау</string>
-    <string name="health_wellness_note">Тек сауықтыру көрсетілімі — диагноз немесе ем емес. OmniGart осы қойыншықтан бұл денсаулық жазбаларын ешқашан жазбайды және жоймайды.</string>
+    <string name="health_wellness_note">Тек сауықтыру көрсетілімі — медициналық кеңес емес. OmniGart осы қойыншықтан бұл денсаулық жазбаларын ешқашан жазбайды және жоймайды.</string>
     <string name="health_unit_kcal">ккал</string>
     <string name="health_unit_min">мин</string>
     <string name="health_unit_steps">қадам</string>

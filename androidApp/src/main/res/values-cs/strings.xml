@@ -261,7 +261,7 @@ Zdravotní data neprodáváme a nepoužíváme k reklamě. Můžete přístup od
     <string name="insights_workouts">Tréninky</string>
     <string name="insights_active_kcal">Aktivní energie</string>
     <string name="insights_hours">Hodiny</string>
-    <string name="insights_wellness_note">Pouze wellness odhady — ne diagnóza ani léčba.</string>
+    <string name="insights_wellness_note">Pouze wellness odhady — ne lékařská rada.</string>
     <string name="insights_chart_a11y">Graf trendu</string>
     <string name="insights_heatmap_a11y">Teplotní mapa aktivity</string>
     <string name="health_metrics_intro">Zdravotní metriky z Apple Health nebo Health Connect. Jen čtení. Jen wellness zobrazení.</string>
@@ -297,7 +297,7 @@ Zdravotní data neprodáváme a nepoužíváme k reklamě. Můžete přístup od
     <string name="health_permission_needed">Pro zobrazení této metriky je potřeba přístup ke zdraví.</string>
     <string name="health_no_data">Pro toto období nejsou data.</string>
     <string name="health_request_access">Požádat o přístup</string>
-    <string name="health_wellness_note">Jen wellness zobrazení — ne diagnóza ani léčba. OmniGart z této karty tyto zdravotní záznamy nikdy nezapisuje ani nemaže.</string>
+    <string name="health_wellness_note">Jen wellness zobrazení — ne lékařská rada. OmniGart z této karty tyto zdravotní záznamy nikdy nezapisuje ani nemaže.</string>
     <string name="health_unit_kcal">kcal</string>
     <string name="health_unit_min">min</string>
     <string name="health_unit_steps">kroky</string>

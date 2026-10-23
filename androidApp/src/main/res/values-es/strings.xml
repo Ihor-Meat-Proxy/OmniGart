@@ -257,11 +257,11 @@ No vendemos datos de salud ni los usamos para publicidad. Puedes denegar el acce
     <string name="insights_ytd_load">En lo que va de año · carga acumulada</string>
     <string name="insights_heatmap_workouts">Calendario de entrenos</string>
     <string name="insights_heatmap_exercise">Calendario de minutos de ejercicio</string>
-    <string name="insights_all_time">Todo el tiempo</string>
+    <string name="insights_all_time">Histórico</string>
     <string name="insights_workouts">Entrenos</string>
     <string name="insights_active_kcal">Energía activa</string>
     <string name="insights_hours">Horas</string>
-    <string name="insights_wellness_note">Solo estimaciones de bienestar — no diagnóstico ni tratamiento.</string>
+    <string name="insights_wellness_note">Solo estimaciones de bienestar — no consejo médico.</string>
     <string name="insights_chart_a11y">Gráfico de tendencia</string>
     <string name="insights_heatmap_a11y">Mapa de calor de actividad</string>
     <string name="health_metrics_intro">Métricas de salud de Apple Health o Health Connect. Solo lectura. Solo bienestar.</string>
@@ -273,7 +273,7 @@ No vendemos datos de salud ni los usamos para publicidad. Puedes denegar el acce
     <string name="health_section_mindful">Atención plena</string>
     <string name="health_section_past7">Últimos 7 días</string>
     <string name="health_section_past30">Últimos 30 días</string>
-    <string name="health_section_all_time">Todo el tiempo</string>
+    <string name="health_section_all_time">Histórico</string>
     <string name="health_active_energy">Energía activa</string>
     <string name="health_resting_energy">Energía en reposo</string>
     <string name="health_exercise_minutes">Minutos de ejercicio</string>
@@ -297,7 +297,7 @@ No vendemos datos de salud ni los usamos para publicidad. Puedes denegar el acce
     <string name="health_permission_needed">Se necesita acceso a salud para mostrar esta métrica.</string>
     <string name="health_no_data">No hay datos para este periodo.</string>
     <string name="health_request_access">Solicitar acceso</string>
-    <string name="health_wellness_note">Solo visualización de bienestar — no diagnóstico ni tratamiento. OmniGart nunca escribe ni elimina estos registros de salud desde esta pestaña.</string>
+    <string name="health_wellness_note">Solo visualización de bienestar — no consejo médico. OmniGart nunca escribe ni elimina estos registros de salud desde esta pestaña.</string>
     <string name="health_unit_kcal">kcal</string>
     <string name="health_unit_min">min</string>
     <string name="health_unit_steps">pasos</string>

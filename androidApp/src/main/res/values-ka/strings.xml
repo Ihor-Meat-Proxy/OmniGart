@@ -261,7 +261,7 @@
     <string name="insights_workouts">ვარჯიშები</string>
     <string name="insights_active_kcal">აქტიური ენერგია</string>
     <string name="insights_hours">საათები</string>
-    <string name="insights_wellness_note">მხოლოდ კეთილდღეობის შეფასებები — არა დიაგნოზი ან მკურნალობა.</string>
+    <string name="insights_wellness_note">მხოლოდ კეთილდღეობის შეფასებები — არა სამედიცინო რჩევა.</string>
     <string name="insights_chart_a11y">ტენდენციის გრაფიკი</string>
     <string name="insights_heatmap_a11y">აქტივობის სითბური რუკა</string>
     <string name="health_metrics_intro">ჯანმრთელობის მეტრიკები Apple Health ან Health Connect-დან. მხოლოდ კითხვა. მხოლოდ კეთილდღეობა.</string>
@@ -297,7 +297,7 @@
     <string name="health_permission_needed">ამ მეტრიკის საჩვენებლად საჭიროა ჯანმრთელობის წვდომა.</string>
     <string name="health_no_data">ამ პერიოდისთვის მონაცემები არაა.</string>
     <string name="health_request_access">წვდომის მოთხოვნა</string>
-    <string name="health_wellness_note">მხოლოდ კეთილდღეობის ჩვენება — არა დიაგნოზი ან მკურნალობა. OmniGart ამ ჩანართიდან ამ ჯანმრთელობის ჩანაწერებს არასდროს წერს ან შლის.</string>
+    <string name="health_wellness_note">მხოლოდ კეთილდღეობის ჩვენება — არა სამედიცინო რჩევა. OmniGart ამ ჩანართიდან ამ ჯანმრთელობის ჩანაწერებს არასდროს წერს ან შლის.</string>
     <string name="health_unit_kcal">კკალ</string>
     <string name="health_unit_min">წთ</string>
     <string name="health_unit_steps">ნაბიჯი</string>

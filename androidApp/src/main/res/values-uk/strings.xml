@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OmniGart</string>
+    <string name="tab_food">Їжа</string>
+    <string name="tab_workouts">Тренування</string>
+    <string name="tab_recovery">Відновлення</string>
+    <string name="tab_planner">Планувальник</string>
+    <string name="tab_profile">Профіль</string>
+    <string name="shell_placeholder">Оболонка Phase 0 — дані зі спільного ядра</string>
+</resources>

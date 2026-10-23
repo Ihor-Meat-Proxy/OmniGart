@@ -1,0 +1,21 @@
+{
+  "id": "exercises",
+  "version": 1,
+  "locale": "en-GB",
+  "items": [
+    {
+      "key": "ex.barbell_back_squat",
+      "name": "Barbell back squat",
+      "modality": "STRENGTH",
+      "primaryMuscles": ["quads", "glutes"],
+      "citationIds": []
+    },
+    {
+      "key": "ex.easy_run",
+      "name": "Easy run",
+      "modality": "CARDIO",
+      "primaryMuscles": [],
+      "citationIds": []
+    }
+  ]
+}

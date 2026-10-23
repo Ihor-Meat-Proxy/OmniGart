@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnigart.dev/schemas/content-pack.schema.json",
+  "title": "OmniGartContentPack",
+  "type": "object",
+  "required": ["id", "version", "locale", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "integer", "minimum": 1 },
+    "locale": { "type": "string", "description": "Content locale; must never be ru" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "name", "modality"],
+        "properties": {
+          "key": { "type": "string" },
+          "name": { "type": "string" },
+          "modality": { "type": "string" },
+          "primaryMuscles": { "type": "array", "items": { "type": "string" } },
+          "citationIds": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

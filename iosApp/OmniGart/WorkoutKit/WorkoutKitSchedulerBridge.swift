@@ -1,7 +1,9 @@
 import Foundation
 import HealthKit
 #if canImport(WorkoutKit)
-import WorkoutKit
+// WorkoutScheduler is not Sendable; Xcode 26 Swift 6 treats cross-isolation
+// access to scheduledWorkouts as an error without this.
+@preconcurrency import WorkoutKit
 #endif
 
 /// Schedules OmniGart plans into the system Workout app via WorkoutKit.

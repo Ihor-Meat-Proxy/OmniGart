@@ -1493,15 +1493,21 @@ def main() -> None:
                 folder_is_default=(folder == "values"),
             )
 
-    xc_path = ROOT / "iosApp/OmniGart/Localizable.xcstrings"
-    catalog = json.loads(xc_path.read_text(encoding="utf-8"))
-    strings = catalog.setdefault("strings", {})
-    for key, locales in STRINGS.items():
-        entry = strings.setdefault(key, {"extractionState": "manual", "localizations": {}})
-        locs = entry.setdefault("localizations", {})
-        for locale, value in locales.items():
-            locs[locale] = {"stringUnit": {"state": "translated", "value": value}}
-    xc_path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    for xc_rel in (
+        "iosApp/OmniGart/Localizable.xcstrings",
+        "watchApp/OmniGartWatch/Localizable.xcstrings",
+    ):
+        xc_path = ROOT / xc_rel
+        if not xc_path.exists():
+            continue
+        catalog = json.loads(xc_path.read_text(encoding="utf-8"))
+        strings = catalog.setdefault("strings", {})
+        for key, locales in STRINGS.items():
+            entry = strings.setdefault(key, {"extractionState": "manual", "localizations": {}})
+            locs = entry.setdefault("localizations", {})
+            for locale, value in locales.items():
+                locs[locale] = {"stringUnit": {"state": "translated", "value": value}}
+        xc_path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     # StringCatalog.kt fallbacks (en-GB) — append constants if missing.
     catalog_kt = ROOT / "shared/src/commonMain/kotlin/com/omnigart/shared/i18n/StringCatalog.kt"

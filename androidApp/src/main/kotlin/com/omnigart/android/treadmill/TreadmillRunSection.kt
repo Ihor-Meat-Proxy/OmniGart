@@ -69,26 +69,29 @@ fun TreadmillRunSection(core: OmniGartCore, profileId: String, modifier: Modifie
         }
     }
 
+    fun finishSession() {
+        scope.launch {
+            status =
+                withContext(Dispatchers.IO) {
+                    saveWorkout(core, client, startedAtMs, calibration, context, walking)
+                }
+            running = false
+            client.disconnect()
+        }
+    }
+
     Column(
         modifier = modifier.padding(vertical = OmniGartSpacing.space2),
         verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space2)
     ) {
         TreadmillHeader(onShowDiagnostics = { showDiag = true })
-        RowSwitch(
-            label = stringResource(R.string.treadmill_walk_title),
-            checked = walking,
-            onCheckedChange = { walking = it }
-        )
+        RowSwitch(stringResource(R.string.treadmill_walk_title), walking) { walking = it }
         Text(text = "BLE: ${state.name} / ${metrics.protocol.name}")
         TreadmillConnectionButtons(client = client, discovered = discovered)
-        RowSwitch(
-            label = stringResource(R.string.treadmill_allow_control),
-            checked = allowControl,
-            onCheckedChange = {
-                allowControl = it
-                client.allowRemoteControl = it
-            }
-        )
+        RowSwitch(stringResource(R.string.treadmill_allow_control), allowControl) {
+            allowControl = it
+            client.allowRemoteControl = it
+        }
         TreadmillMetricsBlock(metrics = metrics)
         if (allowControl) {
             TreadmillControlButtons(client = client, metrics = metrics)
@@ -100,23 +103,7 @@ fun TreadmillRunSection(core: OmniGartCore, profileId: String, modifier: Modifie
                 startedAtMs = System.currentTimeMillis()
                 client.connectRemembered()
             },
-            onFinish = {
-                scope.launch {
-                    status =
-                        withContext(Dispatchers.IO) {
-                            saveWorkout(
-                                core = core,
-                                client = client,
-                                startedAtMs = startedAtMs,
-                                calibration = calibration,
-                                context = context,
-                                walking = walking
-                            )
-                        }
-                    running = false
-                    client.disconnect()
-                }
-            }
+            onFinish = { finishSession() }
         )
         status?.let { Text(text = it) }
         if (!metrics.connected) {

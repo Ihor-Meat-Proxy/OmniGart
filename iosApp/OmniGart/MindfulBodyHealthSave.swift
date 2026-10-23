@@ -63,14 +63,20 @@ enum MindfulBodyHealthSave {
         age: Int
     ) async -> HealthKitWorkoutWriter.Result? {
         do {
-            let hr = await loadHeartRate(request: request)
-            let syncId = recordLocalWorkout(request: request, energy: energy, hr: hr)
+            let hrContext = await heartRateContext(for: request)
+            let syncId = recordLocalWorkout(
+                request: request,
+                energy: energy,
+                during: hrContext.during,
+                avgBpm: hrContext.avgBpm,
+                maxBpm: hrContext.maxBpm
+            )
             let saved = try await saveToHealthKit(
                 request: request,
                 energy: energy,
                 age: age,
                 syncId: syncId,
-                hr: hr
+                hrContext: hrContext
             )
             if let saved, !saved.skippedBecauseAlreadyExists {
                 request.core.localHealth.markPlatformLinked(
@@ -93,14 +99,14 @@ enum MindfulBodyHealthSave {
         }
     }
 
-    private struct HeartRateBundle {
+    private struct HeartRateContext {
         var samples: [HealthKitWorkoutWriter.HeartRatePoint]
         var during: [HealthKitWorkoutWriter.HeartRatePoint]
-        var averageBpm: Double?
+        var avgBpm: Double?
         var maxBpm: Double?
     }
 
-    private static func loadHeartRate(request: MindfulBodySaveRequest) async -> HeartRateBundle {
+    private static func heartRateContext(for request: MindfulBodySaveRequest) async -> HeartRateContext {
         let samples =
             (try? await HealthKitWorkoutWriter.fetchHeartRate(
                 from: request.start,
@@ -108,11 +114,11 @@ enum MindfulBodyHealthSave {
             )) ?? []
         let during = samples.filter { $0.date <= request.end }
         let avg = during.map(\.bpm).filter { $0 > 0 }
-        let averageBpm = avg.isEmpty ? nil : avg.reduce(0, +) / Double(avg.count)
-        return HeartRateBundle(
+        let avgBpm = avg.isEmpty ? nil : avg.reduce(0, +) / Double(avg.count)
+        return HeartRateContext(
             samples: samples,
             during: during,
-            averageBpm: averageBpm,
+            avgBpm: avgBpm,
             maxBpm: avg.max()
         )
     }
@@ -120,7 +126,9 @@ enum MindfulBodyHealthSave {
     private static func recordLocalWorkout(
         request: MindfulBodySaveRequest,
         energy: HealthKitWorkoutWriter.EnergyInput,
-        hr: HeartRateBundle
+        during: [HealthKitWorkoutWriter.HeartRatePoint],
+        avgBpm: Double?,
+        maxBpm: Double?
     ) -> String {
         let activityName = request.kind == .yoga ? "YOGA" : "PILATES"
         return request.core.localHealth.recordOmniGartWorkout(
@@ -131,12 +139,12 @@ enum MindfulBodyHealthSave {
             activeEnergyKcal: KotlinDouble(value: energy.activeKcal),
             basalEnergyKcal: KotlinDouble(value: energy.basalKcal),
             distanceMetres: nil,
-            averageHeartRateBpm: hr.averageBpm.map { KotlinDouble(value: $0) },
-            maxHeartRateBpm: hr.maxBpm.map { KotlinDouble(value: $0) },
+            averageHeartRateBpm: avgBpm.map { KotlinDouble(value: $0) },
+            maxHeartRateBpm: maxBpm.map { KotlinDouble(value: $0) },
             sessionId: nil,
             planId: nil,
-            heartRateEpochMs: hr.during.map { Int64($0.date.timeIntervalSince1970 * 1000) },
-            heartRateBpm: hr.during.map(\.bpm),
+            heartRateEpochMs: during.map { Int64($0.date.timeIntervalSince1970 * 1000) },
+            heartRateBpm: during.map(\.bpm),
             syncVersion: 1
         )
     }
@@ -146,7 +154,7 @@ enum MindfulBodyHealthSave {
         energy: HealthKitWorkoutWriter.EnergyInput,
         age: Int,
         syncId: String,
-        hr: HeartRateBundle
+        hrContext: HeartRateContext
     ) async throws -> HealthKitWorkoutWriter.Result? {
         try await HealthKitWorkoutWriter.save(
             options: .init(
@@ -155,15 +163,15 @@ enum MindfulBodyHealthSave {
                 end: request.end,
                 energy: energy,
                 syncIdentifier: syncId,
-                heartRate: hr.during,
+                heartRate: hrContext.during,
                 indoor: true,
                 saveMindfulMinutes: request.saveMindfulMinutes,
                 estimatedEffortScore: HealthKitWorkoutWriter.estimateEffortScore(
-                    averageBpm: hr.averageBpm,
+                    averageBpm: hrContext.avgBpm,
                     ageYears: age
                 ),
                 heartRateRecoveryBpm: HealthKitWorkoutWriter.estimateHeartRateRecoveryBpm(
-                    samples: hr.samples,
+                    samples: hrContext.samples,
                     workoutEnd: request.end
                 )
             )

@@ -151,15 +151,13 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         let end = Date()
         session?.end()
         do {
-            if let builder {
-                if let early = try await finishBuilder(builder, endedAt: end) {
-                    return early
-                }
-            }
+            let shouldTransfer = try await finishBuilderIfNeeded(endedAt: end)
             isRunning = false
             isPaused = false
             let summary = makeSummary(endedAt: end)
-            enqueuePhoneTransfer(summary)
+            if shouldTransfer {
+                enqueuePhoneTransfer(summary)
+            }
             return summary
         } catch {
             lastError = error.localizedDescription
@@ -168,20 +166,16 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         }
     }
 
-    /// Returns a summary when the builder is discarded as a duplicate; otherwise nil after finish.
-    private func finishBuilder(
-        _ builder: HKLiveWorkoutBuilder,
-        endedAt: Date
-    ) async throws -> OmniGartLiveWorkoutSummary? {
+    /// Returns `false` when the sync id already exists (builder discarded; skip phone transfer).
+    private func finishBuilderIfNeeded(endedAt end: Date) async throws -> Bool {
+        guard let builder else { return true }
         // Append-only: never finish a second copy for the same sync id.
         if await OmniGartWatchHealthSync.workoutExists(
             syncIdentifier: syncIdentifier,
             store: store
         ) {
             builder.discardWorkout()
-            isRunning = false
-            isPaused = false
-            return makeSummary(endedAt: endedAt)
+            return false
         }
         if !events.isEmpty {
             try await builder.addWorkoutEvents(events)
@@ -194,9 +188,9 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
             metadata["OmniGartLastSegment"] = label
         }
         try await builder.addMetadata(metadata)
-        try await builder.endCollection(at: endedAt)
+        try await builder.endCollection(at: end)
         _ = try await builder.finishWorkout()
-        return nil
+        return true
     }
 
     private func enqueuePhoneTransfer(_ summary: OmniGartLiveWorkoutSummary) {

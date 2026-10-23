@@ -30,7 +30,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.8.0")
     // 1.17.0 is the newest stable that still metadata-checks against compileSdk 36
     // (1.19+ requires compileSdk 37; platform android-37 not yet on all CI images).
-    implementation("androidx.core:core-ktx:1.17.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 
     // Official Polar BLE SDK (JitPack). Licence: Polar SDK Limited License — see docs/third_party/POLAR_SDK.md
     // Verified release: 8.4.0 (2026-10-01). https://github.com/polarofficial/polar-ble-sdk/releases/tag/8.4.0

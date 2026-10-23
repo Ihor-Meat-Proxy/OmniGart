@@ -65,4 +65,25 @@ final class PhoneUITests: XCTestCase {
             "Skip should persist a local profile and show the phone shell"
         )
     }
+
+    func testFoodTabShowsTotals() throws {
+        let app = XCUIApplication()
+        if app.state != .notRunning {
+            app.terminate()
+        }
+        app.launchArguments += ["-ui-testing", "-AppleLanguages", "(en-GB)"]
+        app.launch()
+
+        let shell = app.descendants(matching: .any)["phone_shell"]
+        XCTAssertTrue(shell.waitForExistence(timeout: 30))
+
+        let foodTab = app.descendants(matching: .any)["tab_food"]
+        XCTAssertTrue(foodTab.waitForExistence(timeout: 10))
+        foodTab.tap()
+
+        let totals = app.descendants(matching: .any)["food_totals"]
+        XCTAssertTrue(totals.waitForExistence(timeout: 10))
+        let add = app.descendants(matching: .any)["food_add"]
+        XCTAssertTrue(add.waitForExistence(timeout: 5))
+    }
 }

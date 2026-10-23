@@ -6,20 +6,15 @@ import Shared
 struct PhoneRootView: View {
     let core: OmniGartCore
     let profileId: String
-    let summaryLines: [String]
     @State private var selectedTab: PhoneTab = .profile
     @State private var showInfoSheet = false
 
     var body: some View {
         TabView(selection: $selectedTab) {
             ForEach(PhoneTab.allCases) { tab in
-                TabContent(
-                    tab: tab,
-                    core: core,
-                    profileId: profileId,
-                    summaryLines: summaryLines,
-                    showInfoSheet: $showInfoSheet
-                )
+                NavigationStack {
+                    tabRoot(tab)
+                }
                 .tabItem {
                     Label {
                         Text(tab.titleKey)
@@ -38,61 +33,20 @@ struct PhoneRootView: View {
             WellnessInfoSheet()
         }
     }
-}
 
-private struct TabContent: View {
-    let tab: PhoneTab
-    let core: OmniGartCore
-    let profileId: String
-    let summaryLines: [String]
-    @Binding var showInfoSheet: Bool
-
-    var body: some View {
-        NavigationStack {
-            List {
-                Section {
-                    Text("app_name")
-                        .font(.largeTitle.bold())
-                        .foregroundStyle(Color.OmniGart.colorBrandAccent)
-                        .accessibilityIdentifier("brand_title")
-                    Text("shell_intro")
-                        .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
-                }
-                Section(tab.titleKey) {
-                    ForEach(summaryLines, id: \.self) { line in
-                        Text(line)
-                    }
-                }
-                if tab == .profile || tab == .recovery {
-                    Section {
-                        WellnessDisclaimerBanner()
-                        Button {
-                            showInfoSheet = true
-                        } label: {
-                            Label("info_sheet_title", systemImage: "info.circle")
-                        }
-                        .accessibilityIdentifier("info_sheet_toggle")
-                    }
-                }
-                if tab == .workouts {
-                    Section {
-                        StrengthLoggingView(core: core, profileId: profileId)
-                    }
-                }
-                if tab == .profile {
-                    Section {
-                        CalculationsSettingsView(core: core, profileId: profileId)
-                    }
-                }
-                #if DEBUG
-                Section {
-                    DebugMenu()
-                }
-                #endif
-            }
-            .navigationTitle(Text(tab.titleKey))
-            .scrollContentBackground(.hidden)
-            .background(Color.OmniGart.colorSurfaceLightCanvas.ignoresSafeArea())
+    @ViewBuilder
+    private func tabRoot(_ tab: PhoneTab) -> some View {
+        switch tab {
+        case .food:
+            FoodTabView(core: core, profileId: profileId)
+        case .workouts:
+            WorkoutsTabView(core: core, profileId: profileId)
+        case .recovery:
+            RecoveryTabView(core: core, profileId: profileId, showInfoSheet: $showInfoSheet)
+        case .planner:
+            PlannerTabView(core: core, profileId: profileId)
+        case .profile:
+            ProfileTabView(core: core, profileId: profileId, showInfoSheet: $showInfoSheet)
         }
     }
 }

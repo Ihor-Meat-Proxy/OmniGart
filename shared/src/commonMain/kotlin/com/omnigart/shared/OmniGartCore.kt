@@ -6,6 +6,7 @@ import com.omnigart.shared.calc.strategy.FormulaSettingsService
 import com.omnigart.shared.content.ContentStore
 import com.omnigart.shared.data.DatabaseDriverFactory
 import com.omnigart.shared.data.ExerciseRepository
+import com.omnigart.shared.data.FoodEntryRepository
 import com.omnigart.shared.data.SessionRepository
 import com.omnigart.shared.data.UserProfileRepository
 import com.omnigart.shared.data.WorkoutRepository
@@ -13,6 +14,8 @@ import com.omnigart.shared.data.createDatabase
 import com.omnigart.shared.db.OmniGartDatabase
 import com.omnigart.shared.domain.ActivityLevel
 import com.omnigart.shared.domain.BiologicalSex
+import com.omnigart.shared.domain.FoodDayTotals
+import com.omnigart.shared.domain.FoodEntry
 import com.omnigart.shared.domain.ProfileGoal
 import com.omnigart.shared.domain.StrengthLevel
 import com.omnigart.shared.domain.UnitSystem
@@ -20,8 +23,11 @@ import com.omnigart.shared.domain.UserProfile
 import com.omnigart.shared.logging.StrengthLoggingService
 import com.omnigart.shared.util.formatOneDecimal
 import kotlin.time.Clock
+import kotlin.time.Duration.Companion.days
+import kotlin.time.Instant
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
+import kotlinx.datetime.atStartOfDayIn
 import kotlinx.datetime.todayIn
 
 /**
@@ -38,6 +44,7 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
     constructor(driverFactory: DatabaseDriverFactory) : this(driverFactory, contentStore = null)
 
     val profiles = UserProfileRepository(database)
+    val foodEntries = FoodEntryRepository(database)
     val exercises = ExerciseRepository(database)
     val workouts = WorkoutRepository(database)
     val sessions = SessionRepository(database)
@@ -159,6 +166,66 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
 
     @Deprecated("Use activeProfile() / completeOnboarding()", ReplaceWith("activeProfile()"))
     fun ensureDemoProfile(): UserProfile = activeProfile()
+
+    /** Persist profile edits from the Profile tab (post-onboarding). */
+    fun updateProfile(profile: UserProfile): UserProfile {
+        val saved = profile.copy(id = LOCAL_PROFILE_ID, onboardingCompleted = true)
+        profiles.upsert(saved)
+        return saved
+    }
+
+    fun logFood(
+        profileId: String,
+        name: String,
+        energyKcal: Double,
+        proteinG: Double,
+        carbsG: Double,
+        fatG: Double,
+        loggedAt: Instant = Clock.System.now()
+    ): FoodEntry {
+        val entry =
+            FoodEntry(
+                id = "food-${loggedAt.toEpochMilliseconds()}",
+                profileId = profileId,
+                name = name.trim(),
+                energyKcal = energyKcal,
+                proteinG = proteinG,
+                carbsG = carbsG,
+                fatG = fatG,
+                loggedAt = loggedAt
+            )
+        foodEntries.upsert(entry)
+        return entry
+    }
+
+    /** Swift-friendly overload (no default Instant). */
+    fun logFood(profileId: String, name: String, energyKcal: Double, proteinG: Double, carbsG: Double, fatG: Double): FoodEntry =
+        logFood(profileId, name, energyKcal, proteinG, carbsG, fatG, Clock.System.now())
+
+    fun foodEntriesForToday(profileId: String, timeZone: TimeZone = TimeZone.currentSystemDefault()): List<FoodEntry> {
+        val today = Clock.System.todayIn(timeZone)
+        val start = today.atStartOfDayIn(timeZone)
+        val end = start + 1.days
+        return foodEntries.forProfileDay(profileId, start, end)
+    }
+
+    fun foodDayTotals(profileId: String): FoodDayTotals {
+        val entries = foodEntriesForToday(profileId)
+        return FoodDayTotals(
+            energyKcal = entries.sumOf { it.energyKcal },
+            proteinG = entries.sumOf { it.proteinG },
+            carbsG = entries.sumOf { it.carbsG },
+            fatG = entries.sumOf { it.fatG },
+            entryCount = entries.size
+        )
+    }
+
+    /** Swift-friendly birth-date parts (avoids kotlinx-datetime Month bridging). */
+    fun birthYear(profile: UserProfile): Int = profile.dateOfBirth.year
+
+    fun birthMonth(profile: UserProfile): Int = profile.dateOfBirth.month.ordinal + 1
+
+    fun birthDay(profile: UserProfile): Int = profile.dateOfBirth.day
 
     fun ageYears(profile: UserProfile, today: LocalDate = Clock.System.todayIn(TimeZone.currentSystemDefault())): Int {
         var age = today.year - profile.dateOfBirth.year

@@ -211,8 +211,8 @@ struct OmniGartLiveWorkoutView: View {
 
                     Button {
                         session.addSegment(label: segmentLabel)
-                        if let n = Int(segmentLabel) {
-                            segmentLabel = String(n + 1)
+                        if let segmentNumber = Int(segmentLabel) {
+                            segmentLabel = String(segmentNumber + 1)
                         }
                     } label: {
                         Text("watch.workout.segment")

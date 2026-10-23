@@ -1,0 +1,1 @@
+Uniemożliwiaj nadmierne zaokrąglanie się lub bujanie odcinka lędźwiowego kręgosłupa.

@@ -1,0 +1,1 @@
+Ogranicz maksymalne wydłużenie zakresu; stopniowo zmniejszaj wsparcie w postępie.

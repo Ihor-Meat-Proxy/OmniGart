@@ -1,0 +1,1 @@
+Dodany ciężar zwiększa obciążenie barku w końcowej fazie wyprostu — preferuj kontrolowaną głębokość (McKenzie i in. 2020).

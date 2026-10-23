@@ -1,0 +1,1 @@
+Snižování boků při přesunu

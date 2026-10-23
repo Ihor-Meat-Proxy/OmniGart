@@ -1,0 +1,1 @@
+Reinicia en la parte superior de cada repetición; no rebotes desde el fondo.

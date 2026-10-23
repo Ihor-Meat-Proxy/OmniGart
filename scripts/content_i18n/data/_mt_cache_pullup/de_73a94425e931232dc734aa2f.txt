@@ -1,0 +1,1 @@
+Begrenze die Bewegungsausdehnung am Ende; verringere die Fortschrittshilfe allmählich.

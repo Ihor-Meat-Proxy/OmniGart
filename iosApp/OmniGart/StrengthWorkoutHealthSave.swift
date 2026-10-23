@@ -180,10 +180,10 @@ enum StrengthWorkoutHealthSave {
             maxHeartRateBpm: hrContext.maxBpm.map { KotlinDouble(value: $0) },
             sessionId: input.sessionId,
             planId: nil,
-            heartRateEpochMs: KotlinPrimitiveArrays.longs(
+            heartRateEpochMs: KotlinPrimitiveArrays.longArray(
                 hrContext.during.map { Int64($0.date.timeIntervalSince1970 * 1000) }
             ),
-            heartRateBpm: KotlinPrimitiveArrays.doubles(hrContext.during.map(\.bpm)),
+            heartRateBpm: KotlinPrimitiveArrays.doubleArray(hrContext.during.map(\.bpm)),
             syncVersion: 1
         )
     }

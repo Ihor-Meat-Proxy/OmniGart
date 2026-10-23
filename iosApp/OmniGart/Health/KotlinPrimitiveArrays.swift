@@ -1,8 +1,8 @@
 import Shared
 
-/// Bridges Swift `[Int64]` / `[Double]` into KMP `LongArray` / `DoubleArray` exports.
+/// Bridges Swift arrays to Kotlin/Native primitive arrays for LocalHealthBridge.
 enum KotlinPrimitiveArrays {
-    static func longs(_ values: [Int64]) -> KotlinLongArray {
+    static func longArray(_ values: [Int64]) -> KotlinLongArray {
         let array = KotlinLongArray(size: Int32(values.count))
         for (index, value) in values.enumerated() {
             array.set(index: Int32(index), value: value)
@@ -10,7 +10,7 @@ enum KotlinPrimitiveArrays {
         return array
     }
 
-    static func doubles(_ values: [Double]) -> KotlinDoubleArray {
+    static func doubleArray(_ values: [Double]) -> KotlinDoubleArray {
         let array = KotlinDoubleArray(size: Int32(values.count))
         for (index, value) in values.enumerated() {
             array.set(index: Int32(index), value: value)

@@ -26,6 +26,16 @@ object Citations {
             "a longitudinal study. Ann Med Exp Biol Fenn. 1957;35(3):307-315. " +
             "Target HR = HRrest + % × (HRmax − HRrest)."
 
+    /**
+     * Intensity distribution / polarised easy work — used as the evidence pointer for
+     * Zone 2 programme framing (not a lactate-threshold assay paper).
+     * DOI 10.1123/ijspp.5.3.276 · PMID 20861519.
+     */
+    const val SEILER_INTENSITY_2010 =
+        "Seiler S. What is best practice for training intensity and duration distribution " +
+            "in endurance athletes? Int J Sports Physiol Perform. 2010;5(3):276-291. " +
+            "doi:10.1123/ijspp.5.3.276"
+
     const val DI_PRAMPERO_COST_OF_RUNNING =
         "di Prampero PE, et al. The energy cost of human locomotion on land and in water. " +
             "Int J Sports Med. 1986;7(2):55-72. Typical flat running cost of transport " +

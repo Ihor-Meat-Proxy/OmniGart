@@ -414,6 +414,55 @@
       "evidenceIds": [
         "suprak-pushup-body-mass-2011"
       ]
+    },
+    {
+      "id": "formula-zone2-hrr-karvonen",
+      "category": "formula",
+      "textKeys": {
+        "enGB": "claim.formula_zone2_hrr_karvonen.text",
+        "uk": "claim.formula_zone2_hrr_karvonen.text"
+      },
+      "evidenceIds": [
+        "karvonen-hr-reserve-1957"
+      ],
+      "notes": "Default Zone 2 band as 60–70% heart-rate reserve (Karvonen)."
+    },
+    {
+      "id": "formula-zone2-percent-hrmax",
+      "category": "formula",
+      "textKeys": {
+        "enGB": "claim.formula_zone2_percent_hrmax.text",
+        "uk": "claim.formula_zone2_percent_hrmax.text"
+      },
+      "evidenceIds": [
+        "tanaka-hrmax-2001",
+        "karvonen-hr-reserve-1957"
+      ],
+      "notes": "Optional Zone 2 as 60–70% of HRmax; HRmax often Tanaka-estimated."
+    },
+    {
+      "id": "cardio-zone2-easy-distribution",
+      "category": "cardio",
+      "textKeys": {
+        "enGB": "claim.cardio_zone2_easy_distribution.text",
+        "uk": "claim.cardio_zone2_easy_distribution.text"
+      },
+      "evidenceIds": [
+        "seiler-intensity-distribution-2010"
+      ],
+      "notes": "Easy aerobic (Zone 2) volume framing from intensity-distribution literature."
+    },
+    {
+      "id": "formula-zone2-lthr-band",
+      "category": "formula",
+      "textKeys": {
+        "enGB": "claim.formula_zone2_lthr_band.text",
+        "uk": "claim.formula_zone2_lthr_band.text"
+      },
+      "evidenceIds": [
+        "seiler-intensity-distribution-2010"
+      ],
+      "notes": "Opt-in LTHR-relative Zone 2 (80–90% LTHR) — provisional; see OPEN_QUESTIONS W3."
     }
   ]
 }

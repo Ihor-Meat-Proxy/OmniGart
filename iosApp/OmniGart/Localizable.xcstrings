@@ -1,431 +1,720 @@
 {
-  "sourceLanguage" : "en-GB",
-  "strings" : {
-    "app_name" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OmniGart"
+  "sourceLanguage": "en-GB",
+  "strings": {
+    "app_name": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OmniGart"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OmniGart"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OmniGart"
           }
         }
       }
     },
-    "tab_food" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Food"
+    "tab_food": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Food"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Їжа"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Їжа"
           }
         }
       }
     },
-    "tab_workouts" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Workouts"
+    "tab_workouts": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Workouts"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Тренування"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Тренування"
           }
         }
       }
     },
-    "tab_recovery" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recovery"
+    "tab_recovery": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recovery"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Відновлення"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Відновлення"
           }
         }
       }
     },
-    "tab_planner" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Planner"
+    "tab_planner": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Planner"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Планувальник"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Планувальник"
           }
         }
       }
     },
-    "tab_profile" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Profile"
+    "tab_profile": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Profile"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Профіль"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Профіль"
           }
         }
       }
     },
-    "shell_intro" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wellness estimates from your shared OmniGart profile"
+    "shell_intro": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wellness estimates from your shared OmniGart profile"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Оцінки самопочуття з вашого спільного профілю OmniGart"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Оцінки самопочуття з вашого спільного профілю OmniGart"
           }
         }
       }
     },
-    "wellness_disclaimer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OmniGart provides wellness estimates only. Readiness, stress, HRV, Baevsky index, body-fat estimates, hydration targets, and training plans are not medical advice. Consult a qualified professional for health concerns."
+    "wellness_disclaimer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OmniGart provides wellness estimates only. Readiness, stress, HRV, Baevsky index, body-fat estimates, hydration targets, and training plans are not medical advice. Consult a qualified professional for health concerns."
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OmniGart надає лише оцінки самопочуття. Готовність, стрес, ВСР, індекс Баєвського, оцінка жиру в тілі, цілі гідратації та плани тренувань не є медичною консультацією. Звертайтеся до кваліфікованого фахівця щодо питань здоров’я."
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OmniGart надає лише оцінки самопочуття. Готовність, стрес, ВСР, індекс Баєвського, оцінка жиру в тілі, цілі гідратації та плани тренувань не є медичною консультацією. Звертайтеся до кваліфікованого фахівця щодо питань здоров’я."
           }
         }
       }
     },
-    "info_sheet_not_medical_advice" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Not medical advice. Consult a professional."
+    "info_sheet_not_medical_advice": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not medical advice. Consult a professional."
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Це не медична консультація. Зверніться до фахівця."
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Це не медична консультація. Зверніться до фахівця."
           }
         }
       }
     },
-    "health_warning_chest_pain" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stop and seek emergency help if you feel chest pain, severe dizziness, or unusual shortness of breath during activity."
+    "health_warning_chest_pain": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop and seek emergency help if you feel chest pain, severe dizziness, or unusual shortness of breath during activity."
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Зупиніться і зверніться по екстрену допомогу, якщо під час активності відчуваєте біль у грудях, сильне запаморочення або незвичну задишку."
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Зупиніться і зверніться по екстрену допомогу, якщо під час активності відчуваєте біль у грудях, сильне запаморочення або незвичну задишку."
           }
         }
       }
     },
-    "onboarding_wellness_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wellness, not medical care"
+    "onboarding_wellness_title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wellness, not medical care"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Самопочуття, не медицина"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Самопочуття, не медицина"
           }
         }
       }
     },
-    "info_sheet_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "About this estimate"
+    "info_sheet_title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About this estimate"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Про цю оцінку"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Про цю оцінку"
           }
         }
       }
     },
-    "info_sheet_body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Figures such as readiness, stress, HRV, Baevsky index, body fat, and hydration are wellness estimates based on your inputs and device samples. Plans are coaching suggestions, not prescriptions."
+    "info_sheet_body": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Figures such as readiness, stress, HRV, Baevsky index, body fat, and hydration are wellness estimates based on your inputs and device samples. Plans are coaching suggestions, not prescriptions."
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Показники на кшталт готовності, стресу, ВСР, індексу Баєвського, жиру в тілі та гідратації — це оцінки самопочуття на основі ваших даних і зразків із пристрою. Плани — тренерські пропозиції, а не приписи лікаря."
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Показники на кшталт готовності, стресу, ВСР, індексу Баєвського, жиру в тілі та гідратації — це оцінки самопочуття на основі ваших даних і зразків із пристрою. Плани — тренерські пропозиції, а не приписи лікаря."
           }
         }
       }
     },
-    "perm_explainer_health_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apple Health"
+    "perm_explainer_health_title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Health"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apple Health"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Health"
           }
         }
       }
     },
-    "perm_explainer_health_body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OmniGart can read and write wellness samples (heart rate, HRV, sleep, workouts, body mass, hydration) to improve on-device estimates. Data is not used for ads or sent to unrelated third parties. You can continue without granting access."
+    "perm_explainer_health_body": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OmniGart can read and write wellness samples (heart rate, HRV, sleep, workouts, body mass, hydration) to improve on-device estimates. Data is not used for ads or sent to unrelated third parties. You can continue without granting access."
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OmniGart може читати й записувати зразки самопочуття (пульс, ВСР, сон, тренування, маса тіла, гідратація), щоб покращувати оцінки на пристрої. Дані не використовуються для реклами і не надсилаються стороннім сервісам. Можна продовжити без доступу."
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OmniGart може читати й записувати зразки самопочуття (пульс, ВСР, сон, тренування, маса тіла, гідратація), щоб покращувати оцінки на пристрої. Дані не використовуються для реклами і не надсилаються стороннім сервісам. Можна продовжити без доступу."
           }
         }
       }
     },
-    "perm_explainer_bluetooth_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bluetooth accessories"
+    "perm_explainer_bluetooth_title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bluetooth accessories"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bluetooth-аксесуари"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bluetooth-аксесуари"
           }
         }
       }
     },
-    "perm_explainer_bluetooth_body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect a heart-rate or similar fitness accessory for live samples. OmniGart works fully without Bluetooth."
+    "perm_explainer_bluetooth_body": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect a heart-rate or similar fitness accessory for live samples. OmniGart works fully without Bluetooth."
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Підключіть пульсометр або подібний фітнес-аксесуар для живих зразків. OmniGart повністю працює без Bluetooth."
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Підключіть пульсометр або подібний фітнес-аксесуар для живих зразків. OmniGart повністю працює без Bluetooth."
           }
         }
       }
     },
-    "perm_explainer_camera_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Camera for barcodes"
+    "perm_explainer_camera_title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera for barcodes"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Камера для штрихкодів"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Камера для штрихкодів"
           }
         }
       }
     },
-    "perm_explainer_camera_body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The camera is used only to scan food barcodes. You can log food manually if you deny access."
+    "perm_explainer_camera_body": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The camera is used only to scan food barcodes. You can log food manually if you deny access."
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Камера використовується лише для сканування штрихкодів продуктів. Їжу можна додавати вручну, якщо відмовите в доступі."
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Камера використовується лише для сканування штрихкодів продуктів. Їжу можна додавати вручну, якщо відмовите в доступі."
           }
         }
       }
     },
-    "perm_explainer_notifications_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reminders"
+    "perm_explainer_notifications_title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reminders"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нагадування"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нагадування"
           }
         }
       }
     },
-    "perm_explainer_notifications_body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Optional reminders for workouts, hydration, and morning wellness check-ins. The app stays usable with notifications off."
+    "perm_explainer_notifications_body": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Optional reminders for workouts, hydration, and morning wellness check-ins. The app stays usable with notifications off."
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Необов’язкові нагадування про тренування, гідратацію та ранкові перевірки самопочуття. Додаток працює зі вимкненими сповіщеннями."
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Необов’язкові нагадування про тренування, гідратацію та ранкові перевірки самопочуття. Додаток працює зі вимкненими сповіщеннями."
           }
         }
       }
     },
-    "perm_continue" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continue"
+    "perm_continue": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Продовжити"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Продовжити"
           }
         }
       }
     },
-    "perm_not_now" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Not now"
+    "perm_not_now": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not now"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Не зараз"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Не зараз"
           }
         }
       }
     },
-    "watch_start" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start"
+    "watch_start": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Старт"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Старт"
           }
         }
       }
     },
-    "watch_subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wellness estimates on your wrist"
+    "watch_subtitle": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wellness estimates on your wrist"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Оцінки самопочуття на зап’ясті"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Оцінки самопочуття на зап’ясті"
+          }
+        }
+      }
+    },
+    "workout_start": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start workout"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Почати тренування"
+          }
+        }
+      }
+    },
+    "workout_end": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "End workout"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Завершити тренування"
+          }
+        }
+      }
+    },
+    "workout_add_set": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add set"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Додати сет"
+          }
+        }
+      }
+    },
+    "workout_active": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Workout in progress"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Тренування триває"
+          }
+        }
+      }
+    },
+    "workout_idle": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No active workout"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Немає активного тренування"
+          }
+        }
+      }
+    },
+    "workout_exercise": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exercise"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вправа"
+          }
+        }
+      }
+    },
+    "workout_weight_kg": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weight (kg)"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вага (кг)"
+          }
+        }
+      }
+    },
+    "workout_reps": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reps"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Повторення"
+          }
+        }
+      }
+    },
+    "workout_rir": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "RIR"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "RIR"
+          }
+        }
+      }
+    },
+    "workout_warmup": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warm-up set"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Розминочний сет"
+          }
+        }
+      }
+    },
+    "workout_include_warmups": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Count warm-ups in volume"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Рахувати розминку в обсязі"
+          }
+        }
+      }
+    },
+    "workout_summary_title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Session summary"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Підсумок сесії"
+          }
+        }
+      }
+    },
+    "workout_volume_load": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volume load"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Обсяг навантаження"
+          }
+        }
+      }
+    },
+    "workout_total_weight_lifted": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total weight lifted"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Загальна піднята вага"
+          }
+        }
+      }
+    },
+    "workout_hard_sets": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hard sets"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Важкі сети"
+          }
+        }
+      }
+    },
+    "workout_per_exercise": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per exercise"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "За вправами"
+          }
+        }
+      }
+    },
+    "workout_intro": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Log strength sets for wellness training estimates. Figures are coaching aids, not medical advice."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Записуйте силові сети для оцінок тренувань. Показники — тренерські підказки, а не медична консультація."
           }
         }
       }
     }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }

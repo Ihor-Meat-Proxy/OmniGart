@@ -39,4 +39,22 @@
     <string name="calc_domain_body_fat">Жир у тілі</string>
     <string name="calc_domain_one_rm">Одноповторений максимум</string>
     <string name="calc_domain_hr_zones">Зони пульсу</string>
+
+    <string name="workout_start">Почати тренування</string>
+    <string name="workout_end">Завершити тренування</string>
+    <string name="workout_add_set">Додати сет</string>
+    <string name="workout_active">Тренування триває</string>
+    <string name="workout_idle">Немає активного тренування</string>
+    <string name="workout_exercise">Вправа</string>
+    <string name="workout_weight_kg">Вага (кг)</string>
+    <string name="workout_reps">Повторення</string>
+    <string name="workout_rir">RIR</string>
+    <string name="workout_warmup">Розминочний сет</string>
+    <string name="workout_include_warmups">Рахувати розминку в обсязі</string>
+    <string name="workout_summary_title">Підсумок сесії</string>
+    <string name="workout_volume_load">Обсяг навантаження</string>
+    <string name="workout_total_weight_lifted">Загальна піднята вага</string>
+    <string name="workout_hard_sets">Важкі сети</string>
+    <string name="workout_per_exercise">За вправами</string>
+    <string name="workout_intro">Записуйте силові сети для оцінок тренувань. Показники — тренерські підказки, а не медична консультація.</string>
 </resources>

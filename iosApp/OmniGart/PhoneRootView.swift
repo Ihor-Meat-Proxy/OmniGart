@@ -74,6 +74,11 @@ private struct TabContent: View {
                         .accessibilityIdentifier("info_sheet_toggle")
                     }
                 }
+                if tab == .workouts {
+                    Section {
+                        StrengthLoggingView(core: core, profileId: profileId)
+                    }
+                }
                 if tab == .profile {
                     Section {
                         CalculationsSettingsView(core: core, profileId: profileId)

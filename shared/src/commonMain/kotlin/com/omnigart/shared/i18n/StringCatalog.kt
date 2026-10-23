@@ -53,6 +53,24 @@ object StringKeys {
     const val FORMULA_HR_ZONES_KARVONEN_3_EXPLAIN = "formula.hr_zones.karvonen_3.explain"
     const val FORMULA_HR_ZONES_PERCENT_HRMAX_5_TITLE = "formula.hr_zones.percent_hrmax_5.title"
     const val FORMULA_HR_ZONES_PERCENT_HRMAX_5_EXPLAIN = "formula.hr_zones.percent_hrmax_5.explain"
+
+    const val WORKOUT_START = "workout_start"
+    const val WORKOUT_END = "workout_end"
+    const val WORKOUT_ADD_SET = "workout_add_set"
+    const val WORKOUT_ACTIVE = "workout_active"
+    const val WORKOUT_IDLE = "workout_idle"
+    const val WORKOUT_EXERCISE = "workout_exercise"
+    const val WORKOUT_WEIGHT_KG = "workout_weight_kg"
+    const val WORKOUT_REPS = "workout_reps"
+    const val WORKOUT_RIR = "workout_rir"
+    const val WORKOUT_WARMUP = "workout_warmup"
+    const val WORKOUT_INCLUDE_WARMUPS = "workout_include_warmups"
+    const val WORKOUT_SUMMARY_TITLE = "workout_summary_title"
+    const val WORKOUT_VOLUME_LOAD = "workout_volume_load"
+    const val WORKOUT_TOTAL_WEIGHT_LIFTED = "workout_total_weight_lifted"
+    const val WORKOUT_HARD_SETS = "workout_hard_sets"
+    const val WORKOUT_PER_EXERCISE = "workout_per_exercise"
+    const val WORKOUT_INTRO = "workout_intro"
 }
 
 object StringCatalog {
@@ -124,7 +142,26 @@ object StringCatalog {
                 "Simpler three-zone heart-rate reserve layout.",
             StringKeys.FORMULA_HR_ZONES_PERCENT_HRMAX_5_TITLE to "% HRmax (5 zones)",
             StringKeys.FORMULA_HR_ZONES_PERCENT_HRMAX_5_EXPLAIN to
-                "Five zones as percentages of estimated max heart rate."
+                "Five zones as percentages of estimated max heart rate.",
+            StringKeys.WORKOUT_START to "Start workout",
+            StringKeys.WORKOUT_END to "End workout",
+            StringKeys.WORKOUT_ADD_SET to "Add set",
+            StringKeys.WORKOUT_ACTIVE to "Workout in progress",
+            StringKeys.WORKOUT_IDLE to "No active workout",
+            StringKeys.WORKOUT_EXERCISE to "Exercise",
+            StringKeys.WORKOUT_WEIGHT_KG to "Weight (kg)",
+            StringKeys.WORKOUT_REPS to "Reps",
+            StringKeys.WORKOUT_RIR to "RIR",
+            StringKeys.WORKOUT_WARMUP to "Warm-up set",
+            StringKeys.WORKOUT_INCLUDE_WARMUPS to "Count warm-ups in volume",
+            StringKeys.WORKOUT_SUMMARY_TITLE to "Session summary",
+            StringKeys.WORKOUT_VOLUME_LOAD to "Volume load",
+            StringKeys.WORKOUT_TOTAL_WEIGHT_LIFTED to "Total weight lifted",
+            StringKeys.WORKOUT_HARD_SETS to "Hard sets",
+            StringKeys.WORKOUT_PER_EXERCISE to "Per exercise",
+            StringKeys.WORKOUT_INTRO to
+                "Log strength sets for wellness training estimates. Figures are coaching aids, " +
+                "not medical advice."
         )
 
     private val uk: Map<String, String> =
@@ -193,7 +230,26 @@ object StringCatalog {
                 "Простіша розкладка з трьох зон резерву пульсу.",
             StringKeys.FORMULA_HR_ZONES_PERCENT_HRMAX_5_TITLE to "% HRmax (5 зон)",
             StringKeys.FORMULA_HR_ZONES_PERCENT_HRMAX_5_EXPLAIN to
-                "П’ять зон як відсотки від оціненого макс. пульсу."
+                "П’ять зон як відсотки від оціненого макс. пульсу.",
+            StringKeys.WORKOUT_START to "Почати тренування",
+            StringKeys.WORKOUT_END to "Завершити тренування",
+            StringKeys.WORKOUT_ADD_SET to "Додати сет",
+            StringKeys.WORKOUT_ACTIVE to "Тренування триває",
+            StringKeys.WORKOUT_IDLE to "Немає активного тренування",
+            StringKeys.WORKOUT_EXERCISE to "Вправа",
+            StringKeys.WORKOUT_WEIGHT_KG to "Вага (кг)",
+            StringKeys.WORKOUT_REPS to "Повторення",
+            StringKeys.WORKOUT_RIR to "RIR",
+            StringKeys.WORKOUT_WARMUP to "Розминочний сет",
+            StringKeys.WORKOUT_INCLUDE_WARMUPS to "Рахувати розминку в обсязі",
+            StringKeys.WORKOUT_SUMMARY_TITLE to "Підсумок сесії",
+            StringKeys.WORKOUT_VOLUME_LOAD to "Обсяг навантаження",
+            StringKeys.WORKOUT_TOTAL_WEIGHT_LIFTED to "Загальна піднята вага",
+            StringKeys.WORKOUT_HARD_SETS to "Важкі сети",
+            StringKeys.WORKOUT_PER_EXERCISE to "За вправами",
+            StringKeys.WORKOUT_INTRO to
+                "Записуйте силові сети для оцінок тренувань. Показники — тренерські підказки, " +
+                "а не медична консультація."
         )
 
     private val catalogs: Map<String, Map<String, String>> =

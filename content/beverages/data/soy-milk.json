@@ -1,0 +1,40 @@
+{
+  "id": "soy-milk",
+  "category": "plant_milk",
+  "defaultServingMl": 200,
+  "caffeineMgPerServing": 0,
+  "macrosPer100ml": {
+    "energyKcal": 42,
+    "proteinG": 2.9,
+    "carbohydrateG": 3.0,
+    "fatG": 1.8,
+    "sugarsG": 2.5,
+    "sodiumMg": 45
+  },
+  "hydrationFactor": 1.0,
+  "hydrationFactorEstimated": true,
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.3945/ajcn.115.114769",
+      "label": "Maughan et al. 2016 AJCN — Beverage Hydration Index",
+      "supports": [
+        "hydration_factor"
+      ]
+    },
+    {
+      "kind": "database",
+      "id": "usda-fdc",
+      "label": "USDA FoodData Central (typical values per 100 ml / serving)",
+      "supports": [
+        "macros",
+        "caffeine"
+      ]
+    }
+  ],
+  "notes": "Higher protein than oat/almond but no measured BHI; conservative 1.0.",
+  "nameKeys": {
+    "enGB": "beverage.soy_milk.name",
+    "uk": "beverage.soy_milk.name"
+  }
+}

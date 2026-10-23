@@ -1,0 +1,65 @@
+{
+  "id": "reformer-posture-pull",
+  "nameKeys": {
+    "enGB": "pilates.session.reformer_posture_pull.name",
+    "uk": "pilates.session.reformer_posture_pull.name"
+  },
+  "descriptionKeys": {
+    "enGB": "pilates.session.reformer_posture_pull.description",
+    "uk": "pilates.session.reformer_posture_pull.description"
+  },
+  "level": "beginner",
+  "durationMinutes": 25,
+  "apparatus": "reformer",
+  "focus": "posture",
+  "exerciseIds": [
+    "reformer-row-arms",
+    "reformer-chest-expansion",
+    "reformer-arm-circles",
+    "reformer-short-box-flat",
+    "reformer-elephant",
+    "reformer-pelvic-press"
+  ],
+  "blocks": [
+    {
+      "titleKey": "pilates.session.reformer_posture_pull.block_main",
+      "items": [
+        {
+          "exerciseId": "reformer-row-arms",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "reformer-chest-expansion",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "reformer-arm-circles",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "reformer-short-box-flat",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "reformer-elephant",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "reformer-pelvic-press",
+          "sets": 1,
+          "reps": 8
+        }
+      ]
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "bundled": true
+}

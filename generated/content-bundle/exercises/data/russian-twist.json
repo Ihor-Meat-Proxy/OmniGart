@@ -1,0 +1,77 @@
+{
+  "id": "russian-twist",
+  "nameKeys": {
+    "enGB": "exercise.russian_twist.name",
+    "uk": "exercise.russian_twist.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "rotation",
+  "primaryMuscles": [
+    "obliques",
+    "rectus_abdominis"
+  ],
+  "secondaryMuscles": [],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "reps",
+  "technique": [
+    "Seated lean-back with feet on floor; rotate torso side to side with control."
+  ],
+  "setup": [
+    "Keep chest up; optional light medicine ball later."
+  ],
+  "breathing": "Exhale each rotation.",
+  "commonMistakes": [
+    "Rounding and yanking the lumbar spine",
+    "Moving only the arms"
+  ],
+  "safety": [
+    "Feet down is fine; avoid if rotation aggravates symptoms."
+  ],
+  "contraindications": [
+    "Discogenic pain with rotation"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "pallof-press",
+      "note": "Anti-rotation alternative"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "cable-woodchop",
+      "note": "Loaded diagonal"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/russian-twist",
+    "videoKey": "media/video/russian-twist",
+    "animationKey": "media/anim/russian-twist"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Bodyweight movement with negligible external implement; treat moved mass as ~full BM unless a measured study applies. Estimate."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

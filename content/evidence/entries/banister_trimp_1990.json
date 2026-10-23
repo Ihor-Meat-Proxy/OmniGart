@@ -1,0 +1,30 @@
+{
+  "id": "banister_trimp_1990",
+  "type": "cohort",
+  "title": "Modeling human performance in running",
+  "authors": [
+    "Morton RH",
+    "Fitz-Clarke JR",
+    "Banister EW"
+  ],
+  "year": 1990,
+  "journal": "Journal of Applied Physiology",
+  "doi": "10.1152/jappl.1990.69.3.1171",
+  "pmid": "2246166",
+  "url": "https://doi.org/10.1152/jappl.1990.69.3.1171",
+  "openAccess": false,
+  "keyFinding": {
+    "enGB": "Impulse–response (TRIMP-style) modelling relates training dose over time to performance fitness and fatigue components.",
+    "keys": {
+      "enGB": "evidence.banister_trimp_1990.key_finding",
+      "uk": "evidence.banister_trimp_1990.key_finding"
+    }
+  },
+  "evidenceStrength": "low",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "insights"
+  ]
+}

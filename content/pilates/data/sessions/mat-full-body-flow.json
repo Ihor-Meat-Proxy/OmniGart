@@ -1,0 +1,77 @@
+{
+  "id": "mat-full-body-flow",
+  "nameKeys": {
+    "enGB": "pilates.session.mat_full_body_flow.name",
+    "uk": "pilates.session.mat_full_body_flow.name"
+  },
+  "descriptionKeys": {
+    "enGB": "pilates.session.mat_full_body_flow.description",
+    "uk": "pilates.session.mat_full_body_flow.description"
+  },
+  "level": "intermediate",
+  "durationMinutes": 35,
+  "apparatus": "mat",
+  "focus": "full_body",
+  "exerciseIds": [
+    "pilates-hundred",
+    "pilates-roll-up",
+    "pilates-single-leg-circle",
+    "pilates-criss-cross",
+    "pilates-swan",
+    "pilates-swimming",
+    "pilates-side-kick-front-back",
+    "pilates-push-up-series"
+  ],
+  "blocks": [
+    {
+      "titleKey": "pilates.session.mat_full_body_flow.block_main",
+      "items": [
+        {
+          "exerciseId": "pilates-hundred",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "pilates-roll-up",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "pilates-single-leg-circle",
+          "sets": 1,
+          "reps": 8
+        },
+        {
+          "exerciseId": "pilates-criss-cross",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "pilates-swan",
+          "sets": 1,
+          "reps": 6
+        },
+        {
+          "exerciseId": "pilates-swimming",
+          "sets": 1,
+          "seconds": 30
+        },
+        {
+          "exerciseId": "pilates-side-kick-front-back",
+          "sets": 1,
+          "reps": 10
+        },
+        {
+          "exerciseId": "pilates-push-up-series",
+          "sets": 1,
+          "reps": 6
+        }
+      ]
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "bundled": true
+}

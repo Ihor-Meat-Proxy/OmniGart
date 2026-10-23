@@ -1,0 +1,83 @@
+{
+  "id": "a-skip",
+  "nameKeys": {
+    "enGB": "exercise.a_skip.name",
+    "uk": "exercise.a_skip.name"
+  },
+  "discipline": "running",
+  "movementPattern": "run_drill",
+  "primaryMuscles": [
+    "hip_flexors",
+    "calves",
+    "tibialis_anterior"
+  ],
+  "secondaryMuscles": [
+    "gluteus_maximus"
+  ],
+  "equipment": [
+    "track",
+    "road",
+    "none"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "skill",
+  "trackingType": "timed",
+  "technique": [
+    "Rhythmic skip driving the knee up and striking under the hip with a quick toe-off."
+  ],
+  "setup": [
+    "Flat surface; short distance repeats."
+  ],
+  "breathing": "Relaxed face/breathing.",
+  "commonMistakes": [
+    "Sitting back on the heels",
+    "Tense shoulders"
+  ],
+  "safety": [
+    "Neuromuscular drill — not conditioning junk miles."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "high-knees-drill",
+      "note": "Related knee drive"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "easy-run",
+      "note": "Apply to run"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM quantity/quality guidance",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/a-skip",
+    "videoKey": "media/video/a-skip",
+    "animationKey": "media/anim/a-skip"
+  },
+  "aliases": [],
+  "tags": [
+    "run"
+  ],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

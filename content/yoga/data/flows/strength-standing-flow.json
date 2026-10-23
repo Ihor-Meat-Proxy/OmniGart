@@ -1,0 +1,83 @@
+{
+  "id": "strength-standing-flow",
+  "nameKeys": {
+    "enGB": "yoga.flow.strength_standing_flow.name",
+    "uk": "yoga.flow.strength_standing_flow.name"
+  },
+  "descriptionKeys": {
+    "enGB": "yoga.flow.strength_standing_flow.description",
+    "uk": "yoga.flow.strength_standing_flow.description"
+  },
+  "level": "intermediate",
+  "durationMinutes": 35,
+  "focus": "strength_balance",
+  "poseIds": [
+    "mountain-pose",
+    "chair-pose",
+    "warrior-i",
+    "warrior-ii",
+    "extended-side-angle",
+    "reverse-warrior",
+    "pyramid-pose",
+    "warrior-iii",
+    "forward-fold"
+  ],
+  "sequence": [
+    {
+      "poseId": "mountain-pose",
+      "holdSeconds": 30,
+      "side": "none"
+    },
+    {
+      "poseId": "chair-pose",
+      "holdSeconds": 30,
+      "side": "none"
+    },
+    {
+      "poseId": "warrior-i",
+      "holdSeconds": 35,
+      "side": "both"
+    },
+    {
+      "poseId": "warrior-ii",
+      "holdSeconds": 40,
+      "side": "both"
+    },
+    {
+      "poseId": "extended-side-angle",
+      "holdSeconds": 35,
+      "side": "both"
+    },
+    {
+      "poseId": "reverse-warrior",
+      "holdSeconds": 25,
+      "side": "both"
+    },
+    {
+      "poseId": "pyramid-pose",
+      "holdSeconds": 30,
+      "side": "both"
+    },
+    {
+      "poseId": "warrior-iii",
+      "holdSeconds": 25,
+      "side": "both"
+    },
+    {
+      "poseId": "forward-fold",
+      "holdSeconds": 40,
+      "side": "none"
+    }
+  ],
+  "evidenceEntryIds": [
+    "garber_acsm_quantity_2011",
+    "acsm_resistance_training_2026"
+  ],
+  "bundled": true,
+  "equipmentSuggested": [
+    "yoga_mat",
+    "yoga_block",
+    "yoga_strap",
+    "bodyweight"
+  ]
+}

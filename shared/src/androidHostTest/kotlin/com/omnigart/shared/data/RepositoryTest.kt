@@ -72,7 +72,20 @@ class RepositoryTest {
                         setIndex = 0,
                         reps = 5,
                         weightKg = 80.0,
-                        rir = 2.0
+                        rir = 2.0,
+                        isWarmup = false,
+                        assistanceKg = null,
+                        loggedPerHand = false
+                    ),
+                    WorkoutSet(
+                        id = "set2",
+                        exerciseId = "ex-squat",
+                        setIndex = 1,
+                        reps = 8,
+                        weightKg = 40.0,
+                        isWarmup = true,
+                        assistanceKg = 5.0,
+                        loggedPerHand = true
                     )
                 ),
                 perceivedExertion = 7
@@ -81,5 +94,8 @@ class RepositoryTest {
         val loaded = sessions.get("s1")
         assertNotNull(loaded)
         assertEquals(session, loaded)
+        assertEquals(true, loaded.sets[1].isWarmup)
+        assertEquals(5.0, loaded.sets[1].assistanceKg)
+        assertEquals(true, loaded.sets[1].loggedPerHand)
     }
 }

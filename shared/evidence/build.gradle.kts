@@ -12,6 +12,10 @@ kotlin {
         commonTest.dependencies {
             implementation(kotlin("test"))
         }
+        jvmMain.dependencies {
+            implementation(libs.json.schema.validator)
+            implementation(libs.jackson.databind)
+        }
         jvmTest.dependencies {
             implementation(kotlin("test"))
         }

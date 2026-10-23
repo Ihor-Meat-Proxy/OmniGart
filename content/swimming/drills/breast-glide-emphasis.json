@@ -1,0 +1,41 @@
+{
+  "id": "breast-glide-emphasis",
+  "nameKeys": {
+    "enGB": "swim.drill.breast_glide_emphasis.name",
+    "uk": "swim.drill.breast_glide_emphasis.name"
+  },
+  "strokeIds": [
+    "breaststroke"
+  ],
+  "focus": [
+    "timing",
+    "streamline"
+  ],
+  "level": "beginner",
+  "equipment": [
+    "none"
+  ],
+  "technique": [
+    "After each kick, hold a short streamline glide before the next pull."
+  ],
+  "cues": [
+    "Glide tall",
+    "Shoot forward"
+  ],
+  "commonMistakes": [
+    "Pulling immediately",
+    "Cutting the glide"
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1249/MSS.0b013e318213fefb",
+      "label": "Garber et al. 2011 ACSM — quantity/quality of exercise",
+      "supports": [
+        "endurance",
+        "technique",
+        "safety"
+      ]
+    }
+  ]
+}

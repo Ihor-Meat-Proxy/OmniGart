@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://omnigart.app/schemas/evidence-entry.json",
+  "$id": "https://omnigart.dev/schemas/evidence-entry.schema.json",
   "title": "OmniGartEvidenceEntry",
-  "description": "A single cited source backing one or more app claims.",
+  "description": "A single citable evidence source used by statements, goals, formulas, and plans. GRADE rules: content/evidence/GRADE_RULES.md",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -12,19 +12,19 @@
     "authors",
     "year",
     "keyFinding",
-    "evidenceGrade",
-    "usedByClaimIds",
+    "evidenceStrength",
+    "licenceNote",
     "retracted",
     "lastVerified",
-    "verificationStatus"
+    "openAccess"
   ],
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
-      "minLength": 3,
-      "maxLength": 96,
-      "description": "Stable kebab-case evidence id."
+      "description": "Stable snake_case evidence id, e.g. schoenfeld_volume_2016",
+      "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$",
+      "minLength": 4,
+      "maxLength": 80
     },
     "type": {
       "type": "string",
@@ -34,107 +34,100 @@
         "rct",
         "cohort",
         "guideline",
-        "consensus-statement",
-        "book-coaching-source",
-        "report"
+        "textbook",
+        "consensus"
       ]
     },
-    "title": { "type": "string", "minLength": 3 },
+    "title": { "type": "string", "minLength": 8 },
     "authors": {
       "type": "array",
-      "items": { "type": "string", "minLength": 1 },
-      "minItems": 1
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 2 }
     },
-    "year": {
-      "type": "integer",
-      "minimum": 1900,
-      "maximum": 2100
-    },
-    "journal": { "type": ["string", "null"] },
+    "year": { "type": "integer", "minimum": 1800, "maximum": 2100 },
+    "journal": { "type": "string", "minLength": 2 },
     "doi": {
-      "type": ["string", "null"],
-      "description": "Crossref DOI without url prefix. Null when no DOI exists; never invent."
+      "type": "string",
+      "description": "Bare DOI without https://doi.org/ prefix",
+      "pattern": "^10\\.\\d{4,9}/\\S+$"
     },
     "pmid": {
-      "type": ["string", "null"],
-      "pattern": "^[0-9]+$"
+      "type": "string",
+      "pattern": "^[0-9]{4,12}$"
     },
     "pmcid": {
-      "type": ["string", "null"],
+      "type": "string",
       "pattern": "^PMC[0-9]+$"
     },
     "url": {
-      "type": ["string", "null"],
+      "type": "string",
       "format": "uri"
     },
-    "openAccess": { "type": "boolean" },
-    "population": { "type": ["string", "null"] },
-    "sampleSize": {
-      "type": ["integer", "null"],
-      "minimum": 0,
-      "description": "Participants when a single study; optional."
+    "openAccess": {
+      "type": "boolean",
+      "description": "True when a free full-text copy is known to be available (publisher OA, PMC, or agency report)."
     },
-    "studyCount": {
-      "type": ["integer", "null"],
-      "minimum": 0,
-      "description": "Included studies for reviews/meta-analyses."
+    "sampleSize": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Primary analysis N when reported (participants, studies, or arms as noted in population)."
+    },
+    "population": {
+      "type": "string",
+      "minLength": 4,
+      "description": "Who was studied / who the guidance applies to (neutral, concise)."
     },
     "keyFinding": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["enGB", "uk"],
+      "required": ["enGB", "keys"],
       "properties": {
-        "enGB": { "type": "string", "minLength": 8 },
-        "uk": { "type": "string", "minLength": 8 }
-      }
-    },
-    "effectSize": {
-      "type": ["string", "null"],
-      "description": "Plain-language effect size note when reported."
-    },
-    "evidenceGrade": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["level", "rationale"],
-      "properties": {
-        "level": {
+        "enGB": {
           "type": "string",
-          "enum": ["high", "moderate", "low", "very-low"]
+          "minLength": 20,
+          "maxLength": 320,
+          "description": "Short neutral en-GB summary suitable for the ⓘ sheet."
         },
-        "rationale": { "type": "string", "minLength": 8 }
+        "keys": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["enGB", "uk"],
+          "properties": {
+            "enGB": {
+              "type": "string",
+              "pattern": "^evidence\\.[a-z0-9_]+\\.key_finding$"
+            },
+            "uk": {
+              "type": "string",
+              "pattern": "^evidence\\.[a-z0-9_]+\\.key_finding$"
+            }
+          }
+        }
       }
     },
-    "limitations": {
-      "type": "array",
-      "items": { "type": "string" },
-      "default": []
+    "evidenceStrength": {
+      "type": "string",
+      "enum": ["high", "moderate", "low", "very-low"],
+      "description": "GRADE-inspired grade; see GRADE_RULES.md"
     },
-    "usedByClaimIds": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
-      },
-      "uniqueItems": true
+    "licenceNote": {
+      "type": "string",
+      "minLength": 8,
+      "description": "How the title/finding may be quoted in-app (fair dealing / publisher terms)."
     },
-    "retracted": { "type": "boolean" },
-    "retractionNotes": { "type": ["string", "null"] },
+    "retracted": {
+      "type": "boolean",
+      "description": "True if Crossref update-to / Retraction Watch flags a retraction or expression of concern that invalidates use."
+    },
     "lastVerified": {
       "type": "string",
       "format": "date",
-      "description": "ISO date (YYYY-MM-DD) of last successful metadata check."
+      "description": "ISO date (YYYY-MM-DD) of last successful DOI/PMID resolve + metadata check."
     },
-    "verificationStatus": {
-      "type": "string",
-      "enum": ["verified", "unverified", "mismatched", "retracted"],
-      "description": "verified = DOI/PMID metadata matches; unverified = no resolvable identifier or check pending."
-    },
-    "contentRefKeys": {
+    "usedBy": {
       "type": "array",
-      "description": "Legacy content evidenceRef kind:id keys this entry satisfies.",
-      "items": { "type": "string" },
-      "uniqueItems": true,
-      "default": []
+      "items": { "type": "string", "minLength": 2 },
+      "description": "Optional module/formula/content identifiers that cite this entry."
     }
   }
 }

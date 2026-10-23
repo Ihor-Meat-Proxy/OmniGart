@@ -1,0 +1,97 @@
+{
+  "id": "front-squat",
+  "nameKeys": {
+    "enGB": "exercise.front_squat.name",
+    "uk": "exercise.front_squat.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "squat",
+  "primaryMuscles": [
+    "quadriceps"
+  ],
+  "secondaryMuscles": [
+    "gluteus_maximus",
+    "erector_spinae",
+    "front_deltoid"
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "weight_reps",
+  "technique": [
+    "Hold the bar in a front-rack with elbows high; torso stays more upright than a back squat.",
+    "Sit between the hips to parallel or below while keeping elbows from dropping.",
+    "Stand by driving through mid-foot without elbows collapsing."
+  ],
+  "setup": [
+    "Clean the bar to front rack or take from rack; set stance roughly shoulder-width."
+  ],
+  "breathing": "Brace before descent; exhale as you stand.",
+  "commonMistakes": [
+    "Elbows dropping",
+    "Heels lifting",
+    "Rounding upper back"
+  ],
+  "safety": [
+    "Start light; wrist mobility alternatives (cross-arm) acceptable."
+  ],
+  "contraindications": [
+    "Painful wrist/shoulder front-rack without modification"
+  ],
+  "regressions": [
+    {
+      "exerciseId": "goblet-squat",
+      "note": "Easier front-loaded pattern"
+    },
+    {
+      "exerciseId": "back-squat",
+      "note": "If front rack limits load"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "pause-front-squat",
+      "note": "Pause for positional strength"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "kind": "doi",
+      "id": "10.1097/00005768-200101000-00020",
+      "label": "Escamilla 2001 — knee biomechanics of the dynamic squat",
+      "supports": [
+        "biomechanics",
+        "technique",
+        "safety"
+      ]
+    },
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/front-squat",
+    "videoKey": "media/video/front-squat",
+    "animationKey": "media/anim/front-squat"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

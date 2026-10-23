@@ -10,6 +10,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlinx.serialization.json)
+            api(project(":shared:evidence"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -32,6 +33,14 @@ tasks.named<Test>("jvmTest") {
     systemProperty(
         "omnigart.content.root",
         rootProject.projectDir.resolve("content/exercises").absolutePath
+    )
+    systemProperty(
+        "omnigart.yoga.root",
+        rootProject.projectDir.resolve("content/yoga").absolutePath
+    )
+    systemProperty(
+        "omnigart.pilates.root",
+        rootProject.projectDir.resolve("content/pilates").absolutePath
     )
 }
 

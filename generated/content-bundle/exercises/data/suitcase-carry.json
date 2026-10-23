@@ -1,0 +1,74 @@
+{
+  "id": "suitcase-carry",
+  "nameKeys": {
+    "enGB": "exercise.suitcase_carry.name",
+    "uk": "exercise.suitcase_carry.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "carry",
+  "primaryMuscles": [
+    "obliques",
+    "gluteus_medius",
+    "forearms"
+  ],
+  "secondaryMuscles": [
+    "trapezius"
+  ],
+  "equipment": [
+    "dumbbell",
+    "kettlebell"
+  ],
+  "level": "beginner",
+  "unilateral": true,
+  "mechanics": "compound",
+  "trackingType": "distance",
+  "technique": [
+    "Carry a load in one hand while keeping shoulders and hips level; switch sides."
+  ],
+  "setup": [
+    "Stand tall before walking."
+  ],
+  "breathing": "Breathe normally while bracing lightly.",
+  "commonMistakes": [
+    "Leaning into the weight",
+    "Hiking the loaded shoulder"
+  ],
+  "safety": [
+    "Great anti-lateral-flexion drill."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "farmers-carry",
+      "note": "Bilateral"
+    }
+  ],
+  "progressions": [],
+  "evidenceRefs": [
+    {
+      "kind": "textbook",
+      "id": "nsca-essentials-4e",
+      "label": "NSCA Essentials of Strength Training and Conditioning (technique/safety norms)",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/suitcase-carry",
+    "videoKey": "media/video/suitcase-carry",
+    "animationKey": "media/anim/suitcase-carry"
+  },
+  "aliases": [],
+  "tags": [],
+  "loadModel": "external_only",
+  "bodyweightFraction": {
+    "proportion": 0.0,
+    "basis": "estimate",
+    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

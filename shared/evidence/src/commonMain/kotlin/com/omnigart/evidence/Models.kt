@@ -10,13 +10,15 @@ enum class EvidenceType {
     @SerialName("rct") RCT,
     @SerialName("cohort") COHORT,
     @SerialName("guideline") GUIDELINE,
-    @SerialName("consensus-statement") CONSENSUS_STATEMENT,
-    @SerialName("book-coaching-source") BOOK_COACHING_SOURCE,
-    @SerialName("report") REPORT,
+    @SerialName("textbook") TEXTBOOK,
+    @SerialName("consensus") CONSENSUS,
 }
 
+/**
+ * GRADE-inspired strength badge. Assignment rules: content/evidence/GRADE_RULES.md
+ */
 @Serializable
-enum class EvidenceGradeLevel {
+enum class EvidenceStrength {
     @SerialName("high") HIGH,
     @SerialName("moderate") MODERATE,
     @SerialName("low") LOW,
@@ -24,38 +26,15 @@ enum class EvidenceGradeLevel {
 }
 
 @Serializable
-enum class VerificationStatus {
-    @SerialName("verified") VERIFIED,
-    @SerialName("unverified") UNVERIFIED,
-    @SerialName("mismatched") MISMATCHED,
-    @SerialName("retracted") RETRACTED,
-}
-
-@Serializable
-enum class ClaimCategory {
-    @SerialName("formula") FORMULA,
-    @SerialName("goal") GOAL,
-    @SerialName("programming") PROGRAMMING,
-    @SerialName("nutrition") NUTRITION,
-    @SerialName("recovery") RECOVERY,
-    @SerialName("technique") TECHNIQUE,
-    @SerialName("safety") SAFETY,
-    @SerialName("cardio") CARDIO,
-    @SerialName("body-comp") BODY_COMP,
-    @SerialName("load-monitoring") LOAD_MONITORING,
-    @SerialName("other") OTHER,
-}
-
-@Serializable
-data class LocalizedFinding(
+data class KeyFindingKeys(
     val enGB: String,
     val uk: String,
 )
 
 @Serializable
-data class EvidenceGrade(
-    val level: EvidenceGradeLevel,
-    val rationale: String,
+data class KeyFinding(
+    val enGB: String,
+    val keys: KeyFindingKeys,
 )
 
 @Serializable
@@ -70,39 +49,31 @@ data class EvidenceEntry(
     val pmid: String? = null,
     val pmcid: String? = null,
     val url: String? = null,
-    val openAccess: Boolean = false,
-    val population: String? = null,
+    val openAccess: Boolean,
     val sampleSize: Int? = null,
-    val studyCount: Int? = null,
-    val keyFinding: LocalizedFinding,
-    val effectSize: String? = null,
-    val evidenceGrade: EvidenceGrade,
-    val limitations: List<String> = emptyList(),
-    val usedByClaimIds: List<String> = emptyList(),
+    val population: String? = null,
+    val keyFinding: KeyFinding,
+    val evidenceStrength: EvidenceStrength,
+    val licenceNote: String,
     val retracted: Boolean = false,
-    val retractionNotes: String? = null,
     val lastVerified: String,
-    val verificationStatus: VerificationStatus = VerificationStatus.UNVERIFIED,
-    val contentRefKeys: List<String> = emptyList(),
+    val usedBy: List<String> = emptyList(),
 )
 
-@Serializable
-data class ClaimTextKeys(
-    val enGB: String,
-    val uk: String,
-)
-
-@Serializable
-data class Claim(
-    val id: String,
-    val category: ClaimCategory,
-    val textKeys: ClaimTextKeys,
-    val evidenceIds: List<String>,
-    val notes: String? = null,
-)
-
-@Serializable
-data class ClaimsRegistry(
-    val version: Int,
-    val claims: List<Claim>,
+/**
+ * Plain model for the ⓘ bottom sheet / detail card in apps.
+ */
+data class EvidenceInfoSheet(
+    val evidenceId: String,
+    val plainLanguageSummary: String,
+    val strength: EvidenceStrength,
+    val strengthLabel: String,
+    val typeLabel: String,
+    val citationLine: String,
+    val linkUrl: String?,
+    val openAccess: Boolean,
+    val retracted: Boolean,
+    val sampleSize: Int?,
+    val population: String?,
+    val year: Int,
 )

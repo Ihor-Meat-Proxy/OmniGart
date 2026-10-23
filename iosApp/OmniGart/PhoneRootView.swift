@@ -1,8 +1,11 @@
 import SwiftUI
+import Shared
 
 /// Phone shell: Food / Workouts / Recovery / Planner / Profile.
 /// Colours and tab icons come from design/generated (DTCG → Swift / asset catalog).
 struct PhoneRootView: View {
+    let core: OmniGartCore
+    let profileId: String
     let summaryLines: [String]
     @State private var selectedTab: PhoneTab = .profile
     @State private var showInfoSheet = false
@@ -12,6 +15,8 @@ struct PhoneRootView: View {
             ForEach(PhoneTab.allCases) { tab in
                 TabContent(
                     tab: tab,
+                    core: core,
+                    profileId: profileId,
                     summaryLines: summaryLines,
                     showInfoSheet: $showInfoSheet
                 )
@@ -37,6 +42,8 @@ struct PhoneRootView: View {
 
 private struct TabContent: View {
     let tab: PhoneTab
+    let core: OmniGartCore
+    let profileId: String
     let summaryLines: [String]
     @Binding var showInfoSheet: Bool
 
@@ -65,6 +72,11 @@ private struct TabContent: View {
                             Label("info_sheet_title", systemImage: "info.circle")
                         }
                         .accessibilityIdentifier("info_sheet_toggle")
+                    }
+                }
+                if tab == .profile {
+                    Section {
+                        CalculationsSettingsView(core: core, profileId: profileId)
                     }
                 }
                 #if DEBUG
@@ -113,6 +125,3 @@ enum PhoneTab: String, CaseIterable, Identifiable {
     var accessibilityId: String { "tab_\(rawValue)" }
 }
 
-#Preview {
-    PhoneRootView(summaryLines: ["OmniGart", "BMR 1349 kcal"])
-}

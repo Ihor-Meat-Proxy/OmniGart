@@ -14,3 +14,12 @@ User-selectable formulas (simple / advanced modes) with history recalculation wh
 ## Dependencies
 
 - Formula-strategy pattern (Phase H / Phase 0 calcs); strength history (Phase 1).
+
+## Shipped (this PR)
+
+- `FormulaSelection` / `FormulaMode` / `FormulaDomain` + catalog metadata (`FormulaOptionMeta`)
+- SQLDelight: `formula_settings`, `derived_estimate`, `formula_recalc_audit`
+- `FormulaSettingsService`: persist selection, recalculate estimates, write audit rows; unknown keys migrate to defaults
+- `OmniGartCore` summary lines use selected formulas
+- Profile Calculations settings UI (Android + iOS) with Simple/Advanced
+- Host tests: migration, recalculation + audit, idempotent values, simple-mode reset

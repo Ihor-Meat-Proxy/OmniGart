@@ -32,4 +32,9 @@
     <string name="hc_rationale_title">Health Connect data use</string>
     <string name="hc_rationale_body">OmniGart requests Health Connect access to read and write fitness and wellness data you choose — such as heart rate, HRV, sleep, workouts, body mass, and hydration — so readiness and training estimates stay accurate on your device.\n\nWe do not sell health data, use it for advertising, or share it with third parties for marketing. You can deny access and keep using OmniGart with manual entry.</string>
     <string name="hc_rationale_privacy_policy">Privacy policy</string>
+
+    <string name="calc_settings_title">Calculations</string>
+    <string name="calc_settings_intro">Choose how OmniGart estimates BMR, heart-rate, body fat, and strength figures. These are wellness estimates, not medical advice.</string>
+    <string name="calc_mode_simple">Simple</string>
+    <string name="calc_mode_advanced">Advanced</string>
 </resources>

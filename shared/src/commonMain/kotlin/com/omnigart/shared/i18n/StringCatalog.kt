@@ -22,6 +22,37 @@ object StringKeys {
     const val ONBOARDING_WELLNESS_TITLE = "onboarding_wellness_title"
     const val INFO_SHEET_TITLE = "info_sheet_title"
     const val INFO_SHEET_BODY = "info_sheet_body"
+
+    const val CALC_SETTINGS_TITLE = "calc_settings_title"
+    const val CALC_SETTINGS_INTRO = "calc_settings_intro"
+    const val CALC_MODE_SIMPLE = "calc_mode_simple"
+    const val CALC_MODE_ADVANCED = "calc_mode_advanced"
+    const val CALC_DOMAIN_BMR = "calc_domain_bmr"
+    const val CALC_DOMAIN_HR_MAX = "calc_domain_hr_max"
+    const val CALC_DOMAIN_BODY_FAT = "calc_domain_body_fat"
+    const val CALC_DOMAIN_ONE_RM = "calc_domain_one_rm"
+    const val CALC_DOMAIN_HR_ZONES = "calc_domain_hr_zones"
+
+    const val FORMULA_BMR_MIFFLIN_ST_JEOR_TITLE = "formula.bmr.mifflin_st_jeor.title"
+    const val FORMULA_BMR_MIFFLIN_ST_JEOR_EXPLAIN = "formula.bmr.mifflin_st_jeor.explain"
+    const val FORMULA_BMR_HARRIS_BENEDICT_TITLE = "formula.bmr.harris_benedict.title"
+    const val FORMULA_BMR_HARRIS_BENEDICT_EXPLAIN = "formula.bmr.harris_benedict.explain"
+    const val FORMULA_HR_MAX_TANAKA_TITLE = "formula.hr_max.tanaka.title"
+    const val FORMULA_HR_MAX_TANAKA_EXPLAIN = "formula.hr_max.tanaka.explain"
+    const val FORMULA_HR_MAX_FOX_TITLE = "formula.hr_max.fox.title"
+    const val FORMULA_HR_MAX_FOX_EXPLAIN = "formula.hr_max.fox.explain"
+    const val FORMULA_BODY_FAT_CUN_BAE_TITLE = "formula.body_fat.cun_bae.title"
+    const val FORMULA_BODY_FAT_CUN_BAE_EXPLAIN = "formula.body_fat.cun_bae.explain"
+    const val FORMULA_ONE_RM_EPLEY_TITLE = "formula.one_rm.epley.title"
+    const val FORMULA_ONE_RM_EPLEY_EXPLAIN = "formula.one_rm.epley.explain"
+    const val FORMULA_ONE_RM_BRZYCKI_TITLE = "formula.one_rm.brzycki.title"
+    const val FORMULA_ONE_RM_BRZYCKI_EXPLAIN = "formula.one_rm.brzycki.explain"
+    const val FORMULA_HR_ZONES_KARVONEN_5_TITLE = "formula.hr_zones.karvonen_5.title"
+    const val FORMULA_HR_ZONES_KARVONEN_5_EXPLAIN = "formula.hr_zones.karvonen_5.explain"
+    const val FORMULA_HR_ZONES_KARVONEN_3_TITLE = "formula.hr_zones.karvonen_3.title"
+    const val FORMULA_HR_ZONES_KARVONEN_3_EXPLAIN = "formula.hr_zones.karvonen_3.explain"
+    const val FORMULA_HR_ZONES_PERCENT_HRMAX_5_TITLE = "formula.hr_zones.percent_hrmax_5.title"
+    const val FORMULA_HR_ZONES_PERCENT_HRMAX_5_EXPLAIN = "formula.hr_zones.percent_hrmax_5.explain"
 }
 
 object StringCatalog {
@@ -52,7 +83,48 @@ object StringCatalog {
             StringKeys.INFO_SHEET_BODY to
                 "Figures such as readiness, stress, HRV, Baevsky index, body fat, and hydration " +
                 "are wellness estimates based on your inputs and device samples. Plans are " +
-                "coaching suggestions, not prescriptions."
+                "coaching suggestions, not prescriptions.",
+            StringKeys.CALC_SETTINGS_TITLE to "Calculations",
+            StringKeys.CALC_SETTINGS_INTRO to
+                "Choose how OmniGart estimates wellness figures such as energy use, heart-rate " +
+                "zones, body fat, and strength.",
+            StringKeys.CALC_MODE_SIMPLE to "Simple",
+            StringKeys.CALC_MODE_ADVANCED to "Advanced",
+            StringKeys.CALC_DOMAIN_BMR to "BMR",
+            StringKeys.CALC_DOMAIN_HR_MAX to "Max heart rate",
+            StringKeys.CALC_DOMAIN_BODY_FAT to "Body fat",
+            StringKeys.CALC_DOMAIN_ONE_RM to "One-rep max",
+            StringKeys.CALC_DOMAIN_HR_ZONES to "Heart-rate zones",
+            StringKeys.FORMULA_BMR_MIFFLIN_ST_JEOR_TITLE to "Mifflin–St Jeor",
+            StringKeys.FORMULA_BMR_MIFFLIN_ST_JEOR_EXPLAIN to
+                "Widely used resting energy estimate from weight, height, age, and sex.",
+            StringKeys.FORMULA_BMR_HARRIS_BENEDICT_TITLE to "Harris–Benedict (revised)",
+            StringKeys.FORMULA_BMR_HARRIS_BENEDICT_EXPLAIN to
+                "Classic resting energy estimate; useful as an alternate wellness check.",
+            StringKeys.FORMULA_HR_MAX_TANAKA_TITLE to "Tanaka",
+            StringKeys.FORMULA_HR_MAX_TANAKA_EXPLAIN to
+                "Age-based max heart-rate estimate (208 − 0.7×age).",
+            StringKeys.FORMULA_HR_MAX_FOX_TITLE to "Fox (220 − age)",
+            StringKeys.FORMULA_HR_MAX_FOX_EXPLAIN to
+                "Traditional max heart-rate rule of thumb from age alone.",
+            StringKeys.FORMULA_BODY_FAT_CUN_BAE_TITLE to "CUN-BAE",
+            StringKeys.FORMULA_BODY_FAT_CUN_BAE_EXPLAIN to
+                "Body-fat percentage estimate from weight, height, age, and sex.",
+            StringKeys.FORMULA_ONE_RM_EPLEY_TITLE to "Epley",
+            StringKeys.FORMULA_ONE_RM_EPLEY_EXPLAIN to
+                "Estimates one-rep max from a submaximal lift and rep count.",
+            StringKeys.FORMULA_ONE_RM_BRZYCKI_TITLE to "Brzycki",
+            StringKeys.FORMULA_ONE_RM_BRZYCKI_EXPLAIN to
+                "Alternate one-rep max estimate that weights higher-rep sets differently.",
+            StringKeys.FORMULA_HR_ZONES_KARVONEN_5_TITLE to "Karvonen (5 zones)",
+            StringKeys.FORMULA_HR_ZONES_KARVONEN_5_EXPLAIN to
+                "Five training zones from heart-rate reserve (resting to max).",
+            StringKeys.FORMULA_HR_ZONES_KARVONEN_3_TITLE to "Karvonen (3 zones)",
+            StringKeys.FORMULA_HR_ZONES_KARVONEN_3_EXPLAIN to
+                "Simpler three-zone heart-rate reserve layout.",
+            StringKeys.FORMULA_HR_ZONES_PERCENT_HRMAX_5_TITLE to "% HRmax (5 zones)",
+            StringKeys.FORMULA_HR_ZONES_PERCENT_HRMAX_5_EXPLAIN to
+                "Five zones as percentages of estimated max heart rate."
         )
 
     private val uk: Map<String, String> =
@@ -80,7 +152,48 @@ object StringCatalog {
             StringKeys.INFO_SHEET_BODY to
                 "Показники на кшталт готовності, стресу, ВСР, індексу Баєвського, жиру в тілі та " +
                 "гідратації — це оцінки самопочуття на основі ваших даних і зразків із пристрою. " +
-                "Плани — тренерські пропозиції, а не приписи лікаря."
+                "Плани — тренерські пропозиції, а не приписи лікаря.",
+            StringKeys.CALC_SETTINGS_TITLE to "Розрахунки",
+            StringKeys.CALC_SETTINGS_INTRO to
+                "Оберіть, як OmniGart оцінює показники самопочуття: енергію, зони пульсу, " +
+                "жир у тілі та силу.",
+            StringKeys.CALC_MODE_SIMPLE to "Простий",
+            StringKeys.CALC_MODE_ADVANCED to "Розширений",
+            StringKeys.CALC_DOMAIN_BMR to "BMR",
+            StringKeys.CALC_DOMAIN_HR_MAX to "Макс. пульс",
+            StringKeys.CALC_DOMAIN_BODY_FAT to "Жир у тілі",
+            StringKeys.CALC_DOMAIN_ONE_RM to "Одноповторений максимум",
+            StringKeys.CALC_DOMAIN_HR_ZONES to "Зони пульсу",
+            StringKeys.FORMULA_BMR_MIFFLIN_ST_JEOR_TITLE to "Mifflin–St Jeor",
+            StringKeys.FORMULA_BMR_MIFFLIN_ST_JEOR_EXPLAIN to
+                "Поширена оцінка енергії в спокої з ваги, зросту, віку та статі.",
+            StringKeys.FORMULA_BMR_HARRIS_BENEDICT_TITLE to "Harris–Benedict (оновлена)",
+            StringKeys.FORMULA_BMR_HARRIS_BENEDICT_EXPLAIN to
+                "Класична оцінка енергії в спокої; корисна як альтернативна перевірка.",
+            StringKeys.FORMULA_HR_MAX_TANAKA_TITLE to "Tanaka",
+            StringKeys.FORMULA_HR_MAX_TANAKA_EXPLAIN to
+                "Оцінка макс. пульсу за віком (208 − 0,7×вік).",
+            StringKeys.FORMULA_HR_MAX_FOX_TITLE to "Fox (220 − вік)",
+            StringKeys.FORMULA_HR_MAX_FOX_EXPLAIN to
+                "Традиційне правило макс. пульсу лише за віком.",
+            StringKeys.FORMULA_BODY_FAT_CUN_BAE_TITLE to "CUN-BAE",
+            StringKeys.FORMULA_BODY_FAT_CUN_BAE_EXPLAIN to
+                "Оцінка відсотка жиру в тілі з ваги, зросту, віку та статі.",
+            StringKeys.FORMULA_ONE_RM_EPLEY_TITLE to "Epley",
+            StringKeys.FORMULA_ONE_RM_EPLEY_EXPLAIN to
+                "Оцінює одноповторений максимум із субмаксимальної ваги та кількості повторень.",
+            StringKeys.FORMULA_ONE_RM_BRZYCKI_TITLE to "Brzycki",
+            StringKeys.FORMULA_ONE_RM_BRZYCKI_EXPLAIN to
+                "Альтернативна оцінка одноповтореного максимуму з іншою вагою для багатоповторних сетів.",
+            StringKeys.FORMULA_HR_ZONES_KARVONEN_5_TITLE to "Karvonen (5 зон)",
+            StringKeys.FORMULA_HR_ZONES_KARVONEN_5_EXPLAIN to
+                "П’ять тренувальних зон із резерву пульсу (від спокою до максимуму).",
+            StringKeys.FORMULA_HR_ZONES_KARVONEN_3_TITLE to "Karvonen (3 зони)",
+            StringKeys.FORMULA_HR_ZONES_KARVONEN_3_EXPLAIN to
+                "Простіша розкладка з трьох зон резерву пульсу.",
+            StringKeys.FORMULA_HR_ZONES_PERCENT_HRMAX_5_TITLE to "% HRmax (5 зон)",
+            StringKeys.FORMULA_HR_ZONES_PERCENT_HRMAX_5_EXPLAIN to
+                "П’ять зон як відсотки від оціненого макс. пульсу."
         )
 
     private val catalogs: Map<String, Map<String, String>> =

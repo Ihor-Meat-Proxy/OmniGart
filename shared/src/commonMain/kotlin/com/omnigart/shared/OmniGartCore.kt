@@ -1,9 +1,8 @@
 package com.omnigart.shared
 
 import com.omnigart.shared.calc.Bmi
-import com.omnigart.shared.calc.Bmr
-import com.omnigart.shared.calc.HeartRate
 import com.omnigart.shared.calc.WaterTarget
+import com.omnigart.shared.calc.strategy.FormulaSettingsService
 import com.omnigart.shared.data.DatabaseDriverFactory
 import com.omnigart.shared.data.ExerciseRepository
 import com.omnigart.shared.data.SessionRepository
@@ -19,7 +18,7 @@ import kotlinx.datetime.TimeZone
 import kotlinx.datetime.todayIn
 
 /**
- * Facade used by thin native UI shells in Phase 0.
+ * Facade used by thin native UI shells.
  */
 class OmniGartCore(driverFactory: DatabaseDriverFactory) {
     private val database = createDatabase(driverFactory)
@@ -27,6 +26,7 @@ class OmniGartCore(driverFactory: DatabaseDriverFactory) {
     val exercises = ExerciseRepository(database)
     val workouts = WorkoutRepository(database)
     val sessions = SessionRepository(database)
+    val formulaSettings = FormulaSettingsService(database)
 
     fun ensureDemoProfile(): UserProfile {
         val existing = profiles.get(DEMO_PROFILE_ID)
@@ -55,9 +55,10 @@ class OmniGartCore(driverFactory: DatabaseDriverFactory) {
 
     fun summaryLines(profile: UserProfile): List<String> {
         val age = ageYears(profile)
-        val bmr = Bmr.mifflinStJeor(profile.weightKg, profile.heightCm, age, profile.biologicalSex)
+        val prefs = formulaSettings.getSelection(profile.id).toPreferences()
+        val bmr = prefs.bmr.bmrKcal(profile.weightKg, profile.heightCm, age, profile.biologicalSex)
         val bmi = Bmi.value(profile.weightKg, profile.heightCm)
-        val hrMax = HeartRate.tanakaMax(age)
+        val hrMax = prefs.hrMax.hrMax(age)
         val water = WaterTarget.litresPerDay(profile.biologicalSex, profile.weightKg)
         return listOf(
             "OmniGart",
@@ -70,6 +71,6 @@ class OmniGartCore(driverFactory: DatabaseDriverFactory) {
 
     companion object {
         const val DEMO_PROFILE_ID = "demo-profile"
-        const val VERSION = "0.1.0-phase0"
+        const val VERSION = "0.1.0-phase4"
     }
 }

@@ -44,10 +44,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         val core = OmniGartCore(DatabaseDriverFactory(applicationContext))
         val profile = core.ensureDemoProfile()
-        val summary = core.summaryLines(profile)
         setContent {
             OmniGartTheme {
-                OmniGartPhoneShell(summaryLines = summary)
+                OmniGartPhoneShell(core = core, profileId = profile.id)
             }
         }
     }
@@ -81,10 +80,16 @@ private enum class PhoneTab(val labelRes: Int, val testTag: String, val icon: Im
 }
 
 @Composable
-fun OmniGartPhoneShell(summaryLines: List<String>) {
+fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
     var selected by remember { mutableIntStateOf(PhoneTab.Profile.ordinal) }
     var showInfoSheet by remember { mutableStateOf(false) }
     val tabs = PhoneTab.entries
+    var formulaEpoch by remember { mutableIntStateOf(0) }
+    val profile = remember(profileId) { core.profiles.get(profileId) }
+    val summaryLines =
+        remember(selected, profileId, formulaEpoch) {
+            profile?.let { core.summaryLines(it) }.orEmpty()
+        }
     Scaffold(
         modifier = Modifier.testTag("phone_shell"),
         containerColor = OmniGartColors.colorSurfaceLightCanvas,
@@ -121,6 +126,13 @@ fun OmniGartPhoneShell(summaryLines: List<String>) {
                 WellnessTabSection(
                     showInfoSheet = showInfoSheet,
                     onToggleInfoSheet = { showInfoSheet = !showInfoSheet }
+                )
+            }
+            if (selected == PhoneTab.Profile.ordinal) {
+                CalculationsSettingsSection(
+                    core = core,
+                    profileId = profileId,
+                    onSelectionChanged = { formulaEpoch += 1 }
                 )
             }
             // Unfinished surfaces stay behind flags that are off in release.

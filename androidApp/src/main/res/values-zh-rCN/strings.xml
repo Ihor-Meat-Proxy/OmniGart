@@ -206,4 +206,17 @@
     <string name="pdf_activity_yoga">瑜伽</string>
     <string name="pdf_activity_pilates">普拉提</string>
     <string name="pdf_activity_other">其他</string>
+    <string name="health_workout_detail_title">训练</string>
+    <string name="health_restore_removed_banner">已从健康平台移除。OmniGart 本地副本仍在——可以恢复。</string>
+    <string name="health_restore_removed_section">已从平台移除</string>
+    <string name="health_restore_to_apple_health">恢复到 Apple Health</string>
+    <string name="health_restore_to_health_connect">恢复到 Health Connect</string>
+    <string name="health_restore_all_apple_health">将全部已移除项恢复到 Apple Health</string>
+    <string name="health_restore_all_health_connect">将全部已移除项恢复到 Health Connect</string>
+    <string name="health_restore_success">已恢复到健康平台。</string>
+    <string name="health_restore_already_present">平台上已有该记录——已清除本地标记。</string>
+    <string name="health_restore_skipped">没有可恢复的内容。</string>
+    <string name="health_restore_failed">无法恢复此训练。</string>
+    <string name="health_restore_permission_needed">恢复需要健康数据写入权限。</string>
+    <string name="health_restore_all_result">已恢复 %1$d · 失败 %2$d</string>
 </resources>

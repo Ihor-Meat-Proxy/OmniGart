@@ -1,6 +1,9 @@
 package com.omnigart.shared.health.store
 
 import com.omnigart.shared.health.WorkoutActivityType
+import com.omnigart.shared.health.store.device.DeviceTransferIngestResult
+import com.omnigart.shared.health.store.device.DeviceWorkoutTransferCodec
+import com.omnigart.shared.health.store.device.DeviceWorkoutTransferDocument
 import com.omnigart.shared.health.store.export.HealthExportArtifact
 import com.omnigart.shared.health.store.export.HealthExportService
 import com.omnigart.shared.health.store.pdf.WorkoutPdfBuilder
@@ -13,6 +16,7 @@ import kotlin.time.Instant
  * Primitive-friendly façade for Apple/Android shells (avoids constructing nested
  * Kotlin data classes from Swift).
  */
+@Suppress("TooManyFunctions")
 class LocalHealthBridge(
     private val store: LocalHealthStore,
     private val sync: HealthSyncEngine,
@@ -169,6 +173,149 @@ class LocalHealthBridge(
     /** After a successful first-time Apple Health / Health Connect insert. */
     fun markPlatformLinked(localId: String, platformRecordId: String) {
         sync.markPlatformLinked(localId, platformRecordId)
+    }
+
+    /**
+     * Phone-side ingest of a Watch / Wear transfer JSON payload.
+     * Returns `INSERTED`, `ALREADY_PRESENT`, or `REJECTED`.
+     */
+    fun ingestDeviceTransferJson(utf8: String): String = runCatching {
+        val doc = DeviceWorkoutTransferCodec.decode(utf8)
+        sync.ingestDeviceTransfer(doc).name
+    }.getOrDefault(DeviceTransferIngestResult.REJECTED.name)
+
+    /** Encode a locally recorded workout for device transfer (watch / Wear → phone). */
+    fun encodeDeviceTransferJson(localId: String, sourceDevice: String): String? {
+        val workout = store.getWorkout(localId) ?: return null
+        val doc = DeviceWorkoutTransferCodec.fromLocalWorkout(workout, sourceDevice)
+        return DeviceWorkoutTransferCodec.encode(doc)
+    }
+
+    fun buildDeviceTransferJson(
+        localId: String,
+        activityTypeName: String,
+        startEpochMs: Long,
+        endEpochMs: Long,
+        activeEnergyKcal: Double?,
+        basalEnergyKcal: Double?,
+        distanceMetres: Double?,
+        averageHeartRateBpm: Double?,
+        maxHeartRateBpm: Double?,
+        averageCadenceSpm: Double?,
+        heartRateEpochMs: LongArray,
+        heartRateBpm: DoubleArray,
+        sourceDevice: String
+    ): String {
+        require(heartRateEpochMs.size == heartRateBpm.size)
+        val syncId = HealthDataMapper.syncIdentifierFor(localId)
+        val doc =
+            DeviceWorkoutTransferDocument(
+                localId = localId,
+                syncIdentifier = syncId,
+                syncVersion = 1,
+                activityTypeName = activityTypeName,
+                startEpochMs = startEpochMs,
+                endEpochMs = endEpochMs,
+                activeEnergyKcal = activeEnergyKcal,
+                basalEnergyKcal = basalEnergyKcal,
+                distanceMetres = distanceMetres,
+                averageHeartRateBpm = averageHeartRateBpm,
+                maxHeartRateBpm = maxHeartRateBpm,
+                averageCadenceSpm = averageCadenceSpm,
+                heartRateEpochMs = heartRateEpochMs.toList(),
+                heartRateBpm = heartRateBpm.toList(),
+                sourceDevice = sourceDevice
+            )
+        return DeviceWorkoutTransferCodec.encode(doc)
+    }
+
+    fun softDeleteWorkout(localId: String) {
+        store.softDeleteWorkout(localId)
+    }
+
+    fun getBySyncIdentifier(syncIdentifier: String): String? = store.getBySyncIdentifier(syncIdentifier)?.id
+
+    fun removedFromPlatformCount(): Int = sync.workoutsEligibleForRestore().size
+
+    fun removedFromPlatformIds(): List<String> = sync.workoutsEligibleForRestore().map { it.id }
+
+    fun isRemovedFromPlatform(localId: String): Boolean =
+        store.getWorkout(localId)?.let { PlatformAppendOnlyPolicy.shouldAttemptPlatformRestore(it) } == true
+
+    /**
+     * Bump sync version for a restore insert. Returns false when not eligible.
+     * Call before platform exist-check + insert.
+     */
+    fun prepareRestore(localId: String): Boolean = sync.prepareRestore(localId) != null
+
+    fun restoreSyncIdentifier(localId: String): String? = store.getWorkout(localId)?.identity?.syncIdentifier
+
+    fun restoreSyncVersion(localId: String): Long = store.getWorkout(localId)?.identity?.syncVersion ?: 1L
+
+    fun workoutActivityTypeName(localId: String): String? = store.getWorkout(localId)?.activityType?.name
+
+    fun workoutStartEpochMs(localId: String): Long = store.getWorkout(localId)?.startAt?.toEpochMilliseconds() ?: 0L
+
+    fun workoutEndEpochMs(localId: String): Long = store.getWorkout(localId)?.endAt?.toEpochMilliseconds() ?: 0L
+
+    fun workoutActiveEnergyKcal(localId: String): Double? = store.getWorkout(localId)?.activeEnergyKcal
+
+    fun workoutBasalEnergyKcal(localId: String): Double? = store.getWorkout(localId)?.basalEnergyKcal
+
+    fun workoutDistanceMetres(localId: String): Double? = store.getWorkout(localId)?.distanceMetres
+
+    fun workoutAverageHeartRateBpm(localId: String): Double? = store.getWorkout(localId)?.averageHeartRateBpm
+
+    fun workoutMaxHeartRateBpm(localId: String): Double? = store.getWorkout(localId)?.maxHeartRateBpm
+
+    fun workoutSourceName(localId: String): String? = store.getWorkout(localId)?.sourceName
+
+    fun workoutHeartRateEpochMsList(localId: String): List<Long> =
+        store.getWorkout(localId)?.heartRateSeries?.map { it.recordedAt.toEpochMilliseconds() }.orEmpty()
+
+    fun workoutHeartRateBpmList(localId: String): List<Double> =
+        store.getWorkout(localId)?.heartRateSeries?.map { it.beatsPerMinute }.orEmpty()
+
+    /** Swift-friendly primitive arrays (KotlinLongArray / KotlinDoubleArray). */
+    fun workoutHeartRateEpochMs(localId: String): LongArray = workoutHeartRateEpochMsList(localId).toLongArray()
+
+    fun workoutHeartRateBpm(localId: String): DoubleArray = workoutHeartRateBpmList(localId).toDoubleArray()
+
+    fun workoutEventTypesList(localId: String): List<String> = store.getWorkout(localId)?.events?.map { it.type.name }.orEmpty()
+
+    fun workoutEventStartEpochMsList(localId: String): List<Long> =
+        store.getWorkout(localId)?.events?.map { it.startAt.toEpochMilliseconds() }.orEmpty()
+
+    fun workoutEventEndEpochMsList(localId: String): List<Long> = store.getWorkout(localId)?.events?.map {
+        it.endAt?.toEpochMilliseconds() ?: it.startAt.toEpochMilliseconds()
+    }.orEmpty()
+
+    fun workoutEventLabelsList(localId: String): List<String> = store.getWorkout(localId)?.events?.map { it.label.orEmpty() }.orEmpty()
+
+    fun workoutEventStartEpochMs(localId: String): LongArray = workoutEventStartEpochMsList(localId).toLongArray()
+
+    fun workoutEventEndEpochMs(localId: String): LongArray = workoutEventEndEpochMsList(localId).toLongArray()
+
+    fun workoutDetailTitle(localId: String): String {
+        val w = store.getWorkout(localId) ?: return localId
+        return "${w.activityType.name} · ${w.startAt}"
+    }
+
+    fun workoutDetailSubtitle(localId: String): String {
+        val w = store.getWorkout(localId) ?: return ""
+        val kcal = w.activeEnergyKcal?.let { "${it.toLong()} kcal" } ?: "—"
+        val removed = if (w.removedFromPlatform) "removed" else "local"
+        return "$kcal · $removed"
+    }
+
+    /** After a successful restore insert. */
+    fun completeRestore(localId: String, platformRecordId: String) {
+        sync.completeRestore(localId, platformRecordId)
+    }
+
+    /** Exist-check found the sync id already on the platform — clear removed flag, skip insert. */
+    fun reconcileAlreadyOnPlatform(localId: String, platformRecordId: String?) {
+        sync.reconcileAlreadyOnPlatform(localId, platformRecordId)
     }
 
     fun lastSyncEpochMs(platform: String): Long? {

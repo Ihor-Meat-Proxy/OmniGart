@@ -231,5 +231,18 @@
   "pdf_activity_yoga": "Ёга",
   "pdf_activity_pilates": "Пілатэс",
   "pdf_activity_other": "Іншае",
-  "hc_rationale_body": "OmniGart запытвае доступ да Health Connect, каб чытаць і запісваць абраныя вамі фітнес-даныя і даныя самаадчування — пульс, ВСР, сон, трэніроўкі, масу цела, гідратацыю.\n\nЗапіс толькі дадае: OmniGart ніколі не выдаляе і не перазапісвае дадзеныя Health Connect, нават свае. Лакальныя змены застаюцца ў OmniGart.\n\nМы не прадаём даныя здароўя і не выкарыстоўваем іх для рэкламы. Можна адмовіць у доступе."
+  "hc_rationale_body": "OmniGart запытвае доступ да Health Connect, каб чытаць і запісваць абраныя вамі фітнес-даныя і даныя самаадчування — пульс, ВСР, сон, трэніроўкі, масу цела, гідратацыю.\n\nЗапіс толькі дадае: OmniGart ніколі не выдаляе і не перазапісвае дадзеныя Health Connect, нават свае. Лакальныя змены застаюцца ў OmniGart.\n\nМы не прадаём даныя здароўя і не выкарыстоўваем іх для рэкламы. Можна адмовіць у доступе.",
+  "health_workout_detail_title": "Трэніроўка",
+  "health_restore_removed_banner": "Прыбрана з платформы здароўя. Копія ў OmniGart застаецца — можна аднавіць.",
+  "health_restore_removed_section": "Прыбрана з платформы",
+  "health_restore_to_apple_health": "Аднавіць у Apple Health",
+  "health_restore_to_health_connect": "Аднавіць у Health Connect",
+  "health_restore_all_apple_health": "Аднавіць усе прыбраныя ў Apple Health",
+  "health_restore_all_health_connect": "Аднавіць усе прыбраныя ў Health Connect",
+  "health_restore_success": "Адноўлена на платформе здароўя.",
+  "health_restore_already_present": "Ужо на платформе — лакальную пазнаку знята.",
+  "health_restore_skipped": "Няма што аднаўляць.",
+  "health_restore_failed": "Не ўдалося аднавіць гэтую трэніроўку.",
+  "health_restore_permission_needed": "Для аднаўлення патрэбны дазвол на запіс у Health.",
+  "health_restore_all_result": "Адноўлена %1$d · не ўдалося %2$d"
 }

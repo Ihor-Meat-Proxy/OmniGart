@@ -11,6 +11,12 @@ final class PendingWatchWorkout: ObservableObject {
 
 /// Receives `startWatchApp` / mirrored workout configurations from the iPhone.
 final class WatchAppDelegate: NSObject, WKApplicationDelegate {
+    func applicationDidFinishLaunching() {
+        Task { @MainActor in
+            WatchPhoneWorkoutTransfer.shared.activate()
+        }
+    }
+
     func handle(_ workoutConfiguration: HKWorkoutConfiguration) {
         let kind = OmniGartWorkoutKind.from(configuration: workoutConfiguration)
         Task { @MainActor in

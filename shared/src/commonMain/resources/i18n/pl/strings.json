@@ -231,5 +231,18 @@
   "pdf_activity_yoga": "Joga",
   "pdf_activity_pilates": "Pilates",
   "pdf_activity_other": "Inne",
-  "hc_rationale_body": "OmniGart prosi o dostęp do Health Connect, aby czytać i zapisywać wybrane dane fitness i wellness — tętno, HRV, sen, treningi, masa ciała, nawodnienie — dla dokładniejszych szacunków na urządzeniu.\n\nZapis tylko dopisuje: OmniGart nigdy nie usuwa ani nie nadpisuje danych Health Connect, także własnych. Edycje lokalne zostają w OmniGart. Gdy próbka zniknie z Health Connect, lokalna kopia pozostaje.\n\nNie sprzedajemy danych zdrowotnych, nie używamy ich do reklam i nie udostępniamy ich stronom trzecim do marketingu. Możesz odmówić dostępu i korzystać z ręcznego wpisu."
+  "hc_rationale_body": "OmniGart prosi o dostęp do Health Connect, aby czytać i zapisywać wybrane dane fitness i wellness — tętno, HRV, sen, treningi, masa ciała, nawodnienie — dla dokładniejszych szacunków na urządzeniu.\n\nZapis tylko dopisuje: OmniGart nigdy nie usuwa ani nie nadpisuje danych Health Connect, także własnych. Edycje lokalne zostają w OmniGart. Gdy próbka zniknie z Health Connect, lokalna kopia pozostaje.\n\nNie sprzedajemy danych zdrowotnych, nie używamy ich do reklam i nie udostępniamy ich stronom trzecim do marketingu. Możesz odmówić dostępu i korzystać z ręcznego wpisu.",
+  "health_workout_detail_title": "Trening",
+  "health_restore_removed_banner": "Usunięto z platformy zdrowotnej. Kopia w OmniGart nadal jest — możesz ją przywrócić.",
+  "health_restore_removed_section": "Usunięte z platformy",
+  "health_restore_to_apple_health": "Przywróć do Apple Health",
+  "health_restore_to_health_connect": "Przywróć do Health Connect",
+  "health_restore_all_apple_health": "Przywróć wszystkie usunięte do Apple Health",
+  "health_restore_all_health_connect": "Przywróć wszystkie usunięte do Health Connect",
+  "health_restore_success": "Przywrócono na platformę zdrowotną.",
+  "health_restore_already_present": "Już na platformie — lokalna flaga wyczyszczona.",
+  "health_restore_skipped": "Nie ma nic do przywrócenia.",
+  "health_restore_failed": "Nie udało się przywrócić tego treningu.",
+  "health_restore_permission_needed": "Do przywrócenia potrzebne jest uprawnienie zapisu do Health.",
+  "health_restore_all_result": "Przywrócono %1$d · nieudane %2$d"
 }

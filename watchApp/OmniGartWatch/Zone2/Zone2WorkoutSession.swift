@@ -100,12 +100,28 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
         elapsedTimer = nil
         session?.end()
         do {
+            let end = Date()
+            let localId = UUID().uuidString
+            let syncId = "omnigart.workout.\(localId)"
             if let builder {
-                try await builder.endCollection(at: Date())
+                try await builder.addMetadata([
+                    HKMetadataKeySyncIdentifier: syncId,
+                    HKMetadataKeySyncVersion: 1,
+                    HKMetadataKeyIndoorWorkout: false
+                ])
+                try await builder.endCollection(at: end)
                 _ = try await builder.finishWorkout()
             }
             isRunning = false
-            return makeSummary()
+            let summary = makeSummary()
+            WatchWorkoutTransferBuilder.enqueueZone2Summary(
+                summary,
+                localId: localId,
+                syncIdentifier: syncId,
+                startedAt: startedAt ?? end.addingTimeInterval(-summary.elapsed),
+                endedAt: end
+            )
+            return summary
         } catch {
             lastError = error.localizedDescription
             isRunning = false

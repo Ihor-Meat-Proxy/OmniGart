@@ -231,5 +231,18 @@
   "pdf_activity_yoga": "Jóga",
   "pdf_activity_pilates": "Pilates",
   "pdf_activity_other": "Jiné",
-  "hc_rationale_body": "OmniGart žádá přístup k Health Connect, aby četl a zapisoval vámi zvolená fitness a wellness data.\n\nZápis jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Health Connect, ani vlastní. Místní úpravy zůstávají v OmniGart.\n\nZdravotní data neprodáváme a nepoužíváme k reklamě. Můžete přístup odepřít."
+  "hc_rationale_body": "OmniGart žádá přístup k Health Connect, aby četl a zapisoval vámi zvolená fitness a wellness data.\n\nZápis jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Health Connect, ani vlastní. Místní úpravy zůstávají v OmniGart.\n\nZdravotní data neprodáváme a nepoužíváme k reklamě. Můžete přístup odepřít.",
+  "health_workout_detail_title": "Trénink",
+  "health_restore_removed_banner": "Odstraněno ze zdravotní platformy. Kopie v OmniGart zůstává — můžete ji obnovit.",
+  "health_restore_removed_section": "Odstraněno z platformy",
+  "health_restore_to_apple_health": "Obnovit do Apple Health",
+  "health_restore_to_health_connect": "Obnovit do Health Connect",
+  "health_restore_all_apple_health": "Obnovit vše odstraněné do Apple Health",
+  "health_restore_all_health_connect": "Obnovit vše odstraněné do Health Connect",
+  "health_restore_success": "Obnoveno na zdravotní platformu.",
+  "health_restore_already_present": "Už je na platformě — místní příznak vymazán.",
+  "health_restore_skipped": "Není co obnovit.",
+  "health_restore_failed": "Tento trénink se nepodařilo obnovit.",
+  "health_restore_permission_needed": "K obnovení je potřeba oprávnění k zápisu do Health.",
+  "health_restore_all_result": "Obnoveno %1$d · selhalo %2$d"
 }

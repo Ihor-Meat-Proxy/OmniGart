@@ -1,5 +1,8 @@
 package com.omnigart.shared.health.store
 
+import com.omnigart.shared.health.store.device.DeviceTransferIngestResult
+import com.omnigart.shared.health.store.device.DeviceWorkoutTransferCodec
+import com.omnigart.shared.health.store.device.DeviceWorkoutTransferDocument
 import kotlin.time.Clock
 
 /**
@@ -14,7 +17,10 @@ import kotlin.time.Clock
  *   / clientRecordId and skip when already present.
  * - Local edits stay in OmniGart only.
  * - Platform-side deletion marks [LocalHealthWorkout.removedFromPlatform] and keeps data.
+ * - User-initiated **restore** bumps sync version and inserts again (still no update/delete).
  * - Incremental via change tokens / anchors stored in [health_sync_state].
+ * - Device transfer (Watch / Wear → phone) upserts by sync id; Apple Watch path never
+ *   re-writes HealthKit; Wear path may append-only insert into Health Connect once.
  */
 class HealthSyncEngine(private val store: LocalHealthStore, private val clock: Clock = Clock.System) {
     /**
@@ -29,6 +35,31 @@ class HealthSyncEngine(private val store: LocalHealthStore, private val clock: C
             )
         store.upsertWorkout(stamped)
         return stamped
+    }
+
+    /**
+     * Ingest a watch / Wear transfer on the phone. Idempotent by [HealthSyncIdentity.syncIdentifier].
+     * Does not write to any platform store — callers decide (iPhone: never HK; Android: HC once).
+     */
+    fun ingestDeviceTransfer(document: DeviceWorkoutTransferDocument): DeviceTransferIngestResult {
+        if (document.schema != DeviceWorkoutTransferDocument.SCHEMA_ID) {
+            return DeviceTransferIngestResult.REJECTED
+        }
+        if (document.schemaVersion != DeviceWorkoutTransferDocument.SCHEMA_VERSION) {
+            return DeviceTransferIngestResult.REJECTED
+        }
+        if (!HealthDataMapper.mayWriteToPlatform(
+                DeviceWorkoutTransferCodec.toLocalWorkout(document, clock)
+            )
+        ) {
+            return DeviceTransferIngestResult.REJECTED
+        }
+        val existing = store.getBySyncIdentifier(document.syncIdentifier)
+        if (existing != null) {
+            return DeviceTransferIngestResult.ALREADY_PRESENT
+        }
+        recordLocally(DeviceWorkoutTransferCodec.toLocalWorkout(document, clock))
+        return DeviceTransferIngestResult.INSERTED
     }
 
     /**
@@ -63,6 +94,56 @@ class HealthSyncEngine(private val store: LocalHealthStore, private val clock: C
      */
     fun workoutsEligibleForPlatformWrite(): List<LocalHealthWorkout> =
         store.listWorkouts().filter { PlatformAppendOnlyPolicy.shouldAttemptPlatformWrite(it) }
+
+    /** OmniGart-owned local copies that the user may restore to the platform. */
+    fun workoutsEligibleForRestore(): List<LocalHealthWorkout> =
+        store.listWorkouts().filter { PlatformAppendOnlyPolicy.shouldAttemptPlatformRestore(it) }
+
+    /**
+     * Prepare a restore: bump [HealthSyncIdentity.syncVersion] for a new platform insert
+     * with the same sync id. Returns null when not eligible.
+     */
+    fun prepareRestore(localId: String): LocalHealthWorkout? {
+        val local = store.getWorkout(localId) ?: return null
+        if (!PlatformAppendOnlyPolicy.shouldAttemptPlatformRestore(local)) return null
+        val prepared =
+            local.copy(
+                identity = local.identity.bumped(),
+                // New platform object after restore; clear stale UUID until insert succeeds.
+                platformRecordId = null,
+                updatedAt = clock.now()
+            )
+        store.upsertWorkout(prepared)
+        return prepared
+    }
+
+    /**
+     * Successful restore insert: clear removed flag and link the new platform record id.
+     */
+    fun completeRestore(localId: String, platformRecordId: String) {
+        val local = store.getWorkout(localId) ?: return
+        store.upsertWorkout(
+            local.copy(
+                removedFromPlatform = false,
+                platformRecordId = platformRecordId,
+                updatedAt = clock.now()
+            )
+        )
+    }
+
+    /**
+     * Sync id / clientRecordId already present on the platform — skip insert, clear removed flag.
+     */
+    fun reconcileAlreadyOnPlatform(localId: String, platformRecordId: String? = null) {
+        val local = store.getWorkout(localId) ?: return
+        store.upsertWorkout(
+            local.copy(
+                removedFromPlatform = false,
+                platformRecordId = platformRecordId ?: local.platformRecordId,
+                updatedAt = clock.now()
+            )
+        )
+    }
 
     /**
      * Platform deleted a sample. Keep the OmniGart copy; mark it removed from the platform.

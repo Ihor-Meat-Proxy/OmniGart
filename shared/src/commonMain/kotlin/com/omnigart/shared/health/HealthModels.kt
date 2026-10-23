@@ -129,12 +129,18 @@ data class HealthWorkout(
     val start: Instant,
     val end: Instant,
     val energyKcal: Double? = null,
+    val basalEnergyKcal: Double? = null,
     val distanceMetres: Double? = null,
     val averageHeartRateBpm: Double? = null,
-    val sourceName: String? = null
+    val sourceName: String? = null,
+    /** Stamped on insert / restore (`Metadata.clientRecordVersion` / HK SyncVersion). */
+    val clientRecordVersion: Long = 1L,
+    /** Full HR series for restore / rich writes. */
+    val heartRateSamples: List<HeartRateSample> = emptyList()
 ) {
     init {
         require(end >= start)
+        require(clientRecordVersion >= 1)
     }
 }
 

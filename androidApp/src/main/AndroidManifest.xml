@@ -71,6 +71,19 @@
             </intent-filter>
         </activity-alias>
 
+        <!-- Wear OS → phone workout inbox (Data Layer). -->
+        <service
+            android:name=".health.WearWorkoutInboxService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED" />
+                <data
+                    android:scheme="wear"
+                    android:host="*"
+                    android:pathPrefix="/omnigart/workout/transfer" />
+            </intent-filter>
+        </service>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"

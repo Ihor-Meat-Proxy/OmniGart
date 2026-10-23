@@ -5,9 +5,11 @@ import android.content.Intent
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.health.connect.client.PermissionController
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.design.theme.OmniGartSpacing
 import com.omnigart.shared.OmniGartCore
@@ -29,12 +32,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/** Profile → Data and privacy: export/import, sync status, conflicts. */
+/** Profile → Data and privacy: export/import, sync status, conflicts, restore. */
 @Composable
 fun DataPrivacySection(core: OmniGartCore) {
     val context = LocalContext.current
     var exportMessage by remember { mutableStateOf<String?>(null) }
     var importMessage by remember { mutableStateOf<String?>(null) }
+    var selectedDetailId by remember { mutableStateOf<String?>(null) }
+    var removedIds by remember { mutableStateOf(core.localHealth.removedFromPlatformIds()) }
     var conflictLines by remember {
         mutableStateOf(core.localHealth.conflictSummaries().map(::formatConflict))
     }
@@ -47,45 +52,25 @@ fun DataPrivacySection(core: OmniGartCore) {
 
     Column(verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space2)) {
         DataPrivacyHeader(core)
-        Button(
-            onClick = { createDocLauncher.launch("omnigart-health.json") },
-            modifier = Modifier.testTag("data_privacy_export")
-        ) {
-            Text(text = stringResource(R.string.data_privacy_export))
+        RemovedWorkoutsRestoreBlock(
+            core = core,
+            removedIds = removedIds,
+            onSelect = { selectedDetailId = it },
+            onRemovedChanged = { removedIds = it }
+        )
+        selectedDetailId?.let { id ->
+            LocalHealthWorkoutDetailSection(core = core, workoutId = id) {
+                removedIds = core.localHealth.removedFromPlatformIds()
+                if (!core.localHealth.isRemovedFromPlatform(id)) selectedDetailId = null
+            }
         }
-        Button(
-            onClick = {
-                shareHealthExport(context, core)
-                exportMessage = context.getString(R.string.data_privacy_export_ready)
-            },
-            modifier = Modifier.testTag("data_privacy_export_share")
-        ) {
-            Text(text = stringResource(R.string.data_privacy_export_share))
-        }
-        Button(
-            onClick = {
-                OmnigartPdfShare.shareLatest(context, core)
-                exportMessage = context.getString(R.string.pdf_export_ready)
-            },
-            modifier = Modifier.testTag("pdf_export_button")
-        ) {
-            Text(text = stringResource(R.string.pdf_export_button))
-        }
-        Button(
-            onClick = {
-                OmnigartPdfShare.shareLast30Days(context, core)
-                exportMessage = context.getString(R.string.pdf_export_ready)
-            },
-            modifier = Modifier.testTag("pdf_export_range_button")
-        ) {
-            Text(text = stringResource(R.string.pdf_export_range_button))
-        }
-        Button(
-            onClick = { importLauncher.launch(arrayOf("application/json", "text/*")) },
-            modifier = Modifier.testTag("data_privacy_import_json")
-        ) {
-            Text(text = stringResource(R.string.data_privacy_import_json))
-        }
+        ExportImportButtons(
+            core = core,
+            context = context,
+            onExportMessage = { exportMessage = it },
+            onCreateDoc = { createDocLauncher.launch("omnigart-health.json") },
+            onImport = { importLauncher.launch(arrayOf("application/json", "text/*")) }
+        )
         ConflictReview(core = core, conflictLines = conflictLines) {
             conflictLines = emptyList()
         }
@@ -100,6 +85,122 @@ fun DataPrivacySection(core: OmniGartCore) {
             style = MaterialTheme.typography.labelSmall,
             color = OmniGartColors.colorTextLightSecondary
         )
+    }
+}
+
+@Composable
+private fun RemovedWorkoutsRestoreBlock(
+    core: OmniGartCore,
+    removedIds: List<String>,
+    onSelect: (String) -> Unit,
+    onRemovedChanged: (List<String>) -> Unit
+) {
+    if (removedIds.isEmpty()) return
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    var restoreMessage by remember { mutableStateOf<String?>(null) }
+    var restoringAll by remember { mutableStateOf(false) }
+    val permissionLauncher =
+        rememberLauncherForActivityResult(
+            PermissionController.createRequestPermissionResultContract()
+        ) {
+            scope.launch {
+                restoringAll = true
+                val (ok, failed) = HealthConnectWorkoutRestorer.restoreAll(context, core)
+                restoreMessage = context.getString(R.string.health_restore_all_result, ok, failed)
+                onRemovedChanged(core.localHealth.removedFromPlatformIds())
+                restoringAll = false
+            }
+        }
+    Text(
+        text = stringResource(R.string.health_restore_removed_section),
+        style = MaterialTheme.typography.titleSmall
+    )
+    removedIds.forEach { id ->
+        Text(
+            text = core.localHealth.workoutDetailTitle(id),
+            modifier = Modifier.testTag("health_restore_row_$id").clickable { onSelect(id) }
+        )
+        Text(
+            text = core.localHealth.workoutDetailSubtitle(id),
+            style = MaterialTheme.typography.labelSmall,
+            color = OmniGartColors.colorTextLightSecondary
+        )
+    }
+    Button(
+        onClick = {
+            scope.launch {
+                restoringAll = true
+                if (!HealthConnectWorkoutRestorer.hasWriteAccess(context)) {
+                    restoringAll = false
+                    runCatching {
+                        permissionLauncher.launch(HealthConnectWorkoutRestorer.writePermissions())
+                    }.onFailure {
+                        restoreMessage =
+                            context.getString(R.string.health_restore_permission_needed)
+                    }
+                    return@launch
+                }
+                val (ok, failed) = HealthConnectWorkoutRestorer.restoreAll(context, core)
+                restoreMessage = context.getString(R.string.health_restore_all_result, ok, failed)
+                onRemovedChanged(core.localHealth.removedFromPlatformIds())
+                restoringAll = false
+            }
+        },
+        enabled = !restoringAll,
+        modifier = Modifier.testTag("health_restore_all_health_connect")
+    ) {
+        if (restoringAll) {
+            CircularProgressIndicator()
+        } else {
+            Text(text = stringResource(R.string.health_restore_all_health_connect))
+        }
+    }
+    restoreMessage?.let {
+        Text(text = it, modifier = Modifier.testTag("health_restore_bulk_message"))
+    }
+}
+
+@Composable
+private fun ExportImportButtons(
+    core: OmniGartCore,
+    context: Context,
+    onExportMessage: (String) -> Unit,
+    onCreateDoc: () -> Unit,
+    onImport: () -> Unit
+) {
+    Button(onClick = onCreateDoc, modifier = Modifier.testTag("data_privacy_export")) {
+        Text(text = stringResource(R.string.data_privacy_export))
+    }
+    Button(
+        onClick = {
+            shareHealthExport(context, core)
+            onExportMessage(context.getString(R.string.data_privacy_export_ready))
+        },
+        modifier = Modifier.testTag("data_privacy_export_share")
+    ) {
+        Text(text = stringResource(R.string.data_privacy_export_share))
+    }
+    Button(
+        onClick = {
+            OmnigartPdfShare.shareLatest(context, core)
+            onExportMessage(context.getString(R.string.pdf_export_ready))
+        },
+        modifier = Modifier.testTag("pdf_export_button")
+    ) {
+        Text(text = stringResource(R.string.pdf_export_button))
+    }
+    Button(
+        onClick = {
+            OmnigartPdfShare.shareLast30Days(context, core)
+            onExportMessage(context.getString(R.string.pdf_export_ready))
+        },
+        modifier = Modifier.testTag("pdf_export_range_button")
+    ) {
+        Text(text = stringResource(R.string.pdf_export_range_button))
+    }
+    Button(onClick = onImport, modifier = Modifier.testTag("data_privacy_import_json")) {
+        Text(text = stringResource(R.string.data_privacy_import_json))
     }
 }
 

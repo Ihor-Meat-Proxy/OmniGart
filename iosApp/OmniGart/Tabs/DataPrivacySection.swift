@@ -8,10 +8,13 @@ struct DataPrivacySection: View {
 
     @State private var exportMessage: String?
     @State private var importMessage: String?
+    @State private var restoreMessage: String?
     @State private var sharePayload: SharePayload?
     @State private var showImporter = false
     @State private var syncing = false
+    @State private var restoringAll = false
     @State private var conflictLines: [String] = []
+    @State private var removedIds: [String] = []
 
     var body: some View {
         Section("data_privacy_title") {
@@ -38,6 +41,41 @@ struct DataPrivacySection: View {
             }
             .disabled(syncing)
             .accessibilityIdentifier("data_privacy_sync_now")
+
+            if !removedIds.isEmpty {
+                Text("health_restore_removed_section")
+                    .font(.subheadline.weight(.semibold))
+                ForEach(removedIds, id: \.self) { id in
+                    NavigationLink {
+                        LocalHealthWorkoutDetailView(core: core, workoutId: id)
+                    } label: {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(core.localHealth.workoutDetailTitle(localId: id))
+                                .font(.body)
+                            Text(core.localHealth.workoutDetailSubtitle(localId: id))
+                                .font(.caption2)
+                                .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                        }
+                    }
+                    .accessibilityIdentifier("health_restore_row_\(id)")
+                }
+                Button {
+                    Task { await restoreAll() }
+                } label: {
+                    if restoringAll {
+                        ProgressView()
+                    } else {
+                        Text("health_restore_all_apple_health")
+                    }
+                }
+                .disabled(restoringAll)
+                .accessibilityIdentifier("health_restore_all_apple_health")
+                if let restoreMessage {
+                    Text(restoreMessage)
+                        .font(.caption)
+                        .accessibilityIdentifier("health_restore_bulk_message")
+                }
+            }
 
             Button("data_privacy_export") {
                 exportAll()
@@ -90,7 +128,10 @@ struct DataPrivacySection: View {
                 .font(.caption2)
                 .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
         }
-        .onAppear(perform: refreshConflicts)
+        .onAppear {
+            refreshConflicts()
+            refreshRemoved()
+        }
         .sheet(item: $sharePayload) { payload in
             ActivityView(activityItems: payload.items)
         }
@@ -133,6 +174,25 @@ struct DataPrivacySection: View {
         defer { syncing = false }
         await HealthKitWorkoutImporter.syncIntoLocalStore(core: core)
         refreshConflicts()
+        refreshRemoved()
+    }
+
+    private func restoreAll() async {
+        restoringAll = true
+        defer { restoringAll = false }
+        let result = await HealthKitWorkoutRestorer.restoreAll(core: core)
+        await MainActor.run {
+            refreshRemoved()
+            restoreMessage = String(
+                format: String(localized: "health_restore_all_result"),
+                result.ok,
+                result.failed
+            )
+        }
+    }
+
+    private func refreshRemoved() {
+        removedIds = core.localHealth.removedFromPlatformIds().map { $0 as String }
     }
 
     private func exportAll() {

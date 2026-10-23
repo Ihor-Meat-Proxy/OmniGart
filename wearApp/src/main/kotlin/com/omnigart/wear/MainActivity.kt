@@ -8,6 +8,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
@@ -21,27 +25,58 @@ import com.omnigart.design.theme.OmniGartSpacing
 import com.omnigart.shared.OmniGartCore
 import com.omnigart.shared.content.AssetContentStore
 import com.omnigart.shared.data.DatabaseDriverFactory
+import com.omnigart.wear.workout.WearExerciseRecorder
+import com.omnigart.wear.workout.WearPhoneWorkoutTransfer
 
 class MainActivity : ComponentActivity() {
+    private lateinit var core: OmniGartCore
+    private lateinit var transfer: WearPhoneWorkoutTransfer
+    private lateinit var recorder: WearExerciseRecorder
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val core =
+        core =
             OmniGartCore(
                 DatabaseDriverFactory(applicationContext),
                 contentStore = AssetContentStore(applicationContext.assets)
             )
+        transfer = WearPhoneWorkoutTransfer(applicationContext, core).also { it.start() }
+        recorder = WearExerciseRecorder(applicationContext, core, transfer)
         val profile = core.ensureDemoProfile()
         val headline = core.summaryLines(profile).take(2)
         setContent {
             MaterialTheme {
-                WearStartScreen(lines = headline)
+                WearStartScreen(
+                    lines = headline,
+                    onStart = {
+                        // Prefer Health Services ExerciseClient; fall back to manual publish for emulators.
+                        if (recorder.isRunning()) {
+                            recorder.stop { }
+                        } else {
+                            runCatching { recorder.start() }
+                                .onFailure {
+                                    recorder.recordManualAndTransfer()
+                                }
+                            // If ExerciseClient cannot start on this device, still deliver a transfer.
+                            if (!recorder.isRunning()) {
+                                recorder.recordManualAndTransfer()
+                            }
+                        }
+                    }
+                )
             }
         }
+    }
+
+    override fun onDestroy() {
+        transfer.stop()
+        super.onDestroy()
     }
 }
 
 @Composable
-fun WearStartScreen(lines: List<String>) {
+fun WearStartScreen(lines: List<String>, onStart: () -> Unit = {}) {
+    var status by remember { mutableStateOf("") }
     Column(
         modifier =
         Modifier
@@ -68,8 +103,14 @@ fun WearStartScreen(lines: List<String>) {
         lines.forEach { line ->
             Text(text = line, textAlign = TextAlign.Center)
         }
+        if (status.isNotEmpty()) {
+            Text(text = status, textAlign = TextAlign.Center)
+        }
         Button(
-            onClick = {},
+            onClick = {
+                onStart()
+                status = "sync"
+            },
             modifier =
             Modifier
                 .padding(top = OmniGartSpacing.space3)

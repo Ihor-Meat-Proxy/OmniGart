@@ -231,5 +231,18 @@
   "pdf_activity_yoga": "Йога",
   "pdf_activity_pilates": "Пилатес",
   "pdf_activity_other": "Басқа",
-  "hc_rationale_body": "OmniGart сіз таңдаған фитнес және сауықтыру деректерін оқу және жазу үшін Health Connect қолжетімділігін сұрайды.\n\nЖазу тек қосу: OmniGart Health Connect деректерін — өзінкін де — жоймайды және қайта жазбайды. Жергілікті өзгерістер OmniGart-та қалады.\n\nДенсаулық деректерін сатпаймыз және жарнамаға пайдаланбаймыз. Қолжетімділікті қабылдамауға болады."
+  "hc_rationale_body": "OmniGart сіз таңдаған фитнес және сауықтыру деректерін оқу және жазу үшін Health Connect қолжетімділігін сұрайды.\n\nЖазу тек қосу: OmniGart Health Connect деректерін — өзінкін де — жоймайды және қайта жазбайды. Жергілікті өзгерістер OmniGart-та қалады.\n\nДенсаулық деректерін сатпаймыз және жарнамаға пайдаланбаймыз. Қолжетімділікті қабылдамауға болады.",
+  "health_workout_detail_title": "Жаттығу",
+  "health_restore_removed_banner": "Сауықтыру платформасынан өшірілді. OmniGart көшірмесі бар — қалпына келтіруге болады.",
+  "health_restore_removed_section": "Платформадан өшірілген",
+  "health_restore_to_apple_health": "Apple Health-ке қалпына келтіру",
+  "health_restore_to_health_connect": "Health Connect-ке қалпына келтіру",
+  "health_restore_all_apple_health": "Өшірілгендердің бәрін Apple Health-ке қалпына келтіру",
+  "health_restore_all_health_connect": "Өшірілгендердің бәрін Health Connect-ке қалпына келтіру",
+  "health_restore_success": "Сауықтыру платформасына қалпына келтірілді.",
+  "health_restore_already_present": "Платформада бар — жергілікті белгі өшірілді.",
+  "health_restore_skipped": "Қалпына келтіретін ештеңе жоқ.",
+  "health_restore_failed": "Бұл жаттығуды қалпына келтіру мүмкін болмады.",
+  "health_restore_permission_needed": "Қалпына келтіру үшін Health жазу рұқсаты қажет.",
+  "health_restore_all_result": "Қалпына келтірілді %1$d · сәтсіз %2$d"
 }

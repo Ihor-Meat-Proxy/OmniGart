@@ -231,5 +231,18 @@
   "pdf_activity_yoga": "იოგა",
   "pdf_activity_pilates": "პილატესი",
   "pdf_activity_other": "სხვა",
-  "hc_rationale_body": "OmniGart ითხოვს Health Connect-ზე წვდომას თქვენ მიერ არჩეული ფიტნესისა და კეთილდღეობის მონაცემების წასაკითხად და ჩასაწერად.\n\nჩაწერა მხოლოდ დამატებითია: OmniGart არ შლის და არ გადააწერს Health Connect მონაცემებს, მათ შორის საკუთარს. ლოკალური ცვლილებები რჩება OmniGart-ში.\n\nჯანმრთელობის მონაცემებს არ ვყიდით და რეკლამისთვის არ ვიყენებთ. შეგიძლიათ უარყოთ წვდომა."
+  "hc_rationale_body": "OmniGart ითხოვს Health Connect-ზე წვდომას თქვენ მიერ არჩეული ფიტნესისა და კეთილდღეობის მონაცემების წასაკითხად და ჩასაწერად.\n\nჩაწერა მხოლოდ დამატებითია: OmniGart არ შლის და არ გადააწერს Health Connect მონაცემებს, მათ შორის საკუთარს. ლოკალური ცვლილებები რჩება OmniGart-ში.\n\nჯანმრთელობის მონაცემებს არ ვყიდით და რეკლამისთვის არ ვიყენებთ. შეგიძლიათ უარყოთ წვდომა.",
+  "health_workout_detail_title": "ვარჯიში",
+  "health_restore_removed_banner": "ჯანმრთელობის პლატფორმიდან წაიშალა. OmniGart ასლი რჩება — შეგიძლიათ აღადგინოთ.",
+  "health_restore_removed_section": "პლატფორმიდან წაშლილი",
+  "health_restore_to_apple_health": "Apple Health-ში აღდგენა",
+  "health_restore_to_health_connect": "Health Connect-ში აღდგენა",
+  "health_restore_all_apple_health": "ყველა წაშლილის აღდგენა Apple Health-ში",
+  "health_restore_all_health_connect": "ყველა წაშლილის აღდგენა Health Connect-ში",
+  "health_restore_success": "აღდგენილია ჯანმრთელობის პლატფორმაზე.",
+  "health_restore_already_present": "უკვე პლატფორმაზეა — ლოკალური ნიშანი გასუფთავდა.",
+  "health_restore_skipped": "აღსადგენი არაფერია.",
+  "health_restore_failed": "ამ ვარჯიშის აღდგენა ვერ მოხერხდა.",
+  "health_restore_permission_needed": "აღდგენისთვის საჭიროა Health-ზე ჩაწერის ნებართვა.",
+  "health_restore_all_result": "აღდგენილია %1$d · ვერ მოხერხდა %2$d"
 }

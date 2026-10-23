@@ -587,6 +587,227 @@ t(
     },
 )
 
+t(
+    "health_workout_detail_title",
+    **{
+        "en-GB": "Workout",
+        "uk": "Тренування",
+        "pl": "Trening",
+        "be": "Трэніроўка",
+        "kk": "Жаттығу",
+        "ka": "ვარჯიში",
+        "es": "Entrenamiento",
+        "fr": "Séance",
+        "de": "Workout",
+        "cs": "Trénink",
+        "zh-Hans": "训练",
+    },
+)
+
+t(
+    "health_restore_removed_banner",
+    **{
+        "en-GB": "Removed from the health platform. Your OmniGart copy is still here — you can restore it.",
+        "uk": "Прибрано з платформи здоров’я. Копія в OmniGart лишається — можна відновити.",
+        "pl": "Usunięto z platformy zdrowotnej. Kopia w OmniGart nadal jest — możesz ją przywrócić.",
+        "be": "Прыбрана з платформы здароўя. Копія ў OmniGart застаецца — можна аднавіць.",
+        "kk": "Сауықтыру платформасынан өшірілді. OmniGart көшірмесі бар — қалпына келтіруге болады.",
+        "ka": "ჯანმრთელობის პლატფორმიდან წაიშალა. OmniGart ასლი რჩება — შეგიძლიათ აღადგინოთ.",
+        "es": "Eliminado de la plataforma de salud. La copia en OmniGart sigue aquí — puedes restaurarla.",
+        "fr": "Retiré de la plateforme santé. Votre copie OmniGart est toujours là — vous pouvez la restaurer.",
+        "de": "Von der Gesundheitsplattform entfernt. Ihre OmniGart-Kopie ist noch da — Sie können sie wiederherstellen.",
+        "cs": "Odstraněno ze zdravotní platformy. Kopie v OmniGart zůstává — můžete ji obnovit.",
+        "zh-Hans": "已从健康平台移除。OmniGart 本地副本仍在——可以恢复。",
+    },
+)
+
+t(
+    "health_restore_removed_section",
+    **{
+        "en-GB": "Removed from platform",
+        "uk": "Прибрано з платформи",
+        "pl": "Usunięte z platformy",
+        "be": "Прыбрана з платформы",
+        "kk": "Платформадан өшірілген",
+        "ka": "პლატფორმიდან წაშლილი",
+        "es": "Eliminados de la plataforma",
+        "fr": "Retirés de la plateforme",
+        "de": "Von der Plattform entfernt",
+        "cs": "Odstraněno z platformy",
+        "zh-Hans": "已从平台移除",
+    },
+)
+
+t(
+    "health_restore_to_apple_health",
+    **{
+        "en-GB": "Restore to Apple Health",
+        "uk": "Відновити в Apple Health",
+        "pl": "Przywróć do Apple Health",
+        "be": "Аднавіць у Apple Health",
+        "kk": "Apple Health-ке қалпына келтіру",
+        "ka": "Apple Health-ში აღდგენა",
+        "es": "Restaurar en Apple Health",
+        "fr": "Restaurer dans Apple Health",
+        "de": "In Apple Health wiederherstellen",
+        "cs": "Obnovit do Apple Health",
+        "zh-Hans": "恢复到 Apple Health",
+    },
+)
+
+t(
+    "health_restore_to_health_connect",
+    **{
+        "en-GB": "Restore to Health Connect",
+        "uk": "Відновити в Health Connect",
+        "pl": "Przywróć do Health Connect",
+        "be": "Аднавіць у Health Connect",
+        "kk": "Health Connect-ке қалпына келтіру",
+        "ka": "Health Connect-ში აღდგენა",
+        "es": "Restaurar en Health Connect",
+        "fr": "Restaurer dans Health Connect",
+        "de": "In Health Connect wiederherstellen",
+        "cs": "Obnovit do Health Connect",
+        "zh-Hans": "恢复到 Health Connect",
+    },
+)
+
+t(
+    "health_restore_all_apple_health",
+    **{
+        "en-GB": "Restore all removed to Apple Health",
+        "uk": "Відновити всі прибрані в Apple Health",
+        "pl": "Przywróć wszystkie usunięte do Apple Health",
+        "be": "Аднавіць усе прыбраныя ў Apple Health",
+        "kk": "Өшірілгендердің бәрін Apple Health-ке қалпына келтіру",
+        "ka": "ყველა წაშლილის აღდგენა Apple Health-ში",
+        "es": "Restaurar todos los eliminados en Apple Health",
+        "fr": "Tout restaurer dans Apple Health",
+        "de": "Alle Entfernten in Apple Health wiederherstellen",
+        "cs": "Obnovit vše odstraněné do Apple Health",
+        "zh-Hans": "将全部已移除项恢复到 Apple Health",
+    },
+)
+
+t(
+    "health_restore_all_health_connect",
+    **{
+        "en-GB": "Restore all removed to Health Connect",
+        "uk": "Відновити всі прибрані в Health Connect",
+        "pl": "Przywróć wszystkie usunięte do Health Connect",
+        "be": "Аднавіць усе прыбраныя ў Health Connect",
+        "kk": "Өшірілгендердің бәрін Health Connect-ке қалпына келтіру",
+        "ka": "ყველა წაშლილის აღდგენა Health Connect-ში",
+        "es": "Restaurar todos los eliminados en Health Connect",
+        "fr": "Tout restaurer dans Health Connect",
+        "de": "Alle Entfernten in Health Connect wiederherstellen",
+        "cs": "Obnovit vše odstraněné do Health Connect",
+        "zh-Hans": "将全部已移除项恢复到 Health Connect",
+    },
+)
+
+t(
+    "health_restore_success",
+    **{
+        "en-GB": "Restored to the health platform.",
+        "uk": "Відновлено на платформі здоров’я.",
+        "pl": "Przywrócono na platformę zdrowotną.",
+        "be": "Адноўлена на платформе здароўя.",
+        "kk": "Сауықтыру платформасына қалпына келтірілді.",
+        "ka": "აღდგენილია ჯანმრთელობის პლატფორმაზე.",
+        "es": "Restaurado en la plataforma de salud.",
+        "fr": "Restauré sur la plateforme santé.",
+        "de": "Auf der Gesundheitsplattform wiederhergestellt.",
+        "cs": "Obnoveno na zdravotní platformu.",
+        "zh-Hans": "已恢复到健康平台。",
+    },
+)
+
+t(
+    "health_restore_already_present",
+    **{
+        "en-GB": "Already on the platform — local flag cleared.",
+        "uk": "Уже на платформі — локальну позначку знято.",
+        "pl": "Już na platformie — lokalna flaga wyczyszczona.",
+        "be": "Ужо на платформе — лакальную пазнаку знята.",
+        "kk": "Платформада бар — жергілікті белгі өшірілді.",
+        "ka": "უკვე პლატფორმაზეა — ლოკალური ნიშანი გასუფთავდა.",
+        "es": "Ya está en la plataforma — se limpió la marca local.",
+        "fr": "Déjà sur la plateforme — indicateur local effacé.",
+        "de": "Bereits auf der Plattform — lokales Flag gelöscht.",
+        "cs": "Už je na platformě — místní příznak vymazán.",
+        "zh-Hans": "平台上已有该记录——已清除本地标记。",
+    },
+)
+
+t(
+    "health_restore_skipped",
+    **{
+        "en-GB": "Nothing to restore.",
+        "uk": "Немає що відновлювати.",
+        "pl": "Nie ma nic do przywrócenia.",
+        "be": "Няма што аднаўляць.",
+        "kk": "Қалпына келтіретін ештеңе жоқ.",
+        "ka": "აღსადგენი არაფერია.",
+        "es": "No hay nada que restaurar.",
+        "fr": "Rien à restaurer.",
+        "de": "Nichts wiederherzustellen.",
+        "cs": "Není co obnovit.",
+        "zh-Hans": "没有可恢复的内容。",
+    },
+)
+
+t(
+    "health_restore_failed",
+    **{
+        "en-GB": "Could not restore this workout.",
+        "uk": "Не вдалося відновити це тренування.",
+        "pl": "Nie udało się przywrócić tego treningu.",
+        "be": "Не ўдалося аднавіць гэтую трэніроўку.",
+        "kk": "Бұл жаттығуды қалпына келтіру мүмкін болмады.",
+        "ka": "ამ ვარჯიშის აღდგენა ვერ მოხერხდა.",
+        "es": "No se pudo restaurar este entrenamiento.",
+        "fr": "Impossible de restaurer cette séance.",
+        "de": "Dieses Workout konnte nicht wiederhergestellt werden.",
+        "cs": "Tento trénink se nepodařilo obnovit.",
+        "zh-Hans": "无法恢复此训练。",
+    },
+)
+
+t(
+    "health_restore_permission_needed",
+    **{
+        "en-GB": "Health write permission is required to restore.",
+        "uk": "Для відновлення потрібен дозвіл на запис у Health.",
+        "pl": "Do przywrócenia potrzebne jest uprawnienie zapisu do Health.",
+        "be": "Для аднаўлення патрэбны дазвол на запіс у Health.",
+        "kk": "Қалпына келтіру үшін Health жазу рұқсаты қажет.",
+        "ka": "აღდგენისთვის საჭიროა Health-ზე ჩაწერის ნებართვა.",
+        "es": "Se necesita permiso de escritura de Health para restaurar.",
+        "fr": "L’autorisation d’écriture Health est requise pour restaurer.",
+        "de": "Zum Wiederherstellen ist die Schreibberechtigung für Health erforderlich.",
+        "cs": "K obnovení je potřeba oprávnění k zápisu do Health.",
+        "zh-Hans": "恢复需要健康数据写入权限。",
+    },
+)
+
+t(
+    "health_restore_all_result",
+    **{
+        "en-GB": "Restored %1$d · failed %2$d",
+        "uk": "Відновлено %1$d · не вдалося %2$d",
+        "pl": "Przywrócono %1$d · nieudane %2$d",
+        "be": "Адноўлена %1$d · не ўдалося %2$d",
+        "kk": "Қалпына келтірілді %1$d · сәтсіз %2$d",
+        "ka": "აღდგენილია %1$d · ვერ მოხერხდა %2$d",
+        "es": "Restaurados %1$d · fallidos %2$d",
+        "fr": "Restaurés %1$d · échecs %2$d",
+        "de": "Wiederhergestellt %1$d · fehlgeschlagen %2$d",
+        "cs": "Obnoveno %1$d · selhalo %2$d",
+        "zh-Hans": "已恢复 %1$d · 失败 %2$d",
+    },
+)
+
 
 def sync_json() -> None:
     for loc in LOCALES:

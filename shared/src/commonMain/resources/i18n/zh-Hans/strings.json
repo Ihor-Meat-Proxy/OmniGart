@@ -231,5 +231,18 @@
   "pdf_activity_yoga": "瑜伽",
   "pdf_activity_pilates": "普拉提",
   "pdf_activity_other": "其他",
-  "hc_rationale_body": "OmniGart 请求访问 Health Connect，以读写您选择的健身与健康数据。\n\n写入仅为追加：从不删除或改写 Health Connect 数据（包括本应用创建的）。本地编辑只保留在 OmniGart。\n\n我们不出售健康数据，也不将其用于广告。您可以拒绝访问。"
+  "hc_rationale_body": "OmniGart 请求访问 Health Connect，以读写您选择的健身与健康数据。\n\n写入仅为追加：从不删除或改写 Health Connect 数据（包括本应用创建的）。本地编辑只保留在 OmniGart。\n\n我们不出售健康数据，也不将其用于广告。您可以拒绝访问。",
+  "health_workout_detail_title": "训练",
+  "health_restore_removed_banner": "已从健康平台移除。OmniGart 本地副本仍在——可以恢复。",
+  "health_restore_removed_section": "已从平台移除",
+  "health_restore_to_apple_health": "恢复到 Apple Health",
+  "health_restore_to_health_connect": "恢复到 Health Connect",
+  "health_restore_all_apple_health": "将全部已移除项恢复到 Apple Health",
+  "health_restore_all_health_connect": "将全部已移除项恢复到 Health Connect",
+  "health_restore_success": "已恢复到健康平台。",
+  "health_restore_already_present": "平台上已有该记录——已清除本地标记。",
+  "health_restore_skipped": "没有可恢复的内容。",
+  "health_restore_failed": "无法恢复此训练。",
+  "health_restore_permission_needed": "恢复需要健康数据写入权限。",
+  "health_restore_all_result": "已恢复 %1$d · 失败 %2$d"
 }

@@ -103,6 +103,62 @@ class PlatformAppendOnlyPolicyTest {
     }
 
     @Test
+    fun restore_bumpsSyncVersion_thenClearsRemovedOnComplete() {
+        val recorded = engine.recordLocally(sample())
+        engine.markPlatformLinked(recorded.id, "uuid-old")
+        engine.applyPlatformDeletion(
+            platform = HealthSyncPlatform.APPLE_HEALTH,
+            platformRecordId = "uuid-old"
+        )
+        val removed = checkNotNull(store.getWorkout(recorded.id))
+        assertTrue(PlatformAppendOnlyPolicy.shouldAttemptPlatformRestore(removed))
+        assertEquals(1, engine.workoutsEligibleForRestore().size)
+
+        val prepared = engine.prepareRestore(recorded.id)
+        assertNotNull(prepared)
+        assertEquals(2L, prepared.identity.syncVersion)
+        assertEquals(recorded.identity.syncIdentifier, prepared.identity.syncIdentifier)
+        assertEquals(null, prepared.platformRecordId)
+        assertTrue(prepared.removedFromPlatform)
+
+        engine.completeRestore(recorded.id, "uuid-restored")
+        val done = checkNotNull(store.getWorkout(recorded.id))
+        assertFalse(done.removedFromPlatform)
+        assertEquals("uuid-restored", done.platformRecordId)
+        assertEquals(2L, done.identity.syncVersion)
+        assertTrue(engine.workoutsEligibleForRestore().isEmpty())
+        // Still not a first-write candidate (already linked).
+        assertFalse(PlatformAppendOnlyPolicy.shouldAttemptPlatformWrite(done))
+    }
+
+    @Test
+    fun restore_reconcileWhenAlreadyOnPlatform_clearsFlagWithoutNeedingMutationApis() {
+        val recorded = engine.recordLocally(sample())
+        engine.applyPlatformDeletion(
+            platform = HealthSyncPlatform.HEALTH_CONNECT,
+            syncIdentifier = recorded.identity.syncIdentifier
+        )
+        engine.prepareRestore(recorded.id)
+        engine.reconcileAlreadyOnPlatform(recorded.id, "already-there")
+        val done = checkNotNull(store.getWorkout(recorded.id))
+        assertFalse(done.removedFromPlatform)
+        assertEquals("already-there", done.platformRecordId)
+    }
+
+    @Test
+    fun restore_rejectsForeignOrigin() {
+        val foreign =
+            sample().copy(
+                origin = HealthRecordOrigin.APPLE_HEALTH,
+                sourceBundle = "com.apple.Health",
+                removedFromPlatform = true
+            )
+        store.upsertWorkout(foreign)
+        assertFalse(PlatformAppendOnlyPolicy.shouldAttemptPlatformRestore(foreign))
+        assertEquals(null, engine.prepareRestore(foreign.id))
+    }
+
+    @Test
     fun contract_forbiddenApiTokenListsArePinnedForCiGate() {
         // Keep in sync with scripts/check_no_health_platform_mutate.sh
         // Concatenate in the assertion so this test file does not trip the CI grep gate.

@@ -216,4 +216,17 @@ We do not sell health data, use it for advertising, or share it with third parti
     <string name="pdf_activity_yoga">Yoga</string>
     <string name="pdf_activity_pilates">Pilates</string>
     <string name="pdf_activity_other">Other</string>
+    <string name="health_workout_detail_title">Workout</string>
+    <string name="health_restore_removed_banner">Removed from the health platform. Your OmniGart copy is still here — you can restore it.</string>
+    <string name="health_restore_removed_section">Removed from platform</string>
+    <string name="health_restore_to_apple_health">Restore to Apple Health</string>
+    <string name="health_restore_to_health_connect">Restore to Health Connect</string>
+    <string name="health_restore_all_apple_health">Restore all removed to Apple Health</string>
+    <string name="health_restore_all_health_connect">Restore all removed to Health Connect</string>
+    <string name="health_restore_success">Restored to the health platform.</string>
+    <string name="health_restore_already_present">Already on the platform — local flag cleared.</string>
+    <string name="health_restore_skipped">Nothing to restore.</string>
+    <string name="health_restore_failed">Could not restore this workout.</string>
+    <string name="health_restore_permission_needed">Health write permission is required to restore.</string>
+    <string name="health_restore_all_result">Restored %1$d · failed %2$d</string>
 </resources>

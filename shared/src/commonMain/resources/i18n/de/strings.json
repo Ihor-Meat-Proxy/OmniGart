@@ -231,5 +231,18 @@
   "pdf_activity_yoga": "Yoga",
   "pdf_activity_pilates": "Pilates",
   "pdf_activity_other": "Sonstiges",
-  "hc_rationale_body": "OmniGart fordert Zugriff auf Health Connect, um von Ihnen gewählte Fitness- und Wellness-Daten zu lesen und zu schreiben.\n\nSchreibungen nur anfügend: OmniGart löscht oder überschreibt keine Health-Connect-Daten, auch keine eigenen. Lokale Änderungen bleiben in OmniGart.\n\nWir verkaufen keine Gesundheitsdaten und nutzen sie nicht für Werbung. Sie können den Zugriff verweigern."
+  "hc_rationale_body": "OmniGart fordert Zugriff auf Health Connect, um von Ihnen gewählte Fitness- und Wellness-Daten zu lesen und zu schreiben.\n\nSchreibungen nur anfügend: OmniGart löscht oder überschreibt keine Health-Connect-Daten, auch keine eigenen. Lokale Änderungen bleiben in OmniGart.\n\nWir verkaufen keine Gesundheitsdaten und nutzen sie nicht für Werbung. Sie können den Zugriff verweigern.",
+  "health_workout_detail_title": "Workout",
+  "health_restore_removed_banner": "Von der Gesundheitsplattform entfernt. Ihre OmniGart-Kopie ist noch da — Sie können sie wiederherstellen.",
+  "health_restore_removed_section": "Von der Plattform entfernt",
+  "health_restore_to_apple_health": "In Apple Health wiederherstellen",
+  "health_restore_to_health_connect": "In Health Connect wiederherstellen",
+  "health_restore_all_apple_health": "Alle Entfernten in Apple Health wiederherstellen",
+  "health_restore_all_health_connect": "Alle Entfernten in Health Connect wiederherstellen",
+  "health_restore_success": "Auf der Gesundheitsplattform wiederhergestellt.",
+  "health_restore_already_present": "Bereits auf der Plattform — lokales Flag gelöscht.",
+  "health_restore_skipped": "Nichts wiederherzustellen.",
+  "health_restore_failed": "Dieses Workout konnte nicht wiederhergestellt werden.",
+  "health_restore_permission_needed": "Zum Wiederherstellen ist die Schreibberechtigung für Health erforderlich.",
+  "health_restore_all_result": "Wiederhergestellt %1$d · fehlgeschlagen %2$d"
 }

@@ -3,12 +3,15 @@ package com.omnigart.shared.health
 import android.content.Context
 import androidx.health.connect.client.HealthConnectClient as HcSdk
 import androidx.health.connect.client.permission.HealthPermission as HcPermission
+import androidx.health.connect.client.records.ActiveCaloriesBurnedRecord
+import androidx.health.connect.client.records.DistanceRecord
 import androidx.health.connect.client.records.ExerciseSessionRecord
 import androidx.health.connect.client.records.HeartRateRecord
 import androidx.health.connect.client.records.HeartRateVariabilityRmssdRecord
 import androidx.health.connect.client.records.HeightRecord
 import androidx.health.connect.client.records.HydrationRecord
 import androidx.health.connect.client.records.NutritionRecord
+import androidx.health.connect.client.records.Record
 import androidx.health.connect.client.records.RestingHeartRateRecord
 import androidx.health.connect.client.records.SleepSessionRecord
 import androidx.health.connect.client.records.WeightRecord
@@ -16,6 +19,7 @@ import androidx.health.connect.client.records.metadata.Metadata
 import androidx.health.connect.client.request.ChangesTokenRequest
 import androidx.health.connect.client.request.ReadRecordsRequest
 import androidx.health.connect.client.time.TimeRangeFilter
+import androidx.health.connect.client.units.Energy
 import androidx.health.connect.client.units.Length
 import androidx.health.connect.client.units.Mass
 import androidx.health.connect.client.units.Volume
@@ -303,35 +307,74 @@ class SdkHealthConnectGateway(
     override suspend fun writeWorkouts(workouts: List<HealthWorkout>) {
         withContext(Dispatchers.IO) {
             // Append-only: never HC record delete/update APIs. Skip when clientRecordId exists.
-            val fresh =
-                workouts.filter { workout ->
-                    val syncId = "omnigart.workout.${workout.id}"
-                    !clientRecordIdExists(
+            // Restore uses a bumped clientRecordVersion after platform deletion.
+            val toWrite = mutableListOf<Record>()
+            for (workout in workouts) {
+                val syncId = "omnigart.workout.${workout.id}"
+                if (clientRecordIdExists(syncId, workout.start, workout.end)) continue
+                val meta =
+                    Metadata.manualEntry(
                         clientRecordId = syncId,
-                        start = workout.start,
-                        end = workout.end
+                        clientRecordVersion = workout.clientRecordVersion.coerceAtLeast(1L)
                     )
-                }
-            if (fresh.isEmpty()) return@withContext
-            client.insertRecords(
-                fresh.map {
-                    val syncId = "omnigart.workout.${it.id}"
+                val start = workout.start.toJava()
+                val end = workout.end.toJava()
+                toWrite +=
                     ExerciseSessionRecord(
-                        startTime = it.start.toJava(),
+                        startTime = start,
                         startZoneOffset = null,
-                        endTime = it.end.toJava(),
+                        endTime = end,
                         endZoneOffset = null,
-                        exerciseType = exerciseTypeFor(it.activityType),
-                        title = it.sourceName,
-                        metadata =
-                        Metadata.manualEntry(
-                            clientRecordId = syncId,
-                            // Stamped once for identity; never bumped to rewrite.
-                            clientRecordVersion = 1L
-                        )
+                        exerciseType = exerciseTypeFor(workout.activityType),
+                        title = workout.sourceName,
+                        metadata = meta
                     )
+                workout.energyKcal?.takeIf { it > 0 }?.let { kcal ->
+                    toWrite +=
+                        ActiveCaloriesBurnedRecord(
+                            startTime = start,
+                            startZoneOffset = null,
+                            endTime = end,
+                            endZoneOffset = null,
+                            energy = Energy.kilocalories(kcal),
+                            metadata = Metadata.manualEntry()
+                        )
                 }
-            )
+                workout.distanceMetres?.takeIf { it > 0 }?.let { metres ->
+                    toWrite +=
+                        DistanceRecord(
+                            startTime = start,
+                            startZoneOffset = null,
+                            endTime = end,
+                            endZoneOffset = null,
+                            distance = Length.meters(metres),
+                            metadata = Metadata.manualEntry()
+                        )
+                }
+                if (workout.heartRateSamples.isNotEmpty()) {
+                    val samples =
+                        workout.heartRateSamples
+                            .filter { it.beatsPerMinute > 0 }
+                            .map {
+                                HeartRateRecord.Sample(
+                                    it.recordedAt.toJava(),
+                                    it.beatsPerMinute.toLong()
+                                )
+                            }
+                    if (samples.isNotEmpty()) {
+                        toWrite +=
+                            HeartRateRecord(
+                                startTime = samples.first().time,
+                                startZoneOffset = null,
+                                endTime = samples.last().time.plusMillis(1),
+                                endZoneOffset = null,
+                                samples = samples,
+                                metadata = Metadata.manualEntry()
+                            )
+                    }
+                }
+            }
+            if (toWrite.isNotEmpty()) client.insertRecords(toWrite)
         }
     }
 
@@ -339,7 +382,7 @@ class SdkHealthConnectGateway(
      * True when Health Connect already has an [ExerciseSessionRecord] with [clientRecordId].
      * Used to skip inserts (append-only; never HC update APIs).
      */
-    private suspend fun clientRecordIdExists(clientRecordId: String, start: Instant, end: Instant): Boolean {
+    suspend fun clientRecordIdExists(clientRecordId: String, start: Instant, end: Instant): Boolean {
         val padMs = 60_000L
         val from = JavaInstant.ofEpochMilli((start.toEpochMilliseconds() - padMs).coerceAtLeast(0))
         val to = JavaInstant.ofEpochMilli(end.toEpochMilliseconds() + padMs)

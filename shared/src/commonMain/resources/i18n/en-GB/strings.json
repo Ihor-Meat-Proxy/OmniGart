@@ -231,5 +231,18 @@
   "pdf_activity_yoga": "Yoga",
   "pdf_activity_pilates": "Pilates",
   "pdf_activity_other": "Other",
-  "hc_rationale_body": "OmniGart requests Health Connect access to read and write fitness and wellness data you choose — such as heart rate, HRV, sleep, workouts, body mass, and hydration — so readiness and training estimates stay accurate on your device.\n\nWrites are append-only: OmniGart never deletes or rewrites Health Connect data, including workouts it created. Local edits stay in OmniGart. If a sample is removed from Health Connect, OmniGart keeps your local copy.\n\nWe do not sell health data, use it for advertising, or share it with third parties for marketing. You can deny access and keep using OmniGart with manual entry."
+  "hc_rationale_body": "OmniGart requests Health Connect access to read and write fitness and wellness data you choose — such as heart rate, HRV, sleep, workouts, body mass, and hydration — so readiness and training estimates stay accurate on your device.\n\nWrites are append-only: OmniGart never deletes or rewrites Health Connect data, including workouts it created. Local edits stay in OmniGart. If a sample is removed from Health Connect, OmniGart keeps your local copy.\n\nWe do not sell health data, use it for advertising, or share it with third parties for marketing. You can deny access and keep using OmniGart with manual entry.",
+  "health_workout_detail_title": "Workout",
+  "health_restore_removed_banner": "Removed from the health platform. Your OmniGart copy is still here — you can restore it.",
+  "health_restore_removed_section": "Removed from platform",
+  "health_restore_to_apple_health": "Restore to Apple Health",
+  "health_restore_to_health_connect": "Restore to Health Connect",
+  "health_restore_all_apple_health": "Restore all removed to Apple Health",
+  "health_restore_all_health_connect": "Restore all removed to Health Connect",
+  "health_restore_success": "Restored to the health platform.",
+  "health_restore_already_present": "Already on the platform — local flag cleared.",
+  "health_restore_skipped": "Nothing to restore.",
+  "health_restore_failed": "Could not restore this workout.",
+  "health_restore_permission_needed": "Health write permission is required to restore.",
+  "health_restore_all_result": "Restored %1$d · failed %2$d"
 }

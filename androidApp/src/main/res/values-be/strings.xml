@@ -206,4 +206,17 @@
     <string name="pdf_activity_yoga">Ёга</string>
     <string name="pdf_activity_pilates">Пілатэс</string>
     <string name="pdf_activity_other">Іншае</string>
+    <string name="health_workout_detail_title">Трэніроўка</string>
+    <string name="health_restore_removed_banner">Прыбрана з платформы здароўя. Копія ў OmniGart застаецца — можна аднавіць.</string>
+    <string name="health_restore_removed_section">Прыбрана з платформы</string>
+    <string name="health_restore_to_apple_health">Аднавіць у Apple Health</string>
+    <string name="health_restore_to_health_connect">Аднавіць у Health Connect</string>
+    <string name="health_restore_all_apple_health">Аднавіць усе прыбраныя ў Apple Health</string>
+    <string name="health_restore_all_health_connect">Аднавіць усе прыбраныя ў Health Connect</string>
+    <string name="health_restore_success">Адноўлена на платформе здароўя.</string>
+    <string name="health_restore_already_present">Ужо на платформе — лакальную пазнаку знята.</string>
+    <string name="health_restore_skipped">Няма што аднаўляць.</string>
+    <string name="health_restore_failed">Не ўдалося аднавіць гэтую трэніроўку.</string>
+    <string name="health_restore_permission_needed">Для аднаўлення патрэбны дазвол на запіс у Health.</string>
+    <string name="health_restore_all_result">Адноўлена %1$d · не ўдалося %2$d</string>
 </resources>

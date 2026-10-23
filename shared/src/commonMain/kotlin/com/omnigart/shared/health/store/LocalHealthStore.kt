@@ -26,6 +26,9 @@ interface LocalHealthStore {
     /** Platform removed the sample; keep OmniGart data and stop platform re-writes. */
     fun markRemovedFromPlatform(id: String)
 
+    /** Clear [LocalHealthWorkout.removedFromPlatform] after restore or reconcile. */
+    fun clearRemovedFromPlatform(id: String)
+
     /** After a successful first-time platform insert. */
     fun linkPlatformRecord(id: String, platformRecordId: String)
 
@@ -156,6 +159,10 @@ class SqlDelightLocalHealthStore(private val db: OmniGartDatabase, private val c
 
     override fun markRemovedFromPlatform(id: String) {
         q.markLocalHealthWorkoutRemovedFromPlatform(clock.now().toString(), id)
+    }
+
+    override fun clearRemovedFromPlatform(id: String) {
+        q.clearLocalHealthWorkoutRemovedFromPlatform(clock.now().toString(), id)
     }
 
     override fun linkPlatformRecord(id: String, platformRecordId: String) {

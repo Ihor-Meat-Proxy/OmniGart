@@ -231,5 +231,18 @@
   "pdf_activity_yoga": "Yoga",
   "pdf_activity_pilates": "Pilates",
   "pdf_activity_other": "Otro",
-  "hc_rationale_body": "OmniGart solicita acceso a Health Connect para leer y escribir los datos de fitness y bienestar que elijas.\n\nLas escrituras solo añaden: OmniGart nunca elimina ni reescribe datos de Health Connect, ni siquiera los que creó. Las ediciones locales permanecen en OmniGart.\n\nNo vendemos datos de salud ni los usamos para publicidad. Puedes denegar el acceso."
+  "hc_rationale_body": "OmniGart solicita acceso a Health Connect para leer y escribir los datos de fitness y bienestar que elijas.\n\nLas escrituras solo añaden: OmniGart nunca elimina ni reescribe datos de Health Connect, ni siquiera los que creó. Las ediciones locales permanecen en OmniGart.\n\nNo vendemos datos de salud ni los usamos para publicidad. Puedes denegar el acceso.",
+  "health_workout_detail_title": "Entrenamiento",
+  "health_restore_removed_banner": "Eliminado de la plataforma de salud. La copia en OmniGart sigue aquí — puedes restaurarla.",
+  "health_restore_removed_section": "Eliminados de la plataforma",
+  "health_restore_to_apple_health": "Restaurar en Apple Health",
+  "health_restore_to_health_connect": "Restaurar en Health Connect",
+  "health_restore_all_apple_health": "Restaurar todos los eliminados en Apple Health",
+  "health_restore_all_health_connect": "Restaurar todos los eliminados en Health Connect",
+  "health_restore_success": "Restaurado en la plataforma de salud.",
+  "health_restore_already_present": "Ya está en la plataforma — se limpió la marca local.",
+  "health_restore_skipped": "No hay nada que restaurar.",
+  "health_restore_failed": "No se pudo restaurar este entrenamiento.",
+  "health_restore_permission_needed": "Se necesita permiso de escritura de Health para restaurar.",
+  "health_restore_all_result": "Restaurados %1$d · fallidos %2$d"
 }

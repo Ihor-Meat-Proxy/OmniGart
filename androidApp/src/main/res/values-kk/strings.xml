@@ -206,4 +206,17 @@
     <string name="pdf_activity_yoga">Йога</string>
     <string name="pdf_activity_pilates">Пилатес</string>
     <string name="pdf_activity_other">Басқа</string>
+    <string name="health_workout_detail_title">Жаттығу</string>
+    <string name="health_restore_removed_banner">Сауықтыру платформасынан өшірілді. OmniGart көшірмесі бар — қалпына келтіруге болады.</string>
+    <string name="health_restore_removed_section">Платформадан өшірілген</string>
+    <string name="health_restore_to_apple_health">Apple Health-ке қалпына келтіру</string>
+    <string name="health_restore_to_health_connect">Health Connect-ке қалпына келтіру</string>
+    <string name="health_restore_all_apple_health">Өшірілгендердің бәрін Apple Health-ке қалпына келтіру</string>
+    <string name="health_restore_all_health_connect">Өшірілгендердің бәрін Health Connect-ке қалпына келтіру</string>
+    <string name="health_restore_success">Сауықтыру платформасына қалпына келтірілді.</string>
+    <string name="health_restore_already_present">Платформада бар — жергілікті белгі өшірілді.</string>
+    <string name="health_restore_skipped">Қалпына келтіретін ештеңе жоқ.</string>
+    <string name="health_restore_failed">Бұл жаттығуды қалпына келтіру мүмкін болмады.</string>
+    <string name="health_restore_permission_needed">Қалпына келтіру үшін Health жазу рұқсаты қажет.</string>
+    <string name="health_restore_all_result">Қалпына келтірілді %1$d · сәтсіз %2$d</string>
 </resources>

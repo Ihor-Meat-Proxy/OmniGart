@@ -46,14 +46,17 @@ enum class HealthSyncPlatform {
 }
 
 /**
- * Stable sync identity for **dedupe / first-write** only.
+ * Stable sync identity for platform dedupe / first-write / restore.
  *
- * Apple Health: [HKMetadataKeySyncIdentifier] (optional [HKMetadataKeySyncVersion] stamped once).
- * Health Connect: [Metadata.clientRecordId] (optional [Metadata.clientRecordVersion] stamped once).
+ * Apple Health: [HKMetadataKeySyncIdentifier] / [HKMetadataKeySyncVersion].
+ * Health Connect: [Metadata.clientRecordId] / [Metadata.clientRecordVersion].
  *
- * Platform writes are append-only: never bump version to re-save or overwrite an existing
- * platform object. Local edits stay in OmniGart; if the sync id already exists on the
- * platform, skip the write.
+ * Platform writes are append-only: never call platform delete/update APIs.
+ * - First insert stamps version 1.
+ * - Local edits do **not** bump version (stay in OmniGart only).
+ * - User-initiated **restore** after platform deletion bumps version and inserts again
+ *   with the same sync id (HealthKit/HC allow reusing a deleted sync id with a higher version).
+ * - If the sync id already exists on the platform, skip the write.
  */
 @Serializable
 data class HealthSyncIdentity(val syncIdentifier: String, val syncVersion: Long = 1) {
@@ -61,6 +64,9 @@ data class HealthSyncIdentity(val syncIdentifier: String, val syncVersion: Long 
         require(syncIdentifier.isNotBlank()) { "syncIdentifier must not be blank" }
         require(syncVersion >= 1) { "syncVersion must be >= 1" }
     }
+
+    /** Bump for a user-initiated restore insert after platform deletion. */
+    fun bumped(): HealthSyncIdentity = copy(syncVersion = syncVersion + 1)
 }
 
 @Serializable

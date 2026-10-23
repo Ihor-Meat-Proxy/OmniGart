@@ -206,4 +206,17 @@ No vendemos datos de salud ni los usamos para publicidad. Puedes denegar el acce
     <string name="pdf_activity_yoga">Yoga</string>
     <string name="pdf_activity_pilates">Pilates</string>
     <string name="pdf_activity_other">Otro</string>
+    <string name="health_workout_detail_title">Entrenamiento</string>
+    <string name="health_restore_removed_banner">Eliminado de la plataforma de salud. La copia en OmniGart sigue aquí — puedes restaurarla.</string>
+    <string name="health_restore_removed_section">Eliminados de la plataforma</string>
+    <string name="health_restore_to_apple_health">Restaurar en Apple Health</string>
+    <string name="health_restore_to_health_connect">Restaurar en Health Connect</string>
+    <string name="health_restore_all_apple_health">Restaurar todos los eliminados en Apple Health</string>
+    <string name="health_restore_all_health_connect">Restaurar todos los eliminados en Health Connect</string>
+    <string name="health_restore_success">Restaurado en la plataforma de salud.</string>
+    <string name="health_restore_already_present">Ya está en la plataforma — se limpió la marca local.</string>
+    <string name="health_restore_skipped">No hay nada que restaurar.</string>
+    <string name="health_restore_failed">No se pudo restaurar este entrenamiento.</string>
+    <string name="health_restore_permission_needed">Se necesita permiso de escritura de Health para restaurar.</string>
+    <string name="health_restore_all_result">Restaurados %1$d · fallidos %2$d</string>
 </resources>

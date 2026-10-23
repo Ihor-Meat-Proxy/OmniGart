@@ -42,6 +42,11 @@ class InMemoryLocalHealthStore(private val clock: Clock = Clock.System) : LocalH
         workouts[id] = existing.copy(removedFromPlatform = true, updatedAt = clock.now())
     }
 
+    override fun clearRemovedFromPlatform(id: String) {
+        val existing = workouts[id] ?: return
+        workouts[id] = existing.copy(removedFromPlatform = false, updatedAt = clock.now())
+    }
+
     override fun linkPlatformRecord(id: String, platformRecordId: String) {
         val existing = workouts[id] ?: return
         workouts[id] =

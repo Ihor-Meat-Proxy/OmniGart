@@ -342,6 +342,9 @@ UPDATE local_health_workout SET deleted = 1, updated_at = ? WHERE id = ?;
 markLocalHealthWorkoutRemovedFromPlatform:
 UPDATE local_health_workout SET removed_from_platform = 1, updated_at = ? WHERE id = ?;
 
+clearLocalHealthWorkoutRemovedFromPlatform:
+UPDATE local_health_workout SET removed_from_platform = 0, updated_at = ? WHERE id = ?;
+
 linkLocalHealthWorkoutPlatformRecord:
 UPDATE local_health_workout SET platform_record_id = ?, updated_at = ? WHERE id = ?;
 

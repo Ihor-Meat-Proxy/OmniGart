@@ -41,10 +41,11 @@ enum HealthKitWorkoutWriter {
         var saveMindfulMinutes: Bool = false
         var estimatedEffortScore: Double? = nil
         var heartRateRecoveryBpm: Double? = nil
-        /// Stable OmniGart sync id (`HKMetadataKeySyncIdentifier`). First write only —
-        /// if a workout with this id already exists in Apple Health, the write is skipped.
+        /// Stable OmniGart sync id (`HKMetadataKeySyncIdentifier`).
+        /// If a workout with this id already exists in Apple Health, the write is skipped.
         var syncIdentifier: String? = nil
-        /// Stamped once on first insert (`HKMetadataKeySyncVersion`). Never bumped to rewrite.
+        /// `HKMetadataKeySyncVersion`: 1 on first insert; bump only for user-initiated restore
+        /// after platform deletion (never used to overwrite an existing object).
         var syncVersion: Int = 1
     }
 

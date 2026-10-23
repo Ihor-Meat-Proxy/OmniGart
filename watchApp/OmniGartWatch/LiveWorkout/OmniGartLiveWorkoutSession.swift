@@ -140,12 +140,16 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         let end = Date()
         session?.end()
         do {
+            let localId = UUID().uuidString
+            let syncId = "omnigart.workout.\(localId)"
             if let builder {
                 if !events.isEmpty {
                     try await builder.addWorkoutEvents(events)
                 }
                 var metadata: [String: Any] = [
-                    HKMetadataKeyIndoorWorkout: kind.isIndoor
+                    HKMetadataKeyIndoorWorkout: kind.isIndoor,
+                    HKMetadataKeySyncIdentifier: syncId,
+                    HKMetadataKeySyncVersion: 1
                 ]
                 if let label = pendingSegmentLabel {
                     metadata["OmniGartLastSegment"] = label
@@ -156,7 +160,13 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
             }
             isRunning = false
             isPaused = false
-            return makeSummary(endedAt: end)
+            let summary = makeSummary(endedAt: end)
+            WatchWorkoutTransferBuilder.enqueueLiveSummary(
+                summary,
+                localId: localId,
+                syncIdentifier: syncId
+            )
+            return summary
         } catch {
             lastError = error.localizedDescription
             isRunning = false

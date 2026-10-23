@@ -45,4 +45,12 @@ object PlatformAppendOnlyPolicy {
         !workout.deleted &&
         !workout.removedFromPlatform &&
         workout.platformRecordId.isNullOrBlank()
+
+    /**
+     * Whether the user may restore this local copy to the platform after a platform deletion.
+     * OmniGart-origin only. Writers bump sync version, exist-check, then insert (never update/delete).
+     */
+    fun shouldAttemptPlatformRestore(workout: LocalHealthWorkout): Boolean = HealthDataMapper.mayWriteToPlatform(workout) &&
+        !workout.deleted &&
+        workout.removedFromPlatform
 }

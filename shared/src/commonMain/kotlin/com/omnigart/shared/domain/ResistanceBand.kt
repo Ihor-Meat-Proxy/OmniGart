@@ -42,15 +42,14 @@ data class BandEquipmentProfile(val bands: List<ResistanceBand> = emptyList()) {
          * Common starter defaults (approximate kg). Users edit after defining their set.
          * Values are product placeholders, not measured calibrations.
          */
-        fun defaultStarterBands(): BandEquipmentProfile =
-            BandEquipmentProfile(
-                bands =
-                    listOf(
-                        ResistanceBand(id = "band-light", label = "Light", estimatedAssistanceKg = 10.0),
-                        ResistanceBand(id = "band-medium", label = "Medium", estimatedAssistanceKg = 20.0),
-                        ResistanceBand(id = "band-heavy", label = "Heavy", estimatedAssistanceKg = 30.0),
-                        ResistanceBand(id = "band-x-heavy", label = "X-Heavy", estimatedAssistanceKg = 40.0)
-                    )
+        fun defaultStarterBands(): BandEquipmentProfile = BandEquipmentProfile(
+            bands =
+            listOf(
+                ResistanceBand(id = "band-light", label = "Light", estimatedAssistanceKg = 10.0),
+                ResistanceBand(id = "band-medium", label = "Medium", estimatedAssistanceKg = 20.0),
+                ResistanceBand(id = "band-heavy", label = "Heavy", estimatedAssistanceKg = 30.0),
+                ResistanceBand(id = "band-x-heavy", label = "X-Heavy", estimatedAssistanceKg = 40.0)
             )
+        )
     }
 }

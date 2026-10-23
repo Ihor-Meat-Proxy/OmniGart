@@ -133,10 +133,13 @@ enum class PersonalRecordKind {
     BEST_E1RM,
     BEST_SET_VOLUME,
     BEST_SESSION_VOLUME,
+
     /** Max reps with no added weight and no assistance. */
     BEST_BODYWEIGHT_REPS,
+
     /** Max added external mass on a completed set. */
     BEST_ADDED_WEIGHT,
+
     /** Lowest assistance mass among assisted working sets (lower is better). */
     LEAST_ASSISTANCE
 }
@@ -222,8 +225,7 @@ object VolumeLoad {
         }
     }
 
-    fun sideMultiplier(set: VolumeSetInput, meta: VolumeExerciseMeta): Int =
-        if (meta.unilateral && set.loggedPerHand) 2 else 1
+    fun sideMultiplier(set: VolumeSetInput, meta: VolumeExerciseMeta): Int = if (meta.unilateral && set.loggedPerHand) 2 else 1
 
     /** Hard set: completed, non-warmup, reps ≥ 1. */
     fun isHardSet(set: VolumeSetInput): Boolean = set.completed && !set.isWarmup && set.reps >= 1

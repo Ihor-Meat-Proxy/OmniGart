@@ -19,12 +19,7 @@ data class SystemOneRepMax(
 )
 
 object BodyweightOneRepMax {
-    fun fromSet(
-        effective: EffectiveLoad,
-        reps: Int,
-        bodyweightKg: Double,
-        semantics: ExerciseLoadSemantics
-    ): SystemOneRepMax {
+    fun fromSet(effective: EffectiveLoad, reps: Int, bodyweightKg: Double, semantics: ExerciseLoadSemantics): SystemOneRepMax {
         require(reps >= 1)
         require(bodyweightKg > 0.0)
         val system =

@@ -34,11 +34,7 @@ enum class BodyweightFractionBasis {
  * [basis] is stored as a string in content JSON (`measured` | `estimate`); use [basisEnum] when parsing.
  */
 @Serializable
-data class BodyweightFraction(
-    val proportion: Double = 0.0,
-    val basis: String = "estimate",
-    val rationale: String = ""
-) {
+data class BodyweightFraction(val proportion: Double = 0.0, val basis: String = "estimate", val rationale: String = "") {
     init {
         require(proportion in 0.0..1.5) { "bodyweightFraction.proportion must be in 0..1.5" }
     }
@@ -107,19 +103,16 @@ data class ExerciseLoadSemantics(
          * Infer when only [trackingTypeName] is known (legacy content without load fields).
          * `bodyweight_reps` → plus-external with [fallbackProportion]; otherwise external-only.
          */
-        fun fromTrackingType(
-            trackingTypeName: String?,
-            fallbackProportion: Double = 1.0
-        ): ExerciseLoadSemantics {
+        fun fromTrackingType(trackingTypeName: String?, fallbackProportion: Double = 1.0): ExerciseLoadSemantics {
             if (trackingTypeName == "bodyweight_reps") {
                 return ExerciseLoadSemantics(
                     loadModel = LoadModel.BODYWEIGHT_PLUS_EXTERNAL,
                     bodyweightFraction =
-                        BodyweightFraction(
-                            proportion = fallbackProportion.coerceIn(0.0, 1.5),
-                            basis = "estimate",
-                            rationale = "Inferred from trackingType=bodyweight_reps; content should supply loadModel."
-                        ),
+                    BodyweightFraction(
+                        proportion = fallbackProportion.coerceIn(0.0, 1.5),
+                        basis = "estimate",
+                        rationale = "Inferred from trackingType=bodyweight_reps; content should supply loadModel."
+                    ),
                     allowsAddedWeight = true,
                     allowsAssistance = true
                 )
@@ -127,30 +120,27 @@ data class ExerciseLoadSemantics(
             return EXTERNAL_ONLY
         }
 
-        private fun defaultFractionFor(model: LoadModel): BodyweightFraction =
-            when (model) {
-                LoadModel.EXTERNAL_ONLY -> DEFAULT_EXTERNAL_FRACTION
-                LoadModel.BODYWEIGHT_PLUS_EXTERNAL,
-                LoadModel.BODYWEIGHT_MINUS_ASSISTANCE ->
-                    BodyweightFraction(
-                        proportion = 1.0,
-                        basis = "estimate",
-                        rationale = "Default full body mass until content supplies bodyweightFraction."
-                    )
-            }
+        private fun defaultFractionFor(model: LoadModel): BodyweightFraction = when (model) {
+            LoadModel.EXTERNAL_ONLY -> DEFAULT_EXTERNAL_FRACTION
+            LoadModel.BODYWEIGHT_PLUS_EXTERNAL,
+            LoadModel.BODYWEIGHT_MINUS_ASSISTANCE ->
+                BodyweightFraction(
+                    proportion = 1.0,
+                    basis = "estimate",
+                    rationale = "Default full body mass until content supplies bodyweightFraction."
+                )
+        }
 
-        private fun defaultAllowsAdded(model: LoadModel): Boolean =
-            when (model) {
-                LoadModel.BODYWEIGHT_MINUS_ASSISTANCE -> false
-                else -> true
-            }
+        private fun defaultAllowsAdded(model: LoadModel): Boolean = when (model) {
+            LoadModel.BODYWEIGHT_MINUS_ASSISTANCE -> false
+            else -> true
+        }
 
-        private fun defaultAllowsAssistance(model: LoadModel): Boolean =
-            when (model) {
-                LoadModel.EXTERNAL_ONLY -> false
-                LoadModel.BODYWEIGHT_PLUS_EXTERNAL -> true
-                LoadModel.BODYWEIGHT_MINUS_ASSISTANCE -> true
-            }
+        private fun defaultAllowsAssistance(model: LoadModel): Boolean = when (model) {
+            LoadModel.EXTERNAL_ONLY -> false
+            LoadModel.BODYWEIGHT_PLUS_EXTERNAL -> true
+            LoadModel.BODYWEIGHT_MINUS_ASSISTANCE -> true
+        }
     }
 }
 

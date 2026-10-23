@@ -210,11 +210,7 @@ fun StrengthLoggingSection(core: OmniGartCore, profileId: String) {
 }
 
 @Composable
-private fun ExercisePicker(
-    demos: List<DemoStrengthExercise>,
-    selected: DemoStrengthExercise,
-    onSelect: (DemoStrengthExercise) -> Unit
-) {
+private fun ExercisePicker(demos: List<DemoStrengthExercise>, selected: DemoStrengthExercise, onSelect: (DemoStrengthExercise) -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space1)) {
         Text(
             text = stringResource(R.string.workout_exercise),

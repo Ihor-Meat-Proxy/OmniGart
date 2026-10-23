@@ -21,12 +21,11 @@ object BodyweightProgression {
      * Classify a set from added / assistance masses (kg).
      * Assistance &gt; 0 → assisted; else added &gt; 0 → weighted; else bodyweight.
      */
-    fun stageFor(addedKg: Double, assistanceKg: Double): BodyweightProgressionStage =
-        when {
-            assistanceKg > 0.0 -> BodyweightProgressionStage.ASSISTED
-            addedKg > 0.0 -> BodyweightProgressionStage.WEIGHTED
-            else -> BodyweightProgressionStage.BODYWEIGHT
-        }
+    fun stageFor(addedKg: Double, assistanceKg: Double): BodyweightProgressionStage = when {
+        assistanceKg > 0.0 -> BodyweightProgressionStage.ASSISTED
+        addedKg > 0.0 -> BodyweightProgressionStage.WEIGHTED
+        else -> BodyweightProgressionStage.BODYWEIGHT
+    }
 
     /**
      * Suggest the next stage from recent completed working sets.

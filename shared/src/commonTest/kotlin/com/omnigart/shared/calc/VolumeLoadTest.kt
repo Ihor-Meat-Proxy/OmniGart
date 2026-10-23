@@ -25,17 +25,17 @@ class VolumeLoadTest {
             unilateral = false,
             primaryMuscles = listOf("pectoralis_major", "triceps", "front_deltoid"),
             loadSemantics =
-                ExerciseLoadSemantics(
-                    loadModel = LoadModel.BODYWEIGHT_PLUS_EXTERNAL,
-                    bodyweightFraction =
-                        BodyweightFraction(
-                            proportion = BodyweightLoadCoefficients.PUSH_UP,
-                            basis = "estimate",
-                            rationale = "Phase 1 push-up coefficient"
-                        ),
-                    allowsAddedWeight = true,
-                    allowsAssistance = true
-                )
+            ExerciseLoadSemantics(
+                loadModel = LoadModel.BODYWEIGHT_PLUS_EXTERNAL,
+                bodyweightFraction =
+                BodyweightFraction(
+                    proportion = BodyweightLoadCoefficients.PUSH_UP,
+                    basis = "estimate",
+                    rationale = "Phase 1 push-up coefficient"
+                ),
+                allowsAddedWeight = true,
+                allowsAssistance = true
+            )
         )
 
     private val assistedPullUp =
@@ -44,17 +44,17 @@ class VolumeLoadTest {
             unilateral = false,
             primaryMuscles = listOf("latissimus_dorsi", "biceps"),
             loadSemantics =
-                ExerciseLoadSemantics(
-                    loadModel = LoadModel.BODYWEIGHT_MINUS_ASSISTANCE,
-                    bodyweightFraction =
-                        BodyweightFraction(
-                            proportion = BodyweightLoadCoefficients.PULL_UP,
-                            basis = "estimate",
-                            rationale = "Full body mass for vertical pull"
-                        ),
-                    allowsAddedWeight = false,
-                    allowsAssistance = true
-                )
+            ExerciseLoadSemantics(
+                loadModel = LoadModel.BODYWEIGHT_MINUS_ASSISTANCE,
+                bodyweightFraction =
+                BodyweightFraction(
+                    proportion = BodyweightLoadCoefficients.PULL_UP,
+                    basis = "estimate",
+                    rationale = "Full body mass for vertical pull"
+                ),
+                allowsAddedWeight = false,
+                allowsAssistance = true
+            )
         )
 
     private val weightedPullUp =
@@ -63,17 +63,17 @@ class VolumeLoadTest {
             unilateral = false,
             primaryMuscles = listOf("latissimus_dorsi", "biceps"),
             loadSemantics =
-                ExerciseLoadSemantics(
-                    loadModel = LoadModel.BODYWEIGHT_PLUS_EXTERNAL,
-                    bodyweightFraction =
-                        BodyweightFraction(
-                            proportion = BodyweightLoadCoefficients.PULL_UP,
-                            basis = "estimate",
-                            rationale = "Full body mass for vertical pull"
-                        ),
-                    allowsAddedWeight = true,
-                    allowsAssistance = false
-                )
+            ExerciseLoadSemantics(
+                loadModel = LoadModel.BODYWEIGHT_PLUS_EXTERNAL,
+                bodyweightFraction =
+                BodyweightFraction(
+                    proportion = BodyweightLoadCoefficients.PULL_UP,
+                    basis = "estimate",
+                    rationale = "Full body mass for vertical pull"
+                ),
+                allowsAddedWeight = true,
+                allowsAssistance = false
+            )
         )
 
     private val dbLunge =

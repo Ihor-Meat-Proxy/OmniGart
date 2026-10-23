@@ -138,11 +138,7 @@ class StrengthLoggingService(
 
     fun demoExercises(): List<DemoStrengthExercise> = demoCatalog()
 
-    fun volumeMetaFor(
-        exercise: Exercise,
-        unilateral: Boolean = false,
-        loadSemantics: ExerciseLoadSemantics? = null
-    ): VolumeExerciseMeta =
+    fun volumeMetaFor(exercise: Exercise, unilateral: Boolean = false, loadSemantics: ExerciseLoadSemantics? = null): VolumeExerciseMeta =
         VolumeExerciseMeta(
             exerciseId = exercise.id,
             unilateral = unilateral,
@@ -150,18 +146,14 @@ class StrengthLoggingService(
             loadSemantics = loadSemantics ?: inferLoadSemantics(exercise)
         )
 
-    fun buildVolumeSessionInput(session: Session): VolumeSessionInput =
-        VolumeSessionInput(
-            id = session.id,
-            workoutId = session.workoutId,
-            startedAt = session.startedAt,
-            sets = session.sets.map { it.toVolumeSetInput() }
-        )
+    fun buildVolumeSessionInput(session: Session): VolumeSessionInput = VolumeSessionInput(
+        id = session.id,
+        workoutId = session.workoutId,
+        startedAt = session.startedAt,
+        sets = session.sets.map { it.toVolumeSetInput() }
+    )
 
-    fun buildExerciseMetaMap(
-        session: Session,
-        overrides: Map<String, VolumeExerciseMeta> = emptyMap()
-    ): Map<String, VolumeExerciseMeta> {
+    fun buildExerciseMetaMap(session: Session, overrides: Map<String, VolumeExerciseMeta> = emptyMap()): Map<String, VolumeExerciseMeta> {
         val ids = session.sets.map { it.exerciseId }.toSet()
         val fromDemo = demoCatalog().associateBy { it.exercise.id }
         return ids.associateWith { id ->
@@ -231,12 +223,7 @@ class StrengthLoggingService(
     }
 
     /** Swift-friendly overload without optional collections. */
-    fun sessionSummary(
-        sessionId: String,
-        includeWarmups: Boolean,
-        bodyweightKg: Double?,
-        unit: MassUnit
-    ): StrengthSessionSummary =
+    fun sessionSummary(sessionId: String, includeWarmups: Boolean, bodyweightKg: Double?, unit: MassUnit): StrengthSessionSummary =
         sessionSummary(
             sessionId = sessionId,
             includeWarmups = includeWarmups,
@@ -266,8 +253,7 @@ class StrengthLoggingService(
         return out
     }
 
-    private fun requireSession(sessionId: String): Session =
-        sessions.get(sessionId) ?: error("Unknown session: $sessionId")
+    private fun requireSession(sessionId: String): Session = sessions.get(sessionId) ?: error("Unknown session: $sessionId")
 
     companion object {
         fun inferLoadSemantics(exercise: Exercise): ExerciseLoadSemantics {
@@ -276,17 +262,17 @@ class StrengthLoggingService(
                 val assisted = exercise.id.contains("assisted")
                 return ExerciseLoadSemantics(
                     loadModel =
-                        if (assisted) {
-                            LoadModel.BODYWEIGHT_MINUS_ASSISTANCE
-                        } else {
-                            LoadModel.BODYWEIGHT_PLUS_EXTERNAL
-                        },
+                    if (assisted) {
+                        LoadModel.BODYWEIGHT_MINUS_ASSISTANCE
+                    } else {
+                        LoadModel.BODYWEIGHT_PLUS_EXTERNAL
+                    },
                     bodyweightFraction =
-                        BodyweightFraction(
-                            proportion = proportion,
-                            basis = "estimate",
-                            rationale = "Inferred from BodyweightLoadCoefficients for ${exercise.id}"
-                        ),
+                    BodyweightFraction(
+                        proportion = proportion,
+                        basis = "estimate",
+                        rationale = "Inferred from BodyweightLoadCoefficients for ${exercise.id}"
+                    ),
                     allowsAddedWeight = !assisted,
                     allowsAssistance = assisted || proportion > 0.0
                 )
@@ -294,91 +280,89 @@ class StrengthLoggingService(
             return ExerciseLoadSemantics.EXTERNAL_ONLY
         }
 
-        fun demoCatalog(): List<DemoStrengthExercise> =
-            listOf(
-                DemoStrengthExercise(
-                    exercise =
-                        Exercise(
-                            id = "barbell-bench-press",
-                            contentKey = "ex.barbell_bench_press",
-                            modality = ExerciseModality.STRENGTH,
-                            primaryMuscles = listOf("pectoralis_major", "triceps", "front_deltoid")
-                        ),
-                    unilateral = false,
-                    loadSemantics = ExerciseLoadSemantics.EXTERNAL_ONLY,
-                    displayName = "Barbell bench press"
+        fun demoCatalog(): List<DemoStrengthExercise> = listOf(
+            DemoStrengthExercise(
+                exercise =
+                Exercise(
+                    id = "barbell-bench-press",
+                    contentKey = "ex.barbell_bench_press",
+                    modality = ExerciseModality.STRENGTH,
+                    primaryMuscles = listOf("pectoralis_major", "triceps", "front_deltoid")
                 ),
-                DemoStrengthExercise(
-                    exercise =
-                        Exercise(
-                            id = "push-up",
-                            contentKey = "ex.push_up",
-                            modality = ExerciseModality.STRENGTH,
-                            primaryMuscles = listOf("pectoralis_major", "triceps", "front_deltoid")
-                        ),
-                    unilateral = false,
-                    loadSemantics =
-                        ExerciseLoadSemantics(
-                            loadModel = LoadModel.BODYWEIGHT_PLUS_EXTERNAL,
-                            bodyweightFraction =
-                                BodyweightFraction(
-                                    proportion = BodyweightLoadCoefficients.PUSH_UP,
-                                    basis = "estimate",
-                                    rationale = "Phase 1 push-up coefficient"
-                                ),
-                            allowsAddedWeight = true,
-                            allowsAssistance = true
-                        ),
-                    displayName = "Push-up"
+                unilateral = false,
+                loadSemantics = ExerciseLoadSemantics.EXTERNAL_ONLY,
+                displayName = "Barbell bench press"
+            ),
+            DemoStrengthExercise(
+                exercise =
+                Exercise(
+                    id = "push-up",
+                    contentKey = "ex.push_up",
+                    modality = ExerciseModality.STRENGTH,
+                    primaryMuscles = listOf("pectoralis_major", "triceps", "front_deltoid")
                 ),
-                DemoStrengthExercise(
-                    exercise =
-                        Exercise(
-                            id = "assisted-pull-up-band",
-                            contentKey = "ex.assisted_pull_up_band",
-                            modality = ExerciseModality.STRENGTH,
-                            primaryMuscles = listOf("latissimus_dorsi", "biceps")
-                        ),
-                    unilateral = false,
-                    loadSemantics =
-                        ExerciseLoadSemantics(
-                            loadModel = LoadModel.BODYWEIGHT_MINUS_ASSISTANCE,
-                            bodyweightFraction =
-                                BodyweightFraction(
-                                    proportion = BodyweightLoadCoefficients.PULL_UP,
-                                    basis = "estimate",
-                                    rationale = "Full body mass for vertical pull"
-                                ),
-                            allowsAddedWeight = false,
-                            allowsAssistance = true
-                        ),
-                    displayName = "Assisted pull-up (band)"
+                unilateral = false,
+                loadSemantics =
+                ExerciseLoadSemantics(
+                    loadModel = LoadModel.BODYWEIGHT_PLUS_EXTERNAL,
+                    bodyweightFraction =
+                    BodyweightFraction(
+                        proportion = BodyweightLoadCoefficients.PUSH_UP,
+                        basis = "estimate",
+                        rationale = "Phase 1 push-up coefficient"
+                    ),
+                    allowsAddedWeight = true,
+                    allowsAssistance = true
                 ),
-                DemoStrengthExercise(
-                    exercise =
-                        Exercise(
-                            id = "reverse-lunge-dumbbell",
-                            contentKey = "ex.reverse_lunge_dumbbell",
-                            modality = ExerciseModality.STRENGTH,
-                            primaryMuscles = listOf("quadriceps", "gluteus_maximus")
-                        ),
-                    unilateral = true,
-                    loadSemantics = ExerciseLoadSemantics.EXTERNAL_ONLY,
-                    displayName = "Dumbbell reverse lunge"
-                )
+                displayName = "Push-up"
+            ),
+            DemoStrengthExercise(
+                exercise =
+                Exercise(
+                    id = "assisted-pull-up-band",
+                    contentKey = "ex.assisted_pull_up_band",
+                    modality = ExerciseModality.STRENGTH,
+                    primaryMuscles = listOf("latissimus_dorsi", "biceps")
+                ),
+                unilateral = false,
+                loadSemantics =
+                ExerciseLoadSemantics(
+                    loadModel = LoadModel.BODYWEIGHT_MINUS_ASSISTANCE,
+                    bodyweightFraction =
+                    BodyweightFraction(
+                        proportion = BodyweightLoadCoefficients.PULL_UP,
+                        basis = "estimate",
+                        rationale = "Full body mass for vertical pull"
+                    ),
+                    allowsAddedWeight = false,
+                    allowsAssistance = true
+                ),
+                displayName = "Assisted pull-up (band)"
+            ),
+            DemoStrengthExercise(
+                exercise =
+                Exercise(
+                    id = "reverse-lunge-dumbbell",
+                    contentKey = "ex.reverse_lunge_dumbbell",
+                    modality = ExerciseModality.STRENGTH,
+                    primaryMuscles = listOf("quadriceps", "gluteus_maximus")
+                ),
+                unilateral = true,
+                loadSemantics = ExerciseLoadSemantics.EXTERNAL_ONLY,
+                displayName = "Dumbbell reverse lunge"
             )
+        )
     }
 }
 
-private fun WorkoutSet.toVolumeSetInput(): VolumeSetInput =
-    VolumeSetInput(
-        id = id,
-        exerciseId = exerciseId,
-        reps = reps ?: 0,
-        addedWeightKg = weightKg,
-        isWarmup = isWarmup,
-        completed = completed,
-        assistanceKg = assistanceKg,
-        loggedPerHand = loggedPerHand,
-        rir = rir
-    )
+private fun WorkoutSet.toVolumeSetInput(): VolumeSetInput = VolumeSetInput(
+    id = id,
+    exerciseId = exerciseId,
+    reps = reps ?: 0,
+    addedWeightKg = weightKg,
+    isWarmup = isWarmup,
+    completed = completed,
+    assistanceKg = assistanceKg,
+    loggedPerHand = loggedPerHand,
+    rir = rir
+)

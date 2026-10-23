@@ -11,40 +11,32 @@ LOC_EN = ROOT / "content/exercises/locales/en-GB.json"
 LOC_UK = ROOT / "content/exercises/locales/uk.json"
 
 REF_ACSM_RT = {
-    "kind": "doi",
-    "id": "10.1249/MSS.0000000000003897",
-    "label": "ACSM 2026 RT Position Stand",
+    "evidenceId": "acsm_resistance_training_2026",
     "supports": ["programming", "strength", "hypertrophy"],
 }
 REF_ACSM_G = {
-    "kind": "doi",
-    "id": "10.1249/MSS.0b013e318213fefb",
-    "label": "Garber et al. 2011 ACSM guidance",
+    "evidenceId": "garber_acsm_quantity_2011",
     "supports": ["programming", "endurance", "mobility"],
 }
 REF_VOL = {
-    "kind": "doi",
-    "id": "10.1080/02640414.2016.1210197",
-    "label": "Schoenfeld et al. 2016 volume dose–response",
+    "evidenceId": "schoenfeld_volume_2016",
     "supports": ["hypertrophy", "programming"],
 }
 REF_FREQ = {
-    "kind": "doi",
-    "id": "10.1007/s40279-016-0543-8",
-    "label": "Schoenfeld et al. 2016 frequency meta-analysis",
+    "evidenceId": "schoenfeld_frequency_2016",
     "supports": ["programming", "hypertrophy"],
 }
 REF_SEILER = {
-    "kind": "doi",
-    "id": "10.1123/ijspp.5.3.276",
-    "label": "Seiler 2010 intensity distribution",
+    "evidenceId": "seiler_intensity_distribution_2010",
     "supports": ["endurance", "programming"],
 }
 REF_PELLAND = {
-    "kind": "doi",
-    "id": "10.1007/s40279-025-02344-w",
-    "label": "Pelland et al. volume/frequency meta-regressions",
+    "evidenceId": "pelland_rt_dose_2025",
     "supports": ["programming", "hypertrophy", "strength"],
+}
+REF_CONTRERAS = {
+    "evidenceId": "contreras_hip_thrust_emg_2015",
+    "supports": ["emg", "biomechanics"],
 }
 
 en = json.loads(LOC_EN.read_text())
@@ -555,7 +547,7 @@ templates.append({
     "equipmentPreset": "commercial_gym",
     "equipmentRequired": ["barbell", "dumbbell", "bench"],
     "rationale": "Hinge and hip-extension emphasis raises glute/hamstring weekly sets within established hypertrophy volume bands; hip thrust included given EMG comparisons versus squats.",
-    "evidenceRefs": [REF_VOL, {"kind": "doi", "id": "10.1123/jab.2014-0301", "label": "Contreras et al. 2015 hip thrust vs squat EMG", "supports": ["emg", "biomechanics"]}],
+    "evidenceRefs": [REF_VOL, REF_CONTRERAS],
     "sessions": [
         {"id": "g1", "nameKeys": snk("glute-posterior-emphasis", "g1", "Hinge day", "День шарніру"), "blocks": [{"kind": "main", "items": [
             item("romanian-deadlift-barbell", reps="6-10", rest=150), item("hip-thrust", reps="8-12"),

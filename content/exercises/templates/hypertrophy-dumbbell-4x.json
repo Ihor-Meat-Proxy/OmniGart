@@ -19,18 +19,14 @@
   "rationale": "Upper/lower with dumbbells targets ~10–16 weekly hard sets per region using double progression in 8–12 rep ranges.",
   "evidenceRefs": [
     {
-      "kind": "doi",
-      "id": "10.1080/02640414.2016.1210197",
-      "label": "Schoenfeld et al. 2016 volume dose–response",
+      "evidenceId": "schoenfeld_volume_2016",
       "supports": [
         "hypertrophy",
         "programming"
       ]
     },
     {
-      "kind": "doi",
-      "id": "10.1249/MSS.0000000000003897",
-      "label": "ACSM 2026 RT Position Stand",
+      "evidenceId": "acsm_resistance_training_2026",
       "supports": [
         "programming",
         "strength",

@@ -22,6 +22,12 @@ include(":shared")
 include(":shared:planning")
 project(":shared:planning").projectDir = file("shared/planning")
 
+include(":shared:evidence")
+project(":shared:evidence").projectDir = file("shared/evidence")
+
+include(":shared:insights")
+project(":shared:insights").projectDir = file("shared/insights")
+
 include(":shared:achievements")
 project(":shared:achievements").projectDir = file("shared/achievements")
 
@@ -39,6 +45,12 @@ project(":shared:body").projectDir = file("shared/body")
 
 include(":shared:activity-algorithms")
 project(":shared:activity-algorithms").projectDir = file("shared/activity-algorithms")
+
+include(":shared:endurance-content")
+project(":shared:endurance-content").projectDir = file("shared/endurance-content")
+
+include(":shared:nutrition-data")
+project(":shared:nutrition-data").projectDir = file("shared/nutrition-data")
 
 include(":androidApp")
 include(":wearApp")

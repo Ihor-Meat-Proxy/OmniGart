@@ -32,19 +32,37 @@
     "englishNameKeys": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["enGB", "uk"],
+      "required": [
+        "enGB",
+        "uk"
+      ],
       "properties": {
-        "enGB": { "type": "string", "pattern": "^yoga\\.pose\\.[a-z0-9_]+\\.english$" },
-        "uk": { "type": "string", "pattern": "^yoga\\.pose\\.[a-z0-9_]+\\.english$" }
+        "enGB": {
+          "type": "string",
+          "pattern": "^yoga\\.pose\\.[a-z0-9_]+\\.english$"
+        },
+        "uk": {
+          "type": "string",
+          "pattern": "^yoga\\.pose\\.[a-z0-9_]+\\.english$"
+        }
       }
     },
     "sanskritNameKeys": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["enGB", "uk"],
+      "required": [
+        "enGB",
+        "uk"
+      ],
       "properties": {
-        "enGB": { "type": "string", "pattern": "^yoga\\.pose\\.[a-z0-9_]+\\.sanskrit$" },
-        "uk": { "type": "string", "pattern": "^yoga\\.pose\\.[a-z0-9_]+\\.sanskrit$" }
+        "enGB": {
+          "type": "string",
+          "pattern": "^yoga\\.pose\\.[a-z0-9_]+\\.sanskrit$"
+        },
+        "uk": {
+          "type": "string",
+          "pattern": "^yoga\\.pose\\.[a-z0-9_]+\\.sanskrit$"
+        }
       }
     },
     "family": {
@@ -66,18 +84,26 @@
     },
     "level": {
       "type": "string",
-      "enum": ["beginner", "intermediate", "advanced"]
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ]
     },
     "primaryMuscles": {
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "items": { "$ref": "#/$defs/muscleTaxonomyId" }
+      "items": {
+        "$ref": "#/$defs/muscleTaxonomyId"
+      }
     },
     "secondaryMuscles": {
       "type": "array",
       "uniqueItems": true,
-      "items": { "$ref": "#/$defs/muscleTaxonomyId" }
+      "items": {
+        "$ref": "#/$defs/muscleTaxonomyId"
+      }
     },
     "equipment": {
       "type": "array",
@@ -99,23 +125,38 @@
     "technique": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string", "minLength": 12 }
+      "items": {
+        "type": "string",
+        "minLength": 12
+      }
     },
     "cues": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string", "minLength": 8 }
+      "items": {
+        "type": "string",
+        "minLength": 8
+      }
     },
-    "breathing": { "type": "string", "minLength": 8 },
+    "breathing": {
+      "type": "string",
+      "minLength": 8
+    },
     "safetyNotes": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string", "minLength": 12 }
+      "items": {
+        "type": "string",
+        "minLength": 12
+      }
     },
     "contraindicationNotes": {
       "type": "array",
       "description": "General safety framing — not medical diagnosis. Soft guidance for common situations.",
-      "items": { "type": "string", "minLength": 12 }
+      "items": {
+        "type": "string",
+        "minLength": 12
+      }
     },
     "evidenceEntryIds": {
       "type": "array",
@@ -123,19 +164,33 @@
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        "pattern": "^[a-z0-9]+([_-][a-z0-9]+)*$"
       }
     },
-    "holdSecondsDefault": { "type": "integer", "minimum": 5, "maximum": 600 },
-    "unilateral": { "type": "boolean", "default": false },
-    "bundled": { "type": "boolean", "const": true },
+    "holdSecondsDefault": {
+      "type": "integer",
+      "minimum": 5,
+      "maximum": 600
+    },
+    "unilateral": {
+      "type": "boolean",
+      "default": false
+    },
+    "bundled": {
+      "type": "boolean",
+      "const": true
+    },
     "aliases": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "tags": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     }
   },
   "$defs": {

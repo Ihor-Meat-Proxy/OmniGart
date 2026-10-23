@@ -210,8 +210,7 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
     }
 
     /** Swift-friendly overload (ObjC/Swift do not see Kotlin default parameters). */
-    fun foodEntriesForToday(profileId: String): List<FoodEntry> =
-        foodEntriesForToday(profileId, TimeZone.currentSystemDefault())
+    fun foodEntriesForToday(profileId: String): List<FoodEntry> = foodEntriesForToday(profileId, TimeZone.currentSystemDefault())
 
     fun foodDayTotals(profileId: String): FoodDayTotals {
         val entries = foodEntriesForToday(profileId)
@@ -240,8 +239,7 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
     }
 
     /** Swift-friendly overload (ObjC/Swift do not see Kotlin default parameters). */
-    fun ageYears(profile: UserProfile): Int =
-        ageYears(profile, Clock.System.todayIn(TimeZone.currentSystemDefault()))
+    fun ageYears(profile: UserProfile): Int = ageYears(profile, Clock.System.todayIn(TimeZone.currentSystemDefault()))
 
     fun summaryLines(profile: UserProfile): List<String> {
         val age = ageYears(profile)

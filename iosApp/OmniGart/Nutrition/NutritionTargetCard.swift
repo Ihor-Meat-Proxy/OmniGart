@@ -70,6 +70,14 @@ struct NutritionTargetCard: View {
     private func refresh() {
         guard let profile = core.profiles.get(id: profileId) else { return }
         let store = NutritionLocalStore.shared
+        let result = computeTarget(profile: profile, store: store)
+        applyResult(result, store: store)
+    }
+
+    private func computeTarget(
+        profile: UserProfile,
+        store: NutritionLocalStore
+    ) -> NutritionTargetResult {
         let goal = store.loadGoal()
         let weights = store.loadWeights()
         let bodyFat = store.loadBodyFat().last?.bodyFatPercent
@@ -82,7 +90,7 @@ struct NutritionTargetCard: View {
             epochValues.set(index: Int32(index), value: sample.epochMs)
         }
         let previous = store.lastTargetKcal()
-        let result = NutritionFacade.shared.computeForProfile(
+        return NutritionFacade.shared.computeForProfile(
             sexCode: profile.biologicalSex == .male ? "MALE" : "FEMALE",
             ageYears: Int32(age),
             heightCm: profile.heightCm,
@@ -106,6 +114,9 @@ struct NutritionTargetCard: View {
             dayStartMinutes: Int32(goal.dayStartMinutes),
             trainingHoursToday: 0
         )
+    }
+
+    private func applyResult(_ result: NutritionTargetResult, store: NutritionLocalStore) {
         let kcal = NutritionFacade.shared.suggestedKcalOrNull(result: result)
         if kcal > 0 {
             suggestedText = String(

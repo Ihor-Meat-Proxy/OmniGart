@@ -149,6 +149,16 @@ Autopilot log (Phase 0 + merged design / planning). Each item: **context**, **ch
 20. **`bodyweightFraction` for dips** — No published GRF %BM study for parallel-bar dips was verified; current values are estimates from de Leva segmental logic. Prefer a measured study if one appears.
 21. **`loadModel` backfill** — Non pull/dip exercises received heuristic loadModel/fraction defaults; review edge cases (carries, swimming, holds) before treating proportions as analytics-grade.
 
+## Evidence catalog
+
+22. **ACSM 2026 position-stand authors** — Catalog lists lead authors + society; confirm preferred short citation line for the info sheet.
+23. **Foster sRPE DOI variants** — Catalog uses `10.1519/00124278-200102000-00019` (also registered as `10.1519/1533-4287(2001)015<0109:anatme>2.0.co;2`). Confirm preferred canonical DOI string.
+24. **Karvonen 1957 vs 1988** — Both catalogued; confirm which the HR-zone UI should surface by default.
+25. **Phase 0 `docs/evidence/citations.json`** — When the foundation PR merges, migrate/replace with `content/evidence` ids (legacy map already covers formula keys).
+26. **Retraction Watch bulk feed** — Verifier uses Crossref `update-to` / `updated-by` today; optional scheduled ingest of Retraction Watch via Crossref relation data if owner wants stricter coverage.
+27. **UK key-finding review** — Working translations in `content/evidence/locales/uk.json`; native coach pass pending (same as exercise strings).
+28. **Pull-up/dip family refs added on merge** — Youdas, Dickie, de Leva, McKenzie, Suprak catalogued for main’s family citations; confirm strength grades and key-finding copy.
+
 ## Naming: no competitor product names
 
 - **Context:** Owner rule for all current and future work.
@@ -172,6 +182,7 @@ Autopilot log (Phase 0 + merged design / planning). Each item: **context**, **ch
 - **Context:** Owner standing instruction after Phase 0 + health-integration PR.
 - **Choice:** Continue autonomously through `docs/plans/` phases 1→9 (strength → food/water → readiness → calc settings → encrypted backup → achievements → watch → running → swimming). One feature branch/PR per phase, stacked if prior is unmerged; write/update `docs/plans/phase-N.md` before implementing; never block — log questions here.
 - **Alternatives:** Pause after health for explicit go-ahead (rejected by standing instruction).
+
 
 ## Body map
 

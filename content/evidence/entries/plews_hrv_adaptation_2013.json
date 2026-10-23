@@ -1,0 +1,32 @@
+{
+  "id": "plews_hrv_adaptation_2013",
+  "type": "systematic-review",
+  "title": "Training adaptation and heart rate variability in elite endurance athletes: opening the door to effective monitoring",
+  "authors": [
+    "Plews DJ",
+    "Laursen PB",
+    "Stanley J",
+    "Kilding AE",
+    "Buchheit M"
+  ],
+  "year": 2013,
+  "journal": "Sports Medicine",
+  "doi": "10.1007/s40279-013-0071-8",
+  "pmid": "23852425",
+  "openAccess": false,
+  "population": "Elite endurance athletes (HRV monitoring narrative/systematic synthesis)",
+  "keyFinding": {
+    "enGB": "Summarises how resting HRV trends can reflect training adaptation and overload risk when interpreted with context in elite endurance sport.",
+    "keys": {
+      "enGB": "evidence.plews_hrv_adaptation_2013.key_finding",
+      "uk": "evidence.plews_hrv_adaptation_2013.key_finding"
+    }
+  },
+  "evidenceStrength": "moderate",
+  "licenceNote": "Title and short finding quoted under fair dealing for criticism/review; link out for full text. Do not reproduce abstracts or tables.",
+  "retracted": false,
+  "lastVerified": "2026-10-22",
+  "usedBy": [
+    "calc.Readiness.hrv"
+  ]
+}

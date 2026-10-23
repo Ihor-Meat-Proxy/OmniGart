@@ -1,0 +1,13 @@
+{
+  "name": "omnigart-evidence-verify",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "verify": "node src/verify.mjs",
+    "verify:offline": "node src/verify.mjs --offline-ok"
+  }
+}

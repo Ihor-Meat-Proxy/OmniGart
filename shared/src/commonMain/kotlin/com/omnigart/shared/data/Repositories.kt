@@ -5,6 +5,7 @@ import com.omnigart.shared.domain.ActivityLevel
 import com.omnigart.shared.domain.BiologicalSex
 import com.omnigart.shared.domain.Exercise
 import com.omnigart.shared.domain.ExerciseModality
+import com.omnigart.shared.domain.FoodEntry
 import com.omnigart.shared.domain.ProfileGoal
 import com.omnigart.shared.domain.Session
 import com.omnigart.shared.domain.StrengthLevel
@@ -39,6 +40,34 @@ class UserProfileRepository(private val db: OmniGartDatabase) {
 
     fun delete(id: String) {
         db.omniGartQueries.deleteProfile(id)
+    }
+}
+
+class FoodEntryRepository(private val db: OmniGartDatabase) {
+    fun upsert(entry: FoodEntry) {
+        db.omniGartQueries.upsertFoodEntry(
+            id = entry.id,
+            profile_id = entry.profileId,
+            name = entry.name,
+            energy_kcal = entry.energyKcal,
+            protein_g = entry.proteinG,
+            carbs_g = entry.carbsG,
+            fat_g = entry.fatG,
+            logged_at = entry.loggedAt.toString()
+        )
+    }
+
+    fun forProfileDay(profileId: String, dayStart: Instant, dayEnd: Instant): List<FoodEntry> = db.omniGartQueries
+        .selectFoodEntriesForProfileDay(
+            profile_id = profileId,
+            logged_at = dayStart.toString(),
+            logged_at_ = dayEnd.toString()
+        )
+        .executeAsList()
+        .map { it.toDomain() }
+
+    fun delete(id: String) {
+        db.omniGartQueries.deleteFoodEntry(id)
     }
 }
 
@@ -125,6 +154,17 @@ class SessionRepository(private val db: OmniGartDatabase) {
 }
 
 fun createDatabase(driverFactory: DatabaseDriverFactory): OmniGartDatabase = OmniGartDatabase(driverFactory.createDriver())
+
+private fun com.omnigart.shared.db.Food_entry.toDomain(): FoodEntry = FoodEntry(
+    id = id,
+    profileId = profile_id,
+    name = name,
+    energyKcal = energy_kcal,
+    proteinG = protein_g,
+    carbsG = carbs_g,
+    fatG = fat_g,
+    loggedAt = Instant.parse(logged_at)
+)
 
 private fun com.omnigart.shared.db.User_profile.toDomain(): UserProfile = UserProfile(
     id = id,

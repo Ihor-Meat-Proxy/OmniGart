@@ -113,6 +113,31 @@ DELETE FROM workout_set WHERE id = ?;
 deleteSetsForSession:
 DELETE FROM workout_set WHERE session_id = ?;
 
+
+CREATE TABLE food_entry (
+  id TEXT NOT NULL PRIMARY KEY,
+  profile_id TEXT NOT NULL,
+  name TEXT NOT NULL,
+  energy_kcal REAL NOT NULL DEFAULT 0,
+  protein_g REAL NOT NULL DEFAULT 0,
+  carbs_g REAL NOT NULL DEFAULT 0,
+  fat_g REAL NOT NULL DEFAULT 0,
+  logged_at TEXT NOT NULL
+);
+
+selectFoodEntriesForProfileDay:
+SELECT * FROM food_entry
+WHERE profile_id = ? AND logged_at >= ? AND logged_at < ?
+ORDER BY logged_at DESC;
+
+upsertFoodEntry:
+INSERT OR REPLACE INTO food_entry(
+  id, profile_id, name, energy_kcal, protein_g, carbs_g, fat_g, logged_at
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+deleteFoodEntry:
+DELETE FROM food_entry WHERE id = ?;
+
 CREATE TABLE formula_settings (
   profile_id TEXT NOT NULL PRIMARY KEY,
   mode TEXT NOT NULL,

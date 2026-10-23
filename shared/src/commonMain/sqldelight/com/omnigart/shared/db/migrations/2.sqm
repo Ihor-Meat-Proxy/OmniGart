@@ -1,0 +1,10 @@
+CREATE TABLE food_entry (
+  id TEXT NOT NULL PRIMARY KEY,
+  profile_id TEXT NOT NULL,
+  name TEXT NOT NULL,
+  energy_kcal REAL NOT NULL DEFAULT 0,
+  protein_g REAL NOT NULL DEFAULT 0,
+  carbs_g REAL NOT NULL DEFAULT 0,
+  fat_g REAL NOT NULL DEFAULT 0,
+  logged_at TEXT NOT NULL
+);

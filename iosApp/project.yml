@@ -54,14 +54,14 @@ targets:
         name: Design
         createIntermediateGroups: false
     resources:
+      # Do not use type:folder for .xcassets — that creates a folder reference and
+      # Xcode will not compile imagesets (tab icons then missing at runtime).
       - &designColorAssets
         path: ../design/generated/ios/OmniGartColors.xcassets
-        type: folder
         name: OmniGartColors
         createIntermediateGroups: false
       - &designIconAssets
         path: ../design/generated/ios/OmniGartIcons.xcassets
-        type: folder
         name: OmniGartIcons
         createIntermediateGroups: false
       - path: OmniGart/PrivacyInfo.xcprivacy

@@ -47,18 +47,9 @@ struct OmniGartApp: App {
                         showOnboarding = false
                     }
                 } else {
-                    PhoneRootView(
-                        core: core,
-                        profileId: profile.id,
-                        summaryLines: summaryLines(for: profile)
-                    )
+                    PhoneRootView(core: core, profileId: profile.id)
                 }
             }
         }
-    }
-
-    private func summaryLines(for profile: UserProfile) -> [String] {
-        let lines = core.summaryLines(profile: profile)
-        return lines.isEmpty ? ["OmniGart"] : lines
     }
 }

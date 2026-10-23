@@ -177,7 +177,9 @@ extension OmniGartLiveWorkoutSession {
         pauseBeganAt = Date()
         isPaused = true
         let at = Date()
-        events.append(HKWorkoutEvent(type: .pause, dateInterval: DateInterval(start: at, duration: 1)))
+        events.append(
+            HKWorkoutEvent(type: .pause, dateInterval: DateInterval(start: at, duration: 1), metadata: nil)
+        )
     }
 
     func resume() {
@@ -189,7 +191,9 @@ extension OmniGartLiveWorkoutSession {
         pauseBeganAt = nil
         isPaused = false
         let at = Date()
-        events.append(HKWorkoutEvent(type: .resume, dateInterval: DateInterval(start: at, duration: 1)))
+        events.append(
+            HKWorkoutEvent(type: .resume, dateInterval: DateInterval(start: at, duration: 1), metadata: nil)
+        )
     }
 
     /// Marks a segment boundary (exercise / pose block).

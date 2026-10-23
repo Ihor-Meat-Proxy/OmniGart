@@ -1,6 +1,7 @@
 import XCTest
 @testable import OmniGartWatch
 
+@MainActor
 final class WatchWorkoutTransferTests: XCTestCase {
     func testActivityTypeMapping() {
         XCTAssertEqual(WatchWorkoutTransferBuilder.activityTypeName(for: .yoga), "YOGA")

@@ -71,6 +71,7 @@ struct WatchWorkoutTransferPayload {
 }
 
 /// Builds device-transfer JSON from a finished watch workout and enqueues WCSession delivery.
+@MainActor
 enum WatchWorkoutTransferBuilder {
     static func activityTypeName(for kind: OmniGartWorkoutKind) -> String {
         switch kind {

@@ -11,10 +11,16 @@ Self-contained design system, icons, app icon variants, and wireframes. Intended
 | Wireframes | [`wireframes/`](wireframes/) |
 | Generators | [`tools/`](tools/) |
 | Generated outputs | [`generated/`](generated/) |
+| Equipment / exercise illustrations | [`illustrations/`](illustrations/) |
 | Open questions | [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md) |
 
 ```bash
 cd design/tools
+npm ci
+npm run build
+npm run check
+
+cd ../illustrations/tools
 npm ci
 npm run build
 npm run check

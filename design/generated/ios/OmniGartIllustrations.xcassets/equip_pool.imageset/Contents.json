@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "equip_pool.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "equip_pool.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

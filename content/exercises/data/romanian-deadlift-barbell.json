@@ -15,7 +15,8 @@
     "forearms"
   ],
   "equipment": [
-    "barbell"
+    "barbell",
+    "plates"
   ],
   "level": "intermediate",
   "unilateral": false,

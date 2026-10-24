@@ -17,8 +17,6 @@
     "trapezius"
   ],
   "equipment": [
-    "suspension",
-    "pull_up_bar",
     "bodyweight"
   ],
   "level": "beginner",
@@ -110,9 +108,9 @@
   ],
   "loadModel": "bodyweight_plus_external",
   "bodyweightFraction": {
-    "proportion": 0.6,
+    "proportion": 0.5,
     "basis": "estimate",
-    "rationale": "Feet on floor; load scales with body angle. Mid-range estimate ~0.5–0.7 of BM. No dedicated GRF paper cited here — estimate from segmental support logic (de Leva) and closed-chain row practice."
+    "rationale": "Table, bar, or suspension setup; only bodyweight is required. Estimate ~0.5 BM on the upper limbs for a horizontal row."
   },
   "allowsAddedWeight": true,
   "allowsAssistance": true

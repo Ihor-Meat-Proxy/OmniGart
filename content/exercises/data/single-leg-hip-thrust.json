@@ -14,8 +14,7 @@
     "hamstrings"
   ],
   "equipment": [
-    "bodyweight",
-    "bench"
+    "bodyweight"
   ],
   "level": "intermediate",
   "unilateral": true,
@@ -74,8 +73,8 @@
   "bodyweightFraction": {
     "proportion": 1.0,
     "basis": "estimate",
-    "rationale": "Bodyweight movement with negligible external implement; treat moved mass as ~full BM unless a measured study applies. Estimate."
+    "rationale": "Unilateral hip thrust; estimate ~1.0 BM on the working side without external load."
   },
-  "allowsAddedWeight": false,
+  "allowsAddedWeight": true,
   "allowsAssistance": false
 }

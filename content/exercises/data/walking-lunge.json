@@ -16,8 +16,7 @@
     "calves"
   ],
   "equipment": [
-    "bodyweight",
-    "dumbbell"
+    "bodyweight"
   ],
   "level": "beginner",
   "unilateral": true,
@@ -82,11 +81,11 @@
   },
   "aliases": [],
   "tags": [],
-  "loadModel": "external_only",
+  "loadModel": "bodyweight_plus_external",
   "bodyweightFraction": {
-    "proportion": 0.0,
+    "proportion": 0.85,
     "basis": "estimate",
-    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+    "rationale": "Alternating single-leg stance; estimate ~0.85 BM through the working limb without external load."
   },
   "allowsAddedWeight": true,
   "allowsAssistance": false

@@ -16,7 +16,8 @@
   ],
   "equipment": [
     "barbell",
-    "bench"
+    "bench_flat",
+    "plates"
   ],
   "level": "intermediate",
   "unilateral": false,

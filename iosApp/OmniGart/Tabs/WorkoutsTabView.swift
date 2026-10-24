@@ -27,6 +27,7 @@ struct WorkoutsTabView: View {
                     .font(.footnote)
                     .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
             }
+            StrengthProgramSection(core: core, profileId: profileId)
             Section("workouts_library_title") {
                 ForEach(demos, id: \.exercise.id) { demo in
                     Button {

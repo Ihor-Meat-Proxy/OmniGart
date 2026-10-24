@@ -1,0 +1,93 @@
+{
+  "id": "mountain-climber",
+  "nameKeys": {
+    "enGB": "exercise.mountain_climber.name",
+    "uk": "exercise.mountain_climber.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "core_brace",
+  "primaryMuscles": [
+    "rectus_abdominis",
+    "hip_flexors"
+  ],
+  "secondaryMuscles": [
+    "obliques",
+    "quadriceps",
+    "front_deltoid"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "reps",
+  "technique": [
+    "From a high plank, drive one knee toward the chest then switch legs in a controlled or brisk rhythm while the hips stay level."
+  ],
+  "setup": [
+    "Hands under shoulders; rigid trunk."
+  ],
+  "breathing": "Match breath to cadence; avoid breath-holding.",
+  "commonMistakes": [
+    "Bouncing the hips up",
+    "Letting the low back sag"
+  ],
+  "safety": [
+    "Slow the cadence if form breaks."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "plank",
+      "note": "Static brace"
+    },
+    {
+      "exerciseId": "dead-bug",
+      "note": "Supine pattern"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "burpee",
+      "note": "Full cycle"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/mountain-climber",
+    "videoKey": "media/video/mountain-climber",
+    "animationKey": "media/anim/mountain-climber"
+  },
+  "aliases": [],
+  "tags": [
+    "bodyweight",
+    "core"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.64,
+    "basis": "estimate",
+    "rationale": "Plank-based; arms support a push-up-like share of body mass (~0.64 BM estimate)."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

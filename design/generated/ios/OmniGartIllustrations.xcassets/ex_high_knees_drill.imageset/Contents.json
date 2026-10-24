@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "ex_high_knees_drill.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "ex_high_knees_drill.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

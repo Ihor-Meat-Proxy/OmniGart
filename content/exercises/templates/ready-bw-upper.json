@@ -1,0 +1,98 @@
+{
+  "id": "ready-bw-upper",
+  "nameKeys": {
+    "enGB": "template.ready_bw_upper.name",
+    "uk": "template.ready_bw_upper.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "intermediate",
+  "goal": "hypertrophy",
+  "daysPerWeek": 1,
+  "sessionMinutes": 30,
+  "equipmentPreset": "bodyweight",
+  "equipmentRequired": [
+    "bodyweight"
+  ],
+  "rationale": "Bodyweight upper focus: horizontal and vertical pushing plus inverted rows when a table or bar is available.",
+  "evidenceRefs": [
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "main",
+      "nameKeys": {
+        "enGB": "template.ready_bw_upper.main.name",
+        "uk": "template.ready_bw_upper.main.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "push-up",
+              "sets": 4,
+              "reps": "8-15",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "inverted-row",
+              "sets": 4,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 60,
+              "notes": "Use a sturdy table or bar"
+            },
+            {
+              "exerciseId": "pike-push-up",
+              "sets": 3,
+              "reps": "6-10",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "diamond-push-up",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "wide-push-up",
+              "sets": 2,
+              "reps": "10-15",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "plank",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 60,
+              "durationSeconds": 35
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

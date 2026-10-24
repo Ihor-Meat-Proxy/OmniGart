@@ -12,8 +12,12 @@ complexity:
     thresholdInFiles: 30
   LargeClass:
     # Generated OmniGartIcons ImageVector object is intentionally large.
+    # BundledStrengthLibrary / ReadyMadeWorkoutCatalog are offline content indexes.
     excludes:
       - '**/com/omnigart/design/**'
+      - '**/com/omnigart/shared/strength/BundledStrengthLibrary.kt'
+      - '**/com/omnigart/shared/strength/ReadyMadeWorkoutCatalog.kt'
+      - '**/build/generated/**'
 
 style:
   MagicNumber:

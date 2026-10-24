@@ -1,0 +1,104 @@
+{
+  "id": "ready-bw-full-body-intermediate",
+  "nameKeys": {
+    "enGB": "template.ready_bw_full_body_intermediate.name",
+    "uk": "template.ready_bw_full_body_intermediate.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "intermediate",
+  "goal": "general_fitness",
+  "daysPerWeek": 1,
+  "sessionMinutes": 35,
+  "equipmentPreset": "bodyweight",
+  "equipmentRequired": [
+    "bodyweight"
+  ],
+  "rationale": "Intermediate bodyweight full-body circuit adding pike pressing, hollow holds and mountain climbers for denser stimulus.",
+  "evidenceRefs": [
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "main",
+      "nameKeys": {
+        "enGB": "template.ready_bw_full_body_intermediate.main.name",
+        "uk": "template.ready_bw_full_body_intermediate.main.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "jump-squat",
+              "sets": 3,
+              "reps": "8-10",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": 3,
+              "reps": "10-15",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "walking-lunge",
+              "sets": 3,
+              "reps": "10/leg",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "hip-thrust-bodyweight",
+              "sets": 3,
+              "reps": "12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "pike-push-up",
+              "sets": 3,
+              "reps": "6-10",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "hollow-hold",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 60,
+              "durationSeconds": 25
+            },
+            {
+              "exerciseId": "mountain-climber",
+              "sets": 2,
+              "reps": "20/leg",
+              "rir": "2-3",
+              "restSeconds": 45
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

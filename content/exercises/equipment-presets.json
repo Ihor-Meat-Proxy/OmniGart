@@ -3,9 +3,14 @@
     "dumbbell",
     "kettlebell",
     "barbell",
+    "plates",
     "bench",
+    "bench_flat",
+    "bench_adjustable",
     "bands",
     "pull_up_bar",
+    "dip_bars",
+    "squat_rack",
     "yoga_mat",
     "bodyweight",
     "none"
@@ -17,6 +22,7 @@
     "bands",
     "bodyweight",
     "yoga_mat",
+    "suspension",
     "none"
   ],
   "bodyweight": [

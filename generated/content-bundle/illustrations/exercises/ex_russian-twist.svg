@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none" data-omnigart="ex:russian-twist">
+  <circle cx="64" cy="64" r="58" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <ellipse cx="40" cy="88" rx="16" ry="6" fill="#94A3B8" stroke="#64748B" stroke-width="2.25"/>
+  <ellipse cx="64" cy="78" rx="18" ry="7" fill="#0F766E" stroke="#64748B" stroke-width="2.25"/>
+  <ellipse cx="88" cy="70" rx="8" ry="6" fill="#94A3B8" stroke="#64748B" stroke-width="2.25"/>
+  <ellipse cx="72" cy="56" rx="5" ry="12" fill="#94A3B8" stroke="#64748B" stroke-width="2.25"/>
+  <ellipse cx="96" cy="52" rx="5" ry="10" fill="#94A3B8" stroke="#64748B" stroke-width="2.25"/>
+  <circle cx="100" cy="44" r="9" fill="#94A3B8" stroke="#64748B" stroke-width="2.25"/>
+  <circle cx="70" cy="70" r="6" fill="#94A3B8" stroke="#64748B" stroke-width="2.25"/>
+
+</svg>

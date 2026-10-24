@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "ex_bulgarian_split_squat.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "ex_bulgarian_split_squat.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

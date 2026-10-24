@@ -14,7 +14,7 @@
 <string name="info_sheet_title">O tomto odhadu</string>
 <string name="info_sheet_body">Údaje jako připravenost, stres, HRV, Bajevského index, tělesný tuk a hydratace jsou wellness odhady založené na vašich vstupech a vzorcích ze zařízení. Plány jsou koučovací návrhy, nikoli předpisy.</string>
 <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-<string name="perm_explainer_health_body">OmniGart může číst a zapisovat wellness vzorky — tep, HRV, spánek, tréninky, aktivní a bazální energii, tělesnou hmotnost a hydrataci — aby se sezení zobrazila v Apple Fitness. Zápis na platformu jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Apple Health ani Health Connect, ani vlastní. Můžete pokračovat bez přístupu.</string>
+<string name="perm_explainer_health_body">OmniGart může číst a zapisovat wellness vzorky (tep, HRV, spánek, tréninky, tělesná hmotnost, hydratace), aby zlepšil odhady na zařízení. Data se nepoužívají k reklamě ani se neodesílají nesouvisejícím třetím stranám. Můžete pokračovat bez udělení přístupu.</string>
 <string name="perm_explainer_bluetooth_title">Bluetooth příslušenství</string>
 <string name="perm_explainer_bluetooth_body">Připojte tepoměr nebo podobné fitness příslušenství pro živé vzorky. OmniGart plně funguje bez Bluetooth.</string>
 <string name="perm_explainer_camera_title">Fotoaparát pro čárové kódy</string>
@@ -24,11 +24,7 @@
 <string name="perm_continue">Pokračovat</string>
 <string name="perm_not_now">Teď ne</string>
 <string name="hc_rationale_title">Použití dat Health Connect</string>
-<string name="hc_rationale_body">OmniGart žádá přístup k Health Connect, aby četl a zapisoval vámi zvolená fitness a wellness data.
-
-Zápis jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Health Connect, ani vlastní. Místní úpravy zůstávají v OmniGart.
-
-Zdravotní data neprodáváme a nepoužíváme k reklamě. Můžete přístup odepřít.</string>
+<string name="hc_rationale_body">OmniGart žádá přístup k Health Connect, aby četl a zapisoval vámi zvolená fitness a wellness data — například tep, HRV, spánek, tréninky, tělesnou hmotnost a hydrataci — aby odhady připravenosti a tréninku zůstaly přesné na vašem zařízení.\n\nNeprodáváme zdravotní data, nepoužíváme je k reklamě ani je nesdílíme s třetími stranami pro marketing. Můžete přístup odepřít a používat OmniGart s ručním zadáváním.</string>
 <string name="hc_rationale_privacy_policy">Zásady ochrany soukromí</string>
 <string name="calc_settings_title">Výpočty</string>
 <string name="calc_settings_intro">Zvolte, jak OmniGart odhaduje wellness ukazatele, jako je spotřeba energie, tepové zóny, tělesný tuk a síla.</string>
@@ -219,6 +215,31 @@ Zdravotní data neprodáváme a nepoužíváme k reklamě. Můžete přístup od
 <string name="health_restore_failed">Tento trénink se nepodařilo obnovit.</string>
 <string name="health_restore_permission_needed">K obnovení je potřeba oprávnění k zápisu do Health.</string>
 <string name="health_restore_all_result">Obnoveno %1$d · selhalo %2$d</string>
+<string name="workout_finish">Dokončit</string>
+<string name="workout_rest_timer">Odpočinek</string>
+<string name="workout_note">Poznámka</string>
+<string name="workout_progression">Cíl</string>
+<string name="workout_col_set">SÉRIE</string>
+<string name="workout_col_previous">PŘEDCHOZÍ</string>
+<string name="workout_col_kg">KG</string>
+<string name="workout_col_lb">LB</string>
+<string name="workout_col_reps">OPAK.</string>
+<string name="workout_col_done">✓</string>
+<string name="workout_replace_exercise">Nahradit cvik</string>
+<string name="workout_remove_exercise">Odstranit cvik</string>
+<string name="workout_mark_warmup">Označit jako rozcvičku</string>
+<string name="workout_mark_drop">Označit jako drop set</string>
+<string name="workout_mark_failure">Označit jako do selhání</string>
+<string name="workout_record_rpe">Zaznamenat RPE</string>
+<string name="workout_set_menu">Možnosti série</string>
+<string name="workout_weight_lb">Váha (lb)</string>
+<string name="workout_body_map">Svaly</string>
+<string name="workout_export_workoutkit">Přidat do Apple Workout</string>
+<string name="workout_workoutkit_limit">Apple Workout nepřijímá váhu ani opakování z jiných aplikací. OmniGart exportuje každou sérii jako práci a odpočinek jako regeneraci; zátěž × opakování zapisujte v OmniGart na iPhonu nebo Apple Watch.</string>
+<string name="workout_sets_count">Série</string>
+<string name="workout_volume_short">Objem</string>
+<string name="wear_strength_title">Síla</string>
+<string name="wear_strength_done">Hotovo</string>
 <string name="workouts_program_title">Silový program</string>
 <string name="workouts_program_intro">Sestavte celotělový nebo split plán podle vybavení. Jen tréninková pomůcka — ne lékařská rada.</string>
 <string name="workouts_program_split">Typ programu</string>

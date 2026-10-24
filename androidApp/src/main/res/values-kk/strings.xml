@@ -14,7 +14,7 @@
 <string name="info_sheet_title">Осы бағалау туралы</string>
 <string name="info_sheet_body">Дайындық, стресс, ЖЖВ, Баевский индексі, дене майы және су балансы сияқты көрсеткіштер — сіздің деректеріңіз бен құрылғы үлгілеріне негізделген сауықтыру бағалаулары. Жоспарлар — жаттықтырушы ұсыныстары, рецепт емес.</string>
 <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-<string name="perm_explainer_health_body">OmniGart сауықтыру үлгілерін оқи және жаза алады — жүрек соғысы, HRV, ұйқы, жаттығулар, белсенді және базалық энергия, дене салмағы және су ішу — сеанстар Apple Fitness-те көрінуі үшін. Платформаға жазу тек қосу: OmniGart Apple Health / Health Connect деректерін — өзінкін де — жоймайды және қайта жазбайды. Деректер жарнамаға берілмейді. Рұқсатсыз жалғастыруға болады.</string>
+<string name="perm_explainer_health_body">OmniGart құрылғыдағы бағалауларды жақсарту үшін сауықтыру үлгілерін (жүрек соғуы, ЖЖВ, ұйқы, жаттығулар, дене массасы, су балансы) оқи және жаза алады. Деректер жарнамаға пайдаланылмайды және қатысы жоқ үшінші тараптарға жіберілмейді. Қолжетімділік берместен жалғастыра аласыз.</string>
 <string name="perm_explainer_bluetooth_title">Bluetooth аксессуарлары</string>
 <string name="perm_explainer_bluetooth_body">Тірі үлгілер үшін жүрек соғу немесе ұқсас фитнес аксессуарын қосыңыз. OmniGart Bluetoothсыз толық жұмыс істейді.</string>
 <string name="perm_explainer_camera_title">Штрихкод камерасы</string>
@@ -24,11 +24,7 @@
 <string name="perm_continue">Жалғастыру</string>
 <string name="perm_not_now">Қазір емес</string>
 <string name="hc_rationale_title">Health Connect деректерін пайдалану</string>
-<string name="hc_rationale_body">OmniGart сіз таңдаған фитнес және сауықтыру деректерін оқу және жазу үшін Health Connect қолжетімділігін сұрайды.
-
-Жазу тек қосу: OmniGart Health Connect деректерін — өзінкін де — жоймайды және қайта жазбайды. Жергілікті өзгерістер OmniGart-та қалады.
-
-Денсаулық деректерін сатпаймыз және жарнамаға пайдаланбаймыз. Қолжетімділікті қабылдамауға болады.</string>
+<string name="hc_rationale_body">OmniGart дайындық пен жаттығу бағалаулары құрылғыңызда дәл болуы үшін сіз таңдаған фитнес және сауықтыру деректерін — жүрек соғуы, ЖЖВ, ұйқы, жаттығулар, дене массасы және су балансы — оқу және жазу үшін Health Connect қолжетімділігін сұрайды.\n\nБіз денсаулық деректерін сатпаймыз, жарнамаға пайдаланбаймыз және маркетинг үшін үшінші тараптармен бөліспейміз. Қолжетімділікті қабылдамай, OmniGart-ты қолмен енгізу арқылы пайдалана аласыз.</string>
 <string name="hc_rationale_privacy_policy">Құпиялылық саясаты</string>
 <string name="calc_settings_title">Есептеулер</string>
 <string name="calc_settings_intro">OmniGart энергия шығыны, жүрек соғу аймақтары, дене майы және күш сияқты сауықтыру көрсеткіштерін қалай бағалайтынын таңдаңыз.</string>
@@ -219,6 +215,31 @@
 <string name="health_restore_failed">Бұл жаттығуды қалпына келтіру мүмкін болмады.</string>
 <string name="health_restore_permission_needed">Қалпына келтіру үшін Health жазу рұқсаты қажет.</string>
 <string name="health_restore_all_result">Қалпына келтірілді %1$d · сәтсіз %2$d</string>
+<string name="workout_finish">Аяқтау</string>
+<string name="workout_rest_timer">Демалыс</string>
+<string name="workout_note">Жазба</string>
+<string name="workout_progression">Мақсат</string>
+<string name="workout_col_set">ЖИЫН</string>
+<string name="workout_col_previous">АЛДЫҢҒЫ</string>
+<string name="workout_col_kg">КГ</string>
+<string name="workout_col_lb">ФУНТ</string>
+<string name="workout_col_reps">ҚАЙТ.</string>
+<string name="workout_col_done">✓</string>
+<string name="workout_replace_exercise">Жаттығуды ауыстыру</string>
+<string name="workout_remove_exercise">Жаттығуды алып тастау</string>
+<string name="workout_mark_warmup">Қыздыруу деп белгілеу</string>
+<string name="workout_mark_drop">Дроп-сет деп белгілеу</string>
+<string name="workout_mark_failure">Сәтсіздікке дейін деп белгілеу</string>
+<string name="workout_record_rpe">RPE жазу</string>
+<string name="workout_set_menu">Жиын параметрлері</string>
+<string name="workout_weight_lb">Салмақ (фунт)</string>
+<string name="workout_body_map">Бұлшықеттер</string>
+<string name="workout_export_workoutkit">Apple Workout-қа қосу</string>
+<string name="workout_workoutkit_limit">Apple Workout басқа қолданбалардан салмақ немесе қайталауды қабылдамайды. OmniGart әр жиынды жұмыс, демалысты қалпына келтіру қадамы ретінде экспорттайды; салмақ × қайталауды OmniGart-та iPhone немесе Apple Watch-та жазыңыз.</string>
+<string name="workout_sets_count">Жиындар</string>
+<string name="workout_volume_short">Көлем</string>
+<string name="wear_strength_title">Күш</string>
+<string name="wear_strength_done">Дайын</string>
 <string name="workouts_program_title">Күш бағдарламасы</string>
 <string name="workouts_program_intro">Қолдағы жабдықтан толық дене немесе сплит жоспарын жасаңыз. Тек жаттықтырушылық көмек — медициналық кеңес емес.</string>
 <string name="workouts_program_split">Бағдарлама түрі</string>

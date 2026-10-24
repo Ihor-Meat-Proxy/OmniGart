@@ -14,7 +14,7 @@
 <string name="info_sheet_title">关于此估算</string>
 <string name="info_sheet_body">准备度、压力、心率变异、Baevsky 指数、体脂和补水等数值是基于您的输入和设备样本的健康估算。计划是教练建议，不是处方。</string>
 <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-<string name="perm_explainer_health_body">OmniGart 可读写健康样本——心率、心率变异、睡眠、训练、活动与基础能量、体重和补水——以便会话出现在 Apple Fitness 中。写入平台仅为追加：从不删除或改写 Apple Health / Health Connect 数据（包括本应用创建的）。您也可不授予权限并继续。</string>
+<string name="perm_explainer_health_body">OmniGart 可读写健康样本（心率、心率变异、睡眠、训练、体重、补水），以改进设备上的估算。数据不用于广告，也不会发送给无关第三方。您可以不授予访问权限继续使用。</string>
 <string name="perm_explainer_bluetooth_title">蓝牙配件</string>
 <string name="perm_explainer_bluetooth_body">连接心率或其他健身配件以获取实时样本。OmniGart 在无蓝牙时也可完整使用。</string>
 <string name="perm_explainer_camera_title">条码相机</string>
@@ -24,11 +24,7 @@
 <string name="perm_continue">继续</string>
 <string name="perm_not_now">暂时不要</string>
 <string name="hc_rationale_title">Health Connect 数据用途</string>
-<string name="hc_rationale_body">OmniGart 请求访问 Health Connect，以读写您选择的健身与健康数据。
-
-写入仅为追加：从不删除或改写 Health Connect 数据（包括本应用创建的）。本地编辑只保留在 OmniGart。
-
-我们不出售健康数据，也不将其用于广告。您可以拒绝访问。</string>
+<string name="hc_rationale_body">OmniGart 请求访问 Health Connect，以读写您选择的健身与健康数据——例如心率、心率变异、睡眠、训练、体重和补水——使准备度与训练估算在设备上保持准确。\n\n我们不出售健康数据、不将其用于广告，也不与第三方分享用于营销。您可以拒绝访问，并通过手动输入继续使用 OmniGart。</string>
 <string name="hc_rationale_privacy_policy">隐私政策</string>
 <string name="calc_settings_title">计算</string>
 <string name="calc_settings_intro">选择 OmniGart 如何估算能量消耗、心率区间、体脂和力量等健康指标。</string>
@@ -219,6 +215,31 @@
 <string name="health_restore_failed">无法恢复此训练。</string>
 <string name="health_restore_permission_needed">恢复需要健康数据写入权限。</string>
 <string name="health_restore_all_result">已恢复 %1$d · 失败 %2$d</string>
+<string name="workout_finish">完成</string>
+<string name="workout_rest_timer">休息</string>
+<string name="workout_note">备注</string>
+<string name="workout_progression">目标</string>
+<string name="workout_col_set">组</string>
+<string name="workout_col_previous">上次</string>
+<string name="workout_col_kg">公斤</string>
+<string name="workout_col_lb">磅</string>
+<string name="workout_col_reps">次数</string>
+<string name="workout_col_done">✓</string>
+<string name="workout_replace_exercise">替换动作</string>
+<string name="workout_remove_exercise">移除动作</string>
+<string name="workout_mark_warmup">标为热身</string>
+<string name="workout_mark_drop">标为递减组</string>
+<string name="workout_mark_failure">标为力竭</string>
+<string name="workout_record_rpe">记录 RPE</string>
+<string name="workout_set_menu">组选项</string>
+<string name="workout_weight_lb">重量（磅）</string>
+<string name="workout_body_map">肌肉</string>
+<string name="workout_export_workoutkit">添加到 Apple 体能训练</string>
+<string name="workout_workoutkit_limit">Apple 体能训练无法从其他应用接收重量或次数。OmniGart 会将每组导出为工作步骤、休息导出为恢复步骤以便跟随；请在 iPhone 或 Apple Watch 的 OmniGart 中记录重量×次数。</string>
+<string name="workout_sets_count">组数</string>
+<string name="workout_volume_short">容量</string>
+<string name="wear_strength_title">力量</string>
+<string name="wear_strength_done">完成</string>
 <string name="workouts_program_title">力量计划</string>
 <string name="workouts_program_intro">根据现有器械生成全身或分化计划。仅供训练参考，不是医疗建议。</string>
 <string name="workouts_program_split">计划类型</string>

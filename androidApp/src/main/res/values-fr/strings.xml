@@ -14,7 +14,7 @@
 <string name="info_sheet_title">À propos de cette estimation</string>
 <string name="info_sheet_body">Des indicateurs tels que la préparation, le stress, la VRC, l’indice de Baevsky, la masse grasse et l’hydratation sont des estimations de bien-être basées sur vos saisies et les échantillons de l’appareil. Les plans sont des suggestions de coaching, pas des prescriptions.</string>
 <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-<string name="perm_explainer_health_body">OmniGart peut lire et écrire des échantillons bien-être — fréquence cardiaque, VRC, sommeil, séances, énergie active et basale, masse corporelle et hydratation — pour afficher les séances dans Apple Fitness. Écritures en ajout seul : OmniGart ne supprime ni ne réécrit jamais les données Apple Health ou Health Connect, y compris les siennes. Vous pouvez continuer sans accorder l’accès.</string>
+<string name="perm_explainer_health_body">OmniGart peut lire et écrire des échantillons de bien-être (fréquence cardiaque, VRC, sommeil, entraînements, masse corporelle, hydratation) pour améliorer les estimations sur l’appareil. Les données ne sont pas utilisées pour la publicité ni envoyées à des tiers non liés. Vous pouvez continuer sans accorder l’accès.</string>
 <string name="perm_explainer_bluetooth_title">Accessoires Bluetooth</string>
 <string name="perm_explainer_bluetooth_body">Connectez un moniteur de fréquence cardiaque ou un accessoire fitness similaire pour des échantillons en direct. OmniGart fonctionne pleinement sans Bluetooth.</string>
 <string name="perm_explainer_camera_title">Caméra pour codes-barres</string>
@@ -24,11 +24,7 @@
 <string name="perm_continue">Continuer</string>
 <string name="perm_not_now">Pas maintenant</string>
 <string name="hc_rationale_title">Utilisation des données Health Connect</string>
-<string name="hc_rationale_body">OmniGart demande l’accès à Health Connect pour lire et écrire les données de fitness et de bien-être que vous choisissez.
-
-Écritures en ajout seul : OmniGart ne supprime ni ne réécrit jamais les données Health Connect, y compris les siennes. Les modifications locales restent dans OmniGart.
-
-Nous ne vendons pas les données de santé et ne les utilisons pas pour la publicité. Vous pouvez refuser l’accès.</string>
+<string name="hc_rationale_body">OmniGart demande l’accès à Health Connect pour lire et écrire les données de fitness et de bien-être que vous choisissez — telles que la fréquence cardiaque, la VRC, le sommeil, les entraînements, la masse corporelle et l’hydratation — afin que les estimations de préparation et d’entraînement restent précises sur votre appareil.\n\nNous ne vendons pas les données de santé, ne les utilisons pas pour la publicité et ne les partageons pas avec des tiers à des fins marketing. Vous pouvez refuser l’accès et continuer à utiliser OmniGart avec une saisie manuelle.</string>
 <string name="hc_rationale_privacy_policy">Politique de confidentialité</string>
 <string name="calc_settings_title">Calculs</string>
 <string name="calc_settings_intro">Choisissez comment OmniGart estime les indicateurs de bien-être : dépense énergétique, zones de fréquence cardiaque, masse grasse et force.</string>
@@ -219,6 +215,31 @@ Nous ne vendons pas les données de santé et ne les utilisons pas pour la publi
 <string name="health_restore_failed">Impossible de restaurer cette séance.</string>
 <string name="health_restore_permission_needed">L’autorisation d’écriture Health est requise pour restaurer.</string>
 <string name="health_restore_all_result">Restaurés %1$d · échecs %2$d</string>
+<string name="workout_finish">Terminer</string>
+<string name="workout_rest_timer">Repos</string>
+<string name="workout_note">Note</string>
+<string name="workout_progression">Objectif</string>
+<string name="workout_col_set">SÉRIE</string>
+<string name="workout_col_previous">PRÉCÉDENT</string>
+<string name="workout_col_kg">KG</string>
+<string name="workout_col_lb">LB</string>
+<string name="workout_col_reps">RÉPS</string>
+<string name="workout_col_done">✓</string>
+<string name="workout_replace_exercise">Remplacer l’exercice</string>
+<string name="workout_remove_exercise">Retirer l’exercice</string>
+<string name="workout_mark_warmup">Marquer comme échauffement</string>
+<string name="workout_mark_drop">Marquer comme drop set</string>
+<string name="workout_mark_failure">Marquer comme à l’échec</string>
+<string name="workout_record_rpe">Enregistrer le RPE</string>
+<string name="workout_set_menu">Options de série</string>
+<string name="workout_weight_lb">Charge (lb)</string>
+<string name="workout_body_map">Muscles</string>
+<string name="workout_export_workoutkit">Ajouter à Apple Workout</string>
+<string name="workout_workoutkit_limit">L’app Workout d’Apple n’accepte pas le poids ni les répétitions d’autres apps. OmniGart exporte chaque série en travail et chaque repos en récupération ; enregistrez charge × reps dans OmniGart sur iPhone ou Apple Watch.</string>
+<string name="workout_sets_count">Séries</string>
+<string name="workout_volume_short">Volume</string>
+<string name="wear_strength_title">Force</string>
+<string name="wear_strength_done">Fait</string>
 <string name="workouts_program_title">Programme de force</string>
 <string name="workouts_program_intro">Créez un plan full-body ou split selon votre matériel. Aide d’entraînement uniquement — pas un avis médical.</string>
 <string name="workouts_program_split">Type de programme</string>

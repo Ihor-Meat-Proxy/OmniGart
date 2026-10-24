@@ -113,7 +113,14 @@ class StrengthLoggingService(
         isWarmup: Boolean = false,
         assistanceKg: Double? = null,
         loggedPerHand: Boolean = false,
-        completed: Boolean = true
+        completed: Boolean = true,
+        rpe: Double? = null,
+        isDropSet: Boolean = false,
+        isFailure: Boolean = false,
+        note: String? = null,
+        restSeconds: Int? = null,
+        targetWeightKg: Double? = null,
+        targetReps: Int? = null
     ): Session {
         val current = requireSession(sessionId)
         val set =
@@ -124,12 +131,59 @@ class StrengthLoggingService(
                 reps = reps,
                 weightKg = weightKg,
                 rir = rir,
+                rpe = rpe,
                 completed = completed,
                 isWarmup = isWarmup,
+                isDropSet = isDropSet,
+                isFailure = isFailure,
                 assistanceKg = assistanceKg,
-                loggedPerHand = loggedPerHand
+                loggedPerHand = loggedPerHand,
+                note = note,
+                restSeconds = restSeconds,
+                targetWeightKg = targetWeightKg,
+                targetReps = targetReps
             )
         val next = current.copy(sets = current.sets + set)
+        sessions.upsert(next)
+        return next
+    }
+
+    /**
+     * Mark a set completed; returns suggested rest seconds so the UI can start the rest timer.
+     * Swift-friendly: returns rest seconds (0 when none).
+     */
+    fun completeSet(sessionId: String, setId: String, defaultRestSeconds: Int = DEFAULT_REST_SECONDS): Int {
+        val current = requireSession(sessionId)
+        val set = current.sets.firstOrNull { it.id == setId } ?: error("Set $setId not in session $sessionId")
+        if (!set.completed) {
+            updateSet(sessionId, set.copy(completed = true))
+        }
+        return InWorkoutLogging.restSecondsFor(set, defaultRestSeconds)
+    }
+
+    /** Replace every set of [fromExerciseId] with [toExerciseId] (same indices / loads). */
+    fun replaceExercise(sessionId: String, fromExerciseId: String, toExerciseId: String): Session {
+        val current = requireSession(sessionId)
+        require(fromExerciseId != toExerciseId)
+        val next =
+            current.copy(
+                sets =
+                current.sets.map { set ->
+                    if (set.exerciseId == fromExerciseId) set.copy(exerciseId = toExerciseId) else set
+                }
+            )
+        sessions.upsert(next)
+        return next
+    }
+
+    /** Drop an exercise and all of its sets from the live session. */
+    fun removeExercise(sessionId: String, exerciseId: String): Session {
+        val current = requireSession(sessionId)
+        val remaining =
+            current.sets
+                .filterNot { it.exerciseId == exerciseId }
+                .mapIndexed { index, set -> set.copy(setIndex = index) }
+        val next = current.copy(sets = remaining)
         sessions.upsert(next)
         return next
     }

@@ -14,7 +14,7 @@
 <string name="info_sheet_title">ამ შეფასების შესახებ</string>
 <string name="info_sheet_body">მაჩვენებლები, როგორიცაა მზადყოფნა, სტრესი, HRV, ბაევსკის ინდექსი, სხეულის ცხიმი და ჰიდრატაცია, არის კეთილდღეობის შეფასებები თქვენს მონაცემებსა და მოწყობილობის ნიმუშებზე დაყრდნობით. გეგმები — მწვრთნელის შეთავაზებებია, არა რეცეპტები.</string>
 <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-<string name="perm_explainer_health_body">OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები — გულისცემა, HRV, ძილი, ვარჯიშები, აქტიური და საბაზისო ენერგია, სხეულის მასა და ჰიდრატაცია — რომ სესიები გამოჩნდეს Apple Fitness-ში. პლატფორმაზე ჩაწერა მხოლოდ დამატებითია: OmniGart არ შლის და არ გადააწერს Apple Health ან Health Connect მონაცემებს, მათ შორის საკუთარს. შეგიძლიათ გააგრძელოთ წვდომის გარეშე.</string>
+<string name="perm_explainer_health_body">OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები (გულისცემა, HRV, ძილი, ვარჯიშები, სხეულის მასა, ჰიდრატაცია) მოწყობილობაზე შეფასებების გასაუმჯობესებლად. მონაცემები არ გამოიყენება რეკლამისთვის და არ იგზავნება უცხო მესამე მხარეებთან. შეგიძლიათ გააგრძელოთ წვდომის მინიჭების გარეშე.</string>
 <string name="perm_explainer_bluetooth_title">Bluetooth აქსესუარები</string>
 <string name="perm_explainer_bluetooth_body">დაუკავშირეთ გულისცემის ან მსგავსი ფიტნეს აქსესუარი ცოცხალი ნიმუშებისთვის. OmniGart სრულად მუშაობს Bluetooth-ის გარეშე.</string>
 <string name="perm_explainer_camera_title">კამერა შტრიხკოდებისთვის</string>
@@ -24,11 +24,7 @@
 <string name="perm_continue">გაგრძელება</string>
 <string name="perm_not_now">ახლა არა</string>
 <string name="hc_rationale_title">Health Connect მონაცემების გამოყენება</string>
-<string name="hc_rationale_body">OmniGart ითხოვს Health Connect-ზე წვდომას თქვენ მიერ არჩეული ფიტნესისა და კეთილდღეობის მონაცემების წასაკითხად და ჩასაწერად.
-
-ჩაწერა მხოლოდ დამატებითია: OmniGart არ შლის და არ გადააწერს Health Connect მონაცემებს, მათ შორის საკუთარს. ლოკალური ცვლილებები რჩება OmniGart-ში.
-
-ჯანმრთელობის მონაცემებს არ ვყიდით და რეკლამისთვის არ ვიყენებთ. შეგიძლიათ უარყოთ წვდომა.</string>
+<string name="hc_rationale_body">OmniGart ითხოვს Health Connect-ზე წვდომას, რათა წაიკითხოს და ჩაწეროს თქვენ მიერ არჩეული ფიტნესისა და კეთილდღეობის მონაცემები — როგორიცაა გულისცემა, HRV, ძილი, ვარჯიშები, სხეულის მასა და ჰიდრატაცია — რათა მზადყოფნისა და ვარჯიშის შეფასებები ზუსტი იყოს თქვენს მოწყობილობაზე.\n\nჩვენ არ ვყიდით ჯანმრთელობის მონაცემებს, არ ვიყენებთ მათ რეკლამისთვის და არ ვუზიარებთ მესამე მხარეებს მარკეტინგისთვის. შეგიძლიათ უარყოთ წვდომა და გამოიყენოთ OmniGart ხელით შეყვანით.</string>
 <string name="hc_rationale_privacy_policy">კონფიდენციალობის პოლიტიკა</string>
 <string name="calc_settings_title">გამოთვლები</string>
 <string name="calc_settings_intro">აირჩიეთ, როგორ აფასებს OmniGart კეთილდღეობის მაჩვენებლებს: ენერგიას, გულისცემის ზონებს, სხეულის ცხიმს და ძალას.</string>
@@ -219,6 +215,31 @@
 <string name="health_restore_failed">ამ ვარჯიშის აღდგენა ვერ მოხერხდა.</string>
 <string name="health_restore_permission_needed">აღდგენისთვის საჭიროა Health-ზე ჩაწერის ნებართვა.</string>
 <string name="health_restore_all_result">აღდგენილია %1$d · ვერ მოხერხდა %2$d</string>
+<string name="workout_finish">დასრულება</string>
+<string name="workout_rest_timer">დასვენება</string>
+<string name="workout_note">შენიშვნა</string>
+<string name="workout_progression">მიზანი</string>
+<string name="workout_col_set">სეტი</string>
+<string name="workout_col_previous">წინა</string>
+<string name="workout_col_kg">კგ</string>
+<string name="workout_col_lb">ფუნტი</string>
+<string name="workout_col_reps">განმ.</string>
+<string name="workout_col_done">✓</string>
+<string name="workout_replace_exercise">ვარჯიშის შეცვლა</string>
+<string name="workout_remove_exercise">ვარჯიშის ამოშლა</string>
+<string name="workout_mark_warmup">გახურებად მონიშვნა</string>
+<string name="workout_mark_drop">დროპ-სეტად მონიშვნა</string>
+<string name="workout_mark_failure">უარამდე მონიშვნა</string>
+<string name="workout_record_rpe">RPE ჩაწერა</string>
+<string name="workout_set_menu">სეტის პარამეტრები</string>
+<string name="workout_weight_lb">წონა (ფუნტი)</string>
+<string name="workout_body_map">კუნთები</string>
+<string name="workout_export_workoutkit">Apple Workout-ში დამატება</string>
+<string name="workout_workoutkit_limit">Apple-ის Workout აპი სხვა აპებიდან წონას ან გამეორებებს არ იღებს. OmniGart თითოეულ სეტს სამუშაო, დასვენებას კი აღდგენის ნაბიჯად აქცევს; დატვირთვა × გამეორებები ჩაწერეთ OmniGart-ში iPhone-ზე ან Apple Watch-ზე.</string>
+<string name="workout_sets_count">სეტები</string>
+<string name="workout_volume_short">მოცულობა</string>
+<string name="wear_strength_title">ძალა</string>
+<string name="wear_strength_done">მზადაა</string>
 <string name="workouts_program_title">ძალის პროგრამა</string>
 <string name="workouts_program_intro">ააწყვეთ მთელი სხეულის ან სპლიტის გეგმა თქვენი აღჭურვილობით. მხოლოდ მწვრთნელის დახმარებაა — არა სამედიცინო რჩევა.</string>
 <string name="workouts_program_split">პროგრამის ტიპი</string>

@@ -31,7 +31,22 @@ class ScheduledWorkoutValidatorTest {
     }
 
     @Test
-    fun rejectsStrengthActivity() {
+    fun acceptsStrengthWorkRecoveryCustomWorkout() {
+        val plan =
+            StrengthWorkoutKitPlans.fromRoutineSets(
+                id = "s",
+                steps =
+                listOf(
+                    StrengthWorkoutKitPlans.RoutineSetStep("ex.bench", restSeconds = 90),
+                    StrengthWorkoutKitPlans.RoutineSetStep("ex.bench", restSeconds = 90)
+                )
+            )
+        assertTrue(ScheduledWorkoutValidator.validate(plan).ok)
+        assertEquals(WorkoutActivityType.STRENGTH, plan.activityType)
+    }
+
+    @Test
+    fun rejectsStrengthUnsupportedBlockKindOnStrengthActivity() {
         val plan =
             ScheduledWorkoutPlan(
                 id = "s",
@@ -39,7 +54,7 @@ class ScheduledWorkoutValidatorTest {
                 displayNameKey = "strength.session",
                 blocks =
                 listOf(
-                    WorkoutBlockSpec(WorkoutBlockKind.WORK, "sets")
+                    WorkoutBlockSpec(WorkoutBlockKind.STRENGTH_UNSUPPORTED, "sets")
                 )
             )
         val result = ScheduledWorkoutValidator.validate(plan)

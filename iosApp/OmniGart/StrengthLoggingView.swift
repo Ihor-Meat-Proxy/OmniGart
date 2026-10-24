@@ -81,6 +81,8 @@ struct StrengthLoggingView: View {
                 .font(.footnote)
                 .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
 
+            MirroredWorkoutBanner()
+
             watchSection
 
             if sessionId == nil {

@@ -1,12 +1,15 @@
 import HealthKit
+import Shared
 import SwiftUI
 
-/// Starts a companion watch live workout; shows status on failure (no fake session).
+/// Starts a companion watch live workout with exact kind selection; shows status on failure.
 struct WorkoutWatchStartRow: View {
     let titleKey: LocalizedStringKey
     let activityType: HKWorkoutActivityType
     let indoor: Bool
     let accessibilityId: String
+    var kindOverride: String?
+    var sessionKeyPrefix: String = "cat"
 
     @State private var status: String?
 
@@ -30,7 +33,9 @@ struct WorkoutWatchStartRow: View {
     private func start() async {
         let outcome = await HealthKitWatchLauncher.startOnWatch(
             activityType: activityType,
-            indoor: indoor
+            indoor: indoor,
+            kindOverride: kindOverride,
+            sessionKey: "\(sessionKeyPrefix)-\(Int(Date().timeIntervalSince1970))"
         )
         await MainActor.run {
             switch outcome {
@@ -38,6 +43,8 @@ struct WorkoutWatchStartRow: View {
                 status = String(localized: "workout_watch_started")
             case .watchUnavailable:
                 status = String(localized: "workout_watch_unavailable")
+            case .skippedByPreference:
+                status = nil
             }
         }
     }

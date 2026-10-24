@@ -45,6 +45,35 @@ extension StrengthLoggingView {
         volumeDisplay = 0
         seedStarterSets(sessionId: started.id)
         tick += 1
+        Task { await launchWatchIfEnabled(sessionKey: started.id) }
+    }
+
+    /// When the settings toggle is on, launch free strength on the watch; phone stays a mirror /
+    /// local logger and must not write a second HealthKit workout if the watch is recording.
+    func launchWatchIfEnabled(sessionKey: String) async {
+        let outcome = await HealthKitWatchLauncher.startOnWatch(
+            activityType: .traditionalStrengthTraining,
+            indoor: true,
+            kindOverride: PhoneWorkoutKindIds.shared.TRADITIONAL_STRENGTH,
+            sessionKey: sessionKey
+        )
+        await MainActor.run {
+            applyWatchLaunchOutcome(outcome)
+        }
+    }
+
+    func applyWatchLaunchOutcome(_ outcome: HealthKitWatchLauncher.LaunchOutcome) {
+        switch outcome {
+        case .watchStarted:
+            if let sessionId {
+                WatchRecorderSessionGate.markWatchRecorder(sessionKey: sessionId)
+            }
+            watchStatus = strengthCatalog("workout_watch_started")
+        case .watchUnavailable:
+            watchStatus = strengthCatalog("workout_watch_phone_only_notice")
+        case .skippedByPreference:
+            watchStatus = nil
+        }
     }
 
     func seedStarterSets(sessionId id: String) {
@@ -182,15 +211,13 @@ extension StrengthLoggingView {
     func startOnWatch() async {
         let outcome = await HealthKitWatchLauncher.startOnWatch(
             activityType: .traditionalStrengthTraining,
-            indoor: true
+            indoor: true,
+            kindOverride: PhoneWorkoutKindIds.shared.TRADITIONAL_STRENGTH,
+            sessionKey: sessionId,
+            respectPreference: false
         )
         await MainActor.run {
-            switch outcome {
-            case .watchStarted:
-                watchStatus = strengthCatalog("workout_watch_started")
-            case .watchUnavailable:
-                watchStatus = strengthCatalog("workout_watch_unavailable")
-            }
+            applyWatchLaunchOutcome(outcome)
         }
     }
 

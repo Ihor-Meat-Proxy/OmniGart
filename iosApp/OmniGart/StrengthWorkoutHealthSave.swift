@@ -181,6 +181,21 @@ enum StrengthWorkoutHealthSave {
             energy = input.refineEnergy(avgBpm)
         }
         let syncId = recordLocalWorkout(input, energy: energy, heartRate: heartRate)
+        // Single writer: when the watch owns HealthKit for this session, skip the phone HK write.
+        if WatchRecorderSessionGate.isWatchRecorder(sessionKey: input.sessionId) {
+            WatchRecorderSessionGate.clear(sessionKey: input.sessionId)
+            return HealthKitWorkoutWriter.Result(
+                workoutUUID: UUID(),
+                activeKcal: energy.activeKcal,
+                basalKcal: energy.basalKcal,
+                averageHeartRateBpm: heartRate.averageBpm,
+                maxHeartRateBpm: heartRate.maxBpm,
+                energyIsEstimate: energy.isEstimate,
+                effortScore: nil,
+                heartRateRecoveryBpm: nil,
+                skippedBecauseAlreadyExists: true
+            )
+        }
         do {
             let saved = try await saveToHealthKit(input, energy: energy, heartRate: heartRate, syncId: syncId)
             if let saved, !saved.skippedBecauseAlreadyExists {

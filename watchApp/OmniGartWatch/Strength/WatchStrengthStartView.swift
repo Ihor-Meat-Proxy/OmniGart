@@ -1,6 +1,5 @@
 import Shared
 import SwiftUI
-import WatchConnectivity
 
 /// Pre-start strength session: quick equipment toggles synced from iPhone, then regenerate.
 struct WatchStrengthStartView: View {
@@ -98,46 +97,5 @@ struct SessionMusclePreviewWatch: View {
             .font(.caption2)
             .foregroundStyle(.secondary)
             .accessibilityIdentifier("watch_session_muscles")
-    }
-}
-
-@MainActor
-final class WatchEquipmentSync: NSObject, ObservableObject, WCSessionDelegate {
-    static let shared = WatchEquipmentSync()
-
-    @Published var enabledIds: Set<String> = []
-    @Published var catalogueIds: [String] = []
-
-    private var activated = false
-
-    func activateIfNeeded() {
-        guard WCSession.isSupported(), !activated else { return }
-        activated = true
-        let session = WCSession.default
-        session.delegate = self
-        session.activate()
-    }
-
-    nonisolated func session(
-        _ session: WCSession,
-        activationDidCompleteWith activationState: WCSessionActivationState,
-        error: Error?
-    ) {
-        let ids = (session.receivedApplicationContext["equipmentIds"] as? [String]) ?? []
-        Task { @MainActor in
-            self.apply(ids: ids)
-        }
-    }
-
-    nonisolated func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
-        let ids = (applicationContext["equipmentIds"] as? [String]) ?? []
-        Task { @MainActor in
-            self.apply(ids: ids)
-        }
-    }
-
-    private func apply(ids: [String]) {
-        guard !ids.isEmpty else { return }
-        enabledIds = Set(ids)
     }
 }

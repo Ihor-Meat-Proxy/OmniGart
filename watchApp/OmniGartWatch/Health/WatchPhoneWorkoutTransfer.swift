@@ -3,7 +3,8 @@ import WatchConnectivity
 
 /// Queues finished watch workouts to the iPhone via WCSession (reliable delivery).
 /// Payload is OmniGart device-transfer JSON; the phone stores locally and must not re-write HealthKit.
-final class WatchPhoneWorkoutTransfer: NSObject, WCSessionDelegate, @unchecked Sendable {
+/// WCSession delegate ownership lives on [WatchConnectivityHub]; this type only enqueues.
+final class WatchPhoneWorkoutTransfer: NSObject, @unchecked Sendable {
     static let shared = WatchPhoneWorkoutTransfer()
 
     private let payloadKey = "omnigart.workout.transfer.json"
@@ -12,9 +13,20 @@ final class WatchPhoneWorkoutTransfer: NSObject, WCSessionDelegate, @unchecked S
 
     func activate() {
         guard WCSession.isSupported() else { return }
-        let session = WCSession.default
-        session.delegate = self
-        session.activate()
+        // Hub owns the delegate; mark ready when session is already active or after hub activates.
+        stateLock.lock()
+        activated = WCSession.default.activationState == .activated
+        stateLock.unlock()
+        Task { @MainActor in
+            WatchConnectivityHub.shared.activate(transfer: self)
+            self.markActivated(WCSession.default.activationState == .activated)
+        }
+    }
+
+    func markActivated(_ value: Bool) {
+        stateLock.lock()
+        activated = value
+        stateLock.unlock()
     }
 
     /// Queue a transfer. Prefer `transferUserInfo` (queued when phone unreachable); fall back to file for large payloads.
@@ -22,14 +34,14 @@ final class WatchPhoneWorkoutTransfer: NSObject, WCSessionDelegate, @unchecked S
         guard WCSession.isSupported() else { return }
         let session = WCSession.default
         stateLock.lock()
-        let needsActivate = !activated
+        let ready = activated
         stateLock.unlock()
-        if needsActivate {
-            session.delegate = self
-            session.activate()
+        if !ready {
+            Task { @MainActor in
+                WatchConnectivityHub.shared.activate(transfer: self)
+            }
         }
         let data = Data(jsonPayload.utf8)
-        // Keep userInfo for compact workouts; use transferFile when HR series is large.
         if data.count < 50_000 {
             session.transferUserInfo([payloadKey: jsonPayload])
         } else {
@@ -39,20 +51,9 @@ final class WatchPhoneWorkoutTransfer: NSObject, WCSessionDelegate, @unchecked S
                 try data.write(to: url, options: .atomic)
                 session.transferFile(url, metadata: [payloadKey: "file"])
             } catch {
-                // Last resort: still try userInfo (may truncate on extreme payloads).
                 session.transferUserInfo([payloadKey: jsonPayload])
             }
         }
-    }
-
-    nonisolated func session(
-        _ session: WCSession,
-        activationDidCompleteWith activationState: WCSessionActivationState,
-        error: Error?
-    ) {
-        WatchPhoneWorkoutTransfer.shared.stateLock.lock()
-        WatchPhoneWorkoutTransfer.shared.activated = activationState == .activated
-        WatchPhoneWorkoutTransfer.shared.stateLock.unlock()
     }
 }
 

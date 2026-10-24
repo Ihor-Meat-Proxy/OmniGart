@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -20,13 +21,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.wear.compose.material3.Button
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.Text
+import com.google.android.gms.wearable.Wearable
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.design.theme.OmniGartSpacing
 import com.omnigart.shared.OmniGartCore
 import com.omnigart.shared.content.AssetContentStore
 import com.omnigart.shared.data.DatabaseDriverFactory
+import com.omnigart.shared.health.store.device.PhoneWorkoutKindIds
+import com.omnigart.shared.health.store.device.PhoneWorkoutSelection
 import com.omnigart.wear.treadmill.WearTreadmillScreen
 import com.omnigart.wear.workout.WearExerciseRecorder
+import com.omnigart.wear.workout.WearPhoneWorkoutLaunchListener
 import com.omnigart.wear.workout.WearPhoneWorkoutTransfer
 import com.omnigart.wear.workout.WearStrengthLoggingScreen
 import com.omnigart.wear.workout.WearWorkoutMode
@@ -35,6 +40,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var core: OmniGartCore
     private lateinit var transfer: WearPhoneWorkoutTransfer
     private lateinit var recorder: WearExerciseRecorder
+    private lateinit var launchListener: WearPhoneWorkoutLaunchListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,55 +51,95 @@ class MainActivity : ComponentActivity() {
             )
         transfer = WearPhoneWorkoutTransfer(applicationContext, core).also { it.start() }
         recorder = WearExerciseRecorder(applicationContext, core, transfer)
+        launchListener =
+            WearPhoneWorkoutLaunchListener(Wearable.getMessageClient(applicationContext)).also { it.start() }
         val profile = core.ensureDemoProfile()
         val headline = core.summaryLines(profile).take(2)
         setContent {
             MaterialTheme {
-                var showTreadmill by remember { mutableStateOf(false) }
-                var strengthActive by remember { mutableStateOf(false) }
-                when {
-                    showTreadmill -> {
-                        WearTreadmillScreen(onBack = { showTreadmill = false })
-                    }
-                    strengthActive -> {
-                        WearStrengthLoggingScreen(
-                            recorder = recorder,
-                            onFinished = { strengthActive = false }
-                        )
-                    }
-                    else -> {
-                        WearStartScreen(
-                            lines = headline,
-                            onStart = {
-                                // Prefer Health Services ExerciseClient; fall back to manual publish for emulators.
-                                if (recorder.isRunning()) {
-                                    recorder.stop { }
-                                } else {
-                                    runCatching { recorder.start(WearWorkoutMode.RUNNING) }
-                                        .onFailure {
-                                            recorder.recordManualAndTransfer()
-                                        }
-                                    if (!recorder.isRunning()) {
-                                        recorder.recordManualAndTransfer()
-                                    }
-                                }
-                            },
-                            onStartStrength = {
-                                recorder.setCurrentExercise("Bench press", "barbell-bench-press")
-                                runCatching { recorder.start(WearWorkoutMode.STRENGTH) }
-                                strengthActive = true
-                            },
-                            onTreadmill = { showTreadmill = true }
-                        )
-                    }
-                }
+                WearRoot(
+                    lines = headline,
+                    recorder = recorder,
+                    launchListener = launchListener
+                )
             }
         }
     }
 
     override fun onDestroy() {
+        launchListener.stop()
         transfer.stop()
         super.onDestroy()
+    }
+}
+
+@Composable
+private fun WearRoot(lines: List<String>, recorder: WearExerciseRecorder, launchListener: WearPhoneWorkoutLaunchListener) {
+    var showTreadmill by remember { mutableStateOf(false) }
+    var strengthActive by remember { mutableStateOf(false) }
+    var pending by remember { mutableStateOf<PhoneWorkoutSelection?>(null) }
+
+    LaunchedEffect(launchListener) {
+        val listener: (PhoneWorkoutSelection) -> Unit = { pending = it }
+        launchListener.addListener(listener)
+    }
+
+    LaunchedEffect(pending) {
+        val selection = pending ?: return@LaunchedEffect
+        pending = null
+        when (WearPhoneWorkoutLaunchListener.wearModeFor(selection)) {
+            WearWorkoutMode.STRENGTH -> {
+                selection.equipmentIds.firstOrNull()?.let { id ->
+                    recorder.setCurrentExercise(id.replace('-', ' '), id)
+                }
+                runCatching { recorder.start(WearWorkoutMode.STRENGTH) }
+                strengthActive = true
+            }
+            WearWorkoutMode.RUNNING -> {
+                if (
+                    selection.kind == PhoneWorkoutKindIds.TREADMILL_RUN ||
+                    selection.kind == PhoneWorkoutKindIds.TREADMILL_WALK
+                ) {
+                    showTreadmill = true
+                } else {
+                    runCatching { recorder.start(WearWorkoutMode.RUNNING) }
+                }
+            }
+        }
+    }
+
+    when {
+        showTreadmill -> {
+            WearTreadmillScreen(onBack = { showTreadmill = false })
+        }
+        strengthActive -> {
+            WearStrengthLoggingScreen(
+                recorder = recorder,
+                onFinished = { strengthActive = false }
+            )
+        }
+        else -> {
+            WearStartScreen(
+                lines = lines,
+                onStart = {
+                    if (recorder.isRunning()) {
+                        recorder.stop { }
+                    } else {
+                        runCatching { recorder.start(WearWorkoutMode.RUNNING) }
+                            .onFailure { recorder.recordManualAndTransfer() }
+                        if (!recorder.isRunning()) {
+                            recorder.recordManualAndTransfer()
+                        }
+                    }
+                },
+                onStartStrength = {
+                    recorder.setCurrentExercise("Bench press", "barbell-bench-press")
+                    runCatching { recorder.start(WearWorkoutMode.STRENGTH) }
+                    strengthActive = true
+                },
+                onTreadmill = { showTreadmill = true }
+            )
+        }
     }
 }
 

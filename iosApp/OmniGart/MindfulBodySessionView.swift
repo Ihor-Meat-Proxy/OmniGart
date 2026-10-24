@@ -56,12 +56,27 @@ struct MindfulBodySessionView: View {
                     .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
             }
 
+            MirroredWorkoutBanner()
+
             if !running {
                 Button(catalog("workout_start_iphone_estimate")) {
                     running = true
                     startedAt = Date()
-                    syncSessionId = UUID().uuidString
+                    let key = UUID().uuidString
+                    syncSessionId = key
                     summaryLines = []
+                    Task {
+                        let kindId = kind == .yoga
+                            ? PhoneWorkoutKindIds.shared.YOGA
+                            : PhoneWorkoutKindIds.shared.PILATES
+                        let outcome = await HealthKitWatchLauncher.startOnWatch(
+                            activityType: kind.activityType,
+                            indoor: true,
+                            kindOverride: kindId,
+                            sessionKey: key
+                        )
+                        await MainActor.run { applyWatchOutcome(outcome) }
+                    }
                 }
                 .accessibilityIdentifier("\(kind.rawValue)_start_iphone")
             } else {
@@ -93,17 +108,29 @@ struct MindfulBodySessionView: View {
     }
 
     private func startOnWatch() async {
+        let kindId = kind == .yoga
+            ? PhoneWorkoutKindIds.shared.YOGA
+            : PhoneWorkoutKindIds.shared.PILATES
         let outcome = await HealthKitWatchLauncher.startOnWatch(
             activityType: kind.activityType,
-            indoor: true
+            indoor: true,
+            kindOverride: kindId,
+            sessionKey: syncSessionId,
+            respectPreference: false
         )
         await MainActor.run {
-            switch outcome {
-            case .watchStarted:
-                watchStatus = catalog("workout_watch_started")
-            case .watchUnavailable:
-                watchStatus = catalog("workout_watch_unavailable")
-            }
+            applyWatchOutcome(outcome)
+        }
+    }
+
+    private func applyWatchOutcome(_ outcome: HealthKitWatchLauncher.LaunchOutcome) {
+        switch outcome {
+        case .watchStarted:
+            watchStatus = catalog("workout_watch_started")
+        case .watchUnavailable:
+            watchStatus = catalog("workout_watch_phone_only_notice")
+        case .skippedByPreference:
+            break
         }
     }
 

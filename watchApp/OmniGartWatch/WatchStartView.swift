@@ -91,6 +91,12 @@ struct WatchStartView: View {
                 .padding(OmniGartMetrics.space2)
             }
             .accessibilityIdentifier("wear_start")
+            .navigationDestination(isPresented: Binding(
+                get: { pending.openGuidedStrength },
+                set: { if !$0 { pending.openGuidedStrength = false } }
+            )) {
+                WatchStrengthStartView(core: core, profileId: profileId)
+            }
             .navigationDestination(item: $pending.kind) { kind in
                 if kind == .zone2Run {
                     Zone2LiveView()
@@ -98,6 +104,14 @@ struct WatchStartView: View {
                     TreadmillLiveView(kind: kind)
                 } else {
                     OmniGartLiveWorkoutView(kind: kind)
+                }
+            }
+            .onAppear {
+                WatchConnectivityHub.shared.activate()
+            }
+            .onChange(of: WatchConnectivityHub.shared.enabledEquipmentIds) { _, ids in
+                if !ids.isEmpty {
+                    WatchEquipmentSync.shared.enabledIds = ids
                 }
             }
         }

@@ -107,6 +107,24 @@ Unmapped platform types import as `OTHER` and keep the raw platform type in `not
 6. `completeRestore` clears `removedFromPlatform` and stores the new platform record id.
 7. If the user deletes the sample on the platform again, step 1 repeats.
 
+## Phone → watch / Wear launch
+
+Wire schema: `omnigart.phone.workout.selection` (`PhoneWorkoutSelection`, schemaVersion **1**). Carries the exact selection (kind, programme / routine id, equipment adjustments, planned targets, session key) so the companion starts the matching OmniGart session — not only a generic activity type.
+
+### iPhone → Apple Watch
+
+1. When **Start workouts on watch** is on (default), the phone encodes `PhoneWorkoutSelection` and sends it over WCSession (`applicationContext` / `transferUserInfo` / `sendMessage` when reachable) under key `omnigart.workout.selection.json`.
+2. Phone calls `HKHealthStore.startWatchApp(with:)` with an `HKWorkoutConfiguration` derived from the selection kind.
+3. Watch `WKApplicationDelegate.handle(_:)` plus the WCSession payload open the matching `OmniGartWorkoutKind` (or guided strength programme UI).
+4. Watch `HKWorkoutSession` calls `startMirroringToCompanionDevice` so the phone can show live metrics and pause / end. **Watch is the single HealthKit writer**; phone skips a second HK insert for that session key.
+5. Fallback: no paired watch / app not installed / launch failure → phone-only session + small notice.
+
+### Android → Wear OS
+
+1. Same selection JSON over Wearable `MessageClient` path `/omnigart/workout/launch`.
+2. Wear listener starts the matching Health Services exercise (strength / run / treadmill).
+3. Fallback and single-writer rules mirror Apple: phone-only when unreachable; Wear owns the Health Connect exercise write when it is the recorder.
+
 ## Device transfer (Watch / Wear → phone)
 
 Wire schema: `omnigart.device.workout.transfer` (`DeviceWorkoutTransferDocument`, schemaVersion **2**; v1 still accepted). Keyed by the same `omnigart.workout.<localId>` sync identifier used for platform dedupe. Phone ingest is **idempotent** (`HealthSyncEngine.ingestDeviceTransfer`). Schema v2 adds optional `sets[]` (exercise key, index, reps, load kg, RIR/RPE, warm-up / drop / failure flags) so watch and Wear per-set logs land in the local store without re-writing HealthKit / Health Connect.
@@ -115,7 +133,7 @@ Wire schema: `omnigart.device.workout.transfer` (`DeviceWorkoutTransferDocument`
 
 1. Watch finishes `HKLiveWorkoutBuilder.finishWorkout()` with `HKMetadataKeySyncIdentifier` / `HKMetadataKeySyncVersion` stamped (first write = 1).
 2. Watch queues the full summary + HR samples via WCSession `transferUserInfo` (or `transferFile` when large) — delivery is queued even if the phone is away.
-3. iPhone `WatchWorkoutInbox` receives the payload and upserts into the local SQLDelight store by sync id.
+3. iPhone `PhoneWatchConnectivityHub` (formerly `WatchWorkoutInbox`) receives the payload and upserts into the local SQLDelight store by sync id.
 4. **iPhone must not write HealthKit again** — the watch already owns the HKWorkout. Import from Apple Health may later see the same sync id and merge; that path never creates a second OmniGart HK insert for the same id.
 
 ### Wear OS → phone

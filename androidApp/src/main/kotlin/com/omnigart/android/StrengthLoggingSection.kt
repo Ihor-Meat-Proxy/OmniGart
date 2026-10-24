@@ -10,17 +10,23 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import com.omnigart.android.health.WearWorkoutLauncher
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.design.theme.OmniGartSpacing
 import com.omnigart.shared.OmniGartCore
 import com.omnigart.shared.calc.MassUnit
 import com.omnigart.shared.domain.Session
+import com.omnigart.shared.health.store.device.PhoneWorkoutKindIds
+import com.omnigart.shared.health.store.device.PhoneWorkoutSelection
 import com.omnigart.shared.logging.InWorkoutLogging
 import kotlinx.coroutines.launch
 
@@ -63,12 +69,45 @@ fun StrengthLoggingSection(core: OmniGartCore, profileId: String) {
 
 @Composable
 private fun IdleWorkoutControls(state: StrengthLoggingState) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    var wearNotice by remember { mutableStateOf<String?>(null) }
     Text(
         text = stringResource(R.string.workout_idle),
         modifier = Modifier.testTag("workout_status")
     )
-    Button(onClick = state::startSession, modifier = Modifier.testTag("workout_start")) {
+    Button(
+        onClick = {
+            state.startSession()
+            val sessionKey = state.sessionId
+            scope.launch {
+                val selection =
+                    PhoneWorkoutSelection(
+                        kind = PhoneWorkoutKindIds.TRADITIONAL_STRENGTH,
+                        sessionKey = sessionKey,
+                        watchIsRecorder = true
+                    )
+                wearNotice =
+                    when (WearWorkoutLauncher(context).startOnWear(context, selection)) {
+                        WearWorkoutLauncher.Outcome.WEAR_STARTED ->
+                            context.getString(R.string.workout_watch_started)
+                        WearWorkoutLauncher.Outcome.WEAR_UNAVAILABLE ->
+                            context.getString(R.string.workout_watch_phone_only_notice)
+                        WearWorkoutLauncher.Outcome.SKIPPED_BY_PREFERENCE -> null
+                    }
+            }
+        },
+        modifier = Modifier.testTag("workout_start")
+    ) {
         Text(stringResource(R.string.workout_start))
+    }
+    wearNotice?.let { notice ->
+        Text(
+            text = notice,
+            style = MaterialTheme.typography.bodySmall,
+            color = OmniGartColors.colorTextLightSecondary,
+            modifier = Modifier.testTag("workout_watch_status")
+        )
     }
 }
 

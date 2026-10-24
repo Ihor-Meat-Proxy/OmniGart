@@ -30,7 +30,6 @@ struct FoodDailySummarySection: View {
                 .accessibilityIdentifier("food_water_logged")
             Button("food_water_add_250") {
                 NutritionLocalStore.shared.addWaterMl(250, dayKey: snap.dayKey)
-                // dayKey from FoodDayWindow
                 onWaterChanged()
             }
             .accessibilityIdentifier("food_water_add_250")

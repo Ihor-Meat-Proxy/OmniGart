@@ -1,0 +1,81 @@
+{
+  "id": "calf-raise-bodyweight",
+  "nameKeys": {
+    "enGB": "exercise.calf_raise_bodyweight.name",
+    "uk": "exercise.calf_raise_bodyweight.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "other",
+  "primaryMuscles": [
+    "calves"
+  ],
+  "secondaryMuscles": [],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Stand tall; rise onto the forefeet through a full ankle plantarflexion; lower under control to a soft stretch."
+  ],
+  "setup": [
+    "Hold a wall lightly for balance if needed; feet hip-width."
+  ],
+  "breathing": "Exhale to rise; inhale to lower.",
+  "commonMistakes": [
+    "Bouncing at the bottom",
+    "Rolling the ankles outward"
+  ],
+  "safety": [
+    "Use a step only if balance is secure."
+  ],
+  "contraindications": [],
+  "regressions": [],
+  "progressions": [
+    {
+      "exerciseId": "calf-raise-standing",
+      "note": "Add load or machine"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/calf-raise-bodyweight",
+    "videoKey": "media/video/calf-raise-bodyweight",
+    "animationKey": "media/anim/calf-raise-bodyweight"
+  },
+  "aliases": [
+    "standing calf raise bodyweight"
+  ],
+  "tags": [
+    "bodyweight",
+    "calves"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Standing calf raise moves approximately full body mass through the ankle; estimate ~1.0 BM."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

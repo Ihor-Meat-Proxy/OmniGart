@@ -138,6 +138,7 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
                 FoodLoggingSection(core = core, profileId = profileId)
             }
             if (selected == PhoneTab.Workouts.ordinal) {
+                StrengthProgramSection(core = core, profileId = profileId)
                 StrengthLoggingSection(core = core, profileId = profileId)
             }
             if (selected == PhoneTab.Profile.ordinal) {

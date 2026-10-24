@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "equip_hack_squat.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "equip_hack_squat.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

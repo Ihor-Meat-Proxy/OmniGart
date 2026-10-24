@@ -1,0 +1,97 @@
+{
+  "id": "bodyweight-squat",
+  "nameKeys": {
+    "enGB": "exercise.bodyweight_squat.name",
+    "uk": "exercise.bodyweight_squat.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "squat",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "hamstrings",
+    "calves"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Stand with feet about shoulder-width; sit the hips back and down until thighs reach at least parallel while heels stay down.",
+    "Drive through mid-foot to stand tall without collapsing the knees inward."
+  ],
+  "setup": [
+    "Feet planted; light brace; arms forward for balance if needed."
+  ],
+  "breathing": "Inhale on the descent; exhale on the ascent.",
+  "commonMistakes": [
+    "Heels rising",
+    "Knees caving in",
+    "Rounding the lumbar spine"
+  ],
+  "safety": [
+    "Stay in a pain-free depth; shorten range if knees or back complain."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "sit-to-stand",
+      "note": "Chair-assisted bilateral squat"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "split-squat-bodyweight",
+      "note": "Split stance"
+    },
+    {
+      "exerciseId": "walking-lunge",
+      "note": "Dynamic lunge"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/bodyweight-squat",
+    "videoKey": "media/video/bodyweight-squat",
+    "animationKey": "media/anim/bodyweight-squat"
+  },
+  "aliases": [
+    "air squat",
+    "bodyweight squat"
+  ],
+  "tags": [
+    "bodyweight",
+    "squat-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.7,
+    "basis": "estimate",
+    "rationale": "Upright squat with feet on floor; estimated lower-limb share of body mass moved is modest; use ~0.7 BM as coaching estimate for volume when no external load."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

@@ -1,0 +1,99 @@
+{
+  "id": "burpee",
+  "nameKeys": {
+    "enGB": "exercise.burpee.name",
+    "uk": "exercise.burpee.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "other",
+  "primaryMuscles": [
+    "quadriceps",
+    "pectoralis_major",
+    "rectus_abdominis"
+  ],
+  "secondaryMuscles": [
+    "gluteus_maximus",
+    "triceps",
+    "front_deltoid",
+    "full_body"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "reps",
+  "technique": [
+    "From standing, squat down, place hands, kick or step to a high plank, perform a push-up if able, jump the feet forward, and stand or jump to finish."
+  ],
+  "setup": [
+    "Clear floor space; land softly."
+  ],
+  "breathing": "Exhale on the effortful rises; avoid breath-holding.",
+  "commonMistakes": [
+    "Collapsing through the plank",
+    "Hard heel strikes on the jump"
+  ],
+  "safety": [
+    "Step instead of jumping to regress; skip the push-up if shoulders complain."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "sit-to-stand",
+      "note": "Remove plank/jump"
+    },
+    {
+      "exerciseId": "push-up",
+      "note": "Practise plank separately"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "mountain-climber",
+      "note": "Higher cadence core"
+    },
+    {
+      "exerciseId": "jump-squat",
+      "note": "Lower-body power"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/burpee",
+    "videoKey": "media/video/burpee",
+    "animationKey": "media/anim/burpee"
+  },
+  "aliases": [],
+  "tags": [
+    "bodyweight",
+    "conditioning"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Full-body bodyweight cycle; treat moved mass as ~full BM for volume coaching."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

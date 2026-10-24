@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "equip_parallettes.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "equip_parallettes.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

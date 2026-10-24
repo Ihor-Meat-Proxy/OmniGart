@@ -27,6 +27,8 @@ import com.omnigart.shared.health.store.LocalHealthStore
 import com.omnigart.shared.health.store.SqlDelightLocalHealthStore
 import com.omnigart.shared.health.store.export.HealthExportService
 import com.omnigart.shared.logging.StrengthLoggingService
+import com.omnigart.shared.strength.EquipmentProfileService
+import com.omnigart.shared.strength.StrengthProgramService
 import com.omnigart.shared.util.formatOneDecimal
 import kotlin.time.Clock
 import kotlin.time.Duration.Companion.days
@@ -75,6 +77,11 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
             profiles = profiles,
             formulaSettings = formulaSettings,
             contentStore = contentStore
+        )
+    val strengthPrograms =
+        StrengthProgramService(
+            equipmentService = EquipmentProfileService(database),
+            profiles = profiles
         )
 
     /** Local-first health store (SQLDelight). Always available without platform permission. */

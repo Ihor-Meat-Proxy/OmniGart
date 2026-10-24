@@ -1,0 +1,88 @@
+{
+  "id": "side-plank-hip-abduction",
+  "nameKeys": {
+    "enGB": "exercise.side_plank_hip_abduction.name",
+    "uk": "exercise.side_plank_hip_abduction.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "core_brace",
+  "primaryMuscles": [
+    "obliques",
+    "gluteus_medius"
+  ],
+  "secondaryMuscles": [
+    "transverse_abdominis",
+    "quadriceps"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "intermediate",
+  "unilateral": true,
+  "mechanics": "isometric",
+  "trackingType": "hold",
+  "technique": [
+    "From a side plank on the forearm, keep the body in a straight line and optionally lift the top leg slightly for extra gluteus medius demand."
+  ],
+  "setup": [
+    "Elbow under shoulder; stacked or staggered feet."
+  ],
+  "breathing": "Steady breathing while bracing.",
+  "commonMistakes": [
+    "Hips sagging toward the floor",
+    "Rolling the shoulders forward"
+  ],
+  "safety": [
+    "Drop to knees to regress."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "side-plank",
+      "note": "Shorten lever"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "side-plank",
+      "note": "Longer holds"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/side-plank-hip-abduction",
+    "videoKey": "media/video/side-plank-hip-abduction",
+    "animationKey": "media/anim/side-plank-hip-abduction"
+  },
+  "aliases": [],
+  "tags": [
+    "bodyweight",
+    "core"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Side plank supports roughly full body mass through the lateral chain; estimate ~1.0 BM."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

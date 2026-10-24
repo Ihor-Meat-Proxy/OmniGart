@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "equip_dumbbell_adjustable.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "equip_dumbbell_adjustable.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

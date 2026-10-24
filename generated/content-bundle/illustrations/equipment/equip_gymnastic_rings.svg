@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none" data-omnigart="equip:gymnastic_rings">
+  <circle cx="64" cy="64" r="58" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <line x1="44" y1="28" x2="44" y2="48" stroke="#334155" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="84" y1="28" x2="84" y2="48" stroke="#334155" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="44" cy="64" r="14" fill="none" stroke="#334155" stroke-width="3"/>
+  <circle cx="84" cy="64" r="14" fill="none" stroke="#334155" stroke-width="3"/>
+
+</svg>

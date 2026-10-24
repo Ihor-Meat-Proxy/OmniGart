@@ -1,0 +1,91 @@
+{
+  "id": "ready-gym-lower-strength",
+  "nameKeys": {
+    "enGB": "template.ready_gym_lower_strength.name",
+    "uk": "template.ready_gym_lower_strength.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "intermediate",
+  "goal": "strength",
+  "daysPerWeek": 1,
+  "sessionMinutes": 45,
+  "equipmentPreset": "commercial_gym",
+  "equipmentRequired": [
+    "barbell",
+    "squat_rack",
+    "plates"
+  ],
+  "rationale": "Gym lower strength emphasis with squat, hinge, machine assistance and single-leg work.",
+  "evidenceRefs": [
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "main",
+      "nameKeys": {
+        "enGB": "template.ready_gym_lower_strength.main.name",
+        "uk": "template.ready_gym_lower_strength.main.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": 4,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 180
+            },
+            {
+              "exerciseId": "romanian-deadlift-barbell",
+              "sets": 3,
+              "reps": "6-10",
+              "rir": "2-3",
+              "restSeconds": 150
+            },
+            {
+              "exerciseId": "leg-press",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "walking-lunge",
+              "sets": 2,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "calf-raise-standing",
+              "sets": 3,
+              "reps": "12-15",
+              "rir": "2-3",
+              "restSeconds": 60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

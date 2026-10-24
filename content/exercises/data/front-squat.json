@@ -15,7 +15,9 @@
     "front_deltoid"
   ],
   "equipment": [
-    "barbell"
+    "barbell",
+    "squat_rack",
+    "plates"
   ],
   "level": "intermediate",
   "unilateral": false,

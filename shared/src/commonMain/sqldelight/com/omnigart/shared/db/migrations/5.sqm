@@ -1,0 +1,17 @@
+CREATE TABLE equipment_profile (
+  profile_id TEXT NOT NULL PRIMARY KEY,
+  owned_ids TEXT NOT NULL,
+  active_preset TEXT NOT NULL DEFAULT 'CUSTOM',
+  dumbbell_min_kg REAL,
+  dumbbell_max_kg REAL,
+  saved_presets_json TEXT NOT NULL DEFAULT '[]',
+  updated_at TEXT NOT NULL
+);
+
+CREATE TABLE strength_program_prefs (
+  profile_id TEXT NOT NULL PRIMARY KEY,
+  split TEXT NOT NULL DEFAULT 'FULL_BODY',
+  days_per_week INTEGER NOT NULL DEFAULT 3,
+  week_index INTEGER NOT NULL DEFAULT 1,
+  updated_at TEXT NOT NULL
+);

@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "ex_pause_back_squat.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "ex_pause_back_squat.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

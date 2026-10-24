@@ -8,8 +8,6 @@ import WatchConnectivity
 final class PhoneWatchConnectivityHub: NSObject, WCSessionDelegate {
     static let shared = PhoneWatchConnectivityHub()
 
-    private static let transferPayloadKey = "omnigart.workout.transfer.json"
-
     private var core: OmniGartCore?
     private var session: WCSession?
     private var lastSelectionJson: String?

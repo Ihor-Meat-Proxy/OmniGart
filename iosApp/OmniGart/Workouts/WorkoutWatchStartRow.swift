@@ -8,7 +8,7 @@ struct WorkoutWatchStartRow: View {
     let activityType: HKWorkoutActivityType
     let indoor: Bool
     let accessibilityId: String
-    var kindOverride: String? = nil
+    var kindOverride: String?
     var sessionKeyPrefix: String = "cat"
 
     @State private var status: String?

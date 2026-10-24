@@ -31,7 +31,7 @@ struct NutritionGoalSettingsView: View {
             }
             .accessibilityIdentifier("nutrition_goal_mode")
             if kind != "MAINTAIN" {
-                Stepper(value: $ratePercent, in: 0.25...1.0, step: 0.25) {
+                Stepper(value: $ratePercent, in: rateRange, step: 0.25) {
                     Text(String(format: "%.2f%% / wk", ratePercent))
                 }
                 .accessibilityIdentifier("nutrition_goal_rate")
@@ -64,12 +64,18 @@ struct NutritionGoalSettingsView: View {
         .onAppear(perform: load)
     }
 
+    /// Lose ≤1%/wk; gain 0.25–0.5%/wk (shared GoalTargets safe limits).
+    private var rateRange: ClosedRange<Double> {
+        kind == "GAIN" ? 0.25...0.5 : 0.25...1.0
+    }
+
     private func load() {
         let goal = NutritionLocalStore.shared.loadGoal()
         kind = goal.kind
         mode = goal.mode
         ratePercent = abs(goal.rateFractionPerWeek) * 100.0
-        if ratePercent == 0 { ratePercent = 0.5 }
+        if ratePercent == 0 { ratePercent = kind == "GAIN" ? 0.25 : 0.5 }
+        ratePercent = min(max(ratePercent, rateRange.lowerBound), rateRange.upperBound)
         dayStartHour = goal.dayStartMinutes / 60
         addExercise = goal.addExerciseCalories
         if let tw = goal.targetWeightKg {
@@ -82,7 +88,8 @@ struct NutritionGoalSettingsView: View {
         var goal = NutritionLocalStore.shared.loadGoal()
         goal.kind = kind
         goal.mode = mode
-        goal.rateFractionPerWeek = kind == "MAINTAIN" ? 0 : ratePercent / 100.0
+        let clampedPercent = min(max(ratePercent, rateRange.lowerBound), rateRange.upperBound)
+        goal.rateFractionPerWeek = kind == "MAINTAIN" ? 0 : clampedPercent / 100.0
         goal.dayStartMinutes = dayStartHour * 60
         goal.addExerciseCalories = addExercise
         goal.targetWeightKg = Double(targetWeight)

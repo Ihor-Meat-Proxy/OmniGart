@@ -172,4 +172,15 @@ object NutritionPrefsStore {
     fun saveLastTargetKcal(kcal: Double) {
         prefs().edit().putFloat("lastTarget", kcal.toFloat()).apply()
     }
+
+    fun waterMl(dayKey: String): Double {
+        val o = JSONObject(prefs().getString("waterByDay", "{}") ?: "{}")
+        return o.optDouble(dayKey, 0.0)
+    }
+
+    fun addWaterMl(dayKey: String, ml: Double) {
+        val o = JSONObject(prefs().getString("waterByDay", "{}") ?: "{}")
+        o.put(dayKey, o.optDouble(dayKey, 0.0) + ml)
+        prefs().edit().putString("waterByDay", o.toString()).apply()
+    }
 }

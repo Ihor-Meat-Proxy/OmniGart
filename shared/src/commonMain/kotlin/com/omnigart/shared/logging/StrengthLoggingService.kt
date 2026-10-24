@@ -96,6 +96,14 @@ class StrengthLoggingService(
         return ended
     }
 
+    /** Epoch millis for HealthKit bridging (avoids Instant type mapping in Swift). */
+    fun sessionStartEpochMillis(sessionId: String): Long = requireSession(sessionId).startedAt.toEpochMilliseconds()
+
+    fun sessionEndEpochMillis(sessionId: String): Long {
+        val session = requireSession(sessionId)
+        return (session.endedAt ?: session.startedAt).toEpochMilliseconds()
+    }
+
     fun addSet(
         sessionId: String,
         exerciseId: String,

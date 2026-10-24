@@ -72,6 +72,12 @@ struct WorkoutsTabView: View {
             Section("workouts_log_title") {
                 StrengthLoggingView(core: core, profileId: profileId)
             }
+            Section("workout_yoga_title") {
+                MindfulBodySessionView(core: core, profileId: profileId, kind: .yoga)
+            }
+            Section("workout_pilates_title") {
+                MindfulBodySessionView(core: core, profileId: profileId, kind: .pilates)
+            }
         }
         .navigationTitle(Text("tab_workouts"))
         .scrollContentBackground(.hidden)

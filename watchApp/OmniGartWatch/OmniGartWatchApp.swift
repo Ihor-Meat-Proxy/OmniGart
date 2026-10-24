@@ -3,6 +3,7 @@ import SwiftUI
 
 @main
 struct OmniGartWatchApp: App {
+    @WKApplicationDelegateAdaptor(WatchAppDelegate.self) private var appDelegate
     private let core: OmniGartCore
     private let profileId: String
     private let summary: [String]

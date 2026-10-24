@@ -26,6 +26,10 @@ struct Zone2SummaryView: View {
                     .fixedSize(horizontal: false, vertical: true)
 
                 metricRow(
+                    labelKey: "watch.zone2.summary.duration",
+                    value: Zone2Summary.formatDuration(summary.elapsed)
+                )
+                metricRow(
                     labelKey: "watch.zone2.summary.time_in_zone",
                     value: Zone2Summary.formatDuration(summary.timeInZone)
                 )
@@ -37,6 +41,26 @@ struct Zone2SummaryView: View {
                     labelKey: "watch.zone2.summary.avg_cadence",
                     value: Zone2Summary.formatCadence(summary.averageCadenceSpm)
                 )
+                metricRow(
+                    labelKey: "watch.zone2.summary.active_kcal",
+                    value: Zone2Summary.formatEnergyKcal(summary.activeEnergyKcal)
+                )
+                metricRow(
+                    labelKey: "watch.zone2.summary.total_kcal",
+                    value: Zone2Summary.formatEnergyKcal(summary.totalEnergyKcal)
+                )
+                if summary.averageHeartRateBpm > 0 {
+                    metricRow(
+                        labelKey: "watch.zone2.summary.avg_hr",
+                        value: String(format: "%.0f", summary.averageHeartRateBpm)
+                    )
+                }
+                if summary.maxHeartRateBpm > 0 {
+                    metricRow(
+                        labelKey: "watch.zone2.summary.max_hr",
+                        value: String(format: "%.0f", summary.maxHeartRateBpm)
+                    )
+                }
 
                 if !chartSamples.isEmpty {
                     Text("watch.zone2.summary.hr_chart")
@@ -146,7 +170,11 @@ struct Zone2HRSparkline: View {
                         offsetSeconds: Double(sampleIndex) * 20,
                         bpm: 130 + (sampleIndex % 7)
                     )
-                }
+                },
+                activeEnergyKcal: 220,
+                basalEnergyKcal: 40,
+                averageHeartRateBpm: 138,
+                maxHeartRateBpm: 152
             ),
             onDone: {}
         )

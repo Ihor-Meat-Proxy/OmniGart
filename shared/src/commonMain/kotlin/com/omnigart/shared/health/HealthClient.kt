@@ -42,6 +42,10 @@ interface HealthClient {
 
     suspend fun readWorkouts(range: TimeRange): List<HealthWorkout>
 
+    /**
+     * Append-only workout write. Implementations must not delete or update existing Health /
+     * Health Connect records; skip any [HealthWorkout.id] that is already present.
+     */
     suspend fun writeWorkouts(workouts: List<HealthWorkout>)
 
     /** Incremental sync; [previous] null starts a new token. */

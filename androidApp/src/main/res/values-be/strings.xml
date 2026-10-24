@@ -134,7 +134,7 @@
 <string name="workout_summary_total_kcal">Усяго ккал</string>
 <string name="workout_summary_avg_hr">Сярэдні пульс</string>
 <string name="workout_summary_max_hr">Максімальны пульс</string>
-<string name="workout_summary_energy_estimate">Энергія — ацэнка самаадчування (MET × маса цела).</string>
+<string name="workout_summary_energy_estimate">Энергія — ацэнка самаадчування (пульс або праца), не медыцынскае вымярэнне.</string>
 <string name="workout_summary_effort">Ацэнка намаганняў</string>
 <string name="workout_summary_hr_recovery">Аднаўленне пульсу</string>
 <string name="workout_start_on_watch">Пачаць на Apple Watch</string>
@@ -301,4 +301,12 @@
 <string name="workouts_ready_title">Гатовыя трэніроўкі</string>
 <string name="workouts_ready_intro">Праглядайце фіксаваныя сесіі па вашым абсталяванні. Запусціце адразу або падладзьце інвентар — замены абновяцца.</string>
 <string name="workouts_ready_clear">Скінуць гатовую трэніроўку</string>
+    <string name="wear_strength_start">Сіла</string>
+    <string name="wear_strength_stop">Канец</string>
+    <string name="wear_strength_rest">Адпачынак %1$d с</string>
+    <string name="wear_strength_weight">кг</string>
+    <string name="wear_strength_reps">Паўторы</string>
+    <string name="wear_strength_set">Падыход %1$d</string>
+    <string name="wear_strength_hr">ЧСС %1$d</string>
+    <string name="wear_strength_kcal">%1$s ккал</string>
 </resources>

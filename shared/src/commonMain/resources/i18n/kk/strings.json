@@ -300,7 +300,7 @@
   "workout_summary_avg_hr": "Орташа жүрек соғысы",
   "workout_summary_duration": "Ұзақтық",
   "workout_summary_effort": "Күш-жігер бағасы",
-  "workout_summary_energy_estimate": "Энергия — сауықтыру бағалауы (MET × дене салмағы).",
+  "workout_summary_energy_estimate": "Энергия — сауықтыру бағалауы (жүрек соғысы немесе жұмыс), медициналық өлшем емес.",
   "workout_summary_hr_recovery": "Жүрек соғысының қалпына келуі",
   "workout_summary_max_hr": "Макс. жүрек соғысы",
   "workout_summary_title": "Сессия қорытындысы",
@@ -337,5 +337,13 @@
   "workouts_zone2_scheduled": "2-аймақ жоспары Workout-қа жіберілді.",
   "workouts_zone2_start": "2-аймақты бастау",
   "workouts_zone2_title": "2-аймақ жүгіру",
-  "workouts_zone2_unavailable": "Қазір 2-аймақты жоспарлау мүмкін болмады."
+  "workouts_zone2_unavailable": "Қазір 2-аймақты жоспарлау мүмкін болмады.",
+  "wear_strength_start": "Күш",
+  "wear_strength_stop": "Аяқтау",
+  "wear_strength_rest": "Демалыс %1$d с",
+  "wear_strength_weight": "кг",
+  "wear_strength_reps": "Қайталау",
+  "wear_strength_set": "Жақындау %1$d",
+  "wear_strength_hr": "ЖСЖ %1$d",
+  "wear_strength_kcal": "%1$s ккал"
 }

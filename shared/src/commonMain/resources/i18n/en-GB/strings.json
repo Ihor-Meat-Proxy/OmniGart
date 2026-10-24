@@ -300,7 +300,7 @@
   "workout_summary_avg_hr": "Average heart rate",
   "workout_summary_duration": "Duration",
   "workout_summary_effort": "Effort score",
-  "workout_summary_energy_estimate": "Energy is a wellness estimate (MET × body weight).",
+  "workout_summary_energy_estimate": "Energy is a wellness estimate (heart rate or work-based), not a medical measurement.",
   "workout_summary_hr_recovery": "Heart-rate recovery",
   "workout_summary_max_hr": "Max heart rate",
   "workout_summary_title": "Session summary",
@@ -337,5 +337,13 @@
   "workouts_zone2_scheduled": "Zone 2 plan sent to Workout.",
   "workouts_zone2_start": "Start Zone 2",
   "workouts_zone2_title": "Zone 2 run",
-  "workouts_zone2_unavailable": "Could not schedule Zone 2 right now."
+  "workouts_zone2_unavailable": "Could not schedule Zone 2 right now.",
+  "wear_strength_start": "Strength",
+  "wear_strength_stop": "End",
+  "wear_strength_rest": "Rest %1$ds",
+  "wear_strength_weight": "kg",
+  "wear_strength_reps": "Reps",
+  "wear_strength_set": "Set %1$d",
+  "wear_strength_hr": "HR %1$d",
+  "wear_strength_kcal": "%1$s kcal"
 }

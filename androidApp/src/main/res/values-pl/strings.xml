@@ -134,7 +134,7 @@
 <string name="workout_summary_total_kcal">Suma kcal</string>
 <string name="workout_summary_avg_hr">Średnie tętno</string>
 <string name="workout_summary_max_hr">Maks. tętno</string>
-<string name="workout_summary_energy_estimate">Energia to szacunek wellness (MET × masa ciała).</string>
+<string name="workout_summary_energy_estimate">Energia to szacunek wellness (tętno lub praca), nie pomiar medyczny.</string>
 <string name="workout_summary_effort">Wskaźnik wysiłku</string>
 <string name="workout_summary_hr_recovery">Regeneracja tętna</string>
 <string name="workout_start_on_watch">Start na Apple Watch</string>
@@ -301,4 +301,12 @@
 <string name="workouts_ready_title">Gotowe treningi</string>
 <string name="workouts_ready_intro">Przeglądaj gotowe sesje dopasowane do sprzętu. Uruchom od razu albo dostosuj ekwipunek — zamiany się zaktualizują.</string>
 <string name="workouts_ready_clear">Wyczyść gotowy trening</string>
+    <string name="wear_strength_start">Siła</string>
+    <string name="wear_strength_stop">Koniec</string>
+    <string name="wear_strength_rest">Odpoczynek %1$d s</string>
+    <string name="wear_strength_weight">kg</string>
+    <string name="wear_strength_reps">Powtórzenia</string>
+    <string name="wear_strength_set">Seria %1$d</string>
+    <string name="wear_strength_hr">HR %1$d</string>
+    <string name="wear_strength_kcal">%1$s kcal</string>
 </resources>

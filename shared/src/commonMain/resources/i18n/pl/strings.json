@@ -300,7 +300,7 @@
   "workout_summary_avg_hr": "Średnie tętno",
   "workout_summary_duration": "Czas trwania",
   "workout_summary_effort": "Wskaźnik wysiłku",
-  "workout_summary_energy_estimate": "Energia to szacunek wellness (MET × masa ciała).",
+  "workout_summary_energy_estimate": "Energia to szacunek wellness (tętno lub praca), nie pomiar medyczny.",
   "workout_summary_hr_recovery": "Regeneracja tętna",
   "workout_summary_max_hr": "Maks. tętno",
   "workout_summary_title": "Podsumowanie sesji",
@@ -337,5 +337,13 @@
   "workouts_zone2_scheduled": "Plan strefy 2 wysłany do Workout.",
   "workouts_zone2_start": "Start strefy 2",
   "workouts_zone2_title": "Bieg w strefie 2",
-  "workouts_zone2_unavailable": "Nie udało się zaplanować strefy 2."
+  "workouts_zone2_unavailable": "Nie udało się zaplanować strefy 2.",
+  "wear_strength_start": "Siła",
+  "wear_strength_stop": "Koniec",
+  "wear_strength_rest": "Odpoczynek %1$d s",
+  "wear_strength_weight": "kg",
+  "wear_strength_reps": "Powtórzenia",
+  "wear_strength_set": "Seria %1$d",
+  "wear_strength_hr": "HR %1$d",
+  "wear_strength_kcal": "%1$s kcal"
 }

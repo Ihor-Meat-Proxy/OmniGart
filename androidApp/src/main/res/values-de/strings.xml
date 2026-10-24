@@ -134,7 +134,7 @@
 <string name="workout_summary_total_kcal">Gesamt-kcal</string>
 <string name="workout_summary_avg_hr">Mittlere Herzfrequenz</string>
 <string name="workout_summary_max_hr">Max. Herzfrequenz</string>
-<string name="workout_summary_energy_estimate">Energie ist eine Wellness-Schätzung (MET × Körpermasse).</string>
+<string name="workout_summary_energy_estimate">Energie ist eine Wellness-Schätzung (Herzfrequenz oder Arbeit), keine medizinische Messung.</string>
 <string name="workout_summary_effort">Anstrengungswert</string>
 <string name="workout_summary_hr_recovery">HF-Erholung</string>
 <string name="workout_start_on_watch">Auf Apple Watch starten</string>
@@ -301,4 +301,12 @@
 <string name="workouts_ready_title">Fertige Workouts</string>
 <string name="workouts_ready_intro">Durchsuchen Sie feste Einheiten, gefiltert nach Ihrem Gerät. Starten Sie direkt oder passen Sie das Equipment an — Ersatzübungen aktualisieren sich.</string>
 <string name="workouts_ready_clear">Fertiges Workout leeren</string>
+    <string name="wear_strength_start">Kraft</string>
+    <string name="wear_strength_stop">Ende</string>
+    <string name="wear_strength_rest">Pause %1$d s</string>
+    <string name="wear_strength_weight">kg</string>
+    <string name="wear_strength_reps">Wdh.</string>
+    <string name="wear_strength_set">Satz %1$d</string>
+    <string name="wear_strength_hr">HF %1$d</string>
+    <string name="wear_strength_kcal">%1$s kcal</string>
 </resources>

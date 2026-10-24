@@ -300,7 +300,7 @@
   "workout_summary_avg_hr": "საშუალო გულისცემა",
   "workout_summary_duration": "ხანგრძლივობა",
   "workout_summary_effort": "ძალისხმევის ქულა",
-  "workout_summary_energy_estimate": "ენერგია კეთილდღეობის შეფასებაა (MET × სხეულის მასა).",
+  "workout_summary_energy_estimate": "ენერგია კეთილდღეობის შეფასებაა (პულსი ან სამუშაო), არა სამედიცინო გაზომვა.",
   "workout_summary_hr_recovery": "გულისცემის აღდგენა",
   "workout_summary_max_hr": "მაქს. გულისცემა",
   "workout_summary_title": "სესიის შეჯამება",
@@ -337,5 +337,13 @@
   "workouts_zone2_scheduled": "ზონა 2 გეგმა გაიგზავნა Workout-ში.",
   "workouts_zone2_start": "ზონა 2-ის დაწყება",
   "workouts_zone2_title": "ზონა 2 სირბილი",
-  "workouts_zone2_unavailable": "ზონა 2-ის დაგეგმვა ახლა ვერ მოხერხდა."
+  "workouts_zone2_unavailable": "ზონა 2-ის დაგეგმვა ახლა ვერ მოხერხდა.",
+  "wear_strength_start": "ძალა",
+  "wear_strength_stop": "დასრულება",
+  "wear_strength_rest": "დასვენება %1$d წმ",
+  "wear_strength_weight": "კგ",
+  "wear_strength_reps": "გამეორება",
+  "wear_strength_set": "მიდგომა %1$d",
+  "wear_strength_hr": "გსს %1$d",
+  "wear_strength_kcal": "%1$s კკალ"
 }

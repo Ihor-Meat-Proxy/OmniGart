@@ -96,4 +96,12 @@
     <string name="equipment_item_box">跳箱</string>
     <string name="equipment_item_landmine">地雷架</string>
     <string name="equipment_item_yoga_mat">瑜伽垫</string>
+    <string name="wear_strength_start">力量</string>
+    <string name="wear_strength_stop">结束</string>
+    <string name="wear_strength_rest">休息 %1$d 秒</string>
+    <string name="wear_strength_weight">公斤</string>
+    <string name="wear_strength_reps">次数</string>
+    <string name="wear_strength_set">第 %1$d 组</string>
+    <string name="wear_strength_hr">心率 %1$d</string>
+    <string name="wear_strength_kcal">%1$s 千卡</string>
 </resources>

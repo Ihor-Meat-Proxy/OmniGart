@@ -300,7 +300,7 @@
   "workout_summary_avg_hr": "Сярэдні пульс",
   "workout_summary_duration": "Працягласць",
   "workout_summary_effort": "Ацэнка намаганняў",
-  "workout_summary_energy_estimate": "Энергія — ацэнка самаадчування (MET × маса цела).",
+  "workout_summary_energy_estimate": "Энергія — ацэнка самаадчування (пульс або праца), не медыцынскае вымярэнне.",
   "workout_summary_hr_recovery": "Аднаўленне пульсу",
   "workout_summary_max_hr": "Максімальны пульс",
   "workout_summary_title": "Вынік сесіі",
@@ -337,5 +337,13 @@
   "workouts_zone2_scheduled": "План зоны 2 адпраўлены ў Workout.",
   "workouts_zone2_start": "Старт зоны 2",
   "workouts_zone2_title": "Бег у зоне 2",
-  "workouts_zone2_unavailable": "Цяпер не атрымалася запланаваць зону 2."
+  "workouts_zone2_unavailable": "Цяпер не атрымалася запланаваць зону 2.",
+  "wear_strength_start": "Сіла",
+  "wear_strength_stop": "Канец",
+  "wear_strength_rest": "Адпачынак %1$d с",
+  "wear_strength_weight": "кг",
+  "wear_strength_reps": "Паўторы",
+  "wear_strength_set": "Падыход %1$d",
+  "wear_strength_hr": "ЧСС %1$d",
+  "wear_strength_kcal": "%1$s ккал"
 }

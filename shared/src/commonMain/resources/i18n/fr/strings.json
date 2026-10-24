@@ -300,7 +300,7 @@
   "workout_summary_avg_hr": "Fréquence moyenne",
   "workout_summary_duration": "Durée",
   "workout_summary_effort": "Score d’effort",
-  "workout_summary_energy_estimate": "L’énergie est une estimation bien-être (MET × masse).",
+  "workout_summary_energy_estimate": "L’énergie est une estimation bien-être (fréquence ou travail), pas une mesure médicale.",
   "workout_summary_hr_recovery": "Récupération cardiaque",
   "workout_summary_max_hr": "Fréquence max.",
   "workout_summary_title": "Résumé de la séance",
@@ -337,5 +337,13 @@
   "workouts_zone2_scheduled": "Plan zone 2 envoyé à Workout.",
   "workouts_zone2_start": "Démarrer zone 2",
   "workouts_zone2_title": "Course zone 2",
-  "workouts_zone2_unavailable": "Impossible de planifier la zone 2 pour le moment."
+  "workouts_zone2_unavailable": "Impossible de planifier la zone 2 pour le moment.",
+  "wear_strength_start": "Force",
+  "wear_strength_stop": "Fin",
+  "wear_strength_rest": "Repos %1$d s",
+  "wear_strength_weight": "kg",
+  "wear_strength_reps": "Répétitions",
+  "wear_strength_set": "Série %1$d",
+  "wear_strength_hr": "FC %1$d",
+  "wear_strength_kcal": "%1$s kcal"
 }

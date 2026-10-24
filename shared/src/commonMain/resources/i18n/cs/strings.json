@@ -300,7 +300,7 @@
   "workout_summary_avg_hr": "Průměrný tep",
   "workout_summary_duration": "Trvání",
   "workout_summary_effort": "Skóre úsilí",
-  "workout_summary_energy_estimate": "Energie je wellness odhad (MET × hmotnost).",
+  "workout_summary_energy_estimate": "Energie je wellness odhad (tep nebo práce), ne lékařské měření.",
   "workout_summary_hr_recovery": "Regenerace tepu",
   "workout_summary_max_hr": "Max. tep",
   "workout_summary_title": "Shrnutí sezení",
@@ -337,5 +337,13 @@
   "workouts_zone2_scheduled": "Plán zóny 2 odeslán do Workout.",
   "workouts_zone2_start": "Spustit zónu 2",
   "workouts_zone2_title": "Běh v zóně 2",
-  "workouts_zone2_unavailable": "Zónu 2 teď nelze naplánovat."
+  "workouts_zone2_unavailable": "Zónu 2 teď nelze naplánovat.",
+  "wear_strength_start": "Síla",
+  "wear_strength_stop": "Konec",
+  "wear_strength_rest": "Odpočinek %1$d s",
+  "wear_strength_weight": "kg",
+  "wear_strength_reps": "Opakování",
+  "wear_strength_set": "Série %1$d",
+  "wear_strength_hr": "TF %1$d",
+  "wear_strength_kcal": "%1$s kcal"
 }

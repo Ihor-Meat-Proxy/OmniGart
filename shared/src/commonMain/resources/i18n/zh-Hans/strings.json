@@ -300,7 +300,7 @@
   "workout_summary_avg_hr": "平均心率",
   "workout_summary_duration": "时长",
   "workout_summary_effort": "努力评分",
-  "workout_summary_energy_estimate": "能量为健康估算（MET × 体重）。",
+  "workout_summary_energy_estimate": "能量为健康估算（心率或做功），并非医学测量。",
   "workout_summary_hr_recovery": "心率恢复",
   "workout_summary_max_hr": "最大心率",
   "workout_summary_title": "课程摘要",
@@ -337,5 +337,13 @@
   "workouts_zone2_scheduled": "二区计划已发送到 Workout。",
   "workouts_zone2_start": "开始二区",
   "workouts_zone2_title": "二区跑步",
-  "workouts_zone2_unavailable": "暂时无法安排二区训练。"
+  "workouts_zone2_unavailable": "暂时无法安排二区训练。",
+  "wear_strength_start": "力量",
+  "wear_strength_stop": "结束",
+  "wear_strength_rest": "休息 %1$d 秒",
+  "wear_strength_weight": "公斤",
+  "wear_strength_reps": "次数",
+  "wear_strength_set": "第 %1$d 组",
+  "wear_strength_hr": "心率 %1$d",
+  "wear_strength_kcal": "%1$s 千卡"
 }

@@ -300,7 +300,7 @@
   "workout_summary_avg_hr": "Mittlere Herzfrequenz",
   "workout_summary_duration": "Dauer",
   "workout_summary_effort": "Anstrengungswert",
-  "workout_summary_energy_estimate": "Energie ist eine Wellness-Schätzung (MET × Körpermasse).",
+  "workout_summary_energy_estimate": "Energie ist eine Wellness-Schätzung (Herzfrequenz oder Arbeit), keine medizinische Messung.",
   "workout_summary_hr_recovery": "HF-Erholung",
   "workout_summary_max_hr": "Max. Herzfrequenz",
   "workout_summary_title": "Sitzungsübersicht",
@@ -337,5 +337,13 @@
   "workouts_zone2_scheduled": "Zone-2-Plan an Workout gesendet.",
   "workouts_zone2_start": "Zone 2 starten",
   "workouts_zone2_title": "Zone-2-Lauf",
-  "workouts_zone2_unavailable": "Zone 2 konnte gerade nicht geplant werden."
+  "workouts_zone2_unavailable": "Zone 2 konnte gerade nicht geplant werden.",
+  "wear_strength_start": "Kraft",
+  "wear_strength_stop": "Ende",
+  "wear_strength_rest": "Pause %1$d s",
+  "wear_strength_weight": "kg",
+  "wear_strength_reps": "Wdh.",
+  "wear_strength_set": "Satz %1$d",
+  "wear_strength_hr": "HF %1$d",
+  "wear_strength_kcal": "%1$s kcal"
 }

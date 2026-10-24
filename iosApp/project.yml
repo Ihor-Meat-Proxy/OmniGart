@@ -163,9 +163,13 @@ targets:
         createIntermediateGroups: false
         excludes:
           - ContentBundle/**
-          # Catalog is listed under resources so it is compiled as a String Catalog
-          # (not treated as an opaque source file).
-          - Localizable.xcstrings
+          # Match iOS: .lproj trees are resources (InfoPlist.strings), not sources.
+          - "**/*.lproj/**"
+          # Keep Localizable.xcstrings in this sources scan. XcodeGen then assigns
+          # lastKnownFileType = text.json.xcstrings and Xcode runs CompileXCStrings.
+          # Listing the catalog only under resources (previous wiring) never ran
+          # xcstringstool for OmniGartWatch — CI logs showed CompileXCStrings for
+          # iosApp only — so Text("app_name") / watch_subtitle / etc. stayed raw.
       - *designSwiftSources
     resources:
       - *designColorAssets
@@ -173,11 +177,9 @@ targets:
       - path: ../design/generated/watch/OmniGartIllustrations.xcassets
         name: OmniGartWatchIllustrations
         createIntermediateGroups: false
-      # Catalog must live under the watch app tree (not a cross-path to iosApp).
-      # A shared iosApp path was listed before but did not compile into the watch
-      # bundle, so Text("app_name") etc. rendered as raw keys on watchOS 27.2.
-      - path: ../watchApp/OmniGartWatch/Localizable.xcstrings
-        buildPhase: resources
+      # String Catalog is included via sources above (same pattern as OmniGart iOS).
+      # Do not re-list Localizable.xcstrings here — a resources-only entry does not
+      # trigger CompileXCStrings for the watch target.
       - path: ../watchApp/OmniGartWatch/en-GB.lproj
       - path: ../watchApp/OmniGartWatch/uk.lproj
       - path: ../watchApp/OmniGartWatch/pl.lproj

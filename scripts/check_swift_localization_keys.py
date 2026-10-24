@@ -2,6 +2,10 @@
 """Fail if SwiftUI localization keys used in sources are missing from the String Catalog.
 
 Checks iOS and watchOS targets independently against their Localizable.xcstrings.
+
+Also verifies iosApp/project.yml wires the watch String Catalog under OmniGartWatch
+sources (not resources-only / not excluded). A resources-only entry does not run
+CompileXCStrings for the watch target, so Text keys render raw at runtime.
 """
 
 from __future__ import annotations
@@ -12,6 +16,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+PROJECT_YML = ROOT / "iosApp" / "project.yml"
 
 TARGETS = [
     {
@@ -62,6 +67,14 @@ CASE_KEY = re.compile(
 )
 # Localization keys are identifiers (no spaces / punctuation beyond . _).
 KEY_SHAPE = re.compile(r"^[a-z][a-zA-Z0-9_.]*$")
+
+# Start-screen keys that previously rendered raw when the catalog was not compiled.
+WATCH_SMOKE_KEYS = (
+    "app_name",
+    "watch_subtitle",
+    "watch.zone2.start",
+    "treadmill_run_title",
+)
 
 
 def catalog_keys(path: Path) -> set[str]:
@@ -152,8 +165,83 @@ def check_target(target: dict) -> list[str]:
     return errors
 
 
+def _omni_gart_watch_block(yml: str) -> str | None:
+    """Return the OmniGartWatch target block from project.yml (best-effort)."""
+    marker = "  OmniGartWatch:"
+    start = yml.find(marker)
+    if start < 0:
+        return None
+    # Next top-level target at same indent (two spaces + name + colon).
+    rest = yml[start + len(marker) :]
+    next_target = re.search(r"\n  [A-Za-z][A-Za-z0-9_]*:", rest)
+    end = start + len(marker) + (next_target.start() if next_target else len(rest))
+    return yml[start:end]
+
+
+def check_watch_project_yml_wiring() -> list[str]:
+    """Ensure the watch String Catalog is compiled via sources, not resources-only."""
+    errors: list[str] = []
+    if not PROJECT_YML.is_file():
+        return [f"missing {PROJECT_YML.relative_to(ROOT)}"]
+
+    text = PROJECT_YML.read_text(encoding="utf-8")
+    block = _omni_gart_watch_block(text)
+    if not block:
+        return ["iosApp/project.yml: OmniGartWatch target not found"]
+
+    # resources-only listing (the failure mode that skipped CompileXCStrings).
+    if re.search(
+        r"resources:\s*(?:.*\n)*?\s*-\s*path:\s*\.\./watchApp/OmniGartWatch/Localizable\.xcstrings",
+        block,
+    ):
+        errors.append(
+            "iosApp/project.yml: OmniGartWatch lists Localizable.xcstrings under "
+            "resources — Xcode will not CompileXCStrings it. Include it via the "
+            "watchApp/OmniGartWatch sources path instead (same as iOS OmniGart)."
+        )
+
+    if re.search(
+        r"excludes:\s*(?:.*\n)*?\s*-\s*Localizable\.xcstrings\b",
+        block,
+    ):
+        errors.append(
+            "iosApp/project.yml: OmniGartWatch excludes Localizable.xcstrings from "
+            "sources — remove that exclude so XcodeGen emits text.json.xcstrings."
+        )
+
+    # sources path must cover the watch app tree that contains the catalog.
+    if not re.search(
+        r"sources:\s*(?:.*\n)*?\s*-\s*path:\s*\.\./watchApp/OmniGartWatch\b",
+        block,
+    ):
+        errors.append(
+            "iosApp/project.yml: OmniGartWatch sources must include "
+            "path: ../watchApp/OmniGartWatch (so Localizable.xcstrings is compiled)."
+        )
+
+    catalog = ROOT / "watchApp" / "OmniGartWatch" / "Localizable.xcstrings"
+    if not catalog.is_file():
+        errors.append("watchApp/OmniGartWatch/Localizable.xcstrings is missing")
+    else:
+        present = catalog_keys(catalog)
+        for key in WATCH_SMOKE_KEYS:
+            if key not in present:
+                errors.append(
+                    f"OmniGartWatch: smoke key {key!r} missing from "
+                    "watchApp/OmniGartWatch/Localizable.xcstrings"
+                )
+            else:
+                errors.extend(
+                    f"OmniGartWatch: {problem}"
+                    for problem in catalog_incomplete_locales(catalog, {key})
+                )
+
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
+    errors.extend(check_watch_project_yml_wiring())
     for target in TARGETS:
         errors.extend(check_target(target))
 
@@ -174,6 +262,7 @@ def main() -> int:
             f"  {target['name']}: {len(used)} keys referenced, "
             f"{len(present)} in catalog, all present"
         )
+    print("  OmniGartWatch: project.yml sources wiring OK (catalog not resources-only)")
     return 0
 
 

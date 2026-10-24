@@ -67,6 +67,7 @@ jobs:
               - '.swiftlint.yml'
               - 'scripts/check_no_ru_locale.sh'
               - 'scripts/check_app_review_compliance.py'
+              - 'scripts/check_swift_localization_keys.py'
               - 'scripts/pack_bundled_content.py'
               - '.github/workflows/ci.yml'
             design:
@@ -92,6 +93,11 @@ jobs:
       - name: No HealthKit/Health Connect delete or rewrite APIs
         # Append-only platform writes (Ihor hard rule). See docs/HEALTH_DATA_MAPPING.md.
         run: bash ./scripts/check_no_health_platform_mutate.sh
+      - name: Swift / watch String Catalog keys + project.yml wiring
+        # Fails if watch-used Text keys are missing from the catalog, or if
+        # Localizable.xcstrings is resources-only / excluded from OmniGartWatch sources
+        # (that wiring skips CompileXCStrings and shows raw keys on the watch).
+        run: python3 scripts/check_swift_localization_keys.py
       - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
         with:
           distribution: temurin
@@ -239,6 +245,18 @@ jobs:
             echo "::error::$PBX missing ../design/generated/ios/Sources references"
             exit 1
           fi
+          # Watch String Catalog must be a String Catalog file ref (CompileXCStrings),
+          # not an opaque resource copy. Path may appear as Localizable.xcstrings under
+          # the OmniGartWatch group; require the UTI and that watch sources own a catalog.
+          if ! grep -q 'lastKnownFileType = text.json.xcstrings' "$PBX"; then
+            echo "::error::$PBX has no text.json.xcstrings file refs (String Catalog UTI)"
+            exit 1
+          fi
+          WATCH_XCSTRINGS=$(grep -c 'Localizable.xcstrings' "$PBX" || true)
+          if [[ "${WATCH_XCSTRINGS}" -lt 2 ]]; then
+            echo "::error::$PBX expected Localizable.xcstrings for both iOS and watch (found ${WATCH_XCSTRINGS})"
+            exit 1
+          fi
       - name: Build iOS + watchOS (simulator, arm64)
         env:
           # Frameworks already linked+synced above; skip Gradle inside Xcode pre-build.
@@ -257,6 +275,23 @@ jobs:
             EXCLUDED_ARCHS=x86_64 \
             CODE_SIGNING_ALLOWED=NO \
             build
+          # Guard: watch app must ship compiled Localizable.strings (not raw keys).
+          WATCH_APP=$(
+            find "${HOME}/Library/Developer/Xcode/DerivedData" \
+              -path '*/Build/Products/Debug-watchsimulator/OmniGartWatch.app' \
+              -type d 2>/dev/null | head -1 || true
+          )
+          if [[ -z "${WATCH_APP}" ]]; then
+            echo "::error::OmniGartWatch.app not found under DerivedData after watch build"
+            exit 1
+          fi
+          if ! find "${WATCH_APP}" -name 'Localizable.strings' | grep -q .; then
+            echo "::error::No Localizable.strings inside ${WATCH_APP} — String Catalog was not CompileXCStrings'd"
+            ls -la "${WATCH_APP}" || true
+            exit 1
+          fi
+          echo "Watch Localizable.strings present:"
+          find "${WATCH_APP}" -name 'Localizable.strings' | sort
       - name: Test iOS + watchOS (booted simulators)
         env:
           OMNIGART_SKIP_XCODE_GRADLE: "1"

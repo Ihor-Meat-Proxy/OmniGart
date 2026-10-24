@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">OmniGart</string>
+<string name="app_name">OmniGart</string>
 <string name="tab_food">Jídlo</string>
 <string name="tab_workouts">Tréninky</string>
 <string name="tab_recovery">Regenerace</string>

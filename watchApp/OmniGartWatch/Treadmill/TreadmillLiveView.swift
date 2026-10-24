@@ -60,12 +60,9 @@ struct TreadmillLiveView: View {
                             sessionHolder.session.pause()
                         }
                     } label: {
-                        // Ternary of String uses Button.init(String) (no localization).
-                        Text(
-                            sessionHolder.session.isPaused
-                                ? LocalizedStringKey("treadmill_resume")
-                                : LocalizedStringKey("treadmill_pause")
-                        )
+                        Text(sessionHolder.session.isPaused
+                            ? LocalizedStringKey("treadmill_resume")
+                            : LocalizedStringKey("treadmill_pause"))
                     }
                     Button("treadmill_finish") {
                         Task {

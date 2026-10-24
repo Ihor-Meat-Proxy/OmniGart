@@ -77,46 +77,26 @@ final class PhoneUITests: XCTestCase {
         let shell = app.descendants(matching: .any)["phone_shell"]
         XCTAssertTrue(shell.waitForExistence(timeout: 30))
 
-        // Prefer tab-bar query: content-root identifiers are only in the tree for the
-        // selected tab. Identifier is set on `Tab` in PhoneRootView; title is the en-GB
-        // fallback. On iPad the floating tab bar sometimes surfaces as a plain button.
-        let foodTab = firstExisting(
-            in: app,
-            timeout: 30,
-            candidates: [
-                app.tabBars.buttons["tab_food"],
-                app.tabBars.buttons["Food"],
-                app.buttons["tab_food"],
-                app.buttons["Food"],
-                app.descendants(matching: .any)["tab_food"],
-            ]
-        )
-        XCTAssertNotNil(foodTab, "Expected Food tab in the tab bar")
-        foodTab?.tap()
+        // Identifier is set once on `Tab` in PhoneRootView (`.tabBarOnly` keeps a bottom
+        // bar on iPad CI). Prefer tabBars, then any button — always resolve via firstMatch
+        // so a stray duplicate never fails tap with "Multiple matching elements".
+        let foodById = app.tabBars.buttons["tab_food"]
+        let foodByTitle = app.tabBars.buttons["Food"]
+        let foodByButton = app.buttons.matching(identifier: "tab_food").firstMatch
+        let foodTab: XCUIElement
+        if foodById.waitForExistence(timeout: 10) {
+            foodTab = foodById
+        } else if foodByTitle.waitForExistence(timeout: 5) {
+            foodTab = foodByTitle
+        } else {
+            foodTab = foodByButton
+        }
+        XCTAssertTrue(foodTab.waitForExistence(timeout: 10), "Expected Food tab control")
+        foodTab.tap()
 
         let totals = app.descendants(matching: .any)["food_totals"]
         XCTAssertTrue(totals.waitForExistence(timeout: 10))
         let add = app.descendants(matching: .any)["food_add"]
         XCTAssertTrue(add.waitForExistence(timeout: 5))
-    }
-
-    /// First candidate that appears within `timeout` (polled so one slow path does not
-    /// burn the whole budget before trying the next).
-    private func firstExisting(
-        in _: XCUIApplication,
-        timeout: TimeInterval,
-        candidates: [XCUIElement]
-    ) -> XCUIElement? {
-        let deadline = Date().addingTimeInterval(timeout)
-        while Date() < deadline {
-            for candidate in candidates where candidate.exists {
-                return candidate
-            }
-            RunLoop.current.run(until: Date().addingTimeInterval(0.2))
-        }
-        for candidate in candidates where candidate.waitForExistence(timeout: 0.1) {
-            return candidate
-        }
-        return nil
     }
 }

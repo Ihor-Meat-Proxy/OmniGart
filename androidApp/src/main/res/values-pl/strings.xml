@@ -134,7 +134,7 @@
     <string name="workout_summary_total_kcal">Suma kcal</string>
     <string name="workout_summary_avg_hr">Średnie tętno</string>
     <string name="workout_summary_max_hr">Maks. tętno</string>
-    <string name="workout_summary_energy_estimate">Energia to szacunek wellness (MET × masa ciała).</string>
+    <string name="workout_summary_energy_estimate">Energia to szacunek wellness (tętno lub praca), nie pomiar medyczny.</string>
     <string name="workout_summary_effort">Wskaźnik wysiłku</string>
     <string name="workout_summary_hr_recovery">Regeneracja tętna</string>
     <string name="workout_start_on_watch">Start na Apple Watch</string>

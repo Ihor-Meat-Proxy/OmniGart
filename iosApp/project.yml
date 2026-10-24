@@ -66,6 +66,10 @@ targets:
         path: ../design/generated/ios/OmniGartIcons.xcassets
         name: OmniGartIcons
         createIntermediateGroups: false
+      - &designIllustrationAssets
+        path: ../design/generated/ios/OmniGartIllustrations.xcassets
+        name: OmniGartIllustrations
+        createIntermediateGroups: false
       - path: OmniGart/PrivacyInfo.xcprivacy
         buildPhase: resources
       - path: OmniGart/Fonts
@@ -157,6 +161,9 @@ targets:
     resources:
       - *designColorAssets
       - *designIconAssets
+      - path: ../design/generated/watch/OmniGartIllustrations.xcassets
+        name: OmniGartWatchIllustrations
+        createIntermediateGroups: false
       # Catalog must live under the watch app tree (not a cross-path to iosApp).
       # A shared iosApp path was listed before but did not compile into the watch
       # bundle, so Text("app_name") etc. rendered as raw keys on watchOS 27.2.

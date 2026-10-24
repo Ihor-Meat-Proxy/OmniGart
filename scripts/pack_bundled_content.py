@@ -6,7 +6,7 @@ Used by Gradle (:packBundledContent / :verifyBundledContent) and the Xcode pre-b
 
 Sections (bundled baseline — apps work fully offline):
   exercises, templates, translations (locales), evidence, icons, body-maps,
-  achievements, exercise-images
+  illustrations, achievements, exercise-images
 
 Server later may ship signed update packs that overlay this baseline after
 signature + schema checks (see shared content loader).
@@ -58,6 +58,14 @@ SECTION_SOURCES: list[tuple[str, list[tuple[str, str]]]] = [
         "body-maps",
         [
             ("design/body-map/generated/paths", "paths"),
+        ],
+    ),
+    (
+        "illustrations",
+        [
+            ("design/illustrations/index.json", "index.json"),
+            ("design/illustrations/equipment", "equipment"),
+            ("design/illustrations/exercises", "exercises"),
         ],
     ),
     (

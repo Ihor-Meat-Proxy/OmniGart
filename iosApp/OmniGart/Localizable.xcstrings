@@ -24193,13 +24193,13 @@
         "kk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Жиын %1$d"
+            "value": "Жақындау %1$d"
           }
         },
         "ka": {
           "stringUnit": {
             "state": "translated",
-            "value": "სეტი %1$d"
+            "value": "მიდგომა %1$d"
           }
         },
         "es": {

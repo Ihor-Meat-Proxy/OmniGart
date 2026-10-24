@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "equip_lifting_belt.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "equip_lifting_belt.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

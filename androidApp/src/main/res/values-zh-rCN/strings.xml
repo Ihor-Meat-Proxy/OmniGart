@@ -134,7 +134,7 @@
     <string name="workout_summary_total_kcal">总千卡</string>
     <string name="workout_summary_avg_hr">平均心率</string>
     <string name="workout_summary_max_hr">最大心率</string>
-    <string name="workout_summary_energy_estimate">能量为健康估算（MET × 体重）。</string>
+    <string name="workout_summary_energy_estimate">能量为健康估算（心率或做功），并非医学测量。</string>
     <string name="workout_summary_effort">努力评分</string>
     <string name="workout_summary_hr_recovery">心率恢复</string>
     <string name="workout_start_on_watch">在 Apple Watch 上开始</string>

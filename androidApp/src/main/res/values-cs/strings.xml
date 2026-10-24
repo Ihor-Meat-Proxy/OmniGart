@@ -134,7 +134,7 @@
     <string name="workout_summary_total_kcal">Celkem kcal</string>
     <string name="workout_summary_avg_hr">Průměrný tep</string>
     <string name="workout_summary_max_hr">Max. tep</string>
-    <string name="workout_summary_energy_estimate">Energie je wellness odhad (MET × hmotnost).</string>
+    <string name="workout_summary_energy_estimate">Energie je wellness odhad (tep nebo práce), ne lékařské měření.</string>
     <string name="workout_summary_effort">Skóre úsilí</string>
     <string name="workout_summary_hr_recovery">Regenerace tepu</string>
     <string name="workout_start_on_watch">Spustit na Apple Watch</string>

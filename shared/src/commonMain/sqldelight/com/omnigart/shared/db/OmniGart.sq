@@ -46,13 +46,13 @@ CREATE TABLE workout_set (
   duration_seconds INTEGER,
   distance_metres REAL,
   rir REAL,
-  rpe REAL,
   completed INTEGER NOT NULL DEFAULT 1,
   is_warmup INTEGER NOT NULL DEFAULT 0,
-  is_drop_set INTEGER NOT NULL DEFAULT 0,
-  is_failure INTEGER NOT NULL DEFAULT 0,
   assistance_kg REAL,
   logged_per_hand INTEGER NOT NULL DEFAULT 0,
+  rpe REAL,
+  is_drop_set INTEGER NOT NULL DEFAULT 0,
+  is_failure INTEGER NOT NULL DEFAULT 0,
   note TEXT,
   rest_seconds INTEGER,
   target_weight_kg REAL,
@@ -239,9 +239,9 @@ CREATE TABLE local_health_workout (
   source_name TEXT,
   platform_record_id TEXT,
   deleted INTEGER NOT NULL DEFAULT 0,
-  removed_from_platform INTEGER NOT NULL DEFAULT 0,
   updated_at TEXT NOT NULL,
-  notes TEXT
+  notes TEXT,
+  removed_from_platform INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE local_health_sample (
@@ -287,8 +287,8 @@ CREATE TABLE local_health_set (
   duration_seconds INTEGER,
   distance_metres REAL,
   rir REAL,
-  rpe REAL,
   is_warmup INTEGER NOT NULL DEFAULT 0,
+  rpe REAL,
   is_drop_set INTEGER NOT NULL DEFAULT 0,
   is_failure INTEGER NOT NULL DEFAULT 0,
   note TEXT,
@@ -425,6 +425,7 @@ INSERT OR REPLACE INTO health_conflict(
 resolveHealthConflict:
 UPDATE health_conflict SET resolved = 1 WHERE id = ?;
 
+-- Strength equipment / program prefs (migration 5).
 
 CREATE TABLE equipment_profile (
   profile_id TEXT NOT NULL PRIMARY KEY,
@@ -459,3 +460,4 @@ upsertStrengthProgramPrefs:
 INSERT OR REPLACE INTO strength_program_prefs(
   profile_id, split, days_per_week, week_index, updated_at
 ) VALUES (?, ?, ?, ?, ?);
+

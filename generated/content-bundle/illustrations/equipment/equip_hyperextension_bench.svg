@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none" data-omnigart="equip:hyperextension_bench">
+  <circle cx="64" cy="64" r="58" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="40" y="56" width="48" height="10" rx="2" fill="#334155"/>
+  <line x1="48" y1="66" x2="48" y2="100" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+  <line x1="80" y1="66" x2="80" y2="100" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+  <rect x="36" y="48" width="16" height="12" rx="3" fill="#475569"/>
+  <rect x="76" y="48" width="16" height="12" rx="3" fill="#475569"/>
+
+</svg>

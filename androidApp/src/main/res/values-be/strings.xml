@@ -134,7 +134,7 @@
     <string name="workout_summary_total_kcal">Усяго ккал</string>
     <string name="workout_summary_avg_hr">Сярэдні пульс</string>
     <string name="workout_summary_max_hr">Максімальны пульс</string>
-    <string name="workout_summary_energy_estimate">Энергія — ацэнка самаадчування (MET × маса цела).</string>
+    <string name="workout_summary_energy_estimate">Энергія — ацэнка самаадчування (пульс або праца), не медыцынскае вымярэнне.</string>
     <string name="workout_summary_effort">Ацэнка намаганняў</string>
     <string name="workout_summary_hr_recovery">Аднаўленне пульсу</string>
     <string name="workout_start_on_watch">Пачаць на Apple Watch</string>

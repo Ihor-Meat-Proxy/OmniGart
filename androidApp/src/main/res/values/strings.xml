@@ -134,7 +134,7 @@
     <string name="workout_summary_total_kcal">Total kcal</string>
     <string name="workout_summary_avg_hr">Average heart rate</string>
     <string name="workout_summary_max_hr">Max heart rate</string>
-    <string name="workout_summary_energy_estimate">Energy is a wellness estimate (MET × body weight).</string>
+    <string name="workout_summary_energy_estimate">Energy is a wellness estimate (heart rate or work-based), not a medical measurement.</string>
     <string name="workout_summary_effort">Effort score</string>
     <string name="workout_summary_hr_recovery">Heart-rate recovery</string>
     <string name="workout_start_on_watch">Start on Apple Watch</string>

@@ -1,0 +1,21 @@
+{
+  "name": "omnigart-illustration-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "OmniGart equipment and exercise illustration generators",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "build": "node generate.mjs",
+    "index": "node build-index.mjs",
+    "check": "node check.mjs",
+    "coverage": "node check.mjs --coverage-warn"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "pdf-lib": "1.17.1",
+    "sharp": "0.35.5"
+  }
+}

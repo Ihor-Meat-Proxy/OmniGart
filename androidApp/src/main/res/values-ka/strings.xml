@@ -134,7 +134,7 @@
     <string name="workout_summary_total_kcal">სულ კკალ</string>
     <string name="workout_summary_avg_hr">საშუალო გულისცემა</string>
     <string name="workout_summary_max_hr">მაქს. გულისცემა</string>
-    <string name="workout_summary_energy_estimate">ენერგია კეთილდღეობის შეფასებაა (MET × სხეულის მასა).</string>
+    <string name="workout_summary_energy_estimate">ენერგია კეთილდღეობის შეფასებაა (პულსი ან სამუშაო), არა სამედიცინო გაზომვა.</string>
     <string name="workout_summary_effort">ძალისხმევის ქულა</string>
     <string name="workout_summary_hr_recovery">გულისცემის აღდგენა</string>
     <string name="workout_start_on_watch">დაწყება Apple Watch-ზე</string>
@@ -306,7 +306,7 @@
     <string name="wear_strength_rest">დასვენება %1$d წმ</string>
     <string name="wear_strength_weight">კგ</string>
     <string name="wear_strength_reps">გამეორება</string>
-    <string name="wear_strength_set">სეტი %1$d</string>
+    <string name="wear_strength_set">მიდგომა %1$d</string>
     <string name="wear_strength_hr">გსს %1$d</string>
     <string name="wear_strength_kcal">%1$s კკალ</string>
     <string name="explore_title">გაცნობა</string>

@@ -134,7 +134,7 @@
     <string name="workout_summary_total_kcal">Kcal totales</string>
     <string name="workout_summary_avg_hr">Fréquence moyenne</string>
     <string name="workout_summary_max_hr">Fréquence max.</string>
-    <string name="workout_summary_energy_estimate">L’énergie est une estimation bien-être (MET × masse).</string>
+    <string name="workout_summary_energy_estimate">L’énergie est une estimation bien-être (fréquence ou travail), pas une mesure médicale.</string>
     <string name="workout_summary_effort">Score d’effort</string>
     <string name="workout_summary_hr_recovery">Récupération cardiaque</string>
     <string name="workout_start_on_watch">Démarrer sur Apple Watch</string>

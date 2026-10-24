@@ -20,6 +20,7 @@ Machine-readable limits: [`APP_SIZE_BUDGET.json`](APP_SIZE_BUDGET.json).
 | Translations | `translations` | 8 MB | ≤ 1.5 MB per locale pack slice |
 | Evidence library | `evidence` | 3 MB | citations text only; no PDFs in-bundle |
 | Icons / body maps (vector) / achievements | `icons`, `body-maps`, `achievements` | 4 MB | SVG/PDF vectors; no raster body maps |
+| Equipment / exercise illustrations | `illustrations` | 3 MB | SVG badge sources in bundle; platform PDF/PNG + VectorDrawable live under `design/generated/` |
 | Exercise still images | `exercise-images` | **45 MB** | **WebP ≤ 80 KB**; HEIC allowed on iOS if ≤ 100 KB; max edge 1024 px |
 | Formulas config | `formulas` | 64 KB | single JSON |
 | App config safe defaults | `app-config` | 16 KB | feature flags with offline defaults |

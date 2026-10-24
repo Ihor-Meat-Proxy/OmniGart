@@ -46,10 +46,17 @@ CREATE TABLE workout_set (
   duration_seconds INTEGER,
   distance_metres REAL,
   rir REAL,
+  rpe REAL,
   completed INTEGER NOT NULL DEFAULT 1,
   is_warmup INTEGER NOT NULL DEFAULT 0,
+  is_drop_set INTEGER NOT NULL DEFAULT 0,
+  is_failure INTEGER NOT NULL DEFAULT 0,
   assistance_kg REAL,
   logged_per_hand INTEGER NOT NULL DEFAULT 0,
+  note TEXT,
+  rest_seconds INTEGER,
+  target_weight_kg REAL,
+  target_reps INTEGER,
   FOREIGN KEY(session_id) REFERENCES session(id) ON DELETE CASCADE
 );
 
@@ -103,9 +110,9 @@ SELECT * FROM workout_set WHERE session_id = ? ORDER BY set_index ASC;
 
 upsertSet:
 INSERT OR REPLACE INTO workout_set(
-  id, session_id, exercise_id, set_index, reps, weight_kg, duration_seconds, distance_metres, rir, completed,
-  is_warmup, assistance_kg, logged_per_hand
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+  id, session_id, exercise_id, set_index, reps, weight_kg, duration_seconds, distance_metres, rir, rpe, completed,
+  is_warmup, is_drop_set, is_failure, assistance_kg, logged_per_hand, note, rest_seconds, target_weight_kg, target_reps
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 deleteSet:
 DELETE FROM workout_set WHERE id = ?;
@@ -280,7 +287,11 @@ CREATE TABLE local_health_set (
   duration_seconds INTEGER,
   distance_metres REAL,
   rir REAL,
+  rpe REAL,
   is_warmup INTEGER NOT NULL DEFAULT 0,
+  is_drop_set INTEGER NOT NULL DEFAULT 0,
+  is_failure INTEGER NOT NULL DEFAULT 0,
+  note TEXT,
   FOREIGN KEY(workout_id) REFERENCES local_health_workout(id) ON DELETE CASCADE
 );
 
@@ -389,8 +400,9 @@ DELETE FROM local_health_set WHERE workout_id = ?;
 
 insertLocalHealthSet:
 INSERT OR REPLACE INTO local_health_set(
-  id, workout_id, exercise_key, set_index, reps, load_kg, duration_seconds, distance_metres, rir, is_warmup
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+  id, workout_id, exercise_key, set_index, reps, load_kg, duration_seconds, distance_metres, rir, rpe,
+  is_warmup, is_drop_set, is_failure, note
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 selectHealthSyncState:
 SELECT * FROM health_sync_state WHERE platform = ?;

@@ -76,11 +76,7 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
      * Install a JSON-backed diary (optional at-rest encryptor). Idempotent replacement —
      * call once at app start before the Food tab loads.
      */
-    fun useJsonFoodDiary(
-        load: () -> String?,
-        save: (String) -> Unit,
-        encryptor: FoodAtRestEncryptor = NoopFoodAtRestEncryptor
-    ) {
+    fun useJsonFoodDiary(load: () -> String?, save: (String) -> Unit, encryptor: FoodAtRestEncryptor = NoopFoodAtRestEncryptor) {
         val store: FoodDiaryStore = JsonFoodDiaryStore(load = load, save = save, encryptor = encryptor)
         foodLoggingService = FoodLoggingService(store = store)
     }

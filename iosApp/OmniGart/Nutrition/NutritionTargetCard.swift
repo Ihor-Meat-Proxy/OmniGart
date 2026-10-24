@@ -84,6 +84,7 @@ struct NutritionTargetCard: View {
 }
 
 /// Keeps `NutritionTargetCard.refresh` under SwiftLint function_body_length.
+/// Copies Shared card fields into a Swift-only struct (no KMP type names in signatures).
 private struct NutritionTargetCardSnapshot {
     var suggestedText: String
     var waterText: String
@@ -93,12 +94,30 @@ private struct NutritionTargetCardSnapshot {
     var showSupportive: Bool
     var kcalToPersist: Double?
 
+    private struct RawFields {
+        var suggestedDailyKcal: Double
+        var waterLitres: Double
+        var confidenceKey: String
+        var reasonKeysJoined: String
+        var floorWarning: Bool
+        var lowIntakeSupportive: Bool
+    }
+
     @MainActor
     static func build(
         core: OmniGartCore,
         profile: UserProfile,
         store: NutritionLocalStore
     ) -> NutritionTargetCardSnapshot {
+        format(fetchRaw(core: core, profile: profile, store: store))
+    }
+
+    @MainActor
+    private static func fetchRaw(
+        core: OmniGartCore,
+        profile: UserProfile,
+        store: NutritionLocalStore
+    ) -> RawFields {
         let goal = store.loadGoal()
         let weights = store.loadWeights()
         let bodyFat = store.loadBodyFat().last?.bodyFatPercent
@@ -129,40 +148,51 @@ private struct NutritionTargetCardSnapshot {
             dayStartMinutes: Int32(goal.dayStartMinutes),
             trainingHoursToday: 0
         )
-        return format(card)
+        return RawFields(
+            suggestedDailyKcal: card.suggestedDailyKcal,
+            waterLitres: card.waterLitres,
+            confidenceKey: card.confidenceKey,
+            reasonKeysJoined: card.reasonKeysJoined,
+            floorWarning: card.floorWarning,
+            lowIntakeSupportive: card.lowIntakeSupportive
+        )
     }
 
-    private static func format(_ card: NutritionCardSnapshot) -> NutritionTargetCardSnapshot {
+    private static func format(_ raw: RawFields) -> NutritionTargetCardSnapshot {
         let suggested: String
         let persist: Double?
-        if card.suggestedDailyKcal > 0 {
+        if raw.suggestedDailyKcal > 0 {
             suggested = String(
                 format: "%.0f %@",
-                card.suggestedDailyKcal,
+                raw.suggestedDailyKcal,
                 String(localized: "nutrition_kcal_unit")
             )
-            persist = card.suggestedDailyKcal
+            persist = raw.suggestedDailyKcal
         } else {
             suggested = "—"
             persist = nil
         }
         let water: String
-        if card.waterLitres > 0 {
+        if raw.waterLitres > 0 {
             water = String(
                 format: "%@ %.1f L",
                 String(localized: "nutrition_water_goal"),
-                card.waterLitres
+                raw.waterLitres
             )
         } else {
             water = "—"
         }
+        let reasons =
+            raw.reasonKeysJoined
+                .split(separator: ";", omittingEmptySubsequences: true)
+                .map(String.init)
         return NutritionTargetCardSnapshot(
             suggestedText: suggested,
             waterText: water,
-            confidenceKey: card.confidenceKey,
-            reasonKeys: card.reasonKeys.map { $0 as String },
-            floorWarn: card.floorWarning,
-            showSupportive: card.lowIntakeSupportive,
+            confidenceKey: raw.confidenceKey,
+            reasonKeys: reasons,
+            floorWarn: raw.floorWarning,
+            showSupportive: raw.lowIntakeSupportive,
             kcalToPersist: persist
         )
     }

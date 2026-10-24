@@ -6,11 +6,13 @@ package com.omnigart.nutrition
  * Prefer [computeCardSnapshot] from Swift: [NutritionTargetResult] may not appear in the
  * ObjC header when nested Kotlin types are present, while this snapshot is primitives only.
  */
+/** Primitives-only DTO for Swift/ObjC (no nested result types). */
 data class NutritionCardSnapshot(
     val suggestedDailyKcal: Double,
     val waterLitres: Double,
     val confidenceKey: String,
-    val reasonKeys: Array<String>,
+    /** Semicolon-joined reason keys — avoids Kotlin Array/List bridging issues. */
+    val reasonKeysJoined: String,
     val floorWarning: Boolean,
     val lowIntakeSupportive: Boolean,
 )
@@ -179,7 +181,7 @@ object NutritionFacade {
             suggestedDailyKcal = result.suggestedDailyKcal ?: -1.0,
             waterLitres = result.waterLitres ?: -1.0,
             confidenceKey = confidenceLabelKey(result.confidence),
-            reasonKeys = changeReasonKeys(result),
+            reasonKeysJoined = changeReasonKeys(result).joinToString(";"),
             floorWarning = result.floorWarning?.belowFloor == true,
             lowIntakeSupportive = result.lowIntakeSupportive,
         )

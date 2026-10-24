@@ -31,6 +31,8 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "Shared"
             isStatic = true
+            // Re-export so Swift can see NutritionFacade / NutritionCardSnapshot.
+            export(project(":shared:nutrition"))
         }
     }
 
@@ -42,6 +44,7 @@ kotlin {
         watchTarget.binaries.framework {
             baseName = "Shared"
             isStatic = true
+            export(project(":shared:nutrition"))
         }
     }
 

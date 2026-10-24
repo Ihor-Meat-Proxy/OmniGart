@@ -1,22 +1,26 @@
 import Shared
 import SwiftUI
 
-/// Exercise library with muscle maps, strength logging, and Zone 2 start.
+/// Workouts tab: category tile grid, search, and category hubs.
 struct WorkoutsTabView: View {
     let core: OmniGartCore
     let profileId: String
 
-    @State private var zone2Message: String?
+    @State private var searchText = ""
     @State private var tick = 0
+    @Environment(\.colorScheme) private var colorScheme
 
-    private var demos: [DemoStrengthExercise] {
-        _ = tick
-        return core.strengthLogging.ensureDemoExercises()
+    private let columns = [
+        GridItem(.flexible(), spacing: OmniGartMetrics.space2),
+        GridItem(.flexible(), spacing: OmniGartMetrics.space2)
+    ]
+
+    private var filteredCategories: [WorkoutCategory] {
+        WorkoutCategory.allCases.filter { $0.matches(query: searchText) }
     }
 
-    private var profile: UserProfile? {
-        _ = tick
-        return core.profiles.get(id: profileId)
+    private var searchHits: [WorkoutSearchHit] {
+        WorkoutSearchIndex.hits(core: core, profileId: profileId, query: searchText, tick: tick)
     }
 
     var body: some View {
@@ -25,23 +29,30 @@ struct WorkoutsTabView: View {
                 Text("workout_intro")
                     .font(.footnote)
                     .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                searchField
             }
-            Section("explore_title") {
-                NavigationLink {
-                    WorkoutsExploreView(core: core, profileId: profileId)
-                } label: {
-                    Text("explore_open")
-                }
-                .accessibilityIdentifier("workouts_explore_open")
-                NavigationLink {
-                    EquipmentCataloguePickerView(core: core, profileId: profileId) {
-                        tick += 1
+            Section("workout_cat_categories_title") {
+                LazyVGrid(columns: columns, spacing: OmniGartMetrics.space2) {
+                    ForEach(filteredCategories) { category in
+                        NavigationLink(value: category) {
+                            WorkoutCategoryTile(category: category)
+                        }
+                        .buttonStyle(.plain)
                     }
-                } label: {
-                    Text("equipment_catalogue_open")
                 }
-                .accessibilityIdentifier("workouts_equipment_catalogue_open")
-                if let card = core.routineLibrary.nextWorkoutCard(profileId: profileId) {
+                .listRowInsets(EdgeInsets(
+                    top: OmniGartMetrics.space2,
+                    leading: OmniGartMetrics.space3,
+                    bottom: OmniGartMetrics.space2,
+                    trailing: OmniGartMetrics.space3
+                ))
+                .listRowBackground(Color.clear)
+                .accessibilityIdentifier("workout_cat_grid")
+            }
+            if !searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                searchResultsSection
+            } else if let card = core.routineLibrary.nextWorkoutCard(profileId: profileId) {
+                Section("explore_title") {
                     NavigationLink {
                         RoutineDetailView(core: core, profileId: profileId, routineId: card.routineId)
                     } label: {
@@ -59,119 +70,90 @@ struct WorkoutsTabView: View {
                     .accessibilityIdentifier("workouts_next_card")
                 }
             }
-            StrengthProgramSection(core: core, profileId: profileId)
-            Section("workouts_library_title") {
-                ForEach(demos, id: \.exercise.id) { demo in
-                    NavigationLink {
-                        ExerciseDetailView(core: core, profileId: profileId, exerciseId: demo.exercise.id)
-                    } label: {
-                        HStack(spacing: OmniGartMetrics.space2) {
-                            ExerciseIllustrationView(illustrationKey: "ex_\(demo.exercise.id.replacingOccurrences(of: "-", with: "_"))")
-                                .frame(width: 40, height: 40)
-                            MuscleMapIcons(muscles: muscleList(demo.exercise.primaryMuscles))
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(demo.displayName)
-                                    .foregroundStyle(Color.primary)
-                                Text(muscleList(demo.exercise.primaryMuscles).joined(separator: ", "))
-                                    .font(.caption)
-                                    .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
-                            }
-                        }
-                    }
-                    .accessibilityIdentifier("library_exercise_\(demo.exercise.id)")
-                }
-            }
-            Section("workouts_zone2_title") {
-                Text("workouts_zone2_body")
-                    .font(.footnote)
-                    .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
-                Button("workouts_zone2_start") {
-                    startZone2()
-                }
-                .accessibilityIdentifier("workouts_zone2_start")
-                if let zone2Message {
-                    Text(zone2Message)
-                        .font(.caption)
-                        .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
-                        .accessibilityIdentifier("workouts_zone2_status")
-                }
-            }
-            Section("treadmill_run_title") {
-                // Lazy destination: avoid constructing TreadmillRunView (and its BLE
-                // managers) while the Workouts tab is merely listed in the TabView.
-                NavigationLink("treadmill_run_open", value: WorkoutsRoute.treadmill)
-                    .accessibilityIdentifier("workouts_treadmill_open")
-            }
-            Section("workouts_log_title") {
-                StrengthLoggingView(core: core, profileId: profileId)
-            }
-            Section("workout_yoga_title") {
-                MindfulBodySessionView(core: core, profileId: profileId, kind: .yoga)
-            }
-            Section("workout_pilates_title") {
-                MindfulBodySessionView(core: core, profileId: profileId, kind: .pilates)
-            }
         }
         .navigationTitle(Text("tab_workouts"))
         .scrollContentBackground(.hidden)
-        .background(Color.OmniGart.colorSurfaceLightCanvas.ignoresSafeArea())
-        .navigationDestination(for: WorkoutsRoute.self) { route in
-            switch route {
-            case .treadmill:
-                TreadmillRunView(core: core, profileId: profileId)
-            }
+        .background(canvas.ignoresSafeArea())
+        .navigationDestination(for: WorkoutCategory.self) { category in
+            WorkoutCategoryDetailView(
+                core: core,
+                profileId: profileId,
+                category: category
+            )
         }
+        .onAppear { tick += 1 }
     }
 
-    private func startZone2() {
-        let age = profile.map { Int(core.ageYears(profile: $0)) } ?? 30
-        let prefs = core.formulaSettings.getSelection(profileId: profileId).toPreferences()
-        let hrMax = Int(prefs.hrMax.hrMax(ageYears: Int32(age)))
-        let hrRest = 60
-        Task { @MainActor in
-            let watchOutcome = await HealthKitWatchLauncher.startOnWatch(
-                activityType: .running,
-                indoor: false,
-                kindOverride: PhoneWorkoutKindIds.shared.ZONE2_RUN,
-                sessionKey: "zone2-\(Int(Date().timeIntervalSince1970))"
-            )
-            switch watchOutcome {
-            case .watchStarted:
-                zone2Message = String(localized: "workout_watch_started")
-                tick += 1
-                return
-            case .watchUnavailable:
-                zone2Message = String(localized: "workout_watch_phone_only_notice")
-            case .skippedByPreference:
-                break
-            }
-            let outcome = await Zone2WorkoutKitScheduler.schedule(
-                id: "zone2-\(Int(Date().timeIntervalSince1970))",
-                hrMax: hrMax,
-                hrRest: hrRest,
-                workSeconds: 30 * 60
-            )
-            if outcome.ok {
-                zone2Message = String(localized: "workouts_zone2_scheduled")
-            } else if case .watchUnavailable = watchOutcome {
-                // Keep the phone-only notice when watch launch failed and WorkoutKit also failed.
-                if !outcome.ok {
-                    zone2Message = String(localized: "workout_watch_phone_only_notice")
+    private var canvas: Color {
+        colorScheme == .dark
+            ? Color.OmniGart.colorSurfaceDarkCanvas
+            : Color.OmniGart.colorSurfaceLightCanvas
+    }
+
+    private var searchField: some View {
+        HStack(spacing: OmniGartMetrics.space2) {
+            Image(systemName: "magnifyingglass")
+                .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                .accessibilityHidden(true)
+            TextField("workout_cat_search_placeholder", text: $searchText)
+                .textInputAutocapitalization(.never)
+                .autocorrectionDisabled()
+                .accessibilityIdentifier("workout_cat_search")
+            if !searchText.isEmpty {
+                Button {
+                    searchText = ""
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(Color.OmniGart.colorTextLightTertiary)
                 }
-            } else if FeatureFlags.shared.workoutKitSchedulingEnabled {
-                zone2Message = outcome.detail ?? String(localized: "workouts_zone2_unavailable")
-            } else {
-                zone2Message = String(localized: "workouts_zone2_flag_off")
+                .accessibilityLabel(Text("workout_cat_search_clear"))
             }
-            tick += 1
         }
+        .padding(.horizontal, OmniGartMetrics.space3)
+        .padding(.vertical, OmniGartMetrics.space2)
+        .background(
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .fill(
+                    colorScheme == .dark
+                        ? Color.OmniGart.colorSurfaceDarkSunken
+                        : Color.OmniGart.colorSurfaceLightSunken
+                )
+        )
+        .listRowInsets(EdgeInsets(
+            top: OmniGartMetrics.space2,
+            leading: OmniGartMetrics.space3,
+            bottom: OmniGartMetrics.space2,
+            trailing: OmniGartMetrics.space3
+        ))
+        .listRowBackground(Color.clear)
+        .accessibilityElement(children: .contain)
     }
 
-    private func muscleList(_ muscles: [String]) -> [String] { muscles }
-}
-
-private enum WorkoutsRoute: Hashable {
-    case treadmill
+    @ViewBuilder
+    private var searchResultsSection: some View {
+        Section("workout_cat_search_results_title") {
+            if searchHits.isEmpty && filteredCategories.isEmpty {
+                Text("workout_cat_search_no_results")
+                    .font(.footnote)
+                    .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                    .accessibilityIdentifier("workout_cat_search_empty")
+            }
+            ForEach(searchHits) { hit in
+                NavigationLink {
+                    hit.destination(core: core, profileId: profileId)
+                } label: {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(LocalizedStringKey(hit.titleKey))
+                            .font(.body)
+                        Text(LocalizedStringKey(hit.subtitleKey))
+                            .font(.caption)
+                            .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                    }
+                }
+                .accessibilityIdentifier("workout_cat_search_hit_\(hit.id)")
+            }
+        }
+    }
 }
 
 /// Compact muscle region icons for the exercise library (body-map cue).

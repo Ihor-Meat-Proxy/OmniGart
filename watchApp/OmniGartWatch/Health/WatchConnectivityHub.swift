@@ -9,8 +9,6 @@ import WatchConnectivity
 final class WatchConnectivityHub: NSObject, ObservableObject, WCSessionDelegate {
     static let shared = WatchConnectivityHub()
 
-    private static let selectionPayloadKey = "omnigart.workout.selection.json"
-
     @Published private(set) var lastSelection: PhoneWorkoutSelection?
     @Published var enabledEquipmentIds: Set<String> = []
 

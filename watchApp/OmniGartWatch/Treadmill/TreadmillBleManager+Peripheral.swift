@@ -18,10 +18,10 @@ extension TreadmillBleManager: CBPeripheralDelegate {
         didDiscoverCharacteristicsFor service: CBService,
         error: Error?
     ) {
-        let serviceId = service.uuid
+        let serviceId = service.uuid.uuidString
         Task { @MainActor in
             guard let device = self.linkedPeripheral,
-                  let service = device.services?.first(where: { $0.uuid == serviceId })
+                  let service = device.services?.first(where: { $0.uuid.uuidString == serviceId })
             else { return }
             handleDiscoveredCharacteristics(peripheral: device, service: service)
         }

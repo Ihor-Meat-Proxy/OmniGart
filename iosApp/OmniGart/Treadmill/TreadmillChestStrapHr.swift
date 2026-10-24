@@ -99,10 +99,10 @@ extension TreadmillChestStrapHr: CBPeripheralDelegate {
         didDiscoverCharacteristicsFor service: CBService,
         error: Error?
     ) {
-        let serviceId = service.uuid
+        let serviceId = service.uuid.uuidString
         Task { @MainActor in
             guard let device = self.linkedPeripheral,
-                  let service = device.services?.first(where: { $0.uuid == serviceId }),
+                  let service = device.services?.first(where: { $0.uuid.uuidString == serviceId }),
                   let chars = service.characteristics
             else { return }
             for char in chars where char.uuid == CBUUID(string: "2A37") {

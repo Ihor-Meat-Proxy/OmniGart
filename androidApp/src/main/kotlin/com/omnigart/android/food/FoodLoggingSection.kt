@@ -2,12 +2,10 @@ package com.omnigart.android.food
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -17,30 +15,29 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.KeyboardType
 import com.omnigart.android.R
+import com.omnigart.android.nutrition.BodyMeasurementsSection
+import com.omnigart.android.nutrition.NutritionGoalSettingsSection
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.design.theme.OmniGartSpacing
 import com.omnigart.shared.OmniGartCore
 import com.omnigart.shared.compliance.FeatureFlags
-import com.omnigart.shared.food.models.CatalogueFood
 import com.omnigart.shared.food.models.MealGroup
-import com.omnigart.shared.food.models.QuickMacroAdd
-import com.omnigart.shared.food.models.QuickServing
 import com.omnigart.shared.food.nutrients.BiologicalSexBand
 import kotlin.time.Clock
 import kotlin.time.Duration.Companion.days
 
 /**
- * Food tab body: quick add, catalogue search, gaps hint, morning review.
- * Kept out of [com.omnigart.android.MainActivity] to avoid merge conflicts with
- * Insights / treadmill / in-workout PRs.
+ * Food tab body: day nav, summary, per-meal add, goals, water, weigh-in prompt.
  */
 @Composable
 fun FoodLoggingSection(core: OmniGartCore, profileId: String) {
     var tick by remember { mutableIntStateOf(0) }
+    var dayOffset by remember { mutableIntStateOf(0) }
+    var addMeal by remember { mutableStateOf<MealGroup?>(null) }
+    var showGoalEditor by remember { mutableStateOf(false) }
+    var showMeasurements by remember { mutableStateOf(false) }
     var reviewSummary by remember { mutableStateOf<String?>(null) }
-    val totals = remember(tick, profileId) { core.foodDayTotals(profileId) }
 
     Column(verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space2)) {
         Text(
@@ -48,133 +45,90 @@ fun FoodLoggingSection(core: OmniGartCore, profileId: String) {
             style = MaterialTheme.typography.bodySmall,
             color = OmniGartColors.colorTextLightSecondary
         )
-        FoodTotalsBlock(totals.energyKcal, totals.proteinG, totals.carbsG, totals.fatG)
-        FoodQuickAddBlock(core, profileId) { tick += 1 }
-        FoodSearchBlock(core, profileId) { tick += 1 }
-        FoodRecentsBlock(core, profileId) { tick += 1 }
-        FoodFavouritesBlock(core, profileId)
-        FoodBestSourcesBlock(core, profileId)
-        FoodToolsBlock(core, profileId) { tick += 1 }
-        FoodMorningReviewBlock(
+        FoodDayNav(
+            dayOffset = dayOffset,
+            onPrev = { dayOffset -= 1; tick += 1 },
+            onNext = { dayOffset = (dayOffset + 1).coerceAtMost(0); tick += 1 }
+        )
+        FoodWeighInPrompt(tick = tick) { showMeasurements = true }
+        FoodMeasurementsOverlay(showMeasurements) {
+            showMeasurements = false
+            tick += 1
+        }
+        FoodDailySummaryBlock(
             core = core,
             profileId = profileId,
-            reviewSummary = reviewSummary,
-            onSummary = { reviewSummary = it }
+            dayOffset = dayOffset,
+            tick = tick,
+            onEditGoal = { showGoalEditor = true },
+            onWater = { tick += 1 }
         )
+        FoodGoalEditorOverlay(showGoalEditor) { showGoalEditor = false }
+        FoodMealSections(core, profileId, dayOffset, tick) { addMeal = it }
+        addMeal?.let { meal ->
+            FoodAddMealPanel(
+                core = core,
+                profileId = profileId,
+                meal = meal,
+                onLogged = { tick += 1; addMeal = null },
+                onDismiss = { addMeal = null }
+            )
+        }
+        FoodBestSourcesBlock(core, profileId)
+        FoodToolsBlock(core, profileId) { tick += 1 }
+        FoodMorningReviewBlock(core, profileId, reviewSummary) { reviewSummary = it }
         FoodSettingsBlock(core, profileId)
     }
 }
 
 @Composable
-private fun FoodTotalsBlock(energy: Double, protein: Double, carbs: Double, fat: Double) {
-    Text(
-        text = stringResource(R.string.food_totals_title),
-        style = MaterialTheme.typography.titleSmall,
-        modifier = Modifier.testTag("food_totals")
-    )
-    Text(
-        text =
-        stringResource(
-            R.string.food_totals_line,
-            energy.toInt(),
-            protein.toInt(),
-            carbs.toInt(),
-            fat.toInt()
+private fun FoodMeasurementsOverlay(show: Boolean, onClose: () -> Unit) {
+    if (!show) return
+    BodyMeasurementsSection()
+    TextButton(onClick = onClose) { Text(stringResource(R.string.tab_food)) }
+}
+
+@Composable
+private fun FoodGoalEditorOverlay(show: Boolean, onClose: () -> Unit) {
+    if (!show) return
+    NutritionGoalSettingsSection()
+    TextButton(onClick = onClose) { Text(stringResource(R.string.food_edit_goal)) }
+}
+
+@Composable
+private fun FoodMealSections(
+    core: OmniGartCore,
+    profileId: String,
+    dayOffset: Int,
+    tick: Int,
+    onAdd: (MealGroup) -> Unit
+) {
+    MealGroup.entries.filter { it != MealGroup.CUSTOM }.forEach { meal ->
+        FoodMealBlock(
+            core = core,
+            profileId = profileId,
+            meal = meal,
+            dayOffset = dayOffset,
+            tick = tick,
+            onAdd = { onAdd(meal) }
         )
-    )
-}
-
-@Composable
-private fun FoodQuickAddBlock(core: OmniGartCore, profileId: String, onLogged: () -> Unit) {
-    var name by remember { mutableStateOf("") }
-    var energy by remember { mutableStateOf("250") }
-    OutlinedTextField(
-        value = name,
-        onValueChange = { name = it },
-        label = { Text(stringResource(R.string.food_name_placeholder)) },
-        modifier = Modifier.fillMaxWidth().testTag("food_name")
-    )
-    OutlinedTextField(
-        value = energy,
-        onValueChange = { energy = it },
-        label = { Text(stringResource(R.string.food_energy_kcal)) },
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-        modifier = Modifier.fillMaxWidth().testTag("food_energy")
-    )
-    Button(
-        onClick = {
-            val trimmed = name.trim()
-            if (trimmed.isEmpty()) return@Button
-            val kcal = energy.toDoubleOrNull() ?: 0.0
-            core.foodLogging.quickAdd(profileId, QuickMacroAdd(trimmed, kcal), MealGroup.SNACKS)
-            core.logFood(profileId, trimmed, kcal, 0.0, 0.0, 0.0)
-            name = ""
-            onLogged()
-        },
-        modifier = Modifier.testTag("food_add")
-    ) {
-        Text(stringResource(R.string.food_add))
     }
 }
 
 @Composable
-private fun FoodSearchBlock(core: OmniGartCore, profileId: String, onLogged: () -> Unit) {
-    var query by remember { mutableStateOf("") }
-    val results =
-        remember(query) {
-            if (query.isBlank()) emptyList() else core.foodLogging.search(profileId, query, "en-GB")
-        }
-    OutlinedTextField(
-        value = query,
-        onValueChange = { query = it },
-        label = { Text(stringResource(R.string.food_search_placeholder)) },
-        modifier = Modifier.fillMaxWidth().testTag("food_search")
-    )
-    results.take(8).forEach { food ->
-        CatalogueResultButton(core, profileId, food, onLogged)
-    }
-}
-
-@Composable
-private fun CatalogueResultButton(core: OmniGartCore, profileId: String, food: CatalogueFood, onLogged: () -> Unit) {
-    Button(
-        onClick = {
-            core.foodLogging.logQuickServing(
-                profileId,
-                food.id,
-                QuickServing.PER_100_G,
-                MealGroup.BREAKFAST,
-                "en-GB"
-            )
-            core.logFood(
-                profileId,
-                food.name,
-                food.energyKcalPer100g,
-                food.proteinGPer100g,
-                food.carbsGPer100g,
-                food.fatGPer100g
-            )
-            onLogged()
-        },
-        modifier = Modifier.testTag("food_catalogue_${food.id}")
-    ) {
-        Text("${food.name} · ${food.energyKcalPer100g.toInt()} kcal/100g")
-    }
-}
-
-@Composable
-private fun FoodMorningReviewBlock(core: OmniGartCore, profileId: String, reviewSummary: String?, onSummary: (String) -> Unit) {
+private fun FoodMorningReviewBlock(
+    core: OmniGartCore,
+    profileId: String,
+    reviewSummary: String?,
+    onSummary: (String) -> Unit
+) {
     val aiNote =
         if (FeatureFlags.morningFoodReviewEnabled) {
             stringResource(R.string.food_review_ai_ready)
         } else {
             stringResource(R.string.food_ai_unavailable)
         }
-    Text(
-        text = aiNote,
-        style = MaterialTheme.typography.bodySmall,
-        color = OmniGartColors.colorTextLightSecondary
-    )
+    Text(text = aiNote, style = MaterialTheme.typography.bodySmall, color = OmniGartColors.colorTextLightSecondary)
     Button(
         onClick = { onSummary(runMorningReview(core, profileId)) },
         modifier = Modifier.testTag("food_review_run")

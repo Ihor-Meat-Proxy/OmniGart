@@ -104,6 +104,24 @@ struct OnboardingFlowView: View {
             strengthLevel: answers.strengthLevel,
             activityLevel: answers.activityLevel
         )
+        persistEnergyGoal(from: answers)
         onFinished(completed)
+    }
+
+    private func persistEnergyGoal(from answers: OnboardingAnswers) {
+        var goal = NutritionLocalStore.shared.loadGoal()
+        goal.kind = answers.energyGoalKind
+        let maxRate = answers.energyGoalKind == "GAIN" ? 0.5 : 1.0
+        let rate = min(max(answers.energyRatePercent, 0.25), maxRate)
+        goal.rateFractionPerWeek = answers.energyGoalKind == "MAINTAIN" ? 0 : rate / 100.0
+        if answers.energyGoalKind == "LOSE" {
+            goal.targetWeightKg = answers.energyTargetWeightKg ?? max(answers.weightKg - 5, 40)
+        } else if answers.energyGoalKind == "GAIN" {
+            goal.targetWeightKg = answers.energyTargetWeightKg ?? answers.weightKg + 3
+        }
+        goal.firstGoalAcknowledged = true
+        NutritionLocalStore.shared.saveGoal(goal)
+        NutritionLocalStore.shared.appendWeight(massKg: answers.weightKg)
+        NutritionReminderScheduler.shared.reschedule()
     }
 }

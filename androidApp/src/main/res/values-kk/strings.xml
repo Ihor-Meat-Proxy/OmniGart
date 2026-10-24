@@ -14,7 +14,7 @@
     <string name="info_sheet_title">Осы бағалау туралы</string>
     <string name="info_sheet_body">Дайындық, стресс, ЖЖВ, Баевский индексі, дене майы және су балансы сияқты көрсеткіштер — сіздің деректеріңіз бен құрылғы үлгілеріне негізделген сауықтыру бағалаулары. Жоспарлар — жаттықтырушы ұсыныстары, рецепт емес.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart құрылғыдағы бағалауларды жақсарту үшін сауықтыру үлгілерін (жүрек соғуы, ЖЖВ, ұйқы, жаттығулар, дене массасы, су балансы) оқи және жаза алады. Деректер жарнамаға пайдаланылмайды және қатысы жоқ үшінші тараптарға жіберілмейді. Қолжетімділік берместен жалғастыра аласыз.</string>
+    <string name="perm_explainer_health_body">OmniGart сауықтыру үлгілерін оқи және жаза алады — жүрек соғысы, HRV, ұйқы, жаттығулар, белсенді және базалық энергия, дене салмағы және су ішу — сеанстар Apple Fitness-те көрінуі үшін. Платформаға жазу тек қосу: OmniGart Apple Health / Health Connect деректерін — өзінкін де — жоймайды және қайта жазбайды. Деректер жарнамаға берілмейді. Рұқсатсыз жалғастыруға болады.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth аксессуарлары</string>
     <string name="perm_explainer_bluetooth_body">Тірі үлгілер үшін жүрек соғу немесе ұқсас фитнес аксессуарын қосыңыз. OmniGart Bluetoothсыз толық жұмыс істейді.</string>
     <string name="perm_explainer_camera_title">Штрихкод камерасы</string>
@@ -910,4 +910,26 @@
     <string name="treadmill_diag_log">Шикі журнал</string>
     <string name="treadmill_diag_capture_sim">Симулятор кадрын түсіру</string>
     <string name="treadmill_diag_captured">Кадр түсірілді.</string>
+    <string name="food_day_today">Бүгін</string>
+    <string name="food_day_previous">Алдыңғы күн</string>
+    <string name="food_day_next">Келесі күн</string>
+    <string name="food_summary_title">Күнделікті қорытынды</string>
+    <string name="food_eaten">Желінген</string>
+    <string name="food_remaining">Қалды</string>
+    <string name="food_target">Мақсат</string>
+    <string name="food_add_meal">Тамақ қосу</string>
+    <string name="food_portion_grams">Порция (г)</string>
+    <string name="food_quick_add_title">Жылдам қосу</string>
+    <string name="food_water_title">Су</string>
+    <string name="food_water_add_250">250 мл қосу</string>
+    <string name="food_water_logged">Жазылды %.0f мл · мақсат %.1f л</string>
+    <string name="food_edit_goal">Энергия мақсатын өзгерту</string>
+    <string name="food_weigh_in_prompt">Өлшеу энергия мақсатын жекелендіруге көмектеседі.</string>
+    <string name="food_weigh_in_action">Салмақты жаңарту</string>
+    <string name="food_macro_line">А %.0f / %.0f · К %.0f / %.0f · М %.0f / %.0f г</string>
+    <string name="onboarding_energy_goal_title">Энергия мақсаты</string>
+    <string name="onboarding_energy_goal_body">Болжалды күнделікті энергия үшін сауықтыру бағытын таңдаңыз. Кейін Тамақ қойындысында өзгерте аласыз. Денсаулық мәселесі, жүктілік немесе 18-ден кіші болса, маманмен кеңесіңіз.</string>
+    <string name="onboarding_energy_lose">Салмақ түсіру</string>
+    <string name="onboarding_energy_maintain">Салмақты сақтау</string>
+    <string name="onboarding_energy_gain">Салмақ қосу</string>
 </resources>

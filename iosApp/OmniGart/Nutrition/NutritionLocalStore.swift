@@ -12,6 +12,7 @@ final class NutritionLocalStore: ObservableObject {
     private let bodyFatKey = "nutrition.bodyfat.v1"
     private let lastTargetKey = "nutrition.lastTargetKcal.v1"
     private let remindersKey = "nutrition.reminders.v1"
+    private let waterKey = "nutrition.waterByDay.v1"
 
     struct GoalPrefs: Codable {
         var kind: String = "MAINTAIN"
@@ -129,6 +130,17 @@ final class NutritionLocalStore: ObservableObject {
 
     func saveReminders(_ prefs: ReminderPrefs) {
         encode(prefs, key: remindersKey)
+    }
+
+    func waterMl(for dayKey: String) -> Double {
+        let map = decode([String: Double].self, key: waterKey) ?? [:]
+        return map[dayKey] ?? 0
+    }
+
+    func addWaterMl(_ ml: Double, dayKey: String) {
+        var map = decode([String: Double].self, key: waterKey) ?? [:]
+        map[dayKey] = (map[dayKey] ?? 0) + ml
+        encode(map, key: waterKey)
     }
 
     private func encode<T: Encodable>(_ value: T, key: String) {

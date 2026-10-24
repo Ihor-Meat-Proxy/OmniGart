@@ -15,6 +15,10 @@ data class NutritionCardSnapshot(
     val reasonKeysJoined: String,
     val floorWarning: Boolean,
     val lowIntakeSupportive: Boolean,
+    /** Suggested macro targets (−1 when unavailable). */
+    val proteinG: Double = -1.0,
+    val carbsG: Double = -1.0,
+    val fatG: Double = -1.0,
 )
 
 object NutritionFacade {
@@ -184,6 +188,9 @@ object NutritionFacade {
             reasonKeysJoined = changeReasonKeys(result).joinToString(";"),
             floorWarning = result.floorWarning?.belowFloor == true,
             lowIntakeSupportive = result.lowIntakeSupportive,
+            proteinG = result.proteinG ?: -1.0,
+            carbsG = result.carbsG ?: -1.0,
+            fatG = result.fatG ?: -1.0,
         )
     }
 }

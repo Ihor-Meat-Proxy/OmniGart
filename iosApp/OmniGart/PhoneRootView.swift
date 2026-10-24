@@ -6,7 +6,7 @@ import Shared
 struct PhoneRootView: View {
     let core: OmniGartCore
     let profileId: String
-    @State private var selectedTab: PhoneTab = Self.initialTab()
+    @State private var selectedTab: PhoneTab = .profile
     @State private var showInfoSheet = false
 
     var body: some View {
@@ -26,20 +26,19 @@ struct PhoneRootView: View {
                 }
                 // Identifier must live on `Tab` so XCTest sees it on the tab bar button
                 // (putting it on the page root only exposes the selected tab's content).
+                // Keep a single identifier — labeling both Label and Tab makes UITest
+                // `descendants["tab_*"]` ambiguous ("Multiple matching elements").
                 .accessibilityIdentifier(tab.accessibilityId)
             }
         }
+        // CI boots an iPad simulator; keep a bottom tab bar so tab accessibility
+        // identifiers stay on `tabBars.buttons` instead of the adaptive sidebar.
+        .tabViewStyle(.tabBarOnly)
         .tint(Color.OmniGart.colorBrandAccent)
         .accessibilityIdentifier("phone_shell")
         .sheet(isPresented: $showInfoSheet) {
             WellnessInfoSheet()
         }
-    }
-
-    /// UI tests launch on Food so the first tab stays in the AX tree; with 7 tabs a
-    /// scrollable bar starting on Profile can omit off-screen tab buttons entirely.
-    private static func initialTab() -> PhoneTab {
-        ProcessInfo.processInfo.arguments.contains("-ui-testing") ? .food : .profile
     }
 
     @ViewBuilder

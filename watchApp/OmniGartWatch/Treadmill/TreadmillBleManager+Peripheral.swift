@@ -2,13 +2,13 @@ import CoreBluetooth
 import Foundation
 
 extension TreadmillBleManager: CBPeripheralDelegate {
-    // Hop only Sendable snapshots; use self.peripheral on the MainActor.
+    // Hop only Sendable snapshots; use self.linkedPeripheral on the MainActor.
     nonisolated func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         Task { @MainActor in
-            guard let peripheral = self.peripheral, let services = peripheral.services else { return }
+            guard let device = self.linkedPeripheral, let services = device.services else { return }
             for service in services {
                 appendDiag("SERVICE \(service.uuid.uuidString)")
-                peripheral.discoverCharacteristics(nil, for: service)
+                device.discoverCharacteristics(nil, for: service)
             }
         }
     }
@@ -20,10 +20,10 @@ extension TreadmillBleManager: CBPeripheralDelegate {
     ) {
         let serviceId = service.uuid
         Task { @MainActor in
-            guard let peripheral = self.peripheral,
-                  let service = peripheral.services?.first(where: { $0.uuid == serviceId })
+            guard let device = self.linkedPeripheral,
+                  let service = device.services?.first(where: { $0.uuid == serviceId })
             else { return }
-            handleDiscoveredCharacteristics(peripheral: peripheral, service: service)
+            handleDiscoveredCharacteristics(peripheral: device, service: service)
         }
     }
 

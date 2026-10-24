@@ -9,7 +9,7 @@ final class TreadmillChestStrapHr: NSObject, ObservableObject {
     @Published private(set) var scanning = false
 
     private var central: CBCentralManager?
-    private var peripheral: CBPeripheral?
+    private var linkedPeripheral: CBPeripheral?
     private var lastSampleAt: Date?
 
     var secondsSinceLastSample: Double? {
@@ -33,8 +33,8 @@ final class TreadmillChestStrapHr: NSObject, ObservableObject {
 
     func stop() {
         central?.stopScan()
-        if let peripheral {
-            central?.cancelPeripheralConnection(peripheral)
+        if let linkedPeripheral {
+            central?.cancelPeripheralConnection(linkedPeripheral)
         }
         scanning = false
         connected = false
@@ -43,7 +43,7 @@ final class TreadmillChestStrapHr: NSObject, ObservableObject {
 }
 
 extension TreadmillChestStrapHr: CBCentralManagerDelegate {
-    // Hop only Sendable values; use self.peripheral / self.central on MainActor.
+    // Hop only Sendable values; use self.linkedPeripheral / self.central on MainActor.
     nonisolated func centralManagerDidUpdateState(_ central: CBCentralManager) {}
 
     nonisolated func centralManager(
@@ -58,7 +58,7 @@ extension TreadmillChestStrapHr: CBCentralManagerDelegate {
             guard let central = self.central else { return }
             central.stopScan()
             guard let found = central.retrievePeripherals(withIdentifiers: [id]).first else { return }
-            self.peripheral = found
+            linkedPeripheral = found
             found.delegate = self
             central.connect(found, options: nil)
         }
@@ -67,7 +67,8 @@ extension TreadmillChestStrapHr: CBCentralManagerDelegate {
     nonisolated func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         Task { @MainActor in
             connected = true
-            self.peripheral?.discoverServices([CBUUID(string: "180D")])
+            let device = self.linkedPeripheral
+            device?.discoverServices([CBUUID(string: "180D")])
         }
     }
 
@@ -86,9 +87,9 @@ extension TreadmillChestStrapHr: CBCentralManagerDelegate {
 extension TreadmillChestStrapHr: CBPeripheralDelegate {
     nonisolated func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         Task { @MainActor in
-            guard let peripheral = self.peripheral, let services = peripheral.services else { return }
+            guard let device = self.linkedPeripheral, let services = device.services else { return }
             for service in services where service.uuid == CBUUID(string: "180D") {
-                peripheral.discoverCharacteristics([CBUUID(string: "2A37")], for: service)
+                device.discoverCharacteristics([CBUUID(string: "2A37")], for: service)
             }
         }
     }
@@ -100,12 +101,12 @@ extension TreadmillChestStrapHr: CBPeripheralDelegate {
     ) {
         let serviceId = service.uuid
         Task { @MainActor in
-            guard let peripheral = self.peripheral,
-                  let service = peripheral.services?.first(where: { $0.uuid == serviceId }),
+            guard let device = self.linkedPeripheral,
+                  let service = device.services?.first(where: { $0.uuid == serviceId }),
                   let chars = service.characteristics
             else { return }
             for char in chars where char.uuid == CBUUID(string: "2A37") {
-                peripheral.setNotifyValue(true, for: char)
+                device.setNotifyValue(true, for: char)
             }
         }
     }

@@ -31,7 +31,7 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     var watchHeartRateBpm: Int?
 
     private var central: CBCentralManager?
-    private var peripheral: CBPeripheral?
+    private var linkedPeripheral: CBPeripheral?
     private var preferredId: UUID?
     var controlPoint: CBCharacteristic?
     var fitShowWrite: CBCharacteristic?
@@ -92,7 +92,7 @@ final class TreadmillBleManager: NSObject, ObservableObject {
         UserDefaults.standard.set(id.uuidString, forKey: rememberedKey)
         state = .connecting
         if let known = central.retrievePeripherals(withIdentifiers: [id]).first {
-            peripheral = known
+            linkedPeripheral = known
             known.delegate = self
             central.connect(known, options: nil)
             return
@@ -113,26 +113,26 @@ final class TreadmillBleManager: NSObject, ObservableObject {
         fitShowPollTask?.cancel()
         preferredId = nil
         activeProtocol = .none
-        if let peripheral {
-            central?.cancelPeripheralConnection(peripheral)
+        if let linkedPeripheral {
+            central?.cancelPeripheralConnection(linkedPeripheral)
         }
-        peripheral = nil
+        linkedPeripheral = nil
         state = .idle
         live = TreadmillLiveSnapshot()
     }
 
     func setTargetSpeedKmh(_ speed: Double) {
-        guard allowRemoteControl, let peripheral else { return }
+        guard allowRemoteControl, let linkedPeripheral else { return }
         if activeProtocol == .ftms, let controlPoint {
-            peripheral.writeValue(FtmsTreadmillParser.requestControl(), for: controlPoint, type: .withResponse)
-            peripheral.writeValue(
+            linkedPeripheral.writeValue(FtmsTreadmillParser.requestControl(), for: controlPoint, type: .withResponse)
+            linkedPeripheral.writeValue(
                 FtmsTreadmillParser.setTargetSpeedKmh(speed),
                 for: controlPoint,
                 type: .withResponse
             )
         } else if activeProtocol == .fitshow, let fitShowWrite {
             let incline = live.inclinePercent ?? 0
-            peripheral.writeValue(
+            linkedPeripheral.writeValue(
                 FitShowSwiftParser.setTarget(speedKmh: speed, inclinePercent: incline),
                 for: fitShowWrite,
                 type: .withResponse
@@ -142,17 +142,17 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     }
 
     func setTargetInclinePercent(_ incline: Double) {
-        guard allowRemoteControl, let peripheral else { return }
+        guard allowRemoteControl, let linkedPeripheral else { return }
         if activeProtocol == .ftms, let controlPoint {
-            peripheral.writeValue(FtmsTreadmillParser.requestControl(), for: controlPoint, type: .withResponse)
-            peripheral.writeValue(
+            linkedPeripheral.writeValue(FtmsTreadmillParser.requestControl(), for: controlPoint, type: .withResponse)
+            linkedPeripheral.writeValue(
                 FtmsTreadmillParser.setTargetInclinePercent(incline),
                 for: controlPoint,
                 type: .withResponse
             )
         } else if activeProtocol == .fitshow, let fitShowWrite {
             let speed = live.speedKmh ?? 0
-            peripheral.writeValue(
+            linkedPeripheral.writeValue(
                 FitShowSwiftParser.setTarget(speedKmh: speed, inclinePercent: incline),
                 for: fitShowWrite,
                 type: .withResponse
@@ -260,7 +260,8 @@ extension TreadmillBleManager: CBCentralManagerDelegate {
             state = .connected
             reconnectAttempt = 0
             appendDiag("INFO connected")
-            self.peripheral?.discoverServices(nil)
+            let device = self.linkedPeripheral
+            device?.discoverServices(nil)
         }
     }
 

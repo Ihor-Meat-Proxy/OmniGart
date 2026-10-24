@@ -45,11 +45,11 @@ object VolumeLandmarks {
         return hypertrophyMuscles.map { WeeklyVolumeTarget(it, midpoint) }
     }
 
-    fun applyReadiness(sets: Int, readiness: ReadinessBand): Int = when (readiness) {
-        ReadinessBand.HIGH -> (sets * 1.05).roundToInt()
-        ReadinessBand.NORMAL -> sets
-        ReadinessBand.LOW -> (sets * 0.8).roundToInt().coerceAtLeast(1)
-        ReadinessBand.VERY_LOW -> (sets * 0.5).roundToInt().coerceAtLeast(0)
+    fun applyReadiness(sets: Int, readiness: PlanReadinessBand): Int = when (readiness) {
+        PlanReadinessBand.HIGH -> (sets * 1.05).roundToInt()
+        PlanReadinessBand.NORMAL -> sets
+        PlanReadinessBand.LOW -> (sets * 0.8).roundToInt().coerceAtLeast(1)
+        PlanReadinessBand.VERY_LOW -> (sets * 0.5).roundToInt().coerceAtLeast(0)
     }
 
     fun applyDeload(sets: Int, deload: Boolean): Int = if (deload) (sets * 0.55).roundToInt().coerceAtLeast(1) else sets

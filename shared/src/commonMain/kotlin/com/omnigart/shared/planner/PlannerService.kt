@@ -144,7 +144,7 @@ class PlannerService(
     fun calendar(
         profileId: String,
         selectedDateIso: String,
-        timeZone: TimeZone = TimeZone.currentSystemDefault()
+        timeZone: TimeZone
     ): PlannerCalendarSnapshot {
         val selected = LocalDate.parse(selectedDateIso)
         val weekStart = selected.minus((selected.dayOfWeek.ordinal).toLong(), DateTimeUnit.DAY)
@@ -190,8 +190,8 @@ class PlannerService(
 
     fun suggestions(
         profileId: String,
-        todayIso: String = clock.todayIn(TimeZone.currentSystemDefault()).toString(),
-        timeZone: TimeZone = TimeZone.currentSystemDefault(),
+        todayIso: String,
+        timeZone: TimeZone,
         readinessInput: ReadinessInput? = null,
         hrvZScore: Double? = null,
         restingHrDeltaBpm: Double? = null,
@@ -241,8 +241,15 @@ class PlannerService(
         return PlannerSuggestionsSnapshot(result.suggestions)
     }
 
-    fun suggestions(profileId: String): PlannerSuggestionsSnapshot =
-        suggestions(profileId = profileId, todayIso = clock.todayIn(TimeZone.currentSystemDefault()).toString())
+    /** Swift-friendly overload (system time zone, today). */
+    fun suggestions(profileId: String): PlannerSuggestionsSnapshot {
+        val zone = TimeZone.currentSystemDefault()
+        return suggestions(
+            profileId = profileId,
+            todayIso = clock.todayIn(zone).toString(),
+            timeZone = zone
+        )
+    }
 
     fun acceptSuggestion(profileId: String, suggestion: AdaptiveSuggestion): PlannedWorkout? {
         planned.recordDecision(
@@ -294,7 +301,10 @@ class PlannerService(
         )
     }
 
-    fun todayIso(timeZone: TimeZone = TimeZone.currentSystemDefault()): String = clock.todayIn(timeZone).toString()
+    fun todayIso(timeZone: TimeZone): String = clock.todayIn(timeZone).toString()
+
+    /** Swift-friendly overload. */
+    fun todayIso(): String = todayIso(TimeZone.currentSystemDefault())
 
     fun mondayOfWeekContaining(dateIso: String): String {
         val date = LocalDate.parse(dateIso)

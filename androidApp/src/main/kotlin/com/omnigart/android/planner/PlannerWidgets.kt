@@ -47,7 +47,7 @@ internal fun WeekStrip(days: List<PlannerCalendar.DayCell>, selectedDateIso: Str
             DayCell(
                 day = day,
                 selected = day.dateIso == selectedDateIso,
-                modifier = Modifier.weight(1f),
+                cellModifier = Modifier.weight(1f),
                 onClick = { onSelect(day.dateIso) }
             )
         }
@@ -69,7 +69,7 @@ internal fun MonthGrid(days: List<PlannerCalendar.DayCell>, selectedDateIso: Str
                     DayCell(
                         day = day,
                         selected = day.dateIso == selectedDateIso,
-                        modifier = Modifier.weight(1f),
+                        cellModifier = Modifier.weight(1f),
                         onClick = { onSelect(day.dateIso) }
                     )
                 }
@@ -79,10 +79,21 @@ internal fun MonthGrid(days: List<PlannerCalendar.DayCell>, selectedDateIso: Str
 }
 
 @Composable
-internal fun DayCell(day: PlannerCalendar.DayCell, selected: Boolean, modifier: Modifier = Modifier, onClick: () -> Unit) {
+internal fun DayCell(
+    day: PlannerCalendar.DayCell,
+    selected: Boolean,
+    cellModifier: Modifier = Modifier,
+    onClick: () -> Unit
+) {
+    val dayNumberColor =
+        if (day.inMonth) {
+            OmniGartColors.colorTextLightPrimary
+        } else {
+            OmniGartColors.colorTextLightSecondary.copy(alpha = 0.45f)
+        }
     Column(
         modifier =
-        modifier
+        cellModifier
             .clip(RoundedCornerShape(8.dp))
             .background(if (selected) OmniGartColors.colorBrandAccentMuted else OmniGartColors.colorSurfaceLightRaised)
             .clickable(onClick = onClick)
@@ -93,15 +104,10 @@ internal fun DayCell(day: PlannerCalendar.DayCell, selected: Boolean, modifier: 
         Text(
             text = day.dayOfMonth.toString(),
             style = MaterialTheme.typography.labelMedium,
-            color =
-            if (day.inMonth) {
-                OmniGartColors.colorTextLightPrimary
-            } else {
-                OmniGartColors.colorTextLightSecondary.copy(alpha = 0.45f)
-            },
+            color = dayNumberColor,
             textAlign = TextAlign.Center
         )
-        Spacer(Modifier = Modifier.height(2.dp))
+        Spacer(modifier = Modifier.height(2.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
             if (day.hasPlanned) {
                 Box(

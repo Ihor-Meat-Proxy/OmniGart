@@ -49,6 +49,15 @@ import com.omnigart.shared.content.AssetContentStore
 import com.omnigart.shared.data.DatabaseDriverFactory
 
 class MainActivity : ComponentActivity() {
+    private fun attachFoodDiary(core: OmniGartCore) {
+        val prefs = getSharedPreferences("omnigart_food_diary_v1", MODE_PRIVATE)
+        val key = "blob"
+        core.useJsonFoodDiary(
+            load = { prefs.getString(key, null) },
+            save = { blob -> prefs.edit().putString(key, blob).apply() }
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -59,6 +68,7 @@ class MainActivity : ComponentActivity() {
                 DatabaseDriverFactory(applicationContext),
                 contentStore = AssetContentStore(applicationContext.assets)
             )
+        attachFoodDiary(core)
         val profile = core.ensureDemoProfile()
         setContent {
             OmniGartTheme {

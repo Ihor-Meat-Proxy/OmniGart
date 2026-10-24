@@ -113,6 +113,18 @@
     <string name="recovery_intro">Wellness-Erholungsschätzungen aus Profil und jüngsten Eingaben. Keine medizinische Beratung.</string>
     <string name="recovery_estimates_title">Heutige Schätzungen</string>
     <string name="recovery_empty">Vervollständigen Sie Ihr Profil, um Wellness-Schätzungen zu sehen.</string>
+    <string name="planner_intro">Workouts auf dem Gerät planen: Kalender, Wochenschema und adaptive Vorschläge. Health-Daten werden nie gelöscht.</string>
+    <string name="planner_planned_title">Geplante Workouts</string>
+    <string name="planner_empty">Noch keine geplanten Workouts.</string>
+    <string name="planner_seed_demo">Zone-2-Plan hinzufügen</string>
+    <string name="planner_demo_zone2_name">Zone-2-Easy-Run</string>
+    <string name="planner_demo_zone2_notes">Kontinuierliche leichte aerobe Arbeit für Wellness.</string>
+    <string name="planner_schedule_title">In Workout planen</string>
+    <string name="planner_schedule_body">Senden Sie einen Zone-2-Dauerlauf an die System-Workout-App, wenn Planung aktiv ist.</string>
+    <string name="planner_schedule_when">Startzeit</string>
+    <string name="planner_schedule_zone2">Zone 2 planen</string>
+    <string name="planner_schedule_ok">In Workout geplant.</string>
+    <string name="planner_schedule_unavailable">Planung derzeit nicht verfügbar.</string>
     <string name="profile_intro">Bearbeiten Sie die Onboarding-Angaben. Änderungen bleiben auf diesem Gerät.</string>
     <string name="profile_edit_title">Ihr Profil</string>
     <string name="profile_save">Profil speichern</string>
@@ -946,7 +958,6 @@
     <string name="planner_calendar_week">Diese Woche</string>
     <string name="planner_completed_marker">Abgeschlossene Workouts aus lokalen oder importierten Health-Daten erscheinen als gefüllte Marker.</string>
     <string name="planner_delete">Löschen</string>
-    <string name="planner_intro">Workouts auf dem Gerät planen: Kalender, Wochenschema und adaptive Vorschläge. Health-Daten werden nie gelöscht.</string>
     <string name="planner_kind_functional">Functional</string>
     <string name="planner_kind_rest">Ruhe</string>
     <string name="planner_kind_run">Lauf</string>

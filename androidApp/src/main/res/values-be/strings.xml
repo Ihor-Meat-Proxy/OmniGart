@@ -113,6 +113,18 @@
     <string name="recovery_intro">Ацэнкі аднаўлення самаадчування з профілю і нядаўніх дадзеных. Не медыцынская кансультацыя.</string>
     <string name="recovery_estimates_title">Сённяшнія ацэнкі</string>
     <string name="recovery_empty">Запоўніце профіль, каб бачыць ацэнкі самаадчування.</string>
+    <string name="planner_intro">Плануйце трэніроўкі на прыладзе: каляндар, тыднёвая схема і адаптыўныя падказкі. Даныя Health ніколі не выдаляюцца.</string>
+    <string name="planner_planned_title">Запланаваныя трэніроўкі</string>
+    <string name="planner_empty">Пакуль няма запланаваных трэніровак.</string>
+    <string name="planner_seed_demo">Дадаць план зоны 2</string>
+    <string name="planner_demo_zone2_name">Лёгкі бег у зоне 2</string>
+    <string name="planner_demo_zone2_notes">Бесперапынная лёгкая аэробная праца для самаадчування.</string>
+    <string name="planner_schedule_title">Запланаваць у Workout</string>
+    <string name="planner_schedule_body">Адпраўце бесперапынны бег у зоне 2 у сістэмную праграму Workout, калі планаванне ўключана.</string>
+    <string name="planner_schedule_when">Час старту</string>
+    <string name="planner_schedule_zone2">Запланаваць зону 2</string>
+    <string name="planner_schedule_ok">Запланавана ў Workout.</string>
+    <string name="planner_schedule_unavailable">Планаванне зараз недаступнае.</string>
     <string name="profile_intro">Рэдагуйце дадзеныя з анбордынгу. Змены застаюцца на гэтай прыладзе.</string>
     <string name="profile_edit_title">Ваш профіль</string>
     <string name="profile_save">Захаваць профіль</string>
@@ -946,7 +958,6 @@
     <string name="planner_calendar_week">Гэты тыдзень</string>
     <string name="planner_completed_marker">Завершаныя трэніроўкі з лакальных або імпартаваных даных Health — запоўненыя пазнакі.</string>
     <string name="planner_delete">Выдаліць</string>
-    <string name="planner_intro">Плануйце трэніроўкі на прыладзе: каляндар, тыднёвая схема і адаптыўныя падказкі. Даныя Health ніколі не выдаляюцца.</string>
     <string name="planner_kind_functional">Функцыянальная</string>
     <string name="planner_kind_rest">Адпачынак</string>
     <string name="planner_kind_run">Бег</string>

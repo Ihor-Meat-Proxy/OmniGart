@@ -113,6 +113,18 @@
     <string name="recovery_intro">კეთილდღეობის აღდგენის შეფასებები პროფილიდან და ბოლო მონაცემებიდან. სამედიცინო რჩევა არ არის.</string>
     <string name="recovery_estimates_title">დღევანდელი შეფასებები</string>
     <string name="recovery_empty">კეთილდღეობის შეფასებების სანახავად შეავსეთ პროფილი.</string>
+    <string name="planner_intro">დაგეგმეთ ვარჯიშები მოწყობილობაზე: კალენდარი, ყოველკვირეული სქემა და ადაპტური რჩევები. Health მონაცემები არასდროს იშლება.</string>
+    <string name="planner_planned_title">დაგეგმილი ვარჯიშები</string>
+    <string name="planner_empty">დაგეგმილი ვარჯიშები ჯერ არ არის.</string>
+    <string name="planner_seed_demo">ზონა 2 გეგმის დამატება</string>
+    <string name="planner_demo_zone2_name">ზონა 2 მსუბუქი სირბილი</string>
+    <string name="planner_demo_zone2_notes">უწყვეტი მსუბუქი აერობული სამუშაო კეთილდღეობისთვის.</string>
+    <string name="planner_schedule_title">Workout-ში დაგეგმვა</string>
+    <string name="planner_schedule_body">დაგეგმვის ჩართვისას გაგზავნეთ ზონა 2 უწყვეტი სირბილი სისტემურ Workout აპში.</string>
+    <string name="planner_schedule_when">დაწყების დრო</string>
+    <string name="planner_schedule_zone2">ზონა 2-ის დაგეგმვა</string>
+    <string name="planner_schedule_ok">დაგეგმილია Workout-ში.</string>
+    <string name="planner_schedule_unavailable">დაგეგმვა ახლა მიუწვდომელია.</string>
     <string name="profile_intro">შეცვალეთ ონბორდინგის მონაცემები. ცვლილებები რჩება ამ მოწყობილობაზე.</string>
     <string name="profile_edit_title">თქვენი პროფილი</string>
     <string name="profile_save">პროფილის შენახვა</string>
@@ -946,7 +958,6 @@
     <string name="planner_calendar_week">ეს კვირა</string>
     <string name="planner_completed_marker">ადგილობრივი ან იმპორტირებული Health მონაცემების დასრულებული ვარჯიშები — შევსებული ნიშნები.</string>
     <string name="planner_delete">წაშლა</string>
-    <string name="planner_intro">დაგეგმეთ ვარჯიშები მოწყობილობაზე: კალენდარი, ყოველკვირეული სქემა და ადაპტური რჩევები. Health მონაცემები არასდროს იშლება.</string>
     <string name="planner_kind_functional">ფუნქციური</string>
     <string name="planner_kind_rest">დასვენება</string>
     <string name="planner_kind_run">სირბილი</string>

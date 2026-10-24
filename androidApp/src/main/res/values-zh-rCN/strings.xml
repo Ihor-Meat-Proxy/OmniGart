@@ -113,6 +113,18 @@
     <string name="recovery_intro">根据个人资料与近期输入得出的恢复健康估算。不是医疗建议。</string>
     <string name="recovery_estimates_title">今日估算</string>
     <string name="recovery_empty">完善个人资料以查看健康估算。</string>
+    <string name="planner_intro">在设备上规划训练：日历、每周方案与自适应建议。永不删除 Health 数据。</string>
+    <string name="planner_planned_title">已计划训练</string>
+    <string name="planner_empty">尚无已计划的训练。</string>
+    <string name="planner_seed_demo">添加二区计划</string>
+    <string name="planner_demo_zone2_name">二区轻松跑</string>
+    <string name="planner_demo_zone2_notes">持续轻松有氧，用于健康管理。</string>
+    <string name="planner_schedule_title">安排到 Workout</string>
+    <string name="planner_schedule_body">在启用排程时，将二区持续跑发送到系统 Workout 应用。</string>
+    <string name="planner_schedule_when">开始时间</string>
+    <string name="planner_schedule_zone2">安排二区</string>
+    <string name="planner_schedule_ok">已在 Workout 中安排。</string>
+    <string name="planner_schedule_unavailable">暂时无法排程。</string>
     <string name="profile_intro">编辑新手引导中的信息。更改仅保存在本设备。</string>
     <string name="profile_edit_title">您的个人资料</string>
     <string name="profile_save">保存个人资料</string>
@@ -946,7 +958,6 @@
     <string name="planner_calendar_week">本周</string>
     <string name="planner_completed_marker">来自本地或已导入 Health 数据的已完成训练显示为实心标记。</string>
     <string name="planner_delete">删除</string>
-    <string name="planner_intro">在设备上规划训练：日历、每周方案与自适应建议。永不删除 Health 数据。</string>
     <string name="planner_kind_functional">功能性</string>
     <string name="planner_kind_rest">休息</string>
     <string name="planner_kind_run">跑步</string>

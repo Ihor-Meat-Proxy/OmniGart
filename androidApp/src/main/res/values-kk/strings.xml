@@ -113,6 +113,18 @@
     <string name="recovery_intro">Профиль мен соңғы деректерден сауықтыру қалпына келу бағалаулары. Медициналық кеңес емес.</string>
     <string name="recovery_estimates_title">Бүгінгі бағалаулар</string>
     <string name="recovery_empty">Сауықтыру бағалауларын көру үшін профильді толтырыңыз.</string>
+    <string name="planner_intro">Жаттығуларды құрылғыда жоспарлаңыз: күнтізбе, апталық схема және бейімделгіш ұсыныстар. Health деректері ешқашан жойылмайды.</string>
+    <string name="planner_planned_title">Жоспарланған жаттығулар</string>
+    <string name="planner_empty">Әлі жоспарланған жаттығулар жоқ.</string>
+    <string name="planner_seed_demo">2-аймақ жоспарын қосу</string>
+    <string name="planner_demo_zone2_name">2-аймақ жеңіл жүгіру</string>
+    <string name="planner_demo_zone2_notes">Сауықтыру үшін үздіксіз жеңіл аэробтық жұмыс.</string>
+    <string name="planner_schedule_title">Workout-қа жоспарлау</string>
+    <string name="planner_schedule_body">Жоспарлау қосулы болса, 2-аймақ жүгіруін жүйелік Workout қолданбасына жіберіңіз.</string>
+    <string name="planner_schedule_when">Басталу уақыты</string>
+    <string name="planner_schedule_zone2">2-аймақты жоспарлау</string>
+    <string name="planner_schedule_ok">Workout-та жоспарланды.</string>
+    <string name="planner_schedule_unavailable">Жоспарлау қазір қолжетімсіз.</string>
     <string name="profile_intro">Онбординг деректерін өңдеңіз. Өзгерістер осы құрылғыда қалады.</string>
     <string name="profile_edit_title">Сіздің профиліңіз</string>
     <string name="profile_save">Профильді сақтау</string>
@@ -946,7 +958,6 @@
     <string name="planner_calendar_week">Осы апта</string>
     <string name="planner_completed_marker">Жергілікті немесе импортталған Health деректерінен аяқталған жаттығулар — толық белгілер.</string>
     <string name="planner_delete">Жою</string>
-    <string name="planner_intro">Жаттығуларды құрылғыда жоспарлаңыз: күнтізбе, апталық схема және бейімделгіш ұсыныстар. Health деректері ешқашан жойылмайды.</string>
     <string name="planner_kind_functional">Функционалдық</string>
     <string name="planner_kind_rest">Демалыс</string>
     <string name="planner_kind_run">Жүгіру</string>

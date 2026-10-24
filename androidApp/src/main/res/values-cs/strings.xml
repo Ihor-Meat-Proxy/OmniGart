@@ -113,6 +113,18 @@
     <string name="recovery_intro">Wellness odhady regenerace z profilu a nedávných vstupů. Nejde o lékařskou radu.</string>
     <string name="recovery_estimates_title">Dnešní odhady</string>
     <string name="recovery_empty">Vyplňte profil, abyste viděli wellness odhady.</string>
+    <string name="planner_intro">Plánujte tréninky na zařízení: kalendář, týdenní schéma a adaptivní tipy. Data Health se nikdy nemažou.</string>
+    <string name="planner_planned_title">Naplánované tréninky</string>
+    <string name="planner_empty">Zatím žádné naplánované tréninky.</string>
+    <string name="planner_seed_demo">Přidat plán zóny 2</string>
+    <string name="planner_demo_zone2_name">Snadný běh v zóně 2</string>
+    <string name="planner_demo_zone2_notes">Souvislá snadná aerobní práce pro wellness.</string>
+    <string name="planner_schedule_title">Naplánovat do Workout</string>
+    <string name="planner_schedule_body">Odešlete souvislý běh v zóně 2 do systémové aplikace Workout, když je plánování zapnuté.</string>
+    <string name="planner_schedule_when">Čas startu</string>
+    <string name="planner_schedule_zone2">Naplánovat zónu 2</string>
+    <string name="planner_schedule_ok">Naplánováno ve Workout.</string>
+    <string name="planner_schedule_unavailable">Plánování teď není dostupné.</string>
     <string name="profile_intro">Upravte údaje z onboardingu. Změny zůstanou na tomto zařízení.</string>
     <string name="profile_edit_title">Váš profil</string>
     <string name="profile_save">Uložit profil</string>
@@ -946,7 +958,6 @@
     <string name="planner_calendar_week">Tento týden</string>
     <string name="planner_completed_marker">Dokončené tréninky z místních nebo importovaných dat Health se ukazují jako plné značky.</string>
     <string name="planner_delete">Smazat</string>
-    <string name="planner_intro">Plánujte tréninky na zařízení: kalendář, týdenní schéma a adaptivní tipy. Data Health se nikdy nemažou.</string>
     <string name="planner_kind_functional">Funkční</string>
     <string name="planner_kind_rest">Odpočinek</string>
     <string name="planner_kind_run">Běh</string>

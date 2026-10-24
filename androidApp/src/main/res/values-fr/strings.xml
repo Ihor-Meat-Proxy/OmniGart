@@ -113,6 +113,18 @@
     <string name="recovery_intro">Estimations de récupération bien-être à partir de votre profil et des entrées récentes. Pas un avis médical.</string>
     <string name="recovery_estimates_title">Estimations du jour</string>
     <string name="recovery_empty">Complétez votre profil pour voir les estimations de bien-être.</string>
+    <string name="planner_intro">Planifiez des séances sur l’appareil : calendrier, schéma hebdomadaire et suggestions adaptatives. Les données Health ne sont jamais effacées.</string>
+    <string name="planner_planned_title">Séances planifiées</string>
+    <string name="planner_empty">Aucune séance planifiée pour l’instant.</string>
+    <string name="planner_seed_demo">Ajouter un plan zone 2</string>
+    <string name="planner_demo_zone2_name">Course facile zone 2</string>
+    <string name="planner_demo_zone2_notes">Travail aérobie facile continu pour le bien-être.</string>
+    <string name="planner_schedule_title">Planifier dans Workout</string>
+    <string name="planner_schedule_body">Envoyez une course continue zone 2 vers l’app Workout système lorsque la planification est activée.</string>
+    <string name="planner_schedule_when">Heure de début</string>
+    <string name="planner_schedule_zone2">Planifier zone 2</string>
+    <string name="planner_schedule_ok">Planifié dans Workout.</string>
+    <string name="planner_schedule_unavailable">La planification est indisponible pour le moment.</string>
     <string name="profile_intro">Modifiez les données d’intégration. Les changements restent sur cet appareil.</string>
     <string name="profile_edit_title">Votre profil</string>
     <string name="profile_save">Enregistrer le profil</string>
@@ -946,7 +958,6 @@
     <string name="planner_calendar_week">Cette semaine</string>
     <string name="planner_completed_marker">Les séances terminées issues des données Health locales ou importées apparaissent en marqueurs pleins.</string>
     <string name="planner_delete">Supprimer</string>
-    <string name="planner_intro">Planifiez des séances sur l’appareil : calendrier, schéma hebdomadaire et suggestions adaptatives. Les données Health ne sont jamais effacées.</string>
     <string name="planner_kind_functional">Fonctionnel</string>
     <string name="planner_kind_rest">Repos</string>
     <string name="planner_kind_run">Course</string>

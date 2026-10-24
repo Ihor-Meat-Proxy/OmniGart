@@ -113,6 +113,18 @@
     <string name="recovery_intro">Szacunki regeneracji wellness z profilu i ostatnich danych. To nie porada medyczna.</string>
     <string name="recovery_estimates_title">Dzisiejsze szacunki</string>
     <string name="recovery_empty">Uzupełnij profil, aby zobaczyć szacunki wellness.</string>
+    <string name="planner_intro">Planuj treningi na urządzeniu: kalendarz, tygodniowy schemat i adaptacyjne podpowiedzi. Dane Health nigdy nie są usuwane.</string>
+    <string name="planner_planned_title">Zaplanowane treningi</string>
+    <string name="planner_empty">Brak zaplanowanych treningów.</string>
+    <string name="planner_seed_demo">Dodaj plan strefy 2</string>
+    <string name="planner_demo_zone2_name">Łatwy bieg w strefie 2</string>
+    <string name="planner_demo_zone2_notes">Ciągła łatwa praca tlenowa dla wellness.</string>
+    <string name="planner_schedule_title">Zaplanuj w Workout</string>
+    <string name="planner_schedule_body">Wyślij ciągły bieg w strefie 2 do systemowej aplikacji Workout, gdy planowanie jest włączone.</string>
+    <string name="planner_schedule_when">Czas startu</string>
+    <string name="planner_schedule_zone2">Zaplanuj strefę 2</string>
+    <string name="planner_schedule_ok">Zaplanowano w Workout.</string>
+    <string name="planner_schedule_unavailable">Planowanie jest teraz niedostępne.</string>
     <string name="profile_intro">Edytuj dane z onboardingu. Zmiany zostają na tym urządzeniu.</string>
     <string name="profile_edit_title">Twój profil</string>
     <string name="profile_save">Zapisz profil</string>
@@ -946,7 +958,6 @@
     <string name="planner_calendar_week">Ten tydzień</string>
     <string name="planner_completed_marker">Ukończone treningi z lokalnych lub zaimportowanych danych Health to wypełnione znaczniki.</string>
     <string name="planner_delete">Usuń</string>
-    <string name="planner_intro">Planuj treningi na urządzeniu: kalendarz, tygodniowy schemat i adaptacyjne podpowiedzi. Dane Health nigdy nie są usuwane.</string>
     <string name="planner_kind_functional">Funkcjonalna</string>
     <string name="planner_kind_rest">Odpoczynek</string>
     <string name="planner_kind_run">Bieg</string>

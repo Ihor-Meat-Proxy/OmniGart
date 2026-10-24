@@ -113,6 +113,18 @@
     <string name="recovery_intro">Estimaciones de recuperación de bienestar desde tu perfil y entradas recientes. No es consejo médico.</string>
     <string name="recovery_estimates_title">Estimaciones de hoy</string>
     <string name="recovery_empty">Completa tu perfil para ver estimaciones de bienestar.</string>
+    <string name="planner_intro">Planifica entrenamientos en el dispositivo: calendario, esquema semanal y sugerencias adaptativas. Los datos de Health nunca se borran.</string>
+    <string name="planner_planned_title">Entrenamientos planificados</string>
+    <string name="planner_empty">Aún no hay entrenamientos planificados.</string>
+    <string name="planner_seed_demo">Añadir plan zona 2</string>
+    <string name="planner_demo_zone2_name">Carrera fácil zona 2</string>
+    <string name="planner_demo_zone2_notes">Trabajo aeróbico fácil continuo para bienestar.</string>
+    <string name="planner_schedule_title">Programar en Workout</string>
+    <string name="planner_schedule_body">Envía una carrera continua zona 2 a la app Workout del sistema cuando la programación esté activa.</string>
+    <string name="planner_schedule_when">Hora de inicio</string>
+    <string name="planner_schedule_zone2">Programar zona 2</string>
+    <string name="planner_schedule_ok">Programado en Workout.</string>
+    <string name="planner_schedule_unavailable">La programación no está disponible ahora.</string>
     <string name="profile_intro">Edita los datos del onboarding. Los cambios permanecen en este dispositivo.</string>
     <string name="profile_edit_title">Tu perfil</string>
     <string name="profile_save">Guardar perfil</string>
@@ -946,7 +958,6 @@
     <string name="planner_calendar_week">Esta semana</string>
     <string name="planner_completed_marker">Los entrenamientos completados de datos Health locales o importados aparecen como marcadores rellenos.</string>
     <string name="planner_delete">Eliminar</string>
-    <string name="planner_intro">Planifica entrenamientos en el dispositivo: calendario, esquema semanal y sugerencias adaptativas. Los datos de Health nunca se borran.</string>
     <string name="planner_kind_functional">Funcional</string>
     <string name="planner_kind_rest">Descanso</string>
     <string name="planner_kind_run">Carrera</string>

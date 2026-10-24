@@ -113,6 +113,18 @@
     <string name="recovery_intro">Wellness recovery estimates from your profile and recent inputs. Not medical advice.</string>
     <string name="recovery_estimates_title">Today’s estimates</string>
     <string name="recovery_empty">Complete your profile to see wellness estimates.</string>
+    <string name="planner_intro">Plan workouts on-device: calendar, weekly scheme, and adaptive suggestions. Health data is never deleted.</string>
+    <string name="planner_planned_title">Planned workouts</string>
+    <string name="planner_empty">No planned workouts yet.</string>
+    <string name="planner_seed_demo">Add Zone 2 plan</string>
+    <string name="planner_demo_zone2_name">Zone 2 easy run</string>
+    <string name="planner_demo_zone2_notes">Continuous easy aerobic work for wellness.</string>
+    <string name="planner_schedule_title">Schedule to Workout</string>
+    <string name="planner_schedule_body">Send a Zone 2 continuous run into the system Workout app when scheduling is enabled.</string>
+    <string name="planner_schedule_when">Start time</string>
+    <string name="planner_schedule_zone2">Schedule Zone 2</string>
+    <string name="planner_schedule_ok">Scheduled in Workout.</string>
+    <string name="planner_schedule_unavailable">Scheduling unavailable right now.</string>
     <string name="profile_intro">Edit the details from onboarding. Changes stay on this device.</string>
     <string name="profile_edit_title">Your profile</string>
     <string name="profile_save">Save profile</string>
@@ -946,7 +958,6 @@
     <string name="planner_calendar_week">This week</string>
     <string name="planner_completed_marker">Completed workouts from local or imported Health data appear as filled markers.</string>
     <string name="planner_delete">Delete</string>
-    <string name="planner_intro">Plan workouts on-device: calendar, weekly scheme, and adaptive suggestions. Health data is never deleted.</string>
     <string name="planner_kind_functional">Functional</string>
     <string name="planner_kind_rest">Rest</string>
     <string name="planner_kind_run">Run</string>

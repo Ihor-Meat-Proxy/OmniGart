@@ -65,6 +65,8 @@ kotlin {
 dependencies {
     implementation(project(":shared"))
     implementation(libs.appauth)
+    implementation(libs.health.connect.client)
+    implementation(libs.play.services.wearable)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)

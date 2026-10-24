@@ -22,6 +22,26 @@ final class Zone2SummaryTests: XCTestCase {
         XCTAssertEqual(Zone2Summary.formatCadence(-1), "0")
     }
 
+    func testFormatEnergyKcal() {
+        XCTAssertEqual(Zone2Summary.formatEnergyKcal(220.4), "220")
+        XCTAssertEqual(Zone2Summary.formatEnergyKcal(-5), "0")
+    }
+
+    func testTotalEnergyKcal() {
+        let summary = Zone2Summary(
+            timeInZone: 60,
+            distanceMetres: 100,
+            averageCadenceSpm: 160,
+            elapsed: 120,
+            heartRateSamples: [],
+            activeEnergyKcal: 200,
+            basalEnergyKcal: 40,
+            averageHeartRateBpm: 130,
+            maxHeartRateBpm: 145
+        )
+        XCTAssertEqual(summary.totalEnergyKcal, 240, accuracy: 0.01)
+    }
+
     func testAverageCadenceIgnoresZeros() {
         XCTAssertEqual(Zone2Summary.averageCadence(samples: []), 0)
         XCTAssertEqual(Zone2Summary.averageCadence(samples: [0, 0]), 0)

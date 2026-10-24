@@ -17,6 +17,10 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
     @Published private(set) var heartRateSamples: [Zone2HeartRateSample] = []
     /// Mean of recorded cadence readings (spm); updated as steps arrive.
     @Published private(set) var averageCadenceSpm: Double = 0
+    /// Active energy from `HKLiveWorkoutDataSource` (kilocalories).
+    @Published private(set) var activeEnergyKcal: Double = 0
+    /// Basal energy when HealthKit provides it (kilocalories).
+    @Published private(set) var basalEnergyKcal: Double = 0
 
     let band: Zone2Band
     private let haptics: Zone2HapticsController
@@ -27,6 +31,7 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
     private var startedAt: Date?
     private var lastSampleAt: Date?
     private var cadenceReadings: [Double] = []
+    private var syncIdentifier: String = ""
 
     init(band: Zone2Band, haptics: Zone2HapticsController = Zone2HapticsController()) {
         self.band = band
@@ -37,49 +42,85 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
     func start() async {
         lastError = nil
         resetMetrics()
+        syncIdentifier = OmniGartWatchHealthSync.makeSyncIdentifier()
         guard HKHealthStore.isHealthDataAvailable() else {
             lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
             return
         }
-        guard
-            let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate),
-            let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning),
-            let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount)
-        else {
+        guard let quantityTypes = zone2QuantityTypes() else {
             lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
             return
         }
-        let types: Set<HKSampleType> = [
-            heartRateType,
-            distanceType,
-            stepType,
-            HKObjectType.workoutType()
-        ]
         do {
-            try await store.requestAuthorization(toShare: types, read: types)
-            let config = HKWorkoutConfiguration()
-            config.activityType = .running
-            config.locationType = .outdoor
-            let session = try HKWorkoutSession(healthStore: store, configuration: config)
-            let builder = session.associatedWorkoutBuilder()
-            builder.dataSource = HKLiveWorkoutDataSource(healthStore: store, workoutConfiguration: config)
-            session.delegate = self
-            builder.delegate = self
-            self.session = session
-            self.builder = builder
-            let start = Date()
-            session.startActivity(with: start)
-            try await builder.beginCollection(at: start)
-            startedAt = start
-            isRunning = true
-            startElapsedTimer()
+            try await beginLiveRun(quantityTypes: quantityTypes)
         } catch {
             lastError = error.localizedDescription
             isRunning = false
         }
     }
 
+    private struct Zone2QuantityTypes {
+        var heart: HKQuantityType
+        var distance: HKQuantityType
+        var step: HKQuantityType
+        var active: HKQuantityType
+        var basal: HKQuantityType
+    }
+
+    private func zone2QuantityTypes() -> Zone2QuantityTypes? {
+        guard
+            let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate),
+            let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning),
+            let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount),
+            let activeEnergyType = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned),
+            let basalEnergyType = HKQuantityType.quantityType(forIdentifier: .basalEnergyBurned)
+        else {
+            return nil
+        }
+        return Zone2QuantityTypes(
+            heart: heartRateType,
+            distance: distanceType,
+            step: stepType,
+            active: activeEnergyType,
+            basal: basalEnergyType
+        )
+    }
+
+    private func beginLiveRun(quantityTypes: Zone2QuantityTypes) async throws {
+        let types: Set<HKSampleType> = [
+            quantityTypes.heart,
+            quantityTypes.distance,
+            quantityTypes.step,
+            quantityTypes.active,
+            quantityTypes.basal,
+            HKObjectType.workoutType()
+        ]
+        try await store.requestAuthorization(toShare: types, read: types)
+        let config = HKWorkoutConfiguration()
+        config.activityType = .running
+        config.locationType = .outdoor
+        let session = try HKWorkoutSession(healthStore: store, configuration: config)
+        let builder = session.associatedWorkoutBuilder()
+        let dataSource = HKLiveWorkoutDataSource(healthStore: store, workoutConfiguration: config)
+        dataSource.enableCollection(for: quantityTypes.active, predicate: nil)
+        dataSource.enableCollection(for: quantityTypes.basal, predicate: nil)
+        dataSource.enableCollection(for: quantityTypes.heart, predicate: nil)
+        dataSource.enableCollection(for: quantityTypes.distance, predicate: nil)
+        builder.dataSource = dataSource
+        session.delegate = self
+        builder.delegate = self
+        self.session = session
+        self.builder = builder
+        let start = Date()
+        session.startActivity(with: start)
+        try await builder.beginCollection(at: start)
+        startedAt = start
+        isRunning = true
+        startElapsedTimer()
+    }
+
     /// Ends the workout. On success returns a summary for the post-run screen.
+    /// Append-only: discards the builder if this sync id was already saved.
     @discardableResult
     func stop() async -> Zone2Summary? {
         elapsedTimer?.invalidate()
@@ -87,8 +128,39 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
         session?.end()
         do {
             if let builder {
-                try await builder.endCollection(at: Date())
+                if await OmniGartWatchHealthSync.workoutExists(
+                    syncIdentifier: syncIdentifier,
+                    store: store
+                ) {
+                    builder.discardWorkout()
+                    isRunning = false
+                    return makeSummary()
+                }
+                try await builder.addMetadata(
+                    OmniGartWatchHealthSync.syncMetadata(
+                        syncIdentifier: syncIdentifier,
+                        indoor: false
+                    )
+                )
+                let end = Date()
+                try await builder.endCollection(at: end)
                 _ = try await builder.finishWorkout()
+                isRunning = false
+                let summary = makeSummary()
+                let localId = syncIdentifier.replacingOccurrences(
+                    of: OmniGartWatchHealthSync.syncIdPrefix,
+                    with: ""
+                )
+                if !localId.isEmpty {
+                    WatchWorkoutTransferBuilder.enqueueZone2Summary(
+                        summary,
+                        localId: localId,
+                        syncIdentifier: syncIdentifier,
+                        startedAt: startedAt ?? end.addingTimeInterval(-summary.elapsed),
+                        endedAt: end
+                    )
+                }
+                return summary
             }
             isRunning = false
             return makeSummary()
@@ -100,12 +172,19 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
     }
 
     func makeSummary() -> Zone2Summary {
-        Zone2Summary(
+        let bpms = heartRateSamples.map(\.bpm)
+        return Zone2Summary(
             timeInZone: timeInZone,
             distanceMetres: distanceMetres,
             averageCadenceSpm: averageCadenceSpm,
             elapsed: elapsed,
-            heartRateSamples: heartRateSamples
+            heartRateSamples: heartRateSamples,
+            activeEnergyKcal: activeEnergyKcal,
+            basalEnergyKcal: basalEnergyKcal,
+            averageHeartRateBpm: bpms.isEmpty
+                ? 0
+                : Double(bpms.reduce(0, +)) / Double(bpms.count),
+            maxHeartRateBpm: bpms.max().map(Double.init) ?? 0
         )
     }
 
@@ -119,6 +198,8 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
         zoneState = .below
         heartRateSamples = []
         cadenceReadings = []
+        activeEnergyKcal = 0
+        basalEnergyKcal = 0
         startedAt = nil
         lastSampleAt = nil
     }
@@ -193,6 +274,8 @@ extension Zone2WorkoutSession: HKLiveWorkoutBuilderDelegate {
             let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)
             let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)
             let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount)
+            let activeEnergyType = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)
+            let basalEnergyType = HKQuantityType.quantityType(forIdentifier: .basalEnergyBurned)
             for type in collectedTypes {
                 guard let quantityType = type as? HKQuantityType else { continue }
                 guard let stats = workoutBuilder.statistics(for: quantityType) else { continue }
@@ -211,6 +294,12 @@ extension Zone2WorkoutSession: HKLiveWorkoutBuilderDelegate {
                         let steps = stats.sumQuantity()?.doubleValue(for: .count()) ?? 0
                         recordCadence((steps / elapsed) * 60.0)
                     }
+                } else if quantityType == activeEnergyType {
+                    activeEnergyKcal =
+                        stats.sumQuantity()?.doubleValue(for: .kilocalorie()) ?? activeEnergyKcal
+                } else if quantityType == basalEnergyType {
+                    basalEnergyKcal =
+                        stats.sumQuantity()?.doubleValue(for: .kilocalorie()) ?? basalEnergyKcal
                 }
             }
         }

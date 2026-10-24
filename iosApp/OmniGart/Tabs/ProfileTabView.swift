@@ -98,6 +98,10 @@ struct ProfileTabView: View {
             Section {
                 CalculationsSettingsView(core: core, profileId: profileId)
             }
+            Section("workout_mindful_settings_title") {
+                MindfulMinutesSettingsToggle()
+            }
+            DataPrivacySection(core: core)
             Section {
                 WellnessDisclaimerBanner()
                 Button {

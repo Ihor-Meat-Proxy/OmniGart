@@ -16,6 +16,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -50,11 +51,13 @@ private data class StrengthUiActions(
     val onFormChange: (SetFormState) -> Unit,
     val onAddSet: () -> Unit,
     val onEnd: () -> Unit,
-    val onWarmupsToggle: () -> Unit
+    val onWarmupsToggle: () -> Unit,
+    val onExportPdf: (() -> Unit)? = null
 )
 
 @Composable
 fun StrengthLoggingSection(core: OmniGartCore, profileId: String) {
+    val context = LocalContext.current
     val demos = remember { core.strengthLogging.ensureDemoExercises() }
     var sessionId by remember { mutableStateOf<String?>(null) }
     var lastSessionId by remember { mutableStateOf<String?>(null) }
@@ -124,6 +127,9 @@ fun StrengthLoggingSection(core: OmniGartCore, profileId: String) {
             onWarmupsToggle = {
                 includeWarmups = !includeWarmups
                 (sessionId ?: lastSessionId)?.let(refresh)
+            },
+            onExportPdf = {
+                exportStrengthPdf(context, core, lastSessionId, summary)
             }
         )
     )
@@ -148,7 +154,9 @@ private fun StrengthLoggingBody(state: StrengthUiState, actions: StrengthUiActio
             ActiveSessionForm(state = state, actions = actions)
         }
         WarmupIncludeToggle(includeWarmups = state.includeWarmups, onToggle = actions.onWarmupsToggle)
-        state.summary?.let { SessionSummaryBlock(it) }
+        state.summary?.let {
+            SessionSummaryBlock(summary = it, onExportPdf = actions.onExportPdf)
+        }
     }
 }
 
@@ -241,8 +249,35 @@ private fun WarmupIncludeToggle(includeWarmups: Boolean, onToggle: () -> Unit) {
     )
 }
 
+private fun exportStrengthPdf(
+    context: android.content.Context,
+    core: OmniGartCore,
+    lastSessionId: String?,
+    summary: StrengthSessionSummary?
+) {
+    val id = lastSessionId ?: return
+    val strengthJson =
+        summary?.let { current ->
+            val names =
+                current.volume.perExercise.joinToString(",") {
+                    "${it.exerciseId}=${it.exerciseId}"
+                }
+            val muscles =
+                current.volume.perMuscleVolumeKg.entries.joinToString(",") {
+                    "${it.key}=${it.value}"
+                }
+            "${current.totalWeightLiftedKg}|$names|$muscles"
+        }
+    OmnigartPdfShare.shareWorkout(
+        context = context,
+        core = core,
+        workoutId = id,
+        strengthJson = strengthJson
+    )
+}
+
 @Composable
-private fun SessionSummaryBlock(summary: StrengthSessionSummary) {
+private fun SessionSummaryBlock(summary: StrengthSessionSummary, onExportPdf: (() -> Unit)?) {
     Text(
         text = stringResource(R.string.workout_summary_title),
         style = MaterialTheme.typography.titleSmall,
@@ -265,6 +300,11 @@ private fun SessionSummaryBlock(summary: StrengthSessionSummary) {
     )
     summary.volume.perExercise.forEach { row ->
         Text(text = "${row.exerciseId}: ${formatOneDecimal(row.volumeKg)} kg · ${row.hardSets}")
+    }
+    if (onExportPdf != null) {
+        Button(onClick = onExportPdf, modifier = Modifier.testTag("pdf_export_button")) {
+            Text(text = stringResource(R.string.pdf_export_button))
+        }
     }
 }
 

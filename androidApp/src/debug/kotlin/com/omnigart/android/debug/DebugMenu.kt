@@ -27,9 +27,9 @@ fun DebugMenu(modifier: Modifier = Modifier) {
 
     Column(
         modifier =
-            modifier
-                .padding(8.dp)
-                .testTag("debug_menu")
+        modifier
+            .padding(8.dp)
+            .testTag("debug_menu")
     ) {
         Text("DebugMenu — development only")
         Text(text = stringResource(R.string.treadmill_diag_title))
@@ -38,5 +38,4 @@ fun DebugMenu(modifier: Modifier = Modifier) {
 }
 
 /** True only for debuggable installs; use before requesting debug UI. */
-fun isDebugBuild(context: android.content.Context): Boolean =
-    (context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0
+fun isDebugBuild(context: android.content.Context): Boolean = (context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0

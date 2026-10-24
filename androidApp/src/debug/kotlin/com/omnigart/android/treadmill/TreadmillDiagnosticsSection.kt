@@ -53,9 +53,9 @@ fun TreadmillDiagnosticsSection(modifier: Modifier = Modifier) {
 
     Column(
         modifier =
-            modifier
-                .testTag("treadmill_diagnostics")
-                .verticalScroll(rememberScrollState()),
+        modifier
+            .testTag("treadmill_diagnostics")
+            .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space2)
     ) {
         Text(

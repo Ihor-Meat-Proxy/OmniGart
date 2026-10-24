@@ -41,13 +41,17 @@ android {
 
     sourceSets {
         getByName("main") {
-            res.srcDirs(
-                "src/main/res",
-                rootProject.file("design/generated/android/values"),
-                rootProject.file("design/generated/android/drawable")
+            res.directories.add("src/main/res")
+            res.directories.add(
+                rootProject.file("design/generated/android/values").absolutePath,
+            )
+            res.directories.add(
+                rootProject.file("design/generated/android/drawable").absolutePath,
             )
             // Offline baseline: exercises, evidence, icons, body-maps, etc.
-            assets.srcDirs(rootProject.file("generated/content-bundle"))
+            assets.directories.add(
+                rootProject.file("generated/content-bundle").absolutePath,
+            )
         }
     }
 }

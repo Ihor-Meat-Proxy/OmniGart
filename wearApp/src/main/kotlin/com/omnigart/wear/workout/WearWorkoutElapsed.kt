@@ -7,12 +7,7 @@ package com.omnigart.wear.workout
  * the UI timer must still exclude paused wall time when ending while paused or mid-pause.
  */
 object WearWorkoutElapsed {
-    fun activeElapsedMs(
-        nowMs: Long,
-        startedAtMs: Long,
-        accumulatedPauseMs: Long,
-        pauseBeganAtMs: Long?
-    ): Long {
+    fun activeElapsedMs(nowMs: Long, startedAtMs: Long, accumulatedPauseMs: Long, pauseBeganAtMs: Long?): Long {
         var pause = accumulatedPauseMs.coerceAtLeast(0L)
         if (pauseBeganAtMs != null) {
             pause += (nowMs - pauseBeganAtMs).coerceAtLeast(0L)

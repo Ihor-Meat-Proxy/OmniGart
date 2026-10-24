@@ -401,17 +401,17 @@ t(
 t(
     "planner_intro",
     **{
-        "en-GB": "Plan workouts on-device and optionally schedule a Zone 2 run into Workout.",
-        "uk": "Плануйте тренування на пристрої та за бажанням додайте біг у зоні 2 до Workout.",
-        "pl": "Planuj treningi na urządzeniu i opcjonalnie zaplanuj bieg w strefie 2 w Workout.",
-        "be": "Плануйце трэніроўкі на прыладзе і пры жаданні дадайце бег у зоне 2 у Workout.",
-        "kk": "Құрылғыда жаттығуларды жоспарлаңыз және қаласаңыз 2-аймақ жүгіруін Workout-қа қосыңыз.",
-        "ka": "დაგეგმეთ ვარჯიშები მოწყობილობაზე და სურვილისამებრ დაამატეთ ზონა 2 სირბილი Workout-ში.",
-        "es": "Planifica entrenamientos en el dispositivo y, si quieres, programa una carrera zona 2 en Workout.",
-        "fr": "Planifiez des séances sur l’appareil et, en option, une course zone 2 dans Workout.",
-        "de": "Planen Sie Workouts auf dem Gerät und optional einen Zone-2-Lauf in Workout.",
-        "cs": "Plánujte tréninky na zařízení a volitelně naplánujte běh v zóně 2 do Workout.",
-        "zh-Hans": "在设备上规划训练，并可选择将二区跑安排到 Workout。",
+        "en-GB": "Plan workouts on-device: calendar, weekly scheme, and adaptive suggestions. Health data is never deleted.",
+        "uk": "Плануйте тренування на пристрої: календар, тижнева схема та адаптивні підказки. Дані Health ніколи не видаляються.",
+        "pl": "Planuj treningi na urządzeniu: kalendarz, tygodniowy schemat i adaptacyjne podpowiedzi. Dane Health nigdy nie są usuwane.",
+        "be": "Плануйце трэніроўкі на прыладзе: каляндар, тыднёвая схема і адаптыўныя падказкі. Даныя Health ніколі не выдаляюцца.",
+        "kk": "Жаттығуларды құрылғыда жоспарлаңыз: күнтізбе, апталық схема және бейімделгіш ұсыныстар. Health деректері ешқашан жойылмайды.",
+        "ka": "დაგეგმეთ ვარჯიშები მოწყობილობაზე: კალენდარი, ყოველკვირეული სქემა და ადაპტური რჩევები. Health მონაცემები არასდროს იშლება.",
+        "es": "Planifica entrenamientos en el dispositivo: calendario, esquema semanal y sugerencias adaptativas. Los datos de Health nunca se borran.",
+        "fr": "Planifiez des séances sur l’appareil : calendrier, schéma hebdomadaire et suggestions adaptatives. Les données Health ne sont jamais effacées.",
+        "de": "Workouts auf dem Gerät planen: Kalender, Wochenschema und adaptive Vorschläge. Health-Daten werden nie gelöscht.",
+        "cs": "Plánujte tréninky na zařízení: kalendář, týdenní schéma a adaptivní tipy. Data Health se nikdy nemažou.",
+        "zh-Hans": "在设备上规划训练：日历、每周方案与自适应建议。永不删除 Health 数据。",
     },
 )
 t(
@@ -2112,7 +2112,7 @@ def main() -> None:
     print(f"Synced {len(STRINGS)} tab keys × {len(LOCALES)} locales")
 
 
-# --- Planner tab (from planner-tab-adaptive) ---
+# --- Planner tab ---
 
 t(
     "planner_add_session",

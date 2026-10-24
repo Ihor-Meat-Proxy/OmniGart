@@ -1,0 +1,6 @@
+/* zh-Hans — HealthKit, Bluetooth, camera, notifications purpose strings */
+"NSHealthShareUsageDescription" = "OmniGart 从 Apple 健康读取心率、HRV、睡眠、体能训练、活动与静息能量、心率恢复、训练用力、正念分钟（若启用）、体重及相关健康样本，以便在设备上显示准备度、恢复与训练估算。若样本稍后从 Apple 健康移除，OmniGart 会保留设备上的副本。健康数据保留在您的设备上，绝不用于广告或出售给第三方。";
+"NSHealthUpdateUsageDescription" = "OmniGart 将力量、瑜伽、普拉提、2 区以及室内跑步机跑步写入 Apple 健康——包含时长、活动与静息能量、心率、已连接跑步机的距离（如有）、分段以及恢复或用力评分——外加可选正念分钟和您选择分享的健康指标，以便出现在健身 App。写入仅为追加：OmniGart 从不删除或改写 Apple 健康数据（包括它自己创建的）；之后的编辑保留在 OmniGart。不会发送给广告商或不相关的第三方。";
+"NSBluetoothAlwaysUsageDescription" = "OmniGart 使用蓝牙连接您选择的跑步机和心率配件，以便在「跑步机跑步」中显示实时速度、坡度和距离，并改善设备上的健康估算。您也可以不连接任何配件继续使用应用。";
+"NSCameraUsageDescription" = "OmniGart 仅在您扫描食品条码以查找营养信息时使用相机。若不愿授予相机权限，也可手动记录食物。";
+"NSUserNotificationsUsageDescription" = "OmniGart 可发送您启用的训练、补水和晨间健康打卡提醒。关闭通知后应用仍可完整使用。";

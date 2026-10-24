@@ -899,4 +899,15 @@
     <string name="health_unit_celsius">°C</string>
     <string name="health_unit_mmhg">mmHg</string>
     <string name="health_unit_g">g</string>
+    <string name="treadmill_use_simulator">Simulator verwenden</string>
+    <string name="treadmill_sim_ready">Simulator bereit.</string>
+    <string name="treadmill_diag_title">Laufband-Protokoll</string>
+    <string name="treadmill_diag_body">Geräte in der Nähe scannen, GATT-Dienste auflisten, Notify-Charakteristiken abonnieren und Roh-Hex als JSON exportieren.</string>
+    <string name="treadmill_diag_clear">Protokoll löschen</string>
+    <string name="treadmill_diag_export">JSON exportieren</string>
+    <string name="treadmill_diag_share">Protokoll teilen</string>
+    <string name="treadmill_diag_services">Dienste</string>
+    <string name="treadmill_diag_log">Rohprotokoll</string>
+    <string name="treadmill_diag_capture_sim">Simulator-Frame erfassen</string>
+    <string name="treadmill_diag_captured">Frame erfasst.</string>
 </resources>

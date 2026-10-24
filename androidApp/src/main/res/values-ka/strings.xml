@@ -899,4 +899,15 @@
     <string name="health_unit_celsius">°C</string>
     <string name="health_unit_mmhg">მმHg</string>
     <string name="health_unit_g">გ</string>
+    <string name="treadmill_use_simulator">სიმულატორის გამოყენება</string>
+    <string name="treadmill_sim_ready">სიმულატორი მზადაა.</string>
+    <string name="treadmill_diag_title">სარბენი ბილიკის დიაგნოსტიკა</string>
+    <string name="treadmill_diag_body">დაასკანერეთ ახლომდებარე მოწყობილობები, ნახეთ GATT სერვისები, გამოიწერეთ შეტყობინებები და გაიტანეთ ნედლი hex JSON-ად.</string>
+    <string name="treadmill_diag_clear">ჟურნალის გასუფთავება</string>
+    <string name="treadmill_diag_export">JSON-ის ექსპორტი</string>
+    <string name="treadmill_diag_share">დიაგნოსტიკის გაზიარება</string>
+    <string name="treadmill_diag_services">სერვისები</string>
+    <string name="treadmill_diag_log">ნედლი ჟურნალი</string>
+    <string name="treadmill_diag_capture_sim">სიმულატორის კადრის აღება</string>
+    <string name="treadmill_diag_captured">კადრი აღებულია.</string>
 </resources>

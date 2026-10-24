@@ -23,6 +23,7 @@ import com.omnigart.treadmill.model.TreadmillLiveMetrics
 import com.omnigart.treadmill.model.TreadmillProtocol
 import com.omnigart.treadmill.rsc.RscMeasurementParser
 import com.omnigart.treadmill.session.TreadmillMetricsMerger
+import com.omnigart.treadmill.sim.SimulatedTreadmill
 import java.util.UUID
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.math.min
@@ -79,6 +80,10 @@ class TreadmillBleClient(
     private var fitShowPollJob: Job? = null
     private var activeProtocol: TreadmillProtocol = TreadmillProtocol.NONE
     private val scanning = AtomicBoolean(false)
+    private var simulator: SimulatedTreadmill? = null
+    private var simulatorTickJob: Job? = null
+    /** True when live metrics come from [SimulatedTreadmill] instead of GATT. */
+    val usingSimulator: Boolean get() = simulator != null
 
     private val scanCallback =
         object : ScanCallback() {
@@ -195,11 +200,58 @@ class TreadmillBleClient(
             }
         }
 
+    /**
+     * Attach the in-process FTMS simulator (DEBUG / emulator / BLE unavailable).
+     * Arms control and marks the client connected with [TreadmillProtocol.SIMULATED].
+     */
+    fun useSimulator() {
+        stopScan()
+        reconnectJob?.cancel()
+        iconsolePollJob?.cancel()
+        fitShowPollJob?.cancel()
+        simulatorTickJob?.cancel()
+        gatt?.close()
+        gatt = null
+        val sim = SimulatedTreadmill(hrMax = hrMax)
+        sim.handleControlPoint(FtmsControlPoint.requestControl())
+        simulator = sim
+        activeProtocol = TreadmillProtocol.SIMULATED
+        _state.value = State.Connected
+        _discovered.value = listOf(Discovered(sim.deviceId, sim.deviceName))
+        _metrics.value = sim.currentMetrics(watchHeartRateBpm)
+        diagnostics.clear()
+        diagnostics.protocolGuess = TreadmillProtocol.SIMULATED.name
+        diagnostics.upsertDevice(sim.deviceId, sim.deviceName, listOf(TreadmillBleUuids.FITNESS_MACHINE_SERVICE))
+        diagnostics.info("simulator attached")
+    }
+
+    fun startSimulatorBelt(): Boolean {
+        val sim = simulator ?: return false
+        val response = sim.handleControlPoint(FtmsControlPoint.startOrResume())
+        val ok =
+            response.size >= 3 &&
+                (response[2].toInt() and 0xFF) == FtmsControlPoint.ResultCode.SUCCESS.code
+        if (ok) startSimulatorTicks()
+        return ok
+    }
+
+    fun stopSimulatorBelt(): Boolean {
+        simulatorTickJob?.cancel()
+        val sim = simulator ?: return false
+        val response =
+            sim.handleControlPoint(FtmsControlPoint.stopOrPause(FtmsControlPoint.StopPause.STOP))
+        _metrics.value = sim.currentMetrics(watchHeartRateBpm)
+        return response.size >= 3 &&
+            (response[2].toInt() and 0xFF) == FtmsControlPoint.ResultCode.SUCCESS.code
+    }
+
     @SuppressLint("MissingPermission")
     fun startScan() {
+        clearSimulator()
         val scanner = adapter?.bluetoothLeScanner
         if (scanner == null) {
             _state.value = State.Failed
+            diagnostics.info("BLE scanner unavailable")
             return
         }
         _discovered.value = emptyList()
@@ -219,6 +271,11 @@ class TreadmillBleClient(
 
     @SuppressLint("MissingPermission")
     fun connect(address: String) {
+        if (address == SIMULATOR_DEVICE_ID || simulator?.deviceId == address) {
+            useSimulator()
+            return
+        }
+        clearSimulator()
         stopScan()
         preferredAddress = address
         prefs.edit().putString(KEY_REMEMBERED, address).apply()
@@ -232,6 +289,7 @@ class TreadmillBleClient(
                 _state.value = State.Failed
                 return
             }
+        diagnostics.upsertDevice(address, device.name)
         gatt?.close()
         gatt = device.connectGatt(appContext, false, gattCallback)
     }
@@ -245,6 +303,7 @@ class TreadmillBleClient(
         reconnectJob?.cancel()
         iconsolePollJob?.cancel()
         fitShowPollJob?.cancel()
+        clearSimulator()
         preferredAddress = null
         activeProtocol = TreadmillProtocol.NONE
         gatt?.disconnect()
@@ -254,17 +313,24 @@ class TreadmillBleClient(
         _metrics.value = TreadmillLiveMetrics()
     }
 
-    /** True when FTMS or FitShow can accept remote speed/incline writes. */
+    /** True when FTMS, FitShow, or the in-process simulator can accept remote writes. */
     fun controlAvailable(): Boolean =
         allowRemoteControl &&
             (
-                (activeProtocol == TreadmillProtocol.FTMS && controlPoint != null) ||
+                usingSimulator ||
+                    (activeProtocol == TreadmillProtocol.FTMS && controlPoint != null) ||
                     (activeProtocol == TreadmillProtocol.FITSHOW && fitShowWrite != null)
             )
 
     @SuppressLint("MissingPermission")
     fun setTargetSpeedKmh(speed: Double) {
         if (!allowRemoteControl) return
+        val sim = simulator
+        if (sim != null) {
+            sim.handleControlPoint(FtmsControlPoint.setTargetSpeedKmh(speed))
+            diagnostics.info("sim control set speed $speed")
+            return
+        }
         val g = gatt ?: return
         when (activeProtocol) {
             TreadmillProtocol.FTMS -> {
@@ -285,6 +351,12 @@ class TreadmillBleClient(
     @SuppressLint("MissingPermission")
     fun setTargetInclinePercent(incline: Double) {
         if (!allowRemoteControl) return
+        val sim = simulator
+        if (sim != null) {
+            sim.handleControlPoint(FtmsControlPoint.setTargetInclinePercent(incline))
+            diagnostics.info("sim control set incline $incline")
+            return
+        }
         val g = gatt ?: return
         when (activeProtocol) {
             TreadmillProtocol.FTMS -> {
@@ -300,6 +372,25 @@ class TreadmillBleClient(
             else -> return
         }
         diagnostics.info("control set incline $incline")
+    }
+
+    private fun startSimulatorTicks() {
+        val sim = simulator ?: return
+        simulatorTickJob?.cancel()
+        simulatorTickJob =
+            scope.launch {
+                while (isActive) {
+                    val bytes = sim.tick()
+                    _metrics.value = sim.parseOwnNotification(bytes, watchHeartRateBpm)
+                    delay(1_000)
+                }
+            }
+    }
+
+    private fun clearSimulator() {
+        simulatorTickJob?.cancel()
+        simulatorTickJob = null
+        simulator = null
     }
 
     private fun handleBytes(uuid: String, value: ByteArray) {
@@ -389,5 +480,6 @@ class TreadmillBleClient(
 
     companion object {
         private const val KEY_REMEMBERED = "remembered_address"
+        const val SIMULATOR_DEVICE_ID = "sim-treadmill-ftms"
     }
 }

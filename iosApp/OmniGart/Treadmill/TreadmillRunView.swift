@@ -127,6 +127,25 @@ struct TreadmillRunView: View {
             Button("treadmill_scan") { ble.startScan() }
                 .accessibilityIdentifier("treadmill_scan")
             Button("treadmill_reconnect") { ble.connectRemembered() }
+            #if DEBUG
+            Button("treadmill_use_simulator") {
+                ble.useSimulator()
+                allowControl = true
+                ble.allowRemoteControl = true
+                statusMessage = String(localized: "treadmill_sim_ready")
+            }
+            .accessibilityIdentifier("treadmill_use_simulator")
+            #else
+            if ble.state == .failed {
+                Button("treadmill_use_simulator") {
+                    ble.useSimulator()
+                    allowControl = true
+                    ble.allowRemoteControl = true
+                    statusMessage = String(localized: "treadmill_sim_ready")
+                }
+                .accessibilityIdentifier("treadmill_use_simulator")
+            }
+            #endif
             ForEach(ble.discovered) { device in
                 Button { ble.connect(id: device.id) } label: {
                     VStack(alignment: .leading) {
@@ -188,11 +207,20 @@ struct TreadmillRunView: View {
                     running = true
                     startedAt = Date()
                     lastAutoStepIndex = -1
-                    ble.connectRemembered()
+                    if ble.usingSimulator {
+                        allowControl = true
+                        ble.allowRemoteControl = true
+                        ble.startSimulatorBelt()
+                    } else {
+                        ble.connectRemembered()
+                    }
                 }
                 .accessibilityIdentifier("treadmill_start")
             } else {
                 Button("treadmill_finish") {
+                    if ble.usingSimulator {
+                        ble.stopSimulatorBelt()
+                    }
                     Task { await finishAndSave() }
                 }
                 .accessibilityIdentifier("treadmill_finish")

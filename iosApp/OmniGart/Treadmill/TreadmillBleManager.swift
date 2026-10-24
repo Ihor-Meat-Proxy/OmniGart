@@ -43,6 +43,11 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     private var diagLines: [String] = []
     private let rememberedKey = "omnigart.treadmill.remembered"
     private let hrMax: Int
+    private var simulator: SimulatedTreadmillSession?
+    private var simulatorForwardTask: Task<Void, Never>?
+
+    /// True when live metrics come from the in-process FTMS simulator.
+    var usingSimulator: Bool { simulator != nil }
 
     init(hrMax: Int = 190) {
         self.hrMax = hrMax
@@ -52,7 +57,8 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     var controlAvailable: Bool {
         allowRemoteControl &&
             (
-                (activeProtocol == .ftms && controlPoint != nil) ||
+                usingSimulator ||
+                    (activeProtocol == .ftms && controlPoint != nil) ||
                     (activeProtocol == .fitshow && fitShowWrite != nil)
             )
     }
@@ -63,11 +69,50 @@ final class TreadmillBleManager: NSObject, ObservableObject {
         }
     }
 
+    /// Attach the shared-architecture FTMS simulator (DEBUG / Simulator / BLE unavailable).
+    func useSimulator() {
+        stopScan()
+        reconnectTask?.cancel()
+        iconsolePollTask?.cancel()
+        fitShowPollTask?.cancel()
+        if let linkedPeripheral {
+            central?.cancelPeripheralConnection(linkedPeripheral)
+        }
+        linkedPeripheral = nil
+        let session = SimulatedTreadmillSession(hrMax: hrMax)
+        session.watchHeartRateBpm = watchHeartRateBpm
+        _ = session.attach()
+        simulator = session
+        activeProtocol = .simulated
+        state = .connected
+        discovered = [
+            DiscoveredDevice(id: UUID(), name: session.deviceName, protocolHint: "SIMULATED")
+        ]
+        live = session.live
+        appendDiag("INFO simulator attached")
+        startSimulatorForwarding()
+    }
+
+    func startSimulatorBelt() {
+        guard let simulator else { return }
+        _ = simulator.startBelt()
+        startSimulatorForwarding()
+    }
+
+    func stopSimulatorBelt() {
+        simulator?.stopBelt()
+        if let simulator {
+            live = simulator.live
+        }
+    }
+
     func startScan() {
+        clearSimulator()
         start()
         guard let central, central.state == .poweredOn else {
             state = .failed
             lastError = "Bluetooth not powered on"
+            appendDiag("INFO BLE unavailable")
             return
         }
         discovered = []
@@ -85,6 +130,7 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     }
 
     func connect(id: UUID) {
+        clearSimulator()
         start()
         guard let central else { return }
         stopScan()
@@ -111,6 +157,7 @@ final class TreadmillBleManager: NSObject, ObservableObject {
         reconnectTask?.cancel()
         iconsolePollTask?.cancel()
         fitShowPollTask?.cancel()
+        clearSimulator()
         preferredId = nil
         activeProtocol = .none
         if let linkedPeripheral {
@@ -122,7 +169,13 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     }
 
     func setTargetSpeedKmh(_ speed: Double) {
-        guard allowRemoteControl, let linkedPeripheral else { return }
+        guard allowRemoteControl else { return }
+        if let simulator {
+            simulator.setTargetSpeedKmh(speed)
+            appendDiag("INFO sim control set speed \(speed)")
+            return
+        }
+        guard let linkedPeripheral else { return }
         if activeProtocol == .ftms, let controlPoint {
             linkedPeripheral.writeValue(FtmsTreadmillParser.requestControl(), for: controlPoint, type: .withResponse)
             linkedPeripheral.writeValue(
@@ -142,7 +195,13 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     }
 
     func setTargetInclinePercent(_ incline: Double) {
-        guard allowRemoteControl, let linkedPeripheral else { return }
+        guard allowRemoteControl else { return }
+        if let simulator {
+            simulator.setTargetInclinePercent(incline)
+            appendDiag("INFO sim control set incline \(incline)")
+            return
+        }
+        guard let linkedPeripheral else { return }
         if activeProtocol == .ftms, let controlPoint {
             linkedPeripheral.writeValue(FtmsTreadmillParser.requestControl(), for: controlPoint, type: .withResponse)
             linkedPeripheral.writeValue(
@@ -159,6 +218,24 @@ final class TreadmillBleManager: NSObject, ObservableObject {
             )
         }
         appendDiag("INFO control set incline \(incline)")
+    }
+
+    private func startSimulatorForwarding() {
+        simulatorForwardTask?.cancel()
+        guard let simulator else { return }
+        simulatorForwardTask = Task { @MainActor in
+            while !Task.isCancelled, self.simulator != nil {
+                live = simulator.live
+                try? await Task.sleep(nanoseconds: 500_000_000)
+            }
+        }
+    }
+
+    private func clearSimulator() {
+        simulatorForwardTask?.cancel()
+        simulatorForwardTask = nil
+        simulator?.reset()
+        simulator = nil
     }
 
     func exportDiagnosticsURL() -> URL? {

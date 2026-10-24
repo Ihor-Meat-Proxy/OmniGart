@@ -8,7 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.omnigart.android.R
+import com.omnigart.android.treadmill.TreadmillDiagnosticsSection
 
 /**
  * Developer-only tooling. Lives under the `debug` package and must only be
@@ -24,14 +27,16 @@ fun DebugMenu(modifier: Modifier = Modifier) {
 
     Column(
         modifier =
-        modifier
-            .padding(8.dp)
-            .testTag("debug_menu")
+            modifier
+                .padding(8.dp)
+                .testTag("debug_menu")
     ) {
         Text("DebugMenu — development only")
-        Text("Treadmill diagnostics: long-press the Treadmill run title in Workouts.")
+        Text(text = stringResource(R.string.treadmill_diag_title))
+        TreadmillDiagnosticsSection()
     }
 }
 
 /** True only for debuggable installs; use before requesting debug UI. */
-fun isDebugBuild(context: android.content.Context): Boolean = (context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0
+fun isDebugBuild(context: android.content.Context): Boolean =
+    (context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0

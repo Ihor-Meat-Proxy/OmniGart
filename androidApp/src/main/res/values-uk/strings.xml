@@ -899,4 +899,15 @@
     <string name="health_unit_celsius">°C</string>
     <string name="health_unit_mmhg">мм рт. ст.</string>
     <string name="health_unit_g">г</string>
+    <string name="treadmill_use_simulator">Використовувати симулятор</string>
+    <string name="treadmill_sim_ready">Симулятор готовий.</string>
+    <string name="treadmill_diag_title">Діагностика доріжки</string>
+    <string name="treadmill_diag_body">Скануйте пристрої поруч, переглядайте служби GATT, підписуйтеся на сповіщення та експортуйте сирий hex у JSON.</string>
+    <string name="treadmill_diag_clear">Очистити журнал</string>
+    <string name="treadmill_diag_export">Експортувати JSON</string>
+    <string name="treadmill_diag_share">Поділитися діагностикою</string>
+    <string name="treadmill_diag_services">Служби</string>
+    <string name="treadmill_diag_log">Сирий журнал</string>
+    <string name="treadmill_diag_capture_sim">Захопити кадр симулятора</string>
+    <string name="treadmill_diag_captured">Кадр захоплено.</string>
 </resources>

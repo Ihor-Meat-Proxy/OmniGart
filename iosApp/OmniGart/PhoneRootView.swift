@@ -23,13 +23,16 @@ struct PhoneRootView: View {
                         Image(tab.iconAssetName)
                             .renderingMode(.template)
                     }
-                    // Prefer the label so XCTest does not see a nested Button/Button
-                    // pair both claiming the same identifier (iPad Tab chrome).
-                    .accessibilityIdentifier(tab.accessibilityId)
                 }
+                // Identifier must live on `Tab` so XCTest sees it on the tab bar button
+                // (putting it on the page root only exposes the selected tab's content).
+                // Keep a single identifier — labeling both Label and Tab makes UITest
+                // `descendants["tab_*"]` ambiguous ("Multiple matching elements").
+                .accessibilityIdentifier(tab.accessibilityId)
             }
         }
-        // CI boots an iPad simulator; keep a real tab bar so UITests can query tabs.
+        // CI boots an iPad simulator; keep a bottom tab bar so tab accessibility
+        // identifiers stay on `tabBars.buttons` instead of the adaptive sidebar.
         .tabViewStyle(.tabBarOnly)
         .tint(Color.OmniGart.colorBrandAccent)
         .accessibilityIdentifier("phone_shell")

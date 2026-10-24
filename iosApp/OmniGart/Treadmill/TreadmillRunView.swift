@@ -39,7 +39,9 @@ struct TreadmillRunView: View {
         }
         .navigationTitle(Text(LocalizedStringKey(sessionKind.titleKey)))
         .sheet(isPresented: $showDiagnostics) { diagnosticsSheet }
-        .onAppear { ble.start(); chestHr.start() }
+        // Do not start CBCentralManager on appear — NavigationLink may preload this
+        // destination and a Bluetooth permission alert would block UITests / other tabs.
+        // Scan / reconnect / strap buttons call start() when the user opts in.
         .onDisappear {
             if !running {
                 ble.disconnect()

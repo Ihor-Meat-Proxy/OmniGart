@@ -74,15 +74,29 @@ final class PhoneUITests: XCTestCase {
         app.launchArguments += ["-ui-testing", "-AppleLanguages", "(en-GB)"]
         app.launch()
 
+        // Dismiss Bluetooth / Health permission sheets if a preload path presents one.
+        addUIInterruptionMonitor(withDescription: "System permission alerts") { alert in
+            for title in ["Allow", "OK", "Dont Allow", "Don’t Allow", "Not Now"] {
+                let button = alert.buttons[title]
+                if button.exists {
+                    button.tap()
+                    return true
+                }
+            }
+            return false
+        }
+
         let shell = app.descendants(matching: .any)["phone_shell"]
         XCTAssertTrue(shell.waitForExistence(timeout: 30))
+        // Nudge the interruption monitor.
+        app.tap()
 
         // Prefer tab-bar query: content-root identifiers are only in the tree for the
         // selected tab. Identifier is set on `Tab` in PhoneRootView; title is the en-GB fallback.
         let foodById = app.tabBars.buttons["tab_food"]
         let foodByTitle = app.tabBars.buttons["Food"]
-        let foodTab = foodById.waitForExistence(timeout: 10) ? foodById : foodByTitle
-        XCTAssertTrue(foodTab.waitForExistence(timeout: 10), "Expected Food tab in the tab bar")
+        let foodTab = foodById.waitForExistence(timeout: 15) ? foodById : foodByTitle
+        XCTAssertTrue(foodTab.waitForExistence(timeout: 15), "Expected Food tab in the tab bar")
         foodTab.tap()
 
         let totals = app.descendants(matching: .any)["food_totals"]

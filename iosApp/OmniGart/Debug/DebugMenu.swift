@@ -31,7 +31,6 @@ private struct TreadmillDiagnosticsDebugView: View {
             }
         }
         .navigationTitle(Text("treadmill_diagnostics_title"))
-        .onAppear { ble.start() }
     }
 }
 #endif

@@ -165,7 +165,9 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         guard let session, isRunning else { return }
         let packet = "hr=\(heartRateBpm);kcal=\(String(format: "%.1f", activeEnergyKcal))"
         guard let data = packet.data(using: .utf8) else { return }
-        try? session.sendToRemoteWorkoutSession(data: data)
+        Task {
+            try? await session.sendToRemoteWorkoutSession(data: data)
+        }
     }
 }
 

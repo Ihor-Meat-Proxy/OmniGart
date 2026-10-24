@@ -9,6 +9,8 @@ import WatchConnectivity
 final class WatchConnectivityHub: NSObject, ObservableObject, WCSessionDelegate {
     static let shared = WatchConnectivityHub()
 
+    private static let selectionPayloadKey = "omnigart.workout.selection.json"
+
     @Published private(set) var lastSelection: PhoneWorkoutSelection?
     @Published var enabledEquipmentIds: Set<String> = []
 
@@ -33,16 +35,22 @@ final class WatchConnectivityHub: NSObject, ObservableObject, WCSessionDelegate 
         }
     }
 
-    private func applyIncoming(_ dictionary: [String: Any]) {
-        if let ids = dictionary["equipmentIds"] as? [String], !ids.isEmpty {
-            enabledEquipmentIds = Set(ids)
+    private func applyIncoming(equipmentIds: [String]?, selectionJson: String?) {
+        if let equipmentIds, !equipmentIds.isEmpty {
+            enabledEquipmentIds = Set(equipmentIds)
         }
-        let key = PhoneWorkoutSelection.companion.PAYLOAD_KEY
-        if let json = dictionary[key] as? String,
-           let selection = PhoneWorkoutSelectionCodec.shared.decodeOrNull(utf8: json) {
+        if let selectionJson,
+           let selection = PhoneWorkoutSelectionCodec.shared.decodeOrNull(utf8: selectionJson) {
             lastSelection = selection
             PendingWatchWorkout.shared.apply(selection: selection)
         }
+    }
+
+    /// Pull Sendable fields off WCSession dictionaries before hopping to the main actor.
+    private nonisolated static func extract(_ dictionary: [String: Any]) -> (ids: [String]?, json: String?) {
+        let ids = dictionary["equipmentIds"] as? [String]
+        let json = dictionary[selectionPayloadKey] as? String
+        return (ids, json)
     }
 
     nonisolated func session(
@@ -50,28 +58,31 @@ final class WatchConnectivityHub: NSObject, ObservableObject, WCSessionDelegate 
         activationDidCompleteWith activationState: WCSessionActivationState,
         error: Error?
     ) {
-        let context = session.receivedApplicationContext
+        let extracted = Self.extract(session.receivedApplicationContext)
         Task { @MainActor in
             WatchPhoneWorkoutTransfer.shared.markActivated(activationState == .activated)
-            self.applyIncoming(context)
+            self.applyIncoming(equipmentIds: extracted.ids, selectionJson: extracted.json)
         }
     }
 
     nonisolated func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
+        let extracted = Self.extract(applicationContext)
         Task { @MainActor in
-            self.applyIncoming(applicationContext)
+            self.applyIncoming(equipmentIds: extracted.ids, selectionJson: extracted.json)
         }
     }
 
     nonisolated func session(_ session: WCSession, didReceiveUserInfo userInfo: [String: Any] = [:]) {
+        let extracted = Self.extract(userInfo)
         Task { @MainActor in
-            self.applyIncoming(userInfo)
+            self.applyIncoming(equipmentIds: extracted.ids, selectionJson: extracted.json)
         }
     }
 
     nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+        let extracted = Self.extract(message)
         Task { @MainActor in
-            self.applyIncoming(message)
+            self.applyIncoming(equipmentIds: extracted.ids, selectionJson: extracted.json)
         }
     }
 }

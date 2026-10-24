@@ -14,7 +14,7 @@
     <string name="info_sheet_title">Осы бағалау туралы</string>
     <string name="info_sheet_body">Дайындық, стресс, ЖЖВ, Баевский индексі, дене майы және су балансы сияқты көрсеткіштер — сіздің деректеріңіз бен құрылғы үлгілеріне негізделген сауықтыру бағалаулары. Жоспарлар — жаттықтырушы ұсыныстары, рецепт емес.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart құрылғыдағы бағалауларды жақсарту үшін сауықтыру үлгілерін (жүрек соғуы, ЖЖВ, ұйқы, жаттығулар, дене массасы, су балансы) оқи және жаза алады. Деректер жарнамаға пайдаланылмайды және қатысы жоқ үшінші тараптарға жіберілмейді. Қолжетімділік берместен жалғастыра аласыз.</string>
+    <string name="perm_explainer_health_body">OmniGart сауықтыру үлгілерін оқи және жаза алады — жүрек соғысы, HRV, ұйқы, жаттығулар, белсенді және базалық энергия, дене салмағы және су ішу — сеанстар Apple Fitness-те ұзақтық пен калориямен көрінуі үшін. Деректер жарнамаға немесе үшінші тарапқа берілмейді. Рұқсатсыз жалғастыруға болады.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth аксессуарлары</string>
     <string name="perm_explainer_bluetooth_body">Тірі үлгілер үшін жүрек соғу немесе ұқсас фитнес аксессуарын қосыңыз. OmniGart Bluetoothсыз толық жұмыс істейді.</string>
     <string name="perm_explainer_camera_title">Штрихкод камерасы</string>
@@ -129,4 +129,22 @@
     <string name="profile_edit_title">Сіздің профиліңіз</string>
     <string name="profile_save">Профильді сақтау</string>
     <string name="profile_saved">Профиль сақталды.</string>
+    <string name="workout_summary_duration">Ұзақтық</string>
+    <string name="workout_summary_active_kcal">Белсенді ккал</string>
+    <string name="workout_summary_total_kcal">Барлық ккал</string>
+    <string name="workout_summary_avg_hr">Орташа жүрек соғысы</string>
+    <string name="workout_summary_max_hr">Макс. жүрек соғысы</string>
+    <string name="workout_summary_energy_estimate">Энергия — сауықтыру бағалауы (MET × дене салмағы).</string>
+    <string name="workout_summary_effort">Күш-жігер бағасы</string>
+    <string name="workout_summary_hr_recovery">Жүрек соғысының қалпына келуі</string>
+    <string name="workout_start_on_watch">Apple Watch-та бастау</string>
+    <string name="workout_watch_started">Сағатта жаттығу басталуда…</string>
+    <string name="workout_watch_unavailable">Сағат қолжетімсіз — төмендегі iPhone бағалауын пайдаланыңыз.</string>
+    <string name="workout_start_iphone_estimate">iPhone-да жазу (бағалау)</string>
+    <string name="workout_yoga_title">Йога</string>
+    <string name="workout_pilates_title">Пилатес</string>
+    <string name="workout_mindful_body_intro">Жүрек соғысы мен энергия үшін сағаттағы тірі сеансты таңдаңыз. Тек iPhone-да OmniGart MET бағалауын белгілеп сақтайды.</string>
+    <string name="workout_mindful_minutes_toggle">Йога үшін mindful минуттарды сақтау</string>
+    <string name="workout_mindful_minutes_body">Қосымша. Әдепкі өшірулі. Тек қосқанда mindful сеансын жазады.</string>
+    <string name="workout_mindful_settings_title">Йога mindful минуттары</string>
 </resources>

@@ -35,9 +35,9 @@
 	</dict>
 	<!-- Usage descriptions: en-GB defaults; localised in *.lproj/InfoPlist.strings -->
 	<key>NSHealthShareUsageDescription</key>
-	<string>OmniGart reads heart rate, HRV, sleep, workouts, body mass, and related wellness samples from Apple Health so it can show readiness, recovery, and training estimates on your device. Health data stays on your devices and is never used for advertising or sold to third parties.</string>
+	<string>OmniGart reads heart rate, HRV, sleep, workouts, active and resting energy, heart-rate recovery, workout effort, mindful minutes when you enable them, body mass, and related wellness samples from Apple Health so it can show readiness, recovery, and training estimates on your device. Health data stays on your devices and is never used for advertising or sold to third parties.</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>OmniGart writes workouts you log and wellness metrics you choose to share (such as body mass or hydration) into Apple Health so your history stays in sync across your devices. Nothing is sent to advertisers or unrelated third parties.</string>
+	<string>OmniGart writes strength, yoga, Pilates, and Zone 2 workouts — with duration, active and resting energy, heart rate, segments, and recovery or effort scores when available — plus optional mindful minutes for yoga and wellness metrics you choose to share into Apple Health so they appear in the Fitness app. Nothing is sent to advertisers or unrelated third parties.</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>OmniGart uses Bluetooth to connect to heart-rate and similar fitness accessories you choose, so live samples can improve on-device wellness estimates. You can keep using the app without connecting any accessory.</string>
 	<key>NSCameraUsageDescription</key>

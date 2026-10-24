@@ -14,7 +14,7 @@
     <string name="info_sheet_title">À propos de cette estimation</string>
     <string name="info_sheet_body">Des indicateurs tels que la préparation, le stress, la VRC, l’indice de Baevsky, la masse grasse et l’hydratation sont des estimations de bien-être basées sur vos saisies et les échantillons de l’appareil. Les plans sont des suggestions de coaching, pas des prescriptions.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart peut lire et écrire des échantillons de bien-être (fréquence cardiaque, VRC, sommeil, entraînements, masse corporelle, hydratation) pour améliorer les estimations sur l’appareil. Les données ne sont pas utilisées pour la publicité ni envoyées à des tiers non liés. Vous pouvez continuer sans accorder l’accès.</string>
+    <string name="perm_explainer_health_body">OmniGart peut lire et écrire des échantillons bien-être — fréquence cardiaque, VRC, sommeil, séances, énergie active et basale, masse corporelle et hydratation — pour afficher les séances dans Apple Fitness avec durée et calories. Les données ne servent pas à la pub. Vous pouvez continuer sans accorder l’accès.</string>
     <string name="perm_explainer_bluetooth_title">Accessoires Bluetooth</string>
     <string name="perm_explainer_bluetooth_body">Connectez un moniteur de fréquence cardiaque ou un accessoire fitness similaire pour des échantillons en direct. OmniGart fonctionne pleinement sans Bluetooth.</string>
     <string name="perm_explainer_camera_title">Caméra pour codes-barres</string>
@@ -129,4 +129,22 @@
     <string name="profile_edit_title">Votre profil</string>
     <string name="profile_save">Enregistrer le profil</string>
     <string name="profile_saved">Profil enregistré.</string>
+    <string name="workout_summary_duration">Durée</string>
+    <string name="workout_summary_active_kcal">Kcal actives</string>
+    <string name="workout_summary_total_kcal">Kcal totales</string>
+    <string name="workout_summary_avg_hr">Fréquence moyenne</string>
+    <string name="workout_summary_max_hr">Fréquence max.</string>
+    <string name="workout_summary_energy_estimate">L’énergie est une estimation bien-être (MET × masse).</string>
+    <string name="workout_summary_effort">Score d’effort</string>
+    <string name="workout_summary_hr_recovery">Récupération cardiaque</string>
+    <string name="workout_start_on_watch">Démarrer sur Apple Watch</string>
+    <string name="workout_watch_started">Démarrage de la séance sur la montre…</string>
+    <string name="workout_watch_unavailable">Montre indisponible — utilisez l’estimation iPhone.</string>
+    <string name="workout_start_iphone_estimate">Journal iPhone (estimation)</string>
+    <string name="workout_yoga_title">Yoga</string>
+    <string name="workout_pilates_title">Pilates</string>
+    <string name="workout_mindful_body_intro">Préférez une séance live sur la montre pour le pouls et l’énergie. Sur iPhone seul, OmniGart enregistre une estimation MET étiquetée.</string>
+    <string name="workout_mindful_minutes_toggle">Enregistrer les minutes mindful pour le yoga</string>
+    <string name="workout_mindful_minutes_body">Optionnel. Désactivé par défaut. N’écrit que si vous l’activez.</string>
+    <string name="workout_mindful_settings_title">Minutes mindful du yoga</string>
 </resources>

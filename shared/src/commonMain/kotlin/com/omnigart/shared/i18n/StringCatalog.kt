@@ -89,6 +89,24 @@ object StringKeys {
     const val WORKOUT_HARD_SETS = "workout_hard_sets"
     const val WORKOUT_PER_EXERCISE = "workout_per_exercise"
     const val WORKOUT_INTRO = "workout_intro"
+    const val WORKOUT_SUMMARY_DURATION = "workout_summary_duration"
+    const val WORKOUT_SUMMARY_ACTIVE_KCAL = "workout_summary_active_kcal"
+    const val WORKOUT_SUMMARY_TOTAL_KCAL = "workout_summary_total_kcal"
+    const val WORKOUT_SUMMARY_AVG_HR = "workout_summary_avg_hr"
+    const val WORKOUT_SUMMARY_MAX_HR = "workout_summary_max_hr"
+    const val WORKOUT_SUMMARY_ENERGY_ESTIMATE = "workout_summary_energy_estimate"
+    const val WORKOUT_SUMMARY_EFFORT = "workout_summary_effort"
+    const val WORKOUT_SUMMARY_HR_RECOVERY = "workout_summary_hr_recovery"
+    const val WORKOUT_START_ON_WATCH = "workout_start_on_watch"
+    const val WORKOUT_WATCH_STARTED = "workout_watch_started"
+    const val WORKOUT_WATCH_UNAVAILABLE = "workout_watch_unavailable"
+    const val WORKOUT_START_IPHONE_ESTIMATE = "workout_start_iphone_estimate"
+    const val WORKOUT_YOGA_TITLE = "workout_yoga_title"
+    const val WORKOUT_PILATES_TITLE = "workout_pilates_title"
+    const val WORKOUT_MINDFUL_BODY_INTRO = "workout_mindful_body_intro"
+    const val WORKOUT_MINDFUL_MINUTES_TOGGLE = "workout_mindful_minutes_toggle"
+    const val WORKOUT_MINDFUL_MINUTES_BODY = "workout_mindful_minutes_body"
+    const val WORKOUT_MINDFUL_SETTINGS_TITLE = "workout_mindful_settings_title"
 }
 
 object StringCatalog {
@@ -133,9 +151,11 @@ object StringCatalog {
             StringKeys.ONBOARDING_ACTIVITY_TITLE to "Typical daily activity",
             StringKeys.PERM_EXPLAINER_HEALTH_TITLE to "Apple Health / Health Connect",
             StringKeys.PERM_EXPLAINER_HEALTH_BODY to
-                "OmniGart can read and write wellness samples (heart rate, HRV, sleep, workouts, " +
-                "body mass, hydration) to improve on-device estimates. Data is not used for ads " +
-                "or sent to unrelated third parties. You can continue without granting access.",
+                "OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, " +
+                "active and resting energy, heart-rate recovery, workout effort, optional mindful " +
+                "minutes, body mass, and hydration — so sessions can appear in Apple Fitness with " +
+                "duration and calories. Data is not used for ads or sent to unrelated third parties. " +
+                "You can continue without granting access.",
             StringKeys.PERM_CONTINUE to "Continue",
             StringKeys.PERM_NOT_NOW to "Not now",
             StringKeys.INFO_SHEET_TITLE to "About this estimate",
@@ -202,7 +222,28 @@ object StringCatalog {
             StringKeys.WORKOUT_PER_EXERCISE to "Per exercise",
             StringKeys.WORKOUT_INTRO to
                 "Log strength sets for wellness training estimates. Figures are coaching aids, " +
-                "not medical advice."
+                "not medical advice.",
+            StringKeys.WORKOUT_SUMMARY_DURATION to "Duration",
+            StringKeys.WORKOUT_SUMMARY_ACTIVE_KCAL to "Active kcal",
+            StringKeys.WORKOUT_SUMMARY_TOTAL_KCAL to "Total kcal",
+            StringKeys.WORKOUT_SUMMARY_AVG_HR to "Average heart rate",
+            StringKeys.WORKOUT_SUMMARY_MAX_HR to "Max heart rate",
+            StringKeys.WORKOUT_SUMMARY_ENERGY_ESTIMATE to "Energy is a wellness estimate (MET × body weight).",
+            StringKeys.WORKOUT_SUMMARY_EFFORT to "Effort score",
+            StringKeys.WORKOUT_SUMMARY_HR_RECOVERY to "Heart-rate recovery",
+            StringKeys.WORKOUT_START_ON_WATCH to "Start on Apple Watch",
+            StringKeys.WORKOUT_WATCH_STARTED to "Watch workout starting…",
+            StringKeys.WORKOUT_WATCH_UNAVAILABLE to "Watch unavailable — use iPhone estimate below.",
+            StringKeys.WORKOUT_START_IPHONE_ESTIMATE to "Log on iPhone (estimate)",
+            StringKeys.WORKOUT_YOGA_TITLE to "Yoga",
+            StringKeys.WORKOUT_PILATES_TITLE to "Pilates",
+            StringKeys.WORKOUT_MINDFUL_BODY_INTRO to
+                "Prefer a live watch session for heart rate and energy. On iPhone alone, OmniGart " +
+                "saves a MET wellness estimate labelled as such.",
+            StringKeys.WORKOUT_MINDFUL_MINUTES_TOGGLE to "Save mindful minutes for yoga",
+            StringKeys.WORKOUT_MINDFUL_MINUTES_BODY to
+                "Optional. Off by default. Writes a mindful session only when you enable this.",
+            StringKeys.WORKOUT_MINDFUL_SETTINGS_TITLE to "Yoga mindful minutes"
         )
 
     private val uk: Map<String, String> =
@@ -244,10 +285,10 @@ object StringCatalog {
             StringKeys.ONBOARDING_ACTIVITY_TITLE to "Типова щоденна активність",
             StringKeys.PERM_EXPLAINER_HEALTH_TITLE to "Apple Health / Health Connect",
             StringKeys.PERM_EXPLAINER_HEALTH_BODY to
-                "OmniGart може читати й записувати зразки самопочуття (пульс, ВСР, сон, " +
-                "тренування, маса тіла, гідратація), щоб покращувати оцінки на пристрої. " +
-                "Дані не використовуються для реклами і не надсилаються стороннім сервісам. " +
-                "Можна продовжити без доступу.",
+                "OmniGart може читати й записувати зразки самопочуття — пульс, ВСР, сон, тренування, " +
+                "активну й базальну енергію, відновлення пульсу, оцінку зусилля, за бажанням хвилини " +
+                "усвідомленості, масу тіла та гідратацію — щоб сесії з’являлися в Apple Fitness. " +
+                "Дані не для реклами й не передаються стороннім. Можна продовжити без доступу.",
             StringKeys.PERM_CONTINUE to "Продовжити",
             StringKeys.PERM_NOT_NOW to "Не зараз",
             StringKeys.INFO_SHEET_TITLE to "Про цю оцінку",
@@ -314,7 +355,28 @@ object StringCatalog {
             StringKeys.WORKOUT_PER_EXERCISE to "За вправами",
             StringKeys.WORKOUT_INTRO to
                 "Записуйте силові сети для оцінок тренувань. Показники — тренерські підказки, " +
-                "а не медична консультація."
+                "а не медична консультація.",
+            StringKeys.WORKOUT_SUMMARY_DURATION to "Тривалість",
+            StringKeys.WORKOUT_SUMMARY_ACTIVE_KCAL to "Активні ккал",
+            StringKeys.WORKOUT_SUMMARY_TOTAL_KCAL to "Усього ккал",
+            StringKeys.WORKOUT_SUMMARY_AVG_HR to "Середній пульс",
+            StringKeys.WORKOUT_SUMMARY_MAX_HR to "Максимальний пульс",
+            StringKeys.WORKOUT_SUMMARY_ENERGY_ESTIMATE to "Енергія — оцінка самопочуття (MET × маса тіла).",
+            StringKeys.WORKOUT_SUMMARY_EFFORT to "Оцінка зусилля",
+            StringKeys.WORKOUT_SUMMARY_HR_RECOVERY to "Відновлення пульсу",
+            StringKeys.WORKOUT_START_ON_WATCH to "Почати на Apple Watch",
+            StringKeys.WORKOUT_WATCH_STARTED to "Запуск тренування на годиннику…",
+            StringKeys.WORKOUT_WATCH_UNAVAILABLE to "Годинник недоступний — використайте оцінку на iPhone.",
+            StringKeys.WORKOUT_START_IPHONE_ESTIMATE to "Запис на iPhone (оцінка)",
+            StringKeys.WORKOUT_YOGA_TITLE to "Йога",
+            StringKeys.WORKOUT_PILATES_TITLE to "Пілатес",
+            StringKeys.WORKOUT_MINDFUL_BODY_INTRO to
+                "Краще жива сесія на годиннику для пульсу й енергії. Лише на iPhone OmniGart " +
+                "зберігає оцінку MET із відповідною позначкою.",
+            StringKeys.WORKOUT_MINDFUL_MINUTES_TOGGLE to "Зберігати хвилини усвідомленості для йоги",
+            StringKeys.WORKOUT_MINDFUL_MINUTES_BODY to
+                "За бажанням. Типово вимкнено. Записує mindful-сесію лише коли ви це вмикаєте.",
+            StringKeys.WORKOUT_MINDFUL_SETTINGS_TITLE to "Усвідомленість у йозі"
         )
 
     private val catalogs: Map<String, Map<String, String>> =

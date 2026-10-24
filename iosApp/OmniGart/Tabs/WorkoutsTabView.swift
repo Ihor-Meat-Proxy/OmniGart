@@ -96,6 +96,12 @@ struct WorkoutsTabView: View {
                         .accessibilityIdentifier("workouts_zone2_status")
                 }
             }
+            Section("treadmill_run_title") {
+                // Lazy destination: avoid constructing TreadmillRunView (and its BLE
+                // managers) while the Workouts tab is merely listed in the TabView.
+                NavigationLink("treadmill_run_open", value: WorkoutsRoute.treadmill)
+                    .accessibilityIdentifier("workouts_treadmill_open")
+            }
             Section("workouts_log_title") {
                 StrengthLoggingView(core: core, profileId: profileId)
             }
@@ -109,6 +115,12 @@ struct WorkoutsTabView: View {
         .navigationTitle(Text("tab_workouts"))
         .scrollContentBackground(.hidden)
         .background(Color.OmniGart.colorSurfaceLightCanvas.ignoresSafeArea())
+        .navigationDestination(for: WorkoutsRoute.self) { route in
+            switch route {
+            case .treadmill:
+                TreadmillRunView(core: core, profileId: profileId)
+            }
+        }
     }
 
     private func startZone2() {
@@ -135,6 +147,10 @@ struct WorkoutsTabView: View {
     }
 
     private func muscleList(_ muscles: [String]) -> [String] { muscles }
+}
+
+private enum WorkoutsRoute: Hashable {
+    case treadmill
 }
 
 /// Compact muscle region icons for the exercise library (body-map cue).

@@ -29,6 +29,7 @@ fun DebugMenu(modifier: Modifier = Modifier) {
             .testTag("debug_menu")
     ) {
         Text("DebugMenu — development only")
+        Text("Treadmill diagnostics: long-press the Treadmill run title in Workouts.")
     }
 }
 

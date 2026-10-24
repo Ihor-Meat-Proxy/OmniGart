@@ -29,7 +29,7 @@
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>OmniGart on Apple Watch saves workouts you complete — with duration, active and resting energy, distance, and heart rate — to Apple Health so they appear in the Fitness app. Data is not used for ads or sold to third parties.</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>OmniGart may use Bluetooth for compatible heart-rate accessories during workouts. The watch app remains usable without an accessory.</string>
+	<string>OmniGart may use Bluetooth during an indoor treadmill run to read speed, incline, and distance from a compatible treadmill, and for heart-rate accessories you choose. The watch app remains usable without an accessory.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera access is not required on Apple Watch for OmniGart; this description exists for shared permission strings with the iPhone app.</string>
 	<key>NSUserNotificationsUsageDescription</key>

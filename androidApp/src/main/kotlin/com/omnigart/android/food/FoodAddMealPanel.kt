@@ -65,19 +65,36 @@ internal fun FoodAddMealPanel(
         CatalogueResultRow(core, profileId, food, meal, portion, onLogged)
     }
     FoodAddMealRecents(core, profileId, meal, onLogged)
-    FoodAddMealQuickAdd(
-        name = name,
-        onName = { name = it },
-        energy = energy,
-        onEnergy = { energy = it },
-        protein = protein,
-        carbs = carbs,
-        fat = fat,
-        meal = meal,
-        core = core,
-        profileId = profileId,
-        onLogged = onLogged
+    Text(stringResource(R.string.food_quick_add_title), style = MaterialTheme.typography.titleSmall)
+    OutlinedTextField(
+        value = name,
+        onValueChange = { name = it },
+        label = { Text(stringResource(R.string.food_name_placeholder)) },
+        modifier = Modifier.fillMaxWidth().testTag("food_name")
     )
+    OutlinedTextField(
+        value = energy,
+        onValueChange = { energy = it },
+        label = { Text(stringResource(R.string.food_energy_kcal)) },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+        modifier = Modifier.fillMaxWidth().testTag("food_energy")
+    )
+    Button(
+        onClick = {
+            val trimmed = name.trim()
+            if (trimmed.isEmpty()) return@Button
+            val kcal = energy.toDoubleOrNull() ?: 0.0
+            val proteinG = protein.toDoubleOrNull() ?: 0.0
+            val carbsG = carbs.toDoubleOrNull() ?: 0.0
+            val fatG = fat.toDoubleOrNull() ?: 0.0
+            core.foodLogging.quickAdd(profileId, QuickMacroAdd(trimmed, kcal, proteinG, carbsG, fatG), meal)
+            core.logFood(profileId, trimmed, kcal, proteinG, carbsG, fatG)
+            onLogged()
+        },
+        modifier = Modifier.testTag("food_add_confirm")
+    ) {
+        Text(stringResource(R.string.food_add))
+    }
     OutlinedTextField(
         value = barcode,
         onValueChange = { barcode = it },
@@ -105,52 +122,6 @@ internal fun FoodAddMealPanel(
         Text(stringResource(R.string.food_barcode_lookup))
     }
     TextButton(onClick = onDismiss) { Text(stringResource(R.string.onboarding_skip)) }
-}
-
-@Composable
-private fun FoodAddMealQuickAdd(
-    name: String,
-    onName: (String) -> Unit,
-    energy: String,
-    onEnergy: (String) -> Unit,
-    protein: String,
-    carbs: String,
-    fat: String,
-    meal: MealGroup,
-    core: OmniGartCore,
-    profileId: String,
-    onLogged: () -> Unit
-) {
-    Text(stringResource(R.string.food_quick_add_title), style = MaterialTheme.typography.titleSmall)
-    OutlinedTextField(
-        value = name,
-        onValueChange = onName,
-        label = { Text(stringResource(R.string.food_name_placeholder)) },
-        modifier = Modifier.fillMaxWidth().testTag("food_name")
-    )
-    OutlinedTextField(
-        value = energy,
-        onValueChange = onEnergy,
-        label = { Text(stringResource(R.string.food_energy_kcal)) },
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-        modifier = Modifier.fillMaxWidth().testTag("food_energy")
-    )
-    Button(
-        onClick = {
-            val trimmed = name.trim()
-            if (trimmed.isEmpty()) return@Button
-            val kcal = energy.toDoubleOrNull() ?: 0.0
-            val proteinG = protein.toDoubleOrNull() ?: 0.0
-            val carbsG = carbs.toDoubleOrNull() ?: 0.0
-            val fatG = fat.toDoubleOrNull() ?: 0.0
-            core.foodLogging.quickAdd(profileId, QuickMacroAdd(trimmed, kcal, proteinG, carbsG, fatG), meal)
-            core.logFood(profileId, trimmed, kcal, proteinG, carbsG, fatG)
-            onLogged()
-        },
-        modifier = Modifier.testTag("food_add_confirm")
-    ) {
-        Text(stringResource(R.string.food_add))
-    }
 }
 
 @Composable

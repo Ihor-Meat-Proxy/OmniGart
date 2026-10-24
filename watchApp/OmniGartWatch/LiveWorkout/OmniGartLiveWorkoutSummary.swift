@@ -11,6 +11,8 @@ struct OmniGartLiveWorkoutSummary: Equatable, Sendable {
     var segmentCount: Int
     var startedAt: Date
     var endedAt: Date
+    /// Strength set logs for device-transfer schema v2 (empty for non-strength).
+    var sets: [OmniGartLoggedStrengthSet] = []
 
     var totalEnergyKcal: Double { activeEnergyKcal + basalEnergyKcal }
 }

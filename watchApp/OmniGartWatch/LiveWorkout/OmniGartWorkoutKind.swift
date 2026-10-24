@@ -14,6 +14,14 @@ enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable
 
     var id: String { rawValue }
 
+    /// Traditional / functional strength — crown set logging + rest haptics.
+    var isStrength: Bool {
+        switch self {
+        case .traditionalStrength, .functionalStrength: return true
+        default: return false
+        }
+    }
+
     var activityType: HKWorkoutActivityType {
         switch self {
         case .traditionalStrength: return .traditionalStrengthTraining

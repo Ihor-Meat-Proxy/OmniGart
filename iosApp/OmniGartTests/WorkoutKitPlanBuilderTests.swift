@@ -68,15 +68,48 @@ final class WorkoutKitPlanBuilderTests: XCTestCase {
         XCTAssertEqual(band.upperBpm, 144)
     }
 
-    func testRejectsStrength() {
+    func testAcceptsStrengthWorkRecovery() throws {
         let json: [String: Any] = [
             "id": "s1",
             "activityType": "STRENGTH",
             "displayNameKey": "strength",
-            "blocks": [["kind": "WORK", "displayNameKey": "sets"]]
+            "blocks": [
+                [
+                    "kind": "WORK",
+                    "displayNameKey": "set",
+                    "goal": ["kind": "OPEN", "value": 0.0],
+                    "repeatCount": 1
+                ],
+                [
+                    "kind": "RECOVERY",
+                    "displayNameKey": "rest",
+                    "goal": ["kind": "TIME_SECONDS", "value": 90.0],
+                    "repeatCount": 1
+                ]
+            ]
+        ]
+        let draft = try WorkoutKitPlanBuilder.draft(from: json)
+        XCTAssertEqual(draft.activity, "STRENGTH")
+        XCTAssertEqual(draft.blocks.count, 2)
+        XCTAssertEqual(draft.blocks[0].kind, "WORK")
+        XCTAssertEqual(draft.blocks[1].kind, "RECOVERY")
+    }
+
+    func testRejectsStrengthUnsupportedBlock() {
+        let json: [String: Any] = [
+            "id": "s1",
+            "activityType": "STRENGTH",
+            "displayNameKey": "strength",
+            "blocks": [["kind": "STRENGTH_UNSUPPORTED", "displayNameKey": "sets"]]
         ]
         XCTAssertThrowsError(try WorkoutKitPlanBuilder.draft(from: json)) { error in
-            XCTAssertTrue(error is WorkoutKitPlanBuilder.BuilderError)
+            guard let builderError = error as? WorkoutKitPlanBuilder.BuilderError else {
+                return XCTFail("expected BuilderError")
+            }
+            if case .strengthUnsupported = builderError {
+                return
+            }
+            XCTFail("expected strengthUnsupported, got \(builderError)")
         }
     }
 }

@@ -45,13 +45,103 @@ class LocalHealthBridge(
         notes: String? = null,
         steps: Long? = null,
         sourceName: String? = "OmniGart"
+    ): String = recordOmniGartWorkoutWithSets(
+        localId = localId,
+        activityTypeName = activityTypeName,
+        startEpochMs = startEpochMs,
+        endEpochMs = endEpochMs,
+        activeEnergyKcal = activeEnergyKcal,
+        basalEnergyKcal = basalEnergyKcal,
+        distanceMetres = distanceMetres,
+        averageHeartRateBpm = averageHeartRateBpm,
+        maxHeartRateBpm = maxHeartRateBpm,
+        sessionId = sessionId,
+        planId = planId,
+        heartRateEpochMs = heartRateEpochMs,
+        heartRateBpm = heartRateBpm,
+        setIds = emptyArray(),
+        setExerciseKeys = emptyArray(),
+        setIndexes = IntArray(0),
+        setReps = IntArray(0),
+        setLoadKg = DoubleArray(0),
+        setIsWarmup = BooleanArray(0),
+        setRir = DoubleArray(0),
+        setRpe = DoubleArray(0),
+        setIsDrop = BooleanArray(0),
+        setIsFailure = BooleanArray(0),
+        syncVersion = syncVersion,
+        notes = notes,
+        steps = steps,
+        sourceName = sourceName
+    )
+
+    /**
+     * Persist a finished OmniGart session including per-set rows (append-only platform write later).
+     * Parallel primitive arrays keep the API Swift/ObjC-friendly.
+     * Use negative [setReps]/[setRir]/[setRpe]/[setLoadKg] as “null” sentinels.
+     */
+    @Suppress("LongParameterList")
+    fun recordOmniGartWorkoutWithSets(
+        localId: String,
+        activityTypeName: String,
+        startEpochMs: Long,
+        endEpochMs: Long,
+        activeEnergyKcal: Double?,
+        basalEnergyKcal: Double?,
+        distanceMetres: Double?,
+        averageHeartRateBpm: Double?,
+        maxHeartRateBpm: Double?,
+        sessionId: String?,
+        planId: String?,
+        heartRateEpochMs: LongArray,
+        heartRateBpm: DoubleArray,
+        setIds: Array<String>,
+        setExerciseKeys: Array<String>,
+        setIndexes: IntArray,
+        setReps: IntArray,
+        setLoadKg: DoubleArray,
+        setIsWarmup: BooleanArray,
+        setRir: DoubleArray,
+        setRpe: DoubleArray,
+        setIsDrop: BooleanArray,
+        setIsFailure: BooleanArray,
+        syncVersion: Long = 1,
+        notes: String? = null,
+        steps: Long? = null,
+        sourceName: String? = "OmniGart"
     ): String {
         require(heartRateEpochMs.size == heartRateBpm.size)
+        require(
+            setIds.size == setExerciseKeys.size &&
+                setIds.size == setIndexes.size &&
+                setIds.size == setReps.size &&
+                setIds.size == setLoadKg.size &&
+                setIds.size == setIsWarmup.size &&
+                setIds.size == setRir.size &&
+                setIds.size == setRpe.size &&
+                setIds.size == setIsDrop.size &&
+                setIds.size == setIsFailure.size
+        )
         val hr =
             heartRateEpochMs.indices.map { i ->
                 LocalHeartRatePoint(
                     recordedAt = Instant.fromEpochMilliseconds(heartRateEpochMs[i]),
                     beatsPerMinute = heartRateBpm[i]
+                )
+            }
+        val sets =
+            setIds.indices.map { i ->
+                LocalWorkoutSet(
+                    id = setIds[i],
+                    exerciseKey = setExerciseKeys[i],
+                    setIndex = setIndexes[i],
+                    reps = setReps[i].takeIf { it >= 0 },
+                    loadKg = setLoadKg[i].takeIf { it >= 0 },
+                    rir = setRir[i].takeIf { it >= 0 },
+                    rpe = setRpe[i].takeIf { it >= 0 },
+                    isWarmup = setIsWarmup[i],
+                    isDropSet = setIsDrop[i],
+                    isFailure = setIsFailure[i]
                 )
             }
         val activity =
@@ -78,7 +168,8 @@ class LocalHealthBridge(
                 sourceName = sourceName,
                 updatedAt = clock.now(),
                 notes = notes,
-                heartRateSeries = hr
+                heartRateSeries = hr,
+                sets = sets
             )
         sync.recordLocally(workout)
         return syncId
@@ -210,9 +301,70 @@ class LocalHealthBridge(
         heartRateEpochMs: LongArray,
         heartRateBpm: DoubleArray,
         sourceDevice: String
+    ): String = buildDeviceTransferJsonWithSets(
+        localId = localId,
+        activityTypeName = activityTypeName,
+        startEpochMs = startEpochMs,
+        endEpochMs = endEpochMs,
+        activeEnergyKcal = activeEnergyKcal,
+        basalEnergyKcal = basalEnergyKcal,
+        distanceMetres = distanceMetres,
+        averageHeartRateBpm = averageHeartRateBpm,
+        maxHeartRateBpm = maxHeartRateBpm,
+        averageCadenceSpm = averageCadenceSpm,
+        heartRateEpochMs = heartRateEpochMs,
+        heartRateBpm = heartRateBpm,
+        sourceDevice = sourceDevice,
+        setIds = emptyArray(),
+        setExerciseKeys = emptyArray(),
+        setIndexes = IntArray(0),
+        setReps = IntArray(0),
+        setLoadKg = DoubleArray(0),
+        setIsWarmup = BooleanArray(0)
+    )
+
+    @Suppress("LongParameterList")
+    fun buildDeviceTransferJsonWithSets(
+        localId: String,
+        activityTypeName: String,
+        startEpochMs: Long,
+        endEpochMs: Long,
+        activeEnergyKcal: Double?,
+        basalEnergyKcal: Double?,
+        distanceMetres: Double?,
+        averageHeartRateBpm: Double?,
+        maxHeartRateBpm: Double?,
+        averageCadenceSpm: Double?,
+        heartRateEpochMs: LongArray,
+        heartRateBpm: DoubleArray,
+        sourceDevice: String,
+        setIds: Array<String>,
+        setExerciseKeys: Array<String>,
+        setIndexes: IntArray,
+        setReps: IntArray,
+        setLoadKg: DoubleArray,
+        setIsWarmup: BooleanArray
     ): String {
         require(heartRateEpochMs.size == heartRateBpm.size)
+        require(
+            setIds.size == setExerciseKeys.size &&
+                setIds.size == setIndexes.size &&
+                setIds.size == setReps.size &&
+                setIds.size == setLoadKg.size &&
+                setIds.size == setIsWarmup.size
+        )
         val syncId = HealthDataMapper.syncIdentifierFor(localId)
+        val sets =
+            setIds.indices.map { i ->
+                com.omnigart.shared.health.store.device.DeviceWorkoutTransferSet(
+                    id = setIds[i],
+                    exerciseKey = setExerciseKeys[i],
+                    setIndex = setIndexes[i],
+                    reps = setReps[i].takeIf { it >= 0 },
+                    loadKg = setLoadKg[i].takeIf { it >= 0 },
+                    isWarmup = setIsWarmup[i]
+                )
+            }
         val doc =
             DeviceWorkoutTransferDocument(
                 localId = localId,
@@ -229,6 +381,7 @@ class LocalHealthBridge(
                 averageCadenceSpm = averageCadenceSpm,
                 heartRateEpochMs = heartRateEpochMs.toList(),
                 heartRateBpm = heartRateBpm.toList(),
+                sets = sets,
                 sourceDevice = sourceDevice
             )
         return DeviceWorkoutTransferCodec.encode(doc)

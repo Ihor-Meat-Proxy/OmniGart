@@ -109,7 +109,7 @@ Unmapped platform types import as `OTHER` and keep the raw platform type in `not
 
 ## Device transfer (Watch / Wear → phone)
 
-Wire schema: `omnigart.device.workout.transfer` (`DeviceWorkoutTransferDocument`, schemaVersion 1). Keyed by the same `omnigart.workout.<localId>` sync identifier used for platform dedupe. Phone ingest is **idempotent** (`HealthSyncEngine.ingestDeviceTransfer`).
+Wire schema: `omnigart.device.workout.transfer` (`DeviceWorkoutTransferDocument`, schemaVersion **2**; v1 still accepted). Keyed by the same `omnigart.workout.<localId>` sync identifier used for platform dedupe. Phone ingest is **idempotent** (`HealthSyncEngine.ingestDeviceTransfer`). Schema v2 adds optional `sets[]` (exercise key, index, reps, load kg, RIR/RPE, warm-up / drop / failure flags) so watch and Wear per-set logs land in the local store without re-writing HealthKit / Health Connect.
 
 ### Apple Watch → iPhone
 

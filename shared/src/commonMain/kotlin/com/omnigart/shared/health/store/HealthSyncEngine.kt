@@ -45,7 +45,7 @@ class HealthSyncEngine(private val store: LocalHealthStore, private val clock: C
         if (document.schema != DeviceWorkoutTransferDocument.SCHEMA_ID) {
             return DeviceTransferIngestResult.REJECTED
         }
-        if (document.schemaVersion != DeviceWorkoutTransferDocument.SCHEMA_VERSION) {
+        if (!DeviceWorkoutTransferDocument.isSupportedSchemaVersion(document.schemaVersion)) {
             return DeviceTransferIngestResult.REJECTED
         }
         if (!HealthDataMapper.mayWriteToPlatform(

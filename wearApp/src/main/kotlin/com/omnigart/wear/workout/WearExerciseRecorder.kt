@@ -13,10 +13,13 @@ import androidx.health.services.client.data.ExerciseUpdate
 import com.google.common.util.concurrent.ListenableFuture
 import com.omnigart.shared.OmniGartCore
 import com.omnigart.shared.health.store.device.DeviceWorkoutTransferDocument
+import com.omnigart.shared.logging.DEFAULT_REST_SECONDS
+import com.omnigart.shared.logging.RestTimerState
 import java.util.UUID
 import java.util.concurrent.CopyOnWriteArrayList
 import java.util.concurrent.Executor
 import java.util.concurrent.atomic.AtomicBoolean
+import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.atomic.AtomicReference
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -26,10 +29,31 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 
+/** One in-memory strength set pending transfer with the finished workout. */
+data class WearLoggedStrengthSet(
+    val id: String = UUID.randomUUID().toString(),
+    val exerciseKey: String,
+    val exerciseName: String,
+    val setIndex: Int,
+    val reps: Int,
+    val loadKg: Double,
+    val isWarmup: Boolean = false,
+    val target: String? = null
+)
+
+enum class WearWorkoutMode {
+    RUNNING,
+    STRENGTH
+}
+
 /**
  * Records with Health Services [ExerciseClient], keeps a Wear local copy, then sends to the phone
  * via [WearPhoneWorkoutTransfer]. The Wear copy is dropped when the phone acks.
+ *
+ * Strength mode uses WEIGHTLIFTING / STRENGTH_TRAINING when the device supports them,
+ * tracks per-set logs in memory, and transfers `activityTypeName = STRENGTH` with schema v2 sets.
  */
+@Suppress("TooManyFunctions")
 class WearExerciseRecorder(
     context: Context,
     private val core: OmniGartCore,
@@ -45,6 +69,15 @@ class WearExerciseRecorder(
     private val activeEnergyKcal = AtomicReference(0.0)
     private val distanceMetres = AtomicReference(0.0)
     private val lastError = AtomicReference<String?>(null)
+    private val mode = AtomicReference(WearWorkoutMode.RUNNING)
+    private val loggedSets = CopyOnWriteArrayList<WearLoggedStrengthSet>()
+    private val restTimer = AtomicReference(RestTimerState())
+    private val currentExerciseName = AtomicReference("Exercise")
+    private val currentExerciseKey = AtomicReference("exercise")
+    private val currentSetNumber = AtomicInteger(1)
+    private val weightKg = AtomicReference(60.0)
+    private val reps = AtomicInteger(8)
+    private val uiEpoch = AtomicInteger(0)
 
     private val callback =
         object : ExerciseUpdateCallback {
@@ -58,6 +91,7 @@ class WearExerciseRecorder(
                 update.latestMetrics.getData(DataType.DISTANCE_TOTAL)?.let { point ->
                     distanceMetres.set(point.total)
                 }
+                bumpUi()
             }
 
             override fun onLapSummaryReceived(lapSummary: ExerciseLapSummary) = Unit
@@ -66,6 +100,7 @@ class WearExerciseRecorder(
 
             override fun onRegistrationFailed(throwable: Throwable) {
                 lastError.set(throwable.message)
+                bumpUi()
             }
 
             override fun onAvailabilityChanged(dataType: DataType<*, *>, availability: Availability) = Unit
@@ -75,32 +110,93 @@ class WearExerciseRecorder(
 
     fun lastError(): String? = lastError.get()
 
-    fun start() {
+    fun mode(): WearWorkoutMode = mode.get()
+
+    fun loggedSets(): List<WearLoggedStrengthSet> = loggedSets.toList()
+
+    fun restRemainingSeconds(): Int = restTimer.get().remainingSeconds
+
+    fun isRestRunning(): Boolean = restTimer.get().running
+
+    fun currentExerciseName(): String = currentExerciseName.get()
+
+    fun currentSetNumber(): Int = currentSetNumber.get()
+
+    fun weightKg(): Double = weightKg.get()
+
+    fun reps(): Int = reps.get()
+
+    fun heartRateBpm(): Int = hrBpmSamples.lastOrNull()?.toInt() ?: 0
+
+    fun activeEnergyKcal(): Double = activeEnergyKcal.get()
+
+    fun uiEpoch(): Int = uiEpoch.get()
+
+    fun setCurrentExercise(name: String, key: String = name.lowercase().replace(' ', '-')) {
+        currentExerciseName.set(name)
+        currentExerciseKey.set(key)
+        bumpUi()
+    }
+
+    fun setWeightKg(value: Double) {
+        weightKg.set(value.coerceAtLeast(0.0))
+        bumpUi()
+    }
+
+    fun setReps(value: Int) {
+        reps.set(value.coerceAtLeast(1))
+        bumpUi()
+    }
+
+    fun adjustWeight(deltaKg: Double) {
+        setWeightKg(weightKg.get() + deltaKg)
+    }
+
+    fun adjustReps(delta: Int) {
+        setReps(reps.get() + delta)
+    }
+
+    fun start(workoutMode: WearWorkoutMode = WearWorkoutMode.RUNNING) {
         if (!running.compareAndSet(false, true)) return
         lastError.set(null)
+        mode.set(workoutMode)
         hrBpmSamples.clear()
         activeEnergyKcal.set(0.0)
         distanceMetres.set(0.0)
+        loggedSets.clear()
+        restTimer.set(RestTimerState())
+        currentSetNumber.set(1)
         startedAtMs.set(System.currentTimeMillis())
+        bumpUi()
         exerciseClient.setUpdateCallback(callback)
         // Outdoor-style RUNNING remains the default Health Services type; treadmill
         // BLE distance overrides the live UI / local save when a belt is linked.
-        val config =
-            ExerciseConfig.builder(ExerciseType.RUNNING)
-                .setDataTypes(
-                    setOf(
-                        DataType.HEART_RATE_BPM,
-                        DataType.CALORIES_TOTAL,
-                        DataType.DISTANCE_TOTAL
-                    )
-                )
-                .setIsAutoPauseAndResumeEnabled(false)
-                .build()
+        // STRENGTH uses a resolved strength ExerciseType without distance.
         scope.launch {
+            val exerciseType =
+                if (workoutMode == WearWorkoutMode.STRENGTH) {
+                    resolveStrengthExerciseType()
+                } else {
+                    ExerciseType.RUNNING
+                }
+            val dataTypes =
+                buildSet {
+                    add(DataType.HEART_RATE_BPM)
+                    add(DataType.CALORIES_TOTAL)
+                    if (workoutMode == WearWorkoutMode.RUNNING) {
+                        add(DataType.DISTANCE_TOTAL)
+                    }
+                }
+            val config =
+                ExerciseConfig.builder(exerciseType)
+                    .setDataTypes(dataTypes)
+                    .setIsAutoPauseAndResumeEnabled(false)
+                    .build()
             runCatching { awaitFuture(exerciseClient.startExerciseAsync(config)) }
                 .onFailure {
                     lastError.set(it.message)
                     running.set(false)
+                    bumpUi()
                 }
         }
     }
@@ -119,14 +215,22 @@ class WearExerciseRecorder(
                         startEpochMs = startedAtMs.get() ?: (System.currentTimeMillis() - 60_000L),
                         endEpochMs = System.currentTimeMillis(),
                         activeEnergyKcal = activeEnergyKcal.get().takeIf { it > 0 },
-                        distanceMetres = distanceMetres.get().takeIf { it > 0 },
-                        hrBpms = hrBpmSamples.toList()
+                        distanceMetres =
+                        distanceMetres.get().takeIf {
+                            it > 0 && mode.get() == WearWorkoutMode.RUNNING
+                        },
+                        hrBpms = hrBpmSamples.toList(),
+                        sets = loggedSets.toList(),
+                        activityTypeName =
+                        if (mode.get() == WearWorkoutMode.STRENGTH) "STRENGTH" else "RUNNING"
                     )
                 }.getOrElse {
                     lastError.set(it.message)
                     null
                 }
             running.set(false)
+            restTimer.set(RestTimerState())
+            bumpUi()
             onDone(syncId)
         }
     }
@@ -141,8 +245,73 @@ class WearExerciseRecorder(
             endEpochMs = end,
             activeEnergyKcal = 50.0,
             distanceMetres = 400.0,
-            hrBpms = listOf(118.0, 122.0)
+            hrBpms = listOf(118.0, 122.0),
+            sets = emptyList(),
+            activityTypeName = "RUNNING"
         )
+    }
+
+    /** Strength smoke path: publish STRENGTH with optional in-memory sets. */
+    fun recordManualStrengthAndTransfer(durationMs: Long = 60_000L, sets: List<WearLoggedStrengthSet> = loggedSets.toList()): String {
+        val end = System.currentTimeMillis()
+        return publishLocalAndTransfer(
+            startEpochMs = end - durationMs,
+            endEpochMs = end,
+            activeEnergyKcal = 80.0,
+            distanceMetres = null,
+            hrBpms = listOf(110.0, 125.0),
+            sets = sets,
+            activityTypeName = "STRENGTH"
+        )
+    }
+
+    fun logSet(isWarmup: Boolean = false, restSeconds: Int = DEFAULT_REST_SECONDS): WearLoggedStrengthSet {
+        val set =
+            WearLoggedStrengthSet(
+                exerciseKey = currentExerciseKey.get(),
+                exerciseName = currentExerciseName.get(),
+                setIndex = currentSetNumber.get(),
+                reps = reps.get(),
+                loadKg = weightKg.get(),
+                isWarmup = isWarmup
+            )
+        loggedSets.add(set)
+        if (!isWarmup) {
+            currentSetNumber.incrementAndGet()
+        }
+        restTimer.set(RestTimerState().start(restSeconds))
+        bumpUi()
+        return set
+    }
+
+    /** Host UI should call about once per second while a session is active. */
+    fun tickRest() {
+        val next = restTimer.get().tick()
+        if (next != restTimer.get()) {
+            restTimer.set(next)
+            bumpUi()
+        }
+    }
+
+    fun skipRest() {
+        restTimer.set(restTimer.get().skip())
+        bumpUi()
+    }
+
+    private fun bumpUi() {
+        uiEpoch.incrementAndGet()
+    }
+
+    private suspend fun resolveStrengthExerciseType(): ExerciseType {
+        val caps =
+            runCatching { awaitFuture(exerciseClient.getCapabilitiesAsync()) }.getOrNull()
+                ?: return ExerciseType.STRENGTH_TRAINING
+        val supported = caps.supportedExerciseTypes
+        return when {
+            ExerciseType.WEIGHTLIFTING in supported -> ExerciseType.WEIGHTLIFTING
+            ExerciseType.STRENGTH_TRAINING in supported -> ExerciseType.STRENGTH_TRAINING
+            else -> ExerciseType.RUNNING
+        }
     }
 
     private fun publishLocalAndTransfer(
@@ -150,7 +319,9 @@ class WearExerciseRecorder(
         endEpochMs: Long,
         activeEnergyKcal: Double?,
         distanceMetres: Double?,
-        hrBpms: List<Double>
+        hrBpms: List<Double>,
+        sets: List<WearLoggedStrengthSet>,
+        activityTypeName: String
     ): String {
         val localId = UUID.randomUUID().toString()
         val avg = hrBpms.takeIf { it.isNotEmpty() }?.average()
@@ -163,23 +334,62 @@ class WearExerciseRecorder(
                     startEpochMs + ((endEpochMs - startEpochMs) * i / (hrBpms.size - 1).coerceAtLeast(1))
                 }
             }
+        val setIds = sets.map { it.id }.toTypedArray()
+        val setExerciseKeys = sets.map { it.exerciseKey }.toTypedArray()
+        val setIndexes = sets.map { it.setIndex }.toIntArray()
+        val setReps = sets.map { it.reps }.toIntArray()
+        val setLoadKg = sets.map { it.loadKg }.toDoubleArray()
+        val setIsWarmup = sets.map { it.isWarmup }.toBooleanArray()
+        val setRir = DoubleArray(sets.size) { -1.0 }
+        val setRpe = DoubleArray(sets.size) { -1.0 }
+        val setIsDrop = BooleanArray(sets.size)
+        val setIsFailure = BooleanArray(sets.size)
         val syncId =
-            core.localHealth.recordOmniGartWorkout(
-                localId = localId,
-                activityTypeName = "RUNNING",
-                startEpochMs = startEpochMs,
-                endEpochMs = endEpochMs,
-                activeEnergyKcal = activeEnergyKcal,
-                basalEnergyKcal = null,
-                distanceMetres = distanceMetres,
-                averageHeartRateBpm = avg,
-                maxHeartRateBpm = max,
-                sessionId = null,
-                planId = null,
-                heartRateEpochMs = hrEpoch,
-                heartRateBpm = hrBpms.toDoubleArray(),
-                syncVersion = 1
-            )
+            if (sets.isEmpty()) {
+                core.localHealth.recordOmniGartWorkout(
+                    localId = localId,
+                    activityTypeName = activityTypeName,
+                    startEpochMs = startEpochMs,
+                    endEpochMs = endEpochMs,
+                    activeEnergyKcal = activeEnergyKcal,
+                    basalEnergyKcal = null,
+                    distanceMetres = distanceMetres,
+                    averageHeartRateBpm = avg,
+                    maxHeartRateBpm = max,
+                    sessionId = null,
+                    planId = null,
+                    heartRateEpochMs = hrEpoch,
+                    heartRateBpm = hrBpms.toDoubleArray(),
+                    syncVersion = 1
+                )
+            } else {
+                core.localHealth.recordOmniGartWorkoutWithSets(
+                    localId = localId,
+                    activityTypeName = activityTypeName,
+                    startEpochMs = startEpochMs,
+                    endEpochMs = endEpochMs,
+                    activeEnergyKcal = activeEnergyKcal,
+                    basalEnergyKcal = null,
+                    distanceMetres = distanceMetres,
+                    averageHeartRateBpm = avg,
+                    maxHeartRateBpm = max,
+                    sessionId = null,
+                    planId = null,
+                    heartRateEpochMs = hrEpoch,
+                    heartRateBpm = hrBpms.toDoubleArray(),
+                    setIds = setIds,
+                    setExerciseKeys = setExerciseKeys,
+                    setIndexes = setIndexes,
+                    setReps = setReps,
+                    setLoadKg = setLoadKg,
+                    setIsWarmup = setIsWarmup,
+                    setRir = setRir,
+                    setRpe = setRpe,
+                    setIsDrop = setIsDrop,
+                    setIsFailure = setIsFailure,
+                    syncVersion = 1
+                )
+            }
         val json =
             core.localHealth.encodeDeviceTransferJson(
                 localId,

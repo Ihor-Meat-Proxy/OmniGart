@@ -11,9 +11,7 @@
   ],
   "secondaryMuscles": [],
   "equipment": [
-    "machine",
-    "bodyweight",
-    "dumbbell"
+    "bodyweight"
   ],
   "level": "beginner",
   "unilateral": false,
@@ -64,11 +62,11 @@
   },
   "aliases": [],
   "tags": [],
-  "loadModel": "external_only",
+  "loadModel": "bodyweight_plus_external",
   "bodyweightFraction": {
-    "proportion": 0.0,
+    "proportion": 1.0,
     "basis": "estimate",
-    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+    "rationale": "Standing calf raise moves approximately full body mass; estimate ~1.0 BM."
   },
   "allowsAddedWeight": true,
   "allowsAssistance": false

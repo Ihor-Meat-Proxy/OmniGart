@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none" data-omnigart="equip:weight_vest">
+  <circle cx="64" cy="64" r="58" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <path d="M44 40 H84 V88 H72 V72 H56 V88 H44 Z" fill="#334155"/>
+  <rect x="52" y="48" width="8" height="8" rx="1" fill="#475569"/>
+  <rect x="68" y="48" width="8" height="8" rx="1" fill="#475569"/>
+  <rect x="52" y="60" width="8" height="8" rx="1" fill="#475569"/>
+  <rect x="68" y="60" width="8" height="8" rx="1" fill="#475569"/>
+
+</svg>

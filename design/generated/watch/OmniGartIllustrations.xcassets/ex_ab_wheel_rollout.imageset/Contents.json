@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "ex_ab_wheel_rollout.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "ex_ab_wheel_rollout.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

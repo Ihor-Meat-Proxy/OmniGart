@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "ex_typewriter_pull_up.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "ex_typewriter_pull_up.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

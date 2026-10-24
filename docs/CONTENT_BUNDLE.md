@@ -20,6 +20,7 @@ bundled baseline  <  verified update pack (newer packVersion)
 | `evidence/` | `docs/evidence/` | citations + schema |
 | `icons/` | `design/icons/` | SVG + manifest |
 | `body-maps/` | `design/body-map/generated/paths/` | path JSON only (not 13MB previews) |
+| `illustrations/` | `design/illustrations/{index.json,equipment,exercises}` | cartoon equipment + exercise SVG badges |
 | `achievements/` | `content/achievements/` | stub pack until phase content lands |
 | `exercise-images/` | `content/exercise-images/` | stills; videos stay remote/optional |
 

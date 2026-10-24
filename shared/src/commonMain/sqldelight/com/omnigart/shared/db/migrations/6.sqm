@@ -1,0 +1,12 @@
+ALTER TABLE workout_set ADD COLUMN rpe REAL;
+ALTER TABLE workout_set ADD COLUMN is_drop_set INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE workout_set ADD COLUMN is_failure INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE workout_set ADD COLUMN note TEXT;
+ALTER TABLE workout_set ADD COLUMN rest_seconds INTEGER;
+ALTER TABLE workout_set ADD COLUMN target_weight_kg REAL;
+ALTER TABLE workout_set ADD COLUMN target_reps INTEGER;
+
+ALTER TABLE local_health_set ADD COLUMN rpe REAL;
+ALTER TABLE local_health_set ADD COLUMN is_drop_set INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE local_health_set ADD COLUMN is_failure INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE local_health_set ADD COLUMN note TEXT;

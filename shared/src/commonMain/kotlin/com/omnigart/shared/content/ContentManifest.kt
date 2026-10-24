@@ -40,6 +40,7 @@ object ContentSchema {
             "evidence",
             "icons",
             "body-maps",
+            "illustrations",
             "achievements",
             "exercise-images"
         )

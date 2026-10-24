@@ -1,6 +1,9 @@
+import Shared
 import SwiftUI
 
 struct WatchStartView: View {
+    let core: OmniGartCore
+    let profileId: String
     let summaryLines: [String]
     @ObservedObject private var pending = PendingWatchWorkout.shared
 
@@ -45,6 +48,14 @@ struct WatchStartView: View {
                     }
                     .tint(Color.OmniGart.colorBrandAccent)
                     .accessibilityIdentifier("watch_treadmill_walk_start_nav")
+
+                    NavigationLink {
+                        WatchStrengthStartView(core: core, profileId: profileId)
+                    } label: {
+                        Text("watch_strength_start")
+                    }
+                    .tint(Color.OmniGart.colorBrandAccent)
+                    .accessibilityIdentifier("watch_strength_program_start")
 
                     NavigationLink {
                         OmniGartLiveWorkoutView(kind: .traditionalStrength)
@@ -94,5 +105,9 @@ struct WatchStartView: View {
 }
 
 #Preview {
-    WatchStartView(summaryLines: ["OmniGart", "BMR 1349 kcal"])
+    WatchStartView(
+        core: OmniGartCore(driverFactory: DatabaseDriverFactory()),
+        profileId: "local-profile",
+        summaryLines: ["OmniGart", "BMR 1349 kcal"]
+    )
 }

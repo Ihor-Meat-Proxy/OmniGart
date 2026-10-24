@@ -1,0 +1,86 @@
+{
+  "id": "wall-sit",
+  "nameKeys": {
+    "enGB": "exercise.wall_sit.name",
+    "uk": "exercise.wall_sit.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "squat",
+  "primaryMuscles": [
+    "quadriceps"
+  ],
+  "secondaryMuscles": [
+    "gluteus_maximus"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isometric",
+  "trackingType": "hold",
+  "technique": [
+    "Slide the back down a wall until thighs are near parallel; hold with knees tracking over mid-foot and heels down."
+  ],
+  "setup": [
+    "Feet roughly hip-width and away from the wall so shins can stay vertical."
+  ],
+  "breathing": "Steady breathing; do not hold the breath.",
+  "commonMistakes": [
+    "Knees collapsing inward",
+    "Heels rising"
+  ],
+  "safety": [
+    "Raise the seat height if knees complain."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "sit-to-stand",
+      "note": "Dynamic bilateral squat"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "bodyweight-squat",
+      "note": "Full range squat"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/wall-sit",
+    "videoKey": "media/video/wall-sit",
+    "animationKey": "media/anim/wall-sit"
+  },
+  "aliases": [],
+  "tags": [
+    "bodyweight",
+    "isometric"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Isometric squat against the wall supports roughly full body mass through the legs; estimate ~1.0 BM."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

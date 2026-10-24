@@ -18,7 +18,8 @@
     "latissimus_dorsi"
   ],
   "equipment": [
-    "barbell"
+    "barbell",
+    "plates"
   ],
   "level": "intermediate",
   "unilateral": false,

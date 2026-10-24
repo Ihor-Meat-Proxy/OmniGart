@@ -1,0 +1,91 @@
+{
+  "id": "ready-gym-upper-strength",
+  "nameKeys": {
+    "enGB": "template.ready_gym_upper_strength.name",
+    "uk": "template.ready_gym_upper_strength.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "intermediate",
+  "goal": "strength",
+  "daysPerWeek": 1,
+  "sessionMinutes": 45,
+  "equipmentPreset": "commercial_gym",
+  "equipmentRequired": [
+    "barbell",
+    "bench_flat",
+    "plates"
+  ],
+  "rationale": "Gym upper strength emphasis with barbell presses, pull-ups and cable pulling accessories.",
+  "evidenceRefs": [
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "main",
+      "nameKeys": {
+        "enGB": "template.ready_gym_upper_strength.main.name",
+        "uk": "template.ready_gym_upper_strength.main.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": 4,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 150
+            },
+            {
+              "exerciseId": "pull-up",
+              "sets": 4,
+              "reps": "as tolerated",
+              "rir": "2-3",
+              "restSeconds": 120
+            },
+            {
+              "exerciseId": "overhead-press-barbell",
+              "sets": 3,
+              "reps": "5-8",
+              "rir": "2-3",
+              "restSeconds": 120
+            },
+            {
+              "exerciseId": "seated-cable-row",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "face-pull",
+              "sets": 3,
+              "reps": "12-15",
+              "rir": "2-3",
+              "restSeconds": 60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

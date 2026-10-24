@@ -134,6 +134,7 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
                 )
             }
             if (selected == PhoneTab.Workouts.ordinal) {
+                StrengthProgramSection(core = core, profileId = profileId)
                 StrengthLoggingSection(core = core, profileId = profileId)
                 com.omnigart.android.treadmill.TreadmillRunSection(core = core, profileId = profileId)
             }

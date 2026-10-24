@@ -1,0 +1,97 @@
+{
+  "id": "ready-bw-full-body-beginner",
+  "nameKeys": {
+    "enGB": "template.ready_bw_full_body_beginner.name",
+    "uk": "template.ready_bw_full_body_beginner.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "beginner",
+  "goal": "general_fitness",
+  "daysPerWeek": 1,
+  "sessionMinutes": 25,
+  "equipmentPreset": "bodyweight",
+  "equipmentRequired": [
+    "bodyweight"
+  ],
+  "rationale": "Beginner bodyweight full-body session covering squat, push, lunge, hinge and brace patterns for general fitness without equipment.",
+  "evidenceRefs": [
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "main",
+      "nameKeys": {
+        "enGB": "template.ready_bw_full_body_beginner.main.name",
+        "uk": "template.ready_bw_full_body_beginner.main.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "bodyweight-squat",
+              "sets": 3,
+              "reps": "10-12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "knee-push-up",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "reverse-lunge-bodyweight",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "glute-bridge",
+              "sets": 3,
+              "reps": "12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "plank",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 45,
+              "durationSeconds": 30
+            },
+            {
+              "exerciseId": "bird-dog",
+              "sets": 2,
+              "reps": "8/side",
+              "rir": "2-3",
+              "restSeconds": 60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "ready-home-bands-travel",
+  "nameKeys": {
+    "enGB": "template.ready_home_bands_travel.name",
+    "uk": "template.ready_home_bands_travel.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "beginner",
+  "goal": "general_fitness",
+  "daysPerWeek": 1,
+  "sessionMinutes": 25,
+  "equipmentPreset": "travel",
+  "equipmentRequired": [
+    "bodyweight",
+    "bands"
+  ],
+  "rationale": "Travel-friendly session pairing bands with bodyweight patterns when a full gym is unavailable.",
+  "evidenceRefs": [
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "main",
+      "nameKeys": {
+        "enGB": "template.ready_home_bands_travel.main.name",
+        "uk": "template.ready_home_bands_travel.main.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "bodyweight-squat",
+              "sets": 3,
+              "reps": "12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "band-pull-apart",
+              "sets": 3,
+              "reps": "15",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "glute-bridge",
+              "sets": 3,
+              "reps": "12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "nordic-curl-assisted",
+              "sets": 2,
+              "reps": "6-8",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "plank",
+              "sets": 2,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 60,
+              "durationSeconds": 30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

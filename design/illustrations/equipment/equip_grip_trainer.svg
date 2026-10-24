@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none" data-omnigart="equip:grip_trainer">
+  <circle cx="64" cy="64" r="58" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <path d="M44 40 C36 56 36 72 44 88" fill="none" stroke="#334155" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M84 40 C92 56 92 72 84 88" fill="none" stroke="#334155" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="48" y1="48" x2="80" y2="48" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+  <line x1="48" y1="80" x2="80" y2="80" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+
+</svg>

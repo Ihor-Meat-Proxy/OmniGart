@@ -179,8 +179,35 @@ enum class Equipment {
     @SerialName("bench")
     BENCH,
 
+    @SerialName("bench_flat")
+    BENCH_FLAT,
+
+    @SerialName("bench_adjustable")
+    BENCH_ADJUSTABLE,
+
     @SerialName("pull_up_bar")
     PULL_UP_BAR,
+
+    @SerialName("dip_bars")
+    DIP_BARS,
+
+    @SerialName("plates")
+    PLATES,
+
+    @SerialName("squat_rack")
+    SQUAT_RACK,
+
+    @SerialName("smith_machine")
+    SMITH_MACHINE,
+
+    @SerialName("leg_press")
+    LEG_PRESS,
+
+    @SerialName("lat_pulldown")
+    LAT_PULLDOWN,
+
+    @SerialName("assisted_pullup_dip_machine")
+    ASSISTED_PULLUP_DIP_MACHINE,
 
     @SerialName("trap_bar")
     TRAP_BAR,

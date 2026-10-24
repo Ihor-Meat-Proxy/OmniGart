@@ -1,0 +1,88 @@
+{
+  "id": "jump-squat",
+  "nameKeys": {
+    "enGB": "exercise.jump_squat.name",
+    "uk": "exercise.jump_squat.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "squat",
+  "primaryMuscles": [
+    "quadriceps",
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "calves",
+    "hamstrings"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "reps",
+  "technique": [
+    "Squat to a comfortable depth then extend the hips and knees to jump; land softly and immediately settle into the next squat."
+  ],
+  "setup": [
+    "Clear landing space; soft knees on landing."
+  ],
+  "breathing": "Exhale on the jump.",
+  "commonMistakes": [
+    "Stiff landings",
+    "Knees caving in"
+  ],
+  "safety": [
+    "Use bodyweight squats first; skip jumping with joint pain."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "bodyweight-squat",
+      "note": "No jump"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "burpee",
+      "note": "Add plank cycle"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/jump-squat",
+    "videoKey": "media/video/jump-squat",
+    "animationKey": "media/anim/jump-squat"
+  },
+  "aliases": [],
+  "tags": [
+    "bodyweight",
+    "plyometric"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Jump squat accelerates full body mass; estimate ~1.0 BM for coaching volume."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

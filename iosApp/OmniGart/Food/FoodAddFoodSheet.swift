@@ -25,12 +25,34 @@ struct FoodAddFoodSheet: View {
     var body: some View {
         NavigationStack {
             List {
-                searchSection
-                recentsSection
-                favouritesSection
-                quickAddSection
-                customSection
-                barcodeSection
+                FoodAddSearchSection(
+                    query: $query,
+                    portionGrams: $portionGrams,
+                    results: searchResults,
+                    onServing: logServing,
+                    onGrams: logGrams
+                )
+                FoodAddRecentsFavouritesSection(
+                    recents: Array(core.foodLogging.recents(profileId: profileId, limit: 8)),
+                    favourites: Array(core.foodLogging.favourites(profileId: profileId)),
+                    onRepeat: repeatEntry
+                )
+                FoodAddQuickCustomSection(
+                    quickName: $quickName,
+                    quickKcal: $quickKcal,
+                    quickProtein: $quickProtein,
+                    quickCarbs: $quickCarbs,
+                    quickFat: $quickFat,
+                    customName: $customName,
+                    customKcal: $customKcal,
+                    onQuickAdd: quickAdd,
+                    onCustomSave: saveCustom
+                )
+                FoodAddBarcodeSection(
+                    barcode: $barcode,
+                    onLookup: lookupBarcode,
+                    onScan: { showBarcodeScanner = true }
+                )
             }
             .navigationTitle(Text(mealTitle))
             .navigationBarTitleDisplayMode(.inline)
@@ -62,195 +84,19 @@ struct FoodAddFoodSheet: View {
         }
     }
 
-    private var searchSection: some View {
-        Section("food_search_title") {
-            TextField("food_search_placeholder", text: $query)
-                .accessibilityIdentifier("food_search")
-            HStack {
-                Text("food_portion_grams")
-                TextField("food_portion_grams", text: $portionGrams)
-                    .keyboardType(.decimalPad)
-                    .multilineTextAlignment(.trailing)
-                    .accessibilityIdentifier("food_portion_grams")
-            }
-            ForEach(searchResults, id: \.id) { food in
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(food.name)
-                    Text(String(format: "%.0f kcal / 100 g", food.energyKcalPer100g))
-                        .font(.caption)
-                        .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
-                    HStack {
-                        servingButton("food_serving_100g", food: food, serving: .per100G)
-                        servingButton("food_serving_one", food: food, serving: .oneServing)
-                        servingButton("food_serving_pack", food: food, serving: .pack)
-                        Button("food_portion_grams") {
-                            logGrams(food: food)
-                        }
-                        .font(.caption)
-                    }
-                }
-                .accessibilityIdentifier("food_catalogue_\(food.id)")
-            }
-        }
-    }
-
     private var searchResults: [CatalogueFood] {
         _ = tick
         guard !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return [] }
-        return Array(core.foodLogging.search(profileId: profileId, query: query, locale: localeTag))
+        return Array(core.foodLogging.search(profileId: profileId, query: query, locale: "en-GB"))
     }
 
-    private var recentsSection: some View {
-        Section("food_recents_title") {
-            let recents = Array(core.foodLogging.recents(profileId: profileId, limit: 8))
-            if recents.isEmpty {
-                Text("food_recents_empty").font(.footnote)
-            } else {
-                ForEach(recents, id: \.id) { entry in
-                    Button {
-                        _ = core.foodLogging.repeatRecentNow(
-                            profileId: profileId,
-                            entryId: entry.id,
-                            mealGroup: meal
-                        )
-                        dualWrite(
-                            name: entry.name,
-                            energy: entry.energyKcal,
-                            protein: entry.proteinG,
-                            carbs: entry.carbsG,
-                            fat: entry.fatG
-                        )
-                    } label: {
-                        Text(entry.name)
-                    }
-                    .accessibilityIdentifier("food_recent_\(entry.id)")
-                }
-            }
-        }
-    }
-
-    private var favouritesSection: some View {
-        Section("food_favourites_title") {
-            let favs = Array(core.foodLogging.favourites(profileId: profileId))
-            if favs.isEmpty {
-                Text("food_favourites_empty").font(.footnote)
-            } else {
-                ForEach(favs, id: \.id) { entry in
-                    Button {
-                        _ = core.foodLogging.repeatRecentNow(
-                            profileId: profileId,
-                            entryId: entry.id,
-                            mealGroup: meal
-                        )
-                        dualWrite(
-                            name: entry.name,
-                            energy: entry.energyKcal,
-                            protein: entry.proteinG,
-                            carbs: entry.carbsG,
-                            fat: entry.fatG
-                        )
-                    } label: {
-                        Text(entry.name)
-                    }
-                    .accessibilityIdentifier("food_favourite_\(entry.id)")
-                }
-            }
-        }
-    }
-
-    private var quickAddSection: some View {
-        Section("food_quick_add_title") {
-            TextField("food_name_placeholder", text: $quickName)
-                .accessibilityIdentifier("food_name")
-            macroField("food_energy_kcal", text: $quickKcal, id: "food_energy")
-            macroField("food_protein_g", text: $quickProtein, id: "food_protein")
-            macroField("food_carbs_g", text: $quickCarbs, id: "food_carbs")
-            macroField("food_fat_g", text: $quickFat, id: "food_fat")
-            Button("food_add") {
-                let name = quickName.trimmingCharacters(in: .whitespacesAndNewlines)
-                guard !name.isEmpty else { return }
-                let kcal = Double(quickKcal) ?? 0
-                let p = Double(quickProtein) ?? 0
-                let c = Double(quickCarbs) ?? 0
-                let f = Double(quickFat) ?? 0
-                _ = core.foodLogging.quickAddNow(
-                    profileId: profileId,
-                    add: QuickMacroAdd(name: name, energyKcal: kcal, proteinG: p, carbsG: c, fatG: f),
-                    mealGroup: meal
-                )
-                dualWrite(name: name, energy: kcal, protein: p, carbs: c, fat: f)
-                quickName = ""
-            }
-            .accessibilityIdentifier("food_add_confirm")
-        }
-    }
-
-    private var customSection: some View {
-        Section("food_custom_name") {
-            TextField("food_custom_name", text: $customName)
-                .accessibilityIdentifier("food_custom_name")
-            TextField("food_energy_kcal", text: $customKcal)
-                .keyboardType(.decimalPad)
-            Button("food_custom_save") {
-                let name = customName.trimmingCharacters(in: .whitespacesAndNewlines)
-                guard !name.isEmpty else { return }
-                let kcal = Double(customKcal) ?? 0
-                core.foodLogging.upsertCustomFoodSimple(
-                    id: "custom-\(Int(Date().timeIntervalSince1970))",
-                    profileId: profileId,
-                    name: name,
-                    energyKcalPer100g: kcal
-                )
-                customName = ""
-                tick += 1
-            }
-            .accessibilityIdentifier("food_custom_save")
-        }
-    }
-
-    private var barcodeSection: some View {
-        Section("food_barcode_title") {
-            TextField("food_barcode_manual", text: $barcode)
-                .accessibilityIdentifier("food_barcode_manual")
-            Button("food_barcode_lookup") {
-                lookupBarcode(barcode)
-            }
-            .accessibilityIdentifier("food_barcode_lookup")
-            Button("food_barcode_title") { showBarcodeScanner = true }
-        }
-    }
-
-    private var localeTag: String { "en-GB" }
-
-    private func servingButton(_ key: LocalizedStringKey, food: CatalogueFood, serving: QuickServing) -> some View {
-        Button(key) {
-            if let entry = core.foodLogging.logQuickServingNow(
-                profileId: profileId,
-                foodId: food.id,
-                serving: serving,
-                mealGroup: meal,
-                locale: localeTag
-            ) {
-                dualWrite(
-                    name: entry.name,
-                    energy: entry.energyKcal,
-                    protein: entry.proteinG,
-                    carbs: entry.carbsG,
-                    fat: entry.fatG
-                )
-            }
-        }
-        .font(.caption)
-    }
-
-    private func logGrams(food: CatalogueFood) {
-        let grams = Double(portionGrams) ?? 100
-        if let entry = core.foodLogging.logFromCatalogueNow(
+    private func logServing(food: CatalogueFood, serving: QuickServing) {
+        if let entry = core.foodLogging.logQuickServingNow(
             profileId: profileId,
             foodId: food.id,
-            grams: grams,
+            serving: serving,
             mealGroup: meal,
-            locale: localeTag
+            locale: "en-GB"
         ) {
             dualWrite(
                 name: entry.name,
@@ -260,6 +106,69 @@ struct FoodAddFoodSheet: View {
                 fat: entry.fatG
             )
         }
+    }
+
+    private func logGrams(food: CatalogueFood) {
+        let grams = Double(portionGrams) ?? 100
+        if let entry = core.foodLogging.logFromCatalogueNow(
+            profileId: profileId,
+            foodId: food.id,
+            grams: grams,
+            mealGroup: meal,
+            locale: "en-GB"
+        ) {
+            dualWrite(
+                name: entry.name,
+                energy: entry.energyKcal,
+                protein: entry.proteinG,
+                carbs: entry.carbsG,
+                fat: entry.fatG
+            )
+        }
+    }
+
+    private func repeatEntry(_ entry: FoodLogEntry) {
+        _ = core.foodLogging.repeatRecentNow(
+            profileId: profileId,
+            entryId: entry.id,
+            mealGroup: meal
+        )
+        dualWrite(
+            name: entry.name,
+            energy: entry.energyKcal,
+            protein: entry.proteinG,
+            carbs: entry.carbsG,
+            fat: entry.fatG
+        )
+    }
+
+    private func quickAdd() {
+        let name = quickName.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !name.isEmpty else { return }
+        let kcal = Double(quickKcal) ?? 0
+        let protein = Double(quickProtein) ?? 0
+        let carbs = Double(quickCarbs) ?? 0
+        let fat = Double(quickFat) ?? 0
+        _ = core.foodLogging.quickAddNow(
+            profileId: profileId,
+            add: QuickMacroAdd(name: name, energyKcal: kcal, proteinG: protein, carbsG: carbs, fatG: fat),
+            mealGroup: meal
+        )
+        dualWrite(name: name, energy: kcal, protein: protein, carbs: carbs, fat: fat)
+        quickName = ""
+    }
+
+    private func saveCustom() {
+        let name = customName.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !name.isEmpty else { return }
+        core.foodLogging.upsertCustomFoodSimple(
+            id: "custom-\(Int(Date().timeIntervalSince1970))",
+            profileId: profileId,
+            name: name,
+            energyKcalPer100g: Double(customKcal) ?? 0
+        )
+        customName = ""
+        tick += 1
     }
 
     private func lookupBarcode(_ code: String) {
@@ -281,15 +190,5 @@ struct FoodAddFoodSheet: View {
         )
         onLogged()
         dismiss()
-    }
-
-    private func macroField(_ key: LocalizedStringKey, text: Binding<String>, id: String) -> some View {
-        HStack {
-            Text(key)
-            TextField(key, text: text)
-                .keyboardType(.decimalPad)
-                .multilineTextAlignment(.trailing)
-                .accessibilityIdentifier(id)
-        }
     }
 }

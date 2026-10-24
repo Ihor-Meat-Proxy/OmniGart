@@ -21,7 +21,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -106,22 +105,36 @@ private enum class PhoneTab(val labelRes: Int, val testTag: String, val icon: Im
     Profile(R.string.tab_profile, "tab_profile", OmniGartIcons.profile)
 }
 
+private data class PhoneShellUiState(val selected: Int, val showInfoSheet: Boolean, val showMeasurements: Boolean, val formulaEpoch: Int)
+
 @Composable
 fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
-    var selected by remember { mutableIntStateOf(PhoneTab.Profile.ordinal) }
-    var showInfoSheet by remember { mutableStateOf(false) }
-    var showMeasurements by remember { mutableStateOf(false) }
+    var ui by remember {
+        mutableStateOf(
+            PhoneShellUiState(
+                selected = PhoneTab.Profile.ordinal,
+                showInfoSheet = false,
+                showMeasurements = false,
+                formulaEpoch = 0
+            )
+        )
+    }
     val tabs = PhoneTab.entries
-    var formulaEpoch by remember { mutableIntStateOf(0) }
     val profile = remember(profileId) { core.profiles.get(profileId) }
     val summaryLines =
-        remember(selected, profileId, formulaEpoch) {
+        remember(ui.selected, profileId, ui.formulaEpoch) {
             profile?.let { core.summaryLines(it) }.orEmpty()
         }
     Scaffold(
         modifier = Modifier.testTag("phone_shell"),
         containerColor = OmniGartColors.colorSurfaceLightCanvas,
-        bottomBar = { PhoneBottomBar(tabs = tabs, selected = selected, onSelect = { selected = it }) }
+        bottomBar = {
+            PhoneBottomBar(
+                tabs = tabs,
+                selected = ui.selected,
+                onSelect = { ui = ui.copy(selected = it) }
+            )
+        }
     ) { padding ->
         Column(
             modifier =
@@ -132,60 +145,73 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space2)
         ) {
-            Text(
-                text = stringResource(R.string.app_name),
-                style = MaterialTheme.typography.headlineMedium,
-                color = OmniGartColors.colorBrandAccent,
-                modifier = Modifier.testTag("brand_title")
-            )
-            Text(
-                text = stringResource(R.string.shell_intro),
-                color = OmniGartColors.colorTextLightSecondary
-            )
-            Text(
-                text = stringResource(tabs[selected].labelRes),
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.testTag("selected_tab_label")
-            )
-            summaryLines.forEach { line ->
-                Text(text = line, style = MaterialTheme.typography.bodyLarge)
-            }
-            if (selected == PhoneTab.Profile.ordinal || selected == PhoneTab.Recovery.ordinal) {
-                WellnessTabSection(
-                    showInfoSheet = showInfoSheet,
-                    onToggleInfoSheet = { showInfoSheet = !showInfoSheet }
-                )
-            }
-            if (selected == PhoneTab.Food.ordinal) {
-                // Diary first so food_add / search stay above the fold for UI tests.
-                FoodLoggingSection(core = core, profileId = profileId)
-                FoodTabNutritionSection(
-                    core = core,
-                    profileId = profileId,
-                    showMeasurements = showMeasurements,
-                    onShowMeasurements = { showMeasurements = it }
-                )
-            }
-            if (selected == PhoneTab.Workouts.ordinal) {
-                StrengthProgramSection(core = core, profileId = profileId)
-                StrengthLoggingSection(core = core, profileId = profileId)
-                com.omnigart.android.treadmill.TreadmillRunSection(core = core, profileId = profileId)
-            }
-            if (selected == PhoneTab.Insights.ordinal) {
-                InsightsTabSection(core = core, profileId = profileId)
-            }
-            if (selected == PhoneTab.Health.ordinal) {
-                HealthTabSection()
-            }
-            if (selected == PhoneTab.Profile.ordinal) {
-                ProfileNutritionBlocks(core, profileId) { formulaEpoch += 1 }
-            }
-            // Unfinished surfaces stay behind flags that are off in release.
-            if (FeatureFlags.healthSyncEnabled) {
-                Text(text = stringResource(R.string.perm_explainer_health_body))
-            }
+            PhoneShellHeader(tabs = tabs, selected = ui.selected, summaryLines = summaryLines)
+            PhoneShellTabContent(core = core, profileId = profileId, ui = ui, onUi = { ui = it })
             MaybeDebugMenu()
         }
+    }
+}
+
+@Composable
+private fun PhoneShellHeader(tabs: List<PhoneTab>, selected: Int, summaryLines: List<String>) {
+    Text(
+        text = stringResource(R.string.app_name),
+        style = MaterialTheme.typography.headlineMedium,
+        color = OmniGartColors.colorBrandAccent,
+        modifier = Modifier.testTag("brand_title")
+    )
+    Text(
+        text = stringResource(R.string.shell_intro),
+        color = OmniGartColors.colorTextLightSecondary
+    )
+    Text(
+        text = stringResource(tabs[selected].labelRes),
+        style = MaterialTheme.typography.titleMedium,
+        modifier = Modifier.testTag("selected_tab_label")
+    )
+    summaryLines.forEach { line ->
+        Text(text = line, style = MaterialTheme.typography.bodyLarge)
+    }
+}
+
+@Composable
+private fun PhoneShellTabContent(core: OmniGartCore, profileId: String, ui: PhoneShellUiState, onUi: (PhoneShellUiState) -> Unit) {
+    if (ui.selected == PhoneTab.Profile.ordinal || ui.selected == PhoneTab.Recovery.ordinal) {
+        WellnessTabSection(
+            showInfoSheet = ui.showInfoSheet,
+            onToggleInfoSheet = { onUi(ui.copy(showInfoSheet = !ui.showInfoSheet)) }
+        )
+    }
+    if (ui.selected == PhoneTab.Food.ordinal) {
+        // Diary first so food_add / search stay above the fold for UI tests.
+        FoodLoggingSection(core = core, profileId = profileId)
+        FoodTabNutritionSection(
+            core = core,
+            profileId = profileId,
+            showMeasurements = ui.showMeasurements,
+            onShowMeasurements = { onUi(ui.copy(showMeasurements = it)) }
+        )
+    }
+    if (ui.selected == PhoneTab.Workouts.ordinal) {
+        com.omnigart.android.workouts.WorkoutsCategorySection(
+            core = core,
+            profileId = profileId
+        )
+    }
+    if (ui.selected == PhoneTab.Insights.ordinal) {
+        InsightsTabSection(core = core, profileId = profileId)
+    }
+    if (ui.selected == PhoneTab.Health.ordinal) {
+        HealthTabSection()
+    }
+    if (ui.selected == PhoneTab.Profile.ordinal) {
+        ProfileNutritionBlocks(core, profileId) {
+            onUi(ui.copy(formulaEpoch = ui.formulaEpoch + 1))
+        }
+    }
+    // Unfinished surfaces stay behind flags that are off in release.
+    if (FeatureFlags.healthSyncEnabled) {
+        Text(text = stringResource(R.string.perm_explainer_health_body))
     }
 }
 

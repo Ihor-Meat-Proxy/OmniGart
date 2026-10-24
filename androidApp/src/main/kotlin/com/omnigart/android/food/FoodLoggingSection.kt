@@ -47,8 +47,14 @@ fun FoodLoggingSection(core: OmniGartCore, profileId: String) {
         )
         FoodDayNav(
             dayOffset = dayOffset,
-            onPrev = { dayOffset -= 1; tick += 1 },
-            onNext = { dayOffset = (dayOffset + 1).coerceAtMost(0); tick += 1 }
+            onPrev = {
+                dayOffset -= 1
+                tick += 1
+            },
+            onNext = {
+                dayOffset = (dayOffset + 1).coerceAtMost(0)
+                tick += 1
+            }
         )
         FoodWeighInPrompt(tick = tick) { showMeasurements = true }
         FoodMeasurementsOverlay(showMeasurements) {
@@ -70,7 +76,10 @@ fun FoodLoggingSection(core: OmniGartCore, profileId: String) {
                 core = core,
                 profileId = profileId,
                 meal = meal,
-                onLogged = { tick += 1; addMeal = null },
+                onLogged = {
+                    tick += 1
+                    addMeal = null
+                },
                 onDismiss = { addMeal = null }
             )
         }
@@ -96,13 +105,7 @@ private fun FoodGoalEditorOverlay(show: Boolean, onClose: () -> Unit) {
 }
 
 @Composable
-private fun FoodMealSections(
-    core: OmniGartCore,
-    profileId: String,
-    dayOffset: Int,
-    tick: Int,
-    onAdd: (MealGroup) -> Unit
-) {
+private fun FoodMealSections(core: OmniGartCore, profileId: String, dayOffset: Int, tick: Int, onAdd: (MealGroup) -> Unit) {
     MealGroup.entries.filter { it != MealGroup.CUSTOM }.forEach { meal ->
         FoodMealBlock(
             core = core,
@@ -116,12 +119,7 @@ private fun FoodMealSections(
 }
 
 @Composable
-private fun FoodMorningReviewBlock(
-    core: OmniGartCore,
-    profileId: String,
-    reviewSummary: String?,
-    onSummary: (String) -> Unit
-) {
+private fun FoodMorningReviewBlock(core: OmniGartCore, profileId: String, reviewSummary: String?, onSummary: (String) -> Unit) {
     val aiNote =
         if (FeatureFlags.morningFoodReviewEnabled) {
             stringResource(R.string.food_review_ai_ready)

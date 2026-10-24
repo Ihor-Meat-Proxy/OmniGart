@@ -27,13 +27,7 @@ import com.omnigart.shared.food.models.QuickMacroAdd
 import com.omnigart.shared.food.models.QuickServing
 
 @Composable
-internal fun FoodAddMealPanel(
-    core: OmniGartCore,
-    profileId: String,
-    meal: MealGroup,
-    onLogged: () -> Unit,
-    onDismiss: () -> Unit
-) {
+internal fun FoodAddMealPanel(core: OmniGartCore, profileId: String, meal: MealGroup, onLogged: () -> Unit, onDismiss: () -> Unit) {
     var query by remember { mutableStateOf("") }
     var portion by remember { mutableStateOf("100") }
     var name by remember { mutableStateOf("") }
@@ -63,12 +57,7 @@ internal fun FoodAddMealPanel(
 }
 
 @Composable
-private fun FoodAddSearchFields(
-    query: String,
-    onQuery: (String) -> Unit,
-    portion: String,
-    onPortion: (String) -> Unit
-) {
+private fun FoodAddSearchFields(query: String, onQuery: (String) -> Unit, portion: String, onPortion: (String) -> Unit) {
     OutlinedTextField(
         value = query,
         onValueChange = onQuery,
@@ -85,13 +74,7 @@ private fun FoodAddSearchFields(
 }
 
 @Composable
-private fun FoodAddQuickFields(
-    name: String,
-    onName: (String) -> Unit,
-    energy: String,
-    onEnergy: (String) -> Unit,
-    onAdd: () -> Unit
-) {
+private fun FoodAddQuickFields(name: String, onName: (String) -> Unit, energy: String, onEnergy: (String) -> Unit, onAdd: () -> Unit) {
     Text(stringResource(R.string.food_quick_add_title), style = MaterialTheme.typography.titleSmall)
     OutlinedTextField(
         value = name,

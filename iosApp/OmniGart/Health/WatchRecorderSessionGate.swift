@@ -4,7 +4,8 @@ import Foundation
 /// Phone saves stay local-only (append-only ingest from the watch transfer) — no second HK write.
 enum WatchRecorderSessionGate {
     private static let lock = NSLock()
-    private static var keys = Set<String>()
+    /// Protected by `lock`; `nonisolated(unsafe)` satisfies Swift 6 global mutable state rules.
+    nonisolated(unsafe) private static var keys = Set<String>()
 
     static func markWatchRecorder(sessionKey: String) {
         guard !sessionKey.isEmpty else { return }

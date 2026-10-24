@@ -58,6 +58,14 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
 
     /** Food diary, catalogue, gaps, import/export, optional morning review. */
     val foodLogging = FoodLoggingService()
+
+    /**
+     * Swift-friendly food copy-day (epoch millis). Prefer this over
+     * [FoodLoggingService.copyDayByEpochMs] when the latter is not visible to Swift/ObjC.
+     */
+    fun copyFoodDayMs(profileId: String, fromStartEpochMs: Long, fromEndEpochMs: Long, toStartEpochMs: Long): Int =
+        foodLogging.copyDayByEpochMs(profileId, fromStartEpochMs, fromEndEpochMs, toStartEpochMs)
+
     val strengthLogging =
         StrengthLoggingService(
             sessions = sessions,

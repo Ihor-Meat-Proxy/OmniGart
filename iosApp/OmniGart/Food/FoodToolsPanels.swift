@@ -93,7 +93,7 @@ struct FoodToolsPanel: View {
     private func copyYesterday() {
         let endMs = Int64(Date().timeIntervalSince1970 * 1000)
         let startMs = endMs - 86_400_000
-        _ = core.foodLogging.copyDayByEpochMs(
+        _ = core.copyFoodDayMs(
             profileId: profileId,
             fromStartEpochMs: startMs - 86_400_000,
             fromEndEpochMs: startMs,

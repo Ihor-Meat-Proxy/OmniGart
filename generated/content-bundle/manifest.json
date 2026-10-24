@@ -1227,9 +1227,9 @@
     ],
     "icons": [
       {
-        "bytes": 7378,
+        "bytes": 7764,
         "path": "manifest.json",
-        "sha256": "71cab735bb6097f9aa1b79d79add63cdf4cdbbefccf97184ac1d464e09eabe8c"
+        "sha256": "c7082b42b014fed04e854c338096aca9c44ef04c2adbc191851c3c1754bc10f9"
       },
       {
         "bytes": 513,
@@ -1282,6 +1282,11 @@
         "sha256": "dc92b029b262b786327c3cdbae51c28d29ada3553dc53b4081370b7fa263941f"
       },
       {
+        "bytes": 631,
+        "path": "svg/health.svg",
+        "sha256": "4a6d707988a70246b67611c942e1abc8b4282c9acd56e5fa47fe2c2caf26d1ef"
+      },
+      {
         "bytes": 348,
         "path": "svg/heart-rate.svg",
         "sha256": "587d5c08e3be812e7385a49707242c9644d8a6789c5d83bc77e7353a01f7380d"
@@ -1290,6 +1295,11 @@
         "bytes": 545,
         "path": "svg/hrv.svg",
         "sha256": "7cdbd4684b38d74f323e5469b7923cfce5e58283e15a33e1cdd0eaf057a64c2d"
+      },
+      {
+        "bytes": 840,
+        "path": "svg/insights.svg",
+        "sha256": "cc345ee68bd0e9c511e8c7665deaddb1dce5b71d96c7322f181ae91a7e60ce98"
       },
       {
         "bytes": 829,
@@ -3051,13 +3061,13 @@
       "sha256": "84719771e82209092a3cfe165450160f589022830772c6e8b005dc5a2c693b1a"
     },
     "icons": {
-      "fileCount": 41,
-      "sha256": "593cbd2111b9b013a64679a3ddf05dee6002a63c099764fe80ccf1302272fa3d"
+      "fileCount": 43,
+      "sha256": "47636e8f95371c968bdbdd59a871abb5d6eb18f92a639c235c0f8bae287efa01"
     },
     "illustrations": {
       "fileCount": 316,
       "sha256": "225ce5e089f60ec2ae94b76135ef9f75dbedaa766d0e63d4ce3117438e555294"
     }
   },
-  "sha256": "4db0bd0707aa18c1d6b2298c55ca7d9a3fa1da620251e58441e76f346b2b16b7"
+  "sha256": "469a20cd94db2ce15d17ea515cae980e587ac4f9efb5959791a744a65cdf22d4"
 }

@@ -67,6 +67,26 @@ export const ICONS = {
       'M5.5 19c1.6-3 4-4.5 6.5-4.5s4.9 1.5 6.5 4.5',
     ],
   },
+  insights: {
+    category: 'tab',
+    keywords: ['chart', 'trends', 'analytics', 'tab'],
+    paths: [
+      'M4.5 18.5V8.5',
+      'M9.5 18.5V5.5',
+      'M14.5 18.5v-7',
+      'M19.5 18.5V10',
+      'M4.5 18.5h15',
+    ],
+  },
+  health: {
+    category: 'tab',
+    keywords: ['pulse', 'vitals', 'metrics', 'tab'],
+    paths: [
+      'M4.5 12h2.8l1.6-4 2.4 8 1.8-4.2H19.5',
+      'M12 4.5c-1.2 0-2.2.6-2.8 1.5',
+      'M12 4.5c1.2 0 2.2.6 2.8 1.5',
+    ],
+  },
 
   // —— Quick log ——
   water: {

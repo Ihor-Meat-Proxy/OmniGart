@@ -5,7 +5,7 @@
   "strokeLinecap": "round",
   "strokeLinejoin": "round",
   "style": "minimal-line",
-  "count": 40,
+  "count": 42,
   "icons": [
     {
       "name": "food",
@@ -59,6 +59,28 @@
         "user",
         "account",
         "person",
+        "tab"
+      ]
+    },
+    {
+      "name": "insights",
+      "file": "svg/insights.svg",
+      "category": "tab",
+      "keywords": [
+        "chart",
+        "trends",
+        "analytics",
+        "tab"
+      ]
+    },
+    {
+      "name": "health",
+      "file": "svg/health.svg",
+      "category": "tab",
+      "keywords": [
+        "pulse",
+        "vitals",
+        "metrics",
         "tab"
       ]
     },

@@ -310,6 +310,120 @@ public object OmniGartIcons {
         }
     private var _profile: ImageVector? = null
 
+    public val insights: ImageVector
+        get() {
+            if (_insights != null) return _insights!!
+            _insights = ImageVector.Builder(
+                name = "OmniGart.insights",
+                defaultWidth = 24.dp,
+                defaultHeight = 24.dp,
+                viewportWidth = 24f,
+                viewportHeight = 24f,
+            ).apply {
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.75f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                fill = SolidColor(Color.Transparent),
+            ) {
+                moveTo(4.5f, 18.5f)
+                verticalLineTo(8.5f)
+            }
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.75f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                fill = SolidColor(Color.Transparent),
+            ) {
+                moveTo(9.5f, 18.5f)
+                verticalLineTo(5.5f)
+            }
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.75f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                fill = SolidColor(Color.Transparent),
+            ) {
+                moveTo(14.5f, 18.5f)
+                verticalLineToRelative(-7f)
+            }
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.75f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                fill = SolidColor(Color.Transparent),
+            ) {
+                moveTo(19.5f, 18.5f)
+                verticalLineTo(10f)
+            }
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.75f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                fill = SolidColor(Color.Transparent),
+            ) {
+                moveTo(4.5f, 18.5f)
+                horizontalLineToRelative(15f)
+            }
+            }.build()
+            return _insights!!
+        }
+    private var _insights: ImageVector? = null
+
+    public val health: ImageVector
+        get() {
+            if (_health != null) return _health!!
+            _health = ImageVector.Builder(
+                name = "OmniGart.health",
+                defaultWidth = 24.dp,
+                defaultHeight = 24.dp,
+                viewportWidth = 24f,
+                viewportHeight = 24f,
+            ).apply {
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.75f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                fill = SolidColor(Color.Transparent),
+            ) {
+                moveTo(4.5f, 12f)
+                horizontalLineToRelative(2.8f)
+                lineToRelative(1.6f, -4f)
+                lineToRelative(2.4f, 8f)
+                lineToRelative(1.8f, -4.2f)
+                horizontalLineTo(19.5f)
+            }
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.75f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                fill = SolidColor(Color.Transparent),
+            ) {
+                moveTo(12f, 4.5f)
+                curveToRelative(-1.2f, 0f, -2.2f, 0.6f, -2.8f, 1.5f)
+            }
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.75f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                fill = SolidColor(Color.Transparent),
+            ) {
+                moveTo(12f, 4.5f)
+                curveToRelative(1.2f, 0f, 2.2f, 0.6f, 2.8f, 1.5f)
+            }
+            }.build()
+            return _health!!
+        }
+    private var _health: ImageVector? = null
+
     public val water: ImageVector
         get() {
             if (_water != null) return _water!!

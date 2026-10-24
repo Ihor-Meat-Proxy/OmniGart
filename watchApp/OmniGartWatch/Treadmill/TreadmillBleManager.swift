@@ -31,7 +31,7 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     var watchHeartRateBpm: Int?
 
     private var central: CBCentralManager?
-    private var linkedPeripheral: CBPeripheral?
+    var linkedPeripheral: CBPeripheral?
     private var preferredId: UUID?
     var controlPoint: CBCharacteristic?
     var fitShowWrite: CBCharacteristic?

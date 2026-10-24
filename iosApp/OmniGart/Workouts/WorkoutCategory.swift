@@ -84,10 +84,10 @@ enum WorkoutCategory: String, CaseIterable, Identifiable, Hashable {
     }
 
     func matches(query: String) -> Bool {
-        let q = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        if q.isEmpty { return true }
+        let needle = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        if needle.isEmpty { return true }
         let title = String(localized: String.LocalizationValue(titleLocalizationKey)).lowercased()
-        if title.contains(q) { return true }
-        return searchTokens.contains { $0.contains(q) || q.contains($0) }
+        if title.contains(needle) { return true }
+        return searchTokens.contains { $0.contains(needle) || needle.contains($0) }
     }
 }

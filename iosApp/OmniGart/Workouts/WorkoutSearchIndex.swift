@@ -33,6 +33,13 @@ struct WorkoutSearchHit: Identifiable {
     }
 }
 
+private struct StaticSearchEntry {
+    let titleKey: String
+    let subtitleKey: String
+    let category: WorkoutCategory
+    let kind: WorkoutSearchHit.Kind
+}
+
 enum WorkoutSearchIndex {
     static func hits(
         core: OmniGartCore,
@@ -41,45 +48,116 @@ enum WorkoutSearchIndex {
         tick: Int
     ) -> [WorkoutSearchHit] {
         _ = tick
-        let q = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        if q.isEmpty { return [] }
+        let needle = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        if needle.isEmpty { return [] }
 
         var results: [WorkoutSearchHit] = []
-        appendStaticHits(query: q, into: &results)
-        appendReadyMade(core: core, profileId: profileId, query: q, into: &results)
-        appendRoutines(core: core, profileId: profileId, query: q, into: &results)
+        appendStaticHits(query: needle, into: &results)
+        appendReadyMade(core: core, profileId: profileId, query: needle, into: &results)
+        appendRoutines(core: core, profileId: profileId, query: needle, into: &results)
         return results
     }
 
+    private static let staticEntries: [StaticSearchEntry] = [
+        StaticSearchEntry(
+            titleKey: "workouts_zone2_title",
+            subtitleKey: "workouts_zone2_body",
+            category: .running,
+            kind: .zone2
+        ),
+        StaticSearchEntry(
+            titleKey: "treadmill_run_title",
+            subtitleKey: "treadmill_run_body",
+            category: .running,
+            kind: .treadmillRun
+        ),
+        StaticSearchEntry(
+            titleKey: "treadmill_walk_title",
+            subtitleKey: "treadmill_walk_body",
+            category: .walking,
+            kind: .treadmillWalk
+        ),
+        StaticSearchEntry(
+            titleKey: "workout_yoga_title",
+            subtitleKey: "workout_mindful_body_intro",
+            category: .yogaPilates,
+            kind: .yoga
+        ),
+        StaticSearchEntry(
+            titleKey: "workout_pilates_title",
+            subtitleKey: "workout_mindful_body_intro",
+            category: .yogaPilates,
+            kind: .pilates
+        ),
+        StaticSearchEntry(
+            titleKey: "watch_strength_start",
+            subtitleKey: "workouts_program_intro",
+            category: .strength,
+            kind: .category(.strength)
+        ),
+        StaticSearchEntry(
+            titleKey: "watch.workout.strength_traditional",
+            subtitleKey: "workouts_log_title",
+            category: .strength,
+            kind: .category(.strength)
+        ),
+        StaticSearchEntry(
+            titleKey: "watch.workout.strength_functional",
+            subtitleKey: "workouts_log_title",
+            category: .strength,
+            kind: .category(.strength)
+        ),
+        StaticSearchEntry(
+            titleKey: "explore_title",
+            subtitleKey: "explore_open",
+            category: .strength,
+            kind: .category(.strength)
+        ),
+        StaticSearchEntry(
+            titleKey: "equipment_catalogue_open",
+            subtitleKey: "workouts_program_intro",
+            category: .strength,
+            kind: .category(.strength)
+        ),
+        StaticSearchEntry(
+            titleKey: "workout_cat_pool_swim",
+            subtitleKey: "workout_cat_swimming_intro",
+            category: .swimming,
+            kind: .category(.swimming)
+        ),
+        StaticSearchEntry(
+            titleKey: "workout_cat_open_water",
+            subtitleKey: "workout_cat_swimming_intro",
+            category: .swimming,
+            kind: .category(.swimming)
+        ),
+        StaticSearchEntry(
+            titleKey: "workout_cat_outdoor_run",
+            subtitleKey: "workouts_zone2_body",
+            category: .running,
+            kind: .category(.running)
+        ),
+        StaticSearchEntry(
+            titleKey: "workout_cat_outdoor_walk",
+            subtitleKey: "treadmill_walk_body",
+            category: .walking,
+            kind: .category(.walking)
+        )
+    ]
+
     private static func appendStaticHits(query: String, into results: inout [WorkoutSearchHit]) {
-        let staticHits: [(String, String, WorkoutCategory, WorkoutSearchHit.Kind)] = [
-            ("workouts_zone2_title", "workouts_zone2_body", .running, .zone2),
-            ("treadmill_run_title", "treadmill_run_body", .running, .treadmillRun),
-            ("treadmill_walk_title", "treadmill_walk_body", .walking, .treadmillWalk),
-            ("workout_yoga_title", "workout_mindful_body_intro", .yogaPilates, .yoga),
-            ("workout_pilates_title", "workout_mindful_body_intro", .yogaPilates, .pilates),
-            ("watch_strength_start", "workouts_program_intro", .strength, .category(.strength)),
-            ("watch.workout.strength_traditional", "workouts_log_title", .strength, .category(.strength)),
-            ("watch.workout.strength_functional", "workouts_log_title", .strength, .category(.strength)),
-            ("explore_title", "explore_open", .strength, .category(.strength)),
-            ("equipment_catalogue_open", "workouts_program_intro", .strength, .category(.strength)),
-            ("workout_cat_pool_swim", "workout_cat_swimming_intro", .swimming, .category(.swimming)),
-            ("workout_cat_open_water", "workout_cat_swimming_intro", .swimming, .category(.swimming)),
-            ("workout_cat_outdoor_run", "workouts_zone2_body", .running, .category(.running)),
-            ("workout_cat_outdoor_walk", "treadmill_walk_body", .walking, .category(.walking))
-        ]
-        for (titleKey, subtitleKey, category, kind) in staticHits {
-            if matchesLocalized(titleKey, query) || matchesLocalized(subtitleKey, query) {
-                results.append(
-                    WorkoutSearchHit(
-                        id: "static-\(titleKey)",
-                        titleKey: titleKey,
-                        subtitleKey: subtitleKey,
-                        category: category,
-                        kind: kind
-                    )
+        for entry in staticEntries
+            where matchesLocalized(entry.titleKey, query) || matchesLocalized(entry.subtitleKey, query)
+        {
+            results.append(
+                WorkoutSearchHit(
+                    id: "static-\(entry.titleKey)",
+                    titleKey: entry.titleKey,
+                    subtitleKey: entry.subtitleKey,
+                    category: entry.category,
+                    kind: entry.kind
                 )
-            }
+            )
         }
     }
 
@@ -89,18 +167,18 @@ enum WorkoutSearchIndex {
         query: String,
         into results: inout [WorkoutSearchHit]
     ) {
-        for workout in core.strengthPrograms.readyMadeWorkouts(profileId: profileId) {
-            if matchesLocalized(workout.nameKey, query) {
-                results.append(
-                    WorkoutSearchHit(
-                        id: "ready-\(workout.id)",
-                        titleKey: workout.nameKey,
-                        subtitleKey: "workouts_ready_title",
-                        category: .strength,
-                        kind: .readyMade(workout.id)
-                    )
+        for workout in core.strengthPrograms.readyMadeWorkouts(profileId: profileId)
+            where matchesLocalized(workout.nameKey, query)
+        {
+            results.append(
+                WorkoutSearchHit(
+                    id: "ready-\(workout.id)",
+                    titleKey: workout.nameKey,
+                    subtitleKey: "workouts_ready_title",
+                    category: .strength,
+                    kind: .readyMade(workout.id)
                 )
-            }
+            )
         }
     }
 
@@ -111,18 +189,18 @@ enum WorkoutSearchIndex {
         into results: inout [WorkoutSearchHit]
     ) {
         for category in core.routineLibrary.routineCategories() {
-            for routine in core.routineLibrary.routines(category: category, profileId: profileId) {
-                if matchesLocalized(routine.nameKey, query) {
-                    results.append(
-                        WorkoutSearchHit(
-                            id: "routine-\(routine.id)",
-                            titleKey: routine.nameKey,
-                            subtitleKey: "explore_title",
-                            category: .strength,
-                            kind: .routine(routine.id)
-                        )
+            for routine in core.routineLibrary.routines(category: category, profileId: profileId)
+                where matchesLocalized(routine.nameKey, query)
+            {
+                results.append(
+                    WorkoutSearchHit(
+                        id: "routine-\(routine.id)",
+                        titleKey: routine.nameKey,
+                        subtitleKey: "explore_title",
+                        category: .strength,
+                        kind: .routine(routine.id)
                     )
-                }
+                )
             }
         }
     }

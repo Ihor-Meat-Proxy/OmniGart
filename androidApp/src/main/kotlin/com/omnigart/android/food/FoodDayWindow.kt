@@ -43,16 +43,15 @@ internal fun foodDayBounds(dayOffset: Int): FoodDayWindow {
 }
 
 @Composable
-internal fun foodMealTitle(meal: MealGroup): String =
-    stringResource(
-        when (meal) {
-            MealGroup.BREAKFAST -> R.string.food_meal_breakfast
-            MealGroup.LUNCH -> R.string.food_meal_lunch
-            MealGroup.DINNER -> R.string.food_meal_dinner
-            MealGroup.SNACKS -> R.string.food_meal_snacks
-            MealGroup.CUSTOM -> R.string.food_meal_group
-        }
-    )
+internal fun foodMealTitle(meal: MealGroup): String = stringResource(
+    when (meal) {
+        MealGroup.BREAKFAST -> R.string.food_meal_breakfast
+        MealGroup.LUNCH -> R.string.food_meal_lunch
+        MealGroup.DINNER -> R.string.food_meal_dinner
+        MealGroup.SNACKS -> R.string.food_meal_snacks
+        MealGroup.CUSTOM -> R.string.food_meal_group
+    }
+)
 
 @Composable
 internal fun FoodDayNav(dayOffset: Int, onPrev: () -> Unit, onNext: () -> Unit) {
@@ -180,14 +179,7 @@ internal fun FoodDailySummaryBlock(
 }
 
 @Composable
-internal fun FoodMealBlock(
-    core: OmniGartCore,
-    profileId: String,
-    meal: MealGroup,
-    dayOffset: Int,
-    tick: Int,
-    onAdd: () -> Unit
-) {
+internal fun FoodMealBlock(core: OmniGartCore, profileId: String, meal: MealGroup, dayOffset: Int, tick: Int, onAdd: () -> Unit) {
     val bounds = remember(dayOffset, tick) { foodDayBounds(dayOffset) }
     val entries =
         remember(dayOffset, tick, profileId, meal) {

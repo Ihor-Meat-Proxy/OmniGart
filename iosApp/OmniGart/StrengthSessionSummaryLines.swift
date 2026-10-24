@@ -9,24 +9,31 @@ struct StrengthSummaryInput {
     var lastEnergy: HealthKitWorkoutWriter.Result?
 }
 
+struct StrengthSummaryBuilt {
+    var lines: [String]
+    var setCount: Int
+    var volumeDisplay: Double
+}
+
 enum StrengthSessionSummaryLines {
-    static func build(_ input: StrengthSummaryInput) -> (lines: [String], setCount: Int) {
+    static func build(_ input: StrengthSummaryInput) -> StrengthSummaryBuilt {
         let profile = input.core.profiles.get(id: input.profileId)
+        let unit = MassUnits.shared.fromUnitSystem(units: profile?.preferredUnits ?? .metric)
+        let unitLabel = unit == .lb ? "lb" : "kg"
         let bw = profile.map { KotlinDouble(value: $0.weightKg) }
         let summary = input.core.strengthLogging.sessionSummary(
             sessionId: input.sessionId,
             includeWarmups: input.includeWarmups,
             bodyweightKg: bw,
-            unit: .kg
+            unit: unit
         )
-        let setCount = Int(
-            input.core.strengthLogging.getSession(sessionId: input.sessionId)?.sets.count ?? 0
-        )
+        let session = input.core.strengthLogging.getSession(sessionId: input.sessionId)
+        let setCount = session?.sets.filter(\.completed).count ?? 0
         let volume = summary.volume.totalVolumeDisplay
         let lifted = summary.totalWeightLiftedDisplay
 
         var lines: [String] = []
-        if input.core.strengthLogging.getSession(sessionId: input.sessionId) != nil {
+        if session != nil {
             let start = dateFromEpochMillis(
                 input.core.strengthLogging.sessionStartEpochMillis(sessionId: input.sessionId)
             )
@@ -40,17 +47,17 @@ enum StrengthSessionSummaryLines {
             lines.append(contentsOf: energyLines(energy))
         }
         lines.append(contentsOf: [
-            "\(catalog("workout_volume_load")): \(String(format: "%.1f", volume)) kg",
-            "\(catalog("workout_total_weight_lifted")): \(String(format: "%.1f", lifted)) kg",
+            "\(catalog("workout_volume_load")): \(String(format: "%.1f", volume)) \(unitLabel)",
+            "\(catalog("workout_total_weight_lifted")): \(String(format: "%.1f", lifted)) \(unitLabel)",
             "\(catalog("workout_hard_sets")): \(summary.volume.hardSets)"
         ])
         lines.append(catalog("workout_per_exercise"))
         for row in summary.volume.perExercise {
             lines.append(
-                "\(row.exerciseId): \(String(format: "%.1f", row.volumeKg)) kg · \(row.hardSets)"
+                "\(row.exerciseId): \(String(format: "%.1f", row.volumeKg)) \(unitLabel) · \(row.hardSets)"
             )
         }
-        return (lines, setCount)
+        return StrengthSummaryBuilt(lines: lines, setCount: setCount, volumeDisplay: volume)
     }
 
     private static func energyLines(_ energy: HealthKitWorkoutWriter.Result) -> [String] {

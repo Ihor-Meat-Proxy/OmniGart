@@ -107,6 +107,29 @@ object StringKeys {
     const val WORKOUT_MINDFUL_MINUTES_TOGGLE = "workout_mindful_minutes_toggle"
     const val WORKOUT_MINDFUL_MINUTES_BODY = "workout_mindful_minutes_body"
     const val WORKOUT_MINDFUL_SETTINGS_TITLE = "workout_mindful_settings_title"
+    const val WORKOUT_FINISH = "workout_finish"
+    const val WORKOUT_REST_TIMER = "workout_rest_timer"
+    const val WORKOUT_NOTE = "workout_note"
+    const val WORKOUT_PROGRESSION = "workout_progression"
+    const val WORKOUT_COL_SET = "workout_col_set"
+    const val WORKOUT_COL_PREVIOUS = "workout_col_previous"
+    const val WORKOUT_COL_KG = "workout_col_kg"
+    const val WORKOUT_COL_LB = "workout_col_lb"
+    const val WORKOUT_COL_REPS = "workout_col_reps"
+    const val WORKOUT_COL_DONE = "workout_col_done"
+    const val WORKOUT_REPLACE_EXERCISE = "workout_replace_exercise"
+    const val WORKOUT_REMOVE_EXERCISE = "workout_remove_exercise"
+    const val WORKOUT_MARK_WARMUP = "workout_mark_warmup"
+    const val WORKOUT_MARK_DROP = "workout_mark_drop"
+    const val WORKOUT_MARK_FAILURE = "workout_mark_failure"
+    const val WORKOUT_RECORD_RPE = "workout_record_rpe"
+    const val WORKOUT_SET_MENU = "workout_set_menu"
+    const val WORKOUT_WEIGHT_LB = "workout_weight_lb"
+    const val WORKOUT_BODY_MAP = "workout_body_map"
+    const val WORKOUT_EXPORT_WORKOUTKIT = "workout_export_workoutkit"
+    const val WORKOUT_WORKOUTKIT_LIMIT = "workout_workoutkit_limit"
+    const val WORKOUT_SETS_COUNT = "workout_sets_count"
+    const val WORKOUT_VOLUME_SHORT = "workout_volume_short"
 
     const val DATA_PRIVACY_TITLE = "data_privacy_title"
     const val DATA_PRIVACY_INTRO = "data_privacy_intro"
@@ -233,7 +256,8 @@ object StringCatalog {
             StringKeys.WORKOUT_SUMMARY_TOTAL_KCAL to "Total kcal",
             StringKeys.WORKOUT_SUMMARY_AVG_HR to "Average heart rate",
             StringKeys.WORKOUT_SUMMARY_MAX_HR to "Max heart rate",
-            StringKeys.WORKOUT_SUMMARY_ENERGY_ESTIMATE to "Energy is a wellness estimate (MET × body weight).",
+            StringKeys.WORKOUT_SUMMARY_ENERGY_ESTIMATE to
+                "Energy is a wellness estimate (heart rate or work-based), not a medical measurement.",
             StringKeys.WORKOUT_SUMMARY_EFFORT to "Effort score",
             StringKeys.WORKOUT_SUMMARY_HR_RECOVERY to "Heart-rate recovery",
             StringKeys.WORKOUT_START_ON_WATCH to "Start on Apple Watch",
@@ -249,6 +273,32 @@ object StringCatalog {
             StringKeys.WORKOUT_MINDFUL_MINUTES_BODY to
                 "Optional. Off by default. Writes a mindful session only when you enable this.",
             StringKeys.WORKOUT_MINDFUL_SETTINGS_TITLE to "Yoga mindful minutes",
+            StringKeys.WORKOUT_FINISH to "Finish",
+            StringKeys.WORKOUT_REST_TIMER to "Rest",
+            StringKeys.WORKOUT_NOTE to "Note",
+            StringKeys.WORKOUT_PROGRESSION to "Target",
+            StringKeys.WORKOUT_COL_SET to "SET",
+            StringKeys.WORKOUT_COL_PREVIOUS to "PREVIOUS",
+            StringKeys.WORKOUT_COL_KG to "KG",
+            StringKeys.WORKOUT_COL_LB to "LB",
+            StringKeys.WORKOUT_COL_REPS to "REPS",
+            StringKeys.WORKOUT_COL_DONE to "✓",
+            StringKeys.WORKOUT_REPLACE_EXERCISE to "Replace exercise",
+            StringKeys.WORKOUT_REMOVE_EXERCISE to "Remove exercise",
+            StringKeys.WORKOUT_MARK_WARMUP to "Mark as warm-up",
+            StringKeys.WORKOUT_MARK_DROP to "Mark as drop set",
+            StringKeys.WORKOUT_MARK_FAILURE to "Mark as failure",
+            StringKeys.WORKOUT_RECORD_RPE to "Record RPE",
+            StringKeys.WORKOUT_SET_MENU to "Set options",
+            StringKeys.WORKOUT_WEIGHT_LB to "Weight (lb)",
+            StringKeys.WORKOUT_BODY_MAP to "Muscles",
+            StringKeys.WORKOUT_EXPORT_WORKOUTKIT to "Add to Apple Workout",
+            StringKeys.WORKOUT_WORKOUTKIT_LIMIT to
+                "Apple’s Workout app cannot accept weight or rep entry from other apps. " +
+                "OmniGart exports each set as a work step and each rest as recovery so you can " +
+                "follow the routine there; log load × reps in OmniGart on iPhone or Apple Watch.",
+            StringKeys.WORKOUT_SETS_COUNT to "Sets",
+            StringKeys.WORKOUT_VOLUME_SHORT to "Volume",
             StringKeys.DATA_PRIVACY_TITLE to "Data and privacy",
             StringKeys.DATA_PRIVACY_INTRO to
                 "OmniGart keeps a full local copy of your workouts and samples on this device. " +

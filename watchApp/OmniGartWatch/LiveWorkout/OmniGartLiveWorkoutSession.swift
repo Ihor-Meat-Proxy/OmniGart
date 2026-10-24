@@ -1,8 +1,27 @@
 import Foundation
 import HealthKit
+import WatchKit
+
+/// Default rest between working sets (mirrors shared `DEFAULT_REST_SECONDS`).
+enum OmniGartStrengthDefaults {
+    static let restSeconds: Int = 90
+}
+
+/// One logged strength set for live watch session + device transfer schema v2.
+struct OmniGartLoggedStrengthSet: Equatable, Sendable, Identifiable {
+    var id: String
+    var exerciseName: String
+    var exerciseId: String
+    var setNumber: Int
+    var weightKg: Double
+    var reps: Int
+    var target: String?
+    var isWarmup: Bool
+}
 
 /// Live indoor (or Zone 2) workout via `HKWorkoutSession` + `HKLiveWorkoutBuilder`.
 /// Collects HR, active/basal energy, pause/resume + segment events for Apple Fitness.
+/// Strength kinds also track per-set logs, rest countdown, and wrist haptics.
 @MainActor
 final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
     @Published private(set) var kind: OmniGartWorkoutKind
@@ -16,6 +35,17 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
     @Published private(set) var heartRateSamples: [Zone2HeartRateSample] = []
     @Published private(set) var segmentCount: Int = 0
 
+    // MARK: Strength set logging
+    @Published private(set) var loggedSets: [OmniGartLoggedStrengthSet] = []
+    @Published private(set) var restRemaining: Int = 0
+    @Published var currentExerciseName: String = "Exercise"
+    @Published var currentExerciseId: String = "exercise"
+    @Published private(set) var currentSetNumber: Int = 1
+    @Published var weightKg: Double = 60
+    @Published var reps: Int = 8
+    @Published var currentTarget: String = ""
+    @Published var isWarmup: Bool = false
+
     private let store = HKHealthStore()
     private var session: HKWorkoutSession?
     private var builder: HKLiveWorkoutBuilder?
@@ -25,80 +55,120 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
     private var pauseBeganAt: Date?
     private var events: [HKWorkoutEvent] = []
     private var pendingSegmentLabel: String?
+    private var restWasActive: Bool = false
+    private let hapticsDevice: WKInterfaceDevice
     private var syncIdentifier: String = ""
 
-    init(kind: OmniGartWorkoutKind) {
+    init(kind: OmniGartWorkoutKind, hapticsDevice: WKInterfaceDevice = .current()) {
         self.kind = kind
+        self.hapticsDevice = hapticsDevice
         super.init()
+    }
+
+    /// Marks the current set complete, appends to `loggedSets`, starts rest, plays success haptic.
+    @discardableResult
+    func logSet(
+        exerciseName: String? = nil,
+        exerciseId: String? = nil,
+        setNumber: Int? = nil,
+        weightKg: Double? = nil,
+        reps: Int? = nil,
+        target: String? = nil,
+        isWarmup: Bool? = nil,
+        restSeconds: Int = OmniGartStrengthDefaults.restSeconds
+    ) -> OmniGartLoggedStrengthSet {
+        let name = exerciseName ?? currentExerciseName
+        let exId = exerciseId ?? currentExerciseId
+        let number = setNumber ?? currentSetNumber
+        let load = weightKg ?? self.weightKg
+        let repCount = reps ?? self.reps
+        let warmup = isWarmup ?? self.isWarmup
+        let set = OmniGartLoggedStrengthSet(
+            id: UUID().uuidString,
+            exerciseName: name,
+            exerciseId: exId,
+            setNumber: number,
+            weightKg: load,
+            reps: repCount,
+            target: target ?? (currentTarget.isEmpty ? nil : currentTarget),
+            isWarmup: warmup
+        )
+        loggedSets.append(set)
+        currentExerciseName = name
+        currentExerciseId = exId
+        if !warmup {
+            currentSetNumber = number + 1
+        }
+        startRest(seconds: restSeconds)
+        hapticsDevice.play(.success)
+        addSegment(label: "\(name) #\(number)")
+        return set
+    }
+
+    func startRest(seconds: Int = OmniGartStrengthDefaults.restSeconds) {
+        let clampedSeconds = max(0, seconds)
+        restRemaining = clampedSeconds
+        restWasActive = clampedSeconds > 0
+    }
+
+    func skipRest() {
+        restRemaining = 0
+        restWasActive = false
+    }
+
+    private func tickRest() {
+        guard restRemaining > 0 else { return }
+        restRemaining -= 1
+        if restRemaining == 0, restWasActive {
+            restWasActive = false
+            hapticsDevice.play(.success)
+        }
     }
 
     func start() async {
         lastError = nil
         resetMetrics()
         syncIdentifier = OmniGartWatchHealthSync.makeSyncIdentifier()
-        guard HKHealthStore.isHealthDataAvailable() else {
+        guard HKHealthStore.isHealthDataAvailable(), let healthTypes = LiveWorkoutHealthTypes(kind: kind) else {
             lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
             return
         }
-        guard
-            let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate),
-            let activeEnergyType = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned),
-            let basalEnergyType = HKQuantityType.quantityType(forIdentifier: .basalEnergyBurned)
-        else {
-            lastError = String(localized: String.LocalizationValue("watch.zone2.error.health_unavailable"))
-            return
-        }
+
         do {
-            try await beginLiveSession(
-                heartRateType: heartRateType,
-                activeEnergyType: activeEnergyType,
-                basalEnergyType: basalEnergyType
-            )
+            try await store.requestAuthorization(toShare: healthTypes.sampleTypes, read: healthTypes.sampleTypes)
+            let config = kind.makeConfiguration()
+            let session = try HKWorkoutSession(healthStore: store, configuration: config)
+            let builder = session.associatedWorkoutBuilder()
+            builder.dataSource = makeDataSource(configuration: config, healthTypes: healthTypes)
+            session.delegate = self
+            builder.delegate = self
+            self.session = session
+            self.builder = builder
+
+            let start = Date()
+            session.startActivity(with: start)
+            try await builder.beginCollection(at: start)
+            startedAt = start
+            isRunning = true
+            isPaused = false
+            startElapsedTimer()
         } catch {
             lastError = error.localizedDescription
             isRunning = false
         }
     }
+}
 
-    private func beginLiveSession(
-        heartRateType: HKQuantityType,
-        activeEnergyType: HKQuantityType,
-        basalEnergyType: HKQuantityType
-    ) async throws {
-        var types: Set<HKSampleType> = [
-            heartRateType,
-            activeEnergyType,
-            basalEnergyType,
-            HKObjectType.workoutType()
-        ]
-        if kind == .zone2Run,
-           let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) {
-            types.insert(distanceType)
+extension OmniGartLiveWorkoutSession {
+    private func makeDataSource(
+        configuration: HKWorkoutConfiguration,
+        healthTypes: LiveWorkoutHealthTypes
+    ) -> HKLiveWorkoutDataSource {
+        let dataSource = HKLiveWorkoutDataSource(healthStore: store, workoutConfiguration: configuration)
+        for type in healthTypes.collectedQuantityTypes {
+            dataSource.enableCollection(for: type, predicate: nil)
         }
-        try await store.requestAuthorization(toShare: types, read: types)
-        let config = kind.makeConfiguration()
-        let session = try HKWorkoutSession(healthStore: store, configuration: config)
-        let builder = session.associatedWorkoutBuilder()
-        let dataSource = HKLiveWorkoutDataSource(healthStore: store, workoutConfiguration: config)
-        dataSource.enableCollection(for: heartRateType, predicate: nil)
-        dataSource.enableCollection(for: activeEnergyType, predicate: nil)
-        dataSource.enableCollection(for: basalEnergyType, predicate: nil)
-        if kind == .zone2Run,
-           let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) {
-            dataSource.enableCollection(for: distanceType, predicate: nil)
-        }
-        builder.dataSource = dataSource
-        session.delegate = self
-        builder.delegate = self
-        self.session = session
-        self.builder = builder
-        let start = Date()
-        session.startActivity(with: start)
-        try await builder.beginCollection(at: start)
-        startedAt = start
-        isRunning = true
-        isPaused = false
-        startElapsedTimer()
+        return dataSource
     }
 
     func pause() {
@@ -107,7 +177,9 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         pauseBeganAt = Date()
         isPaused = true
         let at = Date()
-        events.append(HKWorkoutEvent(type: .pause, dateInterval: DateInterval(start: at, duration: 1), metadata: nil))
+        events.append(
+            HKWorkoutEvent(type: .pause, dateInterval: DateInterval(start: at, duration: 1), metadata: nil)
+        )
     }
 
     func resume() {
@@ -119,7 +191,9 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         pauseBeganAt = nil
         isPaused = false
         let at = Date()
-        events.append(HKWorkoutEvent(type: .resume, dateInterval: DateInterval(start: at, duration: 1), metadata: nil))
+        events.append(
+            HKWorkoutEvent(type: .resume, dateInterval: DateInterval(start: at, duration: 1), metadata: nil)
+        )
     }
 
     /// Marks a segment boundary (exercise / pose block).
@@ -221,7 +295,8 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
             heartRateSamples: heartRateSamples,
             segmentCount: segmentCount,
             startedAt: startedAt ?? endedAt,
-            endedAt: endedAt
+            endedAt: endedAt,
+            sets: loggedSets
         )
     }
 
@@ -237,6 +312,14 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         startedAt = nil
         accumulatedPause = 0
         pauseBeganAt = nil
+        loggedSets = []
+        restRemaining = 0
+        restWasActive = false
+        currentSetNumber = 1
+        weightKg = 60
+        reps = 8
+        currentTarget = ""
+        isWarmup = false
     }
 
     private func startElapsedTimer() {
@@ -249,6 +332,9 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
                     pause += Date().timeIntervalSince(began)
                 }
                 self.elapsed = max(0, Date().timeIntervalSince(start) - pause)
+                if !self.isPaused {
+                    self.tickRest()
+                }
             }
         }
     }
@@ -258,5 +344,39 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
         heartRateBpm = value
         let offset = startedAt.map { date.timeIntervalSince($0) } ?? elapsed
         heartRateSamples.append(Zone2HeartRateSample(offsetSeconds: max(0, offset), bpm: value))
+    }
+}
+
+/// HealthKit quantity types a live workout reads, writes, and collects.
+private struct LiveWorkoutHealthTypes {
+    let heartRate: HKQuantityType
+    let activeEnergy: HKQuantityType
+    let basalEnergy: HKQuantityType
+    let distance: HKQuantityType?
+
+    init?(kind: OmniGartWorkoutKind) {
+        guard
+            let heartRate = HKQuantityType.quantityType(forIdentifier: .heartRate),
+            let activeEnergy = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned),
+            let basalEnergy = HKQuantityType.quantityType(forIdentifier: .basalEnergyBurned)
+        else { return nil }
+        self.heartRate = heartRate
+        self.activeEnergy = activeEnergy
+        self.basalEnergy = basalEnergy
+        distance = kind == .zone2Run
+            ? HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)
+            : nil
+    }
+
+    var collectedQuantityTypes: [HKQuantityType] {
+        [heartRate, activeEnergy, basalEnergy] + (distance.map { [$0] } ?? [])
+    }
+
+    var sampleTypes: Set<HKSampleType> {
+        var types: Set<HKSampleType> = [heartRate, activeEnergy, basalEnergy, HKObjectType.workoutType()]
+        if let distance {
+            types.insert(distance)
+        }
+        return types
     }
 }

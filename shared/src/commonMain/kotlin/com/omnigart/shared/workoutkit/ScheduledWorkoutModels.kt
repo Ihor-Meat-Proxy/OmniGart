@@ -6,7 +6,9 @@ import kotlinx.serialization.Serializable
 /**
  * Platform-agnostic workout plan for Apple WorkoutKit scheduling.
  *
- * Strength set/rep prescriptions are intentionally unsupported — see [WorkoutBlockKind.STRENGTH_UNSUPPORTED].
+ * Weight × rep entry is not available in Apple's Workout app. Strength routines may still be
+ * exported as WORK + RECOVERY steps ([StrengthWorkoutKitPlans]); [WorkoutBlockKind.STRENGTH_UNSUPPORTED]
+ * remains rejected. See `docs/WORKOUTKIT.md`.
  */
 @Serializable
 enum class WorkoutBlockKind {

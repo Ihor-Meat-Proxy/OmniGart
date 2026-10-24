@@ -216,10 +216,11 @@ final class TreadmillBleManager: NSObject, ObservableObject {
 }
 
 extension TreadmillBleManager: CBCentralManagerDelegate {
-    // CBCentralManager(queue: nil) delivers callbacks on the main queue.
+    // CBCentralManager(queue: nil) delivers on the main queue; hop only Sendable values.
     nonisolated func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        MainActor.assumeIsolated {
-            if central.state != .poweredOn {
+        let poweredOn = central.state == .poweredOn
+        Task { @MainActor in
+            if !poweredOn {
                 state = .failed
                 lastError = "Bluetooth unavailable"
             }
@@ -232,10 +233,11 @@ extension TreadmillBleManager: CBCentralManagerDelegate {
         advertisementData: [String: Any],
         rssi RSSI: NSNumber
     ) {
-        MainActor.assumeIsolated {
-            let name = peripheral.name
-                ?? (advertisementData[CBAdvertisementDataLocalNameKey] as? String)
-                ?? "Treadmill"
+        let id = peripheral.identifier
+        let name = peripheral.name
+            ?? (advertisementData[CBAdvertisementDataLocalNameKey] as? String)
+            ?? "Treadmill"
+        Task { @MainActor in
             let lower = name.lowercased()
             let hint: String
             if lower.contains("iconsole") || lower.contains("i-console") {
@@ -245,7 +247,7 @@ extension TreadmillBleManager: CBCentralManagerDelegate {
             } else {
                 hint = "BLE"
             }
-            let device = DiscoveredDevice(id: peripheral.identifier, name: name, protocolHint: hint)
+            let device = DiscoveredDevice(id: id, name: name, protocolHint: hint)
             if !discovered.contains(device) {
                 discovered.append(device)
                 appendDiag("INFO discovered \(name)")
@@ -254,11 +256,11 @@ extension TreadmillBleManager: CBCentralManagerDelegate {
     }
 
     nonisolated func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        MainActor.assumeIsolated {
+        Task { @MainActor in
             state = .connected
             reconnectAttempt = 0
             appendDiag("INFO connected")
-            peripheral.discoverServices(nil)
+            self.peripheral?.discoverServices(nil)
         }
     }
 
@@ -267,9 +269,10 @@ extension TreadmillBleManager: CBCentralManagerDelegate {
         didFailToConnect peripheral: CBPeripheral,
         error: Error?
     ) {
-        MainActor.assumeIsolated {
+        let message = error?.localizedDescription
+        Task { @MainActor in
             state = .failed
-            lastError = error?.localizedDescription
+            lastError = message
             scheduleReconnect()
         }
     }
@@ -279,7 +282,7 @@ extension TreadmillBleManager: CBCentralManagerDelegate {
         didDisconnectPeripheral peripheral: CBPeripheral,
         error: Error?
     ) {
-        MainActor.assumeIsolated {
+        Task { @MainActor in
             iconsolePollTask?.cancel()
             fitShowPollTask?.cancel()
             activeProtocol = .none

@@ -2,10 +2,10 @@ import CoreBluetooth
 import Foundation
 
 extension TreadmillBleManager: CBPeripheralDelegate {
-    // Peripheral callbacks share the central's main queue (queue: nil).
+    // Hop only Sendable snapshots; use self.peripheral on the MainActor.
     nonisolated func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        MainActor.assumeIsolated {
-            guard let services = peripheral.services else { return }
+        Task { @MainActor in
+            guard let peripheral = self.peripheral, let services = peripheral.services else { return }
             for service in services {
                 appendDiag("SERVICE \(service.uuid.uuidString)")
                 peripheral.discoverCharacteristics(nil, for: service)
@@ -18,7 +18,11 @@ extension TreadmillBleManager: CBPeripheralDelegate {
         didDiscoverCharacteristicsFor service: CBService,
         error: Error?
     ) {
-        MainActor.assumeIsolated {
+        let serviceId = service.uuid
+        Task { @MainActor in
+            guard let peripheral = self.peripheral,
+                  let service = peripheral.services?.first(where: { $0.uuid == serviceId })
+            else { return }
             handleDiscoveredCharacteristics(peripheral: peripheral, service: service)
         }
     }
@@ -28,8 +32,10 @@ extension TreadmillBleManager: CBPeripheralDelegate {
         didUpdateValueFor characteristic: CBCharacteristic,
         error: Error?
     ) {
-        MainActor.assumeIsolated {
-            handleValueUpdate(characteristic: characteristic)
+        let uuid = characteristic.uuid.uuidString
+        let data = characteristic.value
+        Task { @MainActor in
+            handleValueUpdate(uuid: uuid, data: data)
         }
     }
 
@@ -91,11 +97,11 @@ extension TreadmillBleManager: CBPeripheralDelegate {
         appendDiag("INFO active protocol \(activeProtocol.rawValue)")
     }
 
-    private func handleValueUpdate(characteristic: CBCharacteristic) {
-        guard let data = characteristic.value else { return }
+    private func handleValueUpdate(uuid: String, data: Data?) {
+        guard let data else { return }
         let hex = data.map { String(format: "%02x", $0) }.joined(separator: " ")
-        appendDiag("RAW \(characteristic.uuid.uuidString) \(hex)")
-        let lower = characteristic.uuid.uuidString.lowercased()
+        appendDiag("RAW \(uuid) \(hex)")
+        let lower = uuid.lowercased()
         if lower.contains("2acd"), activeProtocol == .ftms,
            let parsed = FtmsTreadmillParser.parse(data) {
             apply(parsed)

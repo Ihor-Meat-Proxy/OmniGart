@@ -1,0 +1,9 @@
+{
+  "schema": "omnigart.usda.pack/v1",
+  "title": "OmniGart USDA demo slice",
+  "datasets": ["Foundation", "SR Legacy", "FNDDS"],
+  "foodCount": 5,
+  "foodsFile": "foods.ndjson",
+  "license": "USDA FoodData Central — public domain",
+  "optionalSqliteFile": "usda-demo.sqlite"
+}

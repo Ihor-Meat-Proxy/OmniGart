@@ -7,18 +7,12 @@
     <string name="tab_planner">Planner</string>
     <string name="tab_profile">Profile</string>
     <string name="shell_intro">Wellness estimates from your shared OmniGart profile</string>
-
-    <!-- Wellness / App Review -->
-
     <string name="wellness_disclaimer">OmniGart provides wellness estimates only. Readiness, stress, HRV, Baevsky index, body-fat estimates, hydration targets, and training plans are not medical advice. Consult a qualified professional for health concerns.</string>
     <string name="info_sheet_not_medical_advice">Not medical advice. Consult a professional.</string>
     <string name="health_warning_chest_pain">Stop and seek emergency help if you feel chest pain, severe dizziness, or unusual shortness of breath during activity.</string>
     <string name="onboarding_wellness_title">Wellness, not medical care</string>
     <string name="info_sheet_title">About this estimate</string>
     <string name="info_sheet_body">Figures such as readiness, stress, HRV, Baevsky index, body fat, and hydration are wellness estimates based on your inputs and device samples. Plans are coaching suggestions, not prescriptions.</string>
-
-    <!-- Just-in-time permission explainers (app usable if denied) -->
-
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
     <string name="perm_explainer_health_body">OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, active and resting energy, heart-rate recovery, workout effort, optional mindful minutes, body mass, and hydration — so sessions can appear in Apple Fitness with duration and calories. Platform writes are append-only: OmniGart never deletes or rewrites Apple Health or Health Connect data, including its own. Data is not used for ads or sent to unrelated third parties. You can continue without granting access.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth accessories</string>
@@ -29,9 +23,6 @@
     <string name="perm_explainer_notifications_body">Optional reminders for workouts, hydration, and morning wellness check-ins. The app stays usable with notifications off.</string>
     <string name="perm_continue">Continue</string>
     <string name="perm_not_now">Not now</string>
-
-    <!-- Health Connect privacy rationale (Play health apps policy) -->
-
     <string name="hc_rationale_title">Health Connect data use</string>
     <string name="hc_rationale_body">OmniGart requests Health Connect access to read and write fitness and wellness data you choose — such as heart rate, HRV, sleep, workouts, body mass, and hydration — so readiness and training estimates stay accurate on your device.
 
@@ -39,9 +30,6 @@ Writes are append-only: OmniGart never deletes or rewrites Health Connect data, 
 
 We do not sell health data, use it for advertising, or share it with third parties for marketing. You can deny access and keep using OmniGart with manual entry.</string>
     <string name="hc_rationale_privacy_policy">Privacy policy</string>
-
-    <!-- Calculations settings (formula.* titles/explains resolve via StringCatalog; dotted keys cannot be Android resource names) -->
-
     <string name="calc_settings_title">Calculations</string>
     <string name="calc_settings_intro">Choose how OmniGart estimates wellness figures such as energy use, heart-rate zones, body fat, and strength.</string>
     <string name="calc_mode_simple">Simple</string>
@@ -51,9 +39,6 @@ We do not sell health data, use it for advertising, or share it with third parti
     <string name="calc_domain_body_fat">Body fat</string>
     <string name="calc_domain_one_rm">One-rep max</string>
     <string name="calc_domain_hr_zones">Heart-rate zones</string>
-
-    <!-- Strength logging (Workouts tab) -->
-
     <string name="workout_start">Start workout</string>
     <string name="workout_end">End workout</string>
     <string name="workout_add_set">Add set</string>
@@ -153,7 +138,7 @@ We do not sell health data, use it for advertising, or share it with third parti
     <string name="workout_summary_total_kcal">Total kcal</string>
     <string name="workout_summary_avg_hr">Average heart rate</string>
     <string name="workout_summary_max_hr">Max heart rate</string>
-    <string name="workout_summary_energy_estimate">Energy is a wellness estimate (heart rate or work-based), not a medical measurement.</string>
+    <string name="workout_summary_energy_estimate">Energy is a wellness estimate (MET × body weight).</string>
     <string name="workout_summary_effort">Effort score</string>
     <string name="workout_summary_hr_recovery">Heart-rate recovery</string>
     <string name="workout_start_on_watch">Start on Apple Watch</string>
@@ -393,67 +378,67 @@ We do not sell health data, use it for advertising, or share it with third parti
     <string name="workout_volume_short">Volume</string>
     <string name="wear_strength_title">Strength</string>
     <string name="wear_strength_done">Done</string>
-<string name="workouts_program_title">Strength programme</string>
-<string name="workouts_program_intro">Build a full-body or split plan from your equipment. Coaching aid only — not medical advice.</string>
-<string name="workouts_program_split">Programme type</string>
-<string name="workouts_program_days">Days per week</string>
-<string name="workouts_equipment_title">Equipment</string>
-<string name="workouts_equipment_edit">Edit equipment</string>
-<string name="workouts_equipment_presets">Presets</string>
-<string name="equipment_preset_home">Home</string>
-<string name="equipment_preset_gym">Gym</string>
-<string name="equipment_preset_travel">Travel</string>
-<string name="equipment_preset_save_home">Save as Home</string>
-<string name="workouts_week_title">This week</string>
-<string name="workouts_week_day">Session</string>
-<string name="workouts_muscles_title">Muscles worked</string>
-<string name="workouts_adjust_equipment">Adjust equipment</string>
-<string name="workouts_substituted">Substituted</string>
-<string name="watch_strength_start">Strength session</string>
-<string name="watch_equipment_sync_hint">Toggles sync from iPhone. Changes apply to this session only.</string>
-<string name="program_split_full_body">Full body</string>
-<string name="program_split_upper_lower">Upper / lower</string>
-<string name="program_split_ppl">Push / pull / legs</string>
-<string name="program_split_bro">Bro split</string>
-<string name="program_session_full_a">Full body A</string>
-<string name="program_session_full_b">Full body B</string>
-<string name="program_session_full_c">Full body C</string>
-<string name="program_session_upper_a">Upper A</string>
-<string name="program_session_upper_b">Upper B</string>
-<string name="program_session_lower_a">Lower A</string>
-<string name="program_session_lower_b">Lower B</string>
-<string name="program_session_push">Push</string>
-<string name="program_session_pull">Pull</string>
-<string name="program_session_legs">Legs</string>
-<string name="program_session_chest">Chest</string>
-<string name="program_session_back">Back</string>
-<string name="program_session_shoulders">Shoulders</string>
-<string name="program_session_arms">Arms</string>
-<string name="equipment_item_pull_up_bar">Pull-up bar</string>
-<string name="equipment_item_dip_bars">Dip bars</string>
-<string name="equipment_item_bands">Resistance bands</string>
-<string name="equipment_item_dumbbell">Dumbbells</string>
-<string name="equipment_item_kettlebell">Kettlebells</string>
-<string name="equipment_item_barbell">Barbell</string>
-<string name="equipment_item_plates">Weight plates</string>
-<string name="equipment_item_bench_flat">Flat bench</string>
-<string name="equipment_item_bench_adjustable">Adjustable bench</string>
-<string name="equipment_item_squat_rack">Squat rack</string>
-<string name="equipment_item_cable">Cable machine</string>
-<string name="equipment_item_smith_machine">Smith machine</string>
-<string name="equipment_item_leg_press">Leg press</string>
-<string name="equipment_item_lat_pulldown">Lat pulldown</string>
-<string name="equipment_item_assisted_pullup_dip_machine">Assisted pull-up / dip machine</string>
-<string name="equipment_item_machine">Resistance machines</string>
-<string name="equipment_item_trap_bar">Trap bar</string>
-<string name="equipment_item_ez_bar">EZ bar</string>
-<string name="equipment_item_suspension">Suspension trainer</string>
-<string name="equipment_item_box">Plyometric box</string>
-<string name="equipment_item_landmine">Landmine</string>
-<string name="equipment_item_yoga_mat">Yoga mat</string>
-<string name="workouts_ready_title">Ready-made workouts</string>
-<string name="workouts_ready_intro">Browse fixed sessions filtered by your equipment. Start one directly, or adjust kit and swaps update.</string>
-<string name="workouts_ready_clear">Clear ready workout</string>
+    <string name="workouts_program_title">Strength programme</string>
+    <string name="workouts_program_intro">Build a full-body or split plan from your equipment. Coaching aid only — not medical advice.</string>
+    <string name="workouts_program_split">Programme type</string>
+    <string name="workouts_program_days">Days per week</string>
+    <string name="workouts_equipment_title">Equipment</string>
+    <string name="workouts_equipment_edit">Edit equipment</string>
+    <string name="workouts_equipment_presets">Presets</string>
+    <string name="equipment_preset_home">Home</string>
+    <string name="equipment_preset_gym">Gym</string>
+    <string name="equipment_preset_travel">Travel</string>
+    <string name="equipment_preset_save_home">Save as Home</string>
+    <string name="workouts_week_title">This week</string>
+    <string name="workouts_week_day">Session</string>
+    <string name="workouts_muscles_title">Muscles worked</string>
+    <string name="workouts_adjust_equipment">Adjust equipment</string>
+    <string name="workouts_substituted">Substituted</string>
+    <string name="watch_strength_start">Strength session</string>
+    <string name="watch_equipment_sync_hint">Toggles sync from iPhone. Changes apply to this session only.</string>
+    <string name="program_split_full_body">Full body</string>
+    <string name="program_split_upper_lower">Upper / lower</string>
+    <string name="program_split_ppl">Push / pull / legs</string>
+    <string name="program_split_bro">Bro split</string>
+    <string name="program_session_full_a">Full body A</string>
+    <string name="program_session_full_b">Full body B</string>
+    <string name="program_session_full_c">Full body C</string>
+    <string name="program_session_upper_a">Upper A</string>
+    <string name="program_session_upper_b">Upper B</string>
+    <string name="program_session_lower_a">Lower A</string>
+    <string name="program_session_lower_b">Lower B</string>
+    <string name="program_session_push">Push</string>
+    <string name="program_session_pull">Pull</string>
+    <string name="program_session_legs">Legs</string>
+    <string name="program_session_chest">Chest</string>
+    <string name="program_session_back">Back</string>
+    <string name="program_session_shoulders">Shoulders</string>
+    <string name="program_session_arms">Arms</string>
+    <string name="equipment_item_pull_up_bar">Pull-up bar</string>
+    <string name="equipment_item_dip_bars">Dip bars</string>
+    <string name="equipment_item_bands">Resistance bands</string>
+    <string name="equipment_item_dumbbell">Dumbbells</string>
+    <string name="equipment_item_kettlebell">Kettlebells</string>
+    <string name="equipment_item_barbell">Barbell</string>
+    <string name="equipment_item_plates">Weight plates</string>
+    <string name="equipment_item_bench_flat">Flat bench</string>
+    <string name="equipment_item_bench_adjustable">Adjustable bench</string>
+    <string name="equipment_item_squat_rack">Squat rack</string>
+    <string name="equipment_item_cable">Cable machine</string>
+    <string name="equipment_item_smith_machine">Smith machine</string>
+    <string name="equipment_item_leg_press">Leg press</string>
+    <string name="equipment_item_lat_pulldown">Lat pulldown</string>
+    <string name="equipment_item_assisted_pullup_dip_machine">Assisted pull-up / dip machine</string>
+    <string name="equipment_item_machine">Resistance machines</string>
+    <string name="equipment_item_trap_bar">Trap bar</string>
+    <string name="equipment_item_ez_bar">EZ bar</string>
+    <string name="equipment_item_suspension">Suspension trainer</string>
+    <string name="equipment_item_box">Plyometric box</string>
+    <string name="equipment_item_landmine">Landmine</string>
+    <string name="equipment_item_yoga_mat">Yoga mat</string>
+    <string name="workouts_ready_title">Ready-made workouts</string>
+    <string name="workouts_ready_intro">Browse fixed sessions filtered by your equipment. Start one directly, or adjust kit and swaps update.</string>
+    <string name="workouts_ready_clear">Clear ready workout</string>
     <string name="wear_strength_start">Strength</string>
     <string name="wear_strength_stop">End</string>
     <string name="wear_strength_rest">Rest %1$ds</string>
@@ -462,4 +447,73 @@ We do not sell health data, use it for advertising, or share it with third parti
     <string name="wear_strength_set">Set %1$d</string>
     <string name="wear_strength_hr">HR %1$d</string>
     <string name="wear_strength_kcal">%1$s kcal</string>
+    <string name="food_search_title">Search foods</string>
+    <string name="food_search_placeholder">Name or brand</string>
+    <string name="food_meal_group">Meal</string>
+    <string name="food_meal_breakfast">Breakfast</string>
+    <string name="food_meal_lunch">Lunch</string>
+    <string name="food_meal_dinner">Dinner</string>
+    <string name="food_meal_snacks">Snacks</string>
+    <string name="food_gaps_title">Fill my gaps</string>
+    <string name="food_gaps_none">No large nutrient gaps versus reference intakes today.</string>
+    <string name="food_gaps_hint">Suggestions use reference intakes and your log. Wellness coaching only — not medical advice.</string>
+    <string name="food_review_title">Morning food review</string>
+    <string name="food_review_run">Review yesterday</string>
+    <string name="food_review_footer">This is a wellness summary, not medical advice.</string>
+    <string name="food_review_ai_toggle">On-device morning review</string>
+    <string name="food_review_ai_ready">On-device review is available on this device.</string>
+    <string name="food_ai_unavailable">On-device review is not available. A simple totals summary is used instead.</string>
+    <string name="food_ai_model_not_ready">The on-device model is not ready yet.</string>
+    <string name="food_review_failed">Could not build a morning review.</string>
+    <string name="food_attribution_short">Food data: USDA FoodData Central (public domain) and Open Food Facts (ODbL).</string>
+    <string name="food_totals_line">%1$d kcal · P %2$d · C %3$d · F %4$d</string>
+    <string name="food_offline_only">Offline-only food search</string>
+    <string name="food_online_privacy_note">Online food search sends your query to Open Food Facts.</string>
+    <string name="food_attr_nav_title">Food data attribution</string>
+    <string name="food_attr_usda_title">USDA FoodData Central</string>
+    <string name="food_attr_usda_body">Nutrient values include United States Department of Agriculture FoodData Central data (Foundation, SR Legacy, FNDDS), which is public domain.</string>
+    <string name="food_attr_off_title">Open Food Facts</string>
+    <string name="food_attr_off_body">Branded products and barcodes may use Open Food Facts data © contributors, available under the Open Database Licence (ODbL).</string>
+    <string name="food_attr_off_link">Open Food Facts website</string>
+    <string name="food_attr_odbl_link">Open Database Licence (ODbL)</string>
+    <string name="food_recents_title">Recents</string>
+    <string name="food_recents_empty">No recent foods yet.</string>
+    <string name="food_favourites_title">Favourites</string>
+    <string name="food_favourites_empty">No favourites yet.</string>
+    <string name="food_tools_title">Food tools</string>
+    <string name="food_copy_yesterday">Copy yesterday</string>
+    <string name="food_copy_done">Yesterday’s log copied to today.</string>
+    <string name="food_barcode_title">Barcode</string>
+    <string name="food_barcode_manual">Enter barcode</string>
+    <string name="food_barcode_lookup">Look up barcode</string>
+    <string name="food_barcode_invalid">That barcode check digit is not valid.</string>
+    <string name="food_label_title">Nutrition label</string>
+    <string name="food_label_paste_hint">Paste or recognise nutrition label text</string>
+    <string name="food_label_parse">Parse label</string>
+    <string name="food_label_parse_failed">Could not read energy or macros from that text.</string>
+    <string name="food_label_entry_name">Label scan</string>
+    <string name="food_scan_point_barcode">Point the camera at a barcode, or enter digits.</string>
+    <string name="food_scan_close">Close</string>
+    <string name="food_serving_100g">100 g</string>
+    <string name="food_serving_one">1 serving</string>
+    <string name="food_serving_pack">Pack</string>
+    <string name="food_settings_title">Food settings</string>
+    <string name="food_day_start">Day starts at</string>
+    <string name="food_review_time">Morning review at</string>
+    <string name="food_erase_all">Erase all food data</string>
+    <string name="food_erase_done">Food diary erased on this device.</string>
+    <string name="food_encryption_note">Food diary rows are sealed on device. Full database encryption ships with encrypted backup.</string>
+    <string name="food_best_sources_title">Best sources</string>
+    <string name="food_import_paste">Paste CSV or JSON</string>
+    <string name="food_import_json">Import JSON</string>
+    <string name="food_import_csv">Import CSV</string>
+    <string name="food_export_json">Export JSON</string>
+    <string name="food_export_ready">Export ready in the paste field.</string>
+    <string name="food_import_done">Imported %d entries.</string>
+    <string name="food_custom_name">Custom food name</string>
+    <string name="food_custom_save">Save custom food</string>
+    <string name="food_override_amount">Reference intake override (mg)</string>
+    <string name="food_override_vitamin_c">Set vitamin C reference intake</string>
+    <string name="food_reference_intake_note">Micronutrient amounts use reference intakes (EFSA/IOM-style), not medical targets.</string>
+    <string name="food_review_notification_body">Your morning food review is ready.</string>
 </resources>

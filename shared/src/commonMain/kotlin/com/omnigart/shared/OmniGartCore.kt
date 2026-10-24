@@ -20,6 +20,7 @@ import com.omnigart.shared.domain.ProfileGoal
 import com.omnigart.shared.domain.StrengthLevel
 import com.omnigart.shared.domain.UnitSystem
 import com.omnigart.shared.domain.UserProfile
+import com.omnigart.shared.food.FoodLoggingService
 import com.omnigart.shared.health.store.HealthSyncEngine
 import com.omnigart.shared.health.store.LocalHealthBridge
 import com.omnigart.shared.health.store.LocalHealthStore
@@ -56,6 +57,19 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
     val workouts = WorkoutRepository(database)
     val sessions = SessionRepository(database)
     val formulaSettings = FormulaSettingsService(database)
+
+    /** Food diary, catalogue, gaps, import/export, optional morning review. */
+    val foodLogging = FoodLoggingService()
+
+    /**
+     * Swift-friendly food day duplicate (epoch millis).
+     *
+     * Named without a `copy*` prefix: ObjC/Swift treats `copy…` as NSCopying and
+     * drops or remaps those Kotlin/Native exports, so Swift never sees them.
+     */
+    fun duplicateFoodDayMs(profileId: String, fromStartEpochMs: Long, fromEndEpochMs: Long, toStartEpochMs: Long): Int =
+        foodLogging.duplicateDayByEpochMs(profileId, fromStartEpochMs, fromEndEpochMs, toStartEpochMs)
+
     val strengthLogging =
         StrengthLoggingService(
             sessions = sessions,

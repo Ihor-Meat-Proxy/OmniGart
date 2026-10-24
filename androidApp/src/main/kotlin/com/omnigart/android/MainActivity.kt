@@ -31,6 +31,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import com.omnigart.android.compliance.WellnessInfoSheet
 import com.omnigart.android.debug.MaybeDebugMenu
+import com.omnigart.android.food.FoodLoggingSection
 import com.omnigart.android.nutrition.FoodTabNutritionSection
 import com.omnigart.android.nutrition.NutritionGoalSettingsSection
 import com.omnigart.android.nutrition.NutritionPrefsStore
@@ -142,6 +143,8 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
                 )
             }
             if (selected == PhoneTab.Food.ordinal) {
+                // Diary first so food_add / search stay above the fold for UI tests.
+                FoodLoggingSection(core = core, profileId = profileId)
                 FoodTabNutritionSection(
                     core = core,
                     profileId = profileId,

@@ -71,31 +71,38 @@ final class PhoneUITests: XCTestCase {
         if app.state != .notRunning {
             app.terminate()
         }
-        app.launchArguments += ["-ui-testing", "-AppleLanguages", "(en-GB)"]
+        // Select Food at launch (iPad); keep main's firstMatch tab path as fallback.
+        app.launchArguments += [
+            "-ui-testing",
+            "-ui-testing-tab-food",
+            "-AppleLanguages",
+            "(en-GB)"
+        ]
         app.launch()
 
         let shell = app.descendants(matching: .any)["phone_shell"]
         XCTAssertTrue(shell.waitForExistence(timeout: 30))
 
-        // Identifier is set once on `Tab` in PhoneRootView (`.tabBarOnly` keeps a bottom
-        // bar on iPad CI). Prefer tabBars, then any button — always resolve via firstMatch
-        // so a stray duplicate never fails tap with "Multiple matching elements".
-        let foodById = app.tabBars.buttons["tab_food"]
-        let foodByTitle = app.tabBars.buttons["Food"]
-        let foodByButton = app.buttons.matching(identifier: "tab_food").firstMatch
-        let foodTab: XCUIElement
-        if foodById.waitForExistence(timeout: 10) {
-            foodTab = foodById
-        } else if foodByTitle.waitForExistence(timeout: 5) {
-            foodTab = foodByTitle
-        } else {
-            foodTab = foodByButton
-        }
-        XCTAssertTrue(foodTab.waitForExistence(timeout: 10), "Expected Food tab control")
-        foodTab.tap()
-
         let totals = app.descendants(matching: .any)["food_totals"]
-        XCTAssertTrue(totals.waitForExistence(timeout: 10))
+        if !totals.waitForExistence(timeout: 5) {
+            // Identifier is set once on `Tab` in PhoneRootView (`.tabBarOnly` keeps a bottom
+            // bar on iPad CI). Prefer tabBars, then any button — always resolve via firstMatch
+            // so a stray duplicate never fails tap with "Multiple matching elements".
+            let foodById = app.tabBars.buttons["tab_food"]
+            let foodByTitle = app.tabBars.buttons["Food"]
+            let foodByButton = app.buttons.matching(identifier: "tab_food").firstMatch
+            let foodTab: XCUIElement
+            if foodById.waitForExistence(timeout: 10) {
+                foodTab = foodById
+            } else if foodByTitle.waitForExistence(timeout: 5) {
+                foodTab = foodByTitle
+            } else {
+                foodTab = foodByButton
+            }
+            XCTAssertTrue(foodTab.waitForExistence(timeout: 10), "Expected Food tab control")
+            foodTab.tap()
+            XCTAssertTrue(totals.waitForExistence(timeout: 10))
+        }
         let add = app.descendants(matching: .any)["food_add"]
         if !add.waitForExistence(timeout: 5) {
             app.swipeUp()

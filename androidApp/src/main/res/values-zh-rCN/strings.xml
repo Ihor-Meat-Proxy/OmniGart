@@ -915,4 +915,26 @@
     <string name="workout_watch_settings_title">手表训练</string>
     <string name="workout_start_on_watch_toggle">在手表上开始训练</string>
     <string name="workout_start_on_watch_toggle_body">在手机上开始时，在已配对的手表上打开同一训练。关闭则仅手机记录。默认开启。</string>
+    <string name="food_day_today">今天</string>
+    <string name="food_day_previous">上一天</string>
+    <string name="food_day_next">下一天</string>
+    <string name="food_summary_title">每日摘要</string>
+    <string name="food_eaten">已摄入</string>
+    <string name="food_remaining">剩余</string>
+    <string name="food_target">目标</string>
+    <string name="food_add_meal">添加食物</string>
+    <string name="food_portion_grams">份量（克）</string>
+    <string name="food_quick_add_title">快速添加</string>
+    <string name="food_water_title">饮水</string>
+    <string name="food_water_add_250">添加 250 毫升</string>
+    <string name="food_water_logged">已记录 %.0f 毫升 · 目标 %.1f 升</string>
+    <string name="food_edit_goal">编辑能量目标</string>
+    <string name="food_weigh_in_prompt">记录体重有助于让能量目标更贴合您。</string>
+    <string name="food_weigh_in_action">更新体重</string>
+    <string name="food_macro_line">蛋白 %.0f / %.0f · 碳水 %.0f / %.0f · 脂肪 %.0f / %.0f 克</string>
+    <string name="onboarding_energy_goal_title">能量目标</string>
+    <string name="onboarding_energy_goal_body">为估计每日能量选择一个健康方向。之后可在“食物”标签中更改。如有健康状况、怀孕或未满 18 岁，请咨询专业人士。</string>
+    <string name="onboarding_energy_lose">减重</string>
+    <string name="onboarding_energy_maintain">保持体重</string>
+    <string name="onboarding_energy_gain">增重</string>
 </resources>

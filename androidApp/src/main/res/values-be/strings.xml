@@ -915,4 +915,26 @@
     <string name="workout_watch_settings_title">Трэніроўкі на гадзінніку</string>
     <string name="workout_start_on_watch_toggle">Пачынаць трэніроўкі на гадзінніку</string>
     <string name="workout_start_on_watch_toggle_body">Калі пачынаеце на тэлефоне, адкрывае тую ж сесію на парным гадзінніку. Выключана — толькі тэлефон. Уключана па змаўчанні.</string>
+    <string name="food_day_today">Сёння</string>
+    <string name="food_day_previous">Папярэдні дзень</string>
+    <string name="food_day_next">Наступны дзень</string>
+    <string name="food_summary_title">Дзённы вынік</string>
+    <string name="food_eaten">З’едзена</string>
+    <string name="food_remaining">Засталося</string>
+    <string name="food_target">Мэта</string>
+    <string name="food_add_meal">Дадаць ежу</string>
+    <string name="food_portion_grams">Порцыя (г)</string>
+    <string name="food_quick_add_title">Хуткае даданне</string>
+    <string name="food_water_title">Вада</string>
+    <string name="food_water_add_250">Дадаць 250 мл</string>
+    <string name="food_water_logged">Запісана %.0f мл · мэта %.1f л</string>
+    <string name="food_edit_goal">Змяніць энергетычную мэту</string>
+    <string name="food_weigh_in_prompt">Узважванне дапамагае персаналізаваць энергетычную мэту.</string>
+    <string name="food_weigh_in_action">Абнавіць вагу</string>
+    <string name="food_macro_line">Б %.0f / %.0f · В %.0f / %.0f · Т %.0f / %.0f г</string>
+    <string name="onboarding_energy_goal_title">Энергетычная мэта</string>
+    <string name="onboarding_energy_goal_body">Абярыце wellness-кірунак для арыентоўнай дзённай энергіі. Пазней можна змяніць на ўкладцы Ежа. Пры стане здароўя, цяжарнасці ці ўзросце да 18 звярніцеся да спецыяліста.</string>
+    <string name="onboarding_energy_lose">Зменшыць вагу</string>
+    <string name="onboarding_energy_maintain">Падтрымліваць вагу</string>
+    <string name="onboarding_energy_gain">Набраць вагу</string>
 </resources>

@@ -915,4 +915,26 @@
     <string name="workout_watch_settings_title">Тренування на годиннику</string>
     <string name="workout_start_on_watch_toggle">Починати тренування на годиннику</string>
     <string name="workout_start_on_watch_toggle_body">Коли починаєте на телефоні, відкриває ту саму сесію на парному годиннику. Вимкнено — лише телефон. Увімкнено за замовчуванням.</string>
+    <string name="food_day_today">Сьогодні</string>
+    <string name="food_day_previous">Попередній день</string>
+    <string name="food_day_next">Наступний день</string>
+    <string name="food_summary_title">Денний підсумок</string>
+    <string name="food_eaten">З’їдено</string>
+    <string name="food_remaining">Залишок</string>
+    <string name="food_target">Ціль</string>
+    <string name="food_add_meal">Додати їжу</string>
+    <string name="food_portion_grams">Порція (г)</string>
+    <string name="food_quick_add_title">Швидке додавання</string>
+    <string name="food_water_title">Вода</string>
+    <string name="food_water_add_250">Додати 250 мл</string>
+    <string name="food_water_logged">Записано %.0f мл · ціль %.1f л</string>
+    <string name="food_edit_goal">Змінити енергетичну ціль</string>
+    <string name="food_weigh_in_prompt">Зважування допомагає персоналізувати енергетичну ціль.</string>
+    <string name="food_weigh_in_action">Оновити вагу</string>
+    <string name="food_macro_line">Б %.0f / %.0f · В %.0f / %.0f · Ж %.0f / %.0f г</string>
+    <string name="onboarding_energy_goal_title">Енергетична ціль</string>
+    <string name="onboarding_energy_goal_body">Оберіть wellness-напрям для орієнтовної денної енергії. Пізніше можна змінити на вкладці Їжа. За наявності стану здоров’я, вагітності чи віку до 18 зверніться до фахівця.</string>
+    <string name="onboarding_energy_lose">Зменшити вагу</string>
+    <string name="onboarding_energy_maintain">Підтримувати вагу</string>
+    <string name="onboarding_energy_gain">Набрати вагу</string>
 </resources>

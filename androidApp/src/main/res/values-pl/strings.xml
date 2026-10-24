@@ -915,4 +915,26 @@
     <string name="workout_watch_settings_title">Treningi na zegarku</string>
     <string name="workout_start_on_watch_toggle">Uruchamiaj treningi na zegarku</string>
     <string name="workout_start_on_watch_toggle_body">Gdy zaczynasz na telefonie, otwiera tę samą sesję na sparowanym zegarku. Wyłączone = tylko telefon. Domyślnie włączone.</string>
+    <string name="food_day_today">Dziś</string>
+    <string name="food_day_previous">Poprzedni dzień</string>
+    <string name="food_day_next">Następny dzień</string>
+    <string name="food_summary_title">Podsumowanie dnia</string>
+    <string name="food_eaten">Zjedzone</string>
+    <string name="food_remaining">Pozostało</string>
+    <string name="food_target">Cel</string>
+    <string name="food_add_meal">Dodaj jedzenie</string>
+    <string name="food_portion_grams">Porcja (g)</string>
+    <string name="food_quick_add_title">Szybkie dodanie</string>
+    <string name="food_water_title">Woda</string>
+    <string name="food_water_add_250">Dodaj 250 ml</string>
+    <string name="food_water_logged">Zapisano %.0f ml · cel %.1f l</string>
+    <string name="food_edit_goal">Edytuj cel energetyczny</string>
+    <string name="food_weigh_in_prompt">Pomiar masy pomaga spersonalizować cel energetyczny.</string>
+    <string name="food_weigh_in_action">Zaktualizuj masę</string>
+    <string name="food_macro_line">B %.0f / %.0f · W %.0f / %.0f · T %.0f / %.0f g</string>
+    <string name="onboarding_energy_goal_title">Cel energetyczny</string>
+    <string name="onboarding_energy_goal_body">Wybierz kierunek wellness dla szacowanej energii dziennej. Zmieńisz to później w zakładce Jedzenie. Przy chorobie, ciąży lub poniżej 18 lat skonsultuj się ze specjalistą.</string>
+    <string name="onboarding_energy_lose">Zmniejszyć masę</string>
+    <string name="onboarding_energy_maintain">Utrzymać masę</string>
+    <string name="onboarding_energy_gain">Przybrać na masie</string>
 </resources>

@@ -915,4 +915,26 @@
     <string name="workout_watch_settings_title">Tréninky na hodinkách</string>
     <string name="workout_start_on_watch_toggle">Spouštět tréninky na hodinkách</string>
     <string name="workout_start_on_watch_toggle_body">Při startu v telefonu otevře stejnou relaci na párovaných hodinkách. Vypnuto = jen telefon. Ve výchozím stavu zapnuto.</string>
+    <string name="food_day_today">Dnes</string>
+    <string name="food_day_previous">Předchozí den</string>
+    <string name="food_day_next">Další den</string>
+    <string name="food_summary_title">Denní souhrn</string>
+    <string name="food_eaten">Snědeno</string>
+    <string name="food_remaining">Zbývá</string>
+    <string name="food_target">Cíl</string>
+    <string name="food_add_meal">Přidat jídlo</string>
+    <string name="food_portion_grams">Porce (g)</string>
+    <string name="food_quick_add_title">Rychlé přidání</string>
+    <string name="food_water_title">Voda</string>
+    <string name="food_water_add_250">Přidat 250 ml</string>
+    <string name="food_water_logged">Zaznamenáno %.0f ml · cíl %.1f l</string>
+    <string name="food_edit_goal">Upravit energetický cíl</string>
+    <string name="food_weigh_in_prompt">Zvážení pomáhá udržet energetický cíl osobní.</string>
+    <string name="food_weigh_in_action">Aktualizovat hmotnost</string>
+    <string name="food_macro_line">B %.0f / %.0f · S %.0f / %.0f · T %.0f / %.0f g</string>
+    <string name="onboarding_energy_goal_title">Energetický cíl</string>
+    <string name="onboarding_energy_goal_body">Zvolte wellness směr pro odhadovanou denní energii. Později změníte na kartě Jídlo. Při zdravotním stavu, těhotenství nebo věku do 18 let se poraďte s odborníkem.</string>
+    <string name="onboarding_energy_lose">Zhubnout</string>
+    <string name="onboarding_energy_maintain">Udržet hmotnost</string>
+    <string name="onboarding_energy_gain">Přibrat</string>
 </resources>

@@ -397,6 +397,278 @@ t(
         "zh-Hans": "在线食物搜索会将您的查询发送至 Open Food Facts。",
     },
 )
+t(
+    "food_day_today",
+    **{
+        "en-GB": "Today",
+        "uk": "Сьогодні",
+        "pl": "Dziś",
+        "be": "Сёння",
+        "kk": "Бүгін",
+        "ka": "დღეს",
+        "es": "Hoy",
+        "fr": "Aujourd’hui",
+        "de": "Heute",
+        "cs": "Dnes",
+        "zh-Hans": "今天",
+    },
+)
+t(
+    "food_day_previous",
+    **{
+        "en-GB": "Previous day",
+        "uk": "Попередній день",
+        "pl": "Poprzedni dzień",
+        "be": "Папярэдні дзень",
+        "kk": "Алдыңғы күн",
+        "ka": "წინა დღე",
+        "es": "Día anterior",
+        "fr": "Jour précédent",
+        "de": "Vorheriger Tag",
+        "cs": "Předchozí den",
+        "zh-Hans": "上一天",
+    },
+)
+t(
+    "food_day_next",
+    **{
+        "en-GB": "Next day",
+        "uk": "Наступний день",
+        "pl": "Następny dzień",
+        "be": "Наступны дзень",
+        "kk": "Келесі күн",
+        "ka": "შემდეგი დღე",
+        "es": "Día siguiente",
+        "fr": "Jour suivant",
+        "de": "Nächster Tag",
+        "cs": "Další den",
+        "zh-Hans": "下一天",
+    },
+)
+t(
+    "food_summary_title",
+    **{
+        "en-GB": "Daily summary",
+        "uk": "Денний підсумок",
+        "pl": "Podsumowanie dnia",
+        "be": "Дзённы вынік",
+        "kk": "Күнделікті қорытынды",
+        "ka": "დღიური შეჯამება",
+        "es": "Resumen diario",
+        "fr": "Résumé du jour",
+        "de": "Tagesübersicht",
+        "cs": "Denní souhrn",
+        "zh-Hans": "每日摘要",
+    },
+)
+t(
+    "food_eaten",
+    **{
+        "en-GB": "Eaten",
+        "uk": "З’їдено",
+        "pl": "Zjedzone",
+        "be": "З’едзена",
+        "kk": "Желінген",
+        "ka": "მიღებული",
+        "es": "Consumido",
+        "fr": "Consommé",
+        "de": "Gegessen",
+        "cs": "Snědeno",
+        "zh-Hans": "已摄入",
+    },
+)
+t(
+    "food_remaining",
+    **{
+        "en-GB": "Remaining",
+        "uk": "Залишок",
+        "pl": "Pozostało",
+        "be": "Засталося",
+        "kk": "Қалды",
+        "ka": "დარჩენილი",
+        "es": "Restante",
+        "fr": "Restant",
+        "de": "Verbleibend",
+        "cs": "Zbývá",
+        "zh-Hans": "剩余",
+    },
+)
+t(
+    "food_target",
+    **{
+        "en-GB": "Target",
+        "uk": "Ціль",
+        "pl": "Cel",
+        "be": "Мэта",
+        "kk": "Мақсат",
+        "ka": "მიზანი",
+        "es": "Objetivo",
+        "fr": "Objectif",
+        "de": "Ziel",
+        "cs": "Cíl",
+        "zh-Hans": "目标",
+    },
+)
+t(
+    "food_add_meal",
+    **{
+        "en-GB": "Add food",
+        "uk": "Додати їжу",
+        "pl": "Dodaj jedzenie",
+        "be": "Дадаць ежу",
+        "kk": "Тамақ қосу",
+        "ka": "საკვების დამატება",
+        "es": "Añadir comida",
+        "fr": "Ajouter un aliment",
+        "de": "Essen hinzufügen",
+        "cs": "Přidat jídlo",
+        "zh-Hans": "添加食物",
+    },
+)
+t(
+    "food_portion_grams",
+    **{
+        "en-GB": "Portion (g)",
+        "uk": "Порція (г)",
+        "pl": "Porcja (g)",
+        "be": "Порцыя (г)",
+        "kk": "Порция (г)",
+        "ka": "პორცია (გ)",
+        "es": "Porción (g)",
+        "fr": "Portion (g)",
+        "de": "Portion (g)",
+        "cs": "Porce (g)",
+        "zh-Hans": "份量（克）",
+    },
+)
+t(
+    "food_quick_add_title",
+    **{
+        "en-GB": "Quick add",
+        "uk": "Швидке додавання",
+        "pl": "Szybkie dodanie",
+        "be": "Хуткае даданне",
+        "kk": "Жылдам қосу",
+        "ka": "სწრაფი დამატება",
+        "es": "Añadir rápido",
+        "fr": "Ajout rapide",
+        "de": "Schnell hinzufügen",
+        "cs": "Rychlé přidání",
+        "zh-Hans": "快速添加",
+    },
+)
+t(
+    "food_water_title",
+    **{
+        "en-GB": "Water",
+        "uk": "Вода",
+        "pl": "Woda",
+        "be": "Вада",
+        "kk": "Су",
+        "ka": "წყალი",
+        "es": "Agua",
+        "fr": "Eau",
+        "de": "Wasser",
+        "cs": "Voda",
+        "zh-Hans": "饮水",
+    },
+)
+t(
+    "food_water_add_250",
+    **{
+        "en-GB": "Add 250 ml",
+        "uk": "Додати 250 мл",
+        "pl": "Dodaj 250 ml",
+        "be": "Дадаць 250 мл",
+        "kk": "250 мл қосу",
+        "ka": "250 მლ დამატება",
+        "es": "Añadir 250 ml",
+        "fr": "Ajouter 250 ml",
+        "de": "250 ml hinzufügen",
+        "cs": "Přidat 250 ml",
+        "zh-Hans": "添加 250 毫升",
+    },
+)
+t(
+    "food_water_logged",
+    **{
+        "en-GB": "Logged %.0f ml · goal %.1f L",
+        "uk": "Записано %.0f мл · ціль %.1f л",
+        "pl": "Zapisano %.0f ml · cel %.1f l",
+        "be": "Запісана %.0f мл · мэта %.1f л",
+        "kk": "Жазылды %.0f мл · мақсат %.1f л",
+        "ka": "ჩაწერილია %.0f მლ · მიზანი %.1f ლ",
+        "es": "Registrado %.0f ml · objetivo %.1f L",
+        "fr": "Enregistré %.0f ml · objectif %.1f L",
+        "de": "Erfasst %.0f ml · Ziel %.1f L",
+        "cs": "Zaznamenáno %.0f ml · cíl %.1f l",
+        "zh-Hans": "已记录 %.0f 毫升 · 目标 %.1f 升",
+    },
+)
+t(
+    "food_edit_goal",
+    **{
+        "en-GB": "Edit energy goal",
+        "uk": "Змінити енергетичну ціль",
+        "pl": "Edytuj cel energetyczny",
+        "be": "Змяніць энергетычную мэту",
+        "kk": "Энергия мақсатын өзгерту",
+        "ka": "ენერგიის მიზნის რედაქტირება",
+        "es": "Editar objetivo energético",
+        "fr": "Modifier l’objectif énergétique",
+        "de": "Energieziel bearbeiten",
+        "cs": "Upravit energetický cíl",
+        "zh-Hans": "编辑能量目标",
+    },
+)
+t(
+    "food_weigh_in_prompt",
+    **{
+        "en-GB": "A weigh-in helps keep your energy target personalised.",
+        "uk": "Зважування допомагає персоналізувати енергетичну ціль.",
+        "pl": "Pomiar masy pomaga spersonalizować cel energetyczny.",
+        "be": "Узважванне дапамагае персаналізаваць энергетычную мэту.",
+        "kk": "Өлшеу энергия мақсатын жекелендіруге көмектеседі.",
+        "ka": "აწონვა ენერგიის მიზნის პერსონალიზებას ეხმარება.",
+        "es": "Un pesaje ayuda a personalizar tu objetivo energético.",
+        "fr": "Une pesée aide à personnaliser votre objectif énergétique.",
+        "de": "Ein Wiegen hilft, Ihr Energieziel persönlicher zu halten.",
+        "cs": "Zvážení pomáhá udržet energetický cíl osobní.",
+        "zh-Hans": "记录体重有助于让能量目标更贴合您。",
+    },
+)
+t(
+    "food_weigh_in_action",
+    **{
+        "en-GB": "Update weight",
+        "uk": "Оновити вагу",
+        "pl": "Zaktualizuj masę",
+        "be": "Абнавіць вагу",
+        "kk": "Салмақты жаңарту",
+        "ka": "წონის განახლება",
+        "es": "Actualizar peso",
+        "fr": "Mettre à jour le poids",
+        "de": "Gewicht aktualisieren",
+        "cs": "Aktualizovat hmotnost",
+        "zh-Hans": "更新体重",
+    },
+)
+t(
+    "food_macro_line",
+    **{
+        "en-GB": "P %.0f / %.0f · C %.0f / %.0f · F %.0f / %.0f g",
+        "uk": "Б %.0f / %.0f · В %.0f / %.0f · Ж %.0f / %.0f г",
+        "pl": "B %.0f / %.0f · W %.0f / %.0f · T %.0f / %.0f g",
+        "be": "Б %.0f / %.0f · В %.0f / %.0f · Т %.0f / %.0f г",
+        "kk": "А %.0f / %.0f · К %.0f / %.0f · М %.0f / %.0f г",
+        "ka": "ც %.0f / %.0f · ნ %.0f / %.0f · ცხ %.0f / %.0f გ",
+        "es": "P %.0f / %.0f · C %.0f / %.0f · G %.0f / %.0f g",
+        "fr": "P %.0f / %.0f · G %.0f / %.0f · L %.0f / %.0f g",
+        "de": "E %.0f / %.0f · KH %.0f / %.0f · F %.0f / %.0f g",
+        "cs": "B %.0f / %.0f · S %.0f / %.0f · T %.0f / %.0f g",
+        "zh-Hans": "蛋白 %.0f / %.0f · 碳水 %.0f / %.0f · 脂肪 %.0f / %.0f 克",
+    },
+)
 
 
 def escape_android(value: str) -> str:

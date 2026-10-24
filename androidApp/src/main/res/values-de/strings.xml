@@ -915,4 +915,26 @@
     <string name="workout_watch_settings_title">Watch-Workouts</string>
     <string name="workout_start_on_watch_toggle">Workouts auf der Watch starten</string>
     <string name="workout_start_on_watch_toggle_body">Beim Start am Telefon öffnet dieselbe Sitzung auf der gekoppelten Watch. Aus = nur Telefon. Standardmäßig an.</string>
+    <string name="food_day_today">Heute</string>
+    <string name="food_day_previous">Vorheriger Tag</string>
+    <string name="food_day_next">Nächster Tag</string>
+    <string name="food_summary_title">Tagesübersicht</string>
+    <string name="food_eaten">Gegessen</string>
+    <string name="food_remaining">Verbleibend</string>
+    <string name="food_target">Ziel</string>
+    <string name="food_add_meal">Essen hinzufügen</string>
+    <string name="food_portion_grams">Portion (g)</string>
+    <string name="food_quick_add_title">Schnell hinzufügen</string>
+    <string name="food_water_title">Wasser</string>
+    <string name="food_water_add_250">250 ml hinzufügen</string>
+    <string name="food_water_logged">Erfasst %.0f ml · Ziel %.1f L</string>
+    <string name="food_edit_goal">Energieziel bearbeiten</string>
+    <string name="food_weigh_in_prompt">Ein Wiegen hilft, Ihr Energieziel persönlicher zu halten.</string>
+    <string name="food_weigh_in_action">Gewicht aktualisieren</string>
+    <string name="food_macro_line">E %.0f / %.0f · KH %.0f / %.0f · F %.0f / %.0f g</string>
+    <string name="onboarding_energy_goal_title">Energieziel</string>
+    <string name="onboarding_energy_goal_body">Wählen Sie eine Wellness-Richtung für die geschätzte Tagesenergie. Später unter Essen änderbar. Bei Gesundheitszustand, Schwangerschaft oder unter 18 Jahren bitte Fachperson fragen.</string>
+    <string name="onboarding_energy_lose">Gewicht reduzieren</string>
+    <string name="onboarding_energy_maintain">Gewicht halten</string>
+    <string name="onboarding_energy_gain">Gewicht zunehmen</string>
 </resources>

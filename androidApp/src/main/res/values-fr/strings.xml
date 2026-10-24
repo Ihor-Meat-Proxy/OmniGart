@@ -915,4 +915,26 @@
     <string name="workout_watch_settings_title">Séances sur la montre</string>
     <string name="workout_start_on_watch_toggle">Démarrer les séances sur la montre</string>
     <string name="workout_start_on_watch_toggle_body">Quand vous démarrez sur le téléphone, ouvre la même séance sur la montre associée. Désactivé = téléphone seul. Activé par défaut.</string>
+    <string name="food_day_today">Aujourd’hui</string>
+    <string name="food_day_previous">Jour précédent</string>
+    <string name="food_day_next">Jour suivant</string>
+    <string name="food_summary_title">Résumé du jour</string>
+    <string name="food_eaten">Consommé</string>
+    <string name="food_remaining">Restant</string>
+    <string name="food_target">Objectif</string>
+    <string name="food_add_meal">Ajouter un aliment</string>
+    <string name="food_portion_grams">Portion (g)</string>
+    <string name="food_quick_add_title">Ajout rapide</string>
+    <string name="food_water_title">Eau</string>
+    <string name="food_water_add_250">Ajouter 250 ml</string>
+    <string name="food_water_logged">Enregistré %.0f ml · objectif %.1f L</string>
+    <string name="food_edit_goal">Modifier l’objectif énergétique</string>
+    <string name="food_weigh_in_prompt">Une pesée aide à personnaliser votre objectif énergétique.</string>
+    <string name="food_weigh_in_action">Mettre à jour le poids</string>
+    <string name="food_macro_line">P %.0f / %.0f · G %.0f / %.0f · L %.0f / %.0f g</string>
+    <string name="onboarding_energy_goal_title">Objectif énergétique</string>
+    <string name="onboarding_energy_goal_body">Choisissez une orientation bien-être pour l’énergie quotidienne estimée. Modifiable plus tard dans l’onglet Alimentation. En cas de problème de santé, de grossesse ou si vous avez moins de 18 ans, consultez un professionnel.</string>
+    <string name="onboarding_energy_lose">Perdre du poids</string>
+    <string name="onboarding_energy_maintain">Maintenir le poids</string>
+    <string name="onboarding_energy_gain">Prendre du poids</string>
 </resources>

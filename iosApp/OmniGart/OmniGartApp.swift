@@ -13,6 +13,7 @@ struct OmniGartApp: App {
         _ = HealthKitPlatformBridge.shared
 
         let core = OmniGartCore(driverFactory: DatabaseDriverFactory())
+        Self.attachFoodDiary(core)
         // Single WCSession hub: watch transfers, equipment sync, phone→watch selection.
         PhoneWatchConnectivityHub.shared.start(core: core)
         // Mirrored watch sessions: live metrics + pause/end on phone; watch writes HealthKit once.
@@ -55,5 +56,17 @@ struct OmniGartApp: App {
                 }
             }
         }
+    }
+
+    /// Persist the rich food diary (meal groups, catalogue) as an encrypted JSON blob.
+    private static func attachFoodDiary(_ core: OmniGartCore) {
+        let defaults = UserDefaults.standard
+        let key = "omnigart.food.diary.json.v1"
+        let encryptor = FoodDiaryCrypto.makeEncryptor(keyData: FoodDiaryCrypto.loadOrCreateKey())
+        core.useJsonFoodDiary(
+            load: { defaults.string(forKey: key) },
+            save: { blob in defaults.set(blob, forKey: key) },
+            encryptor: encryptor
+        )
     }
 }

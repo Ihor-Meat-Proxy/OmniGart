@@ -22,6 +22,8 @@ struct OnboardingStepContentView: View {
             heightStep
         case .weight:
             weightStep
+        case .energyGoal:
+            OnboardingEnergyGoalStep(answers: $answers)
         case .experience:
             experienceStep
         case .units:

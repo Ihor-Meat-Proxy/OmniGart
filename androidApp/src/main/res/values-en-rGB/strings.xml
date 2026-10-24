@@ -915,4 +915,26 @@
     <string name="workout_watch_settings_title">Watch workouts</string>
     <string name="workout_start_on_watch_toggle">Start workouts on watch</string>
     <string name="workout_start_on_watch_toggle_body">When you start on the phone, open the same session on a paired watch. Off keeps phone-only logging. On by default.</string>
+    <string name="food_day_today">Today</string>
+    <string name="food_day_previous">Previous day</string>
+    <string name="food_day_next">Next day</string>
+    <string name="food_summary_title">Daily summary</string>
+    <string name="food_eaten">Eaten</string>
+    <string name="food_remaining">Remaining</string>
+    <string name="food_target">Target</string>
+    <string name="food_add_meal">Add food</string>
+    <string name="food_portion_grams">Portion (g)</string>
+    <string name="food_quick_add_title">Quick add</string>
+    <string name="food_water_title">Water</string>
+    <string name="food_water_add_250">Add 250 ml</string>
+    <string name="food_water_logged">Logged %.0f ml · goal %.1f L</string>
+    <string name="food_edit_goal">Edit energy goal</string>
+    <string name="food_weigh_in_prompt">A weigh-in helps keep your energy target personalised.</string>
+    <string name="food_weigh_in_action">Update weight</string>
+    <string name="food_macro_line">P %.0f / %.0f · C %.0f / %.0f · F %.0f / %.0f g</string>
+    <string name="onboarding_energy_goal_title">Energy goal</string>
+    <string name="onboarding_energy_goal_body">Choose a wellness direction for estimated daily energy. You can change this later on the Food tab. If you have a health condition, are pregnant or under 18, check with a healthcare professional.</string>
+    <string name="onboarding_energy_lose">Lose weight</string>
+    <string name="onboarding_energy_maintain">Maintain weight</string>
+    <string name="onboarding_energy_gain">Gain weight</string>
 </resources>

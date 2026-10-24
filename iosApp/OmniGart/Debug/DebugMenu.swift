@@ -2,9 +2,11 @@ import SwiftUI
 
 #if DEBUG
 /// Developer-only tooling. Entire type is compiled out of release builds.
+/// Keep this a flat Group — ProfileTabView already wraps sections in a List;
+/// a nested List here breaks tab-bar accessibility for UITests.
 struct DebugMenu: View {
     var body: some View {
-        List {
+        Group {
             Text("DebugMenu — development only")
                 .accessibilityIdentifier("debug_menu")
             NavigationLink("treadmill_diagnostics_title") {

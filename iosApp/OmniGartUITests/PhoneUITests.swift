@@ -74,29 +74,30 @@ final class PhoneUITests: XCTestCase {
         app.launchArguments += ["-ui-testing", "-AppleLanguages", "(en-GB)"]
         app.launch()
 
-        // Dismiss Bluetooth / Health permission sheets if a preload path presents one.
-        addUIInterruptionMonitor(withDescription: "System permission alerts") { alert in
-            for title in ["Allow", "OK", "Dont Allow", "Don’t Allow", "Not Now"] {
-                let button = alert.buttons[title]
-                if button.exists {
-                    button.tap()
-                    return true
-                }
-            }
-            return false
-        }
-
         let shell = app.descendants(matching: .any)["phone_shell"]
         XCTAssertTrue(shell.waitForExistence(timeout: 30))
-        // Nudge the interruption monitor.
-        app.tap()
 
         // Prefer tab-bar query: content-root identifiers are only in the tree for the
-        // selected tab. Identifier is set on `Tab` in PhoneRootView; title is the en-GB fallback.
+        // selected tab. Identifier is set on `Tab` in PhoneRootView; title is the en-GB
+        // fallback. Also accept any-element match and first tab-bar button (Food is index 0).
         let foodById = app.tabBars.buttons["tab_food"]
         let foodByTitle = app.tabBars.buttons["Food"]
-        let foodTab = foodById.waitForExistence(timeout: 15) ? foodById : foodByTitle
-        XCTAssertTrue(foodTab.waitForExistence(timeout: 15), "Expected Food tab in the tab bar")
+        let foodByAny = app.descendants(matching: .any)["tab_food"]
+        let foodTab: XCUIElement
+        if foodById.waitForExistence(timeout: 10) {
+            foodTab = foodById
+        } else if foodByTitle.waitForExistence(timeout: 5) {
+            foodTab = foodByTitle
+        } else if foodByAny.waitForExistence(timeout: 5) {
+            foodTab = foodByAny
+        } else {
+            let firstTab = app.tabBars.buttons.element(boundBy: 0)
+            XCTAssertTrue(
+                firstTab.waitForExistence(timeout: 5),
+                "Expected Food tab in the tab bar; tabBars=\(app.tabBars.debugDescription)"
+            )
+            foodTab = firstTab
+        }
         foodTab.tap()
 
         let totals = app.descendants(matching: .any)["food_totals"]

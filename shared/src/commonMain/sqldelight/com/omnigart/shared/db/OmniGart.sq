@@ -461,3 +461,55 @@ INSERT OR REPLACE INTO strength_program_prefs(
   profile_id, split, days_per_week, week_index, updated_at
 ) VALUES (?, ?, ?, ?, ?);
 
+-- Planner planned sessions + suggestion decisions (migration 7). App-local only.
+
+CREATE TABLE planned_workout (
+  id TEXT NOT NULL PRIMARY KEY,
+  profile_id TEXT NOT NULL,
+  scheduled_date TEXT NOT NULL,
+  title_key TEXT NOT NULL,
+  session_kind TEXT NOT NULL,
+  intensity TEXT NOT NULL DEFAULT 'MODERATE',
+  muscle_groups TEXT NOT NULL DEFAULT '',
+  notes TEXT,
+  source TEXT NOT NULL DEFAULT 'USER',
+  updated_at TEXT NOT NULL
+);
+
+CREATE TABLE planner_suggestion_decision (
+  id TEXT NOT NULL PRIMARY KEY,
+  suggestion_id TEXT NOT NULL,
+  decision TEXT NOT NULL,
+  decided_at TEXT NOT NULL
+);
+
+selectPlannedWorkoutsForProfile:
+SELECT * FROM planned_workout WHERE profile_id = ? ORDER BY scheduled_date ASC, id ASC;
+
+selectPlannedWorkoutsInRange:
+SELECT * FROM planned_workout
+WHERE profile_id = ? AND scheduled_date >= ? AND scheduled_date <= ?
+ORDER BY scheduled_date ASC, id ASC;
+
+selectPlannedWorkout:
+SELECT * FROM planned_workout WHERE id = ?;
+
+upsertPlannedWorkout:
+INSERT OR REPLACE INTO planned_workout(
+  id, profile_id, scheduled_date, title_key, session_kind, intensity, muscle_groups, notes, source, updated_at
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+deletePlannedWorkout:
+DELETE FROM planned_workout WHERE id = ?;
+
+deletePlannedWorkoutsForProfile:
+DELETE FROM planned_workout WHERE profile_id = ?;
+
+selectDismissedSuggestionIds:
+SELECT suggestion_id FROM planner_suggestion_decision WHERE decision = 'DISMISSED';
+
+upsertPlannerSuggestionDecision:
+INSERT OR REPLACE INTO planner_suggestion_decision(
+  id, suggestion_id, decision, decided_at
+) VALUES (?, ?, ?, ?);
+

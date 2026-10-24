@@ -8760,67 +8760,67 @@
         "en-GB": {
           "stringUnit": {
             "state": "translated",
-            "value": "Plan workouts on-device and optionally schedule a Zone 2 run into Workout."
+            "value": "Plan workouts on-device: calendar, weekly scheme, and adaptive suggestions. Health data is never deleted."
           }
         },
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Плануйте тренування на пристрої та за бажанням додайте біг у зоні 2 до Workout."
+            "value": "Плануйте тренування на пристрої: календар, тижнева схема та адаптивні підказки. Дані Health ніколи не видаляються."
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Planuj treningi na urządzeniu i opcjonalnie zaplanuj bieg w strefie 2 w Workout."
+            "value": "Planuj treningi na urządzeniu: kalendarz, tygodniowy schemat i adaptacyjne podpowiedzi. Dane Health nigdy nie są usuwane."
           }
         },
         "be": {
           "stringUnit": {
             "state": "translated",
-            "value": "Плануйце трэніроўкі на прыладзе і пры жаданні дадайце бег у зоне 2 у Workout."
+            "value": "Плануйце трэніроўкі на прыладзе: каляндар, тыднёвая схема і адаптыўныя падказкі. Даныя Health ніколі не выдаляюцца."
           }
         },
         "kk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Құрылғыда жаттығуларды жоспарлаңыз және қаласаңыз 2-аймақ жүгіруін Workout-қа қосыңыз."
+            "value": "Жаттығуларды құрылғыда жоспарлаңыз: күнтізбе, апталық схема және бейімделгіш ұсыныстар. Health деректері ешқашан жойылмайды."
           }
         },
         "ka": {
           "stringUnit": {
             "state": "translated",
-            "value": "დაგეგმეთ ვარჯიშები მოწყობილობაზე და სურვილისამებრ დაამატეთ ზონა 2 სირბილი Workout-ში."
+            "value": "დაგეგმეთ ვარჯიშები მოწყობილობაზე: კალენდარი, ყოველკვირეული სქემა და ადაპტური რჩევები. Health მონაცემები არასდროს იშლება."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Planifica entrenamientos en el dispositivo y, si quieres, programa una carrera zona 2 en Workout."
+            "value": "Planifica entrenamientos en el dispositivo: calendario, esquema semanal y sugerencias adaptativas. Los datos de Health nunca se borran."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Planifiez des séances sur l’appareil et, en option, une course zone 2 dans Workout."
+            "value": "Planifiez des séances sur l’appareil : calendrier, schéma hebdomadaire et suggestions adaptatives. Les données Health ne sont jamais effacées."
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Planen Sie Workouts auf dem Gerät und optional einen Zone-2-Lauf in Workout."
+            "value": "Workouts auf dem Gerät planen: Kalender, Wochenschema und adaptive Vorschläge. Health-Daten werden nie gelöscht."
           }
         },
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Plánujte tréninky na zařízení a volitelně naplánujte běh v zóně 2 do Workout."
+            "value": "Plánujte tréninky na zařízení: kalendář, týdenní schéma a adaptivní tipy. Data Health se nikdy nemažou."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "在设备上规划训练，并可选择将二区跑安排到 Workout。"
+            "value": "在设备上规划训练：日历、每周方案与自适应建议。永不删除 Health 数据。"
           }
         }
       }
@@ -22187,7 +22187,7 @@
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Стрічки опору"
+            "value": "Гумові петлі"
           }
         },
         "pl": {
@@ -22329,7 +22329,7 @@
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Гиря"
+            "value": "Гирі"
           }
         },
         "pl": {
@@ -22400,7 +22400,7 @@
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Гриф"
+            "value": "Штанга"
           }
         },
         "pl": {
@@ -22755,7 +22755,7 @@
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Тросовий тренажер"
+            "value": "Блоковий тренажер"
           }
         },
         "pl": {
@@ -22968,7 +22968,7 @@
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Тяга верхнього блоку"
+            "value": "Верхня тяга"
           }
         },
         "pl": {
@@ -23110,7 +23110,7 @@
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Тренажер (загальний)"
+            "value": "Тренажери"
           }
         },
         "pl": {
@@ -23323,7 +23323,7 @@
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Підвісний тренажер"
+            "value": "Підвісні петлі"
           }
         },
         "pl": {
@@ -23394,7 +23394,7 @@
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Бокс"
+            "value": "Тумба"
           }
         },
         "pl": {
@@ -23536,7 +23536,7 @@
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Килимок для йоги"
+            "value": "Килімок для йоги"
           }
         },
         "pl": {
@@ -66745,6 +66745,1994 @@
           "stringUnit": {
             "state": "translated",
             "value": "已捕获帧。"
+          }
+        }
+      }
+    },
+    "planner_wellness_note": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suggestions are wellness guides only, not medical advice. Plans stay in the app."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Підказки — лише wellness-орієнтири, не медична порада. Плани лишаються в застосунку."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Podpowiedzi to tylko wskazówki wellness, nie porada medyczna. Plany zostają w aplikacji."
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Падказкі — толькі wellness-арыенціры, не медыцынская парада. Планы застаюцца ў праграме."
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ұсыныстар тек сауықтыру бағдары, медициналық кеңес емес. Жоспарлар қолданбада қалады."
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "რჩევები მხოლოდ კეთილდღეობის სახელმძღვანელოა, არა სამედიცინო კონსულტაცია. გეგმები აპში რჩება."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las sugerencias son guías de bienestar, no consejo médico. Los planes se quedan en la app."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les suggestions sont des guides bien-être, pas un avis médical. Les plans restent dans l’app."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vorschläge sind nur Wellness-Hinweise, keine medizinische Beratung. Pläne bleiben in der App."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tipy jsou jen wellness vodítka, ne lékařská rada. Plány zůstávají v aplikaci."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "建议仅为健康参考，不是医疗意见。计划仅保存在应用内。"
+          }
+        }
+      }
+    },
+    "planner_calendar_week": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This week"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Цей тиждень"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ten tydzień"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Гэты тыдзень"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Осы апта"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ეს კვირა"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta semana"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cette semaine"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diese Woche"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tento týden"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本周"
+          }
+        }
+      }
+    },
+    "planner_calendar_month": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Month"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Місяць"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Miesiąc"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Месяц"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ай"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "თვე"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mes"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mois"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monat"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Měsíc"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "月"
+          }
+        }
+      }
+    },
+    "planner_selected_day": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selected day"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Обраний день"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wybrany dzień"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Абраны дзень"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Таңдалған күн"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "არჩეული დღე"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Día seleccionado"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jour sélectionné"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ausgewählter Tag"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vybraný den"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所选日期"
+          }
+        }
+      }
+    },
+    "planner_completed_marker": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Completed workouts from local or imported Health data appear as filled markers."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Завершені тренування з локальних або імпортованих даних Health — заповнені позначки."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ukończone treningi z lokalnych lub zaimportowanych danych Health to wypełnione znaczniki."
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Завершаныя трэніроўкі з лакальных або імпартаваных даных Health — запоўненыя пазнакі."
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Жергілікті немесе импортталған Health деректерінен аяқталған жаттығулар — толық белгілер."
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ადგილობრივი ან იმპორტირებული Health მონაცემების დასრულებული ვარჯიშები — შევსებული ნიშნები."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los entrenamientos completados de datos Health locales o importados aparecen como marcadores rellenos."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les séances terminées issues des données Health locales ou importées apparaissent en marqueurs pleins."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abgeschlossene Workouts aus lokalen oder importierten Health-Daten erscheinen als gefüllte Marker."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dokončené tréninky z místních nebo importovaných dat Health se ukazují jako plné značky."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "来自本地或已导入 Health 数据的已完成训练显示为实心标记。"
+          }
+        }
+      }
+    },
+    "planner_scheme_title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suggested weekly scheme"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Запропонована тижнева схема"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sugerowany schemat tygodnia"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Прапанаваная тыднёвая схема"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ұсынылған апталық схема"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "შემოთავაზებული ყოველკვირეული სქემა"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esquema semanal sugerido"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schéma hebdomadaire suggéré"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vorgeschlagenes Wochenschema"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Navržené týdenní schéma"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "建议的每周方案"
+          }
+        }
+      }
+    },
+    "planner_scheme_generate": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generate week from goals"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Згенерувати тиждень з цілей"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wygeneruj tydzień z celów"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Згенераваць тыдзень з мэтаў"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Мақсаттардан апта жасау"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "კვირის გენერაცია მიზნებიდან"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generar semana desde objetivos"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Générer la semaine depuis les objectifs"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Woche aus Zielen erzeugen"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vygenerovat týden z cílů"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "根据目标生成一周"
+          }
+        }
+      }
+    },
+    "planner_scheme_replace_hint": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Builds guided strength, free strength, functional, runs, treadmill and Zone 2 days from your goals and equipment. Edits stay on-device."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Будує силові (за планом / вільні / функціональні), біг, бігову доріжку та Zone 2 з ваших цілей і обладнання. Зміни лишаються на пристрої."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buduje siłę z planem, wolną i funkcjonalną, biegi, bieżnię i Zone 2 z celów i sprzętu. Edycje zostają na urządzeniu."
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Будзе сілу па плане, вольную і функцыянальную, бег, бяговую дарожку і Zone 2 з мэтаў і абсталявання. Змены застаюцца на прыладзе."
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Мақсаттар мен жабдықтан жоспарлы/еркін/функционалдық күш, жүгіру, жүгіру жолы және Zone 2 жасайды. Өңдеулер құрылғыда қалады."
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "მიზნებისა და აღჭურვილობიდან აგებს გეგმიურ/თავისუფალ/ფუნქციურ ძალას, სირბილს, სარბენს და Zone 2-ს. ცვლილებები მოწყობილობაზე რჩება."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crea fuerza guiada, libre y funcional, carreras, cinta y Zone 2 según objetivos y equipo. Los cambios quedan en el dispositivo."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crée force guidée, libre et fonctionnelle, courses, tapis et Zone 2 selon objectifs et matériel. Les modifs restent sur l’appareil."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erstellt geführte, freie und Functional-Kraft, Läufe, Laufband und Zone 2 aus Zielen und Equipment. Änderungen bleiben auf dem Gerät."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sestaví řízenou, volnou a funkční sílu, běhy, pás a Zone 2 z cílů a vybavení. Úpravy zůstanou v zařízení."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "根据目标与器械生成引导力量、自由力量、功能性、跑步、跑步机与二区日。编辑仅留在设备上。"
+          }
+        }
+      }
+    },
+    "planner_suggestions_title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaptive suggestions"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Адаптивні підказки"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaptacyjne podpowiedzi"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Адаптыўныя падказкі"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Бейімделгіш ұсыныстар"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ადაპტური რჩევები"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sugerencias adaptativas"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suggestions adaptatives"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaptive Vorschläge"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaptivní tipy"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自适应建议"
+          }
+        }
+      }
+    },
+    "planner_suggest_accept": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accept"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Прийняти"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zaakceptuj"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Прыняць"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Қабылдау"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "მიღება"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aceptar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accepter"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annehmen"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Přijmout"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "接受"
+          }
+        }
+      }
+    },
+    "planner_suggest_dismiss": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dismiss"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Відхилити"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Odrzuć"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Адхіліць"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Жабу"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "უარყოფა"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descartar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ignorer"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verwerfen"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zavřít"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "忽略"
+          }
+        }
+      }
+    },
+    "planner_suggest_reason_readiness_rest": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Readiness looks low — consider a rest day for recovery."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Готовність виглядає низькою — варто розглянути день відпочинку."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gotowość wygląda nisko — rozważ dzień odpoczynku."
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Гатоўнасць выглядае нізкай — варта разгледзець дзень адпачынку."
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Дайындық төмен көрінеді — демалыс күнін қарастырыңыз."
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "მზადყოფნა დაბალია — განიხილეთ დასვენების დღე."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La disposición parece baja — valora un día de descanso."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La disposition semble basse — envisagez un jour de repos."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Bereitschaft wirkt niedrig — erwägen Sie einen Ruhetag."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Připravenost vypadá nízko — zvažte den odpočinku."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "准备度偏低——可考虑休息一天以利恢复。"
+          }
+        }
+      }
+    },
+    "planner_suggest_reason_readiness_low": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Readiness is softer today — swap a hard session for easy Zone 2."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Готовність сьогодні м’якша — замініть важку сесію на легкий Zone 2."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gotowość jest dziś niższa — zamień ciężką sesję na łatwy Zone 2."
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Гатоўнасць сёння мякчэйшая — заменіце цяжкую сесію на лёгкі Zone 2."
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Бүгін дайындық жұмсағырақ — ауыр сессияны жеңіл Zone 2-ге ауыстырыңыз."
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "დღეს მზადყოფნა რბილდება — მძიმე სესია შეცვალეთ მსუბუქი Zone 2-ით."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La disposición es más suave hoy — cambia una sesión dura por Zone 2 fácil."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La disposition est plus douce aujourd’hui — remplacez une séance dure par une Zone 2 facile."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Bereitschaft ist heute weicher — tauschen Sie eine harte Einheit gegen easy Zone 2."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Připravenost je dnes měkčí — vyměňte těžkou jednotku za lehký Zone 2."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日准备度偏弱——可将硬课换成轻松二区。"
+          }
+        }
+      }
+    },
+    "planner_suggest_reason_load_elevated": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recent training load looks elevated versus your usual week."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нещодавнє навантаження виглядає підвищеним проти звичного тижня."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ostatnie obciążenie wygląda podwyższone względem zwykłego tygodnia."
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нядаўняе нагружанне выглядае павышаным супраць звыклага тыдня."
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Соңғы жүктеме әдеттегі аптамен салыстырғанда жоғары көрінеді."
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ბოლო დატვირთვა ჩვეულ კვირასთან შედარებით მომატებულია."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La carga reciente parece elevada frente a tu semana habitual."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La charge récente paraît élevée par rapport à votre semaine habituelle."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die jüngste Trainingslast wirkt gegenüber Ihrer üblichen Woche erhöht."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nedávné zatížení vypadá vyšší než váš obvyklý týden."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "近期训练负荷相对平时偏高。"
+          }
+        }
+      }
+    },
+    "planner_suggest_reason_recovery_signals": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HRV, resting heart rate or sleep suggest an easier day."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HRV, пульс спокою або сон підказують легший день."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HRV, tętno spoczynkowe lub sen sugerują łatwiejszy dzień."
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HRV, пульс спакою або сон падказваюць лягчэйшы дзень."
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HRV, тыныш жүрек соғысы немесе ұйқы жеңілірек күнді ұсынады."
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HRV, მოსვენების პულსი ან ძილი უფრო მსუბუქ დღეს გვთავაზობს."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HRV, FC en reposo o sueño sugieren un día más fácil."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HRV, FC de repos ou sommeil suggèrent une journée plus facile."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HRV, Ruheherzfrequenz oder Schlaf legen einen leichteren Tag nahe."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HRV, klidová tepová frekvence nebo spánek naznačují lehčí den."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HRV、静息心率或睡眠提示今天宜轻松一些。"
+          }
+        }
+      }
+    },
+    "planner_suggest_reason_muscle_recovery": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A recent session still overlaps these muscle groups — consider moving."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нещодавня сесія ще перекриває ці групи м’язів — варто перенести."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niedawna sesja nadal obejmuje te grupy mięśni — rozważ przesunięcie."
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нядаўняя сесія яшчэ перакрывае гэтыя групы мышцаў — варта перанесці."
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Жақындағы сессия әлі осы бұлшықет топтарын қамтиды — жылжытуды қарастырыңыз."
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ბოლო სესია ჯერ კიდევ ფარავს ამ კუნთების ჯგუფებს — განიხილეთ გადატანა."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una sesión reciente aún solapa estos grupos musculares — valora moverla."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Une séance récente chevauche encore ces groupes musculaires — envisagez de décaler."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eine kürzliche Einheit überschneidet diese Muskelgruppen noch — Verschieben erwägen."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nedávná jednotka stále překrývá tyto svalové skupiny — zvažte přesun."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "近期训练仍涉及这些肌群——可考虑改期。"
+          }
+        }
+      }
+    },
+    "planner_suggest_reason_back_to_back": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yesterday was hard — today’s hard plan could become easy Zone 2."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Учора було важко — сьогоднішній важкий план можна зробити легким Zone 2."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wczoraj było ciężko — dzisiejszy ciężki plan może stać się łatwym Zone 2."
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Учора было цяжка — сённяшні цяжкі план можна зрабіць лёгкім Zone 2."
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кеше ауыр болды — бүгінгі ауыр жоспарды жеңіл Zone 2 ету алады."
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "გუშინ მძიმე იყო — დღევანდელი მძიმე გეგმა შეიძლება მსუბუქ Zone 2 გახდეს."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayer fue duro — el plan duro de hoy podría pasar a Zone 2 fácil."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hier était dur — le plan dur d’aujourd’hui pourrait devenir une Zone 2 facile."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gestern war hart — der heutige harte Plan könnte easy Zone 2 werden."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Včera bylo těžké — dnešní těžký plán by mohl být lehký Zone 2."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "昨天偏硬——今天的硬课可改为轻松二区。"
+          }
+        }
+      }
+    },
+    "planner_suggest_action_move": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suggested move to a later day"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Пропонуємо перенести на пізніший день"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sugerowane przeniesienie na późniejszy dzień"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Прапануем перанесці на пазнейшы дзень"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кейінірек күнге жылжыту ұсынылады"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "შემოთავაზებულია უფრო გვიან დღეზე გადატანა"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mover sugerido a un día posterior"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Décalage suggéré vers un jour plus tard"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vorgeschlagenes Verschieben auf einen späteren Tag"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Navrhovaný přesun na pozdější den"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "建议改到更晚的一天"
+          }
+        }
+      }
+    },
+    "planner_suggest_action_swap": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suggested swap to easy Zone 2 or rest"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Пропонуємо замінити на легкий Zone 2 або відпочинок"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sugerowana zamiana na łatwy Zone 2 lub odpoczynek"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Прапануем замяніць на лёгкі Zone 2 або адпачынак"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Жеңіл Zone 2 немесе демалысқа ауыстыру ұсынылады"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "შემოთავაზებულია მსუბუქი Zone 2 ან დასვენება"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cambio sugerido a Zone 2 fácil o descanso"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Échange suggéré vers Zone 2 facile ou repos"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vorgeschlagener Tausch zu easy Zone 2 oder Ruhe"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Navrhovaná výměna za lehký Zone 2 nebo odpočinek"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "建议换成轻松二区或休息"
+          }
+        }
+      }
+    },
+    "planner_suggest_action_skip": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suggested skip for recovery"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Пропонуємо пропустити для відновлення"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sugerowane pominięcie dla regeneracji"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Прапануем прапусціць для аднаўлення"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Қалпына келу үшін өткізіп жіберу ұсынылады"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "შემოთავაზებულია გამოტოვება აღდგენისთვის"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omitir sugerido para recuperación"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saut suggéré pour la récupération"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vorgeschlagenes Auslassen zur Erholung"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Navrhované vynechání pro regeneraci"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "建议跳过以利恢复"
+          }
+        }
+      }
+    },
+    "planner_kind_run": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Run"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Біг"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bieg"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Бег"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Жүгіру"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "სირბილი"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carrera"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Course"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lauf"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Běh"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跑步"
+          }
+        }
+      }
+    },
+    "planner_kind_treadmill": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Treadmill"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Бігова доріжка"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bieżnia"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Бяговая дарожка"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Жүгіру жолы"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "სარბენი ბილიკი"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cinta"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tapis de course"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laufband"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Běžecký pás"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跑步机"
+          }
+        }
+      }
+    },
+    "planner_kind_zone2": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone 2 easy"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone 2 легкий"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone 2 łatwy"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone 2 лёгкі"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone 2 жеңіл"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone 2 მსუბუქი"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone 2 fácil"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone 2 facile"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone 2 easy"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone 2 lehký"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "二区轻松"
+          }
+        }
+      }
+    },
+    "planner_kind_rest": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rest"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Відпочинок"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Odpoczynek"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Адпачынак"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Демалыс"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "დასვენება"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descanso"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repos"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruhe"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Odpočinek"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "休息"
+          }
+        }
+      }
+    },
+    "planner_kind_functional": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Functional"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Функціональна"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Funkcjonalna"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Функцыянальная"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Функционалдық"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ფუნქციური"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Funcional"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fonctionnel"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Functional"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Funkční"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "功能性"
+          }
+        }
+      }
+    },
+    "planner_add_session": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add planned session"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Додати заплановану сесію"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dodaj zaplanowaną sesję"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Дадаць запланаваную сесію"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Жоспарланған сессия қосу"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "დაგეგმილი სესიის დამატება"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Añadir sesión planificada"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter une séance planifiée"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geplante Einheit hinzufügen"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Přidat naplánovanou jednotku"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加计划课程"
+          }
+        }
+      }
+    },
+    "planner_delete": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Видалити"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usuń"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Выдаліць"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Жою"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "წაშლა"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Löschen"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Smazat"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "删除"
+          }
+        }
+      }
+    },
+    "planner_move_tomorrow": {
+      "extractionState": "manual",
+      "localizations": {
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Move to tomorrow"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Перенести на завтра"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Przenieś na jutro"
+          }
+        },
+        "be": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Перанесці на заўтра"
+          }
+        },
+        "kk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ертеңге жылжыту"
+          }
+        },
+        "ka": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ხვალზე გადატანა"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mover a mañana"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Décaler à demain"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auf morgen verschieben"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Přesunout na zítra"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "改到明天"
           }
         }
       }

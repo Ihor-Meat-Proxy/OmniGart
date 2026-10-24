@@ -142,8 +142,25 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
                         indoor: false
                     )
                 )
-                try await builder.endCollection(at: Date())
+                let end = Date()
+                try await builder.endCollection(at: end)
                 _ = try await builder.finishWorkout()
+                isRunning = false
+                let summary = makeSummary()
+                let localId = syncIdentifier.replacingOccurrences(
+                    of: OmniGartWatchHealthSync.syncIdPrefix,
+                    with: ""
+                )
+                if !localId.isEmpty {
+                    WatchWorkoutTransferBuilder.enqueueZone2Summary(
+                        summary,
+                        localId: localId,
+                        syncIdentifier: syncIdentifier,
+                        startedAt: startedAt ?? end.addingTimeInterval(-summary.elapsed),
+                        endedAt: end
+                    )
+                }
+                return summary
             }
             isRunning = false
             return makeSummary()

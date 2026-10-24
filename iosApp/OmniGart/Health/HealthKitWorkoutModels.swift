@@ -41,6 +41,8 @@ extension HealthKitWorkoutWriter {
         var saveMindfulMinutes: Bool = false
         var estimatedEffortScore: Double?
         var heartRateRecoveryBpm: Double?
+        /// `HKMetadataKeySyncVersion`: 1 on first insert; bump only for user-initiated restore.
+        var syncVersion: Int = 1
     }
 
     struct Result: Sendable {

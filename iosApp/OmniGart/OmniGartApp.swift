@@ -13,6 +13,8 @@ struct OmniGartApp: App {
         _ = HealthKitPlatformBridge.shared
 
         let core = OmniGartCore(driverFactory: DatabaseDriverFactory())
+        // Watch → phone inbox: store locally by sync id; never re-write HealthKit.
+        WatchWorkoutInbox.shared.start(core: core)
         let args = ProcessInfo.processInfo.arguments
         let uiTesting = args.contains("-ui-testing")
         let forceOnboarding = args.contains("-ui-testing-onboarding")

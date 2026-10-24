@@ -18,7 +18,7 @@
 
     <!-- Just-in-time permission explainers (app usable if denied) -->
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, active and resting energy, heart-rate recovery, workout effort, optional mindful minutes, body mass, and hydration — so sessions can appear in Apple Fitness with duration and calories. Data is not used for ads or sent to unrelated third parties. You can continue without granting access.</string>
+    <string name="perm_explainer_health_body">OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, active and resting energy, heart-rate recovery, workout effort, optional mindful minutes, body mass, and hydration — so sessions can appear in Apple Fitness with duration and calories. Platform writes are append-only: OmniGart never deletes or rewrites Apple Health or Health Connect data, including its own. Data is not used for ads or sent to unrelated third parties. You can continue without granting access.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth accessories</string>
     <string name="perm_explainer_bluetooth_body">Connect a heart-rate or similar fitness accessory for live samples. OmniGart works fully without Bluetooth.</string>
     <string name="perm_explainer_camera_title">Camera for barcodes</string>
@@ -30,7 +30,11 @@
 
     <!-- Health Connect privacy rationale (Play health apps policy) -->
     <string name="hc_rationale_title">Health Connect data use</string>
-    <string name="hc_rationale_body">OmniGart requests Health Connect access to read and write fitness and wellness data you choose — such as heart rate, HRV, sleep, workouts, body mass, and hydration — so readiness and training estimates stay accurate on your device.\n\nWe do not sell health data, use it for advertising, or share it with third parties for marketing. You can deny access and keep using OmniGart with manual entry.</string>
+    <string name="hc_rationale_body">OmniGart requests Health Connect access to read and write fitness and wellness data you choose — such as heart rate, HRV, sleep, workouts, body mass, and hydration — so readiness and training estimates stay accurate on your device.
+
+Writes are append-only: OmniGart never deletes or rewrites Health Connect data, including workouts it created. Local edits stay in OmniGart. If a sample is removed from Health Connect, OmniGart keeps your local copy.
+
+We do not sell health data, use it for advertising, or share it with third parties for marketing. You can deny access and keep using OmniGart with manual entry.</string>
     <string name="hc_rationale_privacy_policy">Privacy policy</string>
 
     <!-- Calculations settings (formula.* titles/explains resolve via StringCatalog; dotted keys cannot be Android resource names) -->
@@ -157,4 +161,72 @@
     <string name="workout_mindful_minutes_toggle">Save mindful minutes for yoga</string>
     <string name="workout_mindful_minutes_body">Optional. Off by default. Writes a mindful session only when you enable this.</string>
     <string name="workout_mindful_settings_title">Yoga mindful minutes</string>
+    <string name="data_privacy_title">Data and privacy</string>
+    <string name="data_privacy_intro">OmniGart keeps a full local copy of your workouts and samples on this device. Export stays on-device. Platform sync is optional and never required for logging.</string>
+    <string name="data_privacy_sync_status">Platform sync</string>
+    <string name="data_privacy_sync_status_line">Platform sync: %1$s</string>
+    <string name="data_privacy_last_sync">Last sync</string>
+    <string name="data_privacy_last_sync_line">Last sync: %1$s</string>
+    <string name="data_privacy_sync_now">Sync from platform now</string>
+    <string name="data_privacy_export">Export health data</string>
+    <string name="data_privacy_export_share">Share export</string>
+    <string name="data_privacy_import_json">Import OmniGart JSON</string>
+    <string name="data_privacy_conflicts_title">Conflict review</string>
+    <string name="data_privacy_resolve_all">Mark conflicts reviewed</string>
+    <string name="data_privacy_export_ready">Export ready to share or save.</string>
+    <string name="data_privacy_export_failed">Could not prepare the export.</string>
+    <string name="data_privacy_import_ok">Imported %d workouts.</string>
+    <string name="data_privacy_import_failed">Could not import that file.</string>
+    <string name="data_privacy_status_authorized">Connected</string>
+    <string name="data_privacy_status_denied">Permission denied — local store still works</string>
+    <string name="data_privacy_status_partial">Partial access</string>
+    <string name="data_privacy_status_unknown">Not determined</string>
+    <string name="data_privacy_permission_note">OmniGart can read and write wellness workouts and samples when you allow it. You can keep logging without granting access. Platform writes are append-only: OmniGart never deletes or rewrites Apple Health or Health Connect data — including workouts it created. Local edits stay in OmniGart. If a sample is removed from the platform, OmniGart keeps your local copy.</string>
+    <string name="pdf_export_button">Export PDF</string>
+    <string name="pdf_export_range_button">Export date-range PDF</string>
+    <string name="pdf_report_single_title">Workout summary</string>
+    <string name="pdf_report_range_title">Workout report</string>
+    <string name="pdf_export_ready">PDF ready to share.</string>
+    <string name="pdf_export_failed">Could not create the PDF.</string>
+    <string name="pdf_field_date">Date</string>
+    <string name="pdf_field_activity">Activity</string>
+    <string name="pdf_field_duration">Duration</string>
+    <string name="pdf_field_active_kcal">Active energy</string>
+    <string name="pdf_field_total_kcal">Total energy</string>
+    <string name="pdf_field_avg_hr">Average heart rate</string>
+    <string name="pdf_field_max_hr">Max heart rate</string>
+    <string name="pdf_field_hr_chart">Heart rate</string>
+    <string name="pdf_field_time_in_zone">Time in zone</string>
+    <string name="pdf_field_distance">Distance</string>
+    <string name="pdf_field_pace">Pace</string>
+    <string name="pdf_field_cadence">Cadence</string>
+    <string name="pdf_field_total_weight">Total weight lifted</string>
+    <string name="pdf_field_sets">Sets</string>
+    <string name="pdf_field_segments">Segments</string>
+    <string name="pdf_field_muscle_map">Muscle map</string>
+    <string name="pdf_zone_prefix">Z</string>
+    <string name="pdf_minutes_suffix">min</string>
+    <string name="pdf_unit_kg">kg</string>
+    <string name="pdf_activity_strength">Strength</string>
+    <string name="pdf_activity_running">Running</string>
+    <string name="pdf_activity_cycling">Cycling</string>
+    <string name="pdf_activity_swimming">Swimming</string>
+    <string name="pdf_activity_walking">Walking</string>
+    <string name="pdf_activity_hiit">HIIT</string>
+    <string name="pdf_activity_yoga">Yoga</string>
+    <string name="pdf_activity_pilates">Pilates</string>
+    <string name="pdf_activity_other">Other</string>
+    <string name="health_workout_detail_title">Workout</string>
+    <string name="health_restore_removed_banner">Removed from the health platform. Your OmniGart copy is still here — you can restore it.</string>
+    <string name="health_restore_removed_section">Removed from platform</string>
+    <string name="health_restore_to_apple_health">Restore to Apple Health</string>
+    <string name="health_restore_to_health_connect">Restore to Health Connect</string>
+    <string name="health_restore_all_apple_health">Restore all removed to Apple Health</string>
+    <string name="health_restore_all_health_connect">Restore all removed to Health Connect</string>
+    <string name="health_restore_success">Restored to the health platform.</string>
+    <string name="health_restore_already_present">Already on the platform — local flag cleared.</string>
+    <string name="health_restore_skipped">Nothing to restore.</string>
+    <string name="health_restore_failed">Could not restore this workout.</string>
+    <string name="health_restore_permission_needed">Health write permission is required to restore.</string>
+    <string name="health_restore_all_result">Restored %1$d · failed %2$d</string>
 </resources>

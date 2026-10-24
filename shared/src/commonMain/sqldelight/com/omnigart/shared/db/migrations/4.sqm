@@ -1,0 +1,1 @@
+ALTER TABLE local_health_workout ADD COLUMN removed_from_platform INTEGER NOT NULL DEFAULT 0;

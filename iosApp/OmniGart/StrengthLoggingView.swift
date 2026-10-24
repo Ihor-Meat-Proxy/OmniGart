@@ -86,8 +86,44 @@ struct StrengthLoggingView: View {
                     Text(line)
                         .font(.footnote)
                 }
+                if let lastSessionId {
+                    Button("pdf_export_button") {
+                        exportSummaryPdf(sessionId: lastSessionId)
+                    }
+                    .accessibilityIdentifier("pdf_export_button")
+                }
             }
         }
+    }
+
+    private func exportSummaryPdf(sessionId: String) {
+        let profile = core.profiles.get(id: profileId)
+        let summary = core.strengthLogging.sessionSummary(
+            sessionId: sessionId,
+            includeWarmups: includeWarmups,
+            bodyweightKg: profile.map { KotlinDouble(value: $0.weightKg) },
+            unit: .kg
+        )
+        var nameParts: [String] = []
+        var muscleParts: [String] = []
+        for row in summary.volume.perExercise {
+            nameParts.append("\(row.exerciseId)=\(row.exerciseId)")
+        }
+        let muscleMap = summary.volume.perMuscleVolumeKg
+        for key in muscleMap.keys {
+            if let kg = muscleMap[key] as? Double {
+                muscleParts.append("\(key)=\(kg)")
+            } else if let boxed = muscleMap[key] {
+                muscleParts.append("\(key)=\(boxed)")
+            }
+        }
+        let strengthJson =
+            "\(summary.totalWeightLiftedKg)|\(nameParts.joined(separator: ","))|\(muscleParts.joined(separator: ","))"
+        WorkoutPdfExport.shareSingle(
+            core: core,
+            workoutId: sessionId,
+            strengthJson: strengthJson
+        )
     }
 
     @ViewBuilder

@@ -52,66 +52,74 @@ t(
             "OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, "
             "active and resting energy, heart-rate recovery, workout effort, optional mindful "
             "minutes, body mass, and hydration — so sessions can appear in Apple Fitness with "
-            "duration and calories. Data is not used for ads or sent to unrelated third parties. "
-            "You can continue without granting access."
+            "duration and calories. Platform writes are append-only: OmniGart never deletes or "
+            "rewrites Apple Health or Health Connect data, including its own. Data is not used "
+            "for ads or sent to unrelated third parties. You can continue without granting access."
         ),
         "uk": (
             "OmniGart може читати й записувати зразки самопочуття — пульс, ВСР, сон, тренування, "
             "активну й базальну енергію, відновлення пульсу, оцінку зусилля, за бажанням хвилини "
             "усвідомленості, масу тіла та гідратацію — щоб сесії з’являлися в Apple Fitness. "
-            "Дані не для реклами й не передаються стороннім. Можна продовжити без доступу."
+            "Запис на платформу лише додає: OmniGart ніколи не видаляє й не перезаписує дані "
+            "Apple Health чи Health Connect, навіть свої. Дані не для реклами. Можна продовжити без доступу."
         ),
         "pl": (
             "OmniGart może czytać i zapisywać próbki wellness — tętno, HRV, sen, treningi, "
             "energię aktywną i spoczynkową, masę ciała i nawodnienie — aby sesje pojawiały się "
-            "w Apple Fitness z czasem i kaloriami. Dane nie służą reklamom ani stronom trzecim. "
-            "Możesz kontynuować bez dostępu."
+            "w Apple Fitness z czasem i kaloriami. Zapis na platformę tylko dopisuje: OmniGart "
+            "nigdy nie usuwa ani nie nadpisuje danych Apple Health ani Health Connect, także własnych. "
+            "Dane nie służą reklamom. Możesz kontynuować bez dostępu."
         ),
         "be": (
             "OmniGart можа чытаць і запісваць узоры самаадчування — пульс, ВСР, сон, трэніроўкі, "
-            "актыўную і базальную энергію, масу цела і гідратацыю — каб сесіі з’яўляліся ў Apple Fitness "
-            "з працягласцю і калорыямі. Дадзеныя не для рэкламы і не перадаюцца трэцім бакам. "
-            "Можна працягнуць без доступу."
+            "актыўную і базальную энергію, масу цела і гідратацыю — каб сесіі з’яўляліся ў Apple Fitness. "
+            "Запіс на платформу толькі дадае: OmniGart ніколі не выдаляе і не перазапісвае дадзеныя "
+            "Apple Health ці Health Connect, нават свае. Дадзеныя не для рэкламы. Можна працягнуць без доступу."
         ),
         "kk": (
             "OmniGart сауықтыру үлгілерін оқи және жаза алады — жүрек соғысы, HRV, ұйқы, жаттығулар, "
             "белсенді және базалық энергия, дене салмағы және су ішу — сеанстар Apple Fitness-те "
-            "ұзақтық пен калориямен көрінуі үшін. Деректер жарнамаға немесе үшінші тарапқа берілмейді. "
+            "көрінуі үшін. Платформаға жазу тек қосу: OmniGart Apple Health / Health Connect "
+            "деректерін — өзінкін де — жоймайды және қайта жазбайды. Деректер жарнамаға берілмейді. "
             "Рұқсатсыз жалғастыруға болады."
         ),
         "ka": (
             "OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები — გულისცემა, HRV, ძილი, "
             "ვარჯიშები, აქტიური და საბაზისო ენერგია, სხეულის მასა და ჰიდრატაცია — რომ სესიები "
-            "გამოჩნდეს Apple Fitness-ში ხანგრძლივობით და კალორიებით. მონაცემები არ გამოიყენება "
-            "რეკლამისთვის. შეგიძლიათ გააგრძელოთ წვდომის გარეშე."
+            "გამოჩნდეს Apple Fitness-ში. პლატფორმაზე ჩაწერა მხოლოდ დამატებითია: OmniGart არ შლის "
+            "და არ გადააწერს Apple Health ან Health Connect მონაცემებს, მათ შორის საკუთარს. "
+            "შეგიძლიათ გააგრძელოთ წვდომის გარეშე."
         ),
         "es": (
             "OmniGart puede leer y escribir muestras de bienestar — frecuencia cardiaca, VFC, sueño, "
             "entrenamientos, energía activa y en reposo, masa corporal e hidratación — para que las "
-            "sesiones aparezcan en Apple Fitness con duración y calorías. Los datos no se usan para "
-            "publicidad. Puedes continuar sin conceder acceso."
+            "sesiones aparezcan en Apple Fitness. Las escrituras solo añaden: OmniGart nunca elimina "
+            "ni reescribe datos de Apple Health o Health Connect, ni siquiera los propios. "
+            "Puedes continuar sin conceder acceso."
         ),
         "fr": (
             "OmniGart peut lire et écrire des échantillons bien-être — fréquence cardiaque, VRC, sommeil, "
             "séances, énergie active et basale, masse corporelle et hydratation — pour afficher les "
-            "séances dans Apple Fitness avec durée et calories. Les données ne servent pas à la pub. "
+            "séances dans Apple Fitness. Écritures en ajout seul : OmniGart ne supprime ni ne réécrit "
+            "jamais les données Apple Health ou Health Connect, y compris les siennes. "
             "Vous pouvez continuer sans accorder l’accès."
         ),
         "de": (
             "OmniGart kann Wellness-Proben lesen und schreiben — Herzfrequenz, HRV, Schlaf, Workouts, "
-            "aktive und Ruheenergie, Körpermasse und Hydration — damit Sitzungen in Apple Fitness mit "
-            "Dauer und Kalorien erscheinen. Daten werden nicht für Werbung genutzt. Sie können ohne "
-            "Zugriff fortfahren."
+            "aktive und Ruheenergie, Körpermasse und Hydration — damit Sitzungen in Apple Fitness "
+            "erscheinen. Plattformschreibungen nur anfügend: OmniGart löscht oder überschreibt keine "
+            "Apple-Health- oder Health-Connect-Daten, auch keine eigenen. Sie können ohne Zugriff fortfahren."
         ),
         "cs": (
             "OmniGart může číst a zapisovat wellness vzorky — tep, HRV, spánek, tréninky, aktivní a "
-            "bazální energii, tělesnou hmotnost a hydrataci — aby se sezení zobrazila v Apple Fitness "
-            "s délkou a kaloriemi. Data se nepoužívají k reklamě. Můžete pokračovat bez přístupu."
+            "bazální energii, tělesnou hmotnost a hydrataci — aby se sezení zobrazila v Apple Fitness. "
+            "Zápis na platformu jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Apple Health "
+            "ani Health Connect, ani vlastní. Můžete pokračovat bez přístupu."
         ),
         "zh-Hans": (
             "OmniGart 可读写健康样本——心率、心率变异、睡眠、训练、活动与基础能量、体重和补水——"
-            "以便会话以时长和热量出现在 Apple Fitness 中。数据不用于广告，也不发送给无关第三方。"
-            "您也可不授予权限并继续。"
+            "以便会话出现在 Apple Fitness 中。写入平台仅为追加：从不删除或改写 Apple Health / "
+            "Health Connect 数据（包括本应用创建的）。您也可不授予权限并继续。"
         ),
     },
 )

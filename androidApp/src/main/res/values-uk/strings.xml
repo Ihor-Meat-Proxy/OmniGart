@@ -16,7 +16,7 @@
     <string name="info_sheet_body">Показники на кшталт готовності, стресу, ВСР, індексу Баєвського, жиру в тілі та гідратації — це оцінки самопочуття на основі ваших даних і зразків із пристрою. Плани — тренерські пропозиції, а не приписи лікаря.</string>
 
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart може читати й записувати зразки самопочуття — пульс, ВСР, сон, тренування, активну й базальну енергію, відновлення пульсу, оцінку зусилля, за бажанням хвилини усвідомленості, масу тіла та гідратацію — щоб сесії з’являлися в Apple Fitness. Дані не для реклами й не передаються стороннім. Можна продовжити без доступу.</string>
+    <string name="perm_explainer_health_body">OmniGart може читати й записувати зразки самопочуття — пульс, ВСР, сон, тренування, активну й базальну енергію, відновлення пульсу, оцінку зусилля, за бажанням хвилини усвідомленості, масу тіла та гідратацію — щоб сесії з’являлися в Apple Fitness. Запис на платформу лише додає: OmniGart ніколи не видаляє й не перезаписує дані Apple Health чи Health Connect, навіть свої. Дані не для реклами. Можна продовжити без доступу.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth-аксесуари</string>
     <string name="perm_explainer_bluetooth_body">Підключіть пульсометр або подібний фітнес-аксесуар для живих зразків. OmniGart повністю працює без Bluetooth.</string>
     <string name="perm_explainer_camera_title">Камера для штрихкодів</string>
@@ -27,7 +27,11 @@
     <string name="perm_not_now">Не зараз</string>
 
     <string name="hc_rationale_title">Використання даних Health Connect</string>
-    <string name="hc_rationale_body">OmniGart запитує доступ до Health Connect, щоб читати й записувати обрані вами фітнес-дані та дані самопочуття — пульс, ВСР, сон, тренування, масу тіла, гідратацію — для точніших оцінок готовності й тренувань на пристрої.\n\nМи не продаємо дані здоров’я, не використовуємо їх для реклами і не передаємо третім сторонам для маркетингу. Можна відмовити в доступі й користуватися OmniGart із ручним введенням.</string>
+    <string name="hc_rationale_body">OmniGart запитує доступ до Health Connect, щоб читати й записувати обрані вами фітнес-дані та дані самопочуття — пульс, ВСР, сон, тренування, масу тіла, гідратацію — для точніших оцінок готовності й тренувань на пристрої.
+
+Запис лише додає: OmniGart ніколи не видаляє й не перезаписує дані Health Connect, навіть створені ним. Локальні зміни лишаються в OmniGart. Якщо зразок приберуть з Health Connect, локальна копія зберігається.
+
+Ми не продаємо дані здоров’я, не використовуємо їх для реклами і не передаємо третім сторонам для маркетингу. Можна відмовити в доступі й користуватися ручним введенням.</string>
     <string name="hc_rationale_privacy_policy">Політика конфіденційності</string>
 
     <string name="calc_settings_title">Розрахунки</string>
@@ -152,4 +156,72 @@
     <string name="workout_mindful_minutes_toggle">Зберігати хвилини усвідомленості для йоги</string>
     <string name="workout_mindful_minutes_body">За бажанням. Типово вимкнено. Записує mindful-сесію лише коли ви це вмикаєте.</string>
     <string name="workout_mindful_settings_title">Усвідомленість у йозі</string>
+    <string name="data_privacy_title">Дані та приватність</string>
+    <string name="data_privacy_intro">OmniGart зберігає повну локальну копію тренувань і зразків на цьому пристрої. Експорт лишається на пристрої. Синхронізація з платформою необов’язкова.</string>
+    <string name="data_privacy_sync_status">Синхронізація з платформою</string>
+    <string name="data_privacy_sync_status_line">Синхронізація з платформою: %1$s</string>
+    <string name="data_privacy_last_sync">Остання синхронізація</string>
+    <string name="data_privacy_last_sync_line">Остання синхронізація: %1$s</string>
+    <string name="data_privacy_sync_now">Синхронізувати з платформи зараз</string>
+    <string name="data_privacy_export">Експортувати дані самопочуття</string>
+    <string name="data_privacy_export_share">Поділитися експортом</string>
+    <string name="data_privacy_import_json">Імпортувати OmniGart JSON</string>
+    <string name="data_privacy_conflicts_title">Перегляд конфліктів</string>
+    <string name="data_privacy_resolve_all">Позначити конфлікти переглянутими</string>
+    <string name="data_privacy_export_ready">Експорт готовий до поширення або збереження.</string>
+    <string name="data_privacy_export_failed">Не вдалося підготувати експорт.</string>
+    <string name="data_privacy_import_ok">Імпортовано тренувань: %d.</string>
+    <string name="data_privacy_import_failed">Не вдалося імпортувати цей файл.</string>
+    <string name="data_privacy_status_authorized">Підключено</string>
+    <string name="data_privacy_status_denied">Дозвіл відхилено — локальне сховище працює</string>
+    <string name="data_privacy_status_partial">Частковий доступ</string>
+    <string name="data_privacy_status_unknown">Не визначено</string>
+    <string name="data_privacy_permission_note">OmniGart може читати й записувати тренування та зразки самопочуття, якщо ви дозволите. Можна вести журнал без доступу. Запис на платформу лише додає нові дані: OmniGart ніколи не видаляє й не перезаписує дані Apple Health чи Health Connect — навіть створені ним. Локальні зміни лишаються в OmniGart. Якщо зразок прибрали з платформи, локальна копія зберігається.</string>
+    <string name="pdf_export_button">Експортувати PDF</string>
+    <string name="pdf_export_range_button">Експортувати PDF за період</string>
+    <string name="pdf_report_single_title">Підсумок тренування</string>
+    <string name="pdf_report_range_title">Звіт про тренування</string>
+    <string name="pdf_export_ready">PDF готовий до поширення.</string>
+    <string name="pdf_export_failed">Не вдалося створити PDF.</string>
+    <string name="pdf_field_date">Дата</string>
+    <string name="pdf_field_activity">Активність</string>
+    <string name="pdf_field_duration">Тривалість</string>
+    <string name="pdf_field_active_kcal">Активна енергія</string>
+    <string name="pdf_field_total_kcal">Загальна енергія</string>
+    <string name="pdf_field_avg_hr">Середній пульс</string>
+    <string name="pdf_field_max_hr">Максимальний пульс</string>
+    <string name="pdf_field_hr_chart">Пульс</string>
+    <string name="pdf_field_time_in_zone">Час у зоні</string>
+    <string name="pdf_field_distance">Дистанція</string>
+    <string name="pdf_field_pace">Темп</string>
+    <string name="pdf_field_cadence">Каденс</string>
+    <string name="pdf_field_total_weight">Загальна піднята вага</string>
+    <string name="pdf_field_sets">Підходи</string>
+    <string name="pdf_field_segments">Сегменти</string>
+    <string name="pdf_field_muscle_map">Карта м’язів</string>
+    <string name="pdf_zone_prefix">Z</string>
+    <string name="pdf_minutes_suffix">хв</string>
+    <string name="pdf_unit_kg">кг</string>
+    <string name="pdf_activity_strength">Сила</string>
+    <string name="pdf_activity_running">Біг</string>
+    <string name="pdf_activity_cycling">Велосипед</string>
+    <string name="pdf_activity_swimming">Плавання</string>
+    <string name="pdf_activity_walking">Ходьба</string>
+    <string name="pdf_activity_hiit">HIIT</string>
+    <string name="pdf_activity_yoga">Йога</string>
+    <string name="pdf_activity_pilates">Пілатес</string>
+    <string name="pdf_activity_other">Інше</string>
+    <string name="health_workout_detail_title">Тренування</string>
+    <string name="health_restore_removed_banner">Прибрано з платформи здоров’я. Копія в OmniGart лишається — можна відновити.</string>
+    <string name="health_restore_removed_section">Прибрано з платформи</string>
+    <string name="health_restore_to_apple_health">Відновити в Apple Health</string>
+    <string name="health_restore_to_health_connect">Відновити в Health Connect</string>
+    <string name="health_restore_all_apple_health">Відновити всі прибрані в Apple Health</string>
+    <string name="health_restore_all_health_connect">Відновити всі прибрані в Health Connect</string>
+    <string name="health_restore_success">Відновлено на платформі здоров’я.</string>
+    <string name="health_restore_already_present">Уже на платформі — локальну позначку знято.</string>
+    <string name="health_restore_skipped">Немає що відновлювати.</string>
+    <string name="health_restore_failed">Не вдалося відновити це тренування.</string>
+    <string name="health_restore_permission_needed">Для відновлення потрібен дозвіл на запис у Health.</string>
+    <string name="health_restore_all_result">Відновлено %1$d · не вдалося %2$d</string>
 </resources>

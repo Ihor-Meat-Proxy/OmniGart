@@ -3,12 +3,15 @@ package com.omnigart.shared.health
 import android.content.Context
 import androidx.health.connect.client.HealthConnectClient as HcSdk
 import androidx.health.connect.client.permission.HealthPermission as HcPermission
+import androidx.health.connect.client.records.ActiveCaloriesBurnedRecord
+import androidx.health.connect.client.records.DistanceRecord
 import androidx.health.connect.client.records.ExerciseSessionRecord
 import androidx.health.connect.client.records.HeartRateRecord
 import androidx.health.connect.client.records.HeartRateVariabilityRmssdRecord
 import androidx.health.connect.client.records.HeightRecord
 import androidx.health.connect.client.records.HydrationRecord
 import androidx.health.connect.client.records.NutritionRecord
+import androidx.health.connect.client.records.Record
 import androidx.health.connect.client.records.RestingHeartRateRecord
 import androidx.health.connect.client.records.SleepSessionRecord
 import androidx.health.connect.client.records.WeightRecord
@@ -16,6 +19,7 @@ import androidx.health.connect.client.records.metadata.Metadata
 import androidx.health.connect.client.request.ChangesTokenRequest
 import androidx.health.connect.client.request.ReadRecordsRequest
 import androidx.health.connect.client.time.TimeRangeFilter
+import androidx.health.connect.client.units.Energy
 import androidx.health.connect.client.units.Length
 import androidx.health.connect.client.units.Mass
 import androidx.health.connect.client.units.Volume
@@ -286,10 +290,13 @@ class SdkHealthConnectGateway(
     override suspend fun readWorkouts(range: TimeRange): List<HealthWorkout> = withContext(Dispatchers.IO) {
         client.readRecords(ReadRecordsRequest(ExerciseSessionRecord::class, range.toFilter()))
             .records.map {
+                val omnigartId =
+                    it.metadata.clientRecordId
+                        ?.removePrefix("omnigart.workout.")
+                        ?.takeIf { id -> id.isNotBlank() }
                 HealthWorkout(
-                    // Prefer clientRecordId so append-only dedupe matches OmniGart session ids.
-                    id = it.metadata.clientRecordId ?: it.metadata.id,
-                    activityType = WorkoutActivityType.OTHER,
+                    id = omnigartId ?: it.metadata.id,
+                    activityType = activityTypeFor(it.exerciseType),
                     start = it.startTime.toKotlin(),
                     end = it.endTime.toKotlin(),
                     sourceName = it.title
@@ -297,36 +304,96 @@ class SdkHealthConnectGateway(
             }
     }
 
-    /**
-     * Append-only: [insertRecords] only for workouts whose [HealthWorkout.id] is not already
-     * present as a clientRecordId. Never calls deleteRecords / updateRecords.
-     */
     override suspend fun writeWorkouts(workouts: List<HealthWorkout>) {
         withContext(Dispatchers.IO) {
-            if (workouts.isEmpty()) return@withContext
-            val spanStart = workouts.minOf { it.start }
-            val spanEnd = workouts.maxOf { it.end }
-            val existingIds = readWorkouts(TimeRange(spanStart, spanEnd)).map { it.id }.toSet()
-            val fresh = workouts.filter { it.id.isNotBlank() && it.id !in existingIds }
-            if (fresh.isEmpty()) return@withContext
-            client.insertRecords(
-                fresh.map {
-                    ExerciseSessionRecord(
-                        startTime = it.start.toJava(),
-                        startZoneOffset = null,
-                        endTime = it.end.toJava(),
-                        endZoneOffset = null,
-                        exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_OTHER_WORKOUT,
-                        title = it.sourceName,
-                        metadata =
-                        Metadata.manualEntry(
-                            clientRecordId = it.id,
-                            clientRecordVersion = 0
-                        )
+            // Append-only: never HC record delete/update APIs. Skip when clientRecordId exists.
+            // Restore uses a bumped clientRecordVersion after platform deletion.
+            val toWrite = mutableListOf<Record>()
+            for (workout in workouts) {
+                val syncId = "omnigart.workout.${workout.id}"
+                if (clientRecordIdExists(syncId, workout.start, workout.end)) continue
+                val meta =
+                    Metadata.manualEntry(
+                        clientRecordId = syncId,
+                        clientRecordVersion = workout.clientRecordVersion.coerceAtLeast(1L)
                     )
+                val start = workout.start.toJava()
+                val end = workout.end.toJava()
+                toWrite +=
+                    ExerciseSessionRecord(
+                        startTime = start,
+                        startZoneOffset = null,
+                        endTime = end,
+                        endZoneOffset = null,
+                        exerciseType = exerciseTypeFor(workout.activityType),
+                        title = workout.sourceName,
+                        metadata = meta
+                    )
+                workout.energyKcal?.takeIf { it > 0 }?.let { kcal ->
+                    toWrite +=
+                        ActiveCaloriesBurnedRecord(
+                            startTime = start,
+                            startZoneOffset = null,
+                            endTime = end,
+                            endZoneOffset = null,
+                            energy = Energy.kilocalories(kcal),
+                            metadata = Metadata.manualEntry()
+                        )
                 }
-            )
+                workout.distanceMetres?.takeIf { it > 0 }?.let { metres ->
+                    toWrite +=
+                        DistanceRecord(
+                            startTime = start,
+                            startZoneOffset = null,
+                            endTime = end,
+                            endZoneOffset = null,
+                            distance = Length.meters(metres),
+                            metadata = Metadata.manualEntry()
+                        )
+                }
+                if (workout.heartRateSamples.isNotEmpty()) {
+                    val samples =
+                        workout.heartRateSamples
+                            .filter { it.beatsPerMinute > 0 }
+                            .map {
+                                HeartRateRecord.Sample(
+                                    it.recordedAt.toJava(),
+                                    it.beatsPerMinute.toLong()
+                                )
+                            }
+                    if (samples.isNotEmpty()) {
+                        toWrite +=
+                            HeartRateRecord(
+                                startTime = samples.first().time,
+                                startZoneOffset = null,
+                                endTime = samples.last().time.plusMillis(1),
+                                endZoneOffset = null,
+                                samples = samples,
+                                metadata = Metadata.manualEntry()
+                            )
+                    }
+                }
+            }
+            if (toWrite.isNotEmpty()) client.insertRecords(toWrite)
         }
+    }
+
+    /**
+     * True when Health Connect already has an [ExerciseSessionRecord] with [clientRecordId].
+     * Used to skip inserts (append-only; never HC update APIs).
+     */
+    suspend fun clientRecordIdExists(clientRecordId: String, start: Instant, end: Instant): Boolean {
+        val padMs = 60_000L
+        val from = JavaInstant.ofEpochMilli((start.toEpochMilliseconds() - padMs).coerceAtLeast(0))
+        val to = JavaInstant.ofEpochMilli(end.toEpochMilliseconds() + padMs)
+        val records =
+            client.readRecords(
+                ReadRecordsRequest(
+                    ExerciseSessionRecord::class,
+                    TimeRangeFilter.between(from, to)
+                )
+            ).records
+        return records.any { it.metadata.clientRecordId == clientRecordId }
     }
 
     override suspend fun getChangesToken(types: Set<HealthDataType>): String = withContext(Dispatchers.IO) {
@@ -392,3 +459,31 @@ private fun TimeRange.toFilter(): TimeRangeFilter = TimeRangeFilter.between(star
 private fun Instant.toJava(): JavaInstant = JavaInstant.ofEpochMilli(toEpochMilliseconds())
 
 private fun JavaInstant.toKotlin(): Instant = Instant.fromEpochMilliseconds(toEpochMilli())
+
+private fun exerciseTypeFor(type: WorkoutActivityType): Int = when (type) {
+    WorkoutActivityType.STRENGTH -> ExerciseSessionRecord.EXERCISE_TYPE_STRENGTH_TRAINING
+    WorkoutActivityType.RUNNING -> ExerciseSessionRecord.EXERCISE_TYPE_RUNNING
+    WorkoutActivityType.CYCLING -> ExerciseSessionRecord.EXERCISE_TYPE_BIKING
+    WorkoutActivityType.SWIMMING -> ExerciseSessionRecord.EXERCISE_TYPE_SWIMMING_POOL
+    WorkoutActivityType.WALKING -> ExerciseSessionRecord.EXERCISE_TYPE_WALKING
+    WorkoutActivityType.HIIT -> ExerciseSessionRecord.EXERCISE_TYPE_HIGH_INTENSITY_INTERVAL_TRAINING
+    WorkoutActivityType.YOGA -> ExerciseSessionRecord.EXERCISE_TYPE_YOGA
+    WorkoutActivityType.PILATES -> ExerciseSessionRecord.EXERCISE_TYPE_PILATES
+    WorkoutActivityType.OTHER -> ExerciseSessionRecord.EXERCISE_TYPE_OTHER_WORKOUT
+}
+
+private fun activityTypeFor(exerciseType: Int): WorkoutActivityType = when (exerciseType) {
+    ExerciseSessionRecord.EXERCISE_TYPE_STRENGTH_TRAINING -> WorkoutActivityType.STRENGTH
+    ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
+    ExerciseSessionRecord.EXERCISE_TYPE_RUNNING_TREADMILL -> WorkoutActivityType.RUNNING
+    ExerciseSessionRecord.EXERCISE_TYPE_BIKING,
+    ExerciseSessionRecord.EXERCISE_TYPE_BIKING_STATIONARY -> WorkoutActivityType.CYCLING
+    ExerciseSessionRecord.EXERCISE_TYPE_SWIMMING_POOL,
+    ExerciseSessionRecord.EXERCISE_TYPE_SWIMMING_OPEN_WATER -> WorkoutActivityType.SWIMMING
+    ExerciseSessionRecord.EXERCISE_TYPE_WALKING,
+    ExerciseSessionRecord.EXERCISE_TYPE_HIKING -> WorkoutActivityType.WALKING
+    ExerciseSessionRecord.EXERCISE_TYPE_HIGH_INTENSITY_INTERVAL_TRAINING -> WorkoutActivityType.HIIT
+    ExerciseSessionRecord.EXERCISE_TYPE_YOGA -> WorkoutActivityType.YOGA
+    ExerciseSessionRecord.EXERCISE_TYPE_PILATES -> WorkoutActivityType.PILATES
+    else -> WorkoutActivityType.OTHER
+}

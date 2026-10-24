@@ -131,9 +131,9 @@ extension HealthKitWorkoutWriter {
     static func buildMetadata(for options: SaveOptions) -> [String: Any] {
         var metadata: [String: Any] = [
             HKMetadataKeyIndoorWorkout: options.indoor,
-            // Append-only: sync id + version 1; never bump version / never updateRecords.
+            // Append-only: same sync id; bump version only for user restore after platform deletion.
             HKMetadataKeySyncIdentifier: options.syncIdentifier,
-            HKMetadataKeySyncVersion: NSNumber(value: 1)
+            HKMetadataKeySyncVersion: NSNumber(value: max(1, options.syncVersion))
         ]
         if options.energy.isEstimate {
             metadata["OmniGartEnergyIsEstimate"] = true

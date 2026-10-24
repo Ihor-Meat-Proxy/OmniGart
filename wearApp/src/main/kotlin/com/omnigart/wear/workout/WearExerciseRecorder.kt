@@ -64,7 +64,10 @@ class WearExerciseRecorder(
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private val directExecutor = Executor { it.run() }
     private val running = AtomicBoolean(false)
+    private val paused = AtomicBoolean(false)
     private val startedAtMs = AtomicReference<Long?>(null)
+    private val accumulatedPauseMs = AtomicReference(0L)
+    private val pauseBeganAtMs = AtomicReference<Long?>(null)
     private val hrBpmSamples = CopyOnWriteArrayList<Double>()
     private val activeEnergyKcal = AtomicReference(0.0)
     private val distanceMetres = AtomicReference(0.0)
@@ -108,9 +111,22 @@ class WearExerciseRecorder(
 
     fun isRunning(): Boolean = running.get()
 
+    fun isPaused(): Boolean = paused.get()
+
     fun lastError(): String? = lastError.get()
 
     fun mode(): WearWorkoutMode = mode.get()
+
+    /** Active elapsed ms (wall time minus pauses), including an open pause. */
+    fun elapsedActiveMs(nowMs: Long = System.currentTimeMillis()): Long {
+        val started = startedAtMs.get() ?: return 0L
+        return WearWorkoutElapsed.activeElapsedMs(
+            nowMs = nowMs,
+            startedAtMs = started,
+            accumulatedPauseMs = accumulatedPauseMs.get(),
+            pauseBeganAtMs = pauseBeganAtMs.get()
+        )
+    }
 
     fun loggedSets(): List<WearLoggedStrengthSet> = loggedSets.toList()
 
@@ -166,6 +182,9 @@ class WearExerciseRecorder(
         loggedSets.clear()
         restTimer.set(RestTimerState())
         currentSetNumber.set(1)
+        paused.set(false)
+        accumulatedPauseMs.set(0L)
+        pauseBeganAtMs.set(null)
         startedAtMs.set(System.currentTimeMillis())
         bumpUi()
         exerciseClient.setUpdateCallback(callback)
@@ -201,6 +220,42 @@ class WearExerciseRecorder(
         }
     }
 
+    /**
+     * Pause via Health Services. Pause/resume are recorded by ExerciseClient —
+     * do not invent duplicate local platform events.
+     */
+    fun pause() {
+        if (!running.get() || !paused.compareAndSet(false, true)) return
+        pauseBeganAtMs.set(System.currentTimeMillis())
+        bumpUi()
+        scope.launch {
+            runCatching { awaitFuture(exerciseClient.pauseExerciseAsync()) }
+                .onFailure {
+                    lastError.set(it.message)
+                    paused.set(false)
+                    pauseBeganAtMs.set(null)
+                    bumpUi()
+                }
+        }
+    }
+
+    fun resume() {
+        if (!running.get() || !paused.compareAndSet(true, false)) return
+        val began = pauseBeganAtMs.getAndSet(null)
+        if (began != null) {
+            accumulatedPauseMs.updateAndGet { it + (System.currentTimeMillis() - began).coerceAtLeast(0L) }
+        }
+        bumpUi()
+        scope.launch {
+            runCatching { awaitFuture(exerciseClient.resumeExerciseAsync()) }
+                .onFailure {
+                    lastError.set(it.message)
+                    // Keep local resume accounting; platform may already be running.
+                    bumpUi()
+                }
+        }
+    }
+
     /** End session → local store → Data Layer. Returns syncIdentifier. */
     fun stop(onDone: (String?) -> Unit) {
         if (!running.get()) {
@@ -208,8 +263,16 @@ class WearExerciseRecorder(
             return
         }
         scope.launch {
+            // Ending while paused: fold open pause into accumulated, then end once.
+            val began = pauseBeganAtMs.getAndSet(null)
+            if (began != null) {
+                accumulatedPauseMs.updateAndGet {
+                    it + (System.currentTimeMillis() - began).coerceAtLeast(0L)
+                }
+            }
             val syncId =
                 runCatching {
+                    // endExerciseAsync works while paused; Health Services owns pause markers.
                     awaitFuture(exerciseClient.endExerciseAsync())
                     publishLocalAndTransfer(
                         startEpochMs = startedAtMs.get() ?: (System.currentTimeMillis() - 60_000L),
@@ -229,6 +292,8 @@ class WearExerciseRecorder(
                     null
                 }
             running.set(false)
+            paused.set(false)
+            pauseBeganAtMs.set(null)
             restTimer.set(RestTimerState())
             bumpUi()
             onDone(syncId)

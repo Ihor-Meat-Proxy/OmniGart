@@ -60,6 +60,8 @@ struct FoodTabView: View {
                 }
                 .accessibilityIdentifier("food_add")
             }
+            // After totals/log so Food UITest finds food_add without scrolling past the card.
+            NutritionTargetCard(core: core, profileId: profileId)
             Section("food_today_title") {
                 if entries.isEmpty {
                     Text("food_empty")

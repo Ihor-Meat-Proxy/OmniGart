@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -51,11 +49,9 @@ fun TreadmillDiagnosticsSection(modifier: Modifier = Modifier) {
         onDispose { client.disconnect() }
     }
 
+    // No verticalScroll here — Profile already scrolls; nested scroll crashes Robolectric/Compose.
     Column(
-        modifier =
-        modifier
-            .testTag("treadmill_diagnostics")
-            .verticalScroll(rememberScrollState()),
+        modifier = modifier.testTag("treadmill_diagnostics"),
         verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space2)
     ) {
         Text(

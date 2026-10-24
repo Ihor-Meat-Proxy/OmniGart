@@ -53,6 +53,7 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
     private var startedAt: Date?
     private var accumulatedPause: TimeInterval = 0
     private var pauseBeganAt: Date?
+    /// Manual segment events only. Pause/resume come from `HKWorkoutSession.pause()` / `resume()`.
     private var events: [HKWorkoutEvent] = []
     private var pendingSegmentLabel: String?
     private var restWasActive: Bool = false
@@ -185,27 +186,22 @@ extension OmniGartLiveWorkoutSession {
 
     func pause() {
         guard isRunning, !isPaused else { return }
+        // HKWorkoutSession.pause() records a zero-duration pause event on the builder.
+        // Do not append a manual pause event — duplicates crash and duration must be 0.
         session?.pause()
         pauseBeganAt = Date()
         isPaused = true
-        let at = Date()
-        events.append(
-            HKWorkoutEvent(type: .pause, dateInterval: DateInterval(start: at, duration: 1), metadata: nil)
-        )
     }
 
     func resume() {
         guard isRunning, isPaused else { return }
+        // HKWorkoutSession.resume() records the matching resume event automatically.
         session?.resume()
         if let began = pauseBeganAt {
             accumulatedPause += Date().timeIntervalSince(began)
         }
         pauseBeganAt = nil
         isPaused = false
-        let at = Date()
-        events.append(
-            HKWorkoutEvent(type: .resume, dateInterval: DateInterval(start: at, duration: 1), metadata: nil)
-        )
     }
 
     /// Marks a segment boundary (exercise / pose block).
@@ -215,10 +211,11 @@ extension OmniGartLiveWorkoutSession {
         let metadata: [String: Any] = [
             "OmniGartSegmentLabel": label
         ]
+        // Segments require a non-zero DateInterval; pause/resume must stay zero-duration.
         events.append(
-            HKWorkoutEvent(
+            OmniGartWorkoutEventBuilder.makeEvent(
                 type: .segment,
-                dateInterval: DateInterval(start: at, duration: 1),
+                at: at,
                 metadata: metadata
             )
         )

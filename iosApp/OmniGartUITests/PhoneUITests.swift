@@ -97,6 +97,12 @@ final class PhoneUITests: XCTestCase {
         let totals = app.descendants(matching: .any)["food_totals"]
         XCTAssertTrue(totals.waitForExistence(timeout: 10))
         let add = app.descendants(matching: .any)["food_add"]
-        XCTAssertTrue(add.waitForExistence(timeout: 5))
+        if !add.waitForExistence(timeout: 5) {
+            app.swipeUp()
+        }
+        XCTAssertTrue(
+            add.waitForExistence(timeout: 10),
+            "Expected food_add on Food tab (scroll if nutrition card pushed it off-screen)"
+        )
     }
 }

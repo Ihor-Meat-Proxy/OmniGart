@@ -31,6 +31,8 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "Shared"
             isStatic = true
+            // Re-export so Swift can see NutritionFacade / NutritionCardSnapshot.
+            export(project(":shared:nutrition"))
             export(project(":shared:treadmill"))
         }
     }
@@ -43,6 +45,7 @@ kotlin {
         watchTarget.binaries.framework {
             baseName = "Shared"
             isStatic = true
+            export(project(":shared:nutrition"))
             export(project(":shared:treadmill"))
         }
     }
@@ -59,6 +62,8 @@ kotlin {
             implementation(libs.ktor.serialization.json)
             // Zone 2 HR bands for WorkoutKit schedule plans (pure algorithms).
             implementation(project(":shared:activity-algorithms"))
+            // Adaptive calorie / macro targets (exported for phone Food tab).
+            api(project(":shared:nutrition"))
             // Treadmill FTMS / RSC / iConsole parsers (exported into Shared.framework).
             api(project(":shared:treadmill"))
         }

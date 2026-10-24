@@ -146,8 +146,8 @@ enum WorkoutSearchIndex {
     ]
 
     private static func appendStaticHits(query: String, into results: inout [WorkoutSearchHit]) {
-        for entry in staticEntries where matchesLocalized(entry.titleKey, query)
-            || matchesLocalized(entry.subtitleKey, query) {
+        let matching = staticEntries.filter { entryMatches($0, query: query) }
+        for entry in matching {
             results.append(
                 WorkoutSearchHit(
                     id: "static-\(entry.titleKey)",
@@ -166,8 +166,9 @@ enum WorkoutSearchIndex {
         query: String,
         into results: inout [WorkoutSearchHit]
     ) {
-        for workout in core.strengthPrograms.readyMadeWorkouts(profileId: profileId)
-            where matchesLocalized(workout.nameKey, query) {
+        let workouts = core.strengthPrograms.readyMadeWorkouts(profileId: profileId)
+        let matching = workouts.filter { matchesLocalized($0.nameKey, query) }
+        for workout in matching {
             results.append(
                 WorkoutSearchHit(
                     id: "ready-\(workout.id)",
@@ -187,8 +188,9 @@ enum WorkoutSearchIndex {
         into results: inout [WorkoutSearchHit]
     ) {
         for category in core.routineLibrary.routineCategories() {
-            for routine in core.routineLibrary.routines(category: category, profileId: profileId)
-                where matchesLocalized(routine.nameKey, query) {
+            let routines = core.routineLibrary.routines(category: category, profileId: profileId)
+            let matching = routines.filter { matchesLocalized($0.nameKey, query) }
+            for routine in matching {
                 results.append(
                     WorkoutSearchHit(
                         id: "routine-\(routine.id)",
@@ -200,6 +202,10 @@ enum WorkoutSearchIndex {
                 )
             }
         }
+    }
+
+    private static func entryMatches(_ entry: StaticSearchEntry, query: String) -> Bool {
+        matchesLocalized(entry.titleKey, query) || matchesLocalized(entry.subtitleKey, query)
     }
 
     private static func matchesLocalized(_ key: String, _ query: String) -> Bool {

@@ -35,52 +35,14 @@ enum HealthKitWatchLauncher {
         if respectPreference, !isStartOnWatchEnabled {
             return .skippedByPreference
         }
-        guard HKHealthStore.isHealthDataAvailable() else {
-            return .watchUnavailable("health_unavailable")
+        if let blocked = await pairingBlocker() {
+            return blocked
         }
-        guard WCSession.isSupported() else {
-            return .watchUnavailable("watch_unsupported")
-        }
-        let session = WCSession.default
-        if session.activationState != .activated {
-            try? await Task.sleep(nanoseconds: 200_000_000)
-        }
-        if session.activationState == .activated {
-            if !session.isPaired {
-                return .watchUnavailable("watch_not_paired")
-            }
-            if !session.isWatchAppInstalled {
-                return .watchUnavailable("watch_app_not_installed")
-            }
-        }
-
         await MainActor.run {
             PhoneWatchConnectivityHub.shared.sendWorkoutSelection(selection)
         }
-
-        let configuration = makeConfiguration(for: selection)
-        let store = HKHealthStore()
         do {
-            try await HealthKitWorkoutWriter.requestWorkoutAuthorization()
-            try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-                store.startWatchApp(with: configuration) { success, error in
-                    if let error {
-                        continuation.resume(throwing: error)
-                    } else if success {
-                        continuation.resume()
-                    } else {
-                        continuation.resume(
-                            throwing: NSError(
-                                domain: "OmniGart.HealthKitWatchLauncher",
-                                code: 1,
-                                userInfo: [
-                                    NSLocalizedDescriptionKey: "Watch app did not start"
-                                ]
-                            )
-                        )
-                    }
-                }
-            }
+            try await requestAndStartWatchApp(makeConfiguration(for: selection))
             return .watchStarted
         } catch {
             return .watchUnavailable(error.localizedDescription)
@@ -120,7 +82,54 @@ enum HealthKitWatchLauncher {
 
     static func makeConfiguration(for selection: PhoneWorkoutSelection) -> HKWorkoutConfiguration {
         let config = HKWorkoutConfiguration()
-        let family = PhoneWorkoutKindIds.shared.platformStrengthFamily(kind: selection.kind)
+        applyActivity(PhoneWorkoutKindIds.shared.platformStrengthFamily(kind: selection.kind), to: config)
+        return config
+    }
+
+    private static func pairingBlocker() async -> LaunchOutcome? {
+        guard HKHealthStore.isHealthDataAvailable() else {
+            return .watchUnavailable("health_unavailable")
+        }
+        guard WCSession.isSupported() else {
+            return .watchUnavailable("watch_unsupported")
+        }
+        let session = WCSession.default
+        if session.activationState != .activated {
+            try? await Task.sleep(nanoseconds: 200_000_000)
+        }
+        guard session.activationState == .activated else { return nil }
+        if !session.isPaired {
+            return .watchUnavailable("watch_not_paired")
+        }
+        if !session.isWatchAppInstalled {
+            return .watchUnavailable("watch_app_not_installed")
+        }
+        return nil
+    }
+
+    private static func requestAndStartWatchApp(_ configuration: HKWorkoutConfiguration) async throws {
+        try await HealthKitWorkoutWriter.requestWorkoutAuthorization()
+        let store = HKHealthStore()
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            store.startWatchApp(with: configuration) { success, error in
+                if let error {
+                    continuation.resume(throwing: error)
+                } else if success {
+                    continuation.resume()
+                } else {
+                    continuation.resume(
+                        throwing: NSError(
+                            domain: "OmniGart.HealthKitWatchLauncher",
+                            code: 1,
+                            userInfo: [NSLocalizedDescriptionKey: "Watch app did not start"]
+                        )
+                    )
+                }
+            }
+        }
+    }
+
+    private static func applyActivity(_ family: String, to config: HKWorkoutConfiguration) {
         switch family {
         case PhoneWorkoutKindIds.shared.TRADITIONAL_STRENGTH:
             config.activityType = .traditionalStrengthTraining
@@ -147,7 +156,6 @@ enum HealthKitWatchLauncher {
             config.activityType = .other
             config.locationType = .indoor
         }
-        return config
     }
 
     private static func kindId(for activityType: HKWorkoutActivityType, indoor: Bool) -> String {

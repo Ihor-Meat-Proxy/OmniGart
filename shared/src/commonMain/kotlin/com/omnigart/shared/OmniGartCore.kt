@@ -85,12 +85,6 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
     val healthExport: HealthExportService = HealthExportService(localHealthStore)
     val localHealth: LocalHealthBridge = LocalHealthBridge(localHealthStore, healthSync, healthExport)
 
-    /** Local-first health store (SQLDelight). Always available without platform permission. */
-    val localHealthStore: LocalHealthStore = SqlDelightLocalHealthStore(database)
-    val healthSync: HealthSyncEngine = HealthSyncEngine(localHealthStore)
-    val healthExport: HealthExportService = HealthExportService(localHealthStore)
-    val localHealth: LocalHealthBridge = LocalHealthBridge(localHealthStore, healthSync, healthExport)
-
     /** True when a completed local profile exists (first-launch onboarding finished). */
     fun needsOnboarding(): Boolean {
         val local = profiles.get(LOCAL_PROFILE_ID)

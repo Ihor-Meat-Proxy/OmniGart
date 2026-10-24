@@ -98,12 +98,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun WearStartScreen(
-    lines: List<String>,
-    onStart: () -> Unit = {},
-    onStartStrength: () -> Unit = {},
-    onTreadmill: () -> Unit = {}
-) {
+fun WearStartScreen(lines: List<String>, onStart: () -> Unit = {}, onStartStrength: () -> Unit = {}, onTreadmill: () -> Unit = {}) {
     var status by remember { mutableStateOf("") }
     Column(
         modifier =

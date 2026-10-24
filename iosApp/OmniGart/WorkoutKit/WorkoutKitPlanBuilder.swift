@@ -5,7 +5,8 @@ import WorkoutKit
 #endif
 
 /// Builds WorkoutKit `CustomWorkout` values from OmniGart JSON plan dictionaries.
-/// Strength / set-rep blocks are rejected (no WorkoutKit equivalent).
+/// Weight × rep entry is unavailable in Apple's Workout app; STRENGTH plans with
+/// WORK/RECOVERY steps are allowed for follow-along timing. STRENGTH_UNSUPPORTED is rejected.
 enum WorkoutKitPlanBuilder {
     enum BuilderError: Error, LocalizedError {
         case workoutKitUnavailable
@@ -17,7 +18,7 @@ enum WorkoutKitPlanBuilder {
             case .workoutKitUnavailable:
                 return "WorkoutKit is not available on this OS or build"
             case .strengthUnsupported:
-                return "Strength set/rep workouts cannot be scheduled via WorkoutKit"
+                return "STRENGTH_UNSUPPORTED blocks cannot be scheduled via WorkoutKit"
             case .invalidPlan(let detail):
                 return detail
             }
@@ -48,9 +49,6 @@ enum WorkoutKitPlanBuilder {
             throw BuilderError.invalidPlan("missing id")
         }
         let activity = (json["activityType"] as? String) ?? "RUNNING"
-        if activity == "STRENGTH" {
-            throw BuilderError.strengthUnsupported
-        }
         let displayName = (json["displayNameKey"] as? String) ?? id
         guard let rawBlocks = json["blocks"] as? [[String: Any]], !rawBlocks.isEmpty else {
             throw BuilderError.invalidPlan("blocks required")
@@ -112,9 +110,13 @@ enum WorkoutKitPlanBuilder {
             }
         }
 
+        let location: HKWorkoutSessionLocationType =
+            draft.activity == "STRENGTH" || draft.activity == "YOGA" || draft.activity == "PILATES"
+            ? .indoor
+            : .outdoor
         return CustomWorkout(
             activity: activityType,
-            location: .outdoor,
+            location: location,
             displayName: draft.displayName,
             warmup: warmup,
             blocks: blocks,
@@ -160,6 +162,8 @@ enum WorkoutKitPlanBuilder {
         case "WALKING": return .walking
         case "HIIT": return .highIntensityIntervalTraining
         case "YOGA": return .yoga
+        case "STRENGTH": return .traditionalStrengthTraining
+        case "PILATES": return .pilates
         default: return .other
         }
     }

@@ -7,14 +7,12 @@
     <string name="tab_planner">Planner</string>
     <string name="tab_profile">Profile</string>
     <string name="shell_intro">Wellness estimates from your shared OmniGart profile</string>
-
     <string name="wellness_disclaimer">OmniGart provides wellness estimates only. Readiness, stress, HRV, Baevsky index, body-fat estimates, hydration targets, and training plans are not medical advice. Consult a qualified professional for health concerns.</string>
     <string name="info_sheet_not_medical_advice">Not medical advice. Consult a professional.</string>
     <string name="health_warning_chest_pain">Stop and seek emergency help if you feel chest pain, severe dizziness, or unusual shortness of breath during activity.</string>
     <string name="onboarding_wellness_title">Wellness, not medical care</string>
     <string name="info_sheet_title">About this estimate</string>
     <string name="info_sheet_body">Figures such as readiness, stress, HRV, Baevsky index, body fat, and hydration are wellness estimates based on your inputs and device samples. Plans are coaching suggestions, not prescriptions.</string>
-
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
     <string name="perm_explainer_health_body">OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, active and resting energy, heart-rate recovery, workout effort, optional mindful minutes, body mass, and hydration — so sessions can appear in Apple Fitness with duration and calories. Platform writes are append-only: OmniGart never deletes or rewrites Apple Health or Health Connect data, including its own. Data is not used for ads or sent to unrelated third parties. You can continue without granting access.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth accessories</string>
@@ -25,7 +23,6 @@
     <string name="perm_explainer_notifications_body">Optional reminders for workouts, hydration, and morning wellness check-ins. The app stays usable with notifications off.</string>
     <string name="perm_continue">Continue</string>
     <string name="perm_not_now">Not now</string>
-
     <string name="hc_rationale_title">Health Connect data use</string>
     <string name="hc_rationale_body">OmniGart requests Health Connect access to read and write fitness and wellness data you choose — such as heart rate, HRV, sleep, workouts, body mass, and hydration — so readiness and training estimates stay accurate on your device.
 
@@ -33,7 +30,6 @@ Writes are append-only: OmniGart never deletes or rewrites Health Connect data, 
 
 We do not sell health data, use it for advertising, or share it with third parties for marketing. You can deny access and keep using OmniGart with manual entry.</string>
     <string name="hc_rationale_privacy_policy">Privacy policy</string>
-
     <string name="calc_settings_title">Calculations</string>
     <string name="calc_settings_intro">Choose how OmniGart estimates wellness figures such as energy use, heart-rate zones, body fat, and strength.</string>
     <string name="calc_mode_simple">Simple</string>
@@ -43,7 +39,6 @@ We do not sell health data, use it for advertising, or share it with third parti
     <string name="calc_domain_body_fat">Body fat</string>
     <string name="calc_domain_one_rm">One-rep max</string>
     <string name="calc_domain_hr_zones">Heart-rate zones</string>
-
     <string name="workout_start">Start workout</string>
     <string name="workout_end">End workout</string>
     <string name="workout_add_set">Add set</string>
@@ -224,6 +219,31 @@ We do not sell health data, use it for advertising, or share it with third parti
     <string name="health_restore_failed">Could not restore this workout.</string>
     <string name="health_restore_permission_needed">Health write permission is required to restore.</string>
     <string name="health_restore_all_result">Restored %1$d · failed %2$d</string>
+    <string name="workout_finish">Finish</string>
+    <string name="workout_rest_timer">Rest</string>
+    <string name="workout_note">Note</string>
+    <string name="workout_progression">Target</string>
+    <string name="workout_col_set">SET</string>
+    <string name="workout_col_previous">PREVIOUS</string>
+    <string name="workout_col_kg">KG</string>
+    <string name="workout_col_lb">LB</string>
+    <string name="workout_col_reps">REPS</string>
+    <string name="workout_col_done">✓</string>
+    <string name="workout_replace_exercise">Replace exercise</string>
+    <string name="workout_remove_exercise">Remove exercise</string>
+    <string name="workout_mark_warmup">Mark as warm-up</string>
+    <string name="workout_mark_drop">Mark as drop set</string>
+    <string name="workout_mark_failure">Mark as failure</string>
+    <string name="workout_record_rpe">Record RPE</string>
+    <string name="workout_set_menu">Set options</string>
+    <string name="workout_weight_lb">Weight (lb)</string>
+    <string name="workout_body_map">Muscles</string>
+    <string name="workout_export_workoutkit">Add to Apple Workout</string>
+    <string name="workout_workoutkit_limit">Apple’s Workout app cannot accept weight or rep entry from other apps. OmniGart exports each set as a work step and each rest as recovery so you can follow the routine there; log load × reps in OmniGart on iPhone or Apple Watch.</string>
+    <string name="workout_sets_count">Sets</string>
+    <string name="workout_volume_short">Volume</string>
+    <string name="wear_strength_title">Strength</string>
+    <string name="wear_strength_done">Done</string>
     <string name="tab_insights">Insights</string>
     <string name="tab_health">Health</string>
     <string name="insights_intro">Training trends from your on-device workouts. Wellness estimates only — not medical advice.</string>

@@ -132,7 +132,11 @@ class SqlDelightLocalHealthStore(private val db: OmniGartDatabase, private val c
                     duration_seconds = set.durationSeconds?.toLong(),
                     distance_metres = set.distanceMetres,
                     rir = set.rir,
-                    is_warmup = if (set.isWarmup) 1L else 0L
+                    rpe = set.rpe,
+                    is_warmup = if (set.isWarmup) 1L else 0L,
+                    is_drop_set = if (set.isDropSet) 1L else 0L,
+                    is_failure = if (set.isFailure) 1L else 0L,
+                    note = set.note
                 )
             }
         }
@@ -277,7 +281,11 @@ class SqlDelightLocalHealthStore(private val db: OmniGartDatabase, private val c
                     durationSeconds = it.duration_seconds?.toInt(),
                     distanceMetres = it.distance_metres,
                     rir = it.rir,
-                    isWarmup = it.is_warmup != 0L
+                    rpe = it.rpe,
+                    isWarmup = it.is_warmup != 0L,
+                    isDropSet = it.is_drop_set != 0L,
+                    isFailure = it.is_failure != 0L,
+                    note = it.note
                 )
             }
         return LocalHealthWorkout(

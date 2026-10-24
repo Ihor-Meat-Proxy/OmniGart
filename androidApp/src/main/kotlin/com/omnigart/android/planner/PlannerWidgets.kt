@@ -79,12 +79,7 @@ internal fun MonthGrid(days: List<PlannerCalendar.DayCell>, selectedDateIso: Str
 }
 
 @Composable
-internal fun DayCell(
-    day: PlannerCalendar.DayCell,
-    selected: Boolean,
-    cellModifier: Modifier = Modifier,
-    onClick: () -> Unit
-) {
+internal fun DayCell(day: PlannerCalendar.DayCell, selected: Boolean, cellModifier: Modifier = Modifier, onClick: () -> Unit) {
     val dayNumberColor =
         if (day.inMonth) {
             OmniGartColors.colorTextLightPrimary

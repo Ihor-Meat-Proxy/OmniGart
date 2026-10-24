@@ -141,11 +141,7 @@ class PlannerService(
         }
     }
 
-    fun calendar(
-        profileId: String,
-        selectedDateIso: String,
-        timeZone: TimeZone
-    ): PlannerCalendarSnapshot {
+    fun calendar(profileId: String, selectedDateIso: String, timeZone: TimeZone): PlannerCalendarSnapshot {
         val selected = LocalDate.parse(selectedDateIso)
         val weekStart = selected.minus((selected.dayOfWeek.ordinal).toLong(), DateTimeUnit.DAY)
         val weekStartIso = weekStart.toString()

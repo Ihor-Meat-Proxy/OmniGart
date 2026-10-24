@@ -141,12 +141,12 @@ fun WorkoutsCategorySection(core: OmniGartCore, profileId: String) {
         )
         val filtered =
             WorkoutCategory.entries.filter { cat ->
-                val q = query.trim().lowercase()
-                if (q.isEmpty()) {
+                val needle = query.trim().lowercase()
+                if (needle.isEmpty()) {
                     true
                 } else {
-                    stringResource(cat.titleRes).lowercase().contains(q) ||
-                        cat.searchTokens.any { it.contains(q) || q.contains(it) }
+                    stringResource(cat.titleRes).lowercase().contains(needle) ||
+                        cat.searchTokens.any { it.contains(needle) || needle.contains(it) }
                 }
             }
         CategoryGrid(categories = filtered, openA11y = openA11y, onSelect = { selected = it })
@@ -226,12 +226,12 @@ private fun SearchHits(
     query: String,
     onOpen: (WorkoutCategory) -> Unit
 ) {
-    val q = query.trim().lowercase()
+    val needle = query.trim().lowercase()
     val ready =
-        remember(profileId, q) {
-            core.strengthPrograms.readyMadeWorkouts(profileId).filter { w ->
+        remember(profileId, needle) {
+            core.strengthPrograms.readyMadeWorkouts(profileId).filter { workout ->
                 // Match id stem; full localized name lives in string resources keyed by nameKey.
-                w.id.contains(q) || w.nameKey.lowercase().contains(q)
+                workout.id.contains(needle) || workout.nameKey.lowercase().contains(needle)
             }
         }
     Text(

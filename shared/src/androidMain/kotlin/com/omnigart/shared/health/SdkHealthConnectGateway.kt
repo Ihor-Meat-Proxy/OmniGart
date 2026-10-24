@@ -14,6 +14,7 @@ import androidx.health.connect.client.records.NutritionRecord
 import androidx.health.connect.client.records.Record
 import androidx.health.connect.client.records.RestingHeartRateRecord
 import androidx.health.connect.client.records.SleepSessionRecord
+import androidx.health.connect.client.records.SpeedRecord
 import androidx.health.connect.client.records.WeightRecord
 import androidx.health.connect.client.records.metadata.Metadata
 import androidx.health.connect.client.request.ChangesTokenRequest
@@ -22,6 +23,7 @@ import androidx.health.connect.client.time.TimeRangeFilter
 import androidx.health.connect.client.units.Energy
 import androidx.health.connect.client.units.Length
 import androidx.health.connect.client.units.Mass
+import androidx.health.connect.client.units.Velocity
 import androidx.health.connect.client.units.Volume
 import java.time.Instant as JavaInstant
 import kotlin.time.Instant
@@ -319,13 +321,15 @@ class SdkHealthConnectGateway(
                     )
                 val start = workout.start.toJava()
                 val end = workout.end.toJava()
+                val indoorTreadmill =
+                    workout.sourceName?.contains("Treadmill", ignoreCase = true) == true
                 toWrite +=
                     ExerciseSessionRecord(
                         startTime = start,
                         startZoneOffset = null,
                         endTime = end,
                         endZoneOffset = null,
-                        exerciseType = exerciseTypeFor(workout.activityType),
+                        exerciseType = exerciseTypeFor(workout.activityType, indoorTreadmill),
                         title = workout.sourceName,
                         metadata = meta
                     )
@@ -350,6 +354,27 @@ class SdkHealthConnectGateway(
                             distance = Length.meters(metres),
                             metadata = Metadata.manualEntry()
                         )
+                    if (indoorTreadmill) {
+                        val durationSec =
+                            (workout.end.toEpochMilliseconds() - workout.start.toEpochMilliseconds())
+                                .coerceAtLeast(1L) / 1000.0
+                        val speedMps = metres / durationSec
+                        toWrite +=
+                            SpeedRecord(
+                                startTime = start,
+                                startZoneOffset = null,
+                                endTime = end,
+                                endZoneOffset = null,
+                                samples =
+                                listOf(
+                                    SpeedRecord.Sample(
+                                        time = start,
+                                        speed = Velocity.metersPerSecond(speedMps)
+                                    )
+                                ),
+                                metadata = Metadata.manualEntry()
+                            )
+                    }
                 }
                 if (workout.heartRateSamples.isNotEmpty()) {
                     val samples =
@@ -471,6 +496,14 @@ private fun exerciseTypeFor(type: WorkoutActivityType): Int = when (type) {
     WorkoutActivityType.PILATES -> ExerciseSessionRecord.EXERCISE_TYPE_PILATES
     WorkoutActivityType.OTHER -> ExerciseSessionRecord.EXERCISE_TYPE_OTHER_WORKOUT
 }
+
+/** Indoor treadmill sessions write [EXERCISE_TYPE_RUNNING_TREADMILL]. */
+internal fun exerciseTypeFor(type: WorkoutActivityType, indoorTreadmill: Boolean): Int =
+    if (indoorTreadmill && type == WorkoutActivityType.RUNNING) {
+        ExerciseSessionRecord.EXERCISE_TYPE_RUNNING_TREADMILL
+    } else {
+        exerciseTypeFor(type)
+    }
 
 private fun activityTypeFor(exerciseType: Int): WorkoutActivityType = when (exerciseType) {
     ExerciseSessionRecord.EXERCISE_TYPE_STRENGTH_TRAINING -> WorkoutActivityType.STRENGTH

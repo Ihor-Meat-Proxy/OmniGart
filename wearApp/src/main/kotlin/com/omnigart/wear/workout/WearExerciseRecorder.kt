@@ -169,6 +169,9 @@ class WearExerciseRecorder(
         startedAtMs.set(System.currentTimeMillis())
         bumpUi()
         exerciseClient.setUpdateCallback(callback)
+        // Outdoor-style RUNNING remains the default Health Services type; treadmill
+        // BLE distance overrides the live UI / local save when a belt is linked.
+        // STRENGTH uses a resolved strength ExerciseType without distance.
         scope.launch {
             val exerciseType =
                 if (workoutMode == WearWorkoutMode.STRENGTH) {

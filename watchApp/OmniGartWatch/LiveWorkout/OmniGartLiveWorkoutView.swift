@@ -130,33 +130,8 @@ struct OmniGartLiveWorkoutView: View {
                     .disabled(!session.isRunning || session.restRemaining > 0)
 
                     HStack(spacing: 6) {
-                        Button {
-                            if session.isPaused {
-                                session.resume()
-                            } else {
-                                session.pause()
-                            }
-                        } label: {
-                            // Ternary of String uses Text.init(String) (no localization).
-                            Text(
-                                session.isPaused
-                                    ? LocalizedStringKey("watch.workout.resume")
-                                    : LocalizedStringKey("watch.workout.pause")
-                            )
-                        }
-                        .tint(Color.OmniGart.colorBrandAccent)
-                        .disabled(!session.isRunning)
-
-                        Button {
-                            Task {
-                                if let result = await session.stop() {
-                                    summary = result
-                                }
-                            }
-                        } label: {
-                            Text("watch.workout.stop")
-                        }
-                        .tint(Color.OmniGart.colorBrandAccent)
+                        pauseResumeButton
+                        stopWorkoutButton
                     }
 
                     if !session.loggedSets.isEmpty {
@@ -202,21 +177,7 @@ struct OmniGartLiveWorkoutView: View {
                 }
 
                 HStack(spacing: 6) {
-                    Button {
-                        if session.isPaused {
-                            session.resume()
-                        } else {
-                            session.pause()
-                        }
-                    } label: {
-                        Text(
-                            session.isPaused
-                                ? LocalizedStringKey("watch.workout.resume")
-                                : LocalizedStringKey("watch.workout.pause")
-                        )
-                    }
-                    .tint(Color.OmniGart.colorBrandAccent)
-                    .disabled(!session.isRunning)
+                    pauseResumeButton
 
                     Button {
                         session.addSegment(label: segmentLabel)
@@ -244,22 +205,49 @@ struct OmniGartLiveWorkoutView: View {
                         .lineLimit(2)
                 }
 
-                Button {
-                    Task {
-                        if let result = await session.stop() {
-                            summary = result
-                        }
-                    }
-                } label: {
-                    Text("watch.workout.stop")
-                }
-                .tint(Color.OmniGart.colorBrandAccent)
+                stopWorkoutButton
             }
             .padding(.horizontal, 4)
         }
     }
+}
 
-    private func crownMetric(
+extension OmniGartLiveWorkoutView {
+    /// LocalizedStringKey (not String) so the watch catalog resolves pause/resume.
+    fileprivate var pauseResumeTitle: LocalizedStringKey {
+        session.isPaused ? "watch.workout.resume" : "watch.workout.pause"
+    }
+
+    @ViewBuilder
+    fileprivate var pauseResumeButton: some View {
+        Button {
+            if session.isPaused {
+                session.resume()
+            } else {
+                session.pause()
+            }
+        } label: {
+            Text(pauseResumeTitle)
+        }
+        .tint(Color.OmniGart.colorBrandAccent)
+        .disabled(!session.isRunning)
+    }
+
+    @ViewBuilder
+    fileprivate var stopWorkoutButton: some View {
+        Button {
+            Task {
+                if let result = await session.stop() {
+                    summary = result
+                }
+            }
+        } label: {
+            Text("watch.workout.stop")
+        }
+        .tint(Color.OmniGart.colorBrandAccent)
+    }
+
+    fileprivate func crownMetric(
         labelKey: LocalizedStringKey,
         value: String,
         selected: Bool,
@@ -273,14 +261,16 @@ struct OmniGartLiveWorkoutView: View {
                 Text(value)
                     .font(.caption.monospacedDigit().weight(.semibold))
                     .foregroundStyle(
-                        selected ? Color.OmniGart.colorBrandAccent : Color.OmniGart.colorTextLightPrimary
+                        selected
+                            ? Color.OmniGart.colorBrandAccent
+                            : Color.OmniGart.colorTextLightPrimary
                     )
             }
         }
         .buttonStyle(.plain)
     }
 
-    private func applyCrown(_ value: Double) {
+    fileprivate func applyCrown(_ value: Double) {
         switch crownField {
         case .weight:
             session.weightKg = (value * 2).rounded() / 2

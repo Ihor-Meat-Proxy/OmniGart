@@ -141,45 +141,64 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
             summaryLines.forEach { line ->
                 Text(text = line, style = MaterialTheme.typography.bodyLarge)
             }
-            if (selected == PhoneTab.Profile.ordinal || selected == PhoneTab.Recovery.ordinal) {
-                WellnessTabSection(
-                    showInfoSheet = showInfoSheet,
-                    onToggleInfoSheet = { showInfoSheet = !showInfoSheet }
-                )
-            }
-            if (selected == PhoneTab.Food.ordinal) {
-                // Diary first so food_add / search stay above the fold for UI tests.
-                FoodLoggingSection(core = core, profileId = profileId)
-                FoodTabNutritionSection(
-                    core = core,
-                    profileId = profileId,
-                    showMeasurements = showMeasurements,
-                    onShowMeasurements = { showMeasurements = it }
-                )
-            }
-            if (selected == PhoneTab.Workouts.ordinal) {
-                StrengthProgramSection(core = core, profileId = profileId)
-                StrengthLoggingSection(core = core, profileId = profileId)
-                com.omnigart.android.treadmill.TreadmillRunSection(core = core, profileId = profileId)
-            }
-            if (selected == PhoneTab.Insights.ordinal) {
-                InsightsTabSection(core = core, profileId = profileId)
-            }
-            if (selected == PhoneTab.Health.ordinal) {
-                HealthTabSection()
-            }
-            if (selected == PhoneTab.Planner.ordinal) {
-                PlannerTabSection(core = core, profileId = profileId)
-            }
-            if (selected == PhoneTab.Profile.ordinal) {
-                ProfileNutritionBlocks(core, profileId) { formulaEpoch += 1 }
-            }
+            PhoneTabContent(
+                selected = selected,
+                core = core,
+                profileId = profileId,
+                showInfoSheet = showInfoSheet,
+                onToggleInfoSheet = { showInfoSheet = !showInfoSheet },
+                showMeasurements = showMeasurements,
+                onShowMeasurements = { showMeasurements = it },
+                onFormulaChanged = { formulaEpoch += 1 }
+            )
             // Unfinished surfaces stay behind flags that are off in release.
             if (FeatureFlags.healthSyncEnabled) {
                 Text(text = stringResource(R.string.perm_explainer_health_body))
             }
             MaybeDebugMenu()
         }
+    }
+}
+
+@Composable
+private fun PhoneTabContent(
+    selected: Int,
+    core: OmniGartCore,
+    profileId: String,
+    showInfoSheet: Boolean,
+    onToggleInfoSheet: () -> Unit,
+    showMeasurements: Boolean,
+    onShowMeasurements: (Boolean) -> Unit,
+    onFormulaChanged: () -> Unit
+) {
+    if (selected == PhoneTab.Profile.ordinal || selected == PhoneTab.Recovery.ordinal) {
+        WellnessTabSection(showInfoSheet = showInfoSheet, onToggleInfoSheet = onToggleInfoSheet)
+    }
+    if (selected == PhoneTab.Food.ordinal) {
+        FoodLoggingSection(core = core, profileId = profileId)
+        FoodTabNutritionSection(
+            core = core,
+            profileId = profileId,
+            showMeasurements = showMeasurements,
+            onShowMeasurements = onShowMeasurements
+        )
+    }
+    if (selected == PhoneTab.Workouts.ordinal) {
+        StrengthProgramSection(core = core, profileId = profileId)
+        StrengthLoggingSection(core = core, profileId = profileId)
+        com.omnigart.android.treadmill.TreadmillRunSection(core = core, profileId = profileId)
+    }
+    if (selected == PhoneTab.Insights.ordinal) {
+        InsightsTabSection(core = core, profileId = profileId)
+    }
+    if (selected == PhoneTab.Health.ordinal) {
+        HealthTabSection()
+    }
+    if (selected == PhoneTab.Planner.ordinal) {
+        PlannerTabSection(core = core, profileId = profileId)
+    }
+    if (selected == PhoneTab.Profile.ordinal) {
+        ProfileNutritionBlocks(core, profileId, onFormulaChanged)
     }
 }
 

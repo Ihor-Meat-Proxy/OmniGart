@@ -14,7 +14,7 @@
     <string name="info_sheet_title">ამ შეფასების შესახებ</string>
     <string name="info_sheet_body">მაჩვენებლები, როგორიცაა მზადყოფნა, სტრესი, HRV, ბაევსკის ინდექსი, სხეულის ცხიმი და ჰიდრატაცია, არის კეთილდღეობის შეფასებები თქვენს მონაცემებსა და მოწყობილობის ნიმუშებზე დაყრდნობით. გეგმები — მწვრთნელის შეთავაზებებია, არა რეცეპტები.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები (გულისცემა, HRV, ძილი, ვარჯიშები, სხეულის მასა, ჰიდრატაცია) მოწყობილობაზე შეფასებების გასაუმჯობესებლად. მონაცემები არ გამოიყენება რეკლამისთვის და არ იგზავნება უცხო მესამე მხარეებთან. შეგიძლიათ გააგრძელოთ წვდომის მინიჭების გარეშე.</string>
+    <string name="perm_explainer_health_body">OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები — გულისცემა, HRV, ძილი, ვარჯიშები, აქტიური და საბაზისო ენერგია, სხეულის მასა და ჰიდრატაცია — რომ სესიები გამოჩნდეს Apple Fitness-ში. პლატფორმაზე ჩაწერა მხოლოდ დამატებითია: OmniGart არ შლის და არ გადააწერს Apple Health ან Health Connect მონაცემებს, მათ შორის საკუთარს. შეგიძლიათ გააგრძელოთ წვდომის გარეშე.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth აქსესუარები</string>
     <string name="perm_explainer_bluetooth_body">დაუკავშირეთ გულისცემის ან მსგავსი ფიტნეს აქსესუარი ცოცხალი ნიმუშებისთვის. OmniGart სრულად მუშაობს Bluetooth-ის გარეშე.</string>
     <string name="perm_explainer_camera_title">კამერა შტრიხკოდებისთვის</string>
@@ -910,4 +910,26 @@
     <string name="treadmill_diag_log">ნედლი ჟურნალი</string>
     <string name="treadmill_diag_capture_sim">სიმულატორის კადრის აღება</string>
     <string name="treadmill_diag_captured">კადრი აღებულია.</string>
+    <string name="food_day_today">დღეს</string>
+    <string name="food_day_previous">წინა დღე</string>
+    <string name="food_day_next">შემდეგი დღე</string>
+    <string name="food_summary_title">დღიური შეჯამება</string>
+    <string name="food_eaten">მიღებული</string>
+    <string name="food_remaining">დარჩენილი</string>
+    <string name="food_target">მიზანი</string>
+    <string name="food_add_meal">საკვების დამატება</string>
+    <string name="food_portion_grams">პორცია (გ)</string>
+    <string name="food_quick_add_title">სწრაფი დამატება</string>
+    <string name="food_water_title">წყალი</string>
+    <string name="food_water_add_250">250 მლ დამატება</string>
+    <string name="food_water_logged">ჩაწერილია %.0f მლ · მიზანი %.1f ლ</string>
+    <string name="food_edit_goal">ენერგიის მიზნის რედაქტირება</string>
+    <string name="food_weigh_in_prompt">აწონვა ენერგიის მიზნის პერსონალიზებას ეხმარება.</string>
+    <string name="food_weigh_in_action">წონის განახლება</string>
+    <string name="food_macro_line">ც %.0f / %.0f · ნ %.0f / %.0f · ცხ %.0f / %.0f გ</string>
+    <string name="onboarding_energy_goal_title">ენერგიის მიზანი</string>
+    <string name="onboarding_energy_goal_body">აირჩიეთ კეთილდღეობის მიმართულება სავარაუდო დღიური ენერგიისთვის. მოგვიანებით შეცვლით საკვების ჩანართში. ჯანმრთელობის მდგომარეობის, ორსულობის ან 18 წლამდე ასაკისას მიმართეთ სპეციალისტს.</string>
+    <string name="onboarding_energy_lose">წონის კლება</string>
+    <string name="onboarding_energy_maintain">წონის შენარჩუნება</string>
+    <string name="onboarding_energy_gain">წონის მატება</string>
 </resources>

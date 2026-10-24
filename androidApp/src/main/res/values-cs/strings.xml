@@ -14,7 +14,7 @@
     <string name="info_sheet_title">O tomto odhadu</string>
     <string name="info_sheet_body">Údaje jako připravenost, stres, HRV, Bajevského index, tělesný tuk a hydratace jsou wellness odhady založené na vašich vstupech a vzorcích ze zařízení. Plány jsou koučovací návrhy, nikoli předpisy.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart může číst a zapisovat wellness vzorky (tep, HRV, spánek, tréninky, tělesná hmotnost, hydratace), aby zlepšil odhady na zařízení. Data se nepoužívají k reklamě ani se neodesílají nesouvisejícím třetím stranám. Můžete pokračovat bez udělení přístupu.</string>
+    <string name="perm_explainer_health_body">OmniGart může číst a zapisovat wellness vzorky — tep, HRV, spánek, tréninky, aktivní a bazální energii, tělesnou hmotnost a hydrataci — aby se sezení zobrazila v Apple Fitness. Zápis na platformu jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Apple Health ani Health Connect, ani vlastní. Můžete pokračovat bez přístupu.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth příslušenství</string>
     <string name="perm_explainer_bluetooth_body">Připojte tepoměr nebo podobné fitness příslušenství pro živé vzorky. OmniGart plně funguje bez Bluetooth.</string>
     <string name="perm_explainer_camera_title">Fotoaparát pro čárové kódy</string>
@@ -910,4 +910,26 @@
     <string name="treadmill_diag_log">Surový protokol</string>
     <string name="treadmill_diag_capture_sim">Zachytit snímek simulátoru</string>
     <string name="treadmill_diag_captured">Snímek zachycen.</string>
+    <string name="food_day_today">Dnes</string>
+    <string name="food_day_previous">Předchozí den</string>
+    <string name="food_day_next">Další den</string>
+    <string name="food_summary_title">Denní souhrn</string>
+    <string name="food_eaten">Snědeno</string>
+    <string name="food_remaining">Zbývá</string>
+    <string name="food_target">Cíl</string>
+    <string name="food_add_meal">Přidat jídlo</string>
+    <string name="food_portion_grams">Porce (g)</string>
+    <string name="food_quick_add_title">Rychlé přidání</string>
+    <string name="food_water_title">Voda</string>
+    <string name="food_water_add_250">Přidat 250 ml</string>
+    <string name="food_water_logged">Zaznamenáno %.0f ml · cíl %.1f l</string>
+    <string name="food_edit_goal">Upravit energetický cíl</string>
+    <string name="food_weigh_in_prompt">Zvážení pomáhá udržet energetický cíl osobní.</string>
+    <string name="food_weigh_in_action">Aktualizovat hmotnost</string>
+    <string name="food_macro_line">B %.0f / %.0f · S %.0f / %.0f · T %.0f / %.0f g</string>
+    <string name="onboarding_energy_goal_title">Energetický cíl</string>
+    <string name="onboarding_energy_goal_body">Zvolte wellness směr pro odhadovanou denní energii. Později změníte na kartě Jídlo. Při zdravotním stavu, těhotenství nebo věku do 18 let se poraďte s odborníkem.</string>
+    <string name="onboarding_energy_lose">Zhubnout</string>
+    <string name="onboarding_energy_maintain">Udržet hmotnost</string>
+    <string name="onboarding_energy_gain">Přibrat</string>
 </resources>

@@ -21,6 +21,11 @@ import com.omnigart.shared.domain.StrengthLevel
 import com.omnigart.shared.domain.UnitSystem
 import com.omnigart.shared.domain.UserProfile
 import com.omnigart.shared.food.FoodLoggingService
+import com.omnigart.shared.food.diary.FoodDiaryStore
+import com.omnigart.shared.food.diary.InMemoryFoodDiaryStore
+import com.omnigart.shared.food.diary.JsonFoodDiaryStore
+import com.omnigart.shared.food.privacy.FoodAtRestEncryptor
+import com.omnigart.shared.food.privacy.NoopFoodAtRestEncryptor
 import com.omnigart.shared.health.store.HealthSyncEngine
 import com.omnigart.shared.health.store.LocalHealthBridge
 import com.omnigart.shared.health.store.LocalHealthStore
@@ -59,8 +64,26 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
     val sessions = SessionRepository(database)
     val formulaSettings = FormulaSettingsService(database)
 
-    /** Food diary, catalogue, gaps, import/export, optional morning review. */
-    val foodLogging = FoodLoggingService()
+    /**
+     * Food diary, catalogue, gaps, import/export, optional morning review.
+     * Hosts should call [useJsonFoodDiary] at launch so the diary persists on-device.
+     */
+    private var foodLoggingService: FoodLoggingService = FoodLoggingService(store = InMemoryFoodDiaryStore())
+    val foodLogging: FoodLoggingService
+        get() = foodLoggingService
+
+    /**
+     * Install a JSON-backed diary (optional at-rest encryptor). Idempotent replacement —
+     * call once at app start before the Food tab loads.
+     */
+    fun useJsonFoodDiary(
+        load: () -> String?,
+        save: (String) -> Unit,
+        encryptor: FoodAtRestEncryptor = NoopFoodAtRestEncryptor
+    ) {
+        val store: FoodDiaryStore = JsonFoodDiaryStore(load = load, save = save, encryptor = encryptor)
+        foodLoggingService = FoodLoggingService(store = store)
+    }
 
     /**
      * Swift-friendly food day duplicate (epoch millis).
@@ -255,6 +278,29 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
 
     fun foodDayTotals(profileId: String): FoodDayTotals {
         val entries = foodEntriesForToday(profileId)
+        return FoodDayTotals(
+            energyKcal = entries.sumOf { it.energyKcal },
+            proteinG = entries.sumOf { it.proteinG },
+            carbsG = entries.sumOf { it.carbsG },
+            fatG = entries.sumOf { it.fatG },
+            entryCount = entries.size
+        )
+    }
+
+    /**
+     * SQLDelight food rows for a day offset (0 = today, −1 = yesterday).
+     * Swift-friendly epoch boundaries via [TimeZone.currentSystemDefault].
+     */
+    fun foodEntriesForDayOffset(profileId: String, dayOffset: Int): List<FoodEntry> {
+        val timeZone = TimeZone.currentSystemDefault()
+        val startToday = Clock.System.todayIn(timeZone).atStartOfDayIn(timeZone)
+        val start = startToday + dayOffset.days
+        val end = start + 1.days
+        return foodEntries.forProfileDay(profileId, start, end)
+    }
+
+    fun foodDayTotalsForDayOffset(profileId: String, dayOffset: Int): FoodDayTotals {
+        val entries = foodEntriesForDayOffset(profileId, dayOffset)
         return FoodDayTotals(
             energyKcal = entries.sumOf { it.energyKcal },
             proteinG = entries.sumOf { it.proteinG },

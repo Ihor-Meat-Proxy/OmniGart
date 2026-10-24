@@ -14,7 +14,7 @@
     <string name="info_sheet_title">About this estimate</string>
     <string name="info_sheet_body">Figures such as readiness, stress, HRV, Baevsky index, body fat, and hydration are wellness estimates based on your inputs and device samples. Plans are coaching suggestions, not prescriptions.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart can read and write wellness samples (heart rate, HRV, sleep, workouts, body mass, hydration) to improve on-device estimates. Data is not used for ads or sent to unrelated third parties. You can continue without granting access.</string>
+    <string name="perm_explainer_health_body">OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, active and resting energy, heart-rate recovery, workout effort, optional mindful minutes, body mass, and hydration — so sessions can appear in Apple Fitness with duration and calories. Platform writes are append-only: OmniGart never deletes or rewrites Apple Health or Health Connect data, including its own. Data is not used for ads or sent to unrelated third parties. You can continue without granting access.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth accessories</string>
     <string name="perm_explainer_bluetooth_body">Connect a heart-rate or similar fitness accessory for live samples. OmniGart works fully without Bluetooth.</string>
     <string name="perm_explainer_camera_title">Camera for barcodes</string>
@@ -910,4 +910,26 @@
     <string name="treadmill_diag_log">Raw log</string>
     <string name="treadmill_diag_capture_sim">Capture simulator frame</string>
     <string name="treadmill_diag_captured">Frame captured.</string>
+    <string name="food_day_today">Today</string>
+    <string name="food_day_previous">Previous day</string>
+    <string name="food_day_next">Next day</string>
+    <string name="food_summary_title">Daily summary</string>
+    <string name="food_eaten">Eaten</string>
+    <string name="food_remaining">Remaining</string>
+    <string name="food_target">Target</string>
+    <string name="food_add_meal">Add food</string>
+    <string name="food_portion_grams">Portion (g)</string>
+    <string name="food_quick_add_title">Quick add</string>
+    <string name="food_water_title">Water</string>
+    <string name="food_water_add_250">Add 250 ml</string>
+    <string name="food_water_logged">Logged %.0f ml · goal %.1f L</string>
+    <string name="food_edit_goal">Edit energy goal</string>
+    <string name="food_weigh_in_prompt">A weigh-in helps keep your energy target personalised.</string>
+    <string name="food_weigh_in_action">Update weight</string>
+    <string name="food_macro_line">P %.0f / %.0f · C %.0f / %.0f · F %.0f / %.0f g</string>
+    <string name="onboarding_energy_goal_title">Energy goal</string>
+    <string name="onboarding_energy_goal_body">Choose a wellness direction for estimated daily energy. You can change this later on the Food tab. If you have a health condition, are pregnant or under 18, check with a healthcare professional.</string>
+    <string name="onboarding_energy_lose">Lose weight</string>
+    <string name="onboarding_energy_maintain">Maintain weight</string>
+    <string name="onboarding_energy_gain">Gain weight</string>
 </resources>

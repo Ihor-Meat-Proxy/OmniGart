@@ -60,6 +60,7 @@ fun NutritionGoalSettingsSection() {
         GoalKindAndMode(kind = kind, mode = mode, onKind = { kind = it }, onMode = { mode = it })
         if (kind != "MAINTAIN") {
             RateAndTargetWeight(
+                kind = kind,
                 ratePercent = ratePercent,
                 targetWeight = targetWeight,
                 onRate = { ratePercent = it },
@@ -120,10 +121,18 @@ private fun GoalKindAndMode(kind: String, mode: String, onKind: (String) -> Unit
 }
 
 @Composable
-private fun RateAndTargetWeight(ratePercent: Double, targetWeight: String, onRate: (Double) -> Unit, onTargetWeight: (String) -> Unit) {
-    Text(String.format(Locale.US, "%.2f%% / wk", ratePercent))
+private fun RateAndTargetWeight(
+    kind: String,
+    ratePercent: Double,
+    targetWeight: String,
+    onRate: (Double) -> Unit,
+    onTargetWeight: (String) -> Unit
+) {
+    // Lose ≤1%/wk; gain 0.25–0.5%/wk (shared GoalTargets safe limits).
+    val maxRate = if (kind == "GAIN") 0.5 else 1.0
+    Text(String.format(Locale.US, "%.2f%% / wk", ratePercent), modifier = Modifier.testTag("nutrition_goal_rate"))
     TextButton(onClick = { onRate((ratePercent - 0.25).coerceAtLeast(0.25)) }) { Text("-") }
-    TextButton(onClick = { onRate((ratePercent + 0.25).coerceAtMost(1.0)) }) { Text("+") }
+    TextButton(onClick = { onRate((ratePercent + 0.25).coerceAtMost(maxRate)) }) { Text("+") }
     OutlinedTextField(
         value = targetWeight,
         onValueChange = onTargetWeight,
@@ -153,7 +162,9 @@ private fun persistGoal(kind: String, mode: String, ratePercent: Double, dayStar
     val goal = NutritionPrefsStore.loadGoal()
     goal.kind = kind
     goal.mode = mode
-    goal.rateFractionPerWeek = if (kind == "MAINTAIN") 0.0 else ratePercent / 100.0
+    val maxRate = if (kind == "GAIN") 0.5 else 1.0
+    val clamped = ratePercent.coerceIn(0.25, maxRate)
+    goal.rateFractionPerWeek = if (kind == "MAINTAIN") 0.0 else clamped / 100.0
     goal.dayStartMinutes = dayStartHour * 60
     goal.addExerciseCalories = addExercise
     goal.targetWeightKg = targetWeight.toDoubleOrNull()

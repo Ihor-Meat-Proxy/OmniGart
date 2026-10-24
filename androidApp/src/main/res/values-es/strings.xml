@@ -14,7 +14,7 @@
     <string name="info_sheet_title">Sobre esta estimación</string>
     <string name="info_sheet_body">Cifras como preparación, estrés, VFC, índice de Baevsky, grasa corporal e hidratación son estimaciones de bienestar basadas en tus datos y muestras del dispositivo. Los planes son sugerencias de coaching, no prescripciones.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart puede leer y escribir muestras de bienestar (frecuencia cardíaca, VFC, sueño, entrenamientos, masa corporal, hidratación) para mejorar las estimaciones en el dispositivo. Los datos no se usan para anuncios ni se envían a terceros no relacionados. Puedes continuar sin conceder acceso.</string>
+    <string name="perm_explainer_health_body">OmniGart puede leer y escribir muestras de bienestar — frecuencia cardiaca, VFC, sueño, entrenamientos, energía activa y en reposo, masa corporal e hidratación — para que las sesiones aparezcan en Apple Fitness. Las escrituras solo añaden: OmniGart nunca elimina ni reescribe datos de Apple Health o Health Connect, ni siquiera los propios. Puedes continuar sin conceder acceso.</string>
     <string name="perm_explainer_bluetooth_title">Accesorios Bluetooth</string>
     <string name="perm_explainer_bluetooth_body">Conecta un monitor de frecuencia cardíaca o un accesorio de fitness similar para muestras en vivo. OmniGart funciona por completo sin Bluetooth.</string>
     <string name="perm_explainer_camera_title">Cámara para códigos de barras</string>
@@ -910,4 +910,26 @@
     <string name="treadmill_diag_log">Registro en bruto</string>
     <string name="treadmill_diag_capture_sim">Capturar fotograma del simulador</string>
     <string name="treadmill_diag_captured">Fotograma capturado.</string>
+    <string name="food_day_today">Hoy</string>
+    <string name="food_day_previous">Día anterior</string>
+    <string name="food_day_next">Día siguiente</string>
+    <string name="food_summary_title">Resumen diario</string>
+    <string name="food_eaten">Consumido</string>
+    <string name="food_remaining">Restante</string>
+    <string name="food_target">Objetivo</string>
+    <string name="food_add_meal">Añadir comida</string>
+    <string name="food_portion_grams">Porción (g)</string>
+    <string name="food_quick_add_title">Añadir rápido</string>
+    <string name="food_water_title">Agua</string>
+    <string name="food_water_add_250">Añadir 250 ml</string>
+    <string name="food_water_logged">Registrado %.0f ml · objetivo %.1f L</string>
+    <string name="food_edit_goal">Editar objetivo energético</string>
+    <string name="food_weigh_in_prompt">Un pesaje ayuda a personalizar tu objetivo energético.</string>
+    <string name="food_weigh_in_action">Actualizar peso</string>
+    <string name="food_macro_line">P %.0f / %.0f · C %.0f / %.0f · G %.0f / %.0f g</string>
+    <string name="onboarding_energy_goal_title">Objetivo energético</string>
+    <string name="onboarding_energy_goal_body">Elige una dirección de bienestar para la energía diaria estimada. Puedes cambiarla después en la pestaña Comida. Si tienes una condición de salud, estás embarazada o eres menor de 18, consulta a un profesional.</string>
+    <string name="onboarding_energy_lose">Perder peso</string>
+    <string name="onboarding_energy_maintain">Mantener peso</string>
+    <string name="onboarding_energy_gain">Ganar peso</string>
 </resources>

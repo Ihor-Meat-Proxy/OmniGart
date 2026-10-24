@@ -157,11 +157,7 @@ fun WorkoutsCategorySection(core: OmniGartCore, profileId: String) {
 }
 
 @Composable
-private fun CategoryGrid(
-    categories: List<WorkoutCategory>,
-    openA11y: String,
-    onSelect: (WorkoutCategory) -> Unit
-) {
+private fun CategoryGrid(categories: List<WorkoutCategory>, openA11y: String, onSelect: (WorkoutCategory) -> Unit) {
     val rows = categories.chunked(2)
     Column(verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space2)) {
         rows.forEach { row ->
@@ -186,12 +182,7 @@ private fun CategoryGrid(
 }
 
 @Composable
-private fun CategoryTile(
-    category: WorkoutCategory,
-    openA11y: String,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier
-) {
+private fun CategoryTile(category: WorkoutCategory, openA11y: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
     val title = stringResource(category.titleRes)
     Column(
         modifier =
@@ -220,12 +211,7 @@ private fun CategoryTile(
 }
 
 @Composable
-private fun SearchHits(
-    core: OmniGartCore,
-    profileId: String,
-    query: String,
-    onOpen: (WorkoutCategory) -> Unit
-) {
+private fun SearchHits(core: OmniGartCore, profileId: String, query: String, onOpen: (WorkoutCategory) -> Unit) {
     val needle = query.trim().lowercase()
     val ready =
         remember(profileId, needle) {
@@ -258,12 +244,7 @@ private fun SearchHits(
 }
 
 @Composable
-private fun CategoryDetail(
-    core: OmniGartCore,
-    profileId: String,
-    category: WorkoutCategory,
-    onBack: () -> Unit
-) {
+private fun CategoryDetail(core: OmniGartCore, profileId: String, category: WorkoutCategory, onBack: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxWidth().testTag("workout_cat_detail_${category.name.lowercase()}"),
         verticalArrangement = Arrangement.spacedBy(OmniGartSpacing.space2)

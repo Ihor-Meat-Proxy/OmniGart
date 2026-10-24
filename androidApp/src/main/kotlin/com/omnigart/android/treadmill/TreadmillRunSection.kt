@@ -48,12 +48,7 @@ import kotlinx.coroutines.withContext
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun TreadmillRunSection(
-    core: OmniGartCore,
-    profileId: String,
-    modifier: Modifier = Modifier,
-    initialWalking: Boolean = false
-) {
+fun TreadmillRunSection(core: OmniGartCore, profileId: String, modifier: Modifier = Modifier, initialWalking: Boolean = false) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val client = remember { TreadmillBleClient(context, scope) }

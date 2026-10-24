@@ -21,7 +21,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -96,12 +95,7 @@ private enum class PhoneTab(val labelRes: Int, val testTag: String, val icon: Im
     Profile(R.string.tab_profile, "tab_profile", OmniGartIcons.profile)
 }
 
-private data class PhoneShellUiState(
-    val selected: Int,
-    val showInfoSheet: Boolean,
-    val showMeasurements: Boolean,
-    val formulaEpoch: Int
-)
+private data class PhoneShellUiState(val selected: Int, val showInfoSheet: Boolean, val showMeasurements: Boolean, val formulaEpoch: Int)
 
 @Composable
 fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
@@ -171,12 +165,7 @@ private fun PhoneShellHeader(tabs: List<PhoneTab>, selected: Int, summaryLines: 
 }
 
 @Composable
-private fun PhoneShellTabContent(
-    core: OmniGartCore,
-    profileId: String,
-    ui: PhoneShellUiState,
-    onUi: (PhoneShellUiState) -> Unit
-) {
+private fun PhoneShellTabContent(core: OmniGartCore, profileId: String, ui: PhoneShellUiState, onUi: (PhoneShellUiState) -> Unit) {
     if (ui.selected == PhoneTab.Profile.ordinal || ui.selected == PhoneTab.Recovery.ordinal) {
         WellnessTabSection(
             showInfoSheet = ui.showInfoSheet,

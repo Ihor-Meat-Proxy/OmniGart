@@ -146,9 +146,8 @@ enum WorkoutSearchIndex {
     ]
 
     private static func appendStaticHits(query: String, into results: inout [WorkoutSearchHit]) {
-        for entry in staticEntries
-            where matchesLocalized(entry.titleKey, query) || matchesLocalized(entry.subtitleKey, query)
-        {
+        for entry in staticEntries where matchesLocalized(entry.titleKey, query)
+            || matchesLocalized(entry.subtitleKey, query) {
             results.append(
                 WorkoutSearchHit(
                     id: "static-\(entry.titleKey)",
@@ -168,8 +167,7 @@ enum WorkoutSearchIndex {
         into results: inout [WorkoutSearchHit]
     ) {
         for workout in core.strengthPrograms.readyMadeWorkouts(profileId: profileId)
-            where matchesLocalized(workout.nameKey, query)
-        {
+            where matchesLocalized(workout.nameKey, query) {
             results.append(
                 WorkoutSearchHit(
                     id: "ready-\(workout.id)",
@@ -190,8 +188,7 @@ enum WorkoutSearchIndex {
     ) {
         for category in core.routineLibrary.routineCategories() {
             for routine in core.routineLibrary.routines(category: category, profileId: profileId)
-                where matchesLocalized(routine.nameKey, query)
-            {
+                where matchesLocalized(routine.nameKey, query) {
                 results.append(
                     WorkoutSearchHit(
                         id: "routine-\(routine.id)",

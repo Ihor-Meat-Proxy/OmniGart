@@ -77,26 +77,22 @@ final class PhoneUITests: XCTestCase {
         let shell = app.descendants(matching: .any)["phone_shell"]
         XCTAssertTrue(shell.waitForExistence(timeout: 30))
 
-        // Prefer tab-bar query: content-root identifiers are only in the tree for the
-        // selected tab. Identifier is set on `Tab` in PhoneRootView; title is the en-GB
-        // fallback. Also accept any-element match and first tab-bar button (Food is index 0).
-        let foodById = app.tabBars.buttons["tab_food"]
+        // Tab chrome on iPad can expose nested Button/Button both identified as tab_food;
+        // firstMatch taps a single element. Prefer tab bar, then any-element fallback.
+        let foodByTabBar = app.tabBars.buttons["tab_food"]
         let foodByTitle = app.tabBars.buttons["Food"]
-        let foodByAny = app.descendants(matching: .any)["tab_food"]
+        let foodById = app.descendants(matching: .any).matching(identifier: "tab_food").firstMatch
         let foodTab: XCUIElement
-        if foodById.waitForExistence(timeout: 10) {
-            foodTab = foodById
+        if foodByTabBar.waitForExistence(timeout: 10) {
+            foodTab = foodByTabBar
         } else if foodByTitle.waitForExistence(timeout: 5) {
             foodTab = foodByTitle
-        } else if foodByAny.waitForExistence(timeout: 5) {
-            foodTab = foodByAny
         } else {
-            let firstTab = app.tabBars.buttons.element(boundBy: 0)
             XCTAssertTrue(
-                firstTab.waitForExistence(timeout: 5),
-                "Expected Food tab in the tab bar; tabBars=\(app.tabBars.debugDescription)"
+                foodById.waitForExistence(timeout: 10),
+                "Expected Food tab; tabBars=\(app.tabBars.debugDescription)"
             )
-            foodTab = firstTab
+            foodTab = foodById
         }
         foodTab.tap()
 

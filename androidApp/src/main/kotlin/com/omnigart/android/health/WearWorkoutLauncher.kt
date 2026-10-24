@@ -28,29 +28,19 @@ class WearWorkoutLauncher(
         SKIPPED_BY_PREFERENCE
     }
 
-    suspend fun startOnWear(
-        context: Context,
-        selection: PhoneWorkoutSelection,
-        respectPreference: Boolean = true
-    ): Outcome =
+    suspend fun startOnWear(context: Context, selection: PhoneWorkoutSelection, respectPreference: Boolean = true): Outcome =
         withContext(Dispatchers.IO) {
             if (respectPreference && !WearLaunchPrefs.isStartOnWatchEnabled(context)) {
                 return@withContext Outcome.SKIPPED_BY_PREFERENCE
             }
             runCatching {
-                val nodes: List<Node> =
-                    Tasks.await(nodeClient.connectedNodes, 3, TimeUnit.SECONDS)
+                val nodes: List<Node> = Tasks.await(nodeClient.connectedNodes, 3, TimeUnit.SECONDS)
                 if (nodes.isEmpty()) return@runCatching Outcome.WEAR_UNAVAILABLE
-                val payload =
-                    PhoneWorkoutSelectionCodec.encode(selection).toByteArray(StandardCharsets.UTF_8)
+                val payload = PhoneWorkoutSelectionCodec.encode(selection).toByteArray(StandardCharsets.UTF_8)
                 var any = false
                 for (node in nodes) {
                     Tasks.await(
-                        messageClient.sendMessage(
-                            node.id,
-                            PhoneWorkoutSelection.LAUNCH_PATH,
-                            payload
-                        ),
+                        messageClient.sendMessage(node.id, PhoneWorkoutSelection.LAUNCH_PATH, payload),
                         3,
                         TimeUnit.SECONDS
                     )

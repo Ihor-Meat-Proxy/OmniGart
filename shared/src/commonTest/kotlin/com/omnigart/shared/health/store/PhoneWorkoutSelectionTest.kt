@@ -26,18 +26,17 @@ class PhoneWorkoutSelectionTest {
                 zoneLowerBpm = 120,
                 zoneUpperBpm = 140
             )
-    ): PhoneWorkoutSelection =
-        PhoneWorkoutSelection(
-            kind = kind,
-            programId = programId,
-            routineId = routineId,
-            dayIndex = if (programId != null) 0 else null,
-            equipmentIds = equipmentIds,
-            equipmentAdjustments = adjustments,
-            plannedTargets = targets,
-            sessionKey = "session-abc",
-            watchIsRecorder = true
-        )
+    ): PhoneWorkoutSelection = PhoneWorkoutSelection(
+        kind = kind,
+        programId = programId,
+        routineId = routineId,
+        dayIndex = if (programId != null) 0 else null,
+        equipmentIds = equipmentIds,
+        equipmentAdjustments = adjustments,
+        plannedTargets = targets,
+        sessionKey = "session-abc",
+        watchIsRecorder = true
+    )
 
     @Test
     fun codec_roundTripsFullSelection() {

@@ -74,11 +74,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun WearRoot(
-    lines: List<String>,
-    recorder: WearExerciseRecorder,
-    launchListener: WearPhoneWorkoutLaunchListener
-) {
+private fun WearRoot(lines: List<String>, recorder: WearExerciseRecorder, launchListener: WearPhoneWorkoutLaunchListener) {
     var showTreadmill by remember { mutableStateOf(false) }
     var strengthActive by remember { mutableStateOf(false) }
     var pending by remember { mutableStateOf<PhoneWorkoutSelection?>(null) }

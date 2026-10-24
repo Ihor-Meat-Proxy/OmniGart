@@ -13,9 +13,7 @@ import java.util.concurrent.atomic.AtomicReference
  * Receives phone → Wear launch payloads on [PhoneWorkoutSelection.LAUNCH_PATH] and notifies
  * listeners so [MainActivity] can start the matching Health Services exercise.
  */
-class WearPhoneWorkoutLaunchListener(
-    private val messageClient: MessageClient
-) : MessageClient.OnMessageReceivedListener {
+class WearPhoneWorkoutLaunchListener(private val messageClient: MessageClient) : MessageClient.OnMessageReceivedListener {
     private val listeners = CopyOnWriteArrayList<(PhoneWorkoutSelection) -> Unit>()
     private val lastSelection = AtomicReference<PhoneWorkoutSelection?>(null)
 
@@ -45,12 +43,11 @@ class WearPhoneWorkoutLaunchListener(
     }
 
     companion object {
-        fun wearModeFor(selection: PhoneWorkoutSelection): WearWorkoutMode =
-            when (selection.kind) {
-                PhoneWorkoutKindIds.TRADITIONAL_STRENGTH,
-                PhoneWorkoutKindIds.FUNCTIONAL_STRENGTH,
-                PhoneWorkoutKindIds.GUIDED_STRENGTH -> WearWorkoutMode.STRENGTH
-                else -> WearWorkoutMode.RUNNING
-            }
+        fun wearModeFor(selection: PhoneWorkoutSelection): WearWorkoutMode = when (selection.kind) {
+            PhoneWorkoutKindIds.TRADITIONAL_STRENGTH,
+            PhoneWorkoutKindIds.FUNCTIONAL_STRENGTH,
+            PhoneWorkoutKindIds.GUIDED_STRENGTH -> WearWorkoutMode.STRENGTH
+            else -> WearWorkoutMode.RUNNING
+        }
     }
 }

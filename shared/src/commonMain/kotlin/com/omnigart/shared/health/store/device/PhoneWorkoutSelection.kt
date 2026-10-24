@@ -60,8 +60,7 @@ data class PhoneWorkoutSelection(
         /** Wearable MessageClient path: phone → Wear launch. */
         const val LAUNCH_PATH = "/omnigart/workout/launch"
 
-        fun isSupportedSchemaVersion(version: Int): Boolean =
-            version in MIN_SUPPORTED_SCHEMA_VERSION..SCHEMA_VERSION
+        fun isSupportedSchemaVersion(version: Int): Boolean = version in MIN_SUPPORTED_SCHEMA_VERSION..SCHEMA_VERSION
     }
 }
 
@@ -134,12 +133,11 @@ object PhoneWorkoutKindIds {
     fun isKnown(kind: String): Boolean = kind in ALL
 
     /** HealthKit / Health Services activity family for [kind] (guided → traditional strength). */
-    fun platformStrengthFamily(kind: String): String =
-        when (kind) {
-            GUIDED_STRENGTH, TRADITIONAL_STRENGTH -> TRADITIONAL_STRENGTH
-            FUNCTIONAL_STRENGTH -> FUNCTIONAL_STRENGTH
-            else -> kind
-        }
+    fun platformStrengthFamily(kind: String): String = when (kind) {
+        GUIDED_STRENGTH, TRADITIONAL_STRENGTH -> TRADITIONAL_STRENGTH
+        FUNCTIONAL_STRENGTH -> FUNCTIONAL_STRENGTH
+        else -> kind
+    }
 }
 
 object PhoneWorkoutSelectionCodec {
@@ -212,21 +210,20 @@ object PhoneWorkoutSelectionFactory {
     }
 
     /** Minimal selection: kind (+ optional session key). Sentinel ints/doubles mean “omit”. */
-    fun createSimple(kind: String, sessionKey: String?): PhoneWorkoutSelection =
-        create(
-            kind = kind,
-            programId = null,
-            routineId = null,
-            dayIndex = -1,
-            equipmentIds = emptyArray(),
-            sessionKey = sessionKey,
-            watchIsRecorder = true,
-            durationSeconds = -1,
-            distanceMetres = -1.0,
-            zoneLowerBpm = -1,
-            zoneUpperBpm = -1,
-            targetSets = -1,
-            targetReps = -1,
-            targetWeightKg = -1.0
-        )
+    fun createSimple(kind: String, sessionKey: String?): PhoneWorkoutSelection = create(
+        kind = kind,
+        programId = null,
+        routineId = null,
+        dayIndex = -1,
+        equipmentIds = emptyArray(),
+        sessionKey = sessionKey,
+        watchIsRecorder = true,
+        durationSeconds = -1,
+        distanceMetres = -1.0,
+        zoneLowerBpm = -1,
+        zoneUpperBpm = -1,
+        targetSets = -1,
+        targetReps = -1,
+        targetWeightKg = -1.0
+    )
 }

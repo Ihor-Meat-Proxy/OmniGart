@@ -47,26 +47,13 @@ fun FoodLoggingSection(core: OmniGartCore, profileId: String) {
         )
         FoodDayNav(
             dayOffset = dayOffset,
-            onPrev = {
-                dayOffset -= 1
-                tick += 1
-            },
-            onNext = {
-                dayOffset = (dayOffset + 1).coerceAtMost(0)
-                tick += 1
-            }
+            onPrev = { dayOffset -= 1; tick += 1 },
+            onNext = { dayOffset = (dayOffset + 1).coerceAtMost(0); tick += 1 }
         )
         FoodWeighInPrompt(tick = tick) { showMeasurements = true }
-        if (showMeasurements) {
-            BodyMeasurementsSection()
-            TextButton(
-                onClick = {
-                    showMeasurements = false
-                    tick += 1
-                }
-            ) {
-                Text(stringResource(R.string.tab_food))
-            }
+        FoodMeasurementsOverlay(showMeasurements) {
+            showMeasurements = false
+            tick += 1
         }
         FoodDailySummaryBlock(
             core = core,
@@ -76,43 +63,55 @@ fun FoodLoggingSection(core: OmniGartCore, profileId: String) {
             onEditGoal = { showGoalEditor = true },
             onWater = { tick += 1 }
         )
-        if (showGoalEditor) {
-            NutritionGoalSettingsSection()
-            TextButton(onClick = { showGoalEditor = false }) {
-                Text(stringResource(R.string.food_edit_goal))
-            }
-        }
-        MealGroup.entries.filter { it != MealGroup.CUSTOM }.forEach { meal ->
-            FoodMealBlock(
-                core = core,
-                profileId = profileId,
-                meal = meal,
-                dayOffset = dayOffset,
-                tick = tick,
-                onAdd = { addMeal = meal }
-            )
-        }
+        FoodGoalEditorOverlay(showGoalEditor) { showGoalEditor = false }
+        FoodMealSections(core, profileId, dayOffset, tick) { addMeal = it }
         addMeal?.let { meal ->
             FoodAddMealPanel(
                 core = core,
                 profileId = profileId,
                 meal = meal,
-                onLogged = {
-                    tick += 1
-                    addMeal = null
-                },
+                onLogged = { tick += 1; addMeal = null },
                 onDismiss = { addMeal = null }
             )
         }
         FoodBestSourcesBlock(core, profileId)
         FoodToolsBlock(core, profileId) { tick += 1 }
-        FoodMorningReviewBlock(
+        FoodMorningReviewBlock(core, profileId, reviewSummary) { reviewSummary = it }
+        FoodSettingsBlock(core, profileId)
+    }
+}
+
+@Composable
+private fun FoodMeasurementsOverlay(show: Boolean, onClose: () -> Unit) {
+    if (!show) return
+    BodyMeasurementsSection()
+    TextButton(onClick = onClose) { Text(stringResource(R.string.tab_food)) }
+}
+
+@Composable
+private fun FoodGoalEditorOverlay(show: Boolean, onClose: () -> Unit) {
+    if (!show) return
+    NutritionGoalSettingsSection()
+    TextButton(onClick = onClose) { Text(stringResource(R.string.food_edit_goal)) }
+}
+
+@Composable
+private fun FoodMealSections(
+    core: OmniGartCore,
+    profileId: String,
+    dayOffset: Int,
+    tick: Int,
+    onAdd: (MealGroup) -> Unit
+) {
+    MealGroup.entries.filter { it != MealGroup.CUSTOM }.forEach { meal ->
+        FoodMealBlock(
             core = core,
             profileId = profileId,
-            reviewSummary = reviewSummary,
-            onSummary = { reviewSummary = it }
+            meal = meal,
+            dayOffset = dayOffset,
+            tick = tick,
+            onAdd = { onAdd(meal) }
         )
-        FoodSettingsBlock(core, profileId)
     }
 }
 
@@ -129,11 +128,7 @@ private fun FoodMorningReviewBlock(
         } else {
             stringResource(R.string.food_ai_unavailable)
         }
-    Text(
-        text = aiNote,
-        style = MaterialTheme.typography.bodySmall,
-        color = OmniGartColors.colorTextLightSecondary
-    )
+    Text(text = aiNote, style = MaterialTheme.typography.bodySmall, color = OmniGartColors.colorTextLightSecondary)
     Button(
         onClick = { onSummary(runMorningReview(core, profileId)) },
         modifier = Modifier.testTag("food_review_run")

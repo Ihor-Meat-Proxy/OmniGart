@@ -38,9 +38,6 @@ internal fun FoodAddMealPanel(
     var portion by remember { mutableStateOf("100") }
     var name by remember { mutableStateOf("") }
     var energy by remember { mutableStateOf("250") }
-    var protein by remember { mutableStateOf("20") }
-    var carbs by remember { mutableStateOf("25") }
-    var fat by remember { mutableStateOf("8") }
     var barcode by remember { mutableStateOf("") }
     val results =
         remember(query) {
@@ -48,56 +45,85 @@ internal fun FoodAddMealPanel(
         }
 
     Text(text = foodMealTitle(meal), style = MaterialTheme.typography.titleMedium)
+    FoodAddSearchFields(query, { query = it }, portion, { portion = it })
+    results.take(8).forEach { food ->
+        CatalogueResultRow(core, profileId, food, meal, portion, onLogged)
+    }
+    FoodAddMealRecents(core, profileId, meal, onLogged)
+    FoodAddQuickFields(name, { name = it }, energy, { energy = it }) {
+        val trimmed = name.trim()
+        if (trimmed.isEmpty()) return@FoodAddQuickFields
+        val kcal = energy.toDoubleOrNull() ?: 0.0
+        core.foodLogging.quickAdd(profileId, QuickMacroAdd(trimmed, kcal), meal)
+        core.logFood(profileId, trimmed, kcal, 0.0, 0.0, 0.0)
+        onLogged()
+    }
+    FoodAddBarcodeFields(barcode, { barcode = it }, portion, core, profileId, meal, onLogged)
+    TextButton(onClick = onDismiss) { Text(stringResource(R.string.onboarding_skip)) }
+}
+
+@Composable
+private fun FoodAddSearchFields(
+    query: String,
+    onQuery: (String) -> Unit,
+    portion: String,
+    onPortion: (String) -> Unit
+) {
     OutlinedTextField(
         value = query,
-        onValueChange = { query = it },
+        onValueChange = onQuery,
         label = { Text(stringResource(R.string.food_search_placeholder)) },
         modifier = Modifier.fillMaxWidth().testTag("food_search")
     )
     OutlinedTextField(
         value = portion,
-        onValueChange = { portion = it },
+        onValueChange = onPortion,
         label = { Text(stringResource(R.string.food_portion_grams)) },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
         modifier = Modifier.fillMaxWidth().testTag("food_portion_grams")
     )
-    results.take(8).forEach { food ->
-        CatalogueResultRow(core, profileId, food, meal, portion, onLogged)
-    }
-    FoodAddMealRecents(core, profileId, meal, onLogged)
+}
+
+@Composable
+private fun FoodAddQuickFields(
+    name: String,
+    onName: (String) -> Unit,
+    energy: String,
+    onEnergy: (String) -> Unit,
+    onAdd: () -> Unit
+) {
     Text(stringResource(R.string.food_quick_add_title), style = MaterialTheme.typography.titleSmall)
     OutlinedTextField(
         value = name,
-        onValueChange = { name = it },
+        onValueChange = onName,
         label = { Text(stringResource(R.string.food_name_placeholder)) },
         modifier = Modifier.fillMaxWidth().testTag("food_name")
     )
     OutlinedTextField(
         value = energy,
-        onValueChange = { energy = it },
+        onValueChange = onEnergy,
         label = { Text(stringResource(R.string.food_energy_kcal)) },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
         modifier = Modifier.fillMaxWidth().testTag("food_energy")
     )
-    Button(
-        onClick = {
-            val trimmed = name.trim()
-            if (trimmed.isEmpty()) return@Button
-            val kcal = energy.toDoubleOrNull() ?: 0.0
-            val proteinG = protein.toDoubleOrNull() ?: 0.0
-            val carbsG = carbs.toDoubleOrNull() ?: 0.0
-            val fatG = fat.toDoubleOrNull() ?: 0.0
-            core.foodLogging.quickAdd(profileId, QuickMacroAdd(trimmed, kcal, proteinG, carbsG, fatG), meal)
-            core.logFood(profileId, trimmed, kcal, proteinG, carbsG, fatG)
-            onLogged()
-        },
-        modifier = Modifier.testTag("food_add_confirm")
-    ) {
+    Button(onClick = onAdd, modifier = Modifier.testTag("food_add_confirm")) {
         Text(stringResource(R.string.food_add))
     }
+}
+
+@Composable
+private fun FoodAddBarcodeFields(
+    barcode: String,
+    onBarcode: (String) -> Unit,
+    portion: String,
+    core: OmniGartCore,
+    profileId: String,
+    meal: MealGroup,
+    onLogged: () -> Unit
+) {
     OutlinedTextField(
         value = barcode,
-        onValueChange = { barcode = it },
+        onValueChange = onBarcode,
         label = { Text(stringResource(R.string.food_barcode_manual)) },
         modifier = Modifier.fillMaxWidth().testTag("food_barcode_manual")
     )
@@ -121,7 +147,6 @@ internal fun FoodAddMealPanel(
     ) {
         Text(stringResource(R.string.food_barcode_lookup))
     }
-    TextButton(onClick = onDismiss) { Text(stringResource(R.string.onboarding_skip)) }
 }
 
 @Composable

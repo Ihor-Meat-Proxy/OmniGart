@@ -112,7 +112,7 @@
     <string name="workout_summary_energy_estimate">能量为健康估算（心率或做功），并非医学测量。</string>
     <string name="workout_sets_count">组数</string>
     <string name="workout_volume_short">容量</string>
-    <string name="wear_strength_title">力量</string>
+    <string name="wear_strength_title">自由力量</string>
     <string name="wear_strength_done">完成</string>
     <string name="workouts_library_title">动作库</string>
     <string name="workouts_log_title">力量记录</string>
@@ -138,7 +138,7 @@
     <string name="workouts_muscles_title">训练肌群</string>
     <string name="workouts_adjust_equipment">调整器械</string>
     <string name="workouts_substituted">已替换</string>
-    <string name="watch_strength_start">力量课次</string>
+    <string name="watch_strength_start">引导力量</string>
     <string name="watch_equipment_sync_hint">开关与 iPhone 同步。仅作用于本次课次。</string>
     <string name="program_split_full_body">全身</string>
     <string name="program_split_upper_lower">上下肢分化</string>
@@ -180,7 +180,7 @@
     <string name="equipment_item_box">跳箱</string>
     <string name="equipment_item_landmine">地雷架</string>
     <string name="equipment_item_yoga_mat">瑜伽垫</string>
-    <string name="wear_strength_start">力量</string>
+    <string name="wear_strength_start">自由力量</string>
     <string name="wear_strength_stop">结束</string>
     <string name="wear_strength_rest">休息 %1$d 秒</string>
     <string name="wear_strength_weight">公斤</string>

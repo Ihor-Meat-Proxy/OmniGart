@@ -238,7 +238,7 @@
     <string name="workout_workoutkit_limit">Apples Workout-App übernimmt keine Gewichte oder Wiederholungen von anderen Apps. OmniGart exportiert jeden Satz als Arbeit und jede Pause als Erholung; Last × Wdh. in OmniGart auf iPhone oder Apple Watch erfassen.</string>
     <string name="workout_sets_count">Sätze</string>
     <string name="workout_volume_short">Volumen</string>
-    <string name="wear_strength_title">Kraft</string>
+    <string name="wear_strength_title">Freie Kraft</string>
     <string name="wear_strength_done">Fertig</string>
     <string name="workouts_program_title">Kraftprogramm</string>
     <string name="workouts_program_intro">Erstellen Sie einen Ganzkörper- oder Split-Plan aus Ihrem Gerät. Nur Trainingshilfe — keine medizinische Beratung.</string>
@@ -256,7 +256,7 @@
     <string name="workouts_muscles_title">Beanspruchte Muskeln</string>
     <string name="workouts_adjust_equipment">Geräte anpassen</string>
     <string name="workouts_substituted">Ersetzt</string>
-    <string name="watch_strength_start">Krafteinheit</string>
+    <string name="watch_strength_start">Geführte Kraft</string>
     <string name="watch_equipment_sync_hint">Schalter synchronisieren vom iPhone. Nur für diese Einheit.</string>
     <string name="program_split_full_body">Ganzkörper</string>
     <string name="program_split_upper_lower">Ober- / Unterkörper</string>
@@ -301,7 +301,7 @@
     <string name="workouts_ready_title">Fertige Workouts</string>
     <string name="workouts_ready_intro">Durchsuchen Sie feste Einheiten, gefiltert nach Ihrem Gerät. Starten Sie direkt oder passen Sie das Equipment an — Ersatzübungen aktualisieren sich.</string>
     <string name="workouts_ready_clear">Fertiges Workout leeren</string>
-    <string name="wear_strength_start">Kraft</string>
+    <string name="wear_strength_start">Freie Kraft</string>
     <string name="wear_strength_stop">Ende</string>
     <string name="wear_strength_rest">Pause %1$d s</string>
     <string name="wear_strength_weight">kg</string>

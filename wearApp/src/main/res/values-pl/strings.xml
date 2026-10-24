@@ -112,7 +112,7 @@
     <string name="workout_summary_energy_estimate">Energia to szacunek wellness (tętno lub praca), nie pomiar medyczny.</string>
     <string name="workout_sets_count">Serie</string>
     <string name="workout_volume_short">Objętość</string>
-    <string name="wear_strength_title">Siła</string>
+    <string name="wear_strength_title">Wolna siła</string>
     <string name="wear_strength_done">Gotowe</string>
     <string name="workouts_library_title">Biblioteka ćwiczeń</string>
     <string name="workouts_log_title">Dziennik siłowy</string>
@@ -138,7 +138,7 @@
     <string name="workouts_muscles_title">Zaangażowane mięśnie</string>
     <string name="workouts_adjust_equipment">Dostosuj sprzęt</string>
     <string name="workouts_substituted">Zastąpiono</string>
-    <string name="watch_strength_start">Sesja siłowa</string>
+    <string name="watch_strength_start">Siła z planem</string>
     <string name="watch_equipment_sync_hint">Przełączniki synchronizują się z iPhone’a. Zmiany tylko dla tej sesji.</string>
     <string name="program_split_full_body">Całe ciało</string>
     <string name="program_split_upper_lower">Góra / dół</string>
@@ -180,7 +180,7 @@
     <string name="equipment_item_box">Box</string>
     <string name="equipment_item_landmine">Landmine</string>
     <string name="equipment_item_yoga_mat">Mata do jogi</string>
-    <string name="wear_strength_start">Siła</string>
+    <string name="wear_strength_start">Wolna siła</string>
     <string name="wear_strength_stop">Koniec</string>
     <string name="wear_strength_rest">Odpoczynek %1$d s</string>
     <string name="wear_strength_weight">kg</string>

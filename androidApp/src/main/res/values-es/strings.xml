@@ -238,7 +238,7 @@
     <string name="workout_workoutkit_limit">La app Workout de Apple no acepta peso ni repeticiones de otras apps. OmniGart exporta cada serie como trabajo y cada descanso como recuperación; registra carga × reps en OmniGart en el iPhone o el Apple Watch.</string>
     <string name="workout_sets_count">Series</string>
     <string name="workout_volume_short">Volumen</string>
-    <string name="wear_strength_title">Fuerza</string>
+    <string name="wear_strength_title">Fuerza libre</string>
     <string name="wear_strength_done">Listo</string>
     <string name="workouts_program_title">Programa de fuerza</string>
     <string name="workouts_program_intro">Crea un plan de cuerpo completo o dividido con tu material. Solo ayuda de entrenamiento, no consejo médico.</string>
@@ -256,7 +256,7 @@
     <string name="workouts_muscles_title">Músculos trabajados</string>
     <string name="workouts_adjust_equipment">Ajustar material</string>
     <string name="workouts_substituted">Sustituido</string>
-    <string name="watch_strength_start">Sesión de fuerza</string>
+    <string name="watch_strength_start">Fuerza guiada</string>
     <string name="watch_equipment_sync_hint">Los interruptores se sincronizan desde el iPhone. Solo para esta sesión.</string>
     <string name="program_split_full_body">Cuerpo completo</string>
     <string name="program_split_upper_lower">Superior / inferior</string>
@@ -301,7 +301,7 @@
     <string name="workouts_ready_title">Entrenamientos listos</string>
     <string name="workouts_ready_intro">Explora sesiones fijas filtradas por tu material. Empieza una directamente o ajusta el equipo y se actualizan los cambios.</string>
     <string name="workouts_ready_clear">Quitar entrenamiento listo</string>
-    <string name="wear_strength_start">Fuerza</string>
+    <string name="wear_strength_start">Fuerza libre</string>
     <string name="wear_strength_stop">Fin</string>
     <string name="wear_strength_rest">Descanso %1$d s</string>
     <string name="wear_strength_weight">kg</string>

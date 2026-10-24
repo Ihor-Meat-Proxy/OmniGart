@@ -112,7 +112,7 @@
     <string name="workout_summary_energy_estimate">L’énergie est une estimation bien-être (fréquence ou travail), pas une mesure médicale.</string>
     <string name="workout_sets_count">Séries</string>
     <string name="workout_volume_short">Volume</string>
-    <string name="wear_strength_title">Force</string>
+    <string name="wear_strength_title">Force libre</string>
     <string name="wear_strength_done">Fait</string>
     <string name="workouts_library_title">Bibliothèque d’exercices</string>
     <string name="workouts_log_title">Journal de force</string>
@@ -138,7 +138,7 @@
     <string name="workouts_muscles_title">Muscles sollicités</string>
     <string name="workouts_adjust_equipment">Ajuster le matériel</string>
     <string name="workouts_substituted">Remplacé</string>
-    <string name="watch_strength_start">Séance de force</string>
+    <string name="watch_strength_start">Force guidée</string>
     <string name="watch_equipment_sync_hint">Les bascules se synchronisent depuis l’iPhone. Uniquement pour cette séance.</string>
     <string name="program_split_full_body">Full body</string>
     <string name="program_split_upper_lower">Haut / bas</string>
@@ -180,7 +180,7 @@
     <string name="equipment_item_box">Box</string>
     <string name="equipment_item_landmine">Landmine</string>
     <string name="equipment_item_yoga_mat">Tapis de yoga</string>
-    <string name="wear_strength_start">Force</string>
+    <string name="wear_strength_start">Force libre</string>
     <string name="wear_strength_stop">Fin</string>
     <string name="wear_strength_rest">Repos %1$d s</string>
     <string name="wear_strength_weight">kg</string>

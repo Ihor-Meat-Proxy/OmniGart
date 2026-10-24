@@ -238,7 +238,7 @@
     <string name="workout_workoutkit_limit">Apple Workout басқа қолданбалардан салмақ немесе қайталауды қабылдамайды. OmniGart әр жиынды жұмыс, демалысты қалпына келтіру қадамы ретінде экспорттайды; салмақ × қайталауды OmniGart-та iPhone немесе Apple Watch-та жазыңыз.</string>
     <string name="workout_sets_count">Жиындар</string>
     <string name="workout_volume_short">Көлем</string>
-    <string name="wear_strength_title">Күш</string>
+    <string name="wear_strength_title">Еркін күш</string>
     <string name="wear_strength_done">Дайын</string>
     <string name="workouts_program_title">Күш бағдарламасы</string>
     <string name="workouts_program_intro">Қолдағы жабдықтан толық дене немесе сплит жоспарын жасаңыз. Тек жаттықтырушылық көмек — медициналық кеңес емес.</string>
@@ -256,7 +256,7 @@
     <string name="workouts_muscles_title">Жұмыс істейтін бұлшықеттер</string>
     <string name="workouts_adjust_equipment">Жабдықты бейімдеу</string>
     <string name="workouts_substituted">Ауыстырылды</string>
-    <string name="watch_strength_start">Күш сессиясы</string>
+    <string name="watch_strength_start">Жоспарлы күш</string>
     <string name="watch_equipment_sync_hint">Ауыстырғыштар iPhone-нан синхрондалады. Өзгерістер тек осы сессияға.</string>
     <string name="program_split_full_body">Толық дене</string>
     <string name="program_split_upper_lower">Жоғарғы / төменгі</string>
@@ -301,7 +301,7 @@
     <string name="workouts_ready_title">Дайын жаттығулар</string>
     <string name="workouts_ready_intro">Жабдығыңызға сай дайын сессияларды қараңыз. Бірден бастаңыз немесе жабдықты бейімдеңіз — алмастырулар жаңарады.</string>
     <string name="workouts_ready_clear">Дайын жаттығуды тазалау</string>
-    <string name="wear_strength_start">Күш</string>
+    <string name="wear_strength_start">Еркін күш</string>
     <string name="wear_strength_stop">Аяқтау</string>
     <string name="wear_strength_rest">Демалыс %1$d с</string>
     <string name="wear_strength_weight">кг</string>

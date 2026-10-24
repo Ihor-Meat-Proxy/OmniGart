@@ -11600,67 +11600,67 @@
         "en-GB": {
           "stringUnit": {
             "state": "translated",
-            "value": "Strength"
+            "value": "Free strength"
           }
         },
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Сила"
+            "value": "Вільна сила"
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Siła"
+            "value": "Wolna siła"
           }
         },
         "be": {
           "stringUnit": {
             "state": "translated",
-            "value": "Сіла"
+            "value": "Вольная сіла"
           }
         },
         "kk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Күш"
+            "value": "Еркін күш"
           }
         },
         "ka": {
           "stringUnit": {
             "state": "translated",
-            "value": "ძალა"
+            "value": "თავისუფალი ძალა"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fuerza"
+            "value": "Fuerza libre"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Force"
+            "value": "Force libre"
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kraft"
+            "value": "Freie Kraft"
           }
         },
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Síla"
+            "value": "Volná síla"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "力量"
+            "value": "自由力量"
           }
         }
       }
@@ -11671,67 +11671,67 @@
         "en-GB": {
           "stringUnit": {
             "state": "translated",
-            "value": "Functional strength"
+            "value": "Functional"
           }
         },
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Функціональна сила"
+            "value": "Функціональна"
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Siła funkcjonalna"
+            "value": "Funkcjonalna"
           }
         },
         "be": {
           "stringUnit": {
             "state": "translated",
-            "value": "Функцыянальная сіла"
+            "value": "Функцыянальная"
           }
         },
         "kk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Функционалдық күш"
+            "value": "Функционалдық"
           }
         },
         "ka": {
           "stringUnit": {
             "state": "translated",
-            "value": "ფუნქციური ძალა"
+            "value": "ფუნქციური"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fuerza funcional"
+            "value": "Funcional"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Force fonctionnelle"
+            "value": "Fonctionnel"
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Funktionelle Kraft"
+            "value": "Funktional"
           }
         },
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Funkční síla"
+            "value": "Funkční"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "功能性力量"
+            "value": "功能性"
           }
         }
       }
@@ -19341,67 +19341,67 @@
         "en-GB": {
           "stringUnit": {
             "state": "translated",
-            "value": "Strength"
+            "value": "Free strength"
           }
         },
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Сила"
+            "value": "Вільна сила"
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Siła"
+            "value": "Wolna siła"
           }
         },
         "be": {
           "stringUnit": {
             "state": "translated",
-            "value": "Сіла"
+            "value": "Вольная сіла"
           }
         },
         "kk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Күш"
+            "value": "Еркін күш"
           }
         },
         "ka": {
           "stringUnit": {
             "state": "translated",
-            "value": "ძალა"
+            "value": "თავისუფალი ძალა"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fuerza"
+            "value": "Fuerza libre"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Force"
+            "value": "Force libre"
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kraft"
+            "value": "Freie Kraft"
           }
         },
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Síla"
+            "value": "Volná síla"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "力量"
+            "value": "自由力量"
           }
         }
       }
@@ -20619,67 +20619,67 @@
         "en-GB": {
           "stringUnit": {
             "state": "translated",
-            "value": "Strength session"
+            "value": "Guided strength"
           }
         },
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Силова сесія"
+            "value": "Сила за планом"
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sesja siłowa"
+            "value": "Siła z planem"
           }
         },
         "be": {
           "stringUnit": {
             "state": "translated",
-            "value": "Сілавая сесія"
+            "value": "Сіла па плане"
           }
         },
         "kk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Күш сессиясы"
+            "value": "Жоспарлы күш"
           }
         },
         "ka": {
           "stringUnit": {
             "state": "translated",
-            "value": "ძალის სესია"
+            "value": "გეგმიური ძალა"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sesión de fuerza"
+            "value": "Fuerza guiada"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Séance de force"
+            "value": "Force guidée"
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Krafteinheit"
+            "value": "Geführte Kraft"
           }
         },
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Silová jednotka"
+            "value": "Řízená síla"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "力量课次"
+            "value": "引导力量"
           }
         }
       }
@@ -23814,67 +23814,67 @@
         "en-GB": {
           "stringUnit": {
             "state": "translated",
-            "value": "Strength"
+            "value": "Free strength"
           }
         },
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Сила"
+            "value": "Вільна сила"
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Siła"
+            "value": "Wolna siła"
           }
         },
         "be": {
           "stringUnit": {
             "state": "translated",
-            "value": "Сіла"
+            "value": "Вольная сіла"
           }
         },
         "kk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Күш"
+            "value": "Еркін күш"
           }
         },
         "ka": {
           "stringUnit": {
             "state": "translated",
-            "value": "ძალა"
+            "value": "თავისუფალი ძალა"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fuerza"
+            "value": "Fuerza libre"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Force"
+            "value": "Force libre"
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kraft"
+            "value": "Freie Kraft"
           }
         },
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Síla"
+            "value": "Volná síla"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "力量"
+            "value": "自由力量"
           }
         }
       }

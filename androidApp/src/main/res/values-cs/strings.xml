@@ -238,7 +238,7 @@
     <string name="workout_workoutkit_limit">Apple Workout nepřijímá váhu ani opakování z jiných aplikací. OmniGart exportuje každou sérii jako práci a odpočinek jako regeneraci; zátěž × opakování zapisujte v OmniGart na iPhonu nebo Apple Watch.</string>
     <string name="workout_sets_count">Série</string>
     <string name="workout_volume_short">Objem</string>
-    <string name="wear_strength_title">Síla</string>
+    <string name="wear_strength_title">Volná síla</string>
     <string name="wear_strength_done">Hotovo</string>
     <string name="workouts_program_title">Silový program</string>
     <string name="workouts_program_intro">Sestavte celotělový nebo split plán podle vybavení. Jen tréninková pomůcka — ne lékařská rada.</string>
@@ -256,7 +256,7 @@
     <string name="workouts_muscles_title">Zapojené svaly</string>
     <string name="workouts_adjust_equipment">Upravit vybavení</string>
     <string name="workouts_substituted">Nahrazeno</string>
-    <string name="watch_strength_start">Silová jednotka</string>
+    <string name="watch_strength_start">Řízená síla</string>
     <string name="watch_equipment_sync_hint">Přepínače se synchronizují z iPhonu. Jen pro tuto jednotku.</string>
     <string name="program_split_full_body">Celé tělo</string>
     <string name="program_split_upper_lower">Horní / dolní</string>
@@ -301,7 +301,7 @@
     <string name="workouts_ready_title">Hotové tréninky</string>
     <string name="workouts_ready_intro">Procházejte pevné jednotky filtrované podle vybavení. Spusťte rovnou, nebo upravte výbavu — náhrady se aktualizují.</string>
     <string name="workouts_ready_clear">Zrušit hotový trénink</string>
-    <string name="wear_strength_start">Síla</string>
+    <string name="wear_strength_start">Volná síla</string>
     <string name="wear_strength_stop">Konec</string>
     <string name="wear_strength_rest">Odpočinek %1$d s</string>
     <string name="wear_strength_weight">kg</string>

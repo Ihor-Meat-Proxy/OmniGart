@@ -982,17 +982,18 @@ t(
 t(
     "watch_strength_start",
     **{
-        "en-GB": "Strength session",
-        "uk": "Силова сесія",
-        "pl": "Sesja siłowa",
-        "be": "Сілавая сесія",
-        "kk": "Күш сессиясы",
-        "ka": "ძალის სესია",
-        "es": "Sesión de fuerza",
-        "fr": "Séance de force",
-        "de": "Krafteinheit",
-        "cs": "Silová jednotka",
-        "zh-Hans": "力量课次",
+        # Guided programme session (equipment sync + generated slots / set logging).
+        "en-GB": "Guided strength",
+        "uk": "Сила за планом",
+        "pl": "Siła z planem",
+        "be": "Сіла па плане",
+        "kk": "Жоспарлы күш",
+        "ka": "გეგმიური ძალა",
+        "es": "Fuerza guiada",
+        "fr": "Force guidée",
+        "de": "Geführte Kraft",
+        "cs": "Řízená síla",
+        "zh-Hans": "引导力量",
     },
 )
 
@@ -1717,29 +1718,58 @@ def main() -> None:
         if locale == "en-GB":
             folders.append("values")
         for folder in folders:
-            ap = ROOT / "androidApp/src/main/res" / folder / "strings.xml"
-            text = ap.read_text(encoding="utf-8")
-            for key, locales in STRINGS.items():
-                value = escape_android(
-                    locales["en-GB"] if folder == "values" else locales[locale]
-                )
-                pattern = re.compile(rf'<string name="{re.escape(key)}">.*?</string>', re.DOTALL)
-                replacement = f'<string name="{key}">{value}</string>'
-                if pattern.search(text):
-                    text = pattern.sub(replacement, text)
-                else:
-                    text = text.replace("</resources>", f"    {replacement}\n</resources>")
-            ap.write_text(text, encoding="utf-8")
+            for app_res in (
+                ROOT / "androidApp/src/main/res" / folder / "strings.xml",
+                ROOT / "wearApp/src/main/res" / folder / "strings.xml",
+            ):
+                if not app_res.exists():
+                    continue
+                text = app_res.read_text(encoding="utf-8")
+                changed = False
+                for key, locales in STRINGS.items():
+                    # Wear only upserts keys it already ships (e.g. watch_strength_start).
+                    pattern = re.compile(
+                        rf'<string name="{re.escape(key)}">.*?</string>', re.DOTALL
+                    )
+                    if "wearApp" in str(app_res) and not pattern.search(text):
+                        continue
+                    value = escape_android(
+                        locales["en-GB"] if folder == "values" else locales[locale]
+                    )
+                    replacement = f'<string name="{key}">{value}</string>'
+                    if pattern.search(text):
+                        text = pattern.sub(replacement, text)
+                        changed = True
+                    elif "androidApp" in str(app_res):
+                        text = text.replace(
+                            "</resources>", f"    {replacement}\n</resources>"
+                        )
+                        changed = True
+                if changed:
+                    app_res.write_text(text, encoding="utf-8")
 
-    xc_path = ROOT / "iosApp/OmniGart/Localizable.xcstrings"
-    catalog = json.loads(xc_path.read_text(encoding="utf-8"))
-    strings = catalog.setdefault("strings", {})
-    for key, locales in STRINGS.items():
-        entry = strings.setdefault(key, {"extractionState": "manual", "localizations": {}})
-        locs = entry.setdefault("localizations", {})
-        for locale, value in locales.items():
-            locs[locale] = {"stringUnit": {"state": "translated", "value": value}}
-    xc_path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    watch_tab_keys = {
+        "watch_strength_start",
+        "watch_equipment_sync_hint",
+        "watch_subtitle",
+    }
+    for xc_rel in (
+        "iosApp/OmniGart/Localizable.xcstrings",
+        "watchApp/OmniGartWatch/Localizable.xcstrings",
+    ):
+        xc_path = ROOT / xc_rel
+        if not xc_path.exists():
+            continue
+        catalog = json.loads(xc_path.read_text(encoding="utf-8"))
+        strings = catalog.setdefault("strings", {})
+        for key, locales in STRINGS.items():
+            if xc_rel.startswith("watchApp/") and key not in watch_tab_keys:
+                continue
+            entry = strings.setdefault(key, {"extractionState": "manual", "localizations": {}})
+            locs = entry.setdefault("localizations", {})
+            for locale, value in locales.items():
+                locs[locale] = {"stringUnit": {"state": "translated", "value": value}}
+        xc_path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Synced {len(STRINGS)} tab keys × {len(LOCALES)} locales")
 
 

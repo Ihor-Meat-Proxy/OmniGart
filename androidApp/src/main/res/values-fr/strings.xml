@@ -238,7 +238,7 @@
     <string name="workout_workoutkit_limit">L’app Workout d’Apple n’accepte pas le poids ni les répétitions d’autres apps. OmniGart exporte chaque série en travail et chaque repos en récupération ; enregistrez charge × reps dans OmniGart sur iPhone ou Apple Watch.</string>
     <string name="workout_sets_count">Séries</string>
     <string name="workout_volume_short">Volume</string>
-    <string name="wear_strength_title">Force</string>
+    <string name="wear_strength_title">Force libre</string>
     <string name="wear_strength_done">Fait</string>
     <string name="workouts_program_title">Programme de force</string>
     <string name="workouts_program_intro">Créez un plan full-body ou split selon votre matériel. Aide d’entraînement uniquement — pas un avis médical.</string>
@@ -256,7 +256,7 @@
     <string name="workouts_muscles_title">Muscles sollicités</string>
     <string name="workouts_adjust_equipment">Ajuster le matériel</string>
     <string name="workouts_substituted">Remplacé</string>
-    <string name="watch_strength_start">Séance de force</string>
+    <string name="watch_strength_start">Force guidée</string>
     <string name="watch_equipment_sync_hint">Les bascules se synchronisent depuis l’iPhone. Uniquement pour cette séance.</string>
     <string name="program_split_full_body">Full body</string>
     <string name="program_split_upper_lower">Haut / bas</string>
@@ -301,7 +301,7 @@
     <string name="workouts_ready_title">Séances prêtes</string>
     <string name="workouts_ready_intro">Parcourez des séances fixes filtrées selon votre matériel. Lancez-en une directement, ou ajustez l’équipement et les remplacements se mettent à jour.</string>
     <string name="workouts_ready_clear">Effacer la séance prête</string>
-    <string name="wear_strength_start">Force</string>
+    <string name="wear_strength_start">Force libre</string>
     <string name="wear_strength_stop">Fin</string>
     <string name="wear_strength_rest">Repos %1$d s</string>
     <string name="wear_strength_weight">kg</string>

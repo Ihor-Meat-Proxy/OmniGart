@@ -112,7 +112,7 @@
     <string name="workout_summary_energy_estimate">Energie ist eine Wellness-Schätzung (Herzfrequenz oder Arbeit), keine medizinische Messung.</string>
     <string name="workout_sets_count">Sätze</string>
     <string name="workout_volume_short">Volumen</string>
-    <string name="wear_strength_title">Kraft</string>
+    <string name="wear_strength_title">Freie Kraft</string>
     <string name="wear_strength_done">Fertig</string>
     <string name="workouts_library_title">Übungsbibliothek</string>
     <string name="workouts_log_title">Kraftprotokoll</string>
@@ -138,7 +138,7 @@
     <string name="workouts_muscles_title">Beanspruchte Muskeln</string>
     <string name="workouts_adjust_equipment">Geräte anpassen</string>
     <string name="workouts_substituted">Ersetzt</string>
-    <string name="watch_strength_start">Krafteinheit</string>
+    <string name="watch_strength_start">Geführte Kraft</string>
     <string name="watch_equipment_sync_hint">Schalter synchronisieren vom iPhone. Nur für diese Einheit.</string>
     <string name="program_split_full_body">Ganzkörper</string>
     <string name="program_split_upper_lower">Ober- / Unterkörper</string>
@@ -180,7 +180,7 @@
     <string name="equipment_item_box">Sprungbox</string>
     <string name="equipment_item_landmine">Landmine</string>
     <string name="equipment_item_yoga_mat">Yogamatte</string>
-    <string name="wear_strength_start">Kraft</string>
+    <string name="wear_strength_start">Freie Kraft</string>
     <string name="wear_strength_stop">Ende</string>
     <string name="wear_strength_rest">Pause %1$d s</string>
     <string name="wear_strength_weight">kg</string>

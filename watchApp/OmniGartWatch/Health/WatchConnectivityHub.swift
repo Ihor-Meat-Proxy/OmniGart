@@ -47,7 +47,8 @@ final class WatchConnectivityHub: NSObject, ObservableObject, WCSessionDelegate 
     /// Pull Sendable fields off WCSession dictionaries before hopping to the main actor.
     private nonisolated static func extract(_ dictionary: [String: Any]) -> (ids: [String]?, json: String?) {
         let ids = dictionary["equipmentIds"] as? [String]
-        let json = dictionary[selectionPayloadKey] as? String
+        // Literal matches PhoneWorkoutSelection.PAYLOAD_KEY (avoid MainActor-isolated Shared access).
+        let json = dictionary["omnigart.workout.selection.json"] as? String
         return (ids, json)
     }
 

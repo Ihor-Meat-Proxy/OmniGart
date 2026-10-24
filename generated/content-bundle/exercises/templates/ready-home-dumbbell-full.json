@@ -1,0 +1,98 @@
+{
+  "id": "ready-home-dumbbell-full",
+  "nameKeys": {
+    "enGB": "template.ready_home_dumbbell_full.name",
+    "uk": "template.ready_home_dumbbell_full.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "beginner",
+  "goal": "general_fitness",
+  "daysPerWeek": 1,
+  "sessionMinutes": 35,
+  "equipmentPreset": "home_gym",
+  "equipmentRequired": [
+    "bodyweight",
+    "dumbbell"
+  ],
+  "rationale": "Home full-body session using dumbbells plus bodyweight bracing for balanced pattern coverage.",
+  "evidenceRefs": [
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "main",
+      "nameKeys": {
+        "enGB": "template.ready_home_dumbbell_full.main.name",
+        "uk": "template.ready_home_dumbbell_full.main.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "goblet-squat",
+              "sets": 3,
+              "reps": "10-12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "dumbbell-bench-press",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "reverse-lunge-dumbbell",
+              "sets": 3,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "one-arm-dumbbell-row",
+              "sets": 3,
+              "reps": "10/side",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "overhead-press-dumbbell",
+              "sets": 3,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "plank",
+              "sets": 2,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 60,
+              "durationSeconds": 30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

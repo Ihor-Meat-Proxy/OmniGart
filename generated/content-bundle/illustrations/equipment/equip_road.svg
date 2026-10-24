@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none" data-omnigart="equip:road">
+  <circle cx="64" cy="64" r="58" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="48" y="28" width="32" height="72" rx="2" fill="#334155"/>
+  <line x1="64" y1="36" x2="64" y2="48" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  <line x1="64" y1="56" x2="64" y2="68" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  <line x1="64" y1="76" x2="64" y2="88" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+
+</svg>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none" data-omnigart="equip:ez_bar">
+  <circle cx="64" cy="64" r="58" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <path d="M26 56 C44 46 56 64 64 56 C72 48 84 66 102 56" fill="none" stroke="#334155" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="22" y="48" width="6" height="16" rx="1" fill="#334155"/>
+  <rect x="100" y="48" width="6" height="16" rx="1" fill="#334155"/>
+
+</svg>

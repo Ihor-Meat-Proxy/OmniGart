@@ -1,0 +1,97 @@
+{
+  "id": "ready-bw-lower",
+  "nameKeys": {
+    "enGB": "template.ready_bw_lower.name",
+    "uk": "template.ready_bw_lower.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "intermediate",
+  "goal": "hypertrophy",
+  "daysPerWeek": 1,
+  "sessionMinutes": 30,
+  "equipmentPreset": "bodyweight",
+  "equipmentRequired": [
+    "bodyweight"
+  ],
+  "rationale": "Bodyweight lower focus with squat, lunge, hip extension, hamstring and calf patterns for balanced coverage.",
+  "evidenceRefs": [
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "main",
+      "nameKeys": {
+        "enGB": "template.ready_bw_lower.main.name",
+        "uk": "template.ready_bw_lower.main.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "bodyweight-squat",
+              "sets": 4,
+              "reps": "12-15",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "reverse-lunge-bodyweight",
+              "sets": 3,
+              "reps": "10/leg",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "hip-thrust-bodyweight",
+              "sets": 4,
+              "reps": "12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "nordic-curl-assisted",
+              "sets": 3,
+              "reps": "6-10",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "calf-raise-bodyweight",
+              "sets": 3,
+              "reps": "15-20",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "wall-sit",
+              "sets": 2,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 60,
+              "durationSeconds": 45
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -13,6 +13,7 @@
     "evidence": { "maxArchiveBytes": 3145728 },
     "icons": { "maxArchiveBytes": 2097152 },
     "body-maps": { "maxArchiveBytes": 1048576 },
+    "illustrations": { "maxArchiveBytes": 3145728 },
     "achievements": { "maxArchiveBytes": 524288 },
     "exercise-images": { "maxArchiveBytes": 47185920 },
     "formulas": { "maxArchiveBytes": 65536 },

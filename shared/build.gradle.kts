@@ -109,6 +109,12 @@ detekt {
     config.setFrom(files("${rootProject.projectDir}/config/detekt/detekt.yml"))
 }
 
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    exclude("**/build/generated/**")
+    exclude("**/com/omnigart/shared/strength/BundledStrengthLibrary.kt")
+    exclude("**/com/omnigart/shared/strength/ReadyMadeWorkoutCatalog.kt")
+}
+
 /**
  * Copy already-linked Shared.frameworks into the XcodeGen search path:
  * shared/build/xcode-frameworks/<Configuration>/<PLATFORM_NAME>/Shared.framework

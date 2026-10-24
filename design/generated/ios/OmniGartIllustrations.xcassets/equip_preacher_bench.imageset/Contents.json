@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "equip_preacher_bench.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "equip_preacher_bench.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

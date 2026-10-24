@@ -245,9 +245,9 @@
         "sha256": "79f32eb72c9a663c4b574926a65056c31a5e1ecc2ad9cb0b801fc92791786ca4"
       },
       {
-        "bytes": 2851,
+        "bytes": 2883,
         "path": "data/back-squat.json",
-        "sha256": "e624a6537a5247fcde2517c4c98851e3a47ff8234ece5e8b59e72e2959e111cd"
+        "sha256": "079899160e794a79f08122ce8ac29688b1a3281da021a1b358405b4f7ea41c6c"
       },
       {
         "bytes": 1868,
@@ -255,9 +255,9 @@
         "sha256": "538c78f4f0a29f735d12e8efbf498e2b999bcc6167434d90dc0e8e51095c7ecb"
       },
       {
-        "bytes": 2466,
+        "bytes": 2464,
         "path": "data/band-assisted-dip.json",
-        "sha256": "ff4944afc2715fc515ceb8229942d59ea0e999e4e6cbafa096bcbc89ddcd69e6"
+        "sha256": "22c6d0a966c90b99a76ed2ff54e7f72e51da557a09619fd97bbed7d6ec9ffc9a"
       },
       {
         "bytes": 1777,
@@ -265,24 +265,24 @@
         "sha256": "d96087fa5031184a9039c91a4603703ab48c991188678c54979d14dc1bcd9caf"
       },
       {
-        "bytes": 2375,
+        "bytes": 2394,
         "path": "data/barbell-bench-press.json",
-        "sha256": "a7b5ec4bbeb93752e26574a7e39bd0f854932d29d25dfb20c1725b70db069e52"
+        "sha256": "448bf45b4b39fc21299780628e89b273341fed97b6acb8c518f5e64d6e7e4e26"
       },
       {
         "bytes": 1527,
         "path": "data/barbell-curl.json",
-        "sha256": "b310566d27678dddc225c4c29a7aee87753be642332942b01911af7a625f8cc1"
+        "sha256": "d56d76f063ac25b955dbafe0e3a7fa0826653e5a4108f149641c9fc61f354703"
       },
       {
-        "bytes": 1832,
+        "bytes": 1846,
         "path": "data/barbell-row.json",
-        "sha256": "a8fe8dbb9370930f5d9534f2ef55c6ed60c2c835d2290c313ccf46fc1ab7c6e3"
+        "sha256": "5ab2bc4a81f0b9705c83c7a0909718282f924290a4f081b074b137ff1d3c7502"
       },
       {
-        "bytes": 2813,
+        "bytes": 2818,
         "path": "data/bench-dip.json",
-        "sha256": "4b5dc2552d210ad1fcf236b04ee8c6b5b4e675639a0c1abadba768f5db8ba354"
+        "sha256": "5801559b587f5566deec4249b4afeb26ec2fc6c671780bad93b8c4638529f2d3"
       },
       {
         "bytes": 1712,
@@ -290,9 +290,14 @@
         "sha256": "736c32888ba5fe179f06dcc34e0086e2bb49d79f2947ab53f6f8e9219e4f9a2d"
       },
       {
-        "bytes": 2001,
+        "bytes": 2379,
+        "path": "data/bodyweight-squat.json",
+        "sha256": "381cea814cdbe1ec20aa21226e044122360fcf9b55c72567ec0a71a44cbce6e5"
+      },
+      {
+        "bytes": 2033,
         "path": "data/box-squat.json",
-        "sha256": "9aec383a60d4128cd863b52fdaf461a11138c143ba44608d16058e4f40209e63"
+        "sha256": "dcb82b97804187ee5f54e5220ffd0c8298afc1c9f204c7e5a52f690bc9f60011"
       },
       {
         "bytes": 1962,
@@ -315,6 +320,11 @@
         "sha256": "7027e41a674f3f4cf52f3d0c4bccdaaf5efc87f941e4f2451b9d66c7dd6379bd"
       },
       {
+        "bytes": 2257,
+        "path": "data/burpee.json",
+        "sha256": "3152daef9fc7e5fc17b70241dc8a27f5dd2eb4dd050d7487960a4f51d00cd6cf"
+      },
+      {
         "bytes": 1712,
         "path": "data/butt-kicks.json",
         "sha256": "192e836315a9bf6b0a71294f8c3f466260ddb75f1fcfd03174eefda05b91f78e"
@@ -335,9 +345,14 @@
         "sha256": "171add744576095cfb31bd1d0d5be9cf3d69a79c5e3da1dcd02a9205238a1c10"
       },
       {
-        "bytes": 1781,
+        "bytes": 1946,
+        "path": "data/calf-raise-bodyweight.json",
+        "sha256": "4ba6c20fabcf59555128c8ac9b33c3e5e796be354226d02c352381f68a28891b"
+      },
+      {
+        "bytes": 1720,
         "path": "data/calf-raise-standing.json",
-        "sha256": "e6bbc518aa2fba31fe473e16cf6590e7109f34b31721355014c7744d4ee384a2"
+        "sha256": "edbb9eadd8cff9e150a11ff087e21187027751001088105f6870263bb34d4ecf"
       },
       {
         "bytes": 1624,
@@ -370,9 +385,9 @@
         "sha256": "3d95c3c85b9d8501844a1f009a5b9de324fead8d9dff42d83ef20dc4fca4ad86"
       },
       {
-        "bytes": 1789,
+        "bytes": 1808,
         "path": "data/close-grip-bench-press.json",
-        "sha256": "fdbb86a9a77e1c5939eb43e7b49476e86e4d496c4cf419eb17e62aabc4f2578c"
+        "sha256": "4cda9fcd63f45948deba227bbc92df2d6612016a6295872e8c70447db8e372d6"
       },
       {
         "bytes": 2491,
@@ -385,14 +400,19 @@
         "sha256": "465f888aa85a1a5cda5b820cfac4014ed1a96894930d3210344be5ce0a72d87b"
       },
       {
-        "bytes": 2566,
+        "bytes": 2580,
         "path": "data/conventional-deadlift.json",
-        "sha256": "b9e60fa44b570153c4ae3a7652cba57398271450b5c850f1d3046a6a95b798d3"
+        "sha256": "232bb57c6be2858102d2ee1c63018c17923c9004116011a039a00fa2408cc886"
       },
       {
         "bytes": 1929,
         "path": "data/dead-bug.json",
         "sha256": "521327c90d981973f0f1917d698b221f113e28191a8fe7a22f734b1d874e8d53"
+      },
+      {
+        "bytes": 2140,
+        "path": "data/decline-push-up.json",
+        "sha256": "0ea7bf022597757c193a93cc9b1d2dbb8f788d30e5da43a9573da544fcd47c3d"
       },
       {
         "bytes": 1767,
@@ -405,9 +425,9 @@
         "sha256": "5485e28b48eaff6e959d02a1e74394a687ddf0ab8fc801d02122a368502164fd"
       },
       {
-        "bytes": 3275,
+        "bytes": 3273,
         "path": "data/dip-parallel-bar.json",
-        "sha256": "a601fba7c794d0dee32fe2714cd07da770a989f992fdedd0b369d05b11c1525d"
+        "sha256": "3586204542484d2c1467803f0161c8f92505ec2e785747cc722f66aa2db4b65c"
       },
       {
         "bytes": 1940,
@@ -415,9 +435,9 @@
         "sha256": "aa148f8f88b86c3393b9506fe20dee961806b9f68f8d925ea8ef2d3081aec016"
       },
       {
-        "bytes": 2190,
+        "bytes": 2195,
         "path": "data/dumbbell-bench-press.json",
-        "sha256": "395189b7fbc45e2bc99d31e870a3eb8275b83609c967b817c9176066c1e2878f"
+        "sha256": "d21e9a1f3bf451e0732f3c10476590f1a8e493b8fd5bc70b63a45eea8fa3a337"
       },
       {
         "bytes": 1527,
@@ -425,9 +445,9 @@
         "sha256": "465ccf175634dee7f04f2eedf6a92703e934ca45708f953418a4e7bec43ebbfa"
       },
       {
-        "bytes": 1809,
+        "bytes": 1820,
         "path": "data/dumbbell-incline-press.json",
-        "sha256": "611e20b3aa9437d90581cd43afc55b9e901b069a5e485fcbed3b3cb1c555b4a5"
+        "sha256": "9a1d52471c6399f3ae7e82baf2315585ec9f2987781bf66024b82ebe75e3f454"
       },
       {
         "bytes": 2151,
@@ -455,9 +475,9 @@
         "sha256": "09652d903c5feadb97871a9660c4fd6e574262e8c62d79318bc83cd0a75d96b9"
       },
       {
-        "bytes": 2337,
+        "bytes": 2369,
         "path": "data/front-squat.json",
-        "sha256": "3df1fe15b5bfd6ec0d9d5fa786641bbccb9aae47089ad4682e08b5e7c41629bc"
+        "sha256": "49f23a15307a2f6d63bccaf58c8440dfc960ad2186baa1770f753699f91e42a0"
       },
       {
         "bytes": 1853,
@@ -510,14 +530,24 @@
         "sha256": "4488f2227ea12a8dea04b69f9a235bee798a55f3f469e31588301fc8da554093"
       },
       {
+        "bytes": 2113,
+        "path": "data/hip-thrust-bodyweight.json",
+        "sha256": "cc44134d7315a4952d266057eaaceb670e570a58ea0c7671a4f9593ca4d8d750"
+      },
+      {
         "bytes": 2016,
         "path": "data/hip-thrust.json",
         "sha256": "940b781534c5a43c6cf1d106812699626e9b6f6f35a820febbd6106162e4f88b"
       },
       {
-        "bytes": 2009,
+        "bytes": 2286,
+        "path": "data/hollow-hold.json",
+        "sha256": "eeb9d7d4454d2f6dc468f86a9e52413b307fa094d1fb2f87e83b843d95087535"
+      },
+      {
+        "bytes": 1919,
         "path": "data/incline-push-up.json",
-        "sha256": "fa2abb5d67409a3b93021ee8018a2248f28703865962ac27b62f6346ec1fa7b0"
+        "sha256": "71d6824913c18a0191e6a0c3e1ea54a978f092a23a0c135e6288f53cf667a86e"
       },
       {
         "bytes": 1960,
@@ -525,9 +555,14 @@
         "sha256": "36a16af2f3fd15d5c98da1940eee9df71190c7131ad17ed4dc8f876c7224ad57"
       },
       {
-        "bytes": 2849,
+        "bytes": 2734,
         "path": "data/inverted-row.json",
-        "sha256": "abc47cafa2c67e26e7b73a181012766d6a890c96b933c790c905ed0e8d87758a"
+        "sha256": "75447c6fad6819b5a67e85bfce94b98ab3e89d5ec9a41d7bfe53b74b2e326de2"
+      },
+      {
+        "bytes": 1933,
+        "path": "data/jump-squat.json",
+        "sha256": "916fe2cc1436c5df0ca2cff38382a561948f54891d7b494104f6d221889cef92"
       },
       {
         "bytes": 2099,
@@ -560,14 +595,14 @@
         "sha256": "248e0a0c951ff31060ae5150a9b15917a1813ba15bbe8d9c574aae1ec381d010"
       },
       {
-        "bytes": 1969,
+        "bytes": 1961,
         "path": "data/lat-pulldown.json",
-        "sha256": "cef16924654685c88887297b71721a8185610fdbde4ced5091a5c81c29e8d6c1"
+        "sha256": "8b1ae51c90d3ed2e88d0001f920a106bc73274296fce22b06f08a882bd23e7a3"
       },
       {
-        "bytes": 1693,
+        "bytes": 1643,
         "path": "data/lateral-lunge.json",
-        "sha256": "99558af57042ede37b031325e245890f208c843be9a9d7f6fcad0e334cddfd81"
+        "sha256": "a03da4d88b7195b5ac449e74e5e03d559c94c1b0bc64cca9454e4dd1c10a5054"
       },
       {
         "bytes": 1599,
@@ -585,9 +620,9 @@
         "sha256": "c4e374f83485a845f377dbc0b090658de42746074cb85696150e0273f7782e66"
       },
       {
-        "bytes": 2091,
+        "bytes": 2093,
         "path": "data/leg-press.json",
-        "sha256": "b0c0533372dd29fae7bafda87f3cd4e3de5d803d043f243355571d40ba76c2af"
+        "sha256": "54858ca9f6ce489a04cd6a4f72a57da741876b392ae2a5868736f4a78bc8af49"
       },
       {
         "bytes": 1760,
@@ -595,14 +630,14 @@
         "sha256": "2d97a8c9de7868ee19da8e947dc3358dc8452cd8c3cac3ab096cadfda12e5ec6"
       },
       {
-        "bytes": 2487,
+        "bytes": 2507,
         "path": "data/machine-assisted-dip.json",
-        "sha256": "96995830c244177e00ee53e79d519b8f2ab502dc3dd0fbcf7e3d56ddd8fd9046"
+        "sha256": "f376e82fc6590172b5f38f859d56e261c4614941f072d02bbf075e90bb9d853e"
       },
       {
-        "bytes": 2737,
+        "bytes": 2757,
         "path": "data/machine-assisted-pull-up.json",
-        "sha256": "8d4d3bf9fa557c02658fc48b2091cd4208843d4e821bad25ede57c9f0944617e"
+        "sha256": "ac034a7ffe9d0ba6d607c73beae9c380b6eec9549c67d1e065353c069e1a05c5"
       },
       {
         "bytes": 1962,
@@ -615,14 +650,19 @@
         "sha256": "8cb607a05875ded633d334d3d36ca6662e65cf53cc790dd7990baf9d36e9e147"
       },
       {
+        "bytes": 2069,
+        "path": "data/mountain-climber.json",
+        "sha256": "e05d763cbd133c35621cab52a6c8abf4d2cff48bfdbb28985e444ec843ee5532"
+      },
+      {
         "bytes": 1653,
         "path": "data/mountain-pose.json",
         "sha256": "4a16402b5a609b7543807b6929700151fa74d04f3cffeb61364d6343e316c47a"
       },
       {
-        "bytes": 2536,
+        "bytes": 2534,
         "path": "data/negative-dip.json",
-        "sha256": "5f9ba4ab405b32dfdd5b6ce7275ba49004adf390eeeb83f4c08ee386e5355043"
+        "sha256": "e24efa8bb7edf6855f9d4f218a2cce1de52e1cc764361f16a244e29ad2ca4e90"
       },
       {
         "bytes": 2715,
@@ -640,14 +680,19 @@
         "sha256": "418dcabaabbb00ab8e4dd0f19de1e72123cc61196d9a8d5f2f501339849bc74a"
       },
       {
+        "bytes": 2220,
+        "path": "data/nordic-curl.json",
+        "sha256": "7f98581b2ccff358167aabf0232658adcab2ae6e2a3bfce5668986106c1d0386"
+      },
+      {
         "bytes": 2044,
         "path": "data/one-arm-dumbbell-row.json",
         "sha256": "56a601423db42c41e94006ace5092bdfa53ecd202a7f263860739ff513fbe517"
       },
       {
-        "bytes": 2242,
+        "bytes": 2256,
         "path": "data/overhead-press-barbell.json",
-        "sha256": "3068ee91c7dc95a7d051810e25ae784f75df0d4d0662b33d22851ffcc4bab500"
+        "sha256": "213fed9896c2cc416e3b0c2c443c86dd745eb64f0de1cb434f50e81522c8be19"
       },
       {
         "bytes": 2004,
@@ -693,6 +738,11 @@
         "bytes": 1802,
         "path": "data/pigeon-pose.json",
         "sha256": "2cb52d36253174a4a261b75c5a0c18bf490f838c9106051ec3efb50e4702e1c5"
+      },
+      {
+        "bytes": 2243,
+        "path": "data/pike-push-up.json",
+        "sha256": "34ab7facf34d72b2889a043bdce744e50dec34ad4c07217486b8a0c2db37baa6"
       },
       {
         "bytes": 1806,
@@ -770,6 +820,11 @@
         "sha256": "efee6edd5eff83244c59d056b981dda41b8881b7894e8d7c9833d164dbb548d7"
       },
       {
+        "bytes": 2389,
+        "path": "data/reverse-lunge-bodyweight.json",
+        "sha256": "395d74ad3a1dbaf64dad2bc3cd010df58c690c67ed731d514d9d5169c08d4df2"
+      },
+      {
         "bytes": 1873,
         "path": "data/reverse-lunge-dumbbell.json",
         "sha256": "6d5d5247557a62964de55469ed176c83cbad7bdeeb077a325796e70b45972adf"
@@ -780,9 +835,9 @@
         "sha256": "b0319906554ef2124fc1b930aa6c12185725c063c073eda1c40d73cdb4cab2b3"
       },
       {
-        "bytes": 2142,
+        "bytes": 2156,
         "path": "data/romanian-deadlift-barbell.json",
-        "sha256": "b0fab4b1b23076b04edc5d45ba27ec1a13af5968c841868937318b1e89ea9b84"
+        "sha256": "81f7d48af0915f1a252af62fb8274c80507caf34f1505c8a51a09fc937ffed05"
       },
       {
         "bytes": 2110,
@@ -815,14 +870,19 @@
         "sha256": "88dc888e3fb822c42aa37ad62d9a4c74c13d4e3e16fad9486212d218cedc712d"
       },
       {
+        "bytes": 2068,
+        "path": "data/side-plank-hip-abduction.json",
+        "sha256": "1a05815843bda0422b531428abfd00e2778d11b3643d6f35faf567ffce630ece"
+      },
+      {
         "bytes": 1695,
         "path": "data/side-plank.json",
         "sha256": "385e1c263653cf03beefcc2a0cadedefa2be1dd2e66973585280bbefb65b4394"
       },
       {
-        "bytes": 1850,
+        "bytes": 1791,
         "path": "data/single-leg-hip-thrust.json",
-        "sha256": "7ddc3f56a8d7d2c782a65a6fdbfb57e5f277dc2083d5ac22231b114a910a27c2"
+        "sha256": "95282b69d8ca41f769f9147284048bd4c449e29b3c5118511e3a3a8321110103"
       },
       {
         "bytes": 1863,
@@ -835,9 +895,9 @@
         "sha256": "88cbc6dff3da45ee00e0cd307a8437ed30e236977026ff11944502d2e6dcf468"
       },
       {
-        "bytes": 1992,
+        "bytes": 1998,
         "path": "data/smith-machine-squat.json",
-        "sha256": "adcae094db02ac0bd2d9a274da86af3e30d1a1145f7476719822fb075055e993"
+        "sha256": "e62bd2b5c1d8995ca6b830cc003d4e32f7c2744680a8f3c6f7be57c927632b2f"
       },
       {
         "bytes": 1941,
@@ -845,9 +905,9 @@
         "sha256": "41be9649b6d3e36b50eb3fa62ef49ff537eef538478d8dd869b3b786af6d3e06"
       },
       {
-        "bytes": 2015,
+        "bytes": 1992,
         "path": "data/step-up.json",
-        "sha256": "49947604fd8ee4a2bfd031e3ccc2a616c0ecee3d1e8f2bfd36c405f3e3b7f3c7"
+        "sha256": "2cb416b9b26bb479b19902b2b4bb0b9017aac662b0e7b1f27d86bf28f2c035f7"
       },
       {
         "bytes": 2464,
@@ -900,9 +960,14 @@
         "sha256": "29a5bff9d0c0b23e1e100b3621ac1fe10dedf018d2a85309940f1c6c6ec3c47b"
       },
       {
-        "bytes": 2092,
+        "bytes": 2070,
         "path": "data/walking-lunge.json",
-        "sha256": "418c4a8afa588f7e6e80443eac9b37f53894f2c7982d65e23658a7ad40ec1494"
+        "sha256": "fa82ce1ab9992be058e88c5c816ac73acb3b0425b5f96bf7d0a8da0b96b37ca9"
+      },
+      {
+        "bytes": 1961,
+        "path": "data/wall-sit.json",
+        "sha256": "c3e46be7f203294b014a0982bf1fd0dd8829e336b6561c05f7767a6feeb9b8b7"
       },
       {
         "bytes": 1814,
@@ -915,9 +980,9 @@
         "sha256": "38a256bd264b8432d197d159b083062f0962fb4dcef91e42b56e117c87b090c5"
       },
       {
-        "bytes": 2724,
+        "bytes": 2722,
         "path": "data/weighted-dip.json",
-        "sha256": "a0ba274c6633b8a1dcc6e43e329157ef240cee1942a179a3a522358e86687a95"
+        "sha256": "a1aed1fd944bc7f8bef7059825f7320d93a15e63b7dde7f0d8ac08453455d66a"
       },
       {
         "bytes": 2844,
@@ -935,6 +1000,11 @@
         "sha256": "704f02afed38378e385b8aa21d659148908678ad9ad64d08c17c1fe9d8c97d13"
       },
       {
+        "bytes": 2166,
+        "path": "data/wide-push-up.json",
+        "sha256": "29d5f12ffb1ba928f7562414c1b5af98fb1579a632e2529b1233e3f21b6eb66c"
+      },
+      {
         "bytes": 1827,
         "path": "data/worlds-greatest-stretch.json",
         "sha256": "00766323c8422bf3c0659e8222bc8a4c28f564819d96ce2f9849f1863e0dc6d1"
@@ -945,69 +1015,69 @@
         "sha256": "f6fa20ba7b3bb4080d09ebd611b2faf0acc7140e615fbf0e99a152abfd06afac"
       },
       {
-        "bytes": 486,
+        "bytes": 594,
         "path": "equipment-presets.json",
-        "sha256": "86760cf1e0a139c7df639fbd4ad95580a0f96e5d7efbf151b42ff3977fee0108"
+        "sha256": "4d580601a11387c5d1682809ea6a79b00555e25e3436dc385c6e0204856a495c"
       },
       {
-        "bytes": 191264,
+        "bytes": 214946,
         "path": "locales/be.json",
-        "sha256": "234a98401fc27711875cd51236fd10f9c78ce0c0fadfe32bf59fbe7ca0091c34"
+        "sha256": "db4055ea8e16d322de5298f85cecef3e010f7b5f0eece7c9a67a53cc09f9370c"
       },
       {
-        "bytes": 145578,
+        "bytes": 162952,
         "path": "locales/cs.json",
-        "sha256": "a11bd29d68123977720afd0b7a7a394233f3c93517471a7d84434a69304c33a6"
+        "sha256": "d2635085229af6acc873fc07be3842b1500fc7fc2afdcef3cf928023e551c85d"
       },
       {
-        "bytes": 148085,
+        "bytes": 165792,
         "path": "locales/de.json",
-        "sha256": "3a6dc545dae3c1884f369ed058a38dab9f969c103fd9dfe8a53eddfb2d8560ae"
+        "sha256": "374818db958b2ea5aa5a1a66643107a42229c5f9aa65855502e469ed08357f5d"
       },
       {
-        "bytes": 133392,
+        "bytes": 149937,
         "path": "locales/en-GB.json",
-        "sha256": "5b54ce95cb9bddc8a8217b0372509b77aeb5e9810e1bef9dfad8c72d714644c5"
+        "sha256": "7f1964b2159d6383dcf26616ff41b52f374d917da17b2ef91323ae49f3a8d812"
       },
       {
-        "bytes": 145394,
+        "bytes": 163378,
         "path": "locales/es.json",
-        "sha256": "47d694116c958f96031594c892a26e53dc2b6f199430ab5e689c4cd39350f079"
+        "sha256": "0321db5b00c23193fbfea36d376043c95d627232b227581d885b3c53d737913e"
       },
       {
-        "bytes": 149220,
+        "bytes": 167332,
         "path": "locales/fr.json",
-        "sha256": "4a3e310d351a53b93395434f4b79b830104e74976c4d1a20ddd2bc11a22b5535"
+        "sha256": "4fa91c88a835b493e46d4671adcc6e2749b0e16e17bbbb5d8031451c95dfa321"
       },
       {
-        "bytes": 240121,
+        "bytes": 269634,
         "path": "locales/ka.json",
-        "sha256": "699f6367f7108b8f7d6929c849819c4891ae7e9dce087fdb29eb2258672871a7"
+        "sha256": "190c2dde1f84f97ba167ae4016637d9e1f248071fb1a643e20f8df261915db26"
       },
       {
-        "bytes": 181204,
+        "bytes": 203166,
         "path": "locales/kk.json",
-        "sha256": "e2daa17f6fa47f31a93b9816c641a216e5b75b2a17d8f62ce5d7f2c76dc2f650"
+        "sha256": "908cbc0f1a21ca956fa7f75f5aef0d3bfa50f20bbe56f12343281243b66b5749"
       },
       {
-        "bytes": 149535,
+        "bytes": 167179,
         "path": "locales/pl.json",
-        "sha256": "4c03a918942c9b733309a01280e129dcba8dc00513317f7238daf3dd78df3170"
+        "sha256": "df91a18bc29e33652414d0b82dd4d4dc1f0d3ce81bfca6440a639500cd85084f"
       },
       {
-        "bytes": 190762,
+        "bytes": 214931,
         "path": "locales/uk.json",
-        "sha256": "17d20c235f570a346bb7fcb7950b86ccc5f11231ec4aad6058711b3bb770055a"
+        "sha256": "a35af9b0544eac1c14590c61faa7ea2acd106782a284e3f09afaaa8313858c29"
       },
       {
-        "bytes": 127489,
+        "bytes": 142677,
         "path": "locales/zh-Hans.json",
-        "sha256": "eeede640d2bf355d89a70efcf6ada6784c3bd2851ea2e52d15b3603cd0ea9533"
+        "sha256": "d74ea8d047f033825b4fbde191d0910c2b069b6a900f6e06351a256cec5c2d84"
       },
       {
-        "bytes": 8622,
+        "bytes": 8841,
         "path": "schema/exercise.schema.json",
-        "sha256": "0a8043b7487b3766cc374f979d1c89d97663fabecf2db5ae6a3bf5587e02244a"
+        "sha256": "f93062179c259779320120755677dbc074b860cd122a7e55767b64902a40976a"
       },
       {
         "bytes": 4305,
@@ -1068,6 +1138,71 @@
         "bytes": 4685,
         "path": "templates/ppl-6x.json",
         "sha256": "26a2be8c7b8df22c9f42f981754d29b731c1825aeedc516af8570dce28057ada"
+      },
+      {
+        "bytes": 2331,
+        "path": "templates/ready-bw-bar-pull-dip.json",
+        "sha256": "102e41e565820b0a64656351f0b52e9d9d0d1d5deeee0297a0a37164b14076a6"
+      },
+      {
+        "bytes": 2341,
+        "path": "templates/ready-bw-core.json",
+        "sha256": "c59a2332ae9d069d7d0e44aac28e5e899f406f37dc87b01cf4fde0a0cd1d3fed"
+      },
+      {
+        "bytes": 2592,
+        "path": "templates/ready-bw-full-body-advanced.json",
+        "sha256": "2dc95b46f7764db038fba0d8af4ad0ebb9a9425260235a8a8f28bcf8b7cc7b2d"
+      },
+      {
+        "bytes": 2381,
+        "path": "templates/ready-bw-full-body-beginner.json",
+        "sha256": "9063a274c0165630020ccd10cc6b02e3dc27ef403e7428cd265810797bcdcb0d"
+      },
+      {
+        "bytes": 2584,
+        "path": "templates/ready-bw-full-body-intermediate.json",
+        "sha256": "faef599feab93cc27ec75c6156f0c9a04ad506352967e790ea33ef53540b975c"
+      },
+      {
+        "bytes": 2326,
+        "path": "templates/ready-bw-lower.json",
+        "sha256": "84742ddb97b3d26104355c4fc935dd0abbff86f28b8165cc12a5829f643c6d1a"
+      },
+      {
+        "bytes": 2119,
+        "path": "templates/ready-bw-quick-15.json",
+        "sha256": "eada1edffaf58768c86af2dde2315d293bbcf2b4cd57ba2590b565cc785143e5"
+      },
+      {
+        "bytes": 2091,
+        "path": "templates/ready-bw-quick-20.json",
+        "sha256": "a47f1445819d72ed0b7492fc85e420bdbc6aa3f255184ec9e024300e2badde2a"
+      },
+      {
+        "bytes": 2331,
+        "path": "templates/ready-bw-upper.json",
+        "sha256": "23f026f134ddd6d86fa589a5df152411db945e61e8077ef6bec7fd5adcad31c5"
+      },
+      {
+        "bytes": 2139,
+        "path": "templates/ready-gym-lower-strength.json",
+        "sha256": "f8a59cb2a0158302815671b4155e1fc69c3c0e7c94c821aae38558daed361405"
+      },
+      {
+        "bytes": 2146,
+        "path": "templates/ready-gym-upper-strength.json",
+        "sha256": "e62e7cef890f07569bfda8edf8dfec05a0be268fb5cb16b5a73fbb9c2f40bdbf"
+      },
+      {
+        "bytes": 2323,
+        "path": "templates/ready-home-bands-travel.json",
+        "sha256": "2e061f41e4666f283798d222de374a376f7e11e383eb27f925088d41b5446004"
+      },
+      {
+        "bytes": 2371,
+        "path": "templates/ready-home-dumbbell-full.json",
+        "sha256": "456719b4a47461e16dd3e8b3090332d7c63406c635192e833573294e06aa8a13"
       },
       {
         "bytes": 4061,
@@ -1306,6 +1441,1588 @@
         "path": "svg/yoga.svg",
         "sha256": "c4d8cdb96a4b0733b858ce60392aff8517e7543e2a62134bf3f3011433b92122"
       }
+    ],
+    "illustrations": [
+      {
+        "bytes": 595,
+        "path": "equipment/equip_ab_wheel.svg",
+        "sha256": "33a9964aa6c853f72ab6af0299cada595a0d0d27308575df103ab34cc8c58a87"
+      },
+      {
+        "bytes": 575,
+        "path": "equipment/equip_abd_crunch_machine.svg",
+        "sha256": "66efe885006fef81f3fc3c0b230320db29005c06e9640a5dec676362f7c6fe89"
+      },
+      {
+        "bytes": 406,
+        "path": "equipment/equip_aerobic_step.svg",
+        "sha256": "fea6dfe697876dcc9a47b0ba898732a4d5fcca916132b7808891d94f0ad9a732"
+      },
+      {
+        "bytes": 903,
+        "path": "equipment/equip_air_bike.svg",
+        "sha256": "1faf3bb3333e42c948b598990c26e2bec946906317306f6172ed1cc17c1e2635"
+      },
+      {
+        "bytes": 407,
+        "path": "equipment/equip_ankle_weights.svg",
+        "sha256": "16c179d4d679489219b02cf73771f9de0507fa6070fc5e077276f426366f7de0"
+      },
+      {
+        "bytes": 907,
+        "path": "equipment/equip_assault_bike.svg",
+        "sha256": "5a732b0afa4a94ca5d10e510f03c1a3a4c3447b6de9f8e7a87ad482ae794ddf2"
+      },
+      {
+        "bytes": 681,
+        "path": "equipment/equip_assisted_pullup_dip_machine.svg",
+        "sha256": "945ed6790d1ca13fdae80f4537f9f4d714ed5bfaf6feac0373cf27303a734044"
+      },
+      {
+        "bytes": 436,
+        "path": "equipment/equip_balance_pad.svg",
+        "sha256": "a95257a226a5cbbee6388f8688c05def6e2bc2b77b534f3413f23b280676a060"
+      },
+      {
+        "bytes": 797,
+        "path": "equipment/equip_bands.svg",
+        "sha256": "bfad07f38dfa8b5564e56d8e518e9ca55e8672fa62b820b33e95ca6cc9809e77"
+      },
+      {
+        "bytes": 635,
+        "path": "equipment/equip_barbell.svg",
+        "sha256": "f66882b83f5b90a0032d840b5e6af881f75a1dccc3c66056c38a946cdd7289eb"
+      },
+      {
+        "bytes": 579,
+        "path": "equipment/equip_battle_ropes.svg",
+        "sha256": "1c12a3c2d7441aa0683f5cb45f6c35692e23d9eed8c1b7eb0ff036df3727099f"
+      },
+      {
+        "bytes": 726,
+        "path": "equipment/equip_bench.svg",
+        "sha256": "b4a6ed149c0237870505a82028ba1868421652294c5c297db2d86cf126a76eff"
+      },
+      {
+        "bytes": 545,
+        "path": "equipment/equip_bench_adjustable.svg",
+        "sha256": "06180d7ca3bec3a877c753d6e29ea5e5b7fffd427677033236fdbd8b9fea8550"
+      },
+      {
+        "bytes": 528,
+        "path": "equipment/equip_bench_decline.svg",
+        "sha256": "cda097224b56c54312774ef3ccd66395a09641102e51ee57916ed187849946f9"
+      },
+      {
+        "bytes": 731,
+        "path": "equipment/equip_bench_flat.svg",
+        "sha256": "83dcd0dbbdf70235daa6e446a46acdf09020cb418ed6c588f89d6877e482ea51"
+      },
+      {
+        "bytes": 542,
+        "path": "equipment/equip_bench_incline.svg",
+        "sha256": "0ee7919bf4c73c247aed8e8306d1d8310e2112da4c69882dfe2a101581104361"
+      },
+      {
+        "bytes": 888,
+        "path": "equipment/equip_bike.svg",
+        "sha256": "cdb6e9a022ed98d5b5dd71bb29d8061020b8e3e6deae3f87072ae0c29376e9df"
+      },
+      {
+        "bytes": 749,
+        "path": "equipment/equip_bodyweight.svg",
+        "sha256": "e65f1c440e2582d120806e98b9af78c83bd358b36d6e47943fbc403b1bc6d5ed"
+      },
+      {
+        "bytes": 323,
+        "path": "equipment/equip_bolster.svg",
+        "sha256": "7732ed6353ff04d51ce5211e538719bf2bd09c8cba25c836c1dcee6fec4a0892"
+      },
+      {
+        "bytes": 388,
+        "path": "equipment/equip_bosu.svg",
+        "sha256": "6d8e497dcaef73573b5b8e415ca00762f80352cddc06cf6f44dabca0aa85c18f"
+      },
+      {
+        "bytes": 384,
+        "path": "equipment/equip_box.svg",
+        "sha256": "7a0a60610ea7752a4ec02eaef8d0589f7c73848e68198f1f03c9104e8be36ab4"
+      },
+      {
+        "bytes": 529,
+        "path": "equipment/equip_bumper_plates.svg",
+        "sha256": "1180858433c8dc3fdb86838efcacab41ac90e2e9c8cf0ef8b105694117093c9b"
+      },
+      {
+        "bytes": 549,
+        "path": "equipment/equip_cable.svg",
+        "sha256": "2732415c35eb02cce520ce7daa4ebc0811d8f9bdc1d41a5d33f42a63a698d385"
+      },
+      {
+        "bytes": 870,
+        "path": "equipment/equip_cable_crossover.svg",
+        "sha256": "23277a811c8fd15f648acda3807d102f0ce7f1a2b630e09b44b542fd29f38d8b"
+      },
+      {
+        "bytes": 610,
+        "path": "equipment/equip_calf_raise_machine.svg",
+        "sha256": "b613c7aa083fb6ca5cc7b3258c3f381fc62f5fbed678a9218fbbc941bf5def03"
+      },
+      {
+        "bytes": 540,
+        "path": "equipment/equip_cambered_bar.svg",
+        "sha256": "ccc6b81a6e04a846816d9cff2d987fd39120bb697f4e96ee321081a607f0e286"
+      },
+      {
+        "bytes": 728,
+        "path": "equipment/equip_chair.svg",
+        "sha256": "dd5a2a6d519a7728166555c4d1ba8a7ea76517b524f9dc11a6d2cf978222c550"
+      },
+      {
+        "bytes": 330,
+        "path": "equipment/equip_chalk.svg",
+        "sha256": "88710d4148eccc27b000049201d6dcc8a4cfc2897389540beb58a17104de7e49"
+      },
+      {
+        "bytes": 542,
+        "path": "equipment/equip_chest_press_machine.svg",
+        "sha256": "478f6f6fb1fdceb607e24143add4d1891551d021ebfd27eb59e0caf95e5cc135"
+      },
+      {
+        "bytes": 473,
+        "path": "equipment/equip_climbing_rope.svg",
+        "sha256": "48c9841e56105312d3a79b8e3a74743eade2a0871ba11be2166c7332befb5bac"
+      },
+      {
+        "bytes": 440,
+        "path": "equipment/equip_clubbell.svg",
+        "sha256": "05eec9ba2ba2219a182f30c838629395713fc667243e863582aa7b3bdb7defab"
+      },
+      {
+        "bytes": 670,
+        "path": "equipment/equip_dip_bars.svg",
+        "sha256": "f5e18a43c9dc6068f477e013876d69464371eddff54b2e9a49fee1be7e9dcad6"
+      },
+      {
+        "bytes": 475,
+        "path": "equipment/equip_dip_belt.svg",
+        "sha256": "691a4136fb8a00bf737f8f56d37d3d9e7fa4cf8981bc8dacf9bf1b51cf761664"
+      },
+      {
+        "bytes": 431,
+        "path": "equipment/equip_doorway.svg",
+        "sha256": "b70ca25fad7f28658222a63b8eeb1485630e5e4badf4bcfc832efc191f1a0c94"
+      },
+      {
+        "bytes": 361,
+        "path": "equipment/equip_dowel.svg",
+        "sha256": "aaf1e24bb3a01ce3c82f6bd38367285a52ca02b8a9c7e10619a24184c438f4aa"
+      },
+      {
+        "bytes": 468,
+        "path": "equipment/equip_dumbbell.svg",
+        "sha256": "3fa9cb130cd7915f4c0740ab821364228567b12afefb136dd70a861c864cd234"
+      },
+      {
+        "bytes": 479,
+        "path": "equipment/equip_dumbbell_adjustable.svg",
+        "sha256": "46998130b4fb830d6a94cde5f45cc6347edecbbea5112f399a03e18d0e391d0e"
+      },
+      {
+        "bytes": 473,
+        "path": "equipment/equip_dumbbell_pair.svg",
+        "sha256": "411a1e4911e2bb613a9b475f3e2ade6de06dca62c4f1c521fc0785f0691fde80"
+      },
+      {
+        "bytes": 435,
+        "path": "equipment/equip_elbow_sleeves.svg",
+        "sha256": "5a0a7b929788d0ecf6d1de9aa331dafcaf7da3bc2931a20dc6da1131abba9347"
+      },
+      {
+        "bytes": 752,
+        "path": "equipment/equip_elliptical.svg",
+        "sha256": "aac271645db56e4175536538509a2c7f903fcd3b0d2fe34917bd2e051d9f8c9d"
+      },
+      {
+        "bytes": 897,
+        "path": "equipment/equip_exercise_bike.svg",
+        "sha256": "0ec6fbd3bf7620f3631349ee4f6d2ebd18d8d1e043149f631e3950b2cae72420"
+      },
+      {
+        "bytes": 437,
+        "path": "equipment/equip_exercise_mat.svg",
+        "sha256": "4dc49c78821668be69397b848be2e2da2cf9f93159cae7fc79db511219466b69"
+      },
+      {
+        "bytes": 552,
+        "path": "equipment/equip_ez_bar.svg",
+        "sha256": "dfb9a60570fe3a7740b551954a553a67d06a1c1ff98156e1822559508b4e1071"
+      },
+      {
+        "bytes": 606,
+        "path": "equipment/equip_farmer_handles.svg",
+        "sha256": "37eab025fd7bf894fe230a4d6032f2a335b810ef2d780403f169b6d66eed3fe2"
+      },
+      {
+        "bytes": 379,
+        "path": "equipment/equip_fins.svg",
+        "sha256": "03ef6ac4ec309ceaf0927c65e9a27f85ff453c6b686d605c2f5d9111a629b06b"
+      },
+      {
+        "bytes": 387,
+        "path": "equipment/equip_foam_roller.svg",
+        "sha256": "745bf2c142679b66f90760b4ef9eac5ba8c479ae5cc892a8843f134407ccc211"
+      },
+      {
+        "bytes": 533,
+        "path": "equipment/equip_fractional_plates.svg",
+        "sha256": "ca2c8fd9eb5e5595b1d84b4d40d28a38d7c68080a4efd620fa42271cfce42479"
+      },
+      {
+        "bytes": 873,
+        "path": "equipment/equip_functional_trainer.svg",
+        "sha256": "d6706c7a1a7562186cda96e75a9c891710c6ad112b7eb28daad3171a250287d7"
+      },
+      {
+        "bytes": 605,
+        "path": "equipment/equip_glute_drive.svg",
+        "sha256": "0bcce6fc00effa887b92f3d228670df20dfdcfa7350488c8ddac9c4bb42a8ebf"
+      },
+      {
+        "bytes": 732,
+        "path": "equipment/equip_grip_trainer.svg",
+        "sha256": "9f65f0579b541d6a27b317a873f39edc40ce9d7313ff55d3aa8bf6fc96205715"
+      },
+      {
+        "bytes": 635,
+        "path": "equipment/equip_gymnastic_rings.svg",
+        "sha256": "58266ab52cfd5dc3ffad95e3a2eb80744901395e59cea90d23f942fe40c7f7c3"
+      },
+      {
+        "bytes": 474,
+        "path": "equipment/equip_hack_squat.svg",
+        "sha256": "3b981d85ce68b5ba32b8cab32023234b15bafc2fb6034c7e4d61e8f1b35a25b2"
+      },
+      {
+        "bytes": 769,
+        "path": "equipment/equip_half_rack.svg",
+        "sha256": "e77231be8d7fa860cb0069def372aac8f0c1d8acfd178fd96747d427275d8ed7"
+      },
+      {
+        "bytes": 450,
+        "path": "equipment/equip_hand_paddle.svg",
+        "sha256": "5ffab6c2d0f843db5dbdc104b9105dbeb6111ed95d8749bc4f65f65f85d97476"
+      },
+      {
+        "bytes": 607,
+        "path": "equipment/equip_hex_bar_handles.svg",
+        "sha256": "8679d8916208c8e56b084ffff029db6df39640a8ea5a7e53ffe5d08a8fb4b4b4"
+      },
+      {
+        "bytes": 645,
+        "path": "equipment/equip_hip_abduction_machine.svg",
+        "sha256": "6ca81c9ed50fa3eb24d65be54329b79736e67c9d6ab99d5fa28b0ec31a963c7e"
+      },
+      {
+        "bytes": 645,
+        "path": "equipment/equip_hip_adduction_machine.svg",
+        "sha256": "3fea1fc97c999b92a130ddf1aaf967719fe90cd46e5e7318d77fd3fb26dd05c2"
+      },
+      {
+        "bytes": 612,
+        "path": "equipment/equip_hip_thrust_machine.svg",
+        "sha256": "d7cf504cbb861817161d25c00ce29d3b75e331d42c64769ddac24d54d9465c3b"
+      },
+      {
+        "bytes": 683,
+        "path": "equipment/equip_hyperextension_bench.svg",
+        "sha256": "5837666d72c0cbfd0cd274f1f7aeb3e78149234ef996d7f4692ba4a050fe09e3"
+      },
+      {
+        "bytes": 443,
+        "path": "equipment/equip_indian_club.svg",
+        "sha256": "c6dfc1f14ffe429de2877e9cd120c907e361814a1c4e58a4f67904204e1c901b"
+      },
+      {
+        "bytes": 705,
+        "path": "equipment/equip_j_hooks.svg",
+        "sha256": "a4eea61e9c33d9a8db17c731afe82e057b6baa069b164c501156be2bfbc01df8"
+      },
+      {
+        "bytes": 578,
+        "path": "equipment/equip_jump_rope.svg",
+        "sha256": "e43642c77346185992a923f18ab30b517be4f50c07fd25fc8b7cb05e9d0c90fc"
+      },
+      {
+        "bytes": 485,
+        "path": "equipment/equip_kettlebell.svg",
+        "sha256": "5666088b8096ff986701a1757d0a551ec7081698bac2b8a3bf2e6f3b2a9e0b76"
+      },
+      {
+        "bytes": 490,
+        "path": "equipment/equip_kettlebell_pair.svg",
+        "sha256": "5a695e476af10657479604a412e1599788bc5e17742bafa4246907bcb95b13ba"
+      },
+      {
+        "bytes": 398,
+        "path": "equipment/equip_kickboard.svg",
+        "sha256": "7332ff76c96f697dd22d2957f0042befcbfb3d84d20446a5e1c0220124913018"
+      },
+      {
+        "bytes": 434,
+        "path": "equipment/equip_knee_sleeves.svg",
+        "sha256": "111f7b4348097dc52259f0d66ff241045ec5bb2835d6ef48232d1459735c8efd"
+      },
+      {
+        "bytes": 319,
+        "path": "equipment/equip_lacrosse_ball.svg",
+        "sha256": "b8879869df62aa774799b7cb7ea420eb2a65b48c9295a28aec0e120df21e8a03"
+      },
+      {
+        "bytes": 482,
+        "path": "equipment/equip_landmine.svg",
+        "sha256": "58ccea2517fb2771ad04152c2edc58aa98bb4fd3292793c166e3ae4fd6c4f314"
+      },
+      {
+        "bytes": 707,
+        "path": "equipment/equip_lat_pulldown.svg",
+        "sha256": "fc0f04b667fac05b53293f51457eb24892d40e5d7a5cb0167c977f32b4f0d471"
+      },
+      {
+        "bytes": 590,
+        "path": "equipment/equip_leg_curl.svg",
+        "sha256": "06fa56a1f3c0060a019ca75a745cf9622c8e147ad8f20137c63c73c4a0766cc0"
+      },
+      {
+        "bytes": 605,
+        "path": "equipment/equip_leg_extension.svg",
+        "sha256": "a9c8d542c016d7e1df91fef6db81e4398805c023fdc77e1d66e7a99350ee4967"
+      },
+      {
+        "bytes": 541,
+        "path": "equipment/equip_leg_press.svg",
+        "sha256": "05b4dcb53f2742280a69b97a39e39f9aa92cbecc74551d5ab522f67531dd0ba1"
+      },
+      {
+        "bytes": 413,
+        "path": "equipment/equip_lifting_belt.svg",
+        "sha256": "e81cb77351e5801f8a30b0cf5cb5046df8d7c14cd8905cb513f7e113bb60bc00"
+      },
+      {
+        "bytes": 673,
+        "path": "equipment/equip_lifting_straps.svg",
+        "sha256": "4e4fe308560fd392d2ca6a00529818f7defbb71b0bf842ce9a05c156404c1a65"
+      },
+      {
+        "bytes": 596,
+        "path": "equipment/equip_lying_leg_curl.svg",
+        "sha256": "0cc4c76416d3ff557223115f091b6a6cb264cbc812731295f6694e98eb17af58"
+      },
+      {
+        "bytes": 382,
+        "path": "equipment/equip_macebell.svg",
+        "sha256": "7f9684dfe6f9ab7287ac8258289ee2fb71c708375f6ea68a21dd36bc08463aaa"
+      },
+      {
+        "bytes": 481,
+        "path": "equipment/equip_machine.svg",
+        "sha256": "32525849d92c8a758db5da94b3eed6bb9ec30084e2e16d3200d057a5396b516d"
+      },
+      {
+        "bytes": 318,
+        "path": "equipment/equip_massage_ball.svg",
+        "sha256": "bfb877c63dedd948308785ea65814ef716673ae173c5ea16560980b0703379f2"
+      },
+      {
+        "bytes": 452,
+        "path": "equipment/equip_medicine_ball.svg",
+        "sha256": "e15dc6b4055f9533598f81c66c1cfb64fd9fd724860a0e59573a48a395e8ba3d"
+      },
+      {
+        "bytes": 359,
+        "path": "equipment/equip_mini_band.svg",
+        "sha256": "75b1e58cab9308fd194bb9fc8d710aae532bd2e72ea41044378e350b582d460b"
+      },
+      {
+        "bytes": 370,
+        "path": "equipment/equip_mobility_stick.svg",
+        "sha256": "7e7dfb237c23f43b0fdf2885ab284fbf230628a2e0b8d71bd8d97978834e0960"
+      },
+      {
+        "bytes": 743,
+        "path": "equipment/equip_none.svg",
+        "sha256": "79d5428118807efb71984bebc5198dede4ebb72753908a95113551697f97dd15"
+      },
+      {
+        "bytes": 643,
+        "path": "equipment/equip_olympic_barbell.svg",
+        "sha256": "9790b63bdd9fe9dc8129a9e8f9e93a7174657fbc5d0ac2dc9e546b54cf6c782f"
+      },
+      {
+        "bytes": 572,
+        "path": "equipment/equip_open_water.svg",
+        "sha256": "544333eac6442b5d0700103ef9c371728981859708d0d0082d80702d13a67c73"
+      },
+      {
+        "bytes": 445,
+        "path": "equipment/equip_paddle.svg",
+        "sha256": "883dff2cc17d2b4c51b71e5e423e05f8babbe5640a2fd5050a206a11acc70025"
+      },
+      {
+        "bytes": 861,
+        "path": "equipment/equip_parallettes.svg",
+        "sha256": "71e5b2c625d1ae164be57ca7c55900050cc5fd6bea336793b2f79e11329307fe"
+      },
+      {
+        "bytes": 832,
+        "path": "equipment/equip_park_bench.svg",
+        "sha256": "cab69f15049da4b54a8dc2b5d7ca99995054745fb97b2d7359255d1ce95d18ca"
+      },
+      {
+        "bytes": 632,
+        "path": "equipment/equip_pec_deck.svg",
+        "sha256": "2b35553d4bb79febfbaeadf0212ea5e2b467b087a3cea066486c816431de08dd"
+      },
+      {
+        "bytes": 1129,
+        "path": "equipment/equip_pegboard.svg",
+        "sha256": "0c74da795796ffa7fb721844fde4763be8f794f7fd78d60eb9ea6c77787411ea"
+      },
+      {
+        "bytes": 396,
+        "path": "equipment/equip_pilates_barrel.svg",
+        "sha256": "c0eb52569980dd8689a882437b18a0eb894722efb02b1894d3973cdb39aabf1f"
+      },
+      {
+        "bytes": 738,
+        "path": "equipment/equip_pilates_cadillac.svg",
+        "sha256": "16d9fed6f8c83b1f8f307c9a630ceac10b1704e117163edc5c47c90296f51390"
+      },
+      {
+        "bytes": 671,
+        "path": "equipment/equip_pilates_chair.svg",
+        "sha256": "603291dd83aa06fe1aab8e7a025d43e7a306baaba6dbdb4a1e524b88e67842dd"
+      },
+      {
+        "bytes": 436,
+        "path": "equipment/equip_pilates_mat.svg",
+        "sha256": "323d79dd0cbab80b1bb949cdeb9608a7b3e163efea84bbd9dc07aeaa4a8e2c6a"
+      },
+      {
+        "bytes": 540,
+        "path": "equipment/equip_pilates_reformer.svg",
+        "sha256": "f1b7c38be13ea964c12255f47c43818fe87f80d44186e937777255f3b152af5f"
+      },
+      {
+        "bytes": 522,
+        "path": "equipment/equip_plates.svg",
+        "sha256": "3b7a307e7f50df5c17e806d2ebf9e39feb63f2c5a2786ac28a545da31eb110e8"
+      },
+      {
+        "bytes": 570,
+        "path": "equipment/equip_playground_bar.svg",
+        "sha256": "57ea212909b61f36f4e4d05e30f280f299a249bbe70f3fe8ca824808ac75b478"
+      },
+      {
+        "bytes": 389,
+        "path": "equipment/equip_plyo_box.svg",
+        "sha256": "4547d6e1a7ee361e7231333ebece8c8a14c95a8a8f33622557eda8eaa191fb83"
+      },
+      {
+        "bytes": 633,
+        "path": "equipment/equip_pool.svg",
+        "sha256": "bbf92b40d6f09e01876c77bad042172a8ad21a7ccf4394117239c12692f6191a"
+      },
+      {
+        "bytes": 568,
+        "path": "equipment/equip_power_rack.svg",
+        "sha256": "86d097eecca8d302773a4c034c400783283cf76622c51cb1d190a70eafaf1a0f"
+      },
+      {
+        "bytes": 612,
+        "path": "equipment/equip_preacher_bench.svg",
+        "sha256": "0f1f5e475ade49514f689ceb4b19953330946f46400654dbf1b5c1cc878b56ae"
+      },
+      {
+        "bytes": 698,
+        "path": "equipment/equip_prowler.svg",
+        "sha256": "58cb2bc06e732da1204e3bcfa6e263bfc10c271fdc01bc2955dbee19853fe08b"
+      },
+      {
+        "bytes": 454,
+        "path": "equipment/equip_pull_buoy.svg",
+        "sha256": "cb3cf4f8698ae355a34d148bee459b24fb59165cc61e6d1e97fc7840e98649d6"
+      },
+      {
+        "bytes": 712,
+        "path": "equipment/equip_pull_down_machine.svg",
+        "sha256": "8afceee3f4024f1e331fc72eeb352e4680b0275e058a5f3683f44255ad69a326"
+      },
+      {
+        "bytes": 811,
+        "path": "equipment/equip_pull_up_assist_band.svg",
+        "sha256": "51d3f1a993439381e84c09ce8cb8eddfb084a8ea04c26b885949ab3c372d0f49"
+      },
+      {
+        "bytes": 567,
+        "path": "equipment/equip_pull_up_bar.svg",
+        "sha256": "f1f01995d07742cb76e1671a0749a05d706081a881677fc82c671494de2f043f"
+      },
+      {
+        "bytes": 364,
+        "path": "equipment/equip_pvc_pipe.svg",
+        "sha256": "c5c839cb354e1179718907ef0a26a1a25f9241f08961e2257dbdc22ea8d43d78"
+      },
+      {
+        "bytes": 641,
+        "path": "equipment/equip_rear_delt_machine.svg",
+        "sha256": "5d0b1330b5c435bf8d7d780e96dd89a68e3df0023b3c80f400abe74bc29d2301"
+      },
+      {
+        "bytes": 813,
+        "path": "equipment/equip_resistance_band_heavy.svg",
+        "sha256": "9b4a04289b379e19ccae7aa9ce262855727e447b7b20d484609c29de5320fd68"
+      },
+      {
+        "bytes": 813,
+        "path": "equipment/equip_resistance_band_light.svg",
+        "sha256": "359044ca886b4533928fd19597cf3d58494c3826e15d284fd7e37bcf49148f19"
+      },
+      {
+        "bytes": 814,
+        "path": "equipment/equip_resistance_band_medium.svg",
+        "sha256": "cb415011cf5c972f04faad8db20f1537101ec5d376adbfc3370c0ce87510c084"
+      },
+      {
+        "bytes": 625,
+        "path": "equipment/equip_rings.svg",
+        "sha256": "56782286d9a376fab83a390e1d8f1caec927bca8581ae314c7b172530769dfe0"
+      },
+      {
+        "bytes": 626,
+        "path": "equipment/equip_road.svg",
+        "sha256": "f199f8b51f50c4cd40ab26024b7ac71e397d389132d241d06e81c72bb23ab3fe"
+      },
+      {
+        "bytes": 674,
+        "path": "equipment/equip_roman_chair.svg",
+        "sha256": "e12a771c943f2466bc985d8422da52c38b7d312d5f12b19aab998aafd6d0c897"
+      },
+      {
+        "bytes": 517,
+        "path": "equipment/equip_rotary_torso.svg",
+        "sha256": "1a78fcdb2d2c4941c6b89b97d161fae952e5c38fdf67d8595b30e1997fd91a4d"
+      },
+      {
+        "bytes": 647,
+        "path": "equipment/equip_rower.svg",
+        "sha256": "6a8abc1072734cbf771fe625026bc988d233f40222feb8111493332b3c9244e5"
+      },
+      {
+        "bytes": 652,
+        "path": "equipment/equip_rowing_erg.svg",
+        "sha256": "caab3c465f618563cc04de82e18e409bdd2b1bf91d4c058bc3d4779f27ad8ff8"
+      },
+      {
+        "bytes": 667,
+        "path": "equipment/equip_safety_arms.svg",
+        "sha256": "fb98e882c09c0d9f6bdf97b10c8fb1d1d54bbfffb7a8e81092d2fd07a1d04c4c"
+      },
+      {
+        "bytes": 662,
+        "path": "equipment/equip_safety_squat_bar.svg",
+        "sha256": "0572345e6d11a395caa2754f3e4c55ffffdca5f743bee249dadd58280aa61273"
+      },
+      {
+        "bytes": 387,
+        "path": "equipment/equip_sandbag.svg",
+        "sha256": "12e68834d23043755badb308b2b4cbb793cda5a8d965fec665896935871e7397"
+      },
+      {
+        "bytes": 597,
+        "path": "equipment/equip_seated_leg_curl.svg",
+        "sha256": "874d5bbe8d3f0ecd88b1c99318efecbf5ad8eff99d9f17ec934390b1afd3039d"
+      },
+      {
+        "bytes": 659,
+        "path": "equipment/equip_seated_row_machine.svg",
+        "sha256": "1835b6aa225c34acc23bd8c820545c822f60cc313709cbd45e6821ddf6e62b3f"
+      },
+      {
+        "bytes": 674,
+        "path": "equipment/equip_shoulder_press_machine.svg",
+        "sha256": "ff717dd73165f6a071b4fb8bf63f12605f5daad7050694362cf28399d43763ad"
+      },
+      {
+        "bytes": 698,
+        "path": "equipment/equip_ski_erg.svg",
+        "sha256": "f5520e3ac988a87003bc9d103a69b13b6fd55003a7feaa51cd603d755b679362"
+      },
+      {
+        "bytes": 448,
+        "path": "equipment/equip_slam_ball.svg",
+        "sha256": "caea278861f30ba90163666590334aad54021f9f806b7605831f213d04b5a32f"
+      },
+      {
+        "bytes": 328,
+        "path": "equipment/equip_slant_board.svg",
+        "sha256": "972adf436cef404823a72ebd4950958ff9cb60f6ad0d5496c01062a788830217"
+      },
+      {
+        "bytes": 695,
+        "path": "equipment/equip_sled.svg",
+        "sha256": "3cd449f610fe5dbc10195a914895d18aab024805aa99e55e6afc635951f9028f"
+      },
+      {
+        "bytes": 383,
+        "path": "equipment/equip_sliders.svg",
+        "sha256": "2bff19ee0b9d5a946d2f5711ce0dd6499bf3754fc12506747901a311a7c7e715"
+      },
+      {
+        "bytes": 710,
+        "path": "equipment/equip_smith_machine.svg",
+        "sha256": "221c9b404556d784e9fc4350421f4f49d77046c9bbd8d778bb59c50d671f0166"
+      },
+      {
+        "bytes": 545,
+        "path": "equipment/equip_snorkel.svg",
+        "sha256": "06c855a827d908fdec9b78cb33e21db8cffc727d0146c72735404cf138bd8e45"
+      },
+      {
+        "bytes": 893,
+        "path": "equipment/equip_spin_bike.svg",
+        "sha256": "9a0ae81eb48339807965f5ae3144a24ca50cc6962a7bb3794b98a3422e8ba247"
+      },
+      {
+        "bytes": 868,
+        "path": "equipment/equip_squat_rack.svg",
+        "sha256": "dfe002858beb3e4d712772c69e0f6941979cd6dfb5c5cffb1c60ba7d0d710017"
+      },
+      {
+        "bytes": 669,
+        "path": "equipment/equip_squat_stand.svg",
+        "sha256": "8f452e5eab4429dd636a9f6dccb47b9ccd29e092fc1614bd30a3b090548405dd"
+      },
+      {
+        "bytes": 484,
+        "path": "equipment/equip_stability_ball.svg",
+        "sha256": "f8055544e215c3d30a4371880b654a31c756db41e18cd685f8c06345e6983c6a"
+      },
+      {
+        "bytes": 345,
+        "path": "equipment/equip_stair_climber.svg",
+        "sha256": "d6e15761622f6a1ce99e3ae34fc76f1a0ce1c6d3d72e62e5bc956210cb81b966"
+      },
+      {
+        "bytes": 417,
+        "path": "equipment/equip_stairs.svg",
+        "sha256": "cee9bfa36e6e23959911b227a7368f5baa9c0745926f128df64b2f63b0ef0aea"
+      },
+      {
+        "bytes": 1072,
+        "path": "equipment/equip_stall_bars.svg",
+        "sha256": "bed17739c87855e0169cfccc7b48549bb827b04cc7c61e50d4d8f29e52a1556b"
+      },
+      {
+        "bytes": 407,
+        "path": "equipment/equip_step_platform.svg",
+        "sha256": "0f3a5208bcca559e027976f4137952344bb563c53b79741785e4fc2f5e8aa6ed"
+      },
+      {
+        "bytes": 705,
+        "path": "equipment/equip_suspension.svg",
+        "sha256": "6ee31997d0783e6ee9559b07f3955fc99d72833d6d4f3580f2214c08f594cc9f"
+      },
+      {
+        "bytes": 508,
+        "path": "equipment/equip_swim_parachute.svg",
+        "sha256": "e1c26c765daf626781ba6903b9a88c3283d0edbe21fc04a72256d3908156bd64"
+      },
+      {
+        "bytes": 480,
+        "path": "equipment/equip_swiss_ball.svg",
+        "sha256": "34cf894813b610191625df79adb66394b10eddb6f858631fb2aa3c6c270b11b6"
+      },
+      {
+        "bytes": 554,
+        "path": "equipment/equip_swiss_bar.svg",
+        "sha256": "57780529a0833bf02226bcc83ca1162f6b79551a71acc8d4556036640d2a2211"
+      },
+      {
+        "bytes": 611,
+        "path": "equipment/equip_tibia_dorsi_machine.svg",
+        "sha256": "9f89558843f9aae0e5a63e5524d01b0caedffdc55a652966d44327625c5c288d"
+      },
+      {
+        "bytes": 548,
+        "path": "equipment/equip_track.svg",
+        "sha256": "53d6f78de316fd8299a7c963b967be2ed72521b9dcef37e305af9ed61cd21d1a"
+      },
+      {
+        "bytes": 548,
+        "path": "equipment/equip_trail.svg",
+        "sha256": "7411165875cede93ac5c7bb6abc30a98e76d5a3fc15e58e298e04eb649d6c052"
+      },
+      {
+        "bytes": 544,
+        "path": "equipment/equip_trap_bar.svg",
+        "sha256": "f6d678c9c16ea2be29edb5b8b9baf7a71c58a8c9a6b0f0d89a35313098bd667d"
+      },
+      {
+        "bytes": 601,
+        "path": "equipment/equip_treadmill.svg",
+        "sha256": "3dd2e16f7e354c6824f87fa8de69ef1301b979578f4164528f8d688af3df90e4"
+      },
+      {
+        "bytes": 409,
+        "path": "equipment/equip_tree.svg",
+        "sha256": "8f5e1bcd2ea12ff31f4e58c3c1b6d8478ce1dd9216ff05c6987d9846aafd91d3"
+      },
+      {
+        "bytes": 555,
+        "path": "equipment/equip_tube_band.svg",
+        "sha256": "abb12b11eef62c3e5bd145fb9a78b562cf27bf1214dc6742581b60325ce4744d"
+      },
+      {
+        "bytes": 627,
+        "path": "equipment/equip_wall.svg",
+        "sha256": "8011b6d3165ee8545d69eafdd181dcc9b9215198f80b2d17705d41f0981ec412"
+      },
+      {
+        "bytes": 448,
+        "path": "equipment/equip_wall_ball.svg",
+        "sha256": "44050093aaa2215aac64fd2682b86eff2f0963c9930b8ff830be432f48796b95"
+      },
+      {
+        "bytes": 313,
+        "path": "equipment/equip_wedge.svg",
+        "sha256": "73a6f94e780eb302ec3edb2b59d81517b0401d29395f01216a0dac5396bcf521"
+      },
+      {
+        "bytes": 601,
+        "path": "equipment/equip_weight_vest.svg",
+        "sha256": "9ffbc1a883b26117b232fdc35eadecc18a68636b7b4243eecf949a7a14bfb2ac"
+      },
+      {
+        "bytes": 551,
+        "path": "equipment/equip_wrist_roller.svg",
+        "sha256": "1709b9e480eddb2bc6b6cdc133192d8de9dd5ac0eab0554922517e5fd4e644f3"
+      },
+      {
+        "bytes": 335,
+        "path": "equipment/equip_yoga_block.svg",
+        "sha256": "ce720410880de6bcb462d64dc2ed23e8a503ecb67e90e4b275d6a858663b440a"
+      },
+      {
+        "bytes": 433,
+        "path": "equipment/equip_yoga_mat.svg",
+        "sha256": "f5654d4b9a7d6e3c0022111ba899c249480387ab2f5325838fc7b8c47b25356e"
+      },
+      {
+        "bytes": 462,
+        "path": "equipment/equip_yoga_strap.svg",
+        "sha256": "0cf892d1696a86f506f3f2f347096b21ad9387a733f977d29cc8b04ef4333e81"
+      },
+      {
+        "bytes": 1649,
+        "path": "exercises/ex_a-skip.svg",
+        "sha256": "0af4709f26e351cc38ecd2343a3a5d1804960bf837f72437889cdc21865f4014"
+      },
+      {
+        "bytes": 1443,
+        "path": "exercises/ex_ab-wheel-rollout.svg",
+        "sha256": "5398fbfd73278e95a995447e655d984fbaa2e71748f95ba616517bfd61b1f8c4"
+      },
+      {
+        "bytes": 1665,
+        "path": "exercises/ex_archer-pull-up.svg",
+        "sha256": "84aba06f80c7a4b16dbb42ac0529f757d2d947e3018d046b02a67c1af773bada"
+      },
+      {
+        "bytes": 1672,
+        "path": "exercises/ex_assisted-pull-up-band.svg",
+        "sha256": "e66a654b628b6303f6034cdae3984903922c4d92ebafe73e496b643a8b7eccfb"
+      },
+      {
+        "bytes": 1934,
+        "path": "exercises/ex_back-extension-roman.svg",
+        "sha256": "aacba3d9dcd833db61072c399b172672cd354f9edda42c91e8c8185d5f989a36"
+      },
+      {
+        "bytes": 2118,
+        "path": "exercises/ex_back-squat.svg",
+        "sha256": "84707720096961d2af823664711d1e3de7d9698620695efc1d5bc78f10f46ff6"
+      },
+      {
+        "bytes": 1363,
+        "path": "exercises/ex_backstroke.svg",
+        "sha256": "ff3281bc617e23aacff86f0069d2de8c1462e17a7a545dd73f3843355d4f119b"
+      },
+      {
+        "bytes": 1968,
+        "path": "exercises/ex_band-assisted-dip.svg",
+        "sha256": "ed7419f278d838fc3cd84041316493f22b5ac8bbc7f801f4114ec7522a60fd4f"
+      },
+      {
+        "bytes": 1902,
+        "path": "exercises/ex_band-pull-apart.svg",
+        "sha256": "c043c1b77e2346a6cd793a90351654dba3d65c5a100003abb15fd97495fa513f"
+      },
+      {
+        "bytes": 1936,
+        "path": "exercises/ex_barbell-bench-press.svg",
+        "sha256": "8b62cd181d83b2c03884104360913b9df496aaa00181a02c44a2d6386126447a"
+      },
+      {
+        "bytes": 1735,
+        "path": "exercises/ex_barbell-curl.svg",
+        "sha256": "be629f195cd7ad298848c30b3d9d9a169e4460e791591e7cbab2ffa350b5fc1c"
+      },
+      {
+        "bytes": 1734,
+        "path": "exercises/ex_barbell-row.svg",
+        "sha256": "ce898d42dec0bc1e392829cbb1034a5d4c7f4ff179e8a6e36c78831b821c6c9c"
+      },
+      {
+        "bytes": 2019,
+        "path": "exercises/ex_bench-dip.svg",
+        "sha256": "61dda9e222108dac646412376403739950efaf8392136a57dc1156e646af0841"
+      },
+      {
+        "bytes": 1435,
+        "path": "exercises/ex_bird-dog.svg",
+        "sha256": "78a988905dd8597af019ab4114ecc7cc5ab3736a97bfc368eec1f269d932728e"
+      },
+      {
+        "bytes": 1689,
+        "path": "exercises/ex_bodyweight-squat.svg",
+        "sha256": "997b938ef46285ba3ec97fe539e3c66d4ff32497b6e39b1170c73d14171ca88b"
+      },
+      {
+        "bytes": 2117,
+        "path": "exercises/ex_box-squat.svg",
+        "sha256": "c443d61d7223ff742421ffe4eb5d1e0a21623218e5508beffc71372deedfc0e4"
+      },
+      {
+        "bytes": 1365,
+        "path": "exercises/ex_breaststroke.svg",
+        "sha256": "0eb4bcc27d49fe7a905febce01c611610d0104e02f6e8f5308c78480823cdb1b"
+      },
+      {
+        "bytes": 1881,
+        "path": "exercises/ex_bridge-pose-yoga.svg",
+        "sha256": "97dd5ffe70227e0831e5b32e69677a4c8806b6351701278af1cb7ae0390984f8"
+      },
+      {
+        "bytes": 1732,
+        "path": "exercises/ex_brisk-walk.svg",
+        "sha256": "d2774b35ae80afb26bbdd603f131a915020daa44273ab1cc523061c7d52bdf78"
+      },
+      {
+        "bytes": 1771,
+        "path": "exercises/ex_bulgarian-split-squat.svg",
+        "sha256": "7b13cf537255df72f892fd4ab12fe71b7a5530f7ab3c8376ea9b76444ab5caca"
+      },
+      {
+        "bytes": 1900,
+        "path": "exercises/ex_burpee.svg",
+        "sha256": "5e5de1eefcb5d8310c4b9835c87e23a229d0f55f0e0101d1da7a3de9bea56ecf"
+      },
+      {
+        "bytes": 1653,
+        "path": "exercises/ex_butt-kicks.svg",
+        "sha256": "f75791622163c3fd9e076ae8b09564386cff951e7302ba9d3b891cbf3b3d0c60"
+      },
+      {
+        "bytes": 1369,
+        "path": "exercises/ex_butterfly-stroke.svg",
+        "sha256": "cca82ea2d591a7b7b70ffa4924ffb6843055d969d282b4270c1e45226f822464"
+      },
+      {
+        "bytes": 1848,
+        "path": "exercises/ex_cable-chest-fly.svg",
+        "sha256": "b8429dd85aefeb00ac63a52c41076568b3b05b52198de2f41d2d6b03785c446f"
+      },
+      {
+        "bytes": 1270,
+        "path": "exercises/ex_cable-woodchop.svg",
+        "sha256": "68242a5ebd3b88ada30a1a8e76840059687f395e5e6c133b82339cd6b43abff5"
+      },
+      {
+        "bytes": 1915,
+        "path": "exercises/ex_calf-raise-bodyweight.svg",
+        "sha256": "e12474b9d6166bcd638ca5760fa3c2da020f9735d5151e365c0ce69c849800fc"
+      },
+      {
+        "bytes": 1913,
+        "path": "exercises/ex_calf-raise-standing.svg",
+        "sha256": "3285310bd957e3d7a5cf92fc18ab8bb27a7d272ff2ec776659fc2d9e30c0e12c"
+      },
+      {
+        "bytes": 1033,
+        "path": "exercises/ex_cat-cow.svg",
+        "sha256": "ef337e3c1ee25cad687b3216f8306134fb42ea8a7bd5f32e0fad36d6096c0681"
+      },
+      {
+        "bytes": 1367,
+        "path": "exercises/ex_catch-up-drill.svg",
+        "sha256": "53e2de1a21d435fa4e603e248a6ee6e96b063ef6e783ef140b18e7100a01f7a5"
+      },
+      {
+        "bytes": 1574,
+        "path": "exercises/ex_chest-supported-row.svg",
+        "sha256": "19122e36a78b0df98f82144ad278b84e7244e67cd17badd91aad0c093104f37a"
+      },
+      {
+        "bytes": 1671,
+        "path": "exercises/ex_chest-to-bar-pull-up.svg",
+        "sha256": "64facd038031bbbb1bd74287afb528bfa6dea460f2bad27c5fea5efaae0e0aa9"
+      },
+      {
+        "bytes": 1036,
+        "path": "exercises/ex_child-pose.svg",
+        "sha256": "448288d8f492a9c21596a65a0bc7b22a9e51dcb92b9f829b9e211514aea52400"
+      },
+      {
+        "bytes": 1658,
+        "path": "exercises/ex_chin-up.svg",
+        "sha256": "b2c42dd1f4f0775ee9de554ad36753c3d5328bcfba4a486440fe59cb692be371"
+      },
+      {
+        "bytes": 1939,
+        "path": "exercises/ex_close-grip-bench-press.svg",
+        "sha256": "33d0f07ec63e44093533576f3219b92d6736b2de36ad5b2f1db2b0ad1191ec29"
+      },
+      {
+        "bytes": 1669,
+        "path": "exercises/ex_close-grip-pull-up.svg",
+        "sha256": "4f2486454b8989d55734a4aaf940345b0e2f605053b749c45bf56c438febe899"
+      },
+      {
+        "bytes": 1667,
+        "path": "exercises/ex_commando-pull-up.svg",
+        "sha256": "8150a17face7e88aec413bc5c418a8307bb330f1a44ff910d87783cd6acf7084"
+      },
+      {
+        "bytes": 2089,
+        "path": "exercises/ex_conventional-deadlift.svg",
+        "sha256": "62d47d7706a8878d850274dd96dba513c8934461c5d45b87d3e8604f6b3519e4"
+      },
+      {
+        "bytes": 1435,
+        "path": "exercises/ex_dead-bug.svg",
+        "sha256": "f89c508e5d501cdafacacee1409045141c018e83505e5354167eac9d214b72d5"
+      },
+      {
+        "bytes": 1497,
+        "path": "exercises/ex_decline-push-up.svg",
+        "sha256": "a6b2f75c3f5793da3844b2ef95cbece5aa6fdf43f617dafcea652b0c6aa24a28"
+      },
+      {
+        "bytes": 2084,
+        "path": "exercises/ex_deficit-deadlift.svg",
+        "sha256": "de560aaf680aaca44f06848197799ce0d385759f38a2b513e9ae8b7fe4d8026f"
+      },
+      {
+        "bytes": 1497,
+        "path": "exercises/ex_diamond-push-up.svg",
+        "sha256": "b083f9fe281a612623575da88090d8f5b2483829df48d1ebfe0590e658605194"
+      },
+      {
+        "bytes": 1967,
+        "path": "exercises/ex_dip-parallel-bar.svg",
+        "sha256": "95e0fa007aa091c52bbc19e1c5d7780bbd0a58b05dfbb07763987185b06e171d"
+      },
+      {
+        "bytes": 1038,
+        "path": "exercises/ex_downward-dog.svg",
+        "sha256": "ad59519413253e5e2676e3cef43d274d787f4a2d35abf10965cfbfb0edd1c0cd"
+      },
+      {
+        "bytes": 1769,
+        "path": "exercises/ex_dumbbell-bench-press.svg",
+        "sha256": "522affb728678592bc66db23e6fe7305f034ec02c4715499430d3ac32cd11125"
+      },
+      {
+        "bytes": 1568,
+        "path": "exercises/ex_dumbbell-curl.svg",
+        "sha256": "58bc21fd6abf408f0a650a5509a17df294ac9491388247409c2fe6ba98e6849e"
+      },
+      {
+        "bytes": 1771,
+        "path": "exercises/ex_dumbbell-incline-press.svg",
+        "sha256": "f0c63fc1934b1d054d41f1ab2b03f13837ac81672a3623df935d97e76c579b98"
+      },
+      {
+        "bytes": 1730,
+        "path": "exercises/ex_easy-run.svg",
+        "sha256": "5de7884af5b59adef5d62ac7c2d0329e5a36befcbcb415f00bc4798af75804f1"
+      },
+      {
+        "bytes": 1648,
+        "path": "exercises/ex_face-pull.svg",
+        "sha256": "e2d7b108b4ae001fa0235b520398f6f9d001d365038fdb527103af8fff85785a"
+      },
+      {
+        "bytes": 2174,
+        "path": "exercises/ex_farmers-carry.svg",
+        "sha256": "6140979b7c6a5e269708113fa3fd1505cea3c44a136709d18d90693db8736520"
+      },
+      {
+        "bytes": 1769,
+        "path": "exercises/ex_floor-press-dumbbell.svg",
+        "sha256": "d92ae5754f0ebd1d81652737f958d49a13fb80c9d7fc98284e630e4e747fe49d"
+      },
+      {
+        "bytes": 1369,
+        "path": "exercises/ex_freestyle-stroke.svg",
+        "sha256": "397a072ad39b0db0d28ce4627876b16a1f7bc8e99b8dd1c5e2444a6600f48384"
+      },
+      {
+        "bytes": 2119,
+        "path": "exercises/ex_front-squat.svg",
+        "sha256": "f2988f25d225fe6fe812c6853882030b9468e021d8b5192dcd02b9a767f835c8"
+      },
+      {
+        "bytes": 1645,
+        "path": "exercises/ex_glute-bridge.svg",
+        "sha256": "25e9b687fdcca55481c8ed752f606dd339c33e6b3b9ac2384313850f2f71afc3"
+      },
+      {
+        "bytes": 1785,
+        "path": "exercises/ex_goblet-lateral-squat.svg",
+        "sha256": "cf8f5b8e0283c04de0f87a2dd38788bae4eebf86fd5ce655af4657bba5efcce5"
+      },
+      {
+        "bytes": 1952,
+        "path": "exercises/ex_goblet-squat.svg",
+        "sha256": "fa57387265a747cca886f60d5faa752779f64ee2bb72f9968914e553fb83eacf"
+      },
+      {
+        "bytes": 2080,
+        "path": "exercises/ex_good-morning.svg",
+        "sha256": "66366f0c4a0ea6fa2f9df39066b6705ca4e8bdf905f3ec40af609ff90148235e"
+      },
+      {
+        "bytes": 1972,
+        "path": "exercises/ex_hack-squat-machine.svg",
+        "sha256": "fe81d002234ff3a1484f3ca4eb6e430b7480493bf8d9f3466917ff6991cd9a85"
+      },
+      {
+        "bytes": 1808,
+        "path": "exercises/ex_hanging-knee-raise.svg",
+        "sha256": "88f7e45bbd6c970e16128113f7c057613aa940148f4f69a6610a14590878179e"
+      },
+      {
+        "bytes": 1659,
+        "path": "exercises/ex_high-knees-drill.svg",
+        "sha256": "ee5ba7a8df2ba309d441566d10e24b13b02a42a986db34c4bd2d348f4056e197"
+      },
+      {
+        "bytes": 2196,
+        "path": "exercises/ex_hip-abduction-machine.svg",
+        "sha256": "bdb74df3c35984f19767d537b104f9051cde343161ddbc1e2b39cdd8d799c7c3"
+      },
+      {
+        "bytes": 2196,
+        "path": "exercises/ex_hip-adduction-machine.svg",
+        "sha256": "a2b9df5ac992e7147db83c15c8ad6d18f25c28c7f8e3b4411f9a8af61af27728"
+      },
+      {
+        "bytes": 1648,
+        "path": "exercises/ex_hip-hinge-dowel.svg",
+        "sha256": "70df7c19750ce555a2071286165eb806ff01ae6a67fe46d317f46533b956f4dc"
+      },
+      {
+        "bytes": 1654,
+        "path": "exercises/ex_hip-thrust-bodyweight.svg",
+        "sha256": "f328b60aa7ca3320112859c88848b10720f44f2839e3022098d27b1a04772d3f"
+      },
+      {
+        "bytes": 2078,
+        "path": "exercises/ex_hip-thrust.svg",
+        "sha256": "6ca07f973085fe963c109aa120c0a6fe9782113fca77230e1fa39a6e2e65ad61"
+      },
+      {
+        "bytes": 1438,
+        "path": "exercises/ex_hollow-hold.svg",
+        "sha256": "5846547b67525b5b82c5adecd6ae4bc3c04e0489bcf53208fd35b1f621fb3069"
+      },
+      {
+        "bytes": 1497,
+        "path": "exercises/ex_incline-push-up.svg",
+        "sha256": "91560b17d7a26a423a7e481e75692ed258dde1fc3282687ae9bda54d569f90dc"
+      },
+      {
+        "bytes": 1655,
+        "path": "exercises/ex_interval-run.svg",
+        "sha256": "8a85ed3786c3685a1b2fcd16c8f6f6352e4ecc9afe5378851091529806ffaad2"
+      },
+      {
+        "bytes": 1300,
+        "path": "exercises/ex_inverted-row.svg",
+        "sha256": "e7684839277be29db087ca2109b447ea373d1b0c82a6a75ac83cc19b8fb8fffe"
+      },
+      {
+        "bytes": 1683,
+        "path": "exercises/ex_jump-squat.svg",
+        "sha256": "34b9f613ac87038fb09f950e1a0ddb1978f94f33e8a79496cd49a941c04e9e28"
+      },
+      {
+        "bytes": 1931,
+        "path": "exercises/ex_kettlebell-swing.svg",
+        "sha256": "40cc19935cd3b7483cefb1695a6edccb0f9f7aabf5593837a70c6c4ead74e2e3"
+      },
+      {
+        "bytes": 1367,
+        "path": "exercises/ex_kickboard-kick.svg",
+        "sha256": "a26b61036b769a566456c96177859f23f640233b1f9d61ed159a9434beaafc7b"
+      },
+      {
+        "bytes": 1494,
+        "path": "exercises/ex_knee-push-up.svg",
+        "sha256": "7cacea94a219791e0a123287b19983bb41ab8cd6d3deda06b84f76f189aa12fc"
+      },
+      {
+        "bytes": 1855,
+        "path": "exercises/ex_korean-dip.svg",
+        "sha256": "d0051fd0735bbf15c1b552bb33626dd09b425c2b7a24977e0cdb660f6b8f9799"
+      },
+      {
+        "bytes": 1664,
+        "path": "exercises/ex_l-sit-pull-up.svg",
+        "sha256": "052663652250bd6c8dd22002527a1defd1c165f1eb156a8369b95b013ebd2073"
+      },
+      {
+        "bytes": 1777,
+        "path": "exercises/ex_landmine-press.svg",
+        "sha256": "c7f094f29c8f271781c0cfae94db7edc826ff2ac8bb9f108b8343c01e8e95c9b"
+      },
+      {
+        "bytes": 1802,
+        "path": "exercises/ex_lat-pulldown.svg",
+        "sha256": "44e973c9ca46fed111fcf478f63a10a420c338b01968bf6d857fd2c33c1ee608"
+      },
+      {
+        "bytes": 1496,
+        "path": "exercises/ex_lateral-lunge.svg",
+        "sha256": "405ec6d1dbee1e3daea06f4032e61c43bc7ac6d88db89edadd284706e9aaa9ea"
+      },
+      {
+        "bytes": 1762,
+        "path": "exercises/ex_lateral-raise.svg",
+        "sha256": "da613a495315f88b6acc5d4eb05d6f3128e30128ca04ef285bb821d0af46448b"
+      },
+      {
+        "bytes": 1930,
+        "path": "exercises/ex_leg-curl-machine.svg",
+        "sha256": "3e1ae43b7fb3c087538e6527c898932bae162042b4ea74db6ab765774287a196"
+      },
+      {
+        "bytes": 1975,
+        "path": "exercises/ex_leg-extension-machine.svg",
+        "sha256": "9cf5e55a7552db548f7945c3a9238a7adfad1390b69e438ef8329034ab1f4608"
+      },
+      {
+        "bytes": 2021,
+        "path": "exercises/ex_leg-press.svg",
+        "sha256": "cbe819b5e61eef20a407c18878ccd13c568fd642530a2f7453c134e680aa42e1"
+      },
+      {
+        "bytes": 1724,
+        "path": "exercises/ex_low-lunge.svg",
+        "sha256": "0eea834190f8f27cb67d3bf1995b868cd6ec3bd7115a79aa3e376c6fd3d3b8eb"
+      },
+      {
+        "bytes": 1963,
+        "path": "exercises/ex_machine-assisted-dip.svg",
+        "sha256": "76c882c81313413194376ceae9d75106266ab45f52c0bfc7127ffcb184d12145"
+      },
+      {
+        "bytes": 1773,
+        "path": "exercises/ex_machine-assisted-pull-up.svg",
+        "sha256": "f9e80413f28c3847e5a64672c02276b809e88288480109e4a278597c570a5475"
+      },
+      {
+        "bytes": 1782,
+        "path": "exercises/ex_machine-chest-press.svg",
+        "sha256": "816d4218041bfe0ca16ca24f504feb44e0e2acdd5b6ceb8a4d134000e878dab1"
+      },
+      {
+        "bytes": 1785,
+        "path": "exercises/ex_machine-shoulder-press.svg",
+        "sha256": "cfd792fea73c528decdf6adf2f71cdd6ec63ed7f9aa3cd26ced0c61321fd9acc"
+      },
+      {
+        "bytes": 1443,
+        "path": "exercises/ex_mountain-climber.svg",
+        "sha256": "d1c697a31a534d84e66232dea86b601422f4b9827923225e48ef91bd40fc4469"
+      },
+      {
+        "bytes": 1039,
+        "path": "exercises/ex_mountain-pose.svg",
+        "sha256": "a429ff22ac332376bee6fa151cea44c0db06016a0a342583274185598357e343"
+      },
+      {
+        "bytes": 1963,
+        "path": "exercises/ex_negative-dip.svg",
+        "sha256": "834319b3d9e0f509ad687699d0e1f82c30306d52e731d8752a370d6aebc12656"
+      },
+      {
+        "bytes": 1667,
+        "path": "exercises/ex_negative-pull-up.svg",
+        "sha256": "a5163eb3132ed66f8be17cd98dda282ac55462348e540400c83d928c74e0e478"
+      },
+      {
+        "bytes": 1671,
+        "path": "exercises/ex_neutral-grip-pull-up.svg",
+        "sha256": "8f49e4791527648a969dddcfc0e675596ceca77ea8c322ec09a91ae78d810942"
+      },
+      {
+        "bytes": 2252,
+        "path": "exercises/ex_nordic-curl-assisted.svg",
+        "sha256": "7773793f956dfe43ca1468d1d6dfb02d5a015ce92d19224d3450a406fe2fdbb6"
+      },
+      {
+        "bytes": 1644,
+        "path": "exercises/ex_nordic-curl.svg",
+        "sha256": "3a51619fb948ae5a3fc72140573cff92374539d672034fde779fa7a24755d132"
+      },
+      {
+        "bytes": 1575,
+        "path": "exercises/ex_one-arm-dumbbell-row.svg",
+        "sha256": "29474928203fff78b8c2de009056fd1d86ee9bcf793047bff258b84fe6f2adae"
+      },
+      {
+        "bytes": 1939,
+        "path": "exercises/ex_overhead-press-barbell.svg",
+        "sha256": "0ed04582bfe12ff9789ff3ff49eecbea306e0e90cb8a386af5f3986acf2c56b2"
+      },
+      {
+        "bytes": 1772,
+        "path": "exercises/ex_overhead-press-dumbbell.svg",
+        "sha256": "4d2fcba706f5c7adae65cdb1ac940c2cbafdc825231be008d8c358b0e08b8111"
+      },
+      {
+        "bytes": 1369,
+        "path": "exercises/ex_paddle-freestyle.svg",
+        "sha256": "5df09f4ce9fe1407cee5134df295a6e58047e6f893e592d289c4d1dfb05156c7"
+      },
+      {
+        "bytes": 1268,
+        "path": "exercises/ex_pallof-press.svg",
+        "sha256": "682e84afb9880f6aabbad6073a9f001cf0803bda8b5fb16234b1c4521f90112c"
+      },
+      {
+        "bytes": 2124,
+        "path": "exercises/ex_pause-back-squat.svg",
+        "sha256": "a7ef07b4e55134a8b5f03d36c5c12898b832f1ea6f6ebe08ada666af4bb0bcea"
+      },
+      {
+        "bytes": 1934,
+        "path": "exercises/ex_pause-bench-press.svg",
+        "sha256": "940235c71ac8b574d8a9aa88ab95a7302fab74a5106c2f2e3f674552508f7bf7"
+      },
+      {
+        "bytes": 2082,
+        "path": "exercises/ex_pause-deadlift.svg",
+        "sha256": "c48b2fd71c214cff799d609ac45a66efe1d05ab023e86bb608fa567c040f35e6"
+      },
+      {
+        "bytes": 2125,
+        "path": "exercises/ex_pause-front-squat.svg",
+        "sha256": "065b93e8bcae3039150c122577aaf970f9720363cb9248575395998be9fc26e2"
+      },
+      {
+        "bytes": 1771,
+        "path": "exercises/ex_pec-deck.svg",
+        "sha256": "8500183ca026ed361c6e4337da42c0e9e0e9ac692d2ba71f57c6f672c25837e9"
+      },
+      {
+        "bytes": 1037,
+        "path": "exercises/ex_pigeon-pose.svg",
+        "sha256": "9eff9ea4ebf5b698062fe0e87ccd3374177f28ade72bb50adcf97e22b2c8778c"
+      },
+      {
+        "bytes": 1494,
+        "path": "exercises/ex_pike-push-up.svg",
+        "sha256": "b53e292bcd92cdb7395b921b1b1d2d5b194b7f0c08380d694f7b9f93826a83ae"
+      },
+      {
+        "bytes": 1685,
+        "path": "exercises/ex_pilates-double-leg-stretch.svg",
+        "sha256": "46521c529c6a530ccbbfcfa7873fb404f4577bb2fae20e9f500f11b0886accec"
+      },
+      {
+        "bytes": 1674,
+        "path": "exercises/ex_pilates-hundred.svg",
+        "sha256": "6668913ef6e2212530f3003a2b75bfa9e29d91a20e1bccad450f78d512e2b569"
+      },
+      {
+        "bytes": 1678,
+        "path": "exercises/ex_pilates-leg-circles.svg",
+        "sha256": "79483412db0e4e84b188fef64a5b0425ffd0cff6246d09ffe59bf7ec8e3439c5"
+      },
+      {
+        "bytes": 1683,
+        "path": "exercises/ex_pilates-plank-variations.svg",
+        "sha256": "9c82c950b1a5ae12597a2d1e640fdb8e44760fe3e257048e7ab77d654bb8569c"
+      },
+      {
+        "bytes": 1674,
+        "path": "exercises/ex_pilates-roll-up.svg",
+        "sha256": "fe24944902e505e0da07c5d7de6b1e7a31f582c8a8789e06ec3b62e99fe02c9c"
+      },
+      {
+        "bytes": 1670,
+        "path": "exercises/ex_pilates-saw.svg",
+        "sha256": "dc4fd832b0c5b0beddb7051b217045255de3f10749b0828eaf18e95743c45d32"
+      },
+      {
+        "bytes": 1682,
+        "path": "exercises/ex_pilates-shoulder-bridge.svg",
+        "sha256": "16ff838215fa7351ba04fb7b7a9c0c673bc597b7db1b8c439a549f58b6a88495"
+      },
+      {
+        "bytes": 1676,
+        "path": "exercises/ex_pilates-side-kick.svg",
+        "sha256": "59c196291a92510cfd75d9914be0ee86a0e9d2a620bca07fc0dafb2914b86f5c"
+      },
+      {
+        "bytes": 1685,
+        "path": "exercises/ex_pilates-single-leg-stretch.svg",
+        "sha256": "fc2500a411aa58d077f0f72ba8144c1e3daf231b277db38d07bb69655d9dd5a9"
+      },
+      {
+        "bytes": 1671,
+        "path": "exercises/ex_pilates-swan.svg",
+        "sha256": "e118c85d84b26c8c17266cbcc8e0f56acbb194f05564b51dce5e980778a7ffbc"
+      },
+      {
+        "bytes": 1432,
+        "path": "exercises/ex_plank.svg",
+        "sha256": "9833e3991e77eb3b1869ba1206b639081b8fdacb9554de305bef703baba968a5"
+      },
+      {
+        "bytes": 1367,
+        "path": "exercises/ex_pull-buoy-pull.svg",
+        "sha256": "6964c5385002686814421696d725af1b0397a3fd866de2b4ef51bef11b015178"
+      },
+      {
+        "bytes": 1658,
+        "path": "exercises/ex_pull-up.svg",
+        "sha256": "7156e8a62dce79b189bfbe4e8508653883e2bfc6198aa1f304bf1b6c8114343b"
+      },
+      {
+        "bytes": 1927,
+        "path": "exercises/ex_push-press.svg",
+        "sha256": "cea45aacee222ee7c95b7c619eaa05a5c45335ce3ad75f38659248eb8cfdd4c1"
+      },
+      {
+        "bytes": 1489,
+        "path": "exercises/ex_push-up.svg",
+        "sha256": "7b2b927a40dbb54f01b597a0b4f19ebd78000cb7ebdf80155c04a189df7ca6d5"
+      },
+      {
+        "bytes": 1507,
+        "path": "exercises/ex_reverse-lunge-bodyweight.svg",
+        "sha256": "e0b266f5527914f4aaf9ced3e9a12d6b40f98a346ad293e927b23d9a459a9b23"
+      },
+      {
+        "bytes": 1772,
+        "path": "exercises/ex_reverse-lunge-dumbbell.svg",
+        "sha256": "0ee8eb347be1677b04d9110564a0621b6091c0e29d6d56fe8018260729eeeebc"
+      },
+      {
+        "bytes": 1992,
+        "path": "exercises/ex_ring-dip.svg",
+        "sha256": "72005a29351a91644f13e05930db59208a4e759e00ce29105b1039b1dcdd618f"
+      },
+      {
+        "bytes": 2093,
+        "path": "exercises/ex_romanian-deadlift-barbell.svg",
+        "sha256": "c452f815170229970bb66551f8d0a905ccc6fdefacf6dbec25ba10c96d7a80ab"
+      },
+      {
+        "bytes": 1926,
+        "path": "exercises/ex_romanian-deadlift-dumbbell.svg",
+        "sha256": "d63dfa110b854872af6573696b04b8b57fa7ecfa0c4320acc43da90dfec05ac1"
+      },
+      {
+        "bytes": 918,
+        "path": "exercises/ex_russian-twist.svg",
+        "sha256": "29f1149fe622506b71dbdf464544e2ff0a831b6c61ce99202e3abe06803aae5e"
+      },
+      {
+        "bytes": 1667,
+        "path": "exercises/ex_scapular-pull-up.svg",
+        "sha256": "8c14174c59f2e613b4158e8ed19aca4312f660b1803cf9b78a9168bd58f068de"
+      },
+      {
+        "bytes": 1655,
+        "path": "exercises/ex_seated-cable-row.svg",
+        "sha256": "8f178f594b49ccfea59b169c612e9f0183fd9685606d4c189f976b45fd717fed"
+      },
+      {
+        "bytes": 1045,
+        "path": "exercises/ex_seated-forward-fold.svg",
+        "sha256": "9f3d1fa08d05315fb7c068aa3af501eed68d9e9a03eb18f710639ceb9c19c62b"
+      },
+      {
+        "bytes": 1569,
+        "path": "exercises/ex_shrug-dumbbell.svg",
+        "sha256": "ac325e087769eb7ad51b6e5b0735b80c9bf5c7616f4982b83fa47b3fe9cec51d"
+      },
+      {
+        "bytes": 1451,
+        "path": "exercises/ex_side-plank-hip-abduction.svg",
+        "sha256": "f3f9bca0258dfa768c7e0e0ec0d2d72beb68ce08f79d340b52a86f042f82082f"
+      },
+      {
+        "bytes": 1437,
+        "path": "exercises/ex_side-plank.svg",
+        "sha256": "67230e0dee915297c2c04c412a9630801f26ffb1b2ac86706faf7af4696afc20"
+      },
+      {
+        "bytes": 1654,
+        "path": "exercises/ex_single-leg-hip-thrust.svg",
+        "sha256": "d8aff5bc8327965043e64680c76618cf09b31a1987f7e7a3ecb4ae90c26a5bba"
+      },
+      {
+        "bytes": 1914,
+        "path": "exercises/ex_single-leg-rdl.svg",
+        "sha256": "e6a20255fc4d2d613ac24fd6f7491ab1e28ef84a1d8845f66cd5587ed61df215"
+      },
+      {
+        "bytes": 1685,
+        "path": "exercises/ex_sit-to-stand.svg",
+        "sha256": "91497afb535b7387eec6435be330ea425b785fdd3fa0d170d8b7aa93bdd80f9e"
+      },
+      {
+        "bytes": 2196,
+        "path": "exercises/ex_smith-machine-squat.svg",
+        "sha256": "8aa4a5b18cb7893e52a21b3e8e02912f70c2a6cc44cc9a714d97b715e31dc30b"
+      },
+      {
+        "bytes": 1505,
+        "path": "exercises/ex_split-squat-bodyweight.svg",
+        "sha256": "e1b5e085c1afbfc630b62fc51f030c873f9cb80b2fefe6be4b0810c262c823cc"
+      },
+      {
+        "bytes": 1490,
+        "path": "exercises/ex_step-up.svg",
+        "sha256": "ad8ac19ed25397b6a1fbaeb822fdf8649db550b37378eee6985b9b5508db7dd9"
+      },
+      {
+        "bytes": 1861,
+        "path": "exercises/ex_straight-bar-dip.svg",
+        "sha256": "b129e62cea0fd415c4b911bae7bcde39a8ae6125ab1972c96d971084da0fa3fe"
+      },
+      {
+        "bytes": 2175,
+        "path": "exercises/ex_suitcase-carry.svg",
+        "sha256": "4a21169862f2e9d42111b695a9a28544f493f8377cd8aa8d4a3269209c2e5b62"
+      },
+      {
+        "bytes": 2081,
+        "path": "exercises/ex_sumo-deadlift.svg",
+        "sha256": "77e27eba31bbf9bd4c11c9fe30732b64231462c55774e069411a5c5e3fd30f24"
+      },
+      {
+        "bytes": 1731,
+        "path": "exercises/ex_tempo-run.svg",
+        "sha256": "fbb25ef1ce3af31800c3544b115d8521ffb106de705f3d448462317dec3925bc"
+      },
+      {
+        "bytes": 1042,
+        "path": "exercises/ex_three-legged-dog.svg",
+        "sha256": "475912f9740b29710dde44414eb343763c77c728b92c375be3bb2721b9e529f9"
+      },
+      {
+        "bytes": 1993,
+        "path": "exercises/ex_trap-bar-deadlift.svg",
+        "sha256": "7ac7d1394f36a11332a34302fdc781281c1e84808901ae1264beb02865a415f4"
+      },
+      {
+        "bytes": 1035,
+        "path": "exercises/ex_tree-pose.svg",
+        "sha256": "fcdbc320e5c20bb0654cd8021d3922824081fd4b26c83dc255d4214eaf0ca342"
+      },
+      {
+        "bytes": 1039,
+        "path": "exercises/ex_triangle-pose.svg",
+        "sha256": "eecb50e19b23bfed27432c05d683946e0d40b218caaf6c1ae23435b66b7e4550"
+      },
+      {
+        "bytes": 1848,
+        "path": "exercises/ex_tricep-pushdown.svg",
+        "sha256": "874b22b5cd1df2d7c603aea2f852b1ebb64bad84585e2e0566ec6c8c0878c18f"
+      },
+      {
+        "bytes": 1669,
+        "path": "exercises/ex_typewriter-pull-up.svg",
+        "sha256": "630ef6203ab0a01fcf272b1177b3fccdf1adde2e0d88881ecf2d2ae9fa1ffb03"
+      },
+      {
+        "bytes": 1496,
+        "path": "exercises/ex_walking-lunge.svg",
+        "sha256": "79b6a353626910723b6dec59bc67fad780330a11d5ce19b7093b6e2fbb893ae0"
+      },
+      {
+        "bytes": 1681,
+        "path": "exercises/ex_wall-sit.svg",
+        "sha256": "6fa9e490bdc567012d37a165461dc43a16c3b4b5ff539e354cd2653dbc7171fe"
+      },
+      {
+        "bytes": 1724,
+        "path": "exercises/ex_warrior-i.svg",
+        "sha256": "0818f2d459d74e16442c3ce34600e03cd87eb50edeef6c34a22e0ca2ab9976f3"
+      },
+      {
+        "bytes": 1725,
+        "path": "exercises/ex_warrior-ii.svg",
+        "sha256": "9bfa750426bceee8649191826b5915403ef3a5318ebf1e647abb931efd6d60d8"
+      },
+      {
+        "bytes": 1963,
+        "path": "exercises/ex_weighted-dip.svg",
+        "sha256": "9dfbf2e1cef1ce8f6b1b064a45be259d3c96626d35ac74a89b12a89967fc912f"
+      },
+      {
+        "bytes": 1667,
+        "path": "exercises/ex_weighted-pull-up.svg",
+        "sha256": "75c53bc8d04190003fa39167cea39b637f3a46558658512258b73ec889d888e9"
+      },
+      {
+        "bytes": 1036,
+        "path": "exercises/ex_wheel-pose.svg",
+        "sha256": "4223d31736edc9125054322af392dafbbdef5126532cde6a073361a02322f38a"
+      },
+      {
+        "bytes": 1668,
+        "path": "exercises/ex_wide-grip-pull-up.svg",
+        "sha256": "98188ebcb0688e5d157ddcda86ae732e2df3df221dd34f108f397d45cbb0c97f"
+      },
+      {
+        "bytes": 1494,
+        "path": "exercises/ex_wide-push-up.svg",
+        "sha256": "3e8f16b653cd0453e3fe06c35c058d1d242633f625670389163c8b07bb563c28"
+      },
+      {
+        "bytes": 1049,
+        "path": "exercises/ex_worlds-greatest-stretch.svg",
+        "sha256": "94d241a858d16e009da4d35f78690881dcb9d11de39e5938ecd7feb674644a9a"
+      },
+      {
+        "bytes": 1565,
+        "path": "exercises/ex_wrist-curl.svg",
+        "sha256": "00f89e5676bd3ba93ab18290d1c16413df2954266390d4af7f46e0600d69d2d1"
+      },
+      {
+        "bytes": 104916,
+        "path": "index.json",
+        "sha256": "ed1453391a4210ada0cbb1a03397e1b69d3ed51dc3225578974c3e3fc2390cb0"
+      }
     ]
   },
   "localePolicy": {
@@ -1340,13 +3057,17 @@
       "sha256": "535b6c9859d08d25d36a3097500b4124a6ddca220f130726fe2f88ec9853d470"
     },
     "exercises": {
-      "fileCount": 174,
-      "sha256": "cee0d8d49c5fa281c951bb1299522c94f0ecfa86e84ec2aa07b10aa6ffdcc451"
+      "fileCount": 201,
+      "sha256": "84719771e82209092a3cfe165450160f589022830772c6e8b005dc5a2c693b1a"
     },
     "icons": {
       "fileCount": 43,
       "sha256": "47636e8f95371c968bdbdd59a871abb5d6eb18f92a639c235c0f8bae287efa01"
+    },
+    "illustrations": {
+      "fileCount": 316,
+      "sha256": "225ce5e089f60ec2ae94b76135ef9f75dbedaa766d0e63d4ce3117438e555294"
     }
   },
-  "sha256": "24ddc277a157bd0e2e35e8bba2d382e9f0bbf10940324dfd6c679e91d5b52336"
+  "sha256": "469a20cd94db2ce15d17ea515cae980e587ac4f9efb5959791a744a65cdf22d4"
 }

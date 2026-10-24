@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "ex_pause_deadlift.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "ex_pause_deadlift.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

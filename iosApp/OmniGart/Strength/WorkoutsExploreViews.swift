@@ -101,7 +101,12 @@ struct ProgrammeDetailView: View {
                         NavigationLink {
                             RoutineDetailView(core: core, profileId: profileId, routineId: routineId)
                         } label: {
-                            Text(routineId.replacingOccurrences(of: "routine-", with: "").replacingOccurrences(of: "-", with: " ").capitalized)
+                            Text(
+                                routineId
+                                    .replacingOccurrences(of: "routine-", with: "")
+                                    .replacingOccurrences(of: "-", with: " ")
+                                    .capitalized
+                            )
                         }
                     }
                 }

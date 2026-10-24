@@ -71,8 +71,7 @@ final class PhoneUITests: XCTestCase {
         if app.state != .notRunning {
             app.terminate()
         }
-        // `-ui-testing-tab-food` selects Food at launch (iPad nests duplicate tab_food
-        // buttons so tabBars / descendants taps are flaky even with `.tabBarOnly`).
+        // Select Food at launch (iPad); keep main's firstMatch tab path as fallback.
         app.launchArguments += [
             "-ui-testing",
             "-ui-testing-tab-food",
@@ -86,9 +85,21 @@ final class PhoneUITests: XCTestCase {
 
         let totals = app.descendants(matching: .any)["food_totals"]
         if !totals.waitForExistence(timeout: 5) {
-            // Fallback: tap first matching Food tab control if launch selection missed.
-            let foodTab = app.buttons.matching(identifier: "tab_food").firstMatch
-            XCTAssertTrue(foodTab.waitForExistence(timeout: 10), "Expected Food tab")
+            // Identifier is set once on `Tab` in PhoneRootView (`.tabBarOnly` keeps a bottom
+            // bar on iPad CI). Prefer tabBars, then any button — always resolve via firstMatch
+            // so a stray duplicate never fails tap with "Multiple matching elements".
+            let foodById = app.tabBars.buttons["tab_food"]
+            let foodByTitle = app.tabBars.buttons["Food"]
+            let foodByButton = app.buttons.matching(identifier: "tab_food").firstMatch
+            let foodTab: XCUIElement
+            if foodById.waitForExistence(timeout: 10) {
+                foodTab = foodById
+            } else if foodByTitle.waitForExistence(timeout: 5) {
+                foodTab = foodByTitle
+            } else {
+                foodTab = foodByButton
+            }
+            XCTAssertTrue(foodTab.waitForExistence(timeout: 10), "Expected Food tab control")
             foodTab.tap()
             XCTAssertTrue(totals.waitForExistence(timeout: 10))
         }

@@ -16,6 +16,8 @@
   ],
   "equipment": [
     "barbell",
+    "squat_rack",
+    "plates",
     "box"
   ],
   "level": "beginner",

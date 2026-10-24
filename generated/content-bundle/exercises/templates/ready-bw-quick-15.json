@@ -1,0 +1,90 @@
+{
+  "id": "ready-bw-quick-15",
+  "nameKeys": {
+    "enGB": "template.ready_bw_quick_15.name",
+    "uk": "template.ready_bw_quick_15.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "beginner",
+  "goal": "fat_loss_support",
+  "daysPerWeek": 1,
+  "sessionMinutes": 15,
+  "equipmentPreset": "bodyweight",
+  "equipmentRequired": [
+    "bodyweight"
+  ],
+  "rationale": "Fifteen-minute bodyweight circuit for days with limited time; keep RIR honest and skip jumps if needed.",
+  "evidenceRefs": [
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "main",
+      "nameKeys": {
+        "enGB": "template.ready_bw_quick_15.main.name",
+        "uk": "template.ready_bw_quick_15.main.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "bodyweight-squat",
+              "sets": 2,
+              "reps": "12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": 2,
+              "reps": "8-12",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "reverse-lunge-bodyweight",
+              "sets": 2,
+              "reps": "8/leg",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "mountain-climber",
+              "sets": 2,
+              "reps": "16/leg",
+              "rir": "2-3",
+              "restSeconds": 30
+            },
+            {
+              "exerciseId": "plank",
+              "sets": 2,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 60,
+              "durationSeconds": 25
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

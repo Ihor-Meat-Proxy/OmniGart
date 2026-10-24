@@ -245,9 +245,9 @@
         "sha256": "79f32eb72c9a663c4b574926a65056c31a5e1ecc2ad9cb0b801fc92791786ca4"
       },
       {
-        "bytes": 2851,
+        "bytes": 2883,
         "path": "data/back-squat.json",
-        "sha256": "e624a6537a5247fcde2517c4c98851e3a47ff8234ece5e8b59e72e2959e111cd"
+        "sha256": "079899160e794a79f08122ce8ac29688b1a3281da021a1b358405b4f7ea41c6c"
       },
       {
         "bytes": 1868,
@@ -255,9 +255,9 @@
         "sha256": "538c78f4f0a29f735d12e8efbf498e2b999bcc6167434d90dc0e8e51095c7ecb"
       },
       {
-        "bytes": 2466,
+        "bytes": 2464,
         "path": "data/band-assisted-dip.json",
-        "sha256": "ff4944afc2715fc515ceb8229942d59ea0e999e4e6cbafa096bcbc89ddcd69e6"
+        "sha256": "22c6d0a966c90b99a76ed2ff54e7f72e51da557a09619fd97bbed7d6ec9ffc9a"
       },
       {
         "bytes": 1777,
@@ -265,24 +265,24 @@
         "sha256": "d96087fa5031184a9039c91a4603703ab48c991188678c54979d14dc1bcd9caf"
       },
       {
-        "bytes": 2375,
+        "bytes": 2394,
         "path": "data/barbell-bench-press.json",
-        "sha256": "a7b5ec4bbeb93752e26574a7e39bd0f854932d29d25dfb20c1725b70db069e52"
+        "sha256": "448bf45b4b39fc21299780628e89b273341fed97b6acb8c518f5e64d6e7e4e26"
       },
       {
         "bytes": 1527,
         "path": "data/barbell-curl.json",
-        "sha256": "b310566d27678dddc225c4c29a7aee87753be642332942b01911af7a625f8cc1"
+        "sha256": "d56d76f063ac25b955dbafe0e3a7fa0826653e5a4108f149641c9fc61f354703"
       },
       {
-        "bytes": 1832,
+        "bytes": 1846,
         "path": "data/barbell-row.json",
-        "sha256": "a8fe8dbb9370930f5d9534f2ef55c6ed60c2c835d2290c313ccf46fc1ab7c6e3"
+        "sha256": "5ab2bc4a81f0b9705c83c7a0909718282f924290a4f081b074b137ff1d3c7502"
       },
       {
-        "bytes": 2813,
+        "bytes": 2818,
         "path": "data/bench-dip.json",
-        "sha256": "4b5dc2552d210ad1fcf236b04ee8c6b5b4e675639a0c1abadba768f5db8ba354"
+        "sha256": "5801559b587f5566deec4249b4afeb26ec2fc6c671780bad93b8c4638529f2d3"
       },
       {
         "bytes": 1712,
@@ -290,9 +290,14 @@
         "sha256": "736c32888ba5fe179f06dcc34e0086e2bb49d79f2947ab53f6f8e9219e4f9a2d"
       },
       {
-        "bytes": 2001,
+        "bytes": 2379,
+        "path": "data/bodyweight-squat.json",
+        "sha256": "381cea814cdbe1ec20aa21226e044122360fcf9b55c72567ec0a71a44cbce6e5"
+      },
+      {
+        "bytes": 2033,
         "path": "data/box-squat.json",
-        "sha256": "9aec383a60d4128cd863b52fdaf461a11138c143ba44608d16058e4f40209e63"
+        "sha256": "dcb82b97804187ee5f54e5220ffd0c8298afc1c9f204c7e5a52f690bc9f60011"
       },
       {
         "bytes": 1962,
@@ -315,6 +320,11 @@
         "sha256": "7027e41a674f3f4cf52f3d0c4bccdaaf5efc87f941e4f2451b9d66c7dd6379bd"
       },
       {
+        "bytes": 2257,
+        "path": "data/burpee.json",
+        "sha256": "3152daef9fc7e5fc17b70241dc8a27f5dd2eb4dd050d7487960a4f51d00cd6cf"
+      },
+      {
         "bytes": 1712,
         "path": "data/butt-kicks.json",
         "sha256": "192e836315a9bf6b0a71294f8c3f466260ddb75f1fcfd03174eefda05b91f78e"
@@ -335,9 +345,14 @@
         "sha256": "171add744576095cfb31bd1d0d5be9cf3d69a79c5e3da1dcd02a9205238a1c10"
       },
       {
-        "bytes": 1781,
+        "bytes": 1946,
+        "path": "data/calf-raise-bodyweight.json",
+        "sha256": "4ba6c20fabcf59555128c8ac9b33c3e5e796be354226d02c352381f68a28891b"
+      },
+      {
+        "bytes": 1720,
         "path": "data/calf-raise-standing.json",
-        "sha256": "e6bbc518aa2fba31fe473e16cf6590e7109f34b31721355014c7744d4ee384a2"
+        "sha256": "edbb9eadd8cff9e150a11ff087e21187027751001088105f6870263bb34d4ecf"
       },
       {
         "bytes": 1624,
@@ -370,9 +385,9 @@
         "sha256": "3d95c3c85b9d8501844a1f009a5b9de324fead8d9dff42d83ef20dc4fca4ad86"
       },
       {
-        "bytes": 1789,
+        "bytes": 1808,
         "path": "data/close-grip-bench-press.json",
-        "sha256": "fdbb86a9a77e1c5939eb43e7b49476e86e4d496c4cf419eb17e62aabc4f2578c"
+        "sha256": "4cda9fcd63f45948deba227bbc92df2d6612016a6295872e8c70447db8e372d6"
       },
       {
         "bytes": 2491,
@@ -385,14 +400,19 @@
         "sha256": "465f888aa85a1a5cda5b820cfac4014ed1a96894930d3210344be5ce0a72d87b"
       },
       {
-        "bytes": 2566,
+        "bytes": 2580,
         "path": "data/conventional-deadlift.json",
-        "sha256": "b9e60fa44b570153c4ae3a7652cba57398271450b5c850f1d3046a6a95b798d3"
+        "sha256": "232bb57c6be2858102d2ee1c63018c17923c9004116011a039a00fa2408cc886"
       },
       {
         "bytes": 1929,
         "path": "data/dead-bug.json",
         "sha256": "521327c90d981973f0f1917d698b221f113e28191a8fe7a22f734b1d874e8d53"
+      },
+      {
+        "bytes": 2140,
+        "path": "data/decline-push-up.json",
+        "sha256": "0ea7bf022597757c193a93cc9b1d2dbb8f788d30e5da43a9573da544fcd47c3d"
       },
       {
         "bytes": 1767,
@@ -405,9 +425,9 @@
         "sha256": "5485e28b48eaff6e959d02a1e74394a687ddf0ab8fc801d02122a368502164fd"
       },
       {
-        "bytes": 3275,
+        "bytes": 3273,
         "path": "data/dip-parallel-bar.json",
-        "sha256": "a601fba7c794d0dee32fe2714cd07da770a989f992fdedd0b369d05b11c1525d"
+        "sha256": "3586204542484d2c1467803f0161c8f92505ec2e785747cc722f66aa2db4b65c"
       },
       {
         "bytes": 1940,
@@ -415,9 +435,9 @@
         "sha256": "aa148f8f88b86c3393b9506fe20dee961806b9f68f8d925ea8ef2d3081aec016"
       },
       {
-        "bytes": 2190,
+        "bytes": 2195,
         "path": "data/dumbbell-bench-press.json",
-        "sha256": "395189b7fbc45e2bc99d31e870a3eb8275b83609c967b817c9176066c1e2878f"
+        "sha256": "d21e9a1f3bf451e0732f3c10476590f1a8e493b8fd5bc70b63a45eea8fa3a337"
       },
       {
         "bytes": 1527,
@@ -425,9 +445,9 @@
         "sha256": "465ccf175634dee7f04f2eedf6a92703e934ca45708f953418a4e7bec43ebbfa"
       },
       {
-        "bytes": 1809,
+        "bytes": 1820,
         "path": "data/dumbbell-incline-press.json",
-        "sha256": "611e20b3aa9437d90581cd43afc55b9e901b069a5e485fcbed3b3cb1c555b4a5"
+        "sha256": "9a1d52471c6399f3ae7e82baf2315585ec9f2987781bf66024b82ebe75e3f454"
       },
       {
         "bytes": 2151,
@@ -455,9 +475,9 @@
         "sha256": "09652d903c5feadb97871a9660c4fd6e574262e8c62d79318bc83cd0a75d96b9"
       },
       {
-        "bytes": 2337,
+        "bytes": 2369,
         "path": "data/front-squat.json",
-        "sha256": "3df1fe15b5bfd6ec0d9d5fa786641bbccb9aae47089ad4682e08b5e7c41629bc"
+        "sha256": "49f23a15307a2f6d63bccaf58c8440dfc960ad2186baa1770f753699f91e42a0"
       },
       {
         "bytes": 1853,
@@ -510,14 +530,24 @@
         "sha256": "4488f2227ea12a8dea04b69f9a235bee798a55f3f469e31588301fc8da554093"
       },
       {
+        "bytes": 2113,
+        "path": "data/hip-thrust-bodyweight.json",
+        "sha256": "cc44134d7315a4952d266057eaaceb670e570a58ea0c7671a4f9593ca4d8d750"
+      },
+      {
         "bytes": 2016,
         "path": "data/hip-thrust.json",
         "sha256": "940b781534c5a43c6cf1d106812699626e9b6f6f35a820febbd6106162e4f88b"
       },
       {
-        "bytes": 2009,
+        "bytes": 2286,
+        "path": "data/hollow-hold.json",
+        "sha256": "eeb9d7d4454d2f6dc468f86a9e52413b307fa094d1fb2f87e83b843d95087535"
+      },
+      {
+        "bytes": 1919,
         "path": "data/incline-push-up.json",
-        "sha256": "fa2abb5d67409a3b93021ee8018a2248f28703865962ac27b62f6346ec1fa7b0"
+        "sha256": "71d6824913c18a0191e6a0c3e1ea54a978f092a23a0c135e6288f53cf667a86e"
       },
       {
         "bytes": 1960,
@@ -525,9 +555,14 @@
         "sha256": "36a16af2f3fd15d5c98da1940eee9df71190c7131ad17ed4dc8f876c7224ad57"
       },
       {
-        "bytes": 2849,
+        "bytes": 2734,
         "path": "data/inverted-row.json",
-        "sha256": "abc47cafa2c67e26e7b73a181012766d6a890c96b933c790c905ed0e8d87758a"
+        "sha256": "75447c6fad6819b5a67e85bfce94b98ab3e89d5ec9a41d7bfe53b74b2e326de2"
+      },
+      {
+        "bytes": 1933,
+        "path": "data/jump-squat.json",
+        "sha256": "916fe2cc1436c5df0ca2cff38382a561948f54891d7b494104f6d221889cef92"
       },
       {
         "bytes": 2099,
@@ -560,14 +595,14 @@
         "sha256": "248e0a0c951ff31060ae5150a9b15917a1813ba15bbe8d9c574aae1ec381d010"
       },
       {
-        "bytes": 1969,
+        "bytes": 1961,
         "path": "data/lat-pulldown.json",
-        "sha256": "cef16924654685c88887297b71721a8185610fdbde4ced5091a5c81c29e8d6c1"
+        "sha256": "8b1ae51c90d3ed2e88d0001f920a106bc73274296fce22b06f08a882bd23e7a3"
       },
       {
-        "bytes": 1693,
+        "bytes": 1643,
         "path": "data/lateral-lunge.json",
-        "sha256": "99558af57042ede37b031325e245890f208c843be9a9d7f6fcad0e334cddfd81"
+        "sha256": "a03da4d88b7195b5ac449e74e5e03d559c94c1b0bc64cca9454e4dd1c10a5054"
       },
       {
         "bytes": 1599,
@@ -585,9 +620,9 @@
         "sha256": "c4e374f83485a845f377dbc0b090658de42746074cb85696150e0273f7782e66"
       },
       {
-        "bytes": 2091,
+        "bytes": 2093,
         "path": "data/leg-press.json",
-        "sha256": "b0c0533372dd29fae7bafda87f3cd4e3de5d803d043f243355571d40ba76c2af"
+        "sha256": "54858ca9f6ce489a04cd6a4f72a57da741876b392ae2a5868736f4a78bc8af49"
       },
       {
         "bytes": 1760,
@@ -595,14 +630,14 @@
         "sha256": "2d97a8c9de7868ee19da8e947dc3358dc8452cd8c3cac3ab096cadfda12e5ec6"
       },
       {
-        "bytes": 2487,
+        "bytes": 2507,
         "path": "data/machine-assisted-dip.json",
-        "sha256": "96995830c244177e00ee53e79d519b8f2ab502dc3dd0fbcf7e3d56ddd8fd9046"
+        "sha256": "f376e82fc6590172b5f38f859d56e261c4614941f072d02bbf075e90bb9d853e"
       },
       {
-        "bytes": 2737,
+        "bytes": 2757,
         "path": "data/machine-assisted-pull-up.json",
-        "sha256": "8d4d3bf9fa557c02658fc48b2091cd4208843d4e821bad25ede57c9f0944617e"
+        "sha256": "ac034a7ffe9d0ba6d607c73beae9c380b6eec9549c67d1e065353c069e1a05c5"
       },
       {
         "bytes": 1962,
@@ -615,14 +650,19 @@
         "sha256": "8cb607a05875ded633d334d3d36ca6662e65cf53cc790dd7990baf9d36e9e147"
       },
       {
+        "bytes": 2069,
+        "path": "data/mountain-climber.json",
+        "sha256": "e05d763cbd133c35621cab52a6c8abf4d2cff48bfdbb28985e444ec843ee5532"
+      },
+      {
         "bytes": 1653,
         "path": "data/mountain-pose.json",
         "sha256": "4a16402b5a609b7543807b6929700151fa74d04f3cffeb61364d6343e316c47a"
       },
       {
-        "bytes": 2536,
+        "bytes": 2534,
         "path": "data/negative-dip.json",
-        "sha256": "5f9ba4ab405b32dfdd5b6ce7275ba49004adf390eeeb83f4c08ee386e5355043"
+        "sha256": "e24efa8bb7edf6855f9d4f218a2cce1de52e1cc764361f16a244e29ad2ca4e90"
       },
       {
         "bytes": 2715,
@@ -640,14 +680,19 @@
         "sha256": "418dcabaabbb00ab8e4dd0f19de1e72123cc61196d9a8d5f2f501339849bc74a"
       },
       {
+        "bytes": 2220,
+        "path": "data/nordic-curl.json",
+        "sha256": "7f98581b2ccff358167aabf0232658adcab2ae6e2a3bfce5668986106c1d0386"
+      },
+      {
         "bytes": 2044,
         "path": "data/one-arm-dumbbell-row.json",
         "sha256": "56a601423db42c41e94006ace5092bdfa53ecd202a7f263860739ff513fbe517"
       },
       {
-        "bytes": 2242,
+        "bytes": 2256,
         "path": "data/overhead-press-barbell.json",
-        "sha256": "3068ee91c7dc95a7d051810e25ae784f75df0d4d0662b33d22851ffcc4bab500"
+        "sha256": "213fed9896c2cc416e3b0c2c443c86dd745eb64f0de1cb434f50e81522c8be19"
       },
       {
         "bytes": 2004,
@@ -693,6 +738,11 @@
         "bytes": 1802,
         "path": "data/pigeon-pose.json",
         "sha256": "2cb52d36253174a4a261b75c5a0c18bf490f838c9106051ec3efb50e4702e1c5"
+      },
+      {
+        "bytes": 2243,
+        "path": "data/pike-push-up.json",
+        "sha256": "34ab7facf34d72b2889a043bdce744e50dec34ad4c07217486b8a0c2db37baa6"
       },
       {
         "bytes": 1806,
@@ -770,6 +820,11 @@
         "sha256": "efee6edd5eff83244c59d056b981dda41b8881b7894e8d7c9833d164dbb548d7"
       },
       {
+        "bytes": 2389,
+        "path": "data/reverse-lunge-bodyweight.json",
+        "sha256": "395d74ad3a1dbaf64dad2bc3cd010df58c690c67ed731d514d9d5169c08d4df2"
+      },
+      {
         "bytes": 1873,
         "path": "data/reverse-lunge-dumbbell.json",
         "sha256": "6d5d5247557a62964de55469ed176c83cbad7bdeeb077a325796e70b45972adf"
@@ -780,9 +835,9 @@
         "sha256": "b0319906554ef2124fc1b930aa6c12185725c063c073eda1c40d73cdb4cab2b3"
       },
       {
-        "bytes": 2142,
+        "bytes": 2156,
         "path": "data/romanian-deadlift-barbell.json",
-        "sha256": "b0fab4b1b23076b04edc5d45ba27ec1a13af5968c841868937318b1e89ea9b84"
+        "sha256": "81f7d48af0915f1a252af62fb8274c80507caf34f1505c8a51a09fc937ffed05"
       },
       {
         "bytes": 2110,
@@ -815,14 +870,19 @@
         "sha256": "88dc888e3fb822c42aa37ad62d9a4c74c13d4e3e16fad9486212d218cedc712d"
       },
       {
+        "bytes": 2068,
+        "path": "data/side-plank-hip-abduction.json",
+        "sha256": "1a05815843bda0422b531428abfd00e2778d11b3643d6f35faf567ffce630ece"
+      },
+      {
         "bytes": 1695,
         "path": "data/side-plank.json",
         "sha256": "385e1c263653cf03beefcc2a0cadedefa2be1dd2e66973585280bbefb65b4394"
       },
       {
-        "bytes": 1850,
+        "bytes": 1791,
         "path": "data/single-leg-hip-thrust.json",
-        "sha256": "7ddc3f56a8d7d2c782a65a6fdbfb57e5f277dc2083d5ac22231b114a910a27c2"
+        "sha256": "95282b69d8ca41f769f9147284048bd4c449e29b3c5118511e3a3a8321110103"
       },
       {
         "bytes": 1863,
@@ -835,9 +895,9 @@
         "sha256": "88cbc6dff3da45ee00e0cd307a8437ed30e236977026ff11944502d2e6dcf468"
       },
       {
-        "bytes": 1992,
+        "bytes": 1998,
         "path": "data/smith-machine-squat.json",
-        "sha256": "adcae094db02ac0bd2d9a274da86af3e30d1a1145f7476719822fb075055e993"
+        "sha256": "e62bd2b5c1d8995ca6b830cc003d4e32f7c2744680a8f3c6f7be57c927632b2f"
       },
       {
         "bytes": 1941,
@@ -845,9 +905,9 @@
         "sha256": "41be9649b6d3e36b50eb3fa62ef49ff537eef538478d8dd869b3b786af6d3e06"
       },
       {
-        "bytes": 2015,
+        "bytes": 1992,
         "path": "data/step-up.json",
-        "sha256": "49947604fd8ee4a2bfd031e3ccc2a616c0ecee3d1e8f2bfd36c405f3e3b7f3c7"
+        "sha256": "2cb416b9b26bb479b19902b2b4bb0b9017aac662b0e7b1f27d86bf28f2c035f7"
       },
       {
         "bytes": 2464,
@@ -900,9 +960,14 @@
         "sha256": "29a5bff9d0c0b23e1e100b3621ac1fe10dedf018d2a85309940f1c6c6ec3c47b"
       },
       {
-        "bytes": 2092,
+        "bytes": 2070,
         "path": "data/walking-lunge.json",
-        "sha256": "418c4a8afa588f7e6e80443eac9b37f53894f2c7982d65e23658a7ad40ec1494"
+        "sha256": "fa82ce1ab9992be058e88c5c816ac73acb3b0425b5f96bf7d0a8da0b96b37ca9"
+      },
+      {
+        "bytes": 1961,
+        "path": "data/wall-sit.json",
+        "sha256": "c3e46be7f203294b014a0982bf1fd0dd8829e336b6561c05f7767a6feeb9b8b7"
       },
       {
         "bytes": 1814,
@@ -915,9 +980,9 @@
         "sha256": "38a256bd264b8432d197d159b083062f0962fb4dcef91e42b56e117c87b090c5"
       },
       {
-        "bytes": 2724,
+        "bytes": 2722,
         "path": "data/weighted-dip.json",
-        "sha256": "a0ba274c6633b8a1dcc6e43e329157ef240cee1942a179a3a522358e86687a95"
+        "sha256": "a1aed1fd944bc7f8bef7059825f7320d93a15e63b7dde7f0d8ac08453455d66a"
       },
       {
         "bytes": 2844,
@@ -935,6 +1000,11 @@
         "sha256": "704f02afed38378e385b8aa21d659148908678ad9ad64d08c17c1fe9d8c97d13"
       },
       {
+        "bytes": 2166,
+        "path": "data/wide-push-up.json",
+        "sha256": "29d5f12ffb1ba928f7562414c1b5af98fb1579a632e2529b1233e3f21b6eb66c"
+      },
+      {
         "bytes": 1827,
         "path": "data/worlds-greatest-stretch.json",
         "sha256": "00766323c8422bf3c0659e8222bc8a4c28f564819d96ce2f9849f1863e0dc6d1"
@@ -945,69 +1015,69 @@
         "sha256": "f6fa20ba7b3bb4080d09ebd611b2faf0acc7140e615fbf0e99a152abfd06afac"
       },
       {
-        "bytes": 486,
+        "bytes": 594,
         "path": "equipment-presets.json",
-        "sha256": "86760cf1e0a139c7df639fbd4ad95580a0f96e5d7efbf151b42ff3977fee0108"
+        "sha256": "4d580601a11387c5d1682809ea6a79b00555e25e3436dc385c6e0204856a495c"
       },
       {
-        "bytes": 191264,
+        "bytes": 214946,
         "path": "locales/be.json",
-        "sha256": "234a98401fc27711875cd51236fd10f9c78ce0c0fadfe32bf59fbe7ca0091c34"
+        "sha256": "db4055ea8e16d322de5298f85cecef3e010f7b5f0eece7c9a67a53cc09f9370c"
       },
       {
-        "bytes": 145578,
+        "bytes": 162952,
         "path": "locales/cs.json",
-        "sha256": "a11bd29d68123977720afd0b7a7a394233f3c93517471a7d84434a69304c33a6"
+        "sha256": "d2635085229af6acc873fc07be3842b1500fc7fc2afdcef3cf928023e551c85d"
       },
       {
-        "bytes": 148085,
+        "bytes": 165792,
         "path": "locales/de.json",
-        "sha256": "3a6dc545dae3c1884f369ed058a38dab9f969c103fd9dfe8a53eddfb2d8560ae"
+        "sha256": "374818db958b2ea5aa5a1a66643107a42229c5f9aa65855502e469ed08357f5d"
       },
       {
-        "bytes": 133392,
+        "bytes": 149937,
         "path": "locales/en-GB.json",
-        "sha256": "5b54ce95cb9bddc8a8217b0372509b77aeb5e9810e1bef9dfad8c72d714644c5"
+        "sha256": "7f1964b2159d6383dcf26616ff41b52f374d917da17b2ef91323ae49f3a8d812"
       },
       {
-        "bytes": 145394,
+        "bytes": 163378,
         "path": "locales/es.json",
-        "sha256": "47d694116c958f96031594c892a26e53dc2b6f199430ab5e689c4cd39350f079"
+        "sha256": "0321db5b00c23193fbfea36d376043c95d627232b227581d885b3c53d737913e"
       },
       {
-        "bytes": 149220,
+        "bytes": 167332,
         "path": "locales/fr.json",
-        "sha256": "4a3e310d351a53b93395434f4b79b830104e74976c4d1a20ddd2bc11a22b5535"
+        "sha256": "4fa91c88a835b493e46d4671adcc6e2749b0e16e17bbbb5d8031451c95dfa321"
       },
       {
-        "bytes": 240121,
+        "bytes": 269634,
         "path": "locales/ka.json",
-        "sha256": "699f6367f7108b8f7d6929c849819c4891ae7e9dce087fdb29eb2258672871a7"
+        "sha256": "190c2dde1f84f97ba167ae4016637d9e1f248071fb1a643e20f8df261915db26"
       },
       {
-        "bytes": 181204,
+        "bytes": 203166,
         "path": "locales/kk.json",
-        "sha256": "e2daa17f6fa47f31a93b9816c641a216e5b75b2a17d8f62ce5d7f2c76dc2f650"
+        "sha256": "908cbc0f1a21ca956fa7f75f5aef0d3bfa50f20bbe56f12343281243b66b5749"
       },
       {
-        "bytes": 149535,
+        "bytes": 167179,
         "path": "locales/pl.json",
-        "sha256": "4c03a918942c9b733309a01280e129dcba8dc00513317f7238daf3dd78df3170"
+        "sha256": "df91a18bc29e33652414d0b82dd4d4dc1f0d3ce81bfca6440a639500cd85084f"
       },
       {
-        "bytes": 190762,
+        "bytes": 214931,
         "path": "locales/uk.json",
-        "sha256": "17d20c235f570a346bb7fcb7950b86ccc5f11231ec4aad6058711b3bb770055a"
+        "sha256": "a35af9b0544eac1c14590c61faa7ea2acd106782a284e3f09afaaa8313858c29"
       },
       {
-        "bytes": 127489,
+        "bytes": 142677,
         "path": "locales/zh-Hans.json",
-        "sha256": "eeede640d2bf355d89a70efcf6ada6784c3bd2851ea2e52d15b3603cd0ea9533"
+        "sha256": "d74ea8d047f033825b4fbde191d0910c2b069b6a900f6e06351a256cec5c2d84"
       },
       {
-        "bytes": 8622,
+        "bytes": 8841,
         "path": "schema/exercise.schema.json",
-        "sha256": "0a8043b7487b3766cc374f979d1c89d97663fabecf2db5ae6a3bf5587e02244a"
+        "sha256": "f93062179c259779320120755677dbc074b860cd122a7e55767b64902a40976a"
       },
       {
         "bytes": 4305,
@@ -1068,6 +1138,71 @@
         "bytes": 4685,
         "path": "templates/ppl-6x.json",
         "sha256": "26a2be8c7b8df22c9f42f981754d29b731c1825aeedc516af8570dce28057ada"
+      },
+      {
+        "bytes": 2331,
+        "path": "templates/ready-bw-bar-pull-dip.json",
+        "sha256": "102e41e565820b0a64656351f0b52e9d9d0d1d5deeee0297a0a37164b14076a6"
+      },
+      {
+        "bytes": 2341,
+        "path": "templates/ready-bw-core.json",
+        "sha256": "c59a2332ae9d069d7d0e44aac28e5e899f406f37dc87b01cf4fde0a0cd1d3fed"
+      },
+      {
+        "bytes": 2592,
+        "path": "templates/ready-bw-full-body-advanced.json",
+        "sha256": "2dc95b46f7764db038fba0d8af4ad0ebb9a9425260235a8a8f28bcf8b7cc7b2d"
+      },
+      {
+        "bytes": 2381,
+        "path": "templates/ready-bw-full-body-beginner.json",
+        "sha256": "9063a274c0165630020ccd10cc6b02e3dc27ef403e7428cd265810797bcdcb0d"
+      },
+      {
+        "bytes": 2584,
+        "path": "templates/ready-bw-full-body-intermediate.json",
+        "sha256": "faef599feab93cc27ec75c6156f0c9a04ad506352967e790ea33ef53540b975c"
+      },
+      {
+        "bytes": 2326,
+        "path": "templates/ready-bw-lower.json",
+        "sha256": "84742ddb97b3d26104355c4fc935dd0abbff86f28b8165cc12a5829f643c6d1a"
+      },
+      {
+        "bytes": 2119,
+        "path": "templates/ready-bw-quick-15.json",
+        "sha256": "eada1edffaf58768c86af2dde2315d293bbcf2b4cd57ba2590b565cc785143e5"
+      },
+      {
+        "bytes": 2091,
+        "path": "templates/ready-bw-quick-20.json",
+        "sha256": "a47f1445819d72ed0b7492fc85e420bdbc6aa3f255184ec9e024300e2badde2a"
+      },
+      {
+        "bytes": 2331,
+        "path": "templates/ready-bw-upper.json",
+        "sha256": "23f026f134ddd6d86fa589a5df152411db945e61e8077ef6bec7fd5adcad31c5"
+      },
+      {
+        "bytes": 2139,
+        "path": "templates/ready-gym-lower-strength.json",
+        "sha256": "f8a59cb2a0158302815671b4155e1fc69c3c0e7c94c821aae38558daed361405"
+      },
+      {
+        "bytes": 2146,
+        "path": "templates/ready-gym-upper-strength.json",
+        "sha256": "e62e7cef890f07569bfda8edf8dfec05a0be268fb5cb16b5a73fbb9c2f40bdbf"
+      },
+      {
+        "bytes": 2323,
+        "path": "templates/ready-home-bands-travel.json",
+        "sha256": "2e061f41e4666f283798d222de374a376f7e11e383eb27f925088d41b5446004"
+      },
+      {
+        "bytes": 2371,
+        "path": "templates/ready-home-dumbbell-full.json",
+        "sha256": "456719b4a47461e16dd3e8b3090332d7c63406c635192e833573294e06aa8a13"
       },
       {
         "bytes": 4061,
@@ -1330,13 +1465,13 @@
       "sha256": "535b6c9859d08d25d36a3097500b4124a6ddca220f130726fe2f88ec9853d470"
     },
     "exercises": {
-      "fileCount": 174,
-      "sha256": "cee0d8d49c5fa281c951bb1299522c94f0ecfa86e84ec2aa07b10aa6ffdcc451"
+      "fileCount": 201,
+      "sha256": "84719771e82209092a3cfe165450160f589022830772c6e8b005dc5a2c693b1a"
     },
     "icons": {
       "fileCount": 41,
       "sha256": "593cbd2111b9b013a64679a3ddf05dee6002a63c099764fe80ccf1302272fa3d"
     }
   },
-  "sha256": "dfe209e05a5a006623bac7d6c3690d974006670d9009366c73be604f134d62c3"
+  "sha256": "f7054d8c20c07b1acf38a84f83a003c4c6f0a10c3486a3a3a128fb85e503a9d6"
 }

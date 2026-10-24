@@ -16,7 +16,7 @@
     <string name="info_sheet_body">Показники на кшталт готовності, стресу, ВСР, індексу Баєвського, жиру в тілі та гідратації — це оцінки самопочуття на основі ваших даних і зразків із пристрою. Плани — тренерські пропозиції, а не приписи лікаря.</string>
 
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart може читати й записувати зразки самопочуття — пульс, ВСР, сон, тренування, активну й базальну енергію, відновлення пульсу, оцінку зусилля, за бажанням хвилини усвідомленості, масу тіла та гідратацію — щоб сесії з’являлися в Apple Fitness. Запис на платформу лише додає: OmniGart ніколи не видаляє й не перезаписує дані Apple Health чи Health Connect, навіть свої. Дані не для реклами. Можна продовжити без доступу.</string>
+    <string name="perm_explainer_health_body">OmniGart може читати й записувати зразки самопочуття (пульс, ВСР, сон, тренування, маса тіла, гідратація), щоб покращувати оцінки на пристрої. Дані не використовуються для реклами і не надсилаються стороннім сервісам. Можна продовжити без доступу.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth-аксесуари</string>
     <string name="perm_explainer_bluetooth_body">Підключіть пульсометр або подібний фітнес-аксесуар для живих зразків. OmniGart повністю працює без Bluetooth.</string>
     <string name="perm_explainer_camera_title">Камера для штрихкодів</string>
@@ -27,11 +27,7 @@
     <string name="perm_not_now">Не зараз</string>
 
     <string name="hc_rationale_title">Використання даних Health Connect</string>
-    <string name="hc_rationale_body">OmniGart запитує доступ до Health Connect, щоб читати й записувати обрані вами фітнес-дані та дані самопочуття — пульс, ВСР, сон, тренування, масу тіла, гідратацію — для точніших оцінок готовності й тренувань на пристрої.
-
-Запис лише додає: OmniGart ніколи не видаляє й не перезаписує дані Health Connect, навіть створені ним. Локальні зміни лишаються в OmniGart. Якщо зразок приберуть з Health Connect, локальна копія зберігається.
-
-Ми не продаємо дані здоров’я, не використовуємо їх для реклами і не передаємо третім сторонам для маркетингу. Можна відмовити в доступі й користуватися ручним введенням.</string>
+    <string name="hc_rationale_body">OmniGart запитує доступ до Health Connect, щоб читати й записувати обрані вами фітнес-дані та дані самопочуття — пульс, ВСР, сон, тренування, масу тіла, гідратацію — для точніших оцінок готовності й тренувань на пристрої.\n\nМи не продаємо дані здоров’я, не використовуємо їх для реклами і не передаємо третім сторонам для маркетингу. Можна відмовити в доступі й користуватися OmniGart із ручним введенням.</string>
     <string name="hc_rationale_privacy_policy">Політика конфіденційності</string>
 
     <string name="calc_settings_title">Розрахунки</string>
@@ -249,4 +245,73 @@
     <string name="workout_volume_short">Об’єм</string>
     <string name="wear_strength_title">Сила</string>
     <string name="wear_strength_done">Готово</string>
+    <string name="workouts_program_title">Силова програма</string>
+    <string name="workouts_program_intro">Складіть план на все тіло або спліт з наявного обладнання. Лише тренерська допомога — не медична порада.</string>
+    <string name="workouts_program_split">Тип програми</string>
+    <string name="workouts_program_days">Днів на тиждень</string>
+    <string name="workouts_equipment_title">Обладнання</string>
+    <string name="workouts_equipment_edit">Редагувати обладнання</string>
+    <string name="workouts_equipment_presets">Пресети</string>
+    <string name="equipment_preset_home">Дім</string>
+    <string name="equipment_preset_gym">Зал</string>
+    <string name="equipment_preset_travel">Подорож</string>
+    <string name="equipment_preset_save_home">Зберегти як Дім</string>
+    <string name="workouts_week_title">Цей тиждень</string>
+    <string name="workouts_week_day">Сесія</string>
+    <string name="workouts_muscles_title">Задіяні м’язи</string>
+    <string name="workouts_adjust_equipment">Підлаштувати обладнання</string>
+    <string name="workouts_substituted">Замінено</string>
+    <string name="watch_strength_start">Силова сесія</string>
+    <string name="watch_equipment_sync_hint">Перемикачі синхронізуються з iPhone. Зміни лише для цієї сесії.</string>
+    <string name="program_split_full_body">Все тіло</string>
+    <string name="program_split_upper_lower">Верх / низ</string>
+    <string name="program_split_ppl">Жим / тяга / ноги</string>
+    <string name="program_split_bro">Бро-спліт</string>
+    <string name="program_session_full_a">Все тіло A</string>
+    <string name="program_session_full_b">Все тіло B</string>
+    <string name="program_session_full_c">Все тіло C</string>
+    <string name="program_session_upper_a">Верх A</string>
+    <string name="program_session_upper_b">Верх B</string>
+    <string name="program_session_lower_a">Низ A</string>
+    <string name="program_session_lower_b">Низ B</string>
+    <string name="program_session_push">Жим</string>
+    <string name="program_session_pull">Тяга</string>
+    <string name="program_session_legs">Ноги</string>
+    <string name="program_session_chest">Груди</string>
+    <string name="program_session_back">Спина</string>
+    <string name="program_session_shoulders">Плечі</string>
+    <string name="program_session_arms">Руки</string>
+    <string name="equipment_item_pull_up_bar">Турнік</string>
+    <string name="equipment_item_dip_bars">Бруси</string>
+    <string name="equipment_item_bands">Гумові петлі</string>
+    <string name="equipment_item_dumbbell">Гантелі</string>
+    <string name="equipment_item_kettlebell">Гирі</string>
+    <string name="equipment_item_barbell">Штанга</string>
+    <string name="equipment_item_plates">Диски</string>
+    <string name="equipment_item_bench_flat">Горизонтальна лава</string>
+    <string name="equipment_item_bench_adjustable">Регульована лава</string>
+    <string name="equipment_item_squat_rack">Стійка для присідань</string>
+    <string name="equipment_item_cable">Блоковий тренажер</string>
+    <string name="equipment_item_smith_machine">Машина Сміта</string>
+    <string name="equipment_item_leg_press">Жим ногами</string>
+    <string name="equipment_item_lat_pulldown">Верхня тяга</string>
+    <string name="equipment_item_assisted_pullup_dip_machine">Гравітрон</string>
+    <string name="equipment_item_machine">Тренажери</string>
+    <string name="equipment_item_trap_bar">Трап-гриф</string>
+    <string name="equipment_item_ez_bar">EZ-гриф</string>
+    <string name="equipment_item_suspension">Підвісні петлі</string>
+    <string name="equipment_item_box">Тумба</string>
+    <string name="equipment_item_landmine">Лендмайн</string>
+    <string name="equipment_item_yoga_mat">Килімок для йоги</string>
+    <string name="workouts_ready_title">Готові тренування</string>
+    <string name="workouts_ready_intro">Переглядайте фіксовані сесії за вашим обладнанням. Запустіть одразу або підлаштуйте інвентар — заміни оновляться.</string>
+    <string name="workouts_ready_clear">Скинути готове тренування</string>
+    <string name="wear_strength_start">Сила</string>
+    <string name="wear_strength_stop">Кінець</string>
+    <string name="wear_strength_rest">Відпочинок %1$d с</string>
+    <string name="wear_strength_weight">кг</string>
+    <string name="wear_strength_reps">Повтори</string>
+    <string name="wear_strength_set">Підхід %1$d</string>
+    <string name="wear_strength_hr">ЧСС %1$d</string>
+    <string name="wear_strength_kcal">%1$s ккал</string>
 </resources>

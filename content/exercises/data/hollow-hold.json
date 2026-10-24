@@ -1,0 +1,99 @@
+{
+  "id": "hollow-hold",
+  "nameKeys": {
+    "enGB": "exercise.hollow_hold.name",
+    "uk": "exercise.hollow_hold.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "core_brace",
+  "primaryMuscles": [
+    "rectus_abdominis",
+    "transverse_abdominis"
+  ],
+  "secondaryMuscles": [
+    "hip_flexors",
+    "obliques"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "intermediate",
+  "unilateral": false,
+  "mechanics": "isometric",
+  "trackingType": "hold",
+  "technique": [
+    "Lie supine; press the low back into the floor; lift shoulders and legs into a shallow hollow while keeping ribs down.",
+    "Hold without letting the lumbar spine arch away from the floor."
+  ],
+  "setup": [
+    "Arms by ears or by sides; legs long and together."
+  ],
+  "breathing": "Steady breathing while bracing; do not hold the breath.",
+  "commonMistakes": [
+    "Arching the low back",
+    "Only lifting the head"
+  ],
+  "safety": [
+    "Bend the knees (tuck hollow) if the low back leaves the floor."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "dead-bug",
+      "note": "Alternating limbs"
+    },
+    {
+      "exerciseId": "plank",
+      "note": "Prone brace"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "plank",
+      "note": "Longer holds"
+    },
+    {
+      "exerciseId": "hanging-knee-raise",
+      "note": "Hanging flexion"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/hollow-hold",
+    "videoKey": "media/video/hollow-hold",
+    "animationKey": "media/anim/hollow-hold"
+  },
+  "aliases": [
+    "hollow body hold"
+  ],
+  "tags": [
+    "bodyweight",
+    "core"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Bodyweight movement; treat moved mass as the stated fraction of body mass unless a measured study applies."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

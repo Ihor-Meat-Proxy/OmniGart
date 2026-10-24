@@ -1,0 +1,93 @@
+{
+  "id": "nordic-curl",
+  "nameKeys": {
+    "enGB": "exercise.nordic_curl.name",
+    "uk": "exercise.nordic_curl.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "hamstrings"
+  ],
+  "secondaryMuscles": [
+    "gluteus_maximus",
+    "calves"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "advanced",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Kneel with ankles fixed; keep hips extended and lower the torso forward under control using the hamstrings; catch with the hands and return or assist up."
+  ],
+  "setup": [
+    "Secure ankle anchor; pad the knees."
+  ],
+  "breathing": "Inhale as you lower; exhale on the return.",
+  "commonMistakes": [
+    "Folding at the hips early",
+    "Dropping without control"
+  ],
+  "safety": [
+    "Use a band or hand assist; stop with sharp knee or hamstring pain."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "nordic-curl-assisted",
+      "note": "Band assist"
+    },
+    {
+      "exerciseId": "romanian-deadlift-dumbbell",
+      "note": "Hinge with load"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "nordic-curl-assisted",
+      "note": "Reduce assistance over time"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/nordic-curl",
+    "videoKey": "media/video/nordic-curl",
+    "animationKey": "media/anim/nordic-curl"
+  },
+  "aliases": [
+    "Nordic hamstring curl"
+  ],
+  "tags": [
+    "bodyweight",
+    "hamstrings"
+  ],
+  "loadModel": "bodyweight_minus_assistance",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Kneeling Nordic curl moves approximately full torso/upper mass against gravity; estimate ~1.0 BM with optional assistance subtracted."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": true
+}

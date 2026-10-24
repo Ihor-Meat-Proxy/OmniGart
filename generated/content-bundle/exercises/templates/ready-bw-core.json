@@ -1,0 +1,99 @@
+{
+  "id": "ready-bw-core",
+  "nameKeys": {
+    "enGB": "template.ready_bw_core.name",
+    "uk": "template.ready_bw_core.name"
+  },
+  "disciplines": [
+    "strength"
+  ],
+  "level": "beginner",
+  "goal": "general_fitness",
+  "daysPerWeek": 1,
+  "sessionMinutes": 20,
+  "equipmentPreset": "bodyweight",
+  "equipmentRequired": [
+    "bodyweight"
+  ],
+  "rationale": "Short core-focused bodyweight session emphasising bracing, anti-extension and controlled limb drives.",
+  "evidenceRefs": [
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    },
+    {
+      "evidenceId": "acsm_resistance_training_2026",
+      "supports": [
+        "programming",
+        "strength",
+        "hypertrophy"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "main",
+      "nameKeys": {
+        "enGB": "template.ready_bw_core.main.name",
+        "uk": "template.ready_bw_core.main.name"
+      },
+      "blocks": [
+        {
+          "kind": "main",
+          "items": [
+            {
+              "exerciseId": "plank",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 60,
+              "durationSeconds": 30
+            },
+            {
+              "exerciseId": "side-plank",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 60,
+              "durationSeconds": 25
+            },
+            {
+              "exerciseId": "dead-bug",
+              "sets": 3,
+              "reps": "8/side",
+              "rir": "2-3",
+              "restSeconds": 60
+            },
+            {
+              "exerciseId": "hollow-hold",
+              "sets": 3,
+              "reps": "hold",
+              "rir": "2-3",
+              "restSeconds": 60,
+              "durationSeconds": 20
+            },
+            {
+              "exerciseId": "mountain-climber",
+              "sets": 2,
+              "reps": "16/leg",
+              "rir": "2-3",
+              "restSeconds": 45
+            },
+            {
+              "exerciseId": "bird-dog",
+              "sets": 2,
+              "reps": "8/side",
+              "rir": "2-3",
+              "restSeconds": 60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

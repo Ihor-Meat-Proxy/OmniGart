@@ -16,7 +16,8 @@
     "rectus_abdominis"
   ],
   "equipment": [
-    "barbell"
+    "barbell",
+    "plates"
   ],
   "level": "intermediate",
   "unilateral": false,

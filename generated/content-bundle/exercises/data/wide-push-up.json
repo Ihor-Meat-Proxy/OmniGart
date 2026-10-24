@@ -1,0 +1,96 @@
+{
+  "id": "wide-push-up",
+  "nameKeys": {
+    "enGB": "exercise.wide_push_up.name",
+    "uk": "exercise.wide_push_up.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "push",
+  "primaryMuscles": [
+    "pectoralis_major",
+    "triceps"
+  ],
+  "secondaryMuscles": [
+    "front_deltoid",
+    "serratus_anterior"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "compound",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Hands wider than shoulder-width in a high plank; lower the chest toward the floor then press up while keeping the trunk rigid."
+  ],
+  "setup": [
+    "Hands outside shoulder line; neutral neck."
+  ],
+  "breathing": "Inhale down; exhale up.",
+  "commonMistakes": [
+    "Hips sagging",
+    "Excessive elbow flare with pain"
+  ],
+  "safety": [
+    "Move hands closer if shoulders feel unstable."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "knee-push-up",
+      "note": "Knees down"
+    },
+    {
+      "exerciseId": "incline-push-up",
+      "note": "Hands elevated"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "push-up",
+      "note": "Standard width"
+    },
+    {
+      "exerciseId": "decline-push-up",
+      "note": "Feet elevated"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/wide-push-up",
+    "videoKey": "media/video/wide-push-up",
+    "animationKey": "media/anim/wide-push-up"
+  },
+  "aliases": [],
+  "tags": [
+    "bodyweight",
+    "push-up-family"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 0.64,
+    "basis": "estimate",
+    "rationale": "Floor push-up family; estimate ~0.64 of body mass on the upper limbs (same order as a standard push-up)."
+  },
+  "allowsAddedWeight": false,
+  "allowsAssistance": false
+}

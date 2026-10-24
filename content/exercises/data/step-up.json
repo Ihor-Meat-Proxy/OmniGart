@@ -15,8 +15,6 @@
     "calves"
   ],
   "equipment": [
-    "box",
-    "dumbbell",
     "bodyweight"
   ],
   "level": "beginner",
@@ -82,11 +80,11 @@
   },
   "aliases": [],
   "tags": [],
-  "loadModel": "external_only",
+  "loadModel": "bodyweight_plus_external",
   "bodyweightFraction": {
-    "proportion": 0.0,
+    "proportion": 0.9,
     "basis": "estimate",
-    "rationale": "External implement provides the training load; body mass is not the primary resistance (proportion recorded as 0)."
+    "rationale": "Step-up drives roughly body mass onto the working limb; estimate ~0.9 BM; add external load when available."
   },
   "allowsAddedWeight": true,
   "allowsAssistance": false

@@ -1,0 +1,90 @@
+{
+  "id": "hip-thrust-bodyweight",
+  "nameKeys": {
+    "enGB": "exercise.hip_thrust_bodyweight.name",
+    "uk": "exercise.hip_thrust_bodyweight.name"
+  },
+  "discipline": "strength",
+  "movementPattern": "hinge",
+  "primaryMuscles": [
+    "gluteus_maximus"
+  ],
+  "secondaryMuscles": [
+    "hamstrings"
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "level": "beginner",
+  "unilateral": false,
+  "mechanics": "isolation",
+  "trackingType": "bodyweight_reps",
+  "technique": [
+    "Upper back on a stable bench or floor bridge position; drive hips to full extension by squeezing the glutes; lower under control."
+  ],
+  "setup": [
+    "Feet flat; chin tucked lightly; ribs down at the top."
+  ],
+  "breathing": "Exhale to lift.",
+  "commonMistakes": [
+    "Overarching the lumbar spine",
+    "Pushing through the toes only"
+  ],
+  "safety": [
+    "Use a floor glute bridge if no bench is available."
+  ],
+  "contraindications": [],
+  "regressions": [
+    {
+      "exerciseId": "glute-bridge",
+      "note": "Floor variation"
+    }
+  ],
+  "progressions": [
+    {
+      "exerciseId": "hip-thrust",
+      "note": "Add external load"
+    },
+    {
+      "exerciseId": "single-leg-hip-thrust",
+      "note": "Unilateral"
+    }
+  ],
+  "evidenceRefs": [
+    {
+      "evidenceId": "nsca_essentials_4e",
+      "supports": [
+        "technique",
+        "safety",
+        "strength"
+      ]
+    },
+    {
+      "evidenceId": "garber_acsm_quantity_2011",
+      "supports": [
+        "programming",
+        "endurance",
+        "mobility",
+        "safety"
+      ]
+    }
+  ],
+  "media": {
+    "illustrationKey": "media/illustrations/hip-thrust-bodyweight",
+    "videoKey": "media/video/hip-thrust-bodyweight",
+    "animationKey": "media/anim/hip-thrust-bodyweight"
+  },
+  "aliases": [],
+  "tags": [
+    "bodyweight",
+    "glute"
+  ],
+  "loadModel": "bodyweight_plus_external",
+  "bodyweightFraction": {
+    "proportion": 1.0,
+    "basis": "estimate",
+    "rationale": "Hip thrust moves the pelvis and trunk against gravity; estimate ~1.0 BM without external load."
+  },
+  "allowsAddedWeight": true,
+  "allowsAssistance": false
+}

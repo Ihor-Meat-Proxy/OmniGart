@@ -16,7 +16,9 @@
     "calves"
   ],
   "equipment": [
-    "barbell"
+    "barbell",
+    "squat_rack",
+    "plates"
   ],
   "level": "intermediate",
   "unilateral": false,

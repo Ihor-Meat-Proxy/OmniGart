@@ -30,7 +30,6 @@ struct FoodTabView: View {
                     .font(.footnote)
                     .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
             }
-            NutritionTargetCard(core: core, profileId: profileId)
             Section("food_totals_title") {
                 labeled("food_energy_kcal", value: String(format: "%.0f", totals.energyKcal))
                 labeled("food_protein_g", value: String(format: "%.0f", totals.proteinG))
@@ -61,6 +60,8 @@ struct FoodTabView: View {
                 }
                 .accessibilityIdentifier("food_add")
             }
+            // After totals/log so Food UITest finds food_add without scrolling past the card.
+            NutritionTargetCard(core: core, profileId: profileId)
             Section("food_today_title") {
                 if entries.isEmpty {
                     Text("food_empty")

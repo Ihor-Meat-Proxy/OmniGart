@@ -64,7 +64,12 @@ struct NutritionTargetCard: View {
             }
             .padding(.vertical, 4)
         }
-        .onAppear(perform: refresh)
+        .onAppear {
+            // Defer Shared compute so Food tab List can idle for UITests.
+            Task { @MainActor in
+                refresh()
+            }
+        }
     }
 
     private func refresh() {

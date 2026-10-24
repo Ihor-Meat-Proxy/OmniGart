@@ -147,7 +147,10 @@ enum MindfulBodyHealthSave {
                 during.map { Int64($0.date.timeIntervalSince1970 * 1000) }
             ),
             heartRateBpm: KotlinPrimitiveArrays.doubleArray(during.map(\.bpm)),
-            syncVersion: 1
+            syncVersion: 1,
+            notes: nil,
+            steps: nil,
+            sourceName: "OmniGart"
         )
     }
 

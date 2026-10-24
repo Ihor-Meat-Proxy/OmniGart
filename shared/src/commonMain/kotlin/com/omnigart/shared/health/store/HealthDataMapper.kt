@@ -64,6 +64,25 @@ object HealthDataMapper {
         WorkoutActivityType.OTHER -> "EXERCISE_TYPE_OTHER_WORKOUT"
     }
 
+    /**
+     * Health Connect exercise type for an OmniGart session.
+     * Indoor treadmill runs use [EXERCISE_TYPE_RUNNING_TREADMILL]; outdoor Zone 2 stays RUNNING.
+     */
+    fun activityToHealthConnectType(type: WorkoutActivityType, indoorTreadmill: Boolean): String =
+        if (indoorTreadmill && type == WorkoutActivityType.RUNNING) {
+            "EXERCISE_TYPE_RUNNING_TREADMILL"
+        } else {
+            activityToHealthConnectType(type)
+        }
+
+    /** HealthKit activity raw string; treadmill stays `running` with indoor location metadata. */
+    fun activityToHealthKitRaw(type: WorkoutActivityType, indoorTreadmill: Boolean): String =
+        if (indoorTreadmill && type == WorkoutActivityType.RUNNING) {
+            "running"
+        } else {
+            activityToHealthKitRaw(type)
+        }
+
     fun activityFromHealthConnectType(raw: String): WorkoutActivityType = when {
         raw.contains("STRENGTH", ignoreCase = true) -> WorkoutActivityType.STRENGTH
         raw.contains("RUNNING", ignoreCase = true) -> WorkoutActivityType.RUNNING

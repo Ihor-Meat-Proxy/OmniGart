@@ -42,6 +42,8 @@ enum WorkoutKitPlanBuilder {
         let displayName: String
         let blocks: [DraftBlock]
         let scheduledStart: Date?
+        /// `indoor` for treadmill plans; default `outdoor` (Zone 2).
+        let location: String
     }
 
     static func draft(from json: [String: Any]) throws -> Draft {
@@ -73,12 +75,14 @@ enum WorkoutKitPlanBuilder {
         }
         let startMillis = json["scheduledStartEpochMillis"] as? Double
         let scheduledStart = startMillis.map { Date(timeIntervalSince1970: $0 / 1000.0) }
+        let location = (json["location"] as? String) ?? "outdoor"
         return Draft(
             id: id,
             activity: activity,
             displayName: displayName,
             blocks: blocks,
-            scheduledStart: scheduledStart
+            scheduledStart: scheduledStart,
+            location: location
         )
     }
 
@@ -110,10 +114,13 @@ enum WorkoutKitPlanBuilder {
             }
         }
 
-        let location: HKWorkoutSessionLocationType =
-            draft.activity == "STRENGTH" || draft.activity == "YOGA" || draft.activity == "PILATES"
-            ? .indoor
-            : .outdoor
+        let location: HKWorkoutSessionLocationType = {
+            if draft.location.lowercased() == "indoor" { return .indoor }
+            if draft.activity == "STRENGTH" || draft.activity == "YOGA" || draft.activity == "PILATES" {
+                return .indoor
+            }
+            return .outdoor
+        }()
         return CustomWorkout(
             activity: activityType,
             location: location,

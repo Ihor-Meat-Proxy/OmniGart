@@ -5,6 +5,7 @@ extension HealthKitWorkoutWriter {
     static func buildSamples(for options: SaveOptions) -> [HKSample] {
         var samples: [HKSample] = []
         samples.append(contentsOf: energySamples(for: options))
+        samples.append(contentsOf: distanceSamples(for: options))
         samples.append(contentsOf: heartRateSamples(for: options))
         samples.append(contentsOf: recoveryAndEffortSamples(for: options))
         if options.saveMindfulMinutes, let mindful = mindfulType() {
@@ -18,6 +19,22 @@ extension HealthKitWorkoutWriter {
             )
         }
         return samples
+    }
+
+    private static func distanceSamples(for options: SaveOptions) -> [HKSample] {
+        guard let metres = options.distanceMetres, metres > 0,
+              let distanceType = distanceWalkingRunningType() else {
+            return []
+        }
+        let quantity = HKQuantity(unit: .meter(), doubleValue: metres)
+        return [
+            HKQuantitySample(
+                type: distanceType,
+                quantity: quantity,
+                start: options.start,
+                end: options.end
+            )
+        ]
     }
 
     private static func energySamples(for options: SaveOptions) -> [HKSample] {

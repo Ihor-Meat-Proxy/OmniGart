@@ -41,7 +41,10 @@ class LocalHealthBridge(
         planId: String?,
         heartRateEpochMs: LongArray,
         heartRateBpm: DoubleArray,
-        syncVersion: Long = 1
+        syncVersion: Long = 1,
+        notes: String? = null,
+        steps: Long? = null,
+        sourceName: String? = "OmniGart"
     ): String = recordOmniGartWorkoutWithSets(
         localId = localId,
         activityTypeName = activityTypeName,
@@ -66,7 +69,10 @@ class LocalHealthBridge(
         setRpe = DoubleArray(0),
         setIsDrop = BooleanArray(0),
         setIsFailure = BooleanArray(0),
-        syncVersion = syncVersion
+        syncVersion = syncVersion,
+        notes = notes,
+        steps = steps,
+        sourceName = sourceName
     )
 
     /**
@@ -99,7 +105,10 @@ class LocalHealthBridge(
         setRpe: DoubleArray,
         setIsDrop: BooleanArray,
         setIsFailure: BooleanArray,
-        syncVersion: Long = 1
+        syncVersion: Long = 1,
+        notes: String? = null,
+        steps: Long? = null,
+        sourceName: String? = "OmniGart"
     ): String {
         require(heartRateEpochMs.size == heartRateBpm.size)
         require(
@@ -149,14 +158,16 @@ class LocalHealthBridge(
                 activeEnergyKcal = activeEnergyKcal,
                 basalEnergyKcal = basalEnergyKcal,
                 distanceMetres = distanceMetres,
+                steps = steps,
                 averageHeartRateBpm = averageHeartRateBpm,
                 maxHeartRateBpm = maxHeartRateBpm,
                 planId = planId,
                 sessionId = sessionId,
                 origin = HealthRecordOrigin.OMNIGART,
                 sourceBundle = HealthDataMapper.SOURCE_BUNDLE_OMNIGART,
-                sourceName = "OmniGart",
+                sourceName = sourceName,
                 updatedAt = clock.now(),
+                notes = notes,
                 heartRateSeries = hr,
                 sets = sets
             )

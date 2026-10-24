@@ -65,6 +65,10 @@ kotlin {
 dependencies {
     implementation(project(":shared"))
     implementation(project(":shared:nutrition"))
+    implementation(project(":shared:treadmill"))
+    if (findProject(":android:treadmill") != null) {
+        implementation(project(":android:treadmill"))
+    }
     implementation(libs.appauth)
     implementation(libs.health.connect.client)
     implementation(libs.play.services.wearable)

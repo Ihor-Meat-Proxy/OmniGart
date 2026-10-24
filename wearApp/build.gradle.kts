@@ -53,6 +53,10 @@ kotlin {
 
 dependencies {
     implementation(project(":shared"))
+    implementation(project(":shared:treadmill"))
+    if (findProject(":android:treadmill") != null) {
+        implementation(project(":android:treadmill"))
+    }
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.health.services.client)

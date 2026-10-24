@@ -36,7 +36,9 @@ android {
 
     sourceSets {
         getByName("main") {
-            assets.srcDirs(rootProject.file("generated/content-bundle"))
+            assets.directories.add(
+                rootProject.file("generated/content-bundle").absolutePath
+            )
         }
     }
 }

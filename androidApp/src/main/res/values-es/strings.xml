@@ -899,4 +899,15 @@
     <string name="health_unit_celsius">°C</string>
     <string name="health_unit_mmhg">mmHg</string>
     <string name="health_unit_g">g</string>
+    <string name="treadmill_use_simulator">Usar simulador</string>
+    <string name="treadmill_sim_ready">Simulador listo.</string>
+    <string name="treadmill_diag_title">Diagnóstico de cinta</string>
+    <string name="treadmill_diag_body">Escanea dispositivos cercanos, lista servicios GATT, suscríbete a notificaciones y exporta hex en bruto como JSON.</string>
+    <string name="treadmill_diag_clear">Borrar registro</string>
+    <string name="treadmill_diag_export">Exportar JSON</string>
+    <string name="treadmill_diag_share">Compartir diagnóstico</string>
+    <string name="treadmill_diag_services">Servicios</string>
+    <string name="treadmill_diag_log">Registro en bruto</string>
+    <string name="treadmill_diag_capture_sim">Capturar fotograma del simulador</string>
+    <string name="treadmill_diag_captured">Fotograma capturado.</string>
 </resources>

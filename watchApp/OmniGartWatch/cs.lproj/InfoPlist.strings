@@ -1,0 +1,6 @@
+/* cs — Watch HealthKit, Bluetooth, camera, notifications */
+"NSHealthShareUsageDescription" = "OmniGart na Apple Watch čte tepovou frekvenci, HRV, tréninky a aktivní i klidovou energii z Apple Health, aby na hodinkách ukazoval odhady wellness. Pokud je vzorek později z Apple Health odstraněn, OmniGart uchová kopii na zařízení. Zdravotní data se nepoužívají k reklamě ani se nesdílejí s třetími stranami.";
+"NSHealthUpdateUsageDescription" = "OmniGart na Apple Watch ukládá silové tréninky, jógu, pilates a zónu 2 — s délkou, aktivní a klidovou energií, tepem a segmenty — do Apple Health, aby se objevily ve Fitness. Zápisy jen přidávají: OmniGart nikdy nemaže ani nepřepisuje data Apple Health včetně vlastních; pozdější úpravy zůstávají v OmniGart. Data se nepoužívají k reklamě a neprodávají se.";
+"NSBluetoothAlwaysUsageDescription" = "OmniGart může během indoor běhu na pásu používat Bluetooth ke čtení rychlosti, sklonu a vzdálenosti z kompatibilního pásu a pro tepové doplňky, které zvolíte. Aplikace na hodinkách funguje i bez doplňku.";
+"NSCameraUsageDescription" = "Přístup ke kameře není na Apple Watch pro OmniGart potřeba; tento popis existuje kvůli sdíleným řetězcům oprávnění s iPhone aplikací.";
+"NSUserNotificationsUsageDescription" = "OmniGart může připomínat tréninky a wellness kontroly, které zapnete. Aplikace funguje s vypnutými oznámeními.";

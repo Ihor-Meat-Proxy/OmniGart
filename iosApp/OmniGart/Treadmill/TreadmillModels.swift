@@ -6,6 +6,7 @@ enum TreadmillProtocolKind: String, Sendable {
     case fitshow = "FITSHOW"
     case rsc = "RSC"
     case iconsole = "ICONSOLE"
+    case simulated = "SIMULATED"
     case none = "NONE"
 }
 

@@ -8,6 +8,8 @@ enum class TreadmillProtocol {
     FITSHOW,
     RSC,
     ICONSOLE,
+    /** In-process FTMS simulator (no real BLE). */
+    SIMULATED,
     NONE
 }
 

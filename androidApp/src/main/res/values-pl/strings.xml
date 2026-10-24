@@ -899,4 +899,15 @@
     <string name="health_unit_celsius">°C</string>
     <string name="health_unit_mmhg">mmHg</string>
     <string name="health_unit_g">g</string>
+    <string name="treadmill_use_simulator">Użyj symulatora</string>
+    <string name="treadmill_sim_ready">Symulator gotowy.</string>
+    <string name="treadmill_diag_title">Diagnostyka bieżni</string>
+    <string name="treadmill_diag_body">Skanuj pobliskie urządzenia, wyświetl usługi GATT, subskrybuj powiadomienia i eksportuj surowy hex jako JSON.</string>
+    <string name="treadmill_diag_clear">Wyczyść dziennik</string>
+    <string name="treadmill_diag_export">Eksportuj JSON</string>
+    <string name="treadmill_diag_share">Udostępnij diagnostykę</string>
+    <string name="treadmill_diag_services">Usługi</string>
+    <string name="treadmill_diag_log">Surowy dziennik</string>
+    <string name="treadmill_diag_capture_sim">Przechwyć ramkę symulatora</string>
+    <string name="treadmill_diag_captured">Ramka przechwycona.</string>
 </resources>

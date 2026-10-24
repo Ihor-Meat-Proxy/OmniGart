@@ -34,6 +34,14 @@ struct WatchStartView: View {
                     .accessibilityIdentifier("watch_start_button")
 
                     NavigationLink {
+                        WatchStrengthStartView(core: core, profileId: profileId)
+                    } label: {
+                        Text("watch_strength_start")
+                    }
+                    .tint(Color.OmniGart.colorBrandAccent)
+                    .accessibilityIdentifier("watch_strength_program_start")
+
+                    NavigationLink {
                         OmniGartLiveWorkoutView(kind: .traditionalStrength)
                     } label: {
                         Text("watch.workout.strength_traditional")
@@ -63,14 +71,6 @@ struct WatchStartView: View {
                     }
                     .tint(Color.OmniGart.colorBrandAccent)
                     .accessibilityIdentifier("watch_pilates_start")
-
-                    NavigationLink {
-                        WatchStrengthStartView(core: core, profileId: profileId)
-                    } label: {
-                        Text("workouts_adjust_equipment")
-                    }
-                    .tint(Color.OmniGart.colorBrandAccent)
-                    .accessibilityIdentifier("watch_strength_logging_start")
                 }
                 .padding(OmniGartMetrics.space2)
             }

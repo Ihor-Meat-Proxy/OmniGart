@@ -209,40 +209,6 @@ INSERT INTO formula_recalc_audit(
 selectRecalcAuditsForProfile:
 SELECT * FROM formula_recalc_audit WHERE profile_id = ? ORDER BY at DESC;
 
-CREATE TABLE equipment_profile (
-  profile_id TEXT NOT NULL PRIMARY KEY,
-  owned_ids TEXT NOT NULL,
-  active_preset TEXT NOT NULL DEFAULT 'CUSTOM',
-  dumbbell_min_kg REAL,
-  dumbbell_max_kg REAL,
-  saved_presets_json TEXT NOT NULL DEFAULT '[]',
-  updated_at TEXT NOT NULL
-);
-
-CREATE TABLE strength_program_prefs (
-  profile_id TEXT NOT NULL PRIMARY KEY,
-  split TEXT NOT NULL DEFAULT 'FULL_BODY',
-  days_per_week INTEGER NOT NULL DEFAULT 3,
-  week_index INTEGER NOT NULL DEFAULT 1,
-  updated_at TEXT NOT NULL
-);
-
-selectEquipmentProfile:
-SELECT * FROM equipment_profile WHERE profile_id = ?;
-
-upsertEquipmentProfile:
-INSERT OR REPLACE INTO equipment_profile(
-  profile_id, owned_ids, active_preset, dumbbell_min_kg, dumbbell_max_kg, saved_presets_json, updated_at
-) VALUES (?, ?, ?, ?, ?, ?, ?);
-
-selectStrengthProgramPrefs:
-SELECT * FROM strength_program_prefs WHERE profile_id = ?;
-
-upsertStrengthProgramPrefs:
-INSERT OR REPLACE INTO strength_program_prefs(
-  profile_id, split, days_per_week, week_index, updated_at
-) VALUES (?, ?, ?, ?, ?);
-
 -- Local-first health store (canonical OmniGart copy; platform sync is optional).
 
 CREATE TABLE local_health_workout (
@@ -446,3 +412,40 @@ INSERT OR REPLACE INTO health_conflict(
 
 resolveHealthConflict:
 UPDATE health_conflict SET resolved = 1 WHERE id = ?;
+
+-- Strength equipment / program prefs (migration 5).
+
+CREATE TABLE equipment_profile (
+  profile_id TEXT NOT NULL PRIMARY KEY,
+  owned_ids TEXT NOT NULL,
+  active_preset TEXT NOT NULL DEFAULT 'CUSTOM',
+  dumbbell_min_kg REAL,
+  dumbbell_max_kg REAL,
+  saved_presets_json TEXT NOT NULL DEFAULT '[]',
+  updated_at TEXT NOT NULL
+);
+
+CREATE TABLE strength_program_prefs (
+  profile_id TEXT NOT NULL PRIMARY KEY,
+  split TEXT NOT NULL DEFAULT 'FULL_BODY',
+  days_per_week INTEGER NOT NULL DEFAULT 3,
+  week_index INTEGER NOT NULL DEFAULT 1,
+  updated_at TEXT NOT NULL
+);
+
+selectEquipmentProfile:
+SELECT * FROM equipment_profile WHERE profile_id = ?;
+
+upsertEquipmentProfile:
+INSERT OR REPLACE INTO equipment_profile(
+  profile_id, owned_ids, active_preset, dumbbell_min_kg, dumbbell_max_kg, saved_presets_json, updated_at
+) VALUES (?, ?, ?, ?, ?, ?, ?);
+
+selectStrengthProgramPrefs:
+SELECT * FROM strength_program_prefs WHERE profile_id = ?;
+
+upsertStrengthProgramPrefs:
+INSERT OR REPLACE INTO strength_program_prefs(
+  profile_id, split, days_per_week, week_index, updated_at
+) VALUES (?, ?, ?, ?, ?);
+

@@ -6,7 +6,7 @@ import Shared
 struct PhoneRootView: View {
     let core: OmniGartCore
     let profileId: String
-    @State private var selectedTab: PhoneTab = .profile
+    @State private var selectedTab: PhoneTab = Self.initialTab()
     @State private var showInfoSheet = false
 
     var body: some View {
@@ -34,6 +34,12 @@ struct PhoneRootView: View {
         .sheet(isPresented: $showInfoSheet) {
             WellnessInfoSheet()
         }
+    }
+
+    /// UI tests launch on Food so the first tab stays in the AX tree; with 7 tabs a
+    /// scrollable bar starting on Profile can omit off-screen tab buttons entirely.
+    private static func initialTab() -> PhoneTab {
+        ProcessInfo.processInfo.arguments.contains("-ui-testing") ? .food : .profile
     }
 
     @ViewBuilder

@@ -20,6 +20,11 @@ import com.omnigart.shared.domain.ProfileGoal
 import com.omnigart.shared.domain.StrengthLevel
 import com.omnigart.shared.domain.UnitSystem
 import com.omnigart.shared.domain.UserProfile
+import com.omnigart.shared.health.store.HealthSyncEngine
+import com.omnigart.shared.health.store.LocalHealthBridge
+import com.omnigart.shared.health.store.LocalHealthStore
+import com.omnigart.shared.health.store.SqlDelightLocalHealthStore
+import com.omnigart.shared.health.store.export.HealthExportService
 import com.omnigart.shared.logging.StrengthLoggingService
 import com.omnigart.shared.strength.EquipmentProfileService
 import com.omnigart.shared.strength.RoutineLibraryService
@@ -73,6 +78,12 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
             exercises = exercises,
             sessions = sessions
         )
+
+    /** Local-first health store (SQLDelight). Always available without platform permission. */
+    val localHealthStore: LocalHealthStore = SqlDelightLocalHealthStore(database)
+    val healthSync: HealthSyncEngine = HealthSyncEngine(localHealthStore)
+    val healthExport: HealthExportService = HealthExportService(localHealthStore)
+    val localHealth: LocalHealthBridge = LocalHealthBridge(localHealthStore, healthSync, healthExport)
 
     /** True when a completed local profile exists (first-launch onboarding finished). */
     fun needsOnboarding(): Boolean {

@@ -55,6 +55,11 @@ dependencies {
     implementation(project(":shared"))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.health.services.client)
+    implementation(libs.play.services.wearable)
+    implementation(libs.kotlinx.coroutines.core)
+    // Health Services exposes Guava ListenableFuture; pin for compile classpath.
+    implementation("com.google.guava:guava:33.4.8-android")
 
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)

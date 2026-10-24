@@ -30,11 +30,15 @@ struct PhoneRootView: View {
                             .renderingMode(.template)
                     }
                 }
-                // Identifier must live on `Tab` so XCTest can target the tab item.
+                // Identifier must live on `Tab` so XCTest sees it on the tab bar button
+                // (putting it on the page root only exposes the selected tab's content).
+                // Keep a single identifier — labeling both Label and Tab makes UITest
+                // `descendants["tab_*"]` ambiguous ("Multiple matching elements").
                 .accessibilityIdentifier(tab.accessibilityId)
             }
         }
-        // Prefer a bottom tab bar on iPad too (CI destination is an iPad simulator).
+        // CI boots an iPad simulator; keep a bottom tab bar so tab accessibility
+        // identifiers stay on `tabBars.buttons` instead of the adaptive sidebar.
         .tabViewStyle(.tabBarOnly)
         .tint(Color.OmniGart.colorBrandAccent)
         .accessibilityIdentifier("phone_shell")

@@ -77,12 +77,26 @@ final class PhoneUITests: XCTestCase {
         let shell = app.descendants(matching: .any)["phone_shell"]
         XCTAssertTrue(shell.waitForExistence(timeout: 30))
 
-        // `-ui-testing` starts PhoneRootView on Food (see PhoneRootView.initialTab) so
-        // content is visible without tapping the tab bar — iPad XCTest often has no
-        // usable `tabBars` query even with `.tabBarOnly`.
-        let totals = app.descendants(matching: .any)["food_totals"].firstMatch
-        XCTAssertTrue(totals.waitForExistence(timeout: 15), "Expected food_totals on Food tab")
-        let add = app.descendants(matching: .any)["food_add"].firstMatch
-        XCTAssertTrue(add.waitForExistence(timeout: 5), "Expected food_add on Food tab")
+        // Identifier is set once on `Tab` in PhoneRootView (`.tabBarOnly` keeps a bottom
+        // bar on iPad CI). Prefer tabBars, then any button — always resolve via firstMatch
+        // so a stray duplicate never fails tap with "Multiple matching elements".
+        let foodById = app.tabBars.buttons["tab_food"]
+        let foodByTitle = app.tabBars.buttons["Food"]
+        let foodByButton = app.buttons.matching(identifier: "tab_food").firstMatch
+        let foodTab: XCUIElement
+        if foodById.waitForExistence(timeout: 10) {
+            foodTab = foodById
+        } else if foodByTitle.waitForExistence(timeout: 5) {
+            foodTab = foodByTitle
+        } else {
+            foodTab = foodByButton
+        }
+        XCTAssertTrue(foodTab.waitForExistence(timeout: 10), "Expected Food tab control")
+        foodTab.tap()
+
+        let totals = app.descendants(matching: .any)["food_totals"]
+        XCTAssertTrue(totals.waitForExistence(timeout: 10))
+        let add = app.descendants(matching: .any)["food_add"]
+        XCTAssertTrue(add.waitForExistence(timeout: 5))
     }
 }

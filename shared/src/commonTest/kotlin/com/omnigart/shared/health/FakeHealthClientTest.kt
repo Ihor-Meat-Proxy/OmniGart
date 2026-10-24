@@ -57,4 +57,38 @@ class FakeHealthClientTest {
         client.emitObservation()
         assertEquals(1, hits)
     }
+
+    @Test
+    fun writeWorkouts_isAppendOnly_skipsExistingIds() = runTest {
+        val client = FakeHealthClient()
+        val start = Instant.parse("2026-10-01T08:00:00Z")
+        val end = Instant.parse("2026-10-01T09:00:00Z")
+        val workout =
+            HealthWorkout(
+                id = "omnigart.workout.session-1",
+                activityType = WorkoutActivityType.STRENGTH,
+                start = start,
+                end = end,
+                energyKcal = 200.0
+            )
+        client.writeWorkouts(listOf(workout))
+        client.writeWorkouts(
+            listOf(
+                workout.copy(energyKcal = 999.0),
+                workout.copy(
+                    id = "omnigart.workout.session-2",
+                    energyKcal = 150.0
+                )
+            )
+        )
+        val range =
+            TimeRange(
+                Instant.parse("2026-10-01T00:00:00Z"),
+                Instant.parse("2026-10-02T00:00:00Z")
+            )
+        val stored = client.readWorkouts(range)
+        assertEquals(2, stored.size)
+        assertEquals(200.0, stored.single { it.id == "omnigart.workout.session-1" }.energyKcal)
+        assertEquals(150.0, stored.single { it.id == "omnigart.workout.session-2" }.energyKcal)
+    }
 }

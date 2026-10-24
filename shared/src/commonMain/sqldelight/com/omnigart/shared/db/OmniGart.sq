@@ -209,6 +209,211 @@ INSERT INTO formula_recalc_audit(
 selectRecalcAuditsForProfile:
 SELECT * FROM formula_recalc_audit WHERE profile_id = ? ORDER BY at DESC;
 
+-- Local-first health store (canonical OmniGart copy; platform sync is optional).
+
+CREATE TABLE local_health_workout (
+  id TEXT NOT NULL PRIMARY KEY,
+  sync_identifier TEXT NOT NULL,
+  sync_version INTEGER NOT NULL DEFAULT 1,
+  activity_type TEXT NOT NULL,
+  start_at TEXT NOT NULL,
+  end_at TEXT NOT NULL,
+  active_energy_kcal REAL,
+  basal_energy_kcal REAL,
+  distance_metres REAL,
+  steps INTEGER,
+  average_heart_rate_bpm REAL,
+  max_heart_rate_bpm REAL,
+  average_cadence_spm REAL,
+  plan_id TEXT,
+  session_id TEXT,
+  origin TEXT NOT NULL,
+  source_bundle TEXT,
+  source_name TEXT,
+  platform_record_id TEXT,
+  deleted INTEGER NOT NULL DEFAULT 0,
+  removed_from_platform INTEGER NOT NULL DEFAULT 0,
+  updated_at TEXT NOT NULL,
+  notes TEXT
+);
+
+CREATE TABLE local_health_sample (
+  id TEXT NOT NULL PRIMARY KEY,
+  workout_id TEXT NOT NULL,
+  sample_type TEXT NOT NULL,
+  recorded_at TEXT NOT NULL,
+  end_at TEXT,
+  value REAL NOT NULL,
+  unit TEXT NOT NULL,
+  FOREIGN KEY(workout_id) REFERENCES local_health_workout(id) ON DELETE CASCADE
+);
+
+CREATE TABLE local_health_route_point (
+  id TEXT NOT NULL PRIMARY KEY,
+  workout_id TEXT NOT NULL,
+  recorded_at TEXT NOT NULL,
+  latitude REAL NOT NULL,
+  longitude REAL NOT NULL,
+  altitude_metres REAL,
+  point_index INTEGER NOT NULL,
+  FOREIGN KEY(workout_id) REFERENCES local_health_workout(id) ON DELETE CASCADE
+);
+
+CREATE TABLE local_health_event (
+  id TEXT NOT NULL PRIMARY KEY,
+  workout_id TEXT NOT NULL,
+  event_type TEXT NOT NULL,
+  start_at TEXT NOT NULL,
+  end_at TEXT,
+  label TEXT,
+  event_index INTEGER NOT NULL,
+  FOREIGN KEY(workout_id) REFERENCES local_health_workout(id) ON DELETE CASCADE
+);
+
+CREATE TABLE local_health_set (
+  id TEXT NOT NULL PRIMARY KEY,
+  workout_id TEXT NOT NULL,
+  exercise_key TEXT NOT NULL,
+  set_index INTEGER NOT NULL,
+  reps INTEGER,
+  load_kg REAL,
+  duration_seconds INTEGER,
+  distance_metres REAL,
+  rir REAL,
+  is_warmup INTEGER NOT NULL DEFAULT 0,
+  FOREIGN KEY(workout_id) REFERENCES local_health_workout(id) ON DELETE CASCADE
+);
+
+CREATE TABLE health_sync_state (
+  platform TEXT NOT NULL PRIMARY KEY,
+  change_token TEXT,
+  last_sync_at TEXT,
+  auth_status TEXT NOT NULL DEFAULT 'NOT_DETERMINED'
+);
+
+CREATE TABLE health_conflict (
+  id TEXT NOT NULL PRIMARY KEY,
+  workout_id TEXT NOT NULL,
+  platform TEXT NOT NULL,
+  field_name TEXT NOT NULL,
+  local_value TEXT,
+  platform_value TEXT,
+  preferred_source TEXT NOT NULL,
+  resolved INTEGER NOT NULL DEFAULT 0,
+  created_at TEXT NOT NULL,
+  FOREIGN KEY(workout_id) REFERENCES local_health_workout(id) ON DELETE CASCADE
+);
+
+CREATE INDEX local_health_workout_sync_idx ON local_health_workout(sync_identifier);
+CREATE INDEX local_health_workout_start_idx ON local_health_workout(start_at);
+CREATE INDEX local_health_sample_workout_idx ON local_health_sample(workout_id);
+CREATE INDEX local_health_route_workout_idx ON local_health_route_point(workout_id);
+CREATE INDEX health_conflict_open_idx ON health_conflict(resolved);
+
+selectLocalHealthWorkout:
+SELECT * FROM local_health_workout WHERE id = ?;
+
+selectLocalHealthWorkoutBySyncId:
+SELECT * FROM local_health_workout WHERE sync_identifier = ? AND deleted = 0;
+
+selectLocalHealthWorkoutByPlatformRecordId:
+SELECT * FROM local_health_workout WHERE platform_record_id = ? AND deleted = 0;
+
+selectLocalHealthWorkoutsInRange:
+SELECT * FROM local_health_workout
+WHERE deleted = 0 AND start_at >= ? AND start_at < ?
+ORDER BY start_at DESC;
+
+selectAllLocalHealthWorkouts:
+SELECT * FROM local_health_workout WHERE deleted = 0 ORDER BY start_at DESC;
+
+upsertLocalHealthWorkout:
+INSERT OR REPLACE INTO local_health_workout(
+  id, sync_identifier, sync_version, activity_type, start_at, end_at,
+  active_energy_kcal, basal_energy_kcal, distance_metres, steps,
+  average_heart_rate_bpm, max_heart_rate_bpm, average_cadence_spm,
+  plan_id, session_id, origin, source_bundle, source_name, platform_record_id,
+  deleted, removed_from_platform, updated_at, notes
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+softDeleteLocalHealthWorkout:
+UPDATE local_health_workout SET deleted = 1, updated_at = ? WHERE id = ?;
+
+markLocalHealthWorkoutRemovedFromPlatform:
+UPDATE local_health_workout SET removed_from_platform = 1, updated_at = ? WHERE id = ?;
+
+clearLocalHealthWorkoutRemovedFromPlatform:
+UPDATE local_health_workout SET removed_from_platform = 0, updated_at = ? WHERE id = ?;
+
+linkLocalHealthWorkoutPlatformRecord:
+UPDATE local_health_workout SET platform_record_id = ?, updated_at = ? WHERE id = ?;
+
+selectSamplesForWorkout:
+SELECT * FROM local_health_sample WHERE workout_id = ? ORDER BY recorded_at ASC;
+
+deleteSamplesForWorkout:
+DELETE FROM local_health_sample WHERE workout_id = ?;
+
+insertLocalHealthSample:
+INSERT OR REPLACE INTO local_health_sample(
+  id, workout_id, sample_type, recorded_at, end_at, value, unit
+) VALUES (?, ?, ?, ?, ?, ?, ?);
+
+selectRouteForWorkout:
+SELECT * FROM local_health_route_point WHERE workout_id = ? ORDER BY point_index ASC;
+
+deleteRouteForWorkout:
+DELETE FROM local_health_route_point WHERE workout_id = ?;
+
+insertLocalHealthRoutePoint:
+INSERT OR REPLACE INTO local_health_route_point(
+  id, workout_id, recorded_at, latitude, longitude, altitude_metres, point_index
+) VALUES (?, ?, ?, ?, ?, ?, ?);
+
+selectEventsForWorkout:
+SELECT * FROM local_health_event WHERE workout_id = ? ORDER BY event_index ASC;
+
+deleteEventsForWorkout:
+DELETE FROM local_health_event WHERE workout_id = ?;
+
+insertLocalHealthEvent:
+INSERT OR REPLACE INTO local_health_event(
+  id, workout_id, event_type, start_at, end_at, label, event_index
+) VALUES (?, ?, ?, ?, ?, ?, ?);
+
+selectSetsForWorkout:
+SELECT * FROM local_health_set WHERE workout_id = ? ORDER BY set_index ASC;
+
+deleteSetsForWorkout:
+DELETE FROM local_health_set WHERE workout_id = ?;
+
+insertLocalHealthSet:
+INSERT OR REPLACE INTO local_health_set(
+  id, workout_id, exercise_key, set_index, reps, load_kg, duration_seconds, distance_metres, rir, is_warmup
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+selectHealthSyncState:
+SELECT * FROM health_sync_state WHERE platform = ?;
+
+upsertHealthSyncState:
+INSERT OR REPLACE INTO health_sync_state(platform, change_token, last_sync_at, auth_status)
+VALUES (?, ?, ?, ?);
+
+selectOpenHealthConflicts:
+SELECT * FROM health_conflict WHERE resolved = 0 ORDER BY created_at DESC;
+
+selectConflictsForWorkout:
+SELECT * FROM health_conflict WHERE workout_id = ? ORDER BY created_at DESC;
+
+upsertHealthConflict:
+INSERT OR REPLACE INTO health_conflict(
+  id, workout_id, platform, field_name, local_value, platform_value, preferred_source, resolved, created_at
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+resolveHealthConflict:
+UPDATE health_conflict SET resolved = 1 WHERE id = ?;
+
+
 CREATE TABLE equipment_profile (
   profile_id TEXT NOT NULL PRIMARY KEY,
   owned_ids TEXT NOT NULL,

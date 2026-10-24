@@ -899,4 +899,15 @@
     <string name="health_unit_celsius">°C</string>
     <string name="health_unit_mmhg">мм сын. бағ.</string>
     <string name="health_unit_g">г</string>
+    <string name="treadmill_use_simulator">Симуляторды пайдалану</string>
+    <string name="treadmill_sim_ready">Симулятор дайын.</string>
+    <string name="treadmill_diag_title">Жүгіру жолының диагностикасы</string>
+    <string name="treadmill_diag_body">Жақын құрылғыларды сканерлеңіз, GATT қызметтерін қараңыз, хабарландыруларға жазылыңыз және шикі hex-ті JSON ретінде экспорттаңыз.</string>
+    <string name="treadmill_diag_clear">Журналды тазалау</string>
+    <string name="treadmill_diag_export">JSON экспорттау</string>
+    <string name="treadmill_diag_share">Диагностиканы бөлісу</string>
+    <string name="treadmill_diag_services">Қызметтер</string>
+    <string name="treadmill_diag_log">Шикі журнал</string>
+    <string name="treadmill_diag_capture_sim">Симулятор кадрын түсіру</string>
+    <string name="treadmill_diag_captured">Кадр түсірілді.</string>
 </resources>

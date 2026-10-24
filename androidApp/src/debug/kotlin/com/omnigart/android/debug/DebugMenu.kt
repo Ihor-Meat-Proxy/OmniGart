@@ -3,12 +3,20 @@ package com.omnigart.android.debug
 import android.content.pm.ApplicationInfo
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.omnigart.android.R
+import com.omnigart.android.treadmill.TreadmillDiagnosticsSection
 
 /**
  * Developer-only tooling. Lives under the `debug` package and must only be
@@ -22,6 +30,8 @@ fun DebugMenu(modifier: Modifier = Modifier) {
         (context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0
     if (!debuggable) return
 
+    var showDiagnostics by remember { mutableStateOf(false) }
+
     Column(
         modifier =
         modifier
@@ -29,7 +39,15 @@ fun DebugMenu(modifier: Modifier = Modifier) {
             .testTag("debug_menu")
     ) {
         Text("DebugMenu — development only")
-        Text("Treadmill diagnostics: long-press the Treadmill run title in Workouts.")
+        Button(
+            onClick = { showDiagnostics = !showDiagnostics },
+            modifier = Modifier.testTag("treadmill_diag_open")
+        ) {
+            Text(stringResource(R.string.treadmill_diag_title))
+        }
+        if (showDiagnostics) {
+            TreadmillDiagnosticsSection()
+        }
     }
 }
 

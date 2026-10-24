@@ -899,4 +899,15 @@
     <string name="health_unit_celsius">°C</string>
     <string name="health_unit_mmhg">毫米汞柱</string>
     <string name="health_unit_g">克</string>
+    <string name="treadmill_use_simulator">使用模拟器</string>
+    <string name="treadmill_sim_ready">模拟器已就绪。</string>
+    <string name="treadmill_diag_title">跑步机诊断</string>
+    <string name="treadmill_diag_body">扫描附近设备、列出 GATT 服务、订阅通知特征，并将原始十六进制导出为 JSON。</string>
+    <string name="treadmill_diag_clear">清除日志</string>
+    <string name="treadmill_diag_export">导出 JSON</string>
+    <string name="treadmill_diag_share">分享诊断</string>
+    <string name="treadmill_diag_services">服务</string>
+    <string name="treadmill_diag_log">原始日志</string>
+    <string name="treadmill_diag_capture_sim">捕获模拟器帧</string>
+    <string name="treadmill_diag_captured">已捕获帧。</string>
 </resources>

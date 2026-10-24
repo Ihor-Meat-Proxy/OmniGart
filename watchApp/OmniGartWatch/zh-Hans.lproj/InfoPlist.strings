@@ -1,0 +1,6 @@
+/* zh-Hans — Watch HealthKit, Bluetooth, camera, notifications */
+"NSHealthShareUsageDescription" = "OmniGart 在 Apple Watch 上从 Apple 健康读取心率、HRV、体能训练以及活动与静息能量，以便在手表上显示健康估算。若样本稍后从 Apple 健康移除，OmniGart 会保留设备上的副本。健康数据不用于广告，也不与第三方共享。";
+"NSHealthUpdateUsageDescription" = "OmniGart 在 Apple Watch 上将力量、瑜伽、普拉提和 2 区训练——含时长、活动与静息能量、心率和分段——保存到 Apple 健康，以便出现在健身 App。写入仅为追加：OmniGart 从不删除或改写 Apple 健康数据（包括它自己创建的）；之后的编辑保留在 OmniGart。数据不用于广告也不出售。";
+"NSBluetoothAlwaysUsageDescription" = "OmniGart 可在室内跑步机跑步期间使用蓝牙，从兼容跑步机读取速度、坡度和距离，以及您选择的心率配件。手表应用在无配件时仍可使用。";
+"NSCameraUsageDescription" = "Apple Watch 上的 OmniGart 不需要相机；此说明与 iPhone 应用的共享权限文案一致。";
+"NSUserNotificationsUsageDescription" = "OmniGart 可提醒您启用的训练和健康打卡。关闭通知后应用仍可使用。";

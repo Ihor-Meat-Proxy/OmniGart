@@ -87,7 +87,11 @@ fun TreadmillRunSection(core: OmniGartCore, profileId: String, modifier: Modifie
         TreadmillHeader(onShowDiagnostics = { showDiag = true })
         RowSwitch(stringResource(R.string.treadmill_walk_title), walking) { walking = it }
         Text(text = "BLE: ${state.name} / ${metrics.protocol.name}")
-        TreadmillConnectionButtons(client = client, discovered = discovered)
+        TreadmillConnectionButtons(
+            client = client,
+            discovered = discovered,
+            showSimulator = isDebuggable(context) || state == TreadmillBleClient.State.Failed
+        )
         RowSwitch(stringResource(R.string.treadmill_allow_control), allowControl) {
             allowControl = it
             client.allowRemoteControl = it
@@ -101,9 +105,18 @@ fun TreadmillRunSection(core: OmniGartCore, profileId: String, modifier: Modifie
             onStart = {
                 running = true
                 startedAtMs = System.currentTimeMillis()
-                client.connectRemembered()
+                if (client.usingSimulator) {
+                    client.allowRemoteControl = true
+                    allowControl = true
+                    client.startSimulatorBelt()
+                } else {
+                    client.connectRemembered()
+                }
             },
-            onFinish = { finishSession() }
+            onFinish = {
+                if (client.usingSimulator) client.stopSimulatorBelt()
+                finishSession()
+            }
         )
         status?.let { Text(text = it) }
         if (!metrics.connected) {
@@ -139,12 +152,27 @@ private fun TreadmillHeader(onShowDiagnostics: () -> Unit) {
 }
 
 @Composable
-private fun TreadmillConnectionButtons(client: TreadmillBleClient, discovered: List<TreadmillBleClient.Discovered>) {
+private fun TreadmillConnectionButtons(
+    client: TreadmillBleClient,
+    discovered: List<TreadmillBleClient.Discovered>,
+    showSimulator: Boolean
+) {
     Button(onClick = { client.startScan() }, modifier = Modifier.testTag("treadmill_scan")) {
         Text(stringResource(R.string.treadmill_scan))
     }
     Button(onClick = { client.connectRemembered() }) {
         Text(stringResource(R.string.treadmill_reconnect))
+    }
+    if (showSimulator) {
+        Button(
+            onClick = {
+                client.useSimulator()
+                client.allowRemoteControl = true
+            },
+            modifier = Modifier.testTag("treadmill_use_simulator")
+        ) {
+            Text(stringResource(R.string.treadmill_use_simulator))
+        }
     }
     discovered.forEach { device ->
         Button(onClick = { client.connect(device.address) }, modifier = Modifier.fillMaxWidth()) {
@@ -152,6 +180,9 @@ private fun TreadmillConnectionButtons(client: TreadmillBleClient, discovered: L
         }
     }
 }
+
+private fun isDebuggable(context: Context): Boolean =
+    (context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0
 
 @Composable
 private fun TreadmillMetricsBlock(metrics: TreadmillLiveMetrics) {
@@ -208,8 +239,8 @@ private fun TreadmillDiagnosticsBlock(client: TreadmillBleClient, onClose: () ->
     Text(text = client.diagnostics.exportText(), style = MaterialTheme.typography.bodySmall)
     Button(
         onClick = {
-            val file = File(context.cacheDir, "omnigart-treadmill-diagnostics.txt")
-            file.writeText(client.diagnostics.exportText())
+            val file = File(context.cacheDir, "omnigart-treadmill-diagnostics.json")
+            file.writeText(client.diagnostics.exportJson(pretty = true))
             onExported(file.absolutePath)
         }
     ) {

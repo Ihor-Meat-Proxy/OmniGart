@@ -60,6 +60,8 @@ struct FoodTabView: View {
                 }
                 .accessibilityIdentifier("food_add")
             }
+            // After totals/log so Food UITest finds food_add without scrolling past the card.
+            NutritionTargetCard(core: core, profileId: profileId)
             Section("food_today_title") {
                 if entries.isEmpty {
                     Text("food_empty")
@@ -83,6 +85,18 @@ struct FoodTabView: View {
                         .accessibilityIdentifier("food_entry_\(entry.id)")
                     }
                 }
+            }
+            FoodSearchPanel(core: core, profileId: profileId, tick: $tick)
+            FoodRecentsFavouritesPanel(core: core, profileId: profileId, tick: $tick)
+            FoodGapsPanel(core: core, profileId: profileId, tick: tick)
+            FoodToolsPanel(core: core, profileId: profileId, tick: $tick)
+            FoodMorningReviewPanel(core: core, profileId: profileId)
+            FoodSettingsPanel(core: core, profileId: profileId)
+            Section {
+                Text("food_attribution_short")
+                    .font(.caption2)
+                    .foregroundStyle(Color.OmniGart.colorTextLightSecondary)
+                    .accessibilityIdentifier("food_attribution")
             }
         }
         .navigationTitle(Text("tab_food"))

@@ -6,8 +6,16 @@ import Shared
 struct PhoneRootView: View {
     let core: OmniGartCore
     let profileId: String
-    @State private var selectedTab: PhoneTab = .profile
+    @State private var selectedTab: PhoneTab
     @State private var showInfoSheet = false
+
+    init(core: OmniGartCore, profileId: String) {
+        self.core = core
+        self.profileId = profileId
+        // UITest launch arg skips flaky iPad tab-bar taps (nested duplicate tab_* ids).
+        let openFood = ProcessInfo.processInfo.arguments.contains("-ui-testing-tab-food")
+        _selectedTab = State(initialValue: openFood ? .food : .profile)
+    }
 
     var body: some View {
         TabView(selection: $selectedTab) {

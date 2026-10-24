@@ -98,6 +98,8 @@ struct ProfileTabView: View {
             Section {
                 CalculationsSettingsView(core: core, profileId: profileId)
             }
+            NutritionGoalSettingsView()
+            NutritionReminderSettingsView()
             Section("workout_mindful_settings_title") {
                 MindfulMinutesSettingsToggle()
             }

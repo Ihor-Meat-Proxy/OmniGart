@@ -6,13 +6,15 @@ import Shared
 struct PhoneRootView: View {
     let core: OmniGartCore
     let profileId: String
-    @State private var selectedTab: PhoneTab = Self.initialTab
+    @State private var selectedTab: PhoneTab
     @State private var showInfoSheet = false
 
-    /// UITest launches (`-ui-testing`) open on Food so content identifiers are in the
-    /// hierarchy without relying on iPad tab-bar a11y (often empty under XCTest).
-    private static var initialTab: PhoneTab {
-        ProcessInfo.processInfo.arguments.contains("-ui-testing") ? .food : .profile
+    init(core: OmniGartCore, profileId: String) {
+        self.core = core
+        self.profileId = profileId
+        // UITest launch arg skips flaky iPad tab-bar taps (nested duplicate tab_* ids).
+        let openFood = ProcessInfo.processInfo.arguments.contains("-ui-testing-tab-food")
+        _selectedTab = State(initialValue: openFood ? .food : .profile)
     }
 
     var body: some View {

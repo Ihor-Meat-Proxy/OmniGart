@@ -55,6 +55,9 @@ project(":shared:endurance-content").projectDir = file("shared/endurance-content
 include(":shared:nutrition-data")
 project(":shared:nutrition-data").projectDir = file("shared/nutrition-data")
 
+include(":shared:nutrition")
+project(":shared:nutrition").projectDir = file("shared/nutrition")
+
 include(":androidApp")
 include(":wearApp")
 

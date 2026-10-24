@@ -30,21 +30,21 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     var allowRemoteControl = false
     var watchHeartRateBpm: Int?
 
-    private var central: CBCentralManager?
+    var central: CBCentralManager?
     var linkedPeripheral: CBPeripheral?
-    private var preferredId: UUID?
+    var preferredId: UUID?
     var controlPoint: CBCharacteristic?
     var fitShowWrite: CBCharacteristic?
     var iconsoleRx: CBCharacteristic?
-    private var reconnectTask: Task<Void, Never>?
+    var reconnectTask: Task<Void, Never>?
     var iconsolePollTask: Task<Void, Never>?
     var fitShowPollTask: Task<Void, Never>?
-    private var reconnectAttempt = 0
-    private var diagLines: [String] = []
-    private let rememberedKey = "omnigart.treadmill.remembered"
-    private let hrMax: Int
-    private var simulator: SimulatedTreadmillSession?
-    private var simulatorForwardTask: Task<Void, Never>?
+    var reconnectAttempt = 0
+    var diagLines: [String] = []
+    let rememberedKey = "omnigart.treadmill.remembered"
+    let hrMax: Int
+    var simulator: SimulatedTreadmillSession?
+    var simulatorForwardTask: Task<Void, Never>?
 
     /// True when live metrics come from the in-process FTMS simulator.
     var usingSimulator: Bool { simulator != nil }
@@ -66,43 +66,6 @@ final class TreadmillBleManager: NSObject, ObservableObject {
     func start() {
         if central == nil {
             central = CBCentralManager(delegate: self, queue: nil)
-        }
-    }
-
-    /// Attach the shared-architecture FTMS simulator (DEBUG / Simulator / BLE unavailable).
-    func useSimulator() {
-        stopScan()
-        reconnectTask?.cancel()
-        iconsolePollTask?.cancel()
-        fitShowPollTask?.cancel()
-        if let linkedPeripheral {
-            central?.cancelPeripheralConnection(linkedPeripheral)
-        }
-        linkedPeripheral = nil
-        let session = SimulatedTreadmillSession(hrMax: hrMax)
-        session.watchHeartRateBpm = watchHeartRateBpm
-        _ = session.attach()
-        simulator = session
-        activeProtocol = .simulated
-        state = .connected
-        discovered = [
-            DiscoveredDevice(id: UUID(), name: session.deviceName, protocolHint: "SIMULATED")
-        ]
-        live = session.live
-        appendDiag("INFO simulator attached")
-        startSimulatorForwarding()
-    }
-
-    func startSimulatorBelt() {
-        guard let simulator else { return }
-        _ = simulator.startBelt()
-        startSimulatorForwarding()
-    }
-
-    func stopSimulatorBelt() {
-        simulator?.stopBelt()
-        if let simulator {
-            live = simulator.live
         }
     }
 
@@ -220,24 +183,6 @@ final class TreadmillBleManager: NSObject, ObservableObject {
         appendDiag("INFO control set incline \(incline)")
     }
 
-    private func startSimulatorForwarding() {
-        simulatorForwardTask?.cancel()
-        guard let simulator else { return }
-        simulatorForwardTask = Task { @MainActor in
-            while !Task.isCancelled, self.simulator != nil {
-                live = simulator.live
-                try? await Task.sleep(nanoseconds: 500_000_000)
-            }
-        }
-    }
-
-    private func clearSimulator() {
-        simulatorForwardTask?.cancel()
-        simulatorForwardTask = nil
-        simulator?.reset()
-        simulator = nil
-    }
-
     func exportDiagnosticsURL() -> URL? {
         let body = """
         OmniGart treadmill diagnostics
@@ -260,7 +205,7 @@ final class TreadmillBleManager: NSObject, ObservableObject {
         diagnosticsText = diagLines.joined(separator: "\n")
     }
 
-    private func scheduleReconnect() {
+    func scheduleReconnect() {
         guard let preferredId else { return }
         reconnectTask?.cancel()
         state = .reconnecting

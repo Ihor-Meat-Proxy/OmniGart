@@ -44,6 +44,7 @@ enum WorkoutPdfExport {
         presentShare(document: document, fileName: "omnigart-workouts.pdf")
     }
 
+    @MainActor
     private static func presentShare(document: WorkoutPdfDocument, fileName: String) {
         let data = WorkoutPdfRenderer.render(document: document)
         let url = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)

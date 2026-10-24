@@ -25,6 +25,7 @@ import com.omnigart.design.theme.OmniGartSpacing
 import com.omnigart.shared.OmniGartCore
 import com.omnigart.shared.content.AssetContentStore
 import com.omnigart.shared.data.DatabaseDriverFactory
+import com.omnigart.wear.treadmill.WearTreadmillScreen
 import com.omnigart.wear.workout.WearExerciseRecorder
 import com.omnigart.wear.workout.WearPhoneWorkoutTransfer
 import com.omnigart.wear.workout.WearStrengthLoggingScreen
@@ -48,35 +49,43 @@ class MainActivity : ComponentActivity() {
         val headline = core.summaryLines(profile).take(2)
         setContent {
             MaterialTheme {
+                var showTreadmill by remember { mutableStateOf(false) }
                 var strengthActive by remember { mutableStateOf(false) }
-                if (strengthActive) {
-                    WearStrengthLoggingScreen(
-                        recorder = recorder,
-                        onFinished = { strengthActive = false }
-                    )
-                } else {
-                    WearStartScreen(
-                        lines = headline,
-                        onStart = {
-                            // Prefer Health Services ExerciseClient; fall back to manual publish for emulators.
-                            if (recorder.isRunning()) {
-                                recorder.stop { }
-                            } else {
-                                runCatching { recorder.start(WearWorkoutMode.RUNNING) }
-                                    .onFailure {
+                when {
+                    showTreadmill -> {
+                        WearTreadmillScreen(onBack = { showTreadmill = false })
+                    }
+                    strengthActive -> {
+                        WearStrengthLoggingScreen(
+                            recorder = recorder,
+                            onFinished = { strengthActive = false }
+                        )
+                    }
+                    else -> {
+                        WearStartScreen(
+                            lines = headline,
+                            onStart = {
+                                // Prefer Health Services ExerciseClient; fall back to manual publish for emulators.
+                                if (recorder.isRunning()) {
+                                    recorder.stop { }
+                                } else {
+                                    runCatching { recorder.start(WearWorkoutMode.RUNNING) }
+                                        .onFailure {
+                                            recorder.recordManualAndTransfer()
+                                        }
+                                    if (!recorder.isRunning()) {
                                         recorder.recordManualAndTransfer()
                                     }
-                                if (!recorder.isRunning()) {
-                                    recorder.recordManualAndTransfer()
                                 }
-                            }
-                        },
-                        onStartStrength = {
-                            recorder.setCurrentExercise("Bench press", "barbell-bench-press")
-                            runCatching { recorder.start(WearWorkoutMode.STRENGTH) }
-                            strengthActive = true
-                        }
-                    )
+                            },
+                            onStartStrength = {
+                                recorder.setCurrentExercise("Bench press", "barbell-bench-press")
+                                runCatching { recorder.start(WearWorkoutMode.STRENGTH) }
+                                strengthActive = true
+                            },
+                            onTreadmill = { showTreadmill = true }
+                        )
+                    }
                 }
             }
         }
@@ -89,7 +98,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun WearStartScreen(lines: List<String>, onStart: () -> Unit = {}, onStartStrength: () -> Unit = {}) {
+fun WearStartScreen(lines: List<String>, onStart: () -> Unit = {}, onStartStrength: () -> Unit = {}, onTreadmill: () -> Unit = {}) {
     var status by remember { mutableStateOf("") }
     Column(
         modifier =
@@ -143,6 +152,15 @@ fun WearStartScreen(lines: List<String>, onStart: () -> Unit = {}, onStartStreng
                 .testTag("wear_strength_start_button")
         ) {
             Text(text = stringResource(R.string.wear_strength_start))
+        }
+        Button(
+            onClick = onTreadmill,
+            modifier =
+            Modifier
+                .padding(top = OmniGartSpacing.space2)
+                .testTag("wear_treadmill_button")
+        ) {
+            Text(text = stringResource(R.string.treadmill_run_title))
         }
     }
 }

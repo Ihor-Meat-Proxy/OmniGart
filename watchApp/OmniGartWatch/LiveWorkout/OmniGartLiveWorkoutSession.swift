@@ -363,9 +363,12 @@ private struct LiveWorkoutHealthTypes {
         self.heartRate = heartRate
         self.activeEnergy = activeEnergy
         self.basalEnergy = basalEnergy
-        distance = kind == .zone2Run
-            ? HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)
-            : nil
+        switch kind {
+        case .zone2Run, .treadmillRun, .treadmillWalk:
+            distance = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)
+        default:
+            distance = nil
+        }
     }
 
     var collectedQuantityTypes: [HKQuantityType] {

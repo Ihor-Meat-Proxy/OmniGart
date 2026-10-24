@@ -97,10 +97,18 @@ class HealthExportService(
                 "origin",
                 "source_bundle",
                 "plan_id",
-                "session_id"
+                "session_id",
+                "treadmill",
+                "treadmill_protocol",
+                "treadmill_avg_speed_kmh",
+                "treadmill_avg_incline_pct"
             ).joinToString(",")
         val rows =
             workouts.map { w ->
+                val notes = w.notes.orEmpty()
+                val isTreadmill = notes.startsWith("omnigart.treadmill")
+                fun noteField(key: String): String =
+                    notes.split('|').firstOrNull { it.startsWith("$key=") }?.removePrefix("$key=").orEmpty()
                 listOf(
                     w.id,
                     w.identity.syncIdentifier,
@@ -119,7 +127,11 @@ class HealthExportService(
                     w.origin.name,
                     w.sourceBundle.orEmpty(),
                     w.planId.orEmpty(),
-                    w.sessionId.orEmpty()
+                    w.sessionId.orEmpty(),
+                    if (isTreadmill) "1" else "0",
+                    if (isTreadmill) noteField("proto") else "",
+                    if (isTreadmill) noteField("spd") else "",
+                    if (isTreadmill) noteField("inc") else ""
                 ).joinToString(",") { csvEscape(it) }
             }
         return HealthExportArtifact(
@@ -181,9 +193,15 @@ class HealthExportService(
       <time>${p.recordedAt}</time>$elev
     </trkpt>"""
                     }
+                val treadmillType =
+                    if (w.notes?.startsWith("omnigart.treadmill") == true) {
+                        "RUNNING_TREADMILL"
+                    } else {
+                        w.activityType.name
+                    }
                 """  <trk>
     <name>${xmlEscape(w.id)}</name>
-    <type>${w.activityType.name}</type>
+    <type>$treadmillType</type>
     <trkseg>
 $points
     </trkseg>
@@ -220,8 +238,17 @@ $tracks
                             )
                         }
                     }
+                val treadmillNotes =
+                    w.notes?.takeIf { it.startsWith("omnigart.treadmill") }?.let { n ->
+                        val spd =
+                            n.split('|').firstOrNull { it.startsWith("spd=") }?.removePrefix("spd=").orEmpty()
+                        val inc =
+                            n.split('|').firstOrNull { it.startsWith("inc=") }?.removePrefix("inc=").orEmpty()
+                        """    <Notes>OmniGart treadmill spd=$spd incline=$inc</Notes>"""
+                    }.orEmpty()
                 """  <Activity Sport="${tcxSport(w)}">
     <Id>${xmlEscape(w.id)}</Id>
+$treadmillNotes
 $lapBlocks
   </Activity>"""
             }

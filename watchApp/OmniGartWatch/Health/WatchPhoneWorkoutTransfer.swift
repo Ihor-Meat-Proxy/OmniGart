@@ -81,7 +81,8 @@ enum WatchWorkoutTransferBuilder {
         case .traditionalStrength, .functionalStrength: return "STRENGTH"
         case .yoga: return "YOGA"
         case .pilates: return "PILATES"
-        case .zone2Run: return "RUNNING"
+        case .zone2Run, .treadmillRun: return "RUNNING"
+        case .treadmillWalk: return "WALKING"
         }
     }
 

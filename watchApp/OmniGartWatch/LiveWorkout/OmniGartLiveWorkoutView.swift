@@ -137,7 +137,12 @@ struct OmniGartLiveWorkoutView: View {
                                 session.pause()
                             }
                         } label: {
-                            Text(session.isPaused ? "watch.workout.resume" : "watch.workout.pause")
+                            // Ternary of String uses Text.init(String) (no localization).
+                            Text(
+                                session.isPaused
+                                    ? LocalizedStringKey("watch.workout.resume")
+                                    : LocalizedStringKey("watch.workout.pause")
+                            )
                         }
                         .tint(Color.OmniGart.colorBrandAccent)
                         .disabled(!session.isRunning)
@@ -204,7 +209,11 @@ struct OmniGartLiveWorkoutView: View {
                             session.pause()
                         }
                     } label: {
-                        Text(session.isPaused ? "watch.workout.resume" : "watch.workout.pause")
+                        Text(
+                            session.isPaused
+                                ? LocalizedStringKey("watch.workout.resume")
+                                : LocalizedStringKey("watch.workout.pause")
+                        )
                     }
                     .tint(Color.OmniGart.colorBrandAccent)
                     .disabled(!session.isRunning)

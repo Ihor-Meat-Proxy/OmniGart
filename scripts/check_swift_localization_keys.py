@@ -65,15 +65,44 @@ RETURN_KEY = re.compile(
 CASE_KEY = re.compile(
     r'case\s+\.[A-Za-z0-9_]+\s*:\s*"([a-z][a-z0-9]*(?:[._][a-z0-9]+)+)"'
 )
+# Watch helpers: metric("treadmill_speed", …), row("…", …).
+# (Do not scrape bare `? "a" : "b"` ternaries — those also match accessibility
+# identifiers and content ids. Prefer LocalizedStringKey("…") at call sites.)
+HELPER_FIRST_ARG = re.compile(
+    r"""(?:metric|metricRow|row)\(\s*"([^"\\]+)"\s*[,)]"""
+)
 # Localization keys are identifiers (no spaces / punctuation beyond . _).
 KEY_SHAPE = re.compile(r"^[a-z][a-zA-Z0-9_.]*$")
 
-# Start-screen keys that previously rendered raw when the catalog was not compiled.
+# Representative keys from every watch UI surface that previously showed raw
+# identifiers when the String Catalog was not CompileXCStrings'd into the bundle.
 WATCH_SMOKE_KEYS = (
+    # Start
     "app_name",
     "watch_subtitle",
     "watch.zone2.start",
     "treadmill_run_title",
+    "treadmill_walk_title",
+    "watch_strength_start",
+    # Zone 2 live
+    "watch.zone2.title",
+    "watch.zone2.zone_below",
+    "watch.zone2.haptics_toggle",
+    "watch.zone2.time_in_zone",
+    # Zone 2 summary
+    "watch.zone2.summary.title",
+    "watch.zone2.summary.wellness",
+    "watch.zone2.summary.duration",
+    "watch.zone2.summary.time_in_zone",
+    # Treadmill
+    "treadmill_start",
+    "treadmill_no_connection",
+    "treadmill_speed",
+    # Strength / live workout
+    "watch.strength.done",
+    "watch.workout.pause",
+    "watch.workout.resume",
+    "watch.workout.summary.wellness",
 )
 
 
@@ -115,6 +144,7 @@ def extract_keys_from_swift(text: str) -> set[str]:
         LABEL_KEY_PARAM,
         RETURN_KEY,
         CASE_KEY,
+        HELPER_FIRST_ARG,
     ):
         keys.update(pattern.findall(text))
     # Drop prose labels, interpolations, and format strings.

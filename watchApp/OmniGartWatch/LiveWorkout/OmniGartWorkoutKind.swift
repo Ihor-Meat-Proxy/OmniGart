@@ -68,6 +68,20 @@ enum OmniGartWorkoutKind: String, CaseIterable, Identifiable, Hashable, Sendable
         }
     }
 
+    /// Maps shared [PhoneWorkoutKindIds] (except guided → traditional + programme UI).
+    static func from(selectionKind: String) -> OmniGartWorkoutKind? {
+        switch selectionKind {
+        case "traditionalStrength", "guidedStrength": return .traditionalStrength
+        case "functionalStrength": return .functionalStrength
+        case "yoga": return .yoga
+        case "pilates": return .pilates
+        case "zone2Run": return .zone2Run
+        case "treadmillRun": return .treadmillRun
+        case "treadmillWalk": return .treadmillWalk
+        default: return nil
+        }
+    }
+
     func makeConfiguration() -> HKWorkoutConfiguration {
         let config = HKWorkoutConfiguration()
         config.activityType = activityType

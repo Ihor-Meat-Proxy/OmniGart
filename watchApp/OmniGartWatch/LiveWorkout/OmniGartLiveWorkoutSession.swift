@@ -152,10 +152,20 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
             isRunning = true
             isPaused = false
             startElapsedTimer()
+            // Mirror to iPhone so it can show live metrics and pause/end; watch remains the writer.
+            session.startMirroringToCompanionDevice { _, _ in }
         } catch {
             lastError = error.localizedDescription
             isRunning = false
         }
+    }
+
+    /// Pushes lightweight HR / energy packets to the mirrored iPhone session.
+    func sendMirrorMetricsIfNeeded() {
+        guard let session, isRunning else { return }
+        let packet = "hr=\(heartRateBpm);kcal=\(String(format: "%.1f", activeEnergyKcal))"
+        guard let data = packet.data(using: .utf8) else { return }
+        try? session.sendToRemoteWorkoutSession(data: data)
     }
 }
 

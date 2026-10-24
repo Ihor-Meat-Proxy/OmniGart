@@ -14,7 +14,7 @@
     <string name="info_sheet_title">À propos de cette estimation</string>
     <string name="info_sheet_body">Des indicateurs tels que la préparation, le stress, la VRC, l’indice de Baevsky, la masse grasse et l’hydratation sont des estimations de bien-être basées sur vos saisies et les échantillons de l’appareil. Les plans sont des suggestions de coaching, pas des prescriptions.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart peut lire et écrire des échantillons de bien-être (fréquence cardiaque, VRC, sommeil, entraînements, masse corporelle, hydratation) pour améliorer les estimations sur l’appareil. Les données ne sont pas utilisées pour la publicité ni envoyées à des tiers non liés. Vous pouvez continuer sans accorder l’accès.</string>
+    <string name="perm_explainer_health_body">OmniGart peut lire et écrire des échantillons bien-être — fréquence cardiaque, VRC, sommeil, séances, énergie active et basale, masse corporelle et hydratation — pour afficher les séances dans Apple Fitness. Écritures en ajout seul : OmniGart ne supprime ni ne réécrit jamais les données Apple Health ou Health Connect, y compris les siennes. Vous pouvez continuer sans accorder l’accès.</string>
     <string name="perm_explainer_bluetooth_title">Accessoires Bluetooth</string>
     <string name="perm_explainer_bluetooth_body">Connectez un moniteur de fréquence cardiaque ou un accessoire fitness similaire pour des échantillons en direct. OmniGart fonctionne pleinement sans Bluetooth.</string>
     <string name="perm_explainer_camera_title">Caméra pour codes-barres</string>
@@ -910,4 +910,9 @@
     <string name="treadmill_diag_log">Journal brut</string>
     <string name="treadmill_diag_capture_sim">Capturer une trame simulateur</string>
     <string name="treadmill_diag_captured">Trame capturée.</string>
+    <string name="workout_watch_phone_only_notice">Pas de montre à proximité — téléphone seul.</string>
+    <string name="workout_watch_mirroring">En direct depuis la montre</string>
+    <string name="workout_watch_settings_title">Séances sur la montre</string>
+    <string name="workout_start_on_watch_toggle">Démarrer les séances sur la montre</string>
+    <string name="workout_start_on_watch_toggle_body">Quand vous démarrez sur le téléphone, ouvre la même séance sur la montre associée. Désactivé = téléphone seul. Activé par défaut.</string>
 </resources>

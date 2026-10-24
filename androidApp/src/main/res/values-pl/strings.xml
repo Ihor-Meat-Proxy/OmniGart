@@ -14,7 +14,7 @@
     <string name="info_sheet_title">O tym szacunku</string>
     <string name="info_sheet_body">Wskaźniki takie jak gotowość, stres, HRV, indeks Bajewskiego, tkanka tłuszczowa i nawodnienie to szacunki wellness oparte na Twoich danych i próbkach z urządzenia. Plany to sugestie coachingowe, nie recepty.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart może odczytywać i zapisywać próbki wellness (tętno, HRV, sen, treningi, masa ciała, nawodnienie), aby poprawiać szacunki na urządzeniu. Dane nie są używane do reklam ani wysyłane do niezwiązanych stron trzecich. Możesz kontynuować bez przyznawania dostępu.</string>
+    <string name="perm_explainer_health_body">OmniGart może czytać i zapisywać próbki wellness — tętno, HRV, sen, treningi, energię aktywną i spoczynkową, masę ciała i nawodnienie — aby sesje pojawiały się w Apple Fitness z czasem i kaloriami. Zapis na platformę tylko dopisuje: OmniGart nigdy nie usuwa ani nie nadpisuje danych Apple Health ani Health Connect, także własnych. Dane nie służą reklamom. Możesz kontynuować bez dostępu.</string>
     <string name="perm_explainer_bluetooth_title">Akcesoria Bluetooth</string>
     <string name="perm_explainer_bluetooth_body">Podłącz pulsometr lub podobne akcesorium fitness do żywych próbek. OmniGart działa w pełni bez Bluetooth.</string>
     <string name="perm_explainer_camera_title">Aparat do kodów kreskowych</string>
@@ -910,4 +910,9 @@
     <string name="treadmill_diag_log">Surowy dziennik</string>
     <string name="treadmill_diag_capture_sim">Przechwyć ramkę symulatora</string>
     <string name="treadmill_diag_captured">Ramka przechwycona.</string>
+    <string name="workout_watch_phone_only_notice">Brak zegarka w pobliżu — tylko telefon.</string>
+    <string name="workout_watch_mirroring">Na żywo z zegarka</string>
+    <string name="workout_watch_settings_title">Treningi na zegarku</string>
+    <string name="workout_start_on_watch_toggle">Uruchamiaj treningi na zegarku</string>
+    <string name="workout_start_on_watch_toggle_body">Gdy zaczynasz na telefonie, otwiera tę samą sesję na sparowanym zegarku. Wyłączone = tylko telefon. Domyślnie włączone.</string>
 </resources>

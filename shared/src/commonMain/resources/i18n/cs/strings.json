@@ -81,7 +81,7 @@
   "onboarding_activity_very_active": "Velmi aktivní",
   "onboarding_health_privacy": "Zdravotní data zůstávají na vašich zařízeních. OmniGart je neprodává ani nepoužívá k reklamě.",
   "perm_explainer_health_title": "Apple Health / Health Connect",
-  "perm_explainer_health_body": "OmniGart může číst a zapisovat wellness vzorky (tep, HRV, spánek, tréninky, tělesná hmotnost, hydratace), aby zlepšil odhady na zařízení. Data se nepoužívají k reklamě ani se neodesílají nesouvisejícím třetím stranám. Můžete pokračovat bez udělení přístupu.",
+  "perm_explainer_health_body": "OmniGart může číst a zapisovat wellness vzorky — tep, HRV, spánek, tréninky, aktivní a bazální energii, tělesnou hmotnost a hydrataci — aby se sezení zobrazila v Apple Fitness. Zápis na platformu jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Apple Health ani Health Connect, ani vlastní. Můžete pokračovat bez přístupu.",
   "perm_continue": "Pokračovat",
   "perm_not_now": "Teď ne",
   "food_intro": "Zaznamenávejte jídlo offline. Denní součty jsou wellness pomůcky, ne lékařská rada.",
@@ -935,5 +935,10 @@
   "health_unit_brpm": "dech/min",
   "health_unit_celsius": "°C",
   "health_unit_mmhg": "mmHg",
-  "health_unit_g": "g"
+  "health_unit_g": "g",
+  "workout_watch_phone_only_notice": "Hodinky nejsou nablízku — jen telefon.",
+  "workout_watch_mirroring": "Živě z hodinek",
+  "workout_watch_settings_title": "Tréninky na hodinkách",
+  "workout_start_on_watch_toggle": "Spouštět tréninky na hodinkách",
+  "workout_start_on_watch_toggle_body": "Při startu v telefonu otevře stejnou relaci na párovaných hodinkách. Vypnuto = jen telefon. Ve výchozím stavu zapnuto."
 }

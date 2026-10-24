@@ -14,7 +14,7 @@
     <string name="info_sheet_title">O tomto odhadu</string>
     <string name="info_sheet_body">Údaje jako připravenost, stres, HRV, Bajevského index, tělesný tuk a hydratace jsou wellness odhady založené na vašich vstupech a vzorcích ze zařízení. Plány jsou koučovací návrhy, nikoli předpisy.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart může číst a zapisovat wellness vzorky (tep, HRV, spánek, tréninky, tělesná hmotnost, hydratace), aby zlepšil odhady na zařízení. Data se nepoužívají k reklamě ani se neodesílají nesouvisejícím třetím stranám. Můžete pokračovat bez udělení přístupu.</string>
+    <string name="perm_explainer_health_body">OmniGart může číst a zapisovat wellness vzorky — tep, HRV, spánek, tréninky, aktivní a bazální energii, tělesnou hmotnost a hydrataci — aby se sezení zobrazila v Apple Fitness. Zápis na platformu jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Apple Health ani Health Connect, ani vlastní. Můžete pokračovat bez přístupu.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth příslušenství</string>
     <string name="perm_explainer_bluetooth_body">Připojte tepoměr nebo podobné fitness příslušenství pro živé vzorky. OmniGart plně funguje bez Bluetooth.</string>
     <string name="perm_explainer_camera_title">Fotoaparát pro čárové kódy</string>
@@ -910,4 +910,9 @@
     <string name="treadmill_diag_log">Surový protokol</string>
     <string name="treadmill_diag_capture_sim">Zachytit snímek simulátoru</string>
     <string name="treadmill_diag_captured">Snímek zachycen.</string>
+    <string name="workout_watch_phone_only_notice">Hodinky nejsou nablízku — jen telefon.</string>
+    <string name="workout_watch_mirroring">Živě z hodinek</string>
+    <string name="workout_watch_settings_title">Tréninky na hodinkách</string>
+    <string name="workout_start_on_watch_toggle">Spouštět tréninky na hodinkách</string>
+    <string name="workout_start_on_watch_toggle_body">Při startu v telefonu otevře stejnou relaci na párovaných hodinkách. Vypnuto = jen telefon. Ve výchozím stavu zapnuto.</string>
 </resources>

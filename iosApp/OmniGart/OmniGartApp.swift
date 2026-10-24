@@ -13,8 +13,10 @@ struct OmniGartApp: App {
         _ = HealthKitPlatformBridge.shared
 
         let core = OmniGartCore(driverFactory: DatabaseDriverFactory())
-        // Watch → phone inbox: store locally by sync id; never re-write HealthKit.
-        WatchWorkoutInbox.shared.start(core: core)
+        // Single WCSession hub: watch transfers, equipment sync, phone→watch selection.
+        PhoneWatchConnectivityHub.shared.start(core: core)
+        // Mirrored watch sessions: live metrics + pause/end on phone; watch writes HealthKit once.
+        MirroredWorkoutController.shared.installMirroringHandler()
         let args = ProcessInfo.processInfo.arguments
         let uiTesting = args.contains("-ui-testing")
         let forceOnboarding = args.contains("-ui-testing-onboarding")

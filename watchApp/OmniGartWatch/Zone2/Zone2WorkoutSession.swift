@@ -117,6 +117,7 @@ final class Zone2WorkoutSession: NSObject, ObservableObject {
         startedAt = start
         isRunning = true
         startElapsedTimer()
+        session.startMirroringToCompanionDevice { _, _ in }
     }
 
     /// Ends the workout. On success returns a summary for the post-run screen.

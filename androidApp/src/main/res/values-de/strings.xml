@@ -14,7 +14,7 @@
     <string name="info_sheet_title">Über diese Schätzung</string>
     <string name="info_sheet_body">Kennzahlen wie Bereitschaft, Stress, HRV, Baevsky-Index, Körperfett und Hydration sind Wellness-Schätzungen auf Basis Ihrer Eingaben und Geräteproben. Pläne sind Coaching-Vorschläge, keine Verordnungen.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart kann Wellness-Proben (Herzfrequenz, HRV, Schlaf, Workouts, Körpermasse, Hydration) lesen und schreiben, um Schätzungen auf dem Gerät zu verbessern. Daten werden nicht für Werbung genutzt und nicht an unverbundene Dritte gesendet. Sie können ohne Zugriff fortfahren.</string>
+    <string name="perm_explainer_health_body">OmniGart kann Wellness-Proben lesen und schreiben — Herzfrequenz, HRV, Schlaf, Workouts, aktive und Ruheenergie, Körpermasse und Hydration — damit Sitzungen in Apple Fitness erscheinen. Plattformschreibungen nur anfügend: OmniGart löscht oder überschreibt keine Apple-Health- oder Health-Connect-Daten, auch keine eigenen. Sie können ohne Zugriff fortfahren.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth-Zubehör</string>
     <string name="perm_explainer_bluetooth_body">Verbinden Sie einen Herzfrequenzmesser oder ähnliches Fitness-Zubehör für Live-Proben. OmniGart funktioniert vollständig ohne Bluetooth.</string>
     <string name="perm_explainer_camera_title">Kamera für Barcodes</string>
@@ -910,4 +910,9 @@
     <string name="treadmill_diag_log">Rohprotokoll</string>
     <string name="treadmill_diag_capture_sim">Simulator-Frame erfassen</string>
     <string name="treadmill_diag_captured">Frame erfasst.</string>
+    <string name="workout_watch_phone_only_notice">Keine Watch in der Nähe — nur Telefon.</string>
+    <string name="workout_watch_mirroring">Live von der Watch</string>
+    <string name="workout_watch_settings_title">Watch-Workouts</string>
+    <string name="workout_start_on_watch_toggle">Workouts auf der Watch starten</string>
+    <string name="workout_start_on_watch_toggle_body">Beim Start am Telefon öffnet dieselbe Sitzung auf der gekoppelten Watch. Aus = nur Telefon. Standardmäßig an.</string>
 </resources>

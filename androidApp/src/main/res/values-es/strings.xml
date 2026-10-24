@@ -14,7 +14,7 @@
     <string name="info_sheet_title">Sobre esta estimación</string>
     <string name="info_sheet_body">Cifras como preparación, estrés, VFC, índice de Baevsky, grasa corporal e hidratación son estimaciones de bienestar basadas en tus datos y muestras del dispositivo. Los planes son sugerencias de coaching, no prescripciones.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart puede leer y escribir muestras de bienestar (frecuencia cardíaca, VFC, sueño, entrenamientos, masa corporal, hidratación) para mejorar las estimaciones en el dispositivo. Los datos no se usan para anuncios ni se envían a terceros no relacionados. Puedes continuar sin conceder acceso.</string>
+    <string name="perm_explainer_health_body">OmniGart puede leer y escribir muestras de bienestar — frecuencia cardiaca, VFC, sueño, entrenamientos, energía activa y en reposo, masa corporal e hidratación — para que las sesiones aparezcan en Apple Fitness. Las escrituras solo añaden: OmniGart nunca elimina ni reescribe datos de Apple Health o Health Connect, ni siquiera los propios. Puedes continuar sin conceder acceso.</string>
     <string name="perm_explainer_bluetooth_title">Accesorios Bluetooth</string>
     <string name="perm_explainer_bluetooth_body">Conecta un monitor de frecuencia cardíaca o un accesorio de fitness similar para muestras en vivo. OmniGart funciona por completo sin Bluetooth.</string>
     <string name="perm_explainer_camera_title">Cámara para códigos de barras</string>
@@ -910,4 +910,9 @@
     <string name="treadmill_diag_log">Registro en bruto</string>
     <string name="treadmill_diag_capture_sim">Capturar fotograma del simulador</string>
     <string name="treadmill_diag_captured">Fotograma capturado.</string>
+    <string name="workout_watch_phone_only_notice">Sin reloj cerca — solo en el teléfono.</string>
+    <string name="workout_watch_mirroring">En directo del reloj</string>
+    <string name="workout_watch_settings_title">Entrenamientos en el reloj</string>
+    <string name="workout_start_on_watch_toggle">Empezar entrenamientos en el reloj</string>
+    <string name="workout_start_on_watch_toggle_body">Al empezar en el teléfono, abre la misma sesión en el reloj emparejado. Desactivado = solo teléfono. Activado por defecto.</string>
 </resources>

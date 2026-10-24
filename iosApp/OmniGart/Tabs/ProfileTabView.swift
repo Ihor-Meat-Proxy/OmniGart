@@ -100,6 +100,9 @@ struct ProfileTabView: View {
             }
             NutritionGoalSettingsView()
             NutritionReminderSettingsView()
+            Section("workout_watch_settings_title") {
+                StartWorkoutsOnWatchSettingsToggle()
+            }
             Section("workout_mindful_settings_title") {
                 MindfulMinutesSettingsToggle()
             }

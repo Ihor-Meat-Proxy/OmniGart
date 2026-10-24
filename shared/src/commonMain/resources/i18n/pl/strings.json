@@ -81,7 +81,7 @@
   "onboarding_activity_very_active": "Bardzo aktywna",
   "onboarding_health_privacy": "Dane zdrowotne zostają na Twoich urządzeniach. OmniGart ich nie sprzedaje ani nie używa do reklam.",
   "perm_explainer_health_title": "Apple Health / Health Connect",
-  "perm_explainer_health_body": "OmniGart może odczytywać i zapisywać próbki wellness (tętno, HRV, sen, treningi, masa ciała, nawodnienie), aby poprawiać szacunki na urządzeniu. Dane nie są używane do reklam ani wysyłane do niezwiązanych stron trzecich. Możesz kontynuować bez przyznawania dostępu.",
+  "perm_explainer_health_body": "OmniGart może czytać i zapisywać próbki wellness — tętno, HRV, sen, treningi, energię aktywną i spoczynkową, masę ciała i nawodnienie — aby sesje pojawiały się w Apple Fitness z czasem i kaloriami. Zapis na platformę tylko dopisuje: OmniGart nigdy nie usuwa ani nie nadpisuje danych Apple Health ani Health Connect, także własnych. Dane nie służą reklamom. Możesz kontynuować bez dostępu.",
   "perm_continue": "Kontynuuj",
   "perm_not_now": "Nie teraz",
   "food_intro": "Zapisuj posiłki offline. Dzienne sumy to wskazówki wellness, nie porada medyczna.",
@@ -935,5 +935,10 @@
   "health_unit_brpm": "oddech/min",
   "health_unit_celsius": "°C",
   "health_unit_mmhg": "mmHg",
-  "health_unit_g": "g"
+  "health_unit_g": "g",
+  "workout_watch_phone_only_notice": "Brak zegarka w pobliżu — tylko telefon.",
+  "workout_watch_mirroring": "Na żywo z zegarka",
+  "workout_watch_settings_title": "Treningi na zegarku",
+  "workout_start_on_watch_toggle": "Uruchamiaj treningi na zegarku",
+  "workout_start_on_watch_toggle_body": "Gdy zaczynasz na telefonie, otwiera tę samą sesję na sparowanym zegarku. Wyłączone = tylko telefon. Domyślnie włączone."
 }

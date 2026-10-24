@@ -129,6 +129,22 @@ struct WorkoutsTabView: View {
         let hrMax = Int(prefs.hrMax.hrMax(ageYears: Int32(age)))
         let hrRest = 60
         Task { @MainActor in
+            let watchOutcome = await HealthKitWatchLauncher.startOnWatch(
+                activityType: .running,
+                indoor: false,
+                kindOverride: PhoneWorkoutKindIds.shared.ZONE2_RUN,
+                sessionKey: "zone2-\(Int(Date().timeIntervalSince1970))"
+            )
+            switch watchOutcome {
+            case .watchStarted:
+                zone2Message = String(localized: "workout_watch_started")
+                tick += 1
+                return
+            case .watchUnavailable:
+                zone2Message = String(localized: "workout_watch_phone_only_notice")
+            case .skippedByPreference:
+                break
+            }
             let outcome = await Zone2WorkoutKitScheduler.schedule(
                 id: "zone2-\(Int(Date().timeIntervalSince1970))",
                 hrMax: hrMax,
@@ -137,6 +153,11 @@ struct WorkoutsTabView: View {
             )
             if outcome.ok {
                 zone2Message = String(localized: "workouts_zone2_scheduled")
+            } else if case .watchUnavailable = watchOutcome {
+                // Keep the phone-only notice when watch launch failed and WorkoutKit also failed.
+                if !outcome.ok {
+                    zone2Message = String(localized: "workout_watch_phone_only_notice")
+                }
             } else if FeatureFlags.shared.workoutKitSchedulingEnabled {
                 zone2Message = outcome.detail ?? String(localized: "workouts_zone2_unavailable")
             } else {

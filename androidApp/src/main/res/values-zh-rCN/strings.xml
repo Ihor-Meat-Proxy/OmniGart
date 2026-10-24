@@ -14,7 +14,7 @@
     <string name="info_sheet_title">关于此估算</string>
     <string name="info_sheet_body">准备度、压力、心率变异、Baevsky 指数、体脂和补水等数值是基于您的输入和设备样本的健康估算。计划是教练建议，不是处方。</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart 可读写健康样本（心率、心率变异、睡眠、训练、体重、补水），以改进设备上的估算。数据不用于广告，也不会发送给无关第三方。您可以不授予访问权限继续使用。</string>
+    <string name="perm_explainer_health_body">OmniGart 可读写健康样本——心率、心率变异、睡眠、训练、活动与基础能量、体重和补水——以便会话出现在 Apple Fitness 中。写入平台仅为追加：从不删除或改写 Apple Health / Health Connect 数据（包括本应用创建的）。您也可不授予权限并继续。</string>
     <string name="perm_explainer_bluetooth_title">蓝牙配件</string>
     <string name="perm_explainer_bluetooth_body">连接心率或其他健身配件以获取实时样本。OmniGart 在无蓝牙时也可完整使用。</string>
     <string name="perm_explainer_camera_title">条码相机</string>
@@ -910,4 +910,9 @@
     <string name="treadmill_diag_log">原始日志</string>
     <string name="treadmill_diag_capture_sim">捕获模拟器帧</string>
     <string name="treadmill_diag_captured">已捕获帧。</string>
+    <string name="workout_watch_phone_only_notice">附近无手表 — 仅在手机上继续。</string>
+    <string name="workout_watch_mirroring">来自手表的实时数据</string>
+    <string name="workout_watch_settings_title">手表训练</string>
+    <string name="workout_start_on_watch_toggle">在手表上开始训练</string>
+    <string name="workout_start_on_watch_toggle_body">在手机上开始时，在已配对的手表上打开同一训练。关闭则仅手机记录。默认开启。</string>
 </resources>

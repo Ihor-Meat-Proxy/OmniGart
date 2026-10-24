@@ -14,7 +14,7 @@
     <string name="info_sheet_title">ამ შეფასების შესახებ</string>
     <string name="info_sheet_body">მაჩვენებლები, როგორიცაა მზადყოფნა, სტრესი, HRV, ბაევსკის ინდექსი, სხეულის ცხიმი და ჰიდრატაცია, არის კეთილდღეობის შეფასებები თქვენს მონაცემებსა და მოწყობილობის ნიმუშებზე დაყრდნობით. გეგმები — მწვრთნელის შეთავაზებებია, არა რეცეპტები.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები (გულისცემა, HRV, ძილი, ვარჯიშები, სხეულის მასა, ჰიდრატაცია) მოწყობილობაზე შეფასებების გასაუმჯობესებლად. მონაცემები არ გამოიყენება რეკლამისთვის და არ იგზავნება უცხო მესამე მხარეებთან. შეგიძლიათ გააგრძელოთ წვდომის მინიჭების გარეშე.</string>
+    <string name="perm_explainer_health_body">OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები — გულისცემა, HRV, ძილი, ვარჯიშები, აქტიური და საბაზისო ენერგია, სხეულის მასა და ჰიდრატაცია — რომ სესიები გამოჩნდეს Apple Fitness-ში. პლატფორმაზე ჩაწერა მხოლოდ დამატებითია: OmniGart არ შლის და არ გადააწერს Apple Health ან Health Connect მონაცემებს, მათ შორის საკუთარს. შეგიძლიათ გააგრძელოთ წვდომის გარეშე.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth აქსესუარები</string>
     <string name="perm_explainer_bluetooth_body">დაუკავშირეთ გულისცემის ან მსგავსი ფიტნეს აქსესუარი ცოცხალი ნიმუშებისთვის. OmniGart სრულად მუშაობს Bluetooth-ის გარეშე.</string>
     <string name="perm_explainer_camera_title">კამერა შტრიხკოდებისთვის</string>
@@ -910,4 +910,9 @@
     <string name="treadmill_diag_log">ნედლი ჟურნალი</string>
     <string name="treadmill_diag_capture_sim">სიმულატორის კადრის აღება</string>
     <string name="treadmill_diag_captured">კადრი აღებულია.</string>
+    <string name="workout_watch_phone_only_notice">საათი ახლოს არ არის — მხოლოდ ტელეფონი.</string>
+    <string name="workout_watch_mirroring">პირდაპირ საათიდან</string>
+    <string name="workout_watch_settings_title">ვარჯიშები საათზე</string>
+    <string name="workout_start_on_watch_toggle">ვარჯიშების დაწყება საათზე</string>
+    <string name="workout_start_on_watch_toggle_body">ტელეფონზე დაწყებისას იგივე სესიას ხსნის დაწყვილებულ საათზე. გამორთული = მხოლოდ ტელეფონი. ნაგულისხმევად ჩართული.</string>
 </resources>

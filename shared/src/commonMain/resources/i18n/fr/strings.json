@@ -81,7 +81,7 @@
   "onboarding_activity_very_active": "Très active",
   "onboarding_health_privacy": "Les données de santé restent sur vos appareils. OmniGart ne les vend pas et ne les utilise pas pour la publicité.",
   "perm_explainer_health_title": "Apple Health / Health Connect",
-  "perm_explainer_health_body": "OmniGart peut lire et écrire des échantillons de bien-être (fréquence cardiaque, VRC, sommeil, entraînements, masse corporelle, hydratation) pour améliorer les estimations sur l’appareil. Les données ne sont pas utilisées pour la publicité ni envoyées à des tiers non liés. Vous pouvez continuer sans accorder l’accès.",
+  "perm_explainer_health_body": "OmniGart peut lire et écrire des échantillons bien-être — fréquence cardiaque, VRC, sommeil, séances, énergie active et basale, masse corporelle et hydratation — pour afficher les séances dans Apple Fitness. Écritures en ajout seul : OmniGart ne supprime ni ne réécrit jamais les données Apple Health ou Health Connect, y compris les siennes. Vous pouvez continuer sans accorder l’accès.",
   "perm_continue": "Continuer",
   "perm_not_now": "Pas maintenant",
   "food_intro": "Enregistrez les repas hors ligne. Les totaux du jour sont des aides bien-être, pas un avis médical.",
@@ -935,5 +935,10 @@
   "health_unit_brpm": "rpm",
   "health_unit_celsius": "°C",
   "health_unit_mmhg": "mmHg",
-  "health_unit_g": "g"
+  "health_unit_g": "g",
+  "workout_watch_phone_only_notice": "Pas de montre à proximité — téléphone seul.",
+  "workout_watch_mirroring": "En direct depuis la montre",
+  "workout_watch_settings_title": "Séances sur la montre",
+  "workout_start_on_watch_toggle": "Démarrer les séances sur la montre",
+  "workout_start_on_watch_toggle_body": "Quand vous démarrez sur le téléphone, ouvre la même séance sur la montre associée. Désactivé = téléphone seul. Activé par défaut."
 }

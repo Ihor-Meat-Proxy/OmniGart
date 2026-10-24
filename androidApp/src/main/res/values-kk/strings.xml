@@ -14,7 +14,7 @@
     <string name="info_sheet_title">Осы бағалау туралы</string>
     <string name="info_sheet_body">Дайындық, стресс, ЖЖВ, Баевский индексі, дене майы және су балансы сияқты көрсеткіштер — сіздің деректеріңіз бен құрылғы үлгілеріне негізделген сауықтыру бағалаулары. Жоспарлар — жаттықтырушы ұсыныстары, рецепт емес.</string>
     <string name="perm_explainer_health_title">Apple Health / Health Connect</string>
-    <string name="perm_explainer_health_body">OmniGart құрылғыдағы бағалауларды жақсарту үшін сауықтыру үлгілерін (жүрек соғуы, ЖЖВ, ұйқы, жаттығулар, дене массасы, су балансы) оқи және жаза алады. Деректер жарнамаға пайдаланылмайды және қатысы жоқ үшінші тараптарға жіберілмейді. Қолжетімділік берместен жалғастыра аласыз.</string>
+    <string name="perm_explainer_health_body">OmniGart сауықтыру үлгілерін оқи және жаза алады — жүрек соғысы, HRV, ұйқы, жаттығулар, белсенді және базалық энергия, дене салмағы және су ішу — сеанстар Apple Fitness-те көрінуі үшін. Платформаға жазу тек қосу: OmniGart Apple Health / Health Connect деректерін — өзінкін де — жоймайды және қайта жазбайды. Деректер жарнамаға берілмейді. Рұқсатсыз жалғастыруға болады.</string>
     <string name="perm_explainer_bluetooth_title">Bluetooth аксессуарлары</string>
     <string name="perm_explainer_bluetooth_body">Тірі үлгілер үшін жүрек соғу немесе ұқсас фитнес аксессуарын қосыңыз. OmniGart Bluetoothсыз толық жұмыс істейді.</string>
     <string name="perm_explainer_camera_title">Штрихкод камерасы</string>
@@ -910,4 +910,9 @@
     <string name="treadmill_diag_log">Шикі журнал</string>
     <string name="treadmill_diag_capture_sim">Симулятор кадрын түсіру</string>
     <string name="treadmill_diag_captured">Кадр түсірілді.</string>
+    <string name="workout_watch_phone_only_notice">Жақын сағат жоқ — тек телефон.</string>
+    <string name="workout_watch_mirroring">Сағаттан тікелей</string>
+    <string name="workout_watch_settings_title">Сағаттағы жаттығулар</string>
+    <string name="workout_start_on_watch_toggle">Жаттығуларды сағатта бастау</string>
+    <string name="workout_start_on_watch_toggle_body">Телефонда бастағанда жұпталған сағатта сол сеансты ашады. Өшірулі = тек телефон. Әдепкі бойынша қосулы.</string>
 </resources>

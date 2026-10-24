@@ -186,6 +186,7 @@ private fun ProfileNutritionBlocks(core: OmniGartCore, profileId: String, onForm
         profileId = profileId,
         onSelectionChanged = onFormulaChanged
     )
+    StartWorkoutsOnWatchSettingsSection()
     NutritionGoalSettingsSection()
     NutritionReminderSettingsSection()
     DataPrivacySection(core = core)

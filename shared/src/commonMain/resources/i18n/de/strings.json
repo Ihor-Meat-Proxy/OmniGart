@@ -81,7 +81,7 @@
   "onboarding_activity_very_active": "Sehr aktiv",
   "onboarding_health_privacy": "Gesundheitsdaten bleiben auf Ihren Geräten. OmniGart verkauft sie nicht und nutzt sie nicht für Werbung.",
   "perm_explainer_health_title": "Apple Health / Health Connect",
-  "perm_explainer_health_body": "OmniGart kann Wellness-Proben (Herzfrequenz, HRV, Schlaf, Workouts, Körpermasse, Hydration) lesen und schreiben, um Schätzungen auf dem Gerät zu verbessern. Daten werden nicht für Werbung genutzt und nicht an unverbundene Dritte gesendet. Sie können ohne Zugriff fortfahren.",
+  "perm_explainer_health_body": "OmniGart kann Wellness-Proben lesen und schreiben — Herzfrequenz, HRV, Schlaf, Workouts, aktive und Ruheenergie, Körpermasse und Hydration — damit Sitzungen in Apple Fitness erscheinen. Plattformschreibungen nur anfügend: OmniGart löscht oder überschreibt keine Apple-Health- oder Health-Connect-Daten, auch keine eigenen. Sie können ohne Zugriff fortfahren.",
   "perm_continue": "Weiter",
   "perm_not_now": "Nicht jetzt",
   "food_intro": "Mahlzeiten offline erfassen. Tageswerte sind Wellness-Hilfen, keine medizinische Beratung.",
@@ -935,5 +935,10 @@
   "health_unit_brpm": "Atem/min",
   "health_unit_celsius": "°C",
   "health_unit_mmhg": "mmHg",
-  "health_unit_g": "g"
+  "health_unit_g": "g",
+  "workout_watch_phone_only_notice": "Keine Watch in der Nähe — nur Telefon.",
+  "workout_watch_mirroring": "Live von der Watch",
+  "workout_watch_settings_title": "Watch-Workouts",
+  "workout_start_on_watch_toggle": "Workouts auf der Watch starten",
+  "workout_start_on_watch_toggle_body": "Beim Start am Telefon öffnet dieselbe Sitzung auf der gekoppelten Watch. Aus = nur Telefon. Standardmäßig an."
 }

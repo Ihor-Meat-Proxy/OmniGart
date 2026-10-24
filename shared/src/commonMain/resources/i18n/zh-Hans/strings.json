@@ -81,7 +81,7 @@
   "onboarding_activity_very_active": "非常活跃",
   "onboarding_health_privacy": "健康数据保留在您的设备上。OmniGart 不会出售或将其用于广告。",
   "perm_explainer_health_title": "Apple Health / Health Connect",
-  "perm_explainer_health_body": "OmniGart 可读写健康样本（心率、心率变异、睡眠、训练、体重、补水），以改进设备上的估算。数据不用于广告，也不会发送给无关第三方。您可以不授予访问权限继续使用。",
+  "perm_explainer_health_body": "OmniGart 可读写健康样本——心率、心率变异、睡眠、训练、活动与基础能量、体重和补水——以便会话出现在 Apple Fitness 中。写入平台仅为追加：从不删除或改写 Apple Health / Health Connect 数据（包括本应用创建的）。您也可不授予权限并继续。",
   "perm_continue": "继续",
   "perm_not_now": "暂时不要",
   "food_intro": "离线记录餐食。每日合计为健康教练参考，不是医疗建议。",
@@ -935,5 +935,10 @@
   "health_unit_brpm": "次/分",
   "health_unit_celsius": "°C",
   "health_unit_mmhg": "毫米汞柱",
-  "health_unit_g": "克"
+  "health_unit_g": "克",
+  "workout_watch_phone_only_notice": "附近无手表 — 仅在手机上继续。",
+  "workout_watch_mirroring": "来自手表的实时数据",
+  "workout_watch_settings_title": "手表训练",
+  "workout_start_on_watch_toggle": "在手表上开始训练",
+  "workout_start_on_watch_toggle_body": "在手机上开始时，在已配对的手表上打开同一训练。关闭则仅手机记录。默认开启。"
 }

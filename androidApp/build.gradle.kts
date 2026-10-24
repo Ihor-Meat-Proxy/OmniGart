@@ -43,14 +43,14 @@ android {
         getByName("main") {
             res.directories.add("src/main/res")
             res.directories.add(
-                rootProject.file("design/generated/android/values").absolutePath,
+                rootProject.file("design/generated/android/values").absolutePath
             )
             res.directories.add(
-                rootProject.file("design/generated/android/drawable").absolutePath,
+                rootProject.file("design/generated/android/drawable").absolutePath
             )
             // Offline baseline: exercises, evidence, icons, body-maps, etc.
             assets.directories.add(
-                rootProject.file("generated/content-bundle").absolutePath,
+                rootProject.file("generated/content-bundle").absolutePath
             )
         }
     }

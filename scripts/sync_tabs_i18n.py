@@ -1694,6 +1694,345 @@ t(
     },
 )
 
+# --- Workouts category tile grid ---
+
+t(
+    "workout_cat_categories_title",
+    **{
+        "en-GB": "Workout categories",
+        "uk": "Категорії тренувань",
+        "pl": "Kategorie treningów",
+        "be": "Катэгорыі трэніровак",
+        "kk": "Жаттығу санаттары",
+        "ka": "ვარჯიშის კატეგორიები",
+        "es": "Categorías de entrenamiento",
+        "fr": "Catégories d’entraînement",
+        "de": "Trainingskategorien",
+        "cs": "Kategorie tréninků",
+        "zh-Hans": "训练类别",
+    },
+)
+t(
+    "workout_cat_running",
+    **{
+        "en-GB": "Running",
+        "uk": "Біг",
+        "pl": "Bieganie",
+        "be": "Бег",
+        "kk": "Жүгіру",
+        "ka": "სირბილი",
+        "es": "Carrera",
+        "fr": "Course",
+        "de": "Laufen",
+        "cs": "Běh",
+        "zh-Hans": "跑步",
+    },
+)
+t(
+    "workout_cat_strength",
+    **{
+        "en-GB": "Strength",
+        "uk": "Сила",
+        "pl": "Siła",
+        "be": "Сіла",
+        "kk": "Күш",
+        "ka": "ძალა",
+        "es": "Fuerza",
+        "fr": "Force",
+        "de": "Kraft",
+        "cs": "Síla",
+        "zh-Hans": "力量",
+    },
+)
+t(
+    "workout_cat_yoga_pilates",
+    **{
+        "en-GB": "Yoga & Pilates",
+        "uk": "Йога та пілатес",
+        "pl": "Joga i pilates",
+        "be": "Ёга і пілатэс",
+        "kk": "Йога және пилатес",
+        "ka": "იოგა და პილატესი",
+        "es": "Yoga y pilates",
+        "fr": "Yoga et pilates",
+        "de": "Yoga & Pilates",
+        "cs": "Jóga a pilates",
+        "zh-Hans": "瑜伽与普拉提",
+    },
+)
+t(
+    "workout_cat_swimming",
+    **{
+        "en-GB": "Swimming",
+        "uk": "Плавання",
+        "pl": "Pływanie",
+        "be": "Плаванне",
+        "kk": "Жүзу",
+        "ka": "ცურვა",
+        "es": "Natación",
+        "fr": "Natation",
+        "de": "Schwimmen",
+        "cs": "Plavání",
+        "zh-Hans": "游泳",
+    },
+)
+t(
+    "workout_cat_walking",
+    **{
+        "en-GB": "Walking",
+        "uk": "Ходьба",
+        "pl": "Chód",
+        "be": "Хадзьба",
+        "kk": "Жүру",
+        "ka": "სიარული",
+        "es": "Caminata",
+        "fr": "Marche",
+        "de": "Gehen",
+        "cs": "Chůze",
+        "zh-Hans": "步行",
+    },
+)
+t(
+    "workout_cat_search_placeholder",
+    **{
+        "en-GB": "Search",
+        "uk": "Пошук",
+        "pl": "Szukaj",
+        "be": "Пошук",
+        "kk": "Іздеу",
+        "ka": "ძებნა",
+        "es": "Buscar",
+        "fr": "Rechercher",
+        "de": "Suchen",
+        "cs": "Hledat",
+        "zh-Hans": "搜索",
+    },
+)
+t(
+    "workout_cat_search_clear",
+    **{
+        "en-GB": "Clear search",
+        "uk": "Очистити пошук",
+        "pl": "Wyczyść wyszukiwanie",
+        "be": "Ачысціць пошук",
+        "kk": "Іздеуді тазалау",
+        "ka": "ძებნის გასუფთავება",
+        "es": "Borrar búsqueda",
+        "fr": "Effacer la recherche",
+        "de": "Suche löschen",
+        "cs": "Vymazat hledání",
+        "zh-Hans": "清除搜索",
+    },
+)
+t(
+    "workout_cat_search_results_title",
+    **{
+        "en-GB": "Matching workouts",
+        "uk": "Знайдені тренування",
+        "pl": "Pasujące treningi",
+        "be": "Знойдзеныя трэніроўкі",
+        "kk": "Сәйкес жаттығулар",
+        "ka": "შესაბამისი ვარჯიშები",
+        "es": "Entrenamientos coincidentes",
+        "fr": "Séances correspondantes",
+        "de": "Passende Workouts",
+        "cs": "Odpovídající tréninky",
+        "zh-Hans": "匹配的训练",
+    },
+)
+t(
+    "workout_cat_search_no_results",
+    **{
+        "en-GB": "No workouts or programmes match that search.",
+        "uk": "Немає тренувань чи програм за цим запитом.",
+        "pl": "Brak treningów lub programów dla tego wyszukiwania.",
+        "be": "Няма трэніровак ці праграм па гэтым запыце.",
+        "kk": "Бұл іздеуге сәйкес жаттығу немесе бағдарлама жоқ.",
+        "ka": "ამ ძებნას ვარჯიში ან პროგრამა არ ემთხვევა.",
+        "es": "Ningún entrenamiento o programa coincide con la búsqueda.",
+        "fr": "Aucun entraînement ni programme ne correspond à cette recherche.",
+        "de": "Keine Workouts oder Programme passen zu dieser Suche.",
+        "cs": "Žádný trénink ani program neodpovídá hledání.",
+        "zh-Hans": "没有匹配该搜索的训练或计划。",
+    },
+)
+t(
+    "workout_cat_a11y_open",
+    **{
+        "en-GB": "Opens the category with workouts and recent history",
+        "uk": "Відкриває категорію з тренуваннями та недавньою історією",
+        "pl": "Otwiera kategorię z treningami i niedawną historią",
+        "be": "Адкрывае катэгорыю з трэніроўкамі і нядаўняй гісторыяй",
+        "kk": "Жаттығулар мен соңғы тарихы бар санатты ашады",
+        "ka": "ხსნის კატეგორიას ვარჯიშებითა და ბოლო ისტორიით",
+        "es": "Abre la categoría con entrenamientos e historial reciente",
+        "fr": "Ouvre la catégorie avec les séances et l’historique récent",
+        "de": "Öffnet die Kategorie mit Workouts und letzter Historie",
+        "cs": "Otevře kategorii s tréninky a nedávnou historií",
+        "zh-Hans": "打开含训练与近期记录的类别",
+    },
+)
+t(
+    "workout_cat_sessions_title",
+    **{
+        "en-GB": "Sessions",
+        "uk": "Сесії",
+        "pl": "Sesje",
+        "be": "Сесіі",
+        "kk": "Сеанстар",
+        "ka": "სესიები",
+        "es": "Sesiones",
+        "fr": "Séances",
+        "de": "Einheiten",
+        "cs": "Jednotky",
+        "zh-Hans": "课程",
+    },
+)
+t(
+    "workout_cat_history_title",
+    **{
+        "en-GB": "Recent history",
+        "uk": "Недавня історія",
+        "pl": "Niedawna historia",
+        "be": "Нядаўняя гісторыя",
+        "kk": "Соңғы тарих",
+        "ka": "ბოლო ისტორია",
+        "es": "Historial reciente",
+        "fr": "Historique récent",
+        "de": "Letzte Historie",
+        "cs": "Nedávná historie",
+        "zh-Hans": "近期记录",
+    },
+)
+t(
+    "workout_cat_empty_title",
+    **{
+        "en-GB": "No sessions yet",
+        "uk": "Ще немає сесій",
+        "pl": "Brak sesji",
+        "be": "Пакуль няма сесій",
+        "kk": "Әзірге сеанс жоқ",
+        "ka": "ჯერ სესიები არ არის",
+        "es": "Aún no hay sesiones",
+        "fr": "Pas encore de séances",
+        "de": "Noch keine Einheiten",
+        "cs": "Zatím žádné jednotky",
+        "zh-Hans": "暂无课程",
+    },
+)
+t(
+    "workout_cat_empty_body",
+    **{
+        "en-GB": "Start a session above when you are ready. History appears here after you save a workout.",
+        "uk": "Почніть сесію вище, коли будете готові. Історія з’явиться після збереження тренування.",
+        "pl": "Gdy będziesz gotów, zacznij sesję powyżej. Historia pojawi się po zapisaniu treningu.",
+        "be": "Пачніце сесію вышэй, калі будзеце гатовыя. Гісторыя з’явіцца пасля захавання трэніроўкі.",
+        "kk": "Дайын болғанда жоғарыдағы сеансты бастаңыз. Тарих жаттығуды сақтағаннан кейін пайда болады.",
+        "ka": "მზად რომ იქნებით, დაიწყეთ სესია ზემოთ. ისტორია გამოჩნდება ვარჯიშის შენახვის შემდეგ.",
+        "es": "Empieza una sesión arriba cuando quieras. El historial aparece al guardar un entrenamiento.",
+        "fr": "Démarrez une séance ci-dessus quand vous êtes prêt. L’historique apparaît après l’enregistrement.",
+        "de": "Starte oben eine Einheit, wenn du bereit bist. Die Historie erscheint nach dem Speichern.",
+        "cs": "Až budete připraveni, spusťte jednotku výše. Historie se objeví po uložení tréninku.",
+        "zh-Hans": "准备好后可在上方开始课程。保存训练后，记录会出现在这里。",
+    },
+)
+t(
+    "workout_cat_outdoor_run",
+    **{
+        "en-GB": "Outdoor run",
+        "uk": "Біг надворі",
+        "pl": "Bieg na zewnątrz",
+        "be": "Бег на вуліцы",
+        "kk": "Ашық ауада жүгіру",
+        "ka": "გარე სირბილი",
+        "es": "Carrera al aire libre",
+        "fr": "Course en extérieur",
+        "de": "Outdoor-Lauf",
+        "cs": "Běh venku",
+        "zh-Hans": "户外跑步",
+    },
+)
+t(
+    "workout_cat_outdoor_walk",
+    **{
+        "en-GB": "Outdoor walk",
+        "uk": "Ходьба надворі",
+        "pl": "Chód na zewnątrz",
+        "be": "Хадзьба на вуліцы",
+        "kk": "Ашық ауада жүру",
+        "ka": "გარე სიარული",
+        "es": "Caminata al aire libre",
+        "fr": "Marche en extérieur",
+        "de": "Outdoor-Gehen",
+        "cs": "Chůze venku",
+        "zh-Hans": "户外步行",
+    },
+)
+t(
+    "workout_cat_pool_swim",
+    **{
+        "en-GB": "Pool swim",
+        "uk": "Плавання в басейні",
+        "pl": "Pływanie w basenie",
+        "be": "Плаванне ў басейне",
+        "kk": "Бассейнде жүзу",
+        "ka": "აუზში ცურვა",
+        "es": "Natación en piscina",
+        "fr": "Nage en piscine",
+        "de": "Beckenschwimmen",
+        "cs": "Plavání v bazénu",
+        "zh-Hans": "泳池游泳",
+    },
+)
+t(
+    "workout_cat_open_water",
+    **{
+        "en-GB": "Open water",
+        "uk": "Відкрита вода",
+        "pl": "Woda otwarta",
+        "be": "Адкрытая вада",
+        "kk": "Ашық су",
+        "ka": "ღია წყალი",
+        "es": "Aguas abiertas",
+        "fr": "Eau libre",
+        "de": "Freiwasser",
+        "cs": "Otevřená voda",
+        "zh-Hans": "开放水域",
+    },
+)
+t(
+    "workout_cat_swimming_intro",
+    **{
+        "en-GB": "Start a pool or open-water swim on your watch when linked. Saved sessions show in history below — no sample data.",
+        "uk": "Почніть плавання в басейні або на відкритій воді на годиннику, якщо він підключений. Збережені сесії з’являться в історії нижче — без зразкових даних.",
+        "pl": "Zacznij pływanie w basenie lub wodzie otwartej na zegarku, gdy jest sparowany. Zapisane sesje zobaczysz w historii poniżej — bez przykładowych danych.",
+        "be": "Пачніце плаванне ў басейне ці на адкрытай вадзе на гадзінніку, калі ён злучаны. Захаваныя сесіі з’явяцца ў гісторыі ніжэй — без узорных даных.",
+        "kk": "Қосылған сағатта бассейнде немесе ашық суда жүзуді бастаңыз. Сақталған сеанстар төмендегі тарихта көрінеді — үлгі дерек жоқ.",
+        "ka": "დაკავშირებულ საათზე დაიწყეთ ცურვა აუზში ან ღია წყალში. შენახული სესიები გამოჩნდება ქვემოთ ისტორიაში — საცდელი მონაცემები არ არის.",
+        "es": "Inicia una natación en piscina o aguas abiertas en el reloj si está vinculado. Las sesiones guardadas aparecen abajo — sin datos de ejemplo.",
+        "fr": "Démarrez une nage piscine ou eau libre sur la montre si elle est liée. Les séances enregistrées apparaissent ci-dessous — pas de données fictives.",
+        "de": "Starte Beckenschwimmen oder Freiwasser auf der Watch, wenn verbunden. Gespeicherte Einheiten erscheinen unten — keine Beispieldaten.",
+        "cs": "Spusťte plavání v bazénu nebo otevřené vodě na hodinkách, pokud jsou propojené. Uložené jednotky se zobrazí níže — bez ukázkových dat.",
+        "zh-Hans": "手表已连接时可开始泳池或开放水域游泳。保存的课程会显示在下方记录中——无示例数据。",
+    },
+)
+t(
+    "treadmill_walk_open",
+    **{
+        "en-GB": "Open Treadmill walk",
+        "uk": "Відкрити ходьбу на доріжці",
+        "pl": "Otwórz chód na bieżni",
+        "be": "Адкрыць хадзьбу на дарожцы",
+        "kk": "Жүгіру жолында жүруді ашу",
+        "ka": "სარბენ ბილიკზე სიარულის გახსნა",
+        "es": "Abrir caminata en cinta",
+        "fr": "Ouvrir marche tapis",
+        "de": "Laufband-Gehen öffnen",
+        "cs": "Otevřít chůzi na pásu",
+        "zh-Hans": "打开跑步机步行",
+    },
+)
+
 
 def escape_android(value: str) -> str:
     return (

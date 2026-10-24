@@ -932,4 +932,25 @@
     <string name="onboarding_energy_lose">Gewicht reduzieren</string>
     <string name="onboarding_energy_maintain">Gewicht halten</string>
     <string name="onboarding_energy_gain">Gewicht zunehmen</string>
+    <string name="workout_cat_swimming">Schwimmen</string>
+    <string name="workout_cat_strength">Kraft</string>
+    <string name="workout_cat_a11y_open">Öffnet die Kategorie mit Workouts und letzter Historie</string>
+    <string name="workout_cat_categories_title">Trainingskategorien</string>
+    <string name="workout_cat_open_water">Freiwasser</string>
+    <string name="workout_cat_running">Laufen</string>
+    <string name="workout_cat_empty_body">Starte oben eine Einheit, wenn du bereit bist. Die Historie erscheint nach dem Speichern.</string>
+    <string name="workout_cat_search_clear">Suche löschen</string>
+    <string name="workout_cat_outdoor_run">Outdoor-Lauf</string>
+    <string name="workout_cat_yoga_pilates">Yoga &amp; Pilates</string>
+    <string name="workout_cat_search_placeholder">Suchen</string>
+    <string name="workout_cat_walking">Gehen</string>
+    <string name="workout_cat_outdoor_walk">Outdoor-Gehen</string>
+    <string name="workout_cat_sessions_title">Einheiten</string>
+    <string name="workout_cat_pool_swim">Beckenschwimmen</string>
+    <string name="treadmill_walk_open">Laufband-Gehen öffnen</string>
+    <string name="workout_cat_search_no_results">Keine Workouts oder Programme passen zu dieser Suche.</string>
+    <string name="workout_cat_history_title">Letzte Historie</string>
+    <string name="workout_cat_empty_title">Noch keine Einheiten</string>
+    <string name="workout_cat_swimming_intro">Starte Beckenschwimmen oder Freiwasser auf der Watch, wenn verbunden. Gespeicherte Einheiten erscheinen unten — keine Beispieldaten.</string>
+    <string name="workout_cat_search_results_title">Passende Workouts</string>
 </resources>

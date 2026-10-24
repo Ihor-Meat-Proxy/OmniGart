@@ -10,6 +10,7 @@ struct WorkoutCategoryDetailView: View {
 
     @State private var zone2Message: String?
     @State private var tick = 0
+    @Environment(\.colorScheme) private var colorScheme
 
     private var profile: UserProfile? {
         _ = tick
@@ -42,8 +43,6 @@ struct WorkoutCategoryDetailView: View {
             }
         }
     }
-
-    @Environment(\.colorScheme) private var colorScheme
 
     private var canvas: Color {
         colorScheme == .dark

@@ -38,11 +38,14 @@ enum HealthKitWatchLauncher {
         if let blocked = await pairingBlocker() {
             return blocked
         }
+        // Encode to a Sendable String before hopping to MainActor (KMP selection is not Sendable).
+        let selectionJson = PhoneWorkoutSelectionCodec.shared.encode(selection: selection)
+        let configuration = makeConfiguration(for: selection)
         await MainActor.run {
-            PhoneWatchConnectivityHub.shared.sendWorkoutSelection(selection)
+            PhoneWatchConnectivityHub.shared.sendWorkoutSelectionJson(selectionJson)
         }
         do {
-            try await requestAndStartWatchApp(makeConfiguration(for: selection))
+            try await requestAndStartWatchApp(configuration)
             return .watchStarted
         } catch {
             return .watchUnavailable(error.localizedDescription)

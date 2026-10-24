@@ -38,11 +38,15 @@ final class PhoneWatchConnectivityHub: NSObject, WCSessionDelegate {
     /// Prefer `sendMessage` when reachable; always also update application context and queue
     /// `transferUserInfo` so launch works if the watch wakes slightly later.
     func sendWorkoutSelection(_ selection: PhoneWorkoutSelection) {
-        let json = PhoneWorkoutSelectionCodec.shared.encode(selection: selection)
+        sendWorkoutSelectionJson(PhoneWorkoutSelectionCodec.shared.encode(selection: selection))
+    }
+
+    /// Same as [sendWorkoutSelection] with a pre-encoded JSON payload (Sendable across actors).
+    func sendWorkoutSelectionJson(_ json: String) {
         lastSelectionJson = json
         pushApplicationContext()
         guard let session, session.activationState == .activated else { return }
-        let payload: [String: Any] = [PhoneWorkoutSelection.companion.PAYLOAD_KEY: json]
+        let payload: [String: Any] = ["omnigart.workout.selection.json": json]
         session.transferUserInfo(payload)
         if session.isReachable {
             session.sendMessage(payload, replyHandler: nil, errorHandler: nil)

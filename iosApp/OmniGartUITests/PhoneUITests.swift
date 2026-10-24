@@ -71,30 +71,27 @@ final class PhoneUITests: XCTestCase {
         if app.state != .notRunning {
             app.terminate()
         }
-        app.launchArguments += ["-ui-testing", "-AppleLanguages", "(en-GB)"]
+        // `-ui-testing-tab-food` selects Food at launch (iPad nests duplicate tab_food
+        // buttons so tabBars / descendants taps are flaky even with `.tabBarOnly`).
+        app.launchArguments += [
+            "-ui-testing",
+            "-ui-testing-tab-food",
+            "-AppleLanguages",
+            "(en-GB)"
+        ]
         app.launch()
 
         let shell = app.descendants(matching: .any)["phone_shell"]
         XCTAssertTrue(shell.waitForExistence(timeout: 30))
 
-        // Identifier is set on `Tab` in PhoneRootView. Prefer the tab bar (PhoneRootView
-        // forces `.tabBarOnly` so iPad CI matches iPhone), then fall back to title / any.
-        let foodById = app.tabBars.buttons["tab_food"]
-        let foodByTitle = app.tabBars.buttons["Food"]
-        let foodAnywhere = app.descendants(matching: .any)["tab_food"]
-        let foodTab: XCUIElement
-        if foodById.waitForExistence(timeout: 10) {
-            foodTab = foodById
-        } else if foodByTitle.waitForExistence(timeout: 5) {
-            foodTab = foodByTitle
-        } else {
-            foodTab = foodAnywhere
-        }
-        XCTAssertTrue(foodTab.waitForExistence(timeout: 10), "Expected Food tab in the tab bar")
-        foodTab.tap()
-
         let totals = app.descendants(matching: .any)["food_totals"]
-        XCTAssertTrue(totals.waitForExistence(timeout: 10))
+        if !totals.waitForExistence(timeout: 5) {
+            // Fallback: tap first matching Food tab control if launch selection missed.
+            let foodTab = app.buttons.matching(identifier: "tab_food").firstMatch
+            XCTAssertTrue(foodTab.waitForExistence(timeout: 10), "Expected Food tab")
+            foodTab.tap()
+            XCTAssertTrue(totals.waitForExistence(timeout: 10))
+        }
         let add = app.descendants(matching: .any)["food_add"]
         XCTAssertTrue(add.waitForExistence(timeout: 5))
     }

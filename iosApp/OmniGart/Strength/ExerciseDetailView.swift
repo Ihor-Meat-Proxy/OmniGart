@@ -78,14 +78,23 @@ struct ExerciseDetailView: View {
                 .font(.body)
         }
         Section("exercise_progress_title") {
-            metricRow(labelKey: "exercise_pr_heaviest", value: detail.heaviestWeightKg.map { "\(formatKg($0)) kg" } ?? "—")
-            metricRow(labelKey: "exercise_pr_e1rm", value: detail.estimated1RmKg.map { "\(formatKg($0)) kg" } ?? "—")
-            metricRow(labelKey: "exercise_pr_volume", value: detail.bestSetVolumeKg.map { "\(formatKg($0))" } ?? "—")
+            metricRow(
+                labelKey: "exercise_pr_heaviest",
+                value: detail.heaviestWeightKg.map { "\(formatKg($0.doubleValue)) kg" } ?? "—"
+            )
+            metricRow(
+                labelKey: "exercise_pr_e1rm",
+                value: detail.estimated1RmKg.map { "\(formatKg($0.doubleValue)) kg" } ?? "—"
+            )
+            metricRow(
+                labelKey: "exercise_pr_volume",
+                value: detail.bestSetVolumeKg.map { "\(formatKg($0.doubleValue))" } ?? "—"
+            )
             // Simple bar stand-in for a progress chart until history density grows.
             ProgressChartPlaceholder(
-                heaviest: detail.heaviestWeightKg,
-                e1rm: detail.estimated1RmKg,
-                volume: detail.bestSetVolumeKg
+                heaviest: detail.heaviestWeightKg?.doubleValue,
+                e1rm: detail.estimated1RmKg?.doubleValue,
+                volume: detail.bestSetVolumeKg?.doubleValue
             )
         }
         if !detail.personalRecords.isEmpty {
@@ -112,7 +121,7 @@ struct ExerciseDetailView: View {
             } else {
                 ForEach(Array(detail.historySets.enumerated()), id: \.offset) { _, set in
                     HStack {
-                        Text(set.weightKg.map { "\(formatKg($0)) kg" } ?? "BW")
+                        Text(set.weightKg.map { "\(formatKg($0.doubleValue)) kg" } ?? "BW")
                         Text("×\(set.reps)")
                         if let rir = set.rir {
                             Text("RIR \(rir)")

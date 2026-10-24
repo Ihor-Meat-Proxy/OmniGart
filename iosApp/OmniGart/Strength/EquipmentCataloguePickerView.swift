@@ -82,7 +82,7 @@ struct EquipmentCataloguePickerView: View {
                             .font(.caption)
                             .padding(.horizontal, 10)
                             .padding(.vertical, 6)
-                            .background(Color.OmniGart.colorSurfaceLightElevated)
+                            .background(Color.OmniGart.colorSurfaceLightRaised)
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                     }
                     .accessibilityIdentifier("equipment_browse_preset_\(preset.name)")
@@ -113,7 +113,7 @@ struct EquipmentCataloguePickerView: View {
             }
             .padding(8)
             .frame(maxWidth: .infinity)
-            .background(selected ? Color.OmniGart.colorBrandAccent.opacity(0.15) : Color.OmniGart.colorSurfaceLightElevated)
+            .background(selected ? Color.OmniGart.colorBrandAccent.opacity(0.15) : Color.OmniGart.colorSurfaceLightRaised)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(selected ? Color.OmniGart.colorBrandAccent : Color.clear, lineWidth: 2)
@@ -153,7 +153,7 @@ struct ExerciseIllustrationView: View {
     var body: some View {
         ZStack {
             Circle()
-                .fill(Color.OmniGart.colorSurfaceLightElevated)
+                .fill(Color.OmniGart.colorSurfaceLightRaised)
             if UIImage(named: illustrationKey) != nil {
                 Image(illustrationKey)
                     .resizable()

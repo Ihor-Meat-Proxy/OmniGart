@@ -53,12 +53,19 @@ struct TreadmillLiveView: View {
                         Button(device.name) { ble.connect(id: device.id) }
                     }
                 } else {
-                    Button(sessionHolder.session.isPaused ? "treadmill_resume" : "treadmill_pause") {
+                    Button {
                         if sessionHolder.session.isPaused {
                             sessionHolder.session.resume()
                         } else {
                             sessionHolder.session.pause()
                         }
+                    } label: {
+                        // Ternary of String uses Button.init(String) (no localization).
+                        Text(
+                            sessionHolder.session.isPaused
+                                ? LocalizedStringKey("treadmill_resume")
+                                : LocalizedStringKey("treadmill_pause")
+                        )
                     }
                     Button("treadmill_finish") {
                         Task {

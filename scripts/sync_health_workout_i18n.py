@@ -545,33 +545,35 @@ t(
 t(
     "watch.workout.strength_traditional",
     **{
-        "en-GB": "Strength",
-        "uk": "Сила",
-        "pl": "Siła",
-        "be": "Сіла",
-        "kk": "Күш",
-        "ka": "ძალა",
-        "es": "Fuerza",
-        "fr": "Force",
-        "de": "Kraft",
-        "cs": "Síla",
-        "zh-Hans": "力量",
+        # Free traditional strength (HKWorkoutActivityType.traditionalStrengthTraining).
+        "en-GB": "Free strength",
+        "uk": "Вільна сила",
+        "pl": "Wolna siła",
+        "be": "Вольная сіла",
+        "kk": "Еркін күш",
+        "ka": "თავისუფალი ძალა",
+        "es": "Fuerza libre",
+        "fr": "Force libre",
+        "de": "Freie Kraft",
+        "cs": "Volná síla",
+        "zh-Hans": "自由力量",
     },
 )
 t(
     "watch.workout.strength_functional",
     **{
-        "en-GB": "Functional strength",
-        "uk": "Функціональна сила",
-        "pl": "Siła funkcjonalna",
-        "be": "Функцыянальная сіла",
-        "kk": "Функционалдық күш",
-        "ka": "ფუნქციური ძალა",
-        "es": "Fuerza funcional",
-        "fr": "Force fonctionnelle",
-        "de": "Funktionelle Kraft",
-        "cs": "Funkční síla",
-        "zh-Hans": "功能性力量",
+        # Functional strength training (HKWorkoutActivityType.functionalStrengthTraining).
+        "en-GB": "Functional",
+        "uk": "Функціональна",
+        "pl": "Funkcjonalna",
+        "be": "Функцыянальная",
+        "kk": "Функционалдық",
+        "ka": "ფუნქციური",
+        "es": "Funcional",
+        "fr": "Fonctionnel",
+        "de": "Funktional",
+        "cs": "Funkční",
+        "zh-Hans": "功能性",
     },
 )
 t(
@@ -761,15 +763,24 @@ def main() -> None:
                     text = text.replace("</resources>", f"    {replacement}\n</resources>")
             ap.write_text(text, encoding="utf-8")
 
-    xc_path = ROOT / "iosApp/OmniGart/Localizable.xcstrings"
-    catalog = json.loads(xc_path.read_text(encoding="utf-8"))
-    strings = catalog.setdefault("strings", {})
-    for key, locales in STRINGS.items():
-        entry = strings.setdefault(key, {"extractionState": "manual", "localizations": {}})
-        locs = entry.setdefault("localizations", {})
-        for locale, value in locales.items():
-            locs[locale] = {"stringUnit": {"state": "translated", "value": value}}
-    xc_path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    for xc_rel in (
+        "iosApp/OmniGart/Localizable.xcstrings",
+        "watchApp/OmniGartWatch/Localizable.xcstrings",
+    ):
+        xc_path = ROOT / xc_rel
+        if not xc_path.exists():
+            continue
+        catalog = json.loads(xc_path.read_text(encoding="utf-8"))
+        strings = catalog.setdefault("strings", {})
+        for key, locales in STRINGS.items():
+            # Watch catalog only needs watch.* picker / live workout keys.
+            if xc_rel.startswith("watchApp/") and not key.startswith("watch."):
+                continue
+            entry = strings.setdefault(key, {"extractionState": "manual", "localizations": {}})
+            locs = entry.setdefault("localizations", {})
+            for locale, value in locales.items():
+                locs[locale] = {"stringUnit": {"state": "translated", "value": value}}
+        xc_path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Synced {len(STRINGS)} health-workout keys × {len(LOCALES)} locales")
 
 

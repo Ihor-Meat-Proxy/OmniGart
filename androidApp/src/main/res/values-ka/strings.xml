@@ -238,7 +238,7 @@
     <string name="workout_workoutkit_limit">Apple-ის Workout აპი სხვა აპებიდან წონას ან გამეორებებს არ იღებს. OmniGart თითოეულ სეტს სამუშაო, დასვენებას კი აღდგენის ნაბიჯად აქცევს; დატვირთვა × გამეორებები ჩაწერეთ OmniGart-ში iPhone-ზე ან Apple Watch-ზე.</string>
     <string name="workout_sets_count">სეტები</string>
     <string name="workout_volume_short">მოცულობა</string>
-    <string name="wear_strength_title">ძალა</string>
+    <string name="wear_strength_title">თავისუფალი ძალა</string>
     <string name="wear_strength_done">მზადაა</string>
     <string name="workouts_program_title">ძალის პროგრამა</string>
     <string name="workouts_program_intro">ააწყვეთ მთელი სხეულის ან სპლიტის გეგმა თქვენი აღჭურვილობით. მხოლოდ მწვრთნელის დახმარებაა — არა სამედიცინო რჩევა.</string>
@@ -256,7 +256,7 @@
     <string name="workouts_muscles_title">მუშა კუნთები</string>
     <string name="workouts_adjust_equipment">აღჭურვილობის მორგება</string>
     <string name="workouts_substituted">შეცვლილია</string>
-    <string name="watch_strength_start">ძალის სესია</string>
+    <string name="watch_strength_start">გეგმიური ძალა</string>
     <string name="watch_equipment_sync_hint">გადამრთველები სინქრონდება iPhone-დან. ცვლილებები მხოლოდ ამ სესიისთვის.</string>
     <string name="program_split_full_body">მთელი სხეული</string>
     <string name="program_split_upper_lower">ზედა / ქვედა</string>
@@ -301,7 +301,7 @@
     <string name="workouts_ready_title">მზა ვარჯიშები</string>
     <string name="workouts_ready_intro">ნახეთ ფიქსირებული სესიები თქვენი აღჭურვილობის მიხედვით. დაიწყეთ პირდაპირ, ან მოარგეთ ინვენტარი — ჩანაცვლებები განახლდება.</string>
     <string name="workouts_ready_clear">მზა ვარჯიშის გასუფთავება</string>
-    <string name="wear_strength_start">ძალა</string>
+    <string name="wear_strength_start">თავისუფალი ძალა</string>
     <string name="wear_strength_stop">დასრულება</string>
     <string name="wear_strength_rest">დასვენება %1$d წმ</string>
     <string name="wear_strength_weight">კგ</string>

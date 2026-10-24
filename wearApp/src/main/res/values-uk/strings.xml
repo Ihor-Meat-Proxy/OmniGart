@@ -112,7 +112,7 @@
     <string name="workout_summary_energy_estimate">Енергія — оцінка самопочуття (пульс або робота), не медичний вимір.</string>
     <string name="workout_sets_count">Підходи</string>
     <string name="workout_volume_short">Об’єм</string>
-    <string name="wear_strength_title">Сила</string>
+    <string name="wear_strength_title">Вільна сила</string>
     <string name="wear_strength_done">Готово</string>
     <string name="workouts_library_title">Бібліотека вправ</string>
     <string name="workouts_log_title">Силовий журнал</string>
@@ -138,7 +138,7 @@
     <string name="workouts_muscles_title">Задіяні м’язи</string>
     <string name="workouts_adjust_equipment">Підлаштувати обладнання</string>
     <string name="workouts_substituted">Замінено</string>
-    <string name="watch_strength_start">Силова сесія</string>
+    <string name="watch_strength_start">Сила за планом</string>
     <string name="watch_equipment_sync_hint">Перемикачі синхронізуються з iPhone. Зміни лише для цієї сесії.</string>
     <string name="program_split_full_body">Все тіло</string>
     <string name="program_split_upper_lower">Верх / низ</string>
@@ -180,7 +180,7 @@
     <string name="equipment_item_box">Тумба</string>
     <string name="equipment_item_landmine">Лендмайн</string>
     <string name="equipment_item_yoga_mat">Килімок для йоги</string>
-    <string name="wear_strength_start">Сила</string>
+    <string name="wear_strength_start">Вільна сила</string>
     <string name="wear_strength_stop">Кінець</string>
     <string name="wear_strength_rest">Відпочинок %1$d с</string>
     <string name="wear_strength_weight">кг</string>

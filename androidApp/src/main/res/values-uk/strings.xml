@@ -238,7 +238,7 @@
     <string name="workout_workoutkit_limit">Додаток Workout від Apple не приймає вагу чи повторення з інших програм. OmniGart експортує кожен підхід як роботу, а відпочинок як відновлення; вагу × повторення записуйте в OmniGart на iPhone або Apple Watch.</string>
     <string name="workout_sets_count">Підходи</string>
     <string name="workout_volume_short">Об’єм</string>
-    <string name="wear_strength_title">Сила</string>
+    <string name="wear_strength_title">Вільна сила</string>
     <string name="wear_strength_done">Готово</string>
     <string name="workouts_program_title">Силова програма</string>
     <string name="workouts_program_intro">Складіть план на все тіло або спліт з наявного обладнання. Лише тренерська допомога — не медична порада.</string>
@@ -256,7 +256,7 @@
     <string name="workouts_muscles_title">Задіяні м’язи</string>
     <string name="workouts_adjust_equipment">Підлаштувати обладнання</string>
     <string name="workouts_substituted">Замінено</string>
-    <string name="watch_strength_start">Силова сесія</string>
+    <string name="watch_strength_start">Сила за планом</string>
     <string name="watch_equipment_sync_hint">Перемикачі синхронізуються з iPhone. Зміни лише для цієї сесії.</string>
     <string name="program_split_full_body">Все тіло</string>
     <string name="program_split_upper_lower">Верх / низ</string>
@@ -301,7 +301,7 @@
     <string name="workouts_ready_title">Готові тренування</string>
     <string name="workouts_ready_intro">Переглядайте фіксовані сесії за вашим обладнанням. Запустіть одразу або підлаштуйте інвентар — заміни оновляться.</string>
     <string name="workouts_ready_clear">Скинути готове тренування</string>
-    <string name="wear_strength_start">Сила</string>
+    <string name="wear_strength_start">Вільна сила</string>
     <string name="wear_strength_stop">Кінець</string>
     <string name="wear_strength_rest">Відпочинок %1$d с</string>
     <string name="wear_strength_weight">кг</string>

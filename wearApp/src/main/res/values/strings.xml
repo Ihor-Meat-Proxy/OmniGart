@@ -88,7 +88,7 @@
     <string name="treadmill_export_workoutkit">Export program to Workout</string>
     <string name="treadmill_export_ok">Program scheduled in Workout</string>
     <string name="treadmill_export_failed">Could not schedule in Workout</string>
-    <string name="wear_strength_start">Strength</string>
+    <string name="wear_strength_start">Free strength</string>
     <string name="wear_strength_done">Done</string>
     <string name="wear_strength_stop">End</string>
     <string name="wear_strength_rest">Rest %1$ds</string>
@@ -121,7 +121,7 @@
     <string name="workout_summary_energy_estimate">Energy is a wellness estimate (heart rate or work-based), not a medical measurement.</string>
     <string name="workout_sets_count">Sets</string>
     <string name="workout_volume_short">Volume</string>
-    <string name="wear_strength_title">Strength</string>
+    <string name="wear_strength_title">Free strength</string>
     <string name="workouts_library_title">Exercise library</string>
     <string name="workouts_log_title">Strength log</string>
     <string name="workouts_zone2_title">Zone 2 run</string>
@@ -146,7 +146,7 @@
     <string name="workouts_muscles_title">Muscles worked</string>
     <string name="workouts_adjust_equipment">Adjust equipment</string>
     <string name="workouts_substituted">Substituted</string>
-    <string name="watch_strength_start">Strength session</string>
+    <string name="watch_strength_start">Guided strength</string>
     <string name="watch_equipment_sync_hint">Toggles sync from iPhone. Changes apply to this session only.</string>
     <string name="program_split_full_body">Full body</string>
     <string name="program_split_upper_lower">Upper / lower</string>

@@ -238,7 +238,7 @@
     <string name="workout_workoutkit_limit">Aplikacja Workout Apple nie przyjmuje ciężaru ani powtórzeń z innych aplikacji. OmniGart eksportuje każdą serię jako pracę, a odpoczynek jako regenerację; obciążenie × powtórzenia zapisuj w OmniGart na iPhonie lub Apple Watch.</string>
     <string name="workout_sets_count">Serie</string>
     <string name="workout_volume_short">Objętość</string>
-    <string name="wear_strength_title">Siła</string>
+    <string name="wear_strength_title">Wolna siła</string>
     <string name="wear_strength_done">Gotowe</string>
     <string name="workouts_program_title">Program siłowy</string>
     <string name="workouts_program_intro">Ułóż plan całego ciała lub split z dostępnego sprzętu. To wskazówka treningowa, nie porada medyczna.</string>
@@ -256,7 +256,7 @@
     <string name="workouts_muscles_title">Zaangażowane mięśnie</string>
     <string name="workouts_adjust_equipment">Dostosuj sprzęt</string>
     <string name="workouts_substituted">Zastąpiono</string>
-    <string name="watch_strength_start">Sesja siłowa</string>
+    <string name="watch_strength_start">Siła z planem</string>
     <string name="watch_equipment_sync_hint">Przełączniki synchronizują się z iPhone’a. Zmiany tylko dla tej sesji.</string>
     <string name="program_split_full_body">Całe ciało</string>
     <string name="program_split_upper_lower">Góra / dół</string>
@@ -301,7 +301,7 @@
     <string name="workouts_ready_title">Gotowe treningi</string>
     <string name="workouts_ready_intro">Przeglądaj gotowe sesje dopasowane do sprzętu. Uruchom od razu albo dostosuj ekwipunek — zamiany się zaktualizują.</string>
     <string name="workouts_ready_clear">Wyczyść gotowy trening</string>
-    <string name="wear_strength_start">Siła</string>
+    <string name="wear_strength_start">Wolna siła</string>
     <string name="wear_strength_stop">Koniec</string>
     <string name="wear_strength_rest">Odpoczynek %1$d s</string>
     <string name="wear_strength_weight">kg</string>

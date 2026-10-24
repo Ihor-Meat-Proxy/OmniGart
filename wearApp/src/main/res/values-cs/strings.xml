@@ -112,7 +112,7 @@
     <string name="workout_summary_energy_estimate">Energie je wellness odhad (tep nebo práce), ne lékařské měření.</string>
     <string name="workout_sets_count">Série</string>
     <string name="workout_volume_short">Objem</string>
-    <string name="wear_strength_title">Síla</string>
+    <string name="wear_strength_title">Volná síla</string>
     <string name="wear_strength_done">Hotovo</string>
     <string name="workouts_library_title">Knihovna cviků</string>
     <string name="workouts_log_title">Silový deník</string>
@@ -138,7 +138,7 @@
     <string name="workouts_muscles_title">Zapojené svaly</string>
     <string name="workouts_adjust_equipment">Upravit vybavení</string>
     <string name="workouts_substituted">Nahrazeno</string>
-    <string name="watch_strength_start">Silová jednotka</string>
+    <string name="watch_strength_start">Řízená síla</string>
     <string name="watch_equipment_sync_hint">Přepínače se synchronizují z iPhonu. Jen pro tuto jednotku.</string>
     <string name="program_split_full_body">Celé tělo</string>
     <string name="program_split_upper_lower">Horní / dolní</string>
@@ -180,7 +180,7 @@
     <string name="equipment_item_box">Box</string>
     <string name="equipment_item_landmine">Landmine</string>
     <string name="equipment_item_yoga_mat">Podložka na jógu</string>
-    <string name="wear_strength_start">Síla</string>
+    <string name="wear_strength_start">Volná síla</string>
     <string name="wear_strength_stop">Konec</string>
     <string name="wear_strength_rest">Odpočinek %1$d s</string>
     <string name="wear_strength_weight">kg</string>

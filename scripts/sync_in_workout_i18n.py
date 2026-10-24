@@ -477,17 +477,18 @@ t(
 t(
     "wear_strength_title",
     **{
-        "en-GB": "Strength",
-        "uk": "Сила",
-        "pl": "Siła",
-        "be": "Сіла",
-        "kk": "Күш",
-        "ka": "ძალა",
-        "es": "Fuerza",
-        "fr": "Force",
-        "de": "Kraft",
-        "cs": "Síla",
-        "zh-Hans": "力量",
+        # Free strength set-logging title (matches watch free/traditional strength).
+        "en-GB": "Free strength",
+        "uk": "Вільна сила",
+        "pl": "Wolna siła",
+        "be": "Вольная сіла",
+        "kk": "Еркін күш",
+        "ka": "თავისუფალი ძალა",
+        "es": "Fuerza libre",
+        "fr": "Force libre",
+        "de": "Freie Kraft",
+        "cs": "Volná síla",
+        "zh-Hans": "自由力量",
     },
 )
 t(
@@ -509,17 +510,18 @@ t(
 t(
     "wear_strength_start",
     **{
-        "en-GB": "Strength",
-        "uk": "Сила",
-        "pl": "Siła",
-        "be": "Сіла",
-        "kk": "Күш",
-        "ka": "ძალა",
-        "es": "Fuerza",
-        "fr": "Force",
-        "de": "Kraft",
-        "cs": "Síla",
-        "zh-Hans": "力量",
+        # Wear start button for free strength set logging.
+        "en-GB": "Free strength",
+        "uk": "Вільна сила",
+        "pl": "Wolna siła",
+        "be": "Вольная сіла",
+        "kk": "Еркін күш",
+        "ka": "თავისუფალი ძალა",
+        "es": "Fuerza libre",
+        "fr": "Force libre",
+        "de": "Freie Kraft",
+        "cs": "Volná síla",
+        "zh-Hans": "自由力量",
     },
 )
 t(

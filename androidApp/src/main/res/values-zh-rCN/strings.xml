@@ -238,7 +238,7 @@
     <string name="workout_workoutkit_limit">Apple 体能训练无法从其他应用接收重量或次数。OmniGart 会将每组导出为工作步骤、休息导出为恢复步骤以便跟随；请在 iPhone 或 Apple Watch 的 OmniGart 中记录重量×次数。</string>
     <string name="workout_sets_count">组数</string>
     <string name="workout_volume_short">容量</string>
-    <string name="wear_strength_title">力量</string>
+    <string name="wear_strength_title">自由力量</string>
     <string name="wear_strength_done">完成</string>
     <string name="workouts_program_title">力量计划</string>
     <string name="workouts_program_intro">根据现有器械生成全身或分化计划。仅供训练参考，不是医疗建议。</string>
@@ -256,7 +256,7 @@
     <string name="workouts_muscles_title">训练肌群</string>
     <string name="workouts_adjust_equipment">调整器械</string>
     <string name="workouts_substituted">已替换</string>
-    <string name="watch_strength_start">力量课次</string>
+    <string name="watch_strength_start">引导力量</string>
     <string name="watch_equipment_sync_hint">开关与 iPhone 同步。仅作用于本次课次。</string>
     <string name="program_split_full_body">全身</string>
     <string name="program_split_upper_lower">上下肢分化</string>
@@ -301,7 +301,7 @@
     <string name="workouts_ready_title">现成训练</string>
     <string name="workouts_ready_intro">按现有器械浏览固定课次。可直接开始，或调整器械后自动替换动作。</string>
     <string name="workouts_ready_clear">清除现成训练</string>
-    <string name="wear_strength_start">力量</string>
+    <string name="wear_strength_start">自由力量</string>
     <string name="wear_strength_stop">结束</string>
     <string name="wear_strength_rest">休息 %1$d 秒</string>
     <string name="wear_strength_weight">公斤</string>

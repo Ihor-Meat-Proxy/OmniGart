@@ -101,7 +101,7 @@
     <string name="wear_strength_rest">დასვენება %1$d წმ</string>
     <string name="wear_strength_weight">კგ</string>
     <string name="wear_strength_reps">გამეორება</string>
-    <string name="wear_strength_set">სეტი %1$d</string>
+    <string name="wear_strength_set">მიდგომა %1$d</string>
     <string name="wear_strength_hr">გსს %1$d</string>
     <string name="wear_strength_kcal">%1$s კკალ</string>
 </resources>

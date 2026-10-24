@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "equip_pilates_cadillac.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "equip_pilates_cadillac.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

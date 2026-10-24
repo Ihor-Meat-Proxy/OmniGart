@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none" data-omnigart="ex:mountain-climber">
+  <circle cx="64" cy="64" r="58" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <ellipse cx="36" cy="78" rx="14" ry="6" fill="#0F766E" stroke="#64748B" stroke-width="2.25"/>
+  <ellipse cx="36" cy="88" rx="14" ry="6" fill="#0F766E" stroke="#64748B" stroke-width="2.25"/>
+  <ellipse cx="18" cy="80" rx="8" ry="5" fill="#94A3B8" stroke="#64748B" stroke-width="2.25"/>
+  <ellipse cx="18" cy="90" rx="8" ry="5" fill="#94A3B8" stroke="#64748B" stroke-width="2.25"/>
+  <path d="M48 70 C60 66 78 66 92 72 L94 84 C78 80 60 80 48 84 Z" fill="#0F766E" stroke="#64748B" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M88 68 C96 70 104 74 108 80 L100 86 C96 80 90 76 84 76 Z" fill="#94A3B8" stroke="#64748B" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="100" cy="92" rx="5" ry="10" fill="#94A3B8" stroke="#64748B" stroke-width="2.25"/>
+  <ellipse cx="108" cy="92" rx="5" ry="10" fill="#94A3B8" stroke="#64748B" stroke-width="2.25"/>
+  <circle cx="112" cy="72" r="6" fill="#94A3B8" stroke="#64748B" stroke-width="2.25"/>
+  <circle cx="104" cy="68" r="5" fill="#94A3B8" stroke="#64748B" stroke-width="2.25"/>
+  <circle cx="118" cy="64" r="9" fill="#94A3B8" stroke="#64748B" stroke-width="2.25"/>
+
+</svg>

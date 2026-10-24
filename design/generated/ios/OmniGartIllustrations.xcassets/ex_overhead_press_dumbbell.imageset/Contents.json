@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "ex_overhead_press_dumbbell.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "ex_overhead_press_dumbbell.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

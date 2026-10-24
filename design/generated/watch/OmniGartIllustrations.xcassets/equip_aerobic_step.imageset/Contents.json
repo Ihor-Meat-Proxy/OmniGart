@@ -1,0 +1,20 @@
+{
+  "images": [
+    {
+      "filename": "equip_aerobic_step.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "equip_aerobic_step.png",
+      "idiom": "universal",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "author": "omnigart",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

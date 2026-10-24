@@ -101,7 +101,7 @@
     <string name="wear_strength_rest">Демалыс %1$d с</string>
     <string name="wear_strength_weight">кг</string>
     <string name="wear_strength_reps">Қайталау</string>
-    <string name="wear_strength_set">Жиын %1$d</string>
+    <string name="wear_strength_set">Жақындау %1$d</string>
     <string name="wear_strength_hr">ЖСЖ %1$d</string>
     <string name="wear_strength_kcal">%1$s ккал</string>
 </resources>

@@ -1,0 +1,4529 @@
+{
+  "version": 1,
+  "style": {
+    "viewBox": "0 0 128 128",
+    "accent": "#0F766E",
+    "figure": "#94A3B8",
+    "equipment": "#334155",
+    "badge": "#FFFFFF",
+    "strokeWidth": 2.25
+  },
+  "counts": {
+    "equipment": 156,
+    "exercises": 159,
+    "total": 315
+  },
+  "equipment": [
+    {
+      "id": "ab_wheel",
+      "kind": "equipment",
+      "asset": "equipment/equip_ab_wheel.svg",
+      "category": "portable",
+      "shape": "ab_wheel",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "abd_crunch_machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_abd_crunch_machine.svg",
+      "category": "machines",
+      "shape": "crunch_machine",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "aerobic_step",
+      "kind": "equipment",
+      "asset": "equipment/equip_aerobic_step.svg",
+      "category": "accessories",
+      "shape": "step",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "air_bike",
+      "kind": "equipment",
+      "asset": "equipment/equip_air_bike.svg",
+      "category": "cardio",
+      "shape": "assault_bike",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "ankle_weights",
+      "kind": "equipment",
+      "asset": "equipment/equip_ankle_weights.svg",
+      "category": "free_weights",
+      "shape": "ankle_weights",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "assault_bike",
+      "kind": "equipment",
+      "asset": "equipment/equip_assault_bike.svg",
+      "category": "cardio",
+      "shape": "assault_bike",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "assisted_pullup_dip_machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_assisted_pullup_dip_machine.svg",
+      "category": "machines",
+      "shape": "assisted_machine",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "balance_pad",
+      "kind": "equipment",
+      "asset": "equipment/equip_balance_pad.svg",
+      "category": "accessories",
+      "shape": "balance_pad",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "bands",
+      "kind": "equipment",
+      "asset": "equipment/equip_bands.svg",
+      "category": "portable",
+      "shape": "band",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "barbell",
+      "kind": "equipment",
+      "asset": "equipment/equip_barbell.svg",
+      "category": "free_weights",
+      "shape": "barbell",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "battle_ropes",
+      "kind": "equipment",
+      "asset": "equipment/equip_battle_ropes.svg",
+      "category": "accessories",
+      "shape": "battle_ropes",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "bench",
+      "kind": "equipment",
+      "asset": "equipment/equip_bench.svg",
+      "category": "bench",
+      "shape": "bench",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "bench_adjustable",
+      "kind": "equipment",
+      "asset": "equipment/equip_bench_adjustable.svg",
+      "category": "bench",
+      "shape": "bench_incline",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "bench_decline",
+      "kind": "equipment",
+      "asset": "equipment/equip_bench_decline.svg",
+      "category": "bench",
+      "shape": "bench_decline",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "bench_flat",
+      "kind": "equipment",
+      "asset": "equipment/equip_bench_flat.svg",
+      "category": "bench",
+      "shape": "bench",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "bench_incline",
+      "kind": "equipment",
+      "asset": "equipment/equip_bench_incline.svg",
+      "category": "bench",
+      "shape": "bench_incline",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "bike",
+      "kind": "equipment",
+      "asset": "equipment/equip_bike.svg",
+      "category": "cardio",
+      "shape": "bike",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "bodyweight",
+      "kind": "equipment",
+      "asset": "equipment/equip_bodyweight.svg",
+      "category": "always",
+      "shape": "figure",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "bolster",
+      "kind": "equipment",
+      "asset": "equipment/equip_bolster.svg",
+      "category": "accessories",
+      "shape": "bolster",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "bosu",
+      "kind": "equipment",
+      "asset": "equipment/equip_bosu.svg",
+      "category": "accessories",
+      "shape": "bosu",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "box",
+      "kind": "equipment",
+      "asset": "equipment/equip_box.svg",
+      "category": "accessories",
+      "shape": "box",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "bumper_plates",
+      "kind": "equipment",
+      "asset": "equipment/equip_bumper_plates.svg",
+      "category": "free_weights",
+      "shape": "plates",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "cable",
+      "kind": "equipment",
+      "asset": "equipment/equip_cable.svg",
+      "category": "machines",
+      "shape": "cable",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "cable_crossover",
+      "kind": "equipment",
+      "asset": "equipment/equip_cable_crossover.svg",
+      "category": "machines",
+      "shape": "cable_crossover",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "calf_raise_machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_calf_raise_machine.svg",
+      "category": "machines",
+      "shape": "calf_machine",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "cambered_bar",
+      "kind": "equipment",
+      "asset": "equipment/equip_cambered_bar.svg",
+      "category": "free_weights",
+      "shape": "cambered_bar",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "chair",
+      "kind": "equipment",
+      "asset": "equipment/equip_chair.svg",
+      "category": "environment",
+      "shape": "chair",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "chalk",
+      "kind": "equipment",
+      "asset": "equipment/equip_chalk.svg",
+      "category": "accessories",
+      "shape": "chalk",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "chest_press_machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_chest_press_machine.svg",
+      "category": "machines",
+      "shape": "chest_press",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "climbing_rope",
+      "kind": "equipment",
+      "asset": "equipment/equip_climbing_rope.svg",
+      "category": "calisthenics",
+      "shape": "rope",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "clubbell",
+      "kind": "equipment",
+      "asset": "equipment/equip_clubbell.svg",
+      "category": "free_weights",
+      "shape": "clubbell",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "dip_bars",
+      "kind": "equipment",
+      "asset": "equipment/equip_dip_bars.svg",
+      "category": "calisthenics",
+      "shape": "dip_bars",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "dip_belt",
+      "kind": "equipment",
+      "asset": "equipment/equip_dip_belt.svg",
+      "category": "accessories",
+      "shape": "dip_belt",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "doorway",
+      "kind": "equipment",
+      "asset": "equipment/equip_doorway.svg",
+      "category": "environment",
+      "shape": "doorway",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "dowel",
+      "kind": "equipment",
+      "asset": "equipment/equip_dowel.svg",
+      "category": "accessories",
+      "shape": "dowel",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "dumbbell",
+      "kind": "equipment",
+      "asset": "equipment/equip_dumbbell.svg",
+      "category": "free_weights",
+      "shape": "dumbbell",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "dumbbell_adjustable",
+      "kind": "equipment",
+      "asset": "equipment/equip_dumbbell_adjustable.svg",
+      "category": "free_weights",
+      "shape": "dumbbell",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "dumbbell_pair",
+      "kind": "equipment",
+      "asset": "equipment/equip_dumbbell_pair.svg",
+      "category": "free_weights",
+      "shape": "dumbbell",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "elbow_sleeves",
+      "kind": "equipment",
+      "asset": "equipment/equip_elbow_sleeves.svg",
+      "category": "accessories",
+      "shape": "sleeves",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "elliptical",
+      "kind": "equipment",
+      "asset": "equipment/equip_elliptical.svg",
+      "category": "cardio",
+      "shape": "elliptical",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "exercise_bike",
+      "kind": "equipment",
+      "asset": "equipment/equip_exercise_bike.svg",
+      "category": "cardio",
+      "shape": "bike",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "exercise_mat",
+      "kind": "equipment",
+      "asset": "equipment/equip_exercise_mat.svg",
+      "category": "accessories",
+      "shape": "mat",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "ez_bar",
+      "kind": "equipment",
+      "asset": "equipment/equip_ez_bar.svg",
+      "category": "free_weights",
+      "shape": "ez_bar",
+      "sources": [
+        "seed",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "farmer_handles",
+      "kind": "equipment",
+      "asset": "equipment/equip_farmer_handles.svg",
+      "category": "accessories",
+      "shape": "farmer_handles",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "fins",
+      "kind": "equipment",
+      "asset": "equipment/equip_fins.svg",
+      "category": "swim",
+      "shape": "fins",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "foam_roller",
+      "kind": "equipment",
+      "asset": "equipment/equip_foam_roller.svg",
+      "category": "accessories",
+      "shape": "foam_roller",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "fractional_plates",
+      "kind": "equipment",
+      "asset": "equipment/equip_fractional_plates.svg",
+      "category": "free_weights",
+      "shape": "plates",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "functional_trainer",
+      "kind": "equipment",
+      "asset": "equipment/equip_functional_trainer.svg",
+      "category": "machines",
+      "shape": "cable_crossover",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "glute_drive",
+      "kind": "equipment",
+      "asset": "equipment/equip_glute_drive.svg",
+      "category": "machines",
+      "shape": "hip_thrust_machine",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "grip_trainer",
+      "kind": "equipment",
+      "asset": "equipment/equip_grip_trainer.svg",
+      "category": "accessories",
+      "shape": "grip_trainer",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "gymnastic_rings",
+      "kind": "equipment",
+      "asset": "equipment/equip_gymnastic_rings.svg",
+      "category": "calisthenics",
+      "shape": "rings",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "hack_squat",
+      "kind": "equipment",
+      "asset": "equipment/equip_hack_squat.svg",
+      "category": "machines",
+      "shape": "hack_squat",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "half_rack",
+      "kind": "equipment",
+      "asset": "equipment/equip_half_rack.svg",
+      "category": "rack",
+      "shape": "half_rack",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "hand_paddle",
+      "kind": "equipment",
+      "asset": "equipment/equip_hand_paddle.svg",
+      "category": "swim",
+      "shape": "paddle",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "hex_bar_handles",
+      "kind": "equipment",
+      "asset": "equipment/equip_hex_bar_handles.svg",
+      "category": "accessories",
+      "shape": "farmer_handles",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "hip_abduction_machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_hip_abduction_machine.svg",
+      "category": "machines",
+      "shape": "hip_abduction",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "hip_adduction_machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_hip_adduction_machine.svg",
+      "category": "machines",
+      "shape": "hip_adduction",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "hip_thrust_machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_hip_thrust_machine.svg",
+      "category": "machines",
+      "shape": "hip_thrust_machine",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "hyperextension_bench",
+      "kind": "equipment",
+      "asset": "equipment/equip_hyperextension_bench.svg",
+      "category": "bench",
+      "shape": "roman_chair",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "indian_club",
+      "kind": "equipment",
+      "asset": "equipment/equip_indian_club.svg",
+      "category": "free_weights",
+      "shape": "clubbell",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "j_hooks",
+      "kind": "equipment",
+      "asset": "equipment/equip_j_hooks.svg",
+      "category": "rack",
+      "shape": "j_hooks",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "jump_rope",
+      "kind": "equipment",
+      "asset": "equipment/equip_jump_rope.svg",
+      "category": "portable",
+      "shape": "jump_rope",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "kettlebell",
+      "kind": "equipment",
+      "asset": "equipment/equip_kettlebell.svg",
+      "category": "free_weights",
+      "shape": "kettlebell",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "kettlebell_pair",
+      "kind": "equipment",
+      "asset": "equipment/equip_kettlebell_pair.svg",
+      "category": "free_weights",
+      "shape": "kettlebell",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "kickboard",
+      "kind": "equipment",
+      "asset": "equipment/equip_kickboard.svg",
+      "category": "swim",
+      "shape": "kickboard",
+      "sources": [
+        "seed",
+        "content"
+      ]
+    },
+    {
+      "id": "knee_sleeves",
+      "kind": "equipment",
+      "asset": "equipment/equip_knee_sleeves.svg",
+      "category": "accessories",
+      "shape": "sleeves",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "lacrosse_ball",
+      "kind": "equipment",
+      "asset": "equipment/equip_lacrosse_ball.svg",
+      "category": "accessories",
+      "shape": "massage_ball",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "landmine",
+      "kind": "equipment",
+      "asset": "equipment/equip_landmine.svg",
+      "category": "rack",
+      "shape": "landmine",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "lat_pulldown",
+      "kind": "equipment",
+      "asset": "equipment/equip_lat_pulldown.svg",
+      "category": "machines",
+      "shape": "lat_pulldown",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "leg_curl",
+      "kind": "equipment",
+      "asset": "equipment/equip_leg_curl.svg",
+      "category": "machines",
+      "shape": "leg_curl",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "leg_extension",
+      "kind": "equipment",
+      "asset": "equipment/equip_leg_extension.svg",
+      "category": "machines",
+      "shape": "leg_extension",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "leg_press",
+      "kind": "equipment",
+      "asset": "equipment/equip_leg_press.svg",
+      "category": "machines",
+      "shape": "leg_press",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "lifting_belt",
+      "kind": "equipment",
+      "asset": "equipment/equip_lifting_belt.svg",
+      "category": "accessories",
+      "shape": "belt",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "lifting_straps",
+      "kind": "equipment",
+      "asset": "equipment/equip_lifting_straps.svg",
+      "category": "accessories",
+      "shape": "straps",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "lying_leg_curl",
+      "kind": "equipment",
+      "asset": "equipment/equip_lying_leg_curl.svg",
+      "category": "machines",
+      "shape": "leg_curl",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "macebell",
+      "kind": "equipment",
+      "asset": "equipment/equip_macebell.svg",
+      "category": "free_weights",
+      "shape": "macebell",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_machine.svg",
+      "category": "machines",
+      "shape": "generic_machine",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "massage_ball",
+      "kind": "equipment",
+      "asset": "equipment/equip_massage_ball.svg",
+      "category": "accessories",
+      "shape": "massage_ball",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "medicine_ball",
+      "kind": "equipment",
+      "asset": "equipment/equip_medicine_ball.svg",
+      "category": "free_weights",
+      "shape": "medicine_ball",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "mini_band",
+      "kind": "equipment",
+      "asset": "equipment/equip_mini_band.svg",
+      "category": "portable",
+      "shape": "mini_band",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "mobility_stick",
+      "kind": "equipment",
+      "asset": "equipment/equip_mobility_stick.svg",
+      "category": "accessories",
+      "shape": "dowel",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "none",
+      "kind": "equipment",
+      "asset": "equipment/equip_none.svg",
+      "category": "always",
+      "shape": "figure",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "olympic_barbell",
+      "kind": "equipment",
+      "asset": "equipment/equip_olympic_barbell.svg",
+      "category": "free_weights",
+      "shape": "barbell",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "open_water",
+      "kind": "equipment",
+      "asset": "equipment/equip_open_water.svg",
+      "category": "swim",
+      "shape": "open_water",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "paddle",
+      "kind": "equipment",
+      "asset": "equipment/equip_paddle.svg",
+      "category": "swim",
+      "shape": "paddle",
+      "sources": [
+        "seed",
+        "content"
+      ]
+    },
+    {
+      "id": "parallettes",
+      "kind": "equipment",
+      "asset": "equipment/equip_parallettes.svg",
+      "category": "calisthenics",
+      "shape": "parallettes",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "park_bench",
+      "kind": "equipment",
+      "asset": "equipment/equip_park_bench.svg",
+      "category": "environment",
+      "shape": "park_bench",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "pec_deck",
+      "kind": "equipment",
+      "asset": "equipment/equip_pec_deck.svg",
+      "category": "machines",
+      "shape": "pec_deck",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "pegboard",
+      "kind": "equipment",
+      "asset": "equipment/equip_pegboard.svg",
+      "category": "calisthenics",
+      "shape": "pegboard",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "pilates_barrel",
+      "kind": "equipment",
+      "asset": "equipment/equip_pilates_barrel.svg",
+      "category": "accessories",
+      "shape": "pilates_barrel",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "pilates_cadillac",
+      "kind": "equipment",
+      "asset": "equipment/equip_pilates_cadillac.svg",
+      "category": "accessories",
+      "shape": "cadillac",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "pilates_chair",
+      "kind": "equipment",
+      "asset": "equipment/equip_pilates_chair.svg",
+      "category": "accessories",
+      "shape": "pilates_chair",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "pilates_mat",
+      "kind": "equipment",
+      "asset": "equipment/equip_pilates_mat.svg",
+      "category": "accessories",
+      "shape": "mat",
+      "sources": [
+        "seed",
+        "content"
+      ]
+    },
+    {
+      "id": "pilates_reformer",
+      "kind": "equipment",
+      "asset": "equipment/equip_pilates_reformer.svg",
+      "category": "accessories",
+      "shape": "reformer",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "plates",
+      "kind": "equipment",
+      "asset": "equipment/equip_plates.svg",
+      "category": "free_weights",
+      "shape": "plates",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "playground_bar",
+      "kind": "equipment",
+      "asset": "equipment/equip_playground_bar.svg",
+      "category": "environment",
+      "shape": "pull_up_bar",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "plyo_box",
+      "kind": "equipment",
+      "asset": "equipment/equip_plyo_box.svg",
+      "category": "accessories",
+      "shape": "box",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "pool",
+      "kind": "equipment",
+      "asset": "equipment/equip_pool.svg",
+      "category": "swim",
+      "shape": "pool",
+      "sources": [
+        "seed",
+        "content"
+      ]
+    },
+    {
+      "id": "power_rack",
+      "kind": "equipment",
+      "asset": "equipment/equip_power_rack.svg",
+      "category": "rack",
+      "shape": "power_rack",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "preacher_bench",
+      "kind": "equipment",
+      "asset": "equipment/equip_preacher_bench.svg",
+      "category": "bench",
+      "shape": "preacher_bench",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "prowler",
+      "kind": "equipment",
+      "asset": "equipment/equip_prowler.svg",
+      "category": "accessories",
+      "shape": "sled",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "pull_buoy",
+      "kind": "equipment",
+      "asset": "equipment/equip_pull_buoy.svg",
+      "category": "swim",
+      "shape": "pull_buoy",
+      "sources": [
+        "seed",
+        "content"
+      ]
+    },
+    {
+      "id": "pull_down_machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_pull_down_machine.svg",
+      "category": "machines",
+      "shape": "lat_pulldown",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "pull_up_assist_band",
+      "kind": "equipment",
+      "asset": "equipment/equip_pull_up_assist_band.svg",
+      "category": "accessories",
+      "shape": "band",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "pull_up_bar",
+      "kind": "equipment",
+      "asset": "equipment/equip_pull_up_bar.svg",
+      "category": "calisthenics",
+      "shape": "pull_up_bar",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "pvc_pipe",
+      "kind": "equipment",
+      "asset": "equipment/equip_pvc_pipe.svg",
+      "category": "accessories",
+      "shape": "dowel",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "rear_delt_machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_rear_delt_machine.svg",
+      "category": "machines",
+      "shape": "rear_delt",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "resistance_band_heavy",
+      "kind": "equipment",
+      "asset": "equipment/equip_resistance_band_heavy.svg",
+      "category": "portable",
+      "shape": "band",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "resistance_band_light",
+      "kind": "equipment",
+      "asset": "equipment/equip_resistance_band_light.svg",
+      "category": "portable",
+      "shape": "band",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "resistance_band_medium",
+      "kind": "equipment",
+      "asset": "equipment/equip_resistance_band_medium.svg",
+      "category": "portable",
+      "shape": "band",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "rings",
+      "kind": "equipment",
+      "asset": "equipment/equip_rings.svg",
+      "category": "calisthenics",
+      "shape": "rings",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "road",
+      "kind": "equipment",
+      "asset": "equipment/equip_road.svg",
+      "category": "cardio",
+      "shape": "road",
+      "sources": [
+        "seed",
+        "content"
+      ]
+    },
+    {
+      "id": "roman_chair",
+      "kind": "equipment",
+      "asset": "equipment/equip_roman_chair.svg",
+      "category": "bench",
+      "shape": "roman_chair",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "rotary_torso",
+      "kind": "equipment",
+      "asset": "equipment/equip_rotary_torso.svg",
+      "category": "machines",
+      "shape": "rotary_torso",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "rower",
+      "kind": "equipment",
+      "asset": "equipment/equip_rower.svg",
+      "category": "cardio",
+      "shape": "rower",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "rowing_erg",
+      "kind": "equipment",
+      "asset": "equipment/equip_rowing_erg.svg",
+      "category": "cardio",
+      "shape": "rower",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "safety_arms",
+      "kind": "equipment",
+      "asset": "equipment/equip_safety_arms.svg",
+      "category": "rack",
+      "shape": "safety_arms",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "safety_squat_bar",
+      "kind": "equipment",
+      "asset": "equipment/equip_safety_squat_bar.svg",
+      "category": "free_weights",
+      "shape": "safety_bar",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "sandbag",
+      "kind": "equipment",
+      "asset": "equipment/equip_sandbag.svg",
+      "category": "free_weights",
+      "shape": "sandbag",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "seated_leg_curl",
+      "kind": "equipment",
+      "asset": "equipment/equip_seated_leg_curl.svg",
+      "category": "machines",
+      "shape": "leg_curl",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "seated_row_machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_seated_row_machine.svg",
+      "category": "machines",
+      "shape": "seated_row",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "shoulder_press_machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_shoulder_press_machine.svg",
+      "category": "machines",
+      "shape": "shoulder_press",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "ski_erg",
+      "kind": "equipment",
+      "asset": "equipment/equip_ski_erg.svg",
+      "category": "cardio",
+      "shape": "ski_erg",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "slam_ball",
+      "kind": "equipment",
+      "asset": "equipment/equip_slam_ball.svg",
+      "category": "free_weights",
+      "shape": "slam_ball",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "slant_board",
+      "kind": "equipment",
+      "asset": "equipment/equip_slant_board.svg",
+      "category": "accessories",
+      "shape": "slant_board",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "sled",
+      "kind": "equipment",
+      "asset": "equipment/equip_sled.svg",
+      "category": "accessories",
+      "shape": "sled",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "sliders",
+      "kind": "equipment",
+      "asset": "equipment/equip_sliders.svg",
+      "category": "portable",
+      "shape": "sliders",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "smith_machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_smith_machine.svg",
+      "category": "machines",
+      "shape": "smith_machine",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "snorkel",
+      "kind": "equipment",
+      "asset": "equipment/equip_snorkel.svg",
+      "category": "swim",
+      "shape": "snorkel",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "spin_bike",
+      "kind": "equipment",
+      "asset": "equipment/equip_spin_bike.svg",
+      "category": "cardio",
+      "shape": "bike",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "squat_rack",
+      "kind": "equipment",
+      "asset": "equipment/equip_squat_rack.svg",
+      "category": "rack",
+      "shape": "squat_rack",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "squat_stand",
+      "kind": "equipment",
+      "asset": "equipment/equip_squat_stand.svg",
+      "category": "rack",
+      "shape": "squat_stand",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "stability_ball",
+      "kind": "equipment",
+      "asset": "equipment/equip_stability_ball.svg",
+      "category": "accessories",
+      "shape": "stability_ball",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "stair_climber",
+      "kind": "equipment",
+      "asset": "equipment/equip_stair_climber.svg",
+      "category": "cardio",
+      "shape": "stair_climber",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "stairs",
+      "kind": "equipment",
+      "asset": "equipment/equip_stairs.svg",
+      "category": "environment",
+      "shape": "stairs",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "stall_bars",
+      "kind": "equipment",
+      "asset": "equipment/equip_stall_bars.svg",
+      "category": "calisthenics",
+      "shape": "stall_bars",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "step_platform",
+      "kind": "equipment",
+      "asset": "equipment/equip_step_platform.svg",
+      "category": "accessories",
+      "shape": "step",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "suspension",
+      "kind": "equipment",
+      "asset": "equipment/equip_suspension.svg",
+      "category": "portable",
+      "shape": "suspension",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "swim_parachute",
+      "kind": "equipment",
+      "asset": "equipment/equip_swim_parachute.svg",
+      "category": "swim",
+      "shape": "swim_chute",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "swiss_ball",
+      "kind": "equipment",
+      "asset": "equipment/equip_swiss_ball.svg",
+      "category": "accessories",
+      "shape": "stability_ball",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "swiss_bar",
+      "kind": "equipment",
+      "asset": "equipment/equip_swiss_bar.svg",
+      "category": "free_weights",
+      "shape": "swiss_bar",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "tibia_dorsi_machine",
+      "kind": "equipment",
+      "asset": "equipment/equip_tibia_dorsi_machine.svg",
+      "category": "machines",
+      "shape": "calf_machine",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "track",
+      "kind": "equipment",
+      "asset": "equipment/equip_track.svg",
+      "category": "cardio",
+      "shape": "track",
+      "sources": [
+        "seed",
+        "content"
+      ]
+    },
+    {
+      "id": "trail",
+      "kind": "equipment",
+      "asset": "equipment/equip_trail.svg",
+      "category": "cardio",
+      "shape": "trail",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "trap_bar",
+      "kind": "equipment",
+      "asset": "equipment/equip_trap_bar.svg",
+      "category": "free_weights",
+      "shape": "trap_bar",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "treadmill",
+      "kind": "equipment",
+      "asset": "equipment/equip_treadmill.svg",
+      "category": "cardio",
+      "shape": "treadmill",
+      "sources": [
+        "seed",
+        "content"
+      ]
+    },
+    {
+      "id": "tree",
+      "kind": "equipment",
+      "asset": "equipment/equip_tree.svg",
+      "category": "environment",
+      "shape": "tree",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "tube_band",
+      "kind": "equipment",
+      "asset": "equipment/equip_tube_band.svg",
+      "category": "portable",
+      "shape": "tube_band",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "wall",
+      "kind": "equipment",
+      "asset": "equipment/equip_wall.svg",
+      "category": "environment",
+      "shape": "wall",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "wall_ball",
+      "kind": "equipment",
+      "asset": "equipment/equip_wall_ball.svg",
+      "category": "free_weights",
+      "shape": "wall_ball",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "wedge",
+      "kind": "equipment",
+      "asset": "equipment/equip_wedge.svg",
+      "category": "accessories",
+      "shape": "wedge",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "weight_vest",
+      "kind": "equipment",
+      "asset": "equipment/equip_weight_vest.svg",
+      "category": "free_weights",
+      "shape": "weight_vest",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "wrist_roller",
+      "kind": "equipment",
+      "asset": "equipment/equip_wrist_roller.svg",
+      "category": "accessories",
+      "shape": "wrist_roller",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "yoga_block",
+      "kind": "equipment",
+      "asset": "equipment/equip_yoga_block.svg",
+      "category": "accessories",
+      "shape": "yoga_block",
+      "sources": [
+        "seed"
+      ]
+    },
+    {
+      "id": "yoga_mat",
+      "kind": "equipment",
+      "asset": "equipment/equip_yoga_mat.svg",
+      "category": "accessories",
+      "shape": "mat",
+      "sources": [
+        "seed",
+        "content",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "yoga_strap",
+      "kind": "equipment",
+      "asset": "equipment/equip_yoga_strap.svg",
+      "category": "accessories",
+      "shape": "yoga_strap",
+      "sources": [
+        "seed"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "a-skip",
+      "kind": "exercise",
+      "asset": "exercises/ex_a-skip.svg",
+      "movementPattern": "run_drill",
+      "primaryMuscles": [
+        "hip_flexors",
+        "calves",
+        "tibialis_anterior"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus"
+      ],
+      "equipment": [
+        "track",
+        "road",
+        "none"
+      ],
+      "illustrationKey": "media/illustrations/a-skip"
+    },
+    {
+      "id": "ab-wheel-rollout",
+      "kind": "exercise",
+      "asset": "exercises/ex_ab-wheel-rollout.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "rectus_abdominis",
+        "transverse_abdominis",
+        "latissimus_dorsi"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/ab-wheel-rollout"
+    },
+    {
+      "id": "archer-pull-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_archer-pull-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "rhomboids",
+        "forearms",
+        "obliques"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/archer-pull-up"
+    },
+    {
+      "id": "assisted-pull-up-band",
+      "kind": "exercise",
+      "asset": "exercises/ex_assisted-pull-up-band.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "rhomboids",
+        "trapezius",
+        "forearms"
+      ],
+      "equipment": [
+        "pull_up_bar",
+        "bands"
+      ],
+      "illustrationKey": "media/illustrations/assisted-pull-up-band"
+    },
+    {
+      "id": "back-extension-roman",
+      "kind": "exercise",
+      "asset": "exercises/ex_back-extension-roman.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "erector_spinae",
+        "gluteus_maximus",
+        "hamstrings"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "machine",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/back-extension-roman"
+    },
+    {
+      "id": "back-squat",
+      "kind": "exercise",
+      "asset": "exercises/ex_back-squat.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings",
+        "erector_spinae",
+        "calves"
+      ],
+      "equipment": [
+        "barbell",
+        "squat_rack",
+        "plates"
+      ],
+      "illustrationKey": "media/illustrations/back-squat"
+    },
+    {
+      "id": "backstroke",
+      "kind": "exercise",
+      "asset": "exercises/ex_backstroke.svg",
+      "movementPattern": "swim_stroke",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "rear_deltoid"
+      ],
+      "secondaryMuscles": [
+        "quadriceps",
+        "trapezius"
+      ],
+      "equipment": [
+        "pool"
+      ],
+      "illustrationKey": "media/illustrations/backstroke"
+    },
+    {
+      "id": "band-assisted-dip",
+      "kind": "exercise",
+      "asset": "exercises/ex_band-assisted-dip.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "dip_bars",
+        "bands"
+      ],
+      "illustrationKey": "media/illustrations/band-assisted-dip"
+    },
+    {
+      "id": "band-pull-apart",
+      "kind": "exercise",
+      "asset": "exercises/ex_band-pull-apart.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "rear_deltoid",
+        "rhomboids"
+      ],
+      "secondaryMuscles": [
+        "trapezius"
+      ],
+      "equipment": [
+        "bands"
+      ],
+      "illustrationKey": "media/illustrations/band-pull-apart"
+    },
+    {
+      "id": "barbell-bench-press",
+      "kind": "exercise",
+      "asset": "exercises/ex_barbell-bench-press.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps",
+        "front_deltoid"
+      ],
+      "secondaryMuscles": [
+        "serratus_anterior"
+      ],
+      "equipment": [
+        "barbell",
+        "bench_flat",
+        "plates"
+      ],
+      "illustrationKey": "media/illustrations/barbell-bench-press"
+    },
+    {
+      "id": "barbell-curl",
+      "kind": "exercise",
+      "asset": "exercises/ex_barbell-curl.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "forearms"
+      ],
+      "equipment": [
+        "barbell",
+        "plates"
+      ],
+      "illustrationKey": "media/illustrations/barbell-curl"
+    },
+    {
+      "id": "barbell-row",
+      "kind": "exercise",
+      "asset": "exercises/ex_barbell-row.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "rhomboids",
+        "trapezius"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "erector_spinae",
+        "rear_deltoid"
+      ],
+      "equipment": [
+        "barbell",
+        "plates"
+      ],
+      "illustrationKey": "media/illustrations/barbell-row"
+    },
+    {
+      "id": "bench-dip",
+      "kind": "exercise",
+      "asset": "exercises/ex_bench-dip.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid",
+        "pectoralis_major"
+      ],
+      "equipment": [
+        "bench_flat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/bench-dip"
+    },
+    {
+      "id": "bird-dog",
+      "kind": "exercise",
+      "asset": "exercises/ex_bird-dog.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "erector_spinae",
+        "gluteus_maximus",
+        "transverse_abdominis"
+      ],
+      "secondaryMuscles": [
+        "rear_deltoid"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/bird-dog"
+    },
+    {
+      "id": "bodyweight-squat",
+      "kind": "exercise",
+      "asset": "exercises/ex_bodyweight-squat.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings",
+        "calves"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/bodyweight-squat"
+    },
+    {
+      "id": "box-squat",
+      "kind": "exercise",
+      "asset": "exercises/ex_box-squat.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings",
+        "erector_spinae"
+      ],
+      "equipment": [
+        "barbell",
+        "squat_rack",
+        "plates",
+        "box"
+      ],
+      "illustrationKey": "media/illustrations/box-squat"
+    },
+    {
+      "id": "breaststroke",
+      "kind": "exercise",
+      "asset": "exercises/ex_breaststroke.svg",
+      "movementPattern": "swim_stroke",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "adductors",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "quadriceps",
+        "triceps"
+      ],
+      "equipment": [
+        "pool"
+      ],
+      "illustrationKey": "media/illustrations/breaststroke"
+    },
+    {
+      "id": "bridge-pose-yoga",
+      "kind": "exercise",
+      "asset": "exercises/ex_bridge-pose-yoga.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "gluteus_maximus",
+        "hamstrings"
+      ],
+      "secondaryMuscles": [
+        "erector_spinae"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/bridge-pose-yoga"
+    },
+    {
+      "id": "brisk-walk",
+      "kind": "exercise",
+      "asset": "exercises/ex_brisk-walk.svg",
+      "movementPattern": "gait",
+      "primaryMuscles": [
+        "gluteus_maximus",
+        "quadriceps",
+        "calves"
+      ],
+      "secondaryMuscles": [
+        "hip_flexors"
+      ],
+      "equipment": [
+        "road"
+      ],
+      "illustrationKey": "media/illustrations/brisk-walk"
+    },
+    {
+      "id": "bulgarian-split-squat",
+      "kind": "exercise",
+      "asset": "exercises/ex_bulgarian-split-squat.svg",
+      "movementPattern": "lunge",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings",
+        "gluteus_medius"
+      ],
+      "equipment": [
+        "dumbbell",
+        "bench"
+      ],
+      "illustrationKey": "media/illustrations/bulgarian-split-squat"
+    },
+    {
+      "id": "burpee",
+      "kind": "exercise",
+      "asset": "exercises/ex_burpee.svg",
+      "movementPattern": "other",
+      "primaryMuscles": [
+        "quadriceps",
+        "pectoralis_major",
+        "rectus_abdominis"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus",
+        "triceps",
+        "front_deltoid",
+        "full_body"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/burpee"
+    },
+    {
+      "id": "butt-kicks",
+      "kind": "exercise",
+      "asset": "exercises/ex_butt-kicks.svg",
+      "movementPattern": "run_drill",
+      "primaryMuscles": [
+        "hamstrings",
+        "calves"
+      ],
+      "secondaryMuscles": [
+        "quadriceps"
+      ],
+      "equipment": [
+        "track",
+        "road",
+        "none"
+      ],
+      "illustrationKey": "media/illustrations/butt-kicks"
+    },
+    {
+      "id": "butterfly-stroke",
+      "kind": "exercise",
+      "asset": "exercises/ex_butterfly-stroke.svg",
+      "movementPattern": "swim_stroke",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "pectoralis_major",
+        "full_body"
+      ],
+      "secondaryMuscles": [
+        "triceps",
+        "calves"
+      ],
+      "equipment": [
+        "pool"
+      ],
+      "illustrationKey": "media/illustrations/butterfly-stroke"
+    },
+    {
+      "id": "cable-chest-fly",
+      "kind": "exercise",
+      "asset": "exercises/ex_cable-chest-fly.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "cable"
+      ],
+      "illustrationKey": "media/illustrations/cable-chest-fly"
+    },
+    {
+      "id": "cable-woodchop",
+      "kind": "exercise",
+      "asset": "exercises/ex_cable-woodchop.svg",
+      "movementPattern": "rotation",
+      "primaryMuscles": [
+        "obliques"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus",
+        "front_deltoid"
+      ],
+      "equipment": [
+        "cable"
+      ],
+      "illustrationKey": "media/illustrations/cable-woodchop"
+    },
+    {
+      "id": "calf-raise-bodyweight",
+      "kind": "exercise",
+      "asset": "exercises/ex_calf-raise-bodyweight.svg",
+      "movementPattern": "other",
+      "primaryMuscles": [
+        "calves"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/calf-raise-bodyweight"
+    },
+    {
+      "id": "calf-raise-standing",
+      "kind": "exercise",
+      "asset": "exercises/ex_calf-raise-standing.svg",
+      "movementPattern": "other",
+      "primaryMuscles": [
+        "calves"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/calf-raise-standing"
+    },
+    {
+      "id": "cat-cow",
+      "kind": "exercise",
+      "asset": "exercises/ex_cat-cow.svg",
+      "movementPattern": "mobility",
+      "primaryMuscles": [
+        "erector_spinae"
+      ],
+      "secondaryMuscles": [
+        "rectus_abdominis"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/cat-cow"
+    },
+    {
+      "id": "catch-up-drill",
+      "kind": "exercise",
+      "asset": "exercises/ex_catch-up-drill.svg",
+      "movementPattern": "swim_drill",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "rear_deltoid"
+      ],
+      "secondaryMuscles": [
+        "triceps"
+      ],
+      "equipment": [
+        "pool"
+      ],
+      "illustrationKey": "media/illustrations/catch-up-drill"
+    },
+    {
+      "id": "chest-supported-row",
+      "kind": "exercise",
+      "asset": "exercises/ex_chest-supported-row.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "rhomboids",
+        "latissimus_dorsi",
+        "rear_deltoid"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "trapezius"
+      ],
+      "equipment": [
+        "dumbbell",
+        "bench"
+      ],
+      "illustrationKey": "media/illustrations/chest-supported-row"
+    },
+    {
+      "id": "chest-to-bar-pull-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_chest-to-bar-pull-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "trapezius",
+        "rear_deltoid",
+        "rhomboids",
+        "forearms"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/chest-to-bar-pull-up"
+    },
+    {
+      "id": "child-pose",
+      "kind": "exercise",
+      "asset": "exercises/ex_child-pose.svg",
+      "movementPattern": "mobility",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "erector_spinae"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/child-pose"
+    },
+    {
+      "id": "chin-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_chin-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "rhomboids",
+        "trapezius",
+        "forearms",
+        "pectoralis_major"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/chin-up"
+    },
+    {
+      "id": "close-grip-bench-press",
+      "kind": "exercise",
+      "asset": "exercises/ex_close-grip-bench-press.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "triceps",
+        "pectoralis_major"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "barbell",
+        "bench_flat",
+        "plates"
+      ],
+      "illustrationKey": "media/illustrations/close-grip-bench-press"
+    },
+    {
+      "id": "close-grip-pull-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_close-grip-pull-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "forearms",
+        "rhomboids",
+        "trapezius"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/close-grip-pull-up"
+    },
+    {
+      "id": "commando-pull-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_commando-pull-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "obliques",
+        "forearms",
+        "rhomboids"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/commando-pull-up"
+    },
+    {
+      "id": "conventional-deadlift",
+      "kind": "exercise",
+      "asset": "exercises/ex_conventional-deadlift.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "hamstrings",
+        "gluteus_maximus",
+        "erector_spinae"
+      ],
+      "secondaryMuscles": [
+        "quadriceps",
+        "trapezius",
+        "forearms",
+        "latissimus_dorsi"
+      ],
+      "equipment": [
+        "barbell",
+        "plates"
+      ],
+      "illustrationKey": "media/illustrations/conventional-deadlift"
+    },
+    {
+      "id": "dead-bug",
+      "kind": "exercise",
+      "asset": "exercises/ex_dead-bug.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "transverse_abdominis",
+        "rectus_abdominis"
+      ],
+      "secondaryMuscles": [
+        "hip_flexors"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/dead-bug"
+    },
+    {
+      "id": "decline-push-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_decline-push-up.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps",
+        "front_deltoid"
+      ],
+      "secondaryMuscles": [
+        "serratus_anterior",
+        "rectus_abdominis"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/decline-push-up"
+    },
+    {
+      "id": "deficit-deadlift",
+      "kind": "exercise",
+      "asset": "exercises/ex_deficit-deadlift.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "hamstrings",
+        "gluteus_maximus",
+        "erector_spinae"
+      ],
+      "secondaryMuscles": [
+        "quadriceps",
+        "forearms"
+      ],
+      "equipment": [
+        "barbell"
+      ],
+      "illustrationKey": "media/illustrations/deficit-deadlift"
+    },
+    {
+      "id": "diamond-push-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_diamond-push-up.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "triceps",
+        "pectoralis_major"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/diamond-push-up"
+    },
+    {
+      "id": "dip-parallel-bar",
+      "kind": "exercise",
+      "asset": "exercises/ex_dip-parallel-bar.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid",
+        "rhomboids"
+      ],
+      "equipment": [
+        "dip_bars"
+      ],
+      "illustrationKey": "media/illustrations/dip-parallel-bar"
+    },
+    {
+      "id": "downward-dog",
+      "kind": "exercise",
+      "asset": "exercises/ex_downward-dog.svg",
+      "movementPattern": "mobility",
+      "primaryMuscles": [
+        "hamstrings",
+        "calves",
+        "latissimus_dorsi"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/downward-dog"
+    },
+    {
+      "id": "dumbbell-bench-press",
+      "kind": "exercise",
+      "asset": "exercises/ex_dumbbell-bench-press.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps",
+        "front_deltoid"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "dumbbell",
+        "bench_flat"
+      ],
+      "illustrationKey": "media/illustrations/dumbbell-bench-press"
+    },
+    {
+      "id": "dumbbell-curl",
+      "kind": "exercise",
+      "asset": "exercises/ex_dumbbell-curl.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "forearms"
+      ],
+      "equipment": [
+        "dumbbell"
+      ],
+      "illustrationKey": "media/illustrations/dumbbell-curl"
+    },
+    {
+      "id": "dumbbell-incline-press",
+      "kind": "exercise",
+      "asset": "exercises/ex_dumbbell-incline-press.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "front_deltoid",
+        "triceps"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "dumbbell",
+        "bench_adjustable"
+      ],
+      "illustrationKey": "media/illustrations/dumbbell-incline-press"
+    },
+    {
+      "id": "easy-run",
+      "kind": "exercise",
+      "asset": "exercises/ex_easy-run.svg",
+      "movementPattern": "gait",
+      "primaryMuscles": [
+        "quadriceps",
+        "hamstrings",
+        "calves",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "tibialis_anterior",
+        "hip_flexors"
+      ],
+      "equipment": [
+        "road"
+      ],
+      "illustrationKey": "media/illustrations/easy-run"
+    },
+    {
+      "id": "face-pull",
+      "kind": "exercise",
+      "asset": "exercises/ex_face-pull.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "rear_deltoid",
+        "rhomboids",
+        "rotator_cuff"
+      ],
+      "secondaryMuscles": [
+        "trapezius"
+      ],
+      "equipment": [
+        "cable",
+        "bands"
+      ],
+      "illustrationKey": "media/illustrations/face-pull"
+    },
+    {
+      "id": "farmers-carry",
+      "kind": "exercise",
+      "asset": "exercises/ex_farmers-carry.svg",
+      "movementPattern": "carry",
+      "primaryMuscles": [
+        "forearms",
+        "trapezius",
+        "full_body"
+      ],
+      "secondaryMuscles": [
+        "gluteus_medius",
+        "rectus_abdominis"
+      ],
+      "equipment": [
+        "dumbbell",
+        "kettlebell",
+        "trap_bar"
+      ],
+      "illustrationKey": "media/illustrations/farmers-carry"
+    },
+    {
+      "id": "floor-press-dumbbell",
+      "kind": "exercise",
+      "asset": "exercises/ex_floor-press-dumbbell.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "dumbbell"
+      ],
+      "illustrationKey": "media/illustrations/floor-press-dumbbell"
+    },
+    {
+      "id": "freestyle-stroke",
+      "kind": "exercise",
+      "asset": "exercises/ex_freestyle-stroke.svg",
+      "movementPattern": "swim_stroke",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "full_body",
+        "rear_deltoid"
+      ],
+      "secondaryMuscles": [
+        "triceps",
+        "quadriceps",
+        "calves"
+      ],
+      "equipment": [
+        "pool"
+      ],
+      "illustrationKey": "media/illustrations/freestyle-stroke"
+    },
+    {
+      "id": "front-squat",
+      "kind": "exercise",
+      "asset": "exercises/ex_front-squat.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus",
+        "erector_spinae",
+        "front_deltoid"
+      ],
+      "equipment": [
+        "barbell",
+        "squat_rack",
+        "plates"
+      ],
+      "illustrationKey": "media/illustrations/front-squat"
+    },
+    {
+      "id": "glute-bridge",
+      "kind": "exercise",
+      "asset": "exercises/ex_glute-bridge.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/glute-bridge"
+    },
+    {
+      "id": "goblet-lateral-squat",
+      "kind": "exercise",
+      "asset": "exercises/ex_goblet-lateral-squat.svg",
+      "movementPattern": "lunge",
+      "primaryMuscles": [
+        "quadriceps",
+        "adductors",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "gluteus_medius"
+      ],
+      "equipment": [
+        "kettlebell",
+        "dumbbell"
+      ],
+      "illustrationKey": "media/illustrations/goblet-lateral-squat"
+    },
+    {
+      "id": "goblet-squat",
+      "kind": "exercise",
+      "asset": "exercises/ex_goblet-squat.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "rectus_abdominis",
+        "hamstrings"
+      ],
+      "equipment": [
+        "dumbbell",
+        "kettlebell"
+      ],
+      "illustrationKey": "media/illustrations/goblet-squat"
+    },
+    {
+      "id": "good-morning",
+      "kind": "exercise",
+      "asset": "exercises/ex_good-morning.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "hamstrings",
+        "erector_spinae",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "barbell"
+      ],
+      "illustrationKey": "media/illustrations/good-morning"
+    },
+    {
+      "id": "hack-squat-machine",
+      "kind": "exercise",
+      "asset": "exercises/ex_hack-squat-machine.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus",
+        "calves"
+      ],
+      "equipment": [
+        "machine"
+      ],
+      "illustrationKey": "media/illustrations/hack-squat-machine"
+    },
+    {
+      "id": "hanging-knee-raise",
+      "kind": "exercise",
+      "asset": "exercises/ex_hanging-knee-raise.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "rectus_abdominis",
+        "hip_flexors"
+      ],
+      "secondaryMuscles": [
+        "forearms"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/hanging-knee-raise"
+    },
+    {
+      "id": "high-knees-drill",
+      "kind": "exercise",
+      "asset": "exercises/ex_high-knees-drill.svg",
+      "movementPattern": "run_drill",
+      "primaryMuscles": [
+        "hip_flexors",
+        "quadriceps",
+        "calves"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "track",
+        "road",
+        "none"
+      ],
+      "illustrationKey": "media/illustrations/high-knees-drill"
+    },
+    {
+      "id": "hip-abduction-machine",
+      "kind": "exercise",
+      "asset": "exercises/ex_hip-abduction-machine.svg",
+      "movementPattern": "other",
+      "primaryMuscles": [
+        "gluteus_medius"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus"
+      ],
+      "equipment": [
+        "machine"
+      ],
+      "illustrationKey": "media/illustrations/hip-abduction-machine"
+    },
+    {
+      "id": "hip-adduction-machine",
+      "kind": "exercise",
+      "asset": "exercises/ex_hip-adduction-machine.svg",
+      "movementPattern": "other",
+      "primaryMuscles": [
+        "adductors"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "machine"
+      ],
+      "illustrationKey": "media/illustrations/hip-adduction-machine"
+    },
+    {
+      "id": "hip-hinge-dowel",
+      "kind": "exercise",
+      "asset": "exercises/ex_hip-hinge-dowel.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "hamstrings",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "erector_spinae"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/hip-hinge-dowel"
+    },
+    {
+      "id": "hip-thrust",
+      "kind": "exercise",
+      "asset": "exercises/ex_hip-thrust.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings",
+        "quadriceps"
+      ],
+      "equipment": [
+        "barbell",
+        "bench"
+      ],
+      "illustrationKey": "media/illustrations/hip-thrust"
+    },
+    {
+      "id": "hip-thrust-bodyweight",
+      "kind": "exercise",
+      "asset": "exercises/ex_hip-thrust-bodyweight.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/hip-thrust-bodyweight"
+    },
+    {
+      "id": "hollow-hold",
+      "kind": "exercise",
+      "asset": "exercises/ex_hollow-hold.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "rectus_abdominis",
+        "transverse_abdominis"
+      ],
+      "secondaryMuscles": [
+        "hip_flexors",
+        "obliques"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/hollow-hold"
+    },
+    {
+      "id": "incline-push-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_incline-push-up.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid",
+        "serratus_anterior"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/incline-push-up"
+    },
+    {
+      "id": "interval-run",
+      "kind": "exercise",
+      "asset": "exercises/ex_interval-run.svg",
+      "movementPattern": "gait",
+      "primaryMuscles": [
+        "quadriceps",
+        "hamstrings",
+        "calves",
+        "full_body"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "track",
+        "treadmill",
+        "road"
+      ],
+      "illustrationKey": "media/illustrations/interval-run"
+    },
+    {
+      "id": "inverted-row",
+      "kind": "exercise",
+      "asset": "exercises/ex_inverted-row.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "rhomboids"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "rear_deltoid",
+        "rectus_abdominis",
+        "trapezius"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/inverted-row"
+    },
+    {
+      "id": "jump-squat",
+      "kind": "exercise",
+      "asset": "exercises/ex_jump-squat.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "calves",
+        "hamstrings"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/jump-squat"
+    },
+    {
+      "id": "kettlebell-swing",
+      "kind": "exercise",
+      "asset": "exercises/ex_kettlebell-swing.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "gluteus_maximus",
+        "hamstrings"
+      ],
+      "secondaryMuscles": [
+        "erector_spinae",
+        "latissimus_dorsi",
+        "forearms"
+      ],
+      "equipment": [
+        "kettlebell"
+      ],
+      "illustrationKey": "media/illustrations/kettlebell-swing"
+    },
+    {
+      "id": "kickboard-kick",
+      "kind": "exercise",
+      "asset": "exercises/ex_kickboard-kick.svg",
+      "movementPattern": "swim_drill",
+      "primaryMuscles": [
+        "quadriceps",
+        "calves",
+        "hip_flexors"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus"
+      ],
+      "equipment": [
+        "pool",
+        "kickboard"
+      ],
+      "illustrationKey": "media/illustrations/kickboard-kick"
+    },
+    {
+      "id": "knee-push-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_knee-push-up.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/knee-push-up"
+    },
+    {
+      "id": "korean-dip",
+      "kind": "exercise",
+      "asset": "exercises/ex_korean-dip.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid",
+        "rectus_abdominis",
+        "biceps"
+      ],
+      "equipment": [
+        "pull_up_bar",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/korean-dip"
+    },
+    {
+      "id": "l-sit-pull-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_l-sit-pull-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "hip_flexors",
+        "rectus_abdominis"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "forearms",
+        "rhomboids"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/l-sit-pull-up"
+    },
+    {
+      "id": "landmine-press",
+      "kind": "exercise",
+      "asset": "exercises/ex_landmine-press.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "front_deltoid",
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "serratus_anterior"
+      ],
+      "equipment": [
+        "landmine",
+        "barbell"
+      ],
+      "illustrationKey": "media/illustrations/landmine-press"
+    },
+    {
+      "id": "lat-pulldown",
+      "kind": "exercise",
+      "asset": "exercises/ex_lat-pulldown.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "rhomboids",
+        "rear_deltoid"
+      ],
+      "equipment": [
+        "lat_pulldown"
+      ],
+      "illustrationKey": "media/illustrations/lat-pulldown"
+    },
+    {
+      "id": "lateral-lunge",
+      "kind": "exercise",
+      "asset": "exercises/ex_lateral-lunge.svg",
+      "movementPattern": "lunge",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus",
+        "adductors"
+      ],
+      "secondaryMuscles": [
+        "gluteus_medius"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/lateral-lunge"
+    },
+    {
+      "id": "lateral-raise",
+      "kind": "exercise",
+      "asset": "exercises/ex_lateral-raise.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "lateral_deltoid"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid",
+        "trapezius"
+      ],
+      "equipment": [
+        "dumbbell"
+      ],
+      "illustrationKey": "media/illustrations/lateral-raise"
+    },
+    {
+      "id": "leg-curl-machine",
+      "kind": "exercise",
+      "asset": "exercises/ex_leg-curl-machine.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "hamstrings"
+      ],
+      "secondaryMuscles": [
+        "calves"
+      ],
+      "equipment": [
+        "machine"
+      ],
+      "illustrationKey": "media/illustrations/leg-curl-machine"
+    },
+    {
+      "id": "leg-extension-machine",
+      "kind": "exercise",
+      "asset": "exercises/ex_leg-extension-machine.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "machine"
+      ],
+      "illustrationKey": "media/illustrations/leg-extension-machine"
+    },
+    {
+      "id": "leg-press",
+      "kind": "exercise",
+      "asset": "exercises/ex_leg-press.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings"
+      ],
+      "equipment": [
+        "leg_press"
+      ],
+      "illustrationKey": "media/illustrations/leg-press"
+    },
+    {
+      "id": "low-lunge",
+      "kind": "exercise",
+      "asset": "exercises/ex_low-lunge.svg",
+      "movementPattern": "lunge",
+      "primaryMuscles": [
+        "hip_flexors",
+        "quadriceps"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/low-lunge"
+    },
+    {
+      "id": "machine-assisted-dip",
+      "kind": "exercise",
+      "asset": "exercises/ex_machine-assisted-dip.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "assisted_pullup_dip_machine"
+      ],
+      "illustrationKey": "media/illustrations/machine-assisted-dip"
+    },
+    {
+      "id": "machine-assisted-pull-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_machine-assisted-pull-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "rhomboids",
+        "trapezius",
+        "forearms"
+      ],
+      "equipment": [
+        "assisted_pullup_dip_machine",
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/machine-assisted-pull-up"
+    },
+    {
+      "id": "machine-chest-press",
+      "kind": "exercise",
+      "asset": "exercises/ex_machine-chest-press.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps",
+        "front_deltoid"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "machine"
+      ],
+      "illustrationKey": "media/illustrations/machine-chest-press"
+    },
+    {
+      "id": "machine-shoulder-press",
+      "kind": "exercise",
+      "asset": "exercises/ex_machine-shoulder-press.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "front_deltoid",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "lateral_deltoid",
+        "trapezius"
+      ],
+      "equipment": [
+        "machine"
+      ],
+      "illustrationKey": "media/illustrations/machine-shoulder-press"
+    },
+    {
+      "id": "mountain-climber",
+      "kind": "exercise",
+      "asset": "exercises/ex_mountain-climber.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "rectus_abdominis",
+        "hip_flexors"
+      ],
+      "secondaryMuscles": [
+        "obliques",
+        "quadriceps",
+        "front_deltoid"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/mountain-climber"
+    },
+    {
+      "id": "mountain-pose",
+      "kind": "exercise",
+      "asset": "exercises/ex_mountain-pose.svg",
+      "movementPattern": "balance",
+      "primaryMuscles": [
+        "full_body"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/mountain-pose"
+    },
+    {
+      "id": "negative-dip",
+      "kind": "exercise",
+      "asset": "exercises/ex_negative-dip.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "dip_bars"
+      ],
+      "illustrationKey": "media/illustrations/negative-dip"
+    },
+    {
+      "id": "negative-pull-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_negative-pull-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "trapezius",
+        "rhomboids",
+        "forearms"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/negative-pull-up"
+    },
+    {
+      "id": "neutral-grip-pull-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_neutral-grip-pull-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "forearms",
+        "rhomboids",
+        "trapezius",
+        "rear_deltoid"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/neutral-grip-pull-up"
+    },
+    {
+      "id": "nordic-curl",
+      "kind": "exercise",
+      "asset": "exercises/ex_nordic-curl.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "hamstrings"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus",
+        "calves"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/nordic-curl"
+    },
+    {
+      "id": "nordic-curl-assisted",
+      "kind": "exercise",
+      "asset": "exercises/ex_nordic-curl-assisted.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "hamstrings"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus"
+      ],
+      "equipment": [
+        "bodyweight",
+        "bands"
+      ],
+      "illustrationKey": "media/illustrations/nordic-curl-assisted"
+    },
+    {
+      "id": "one-arm-dumbbell-row",
+      "kind": "exercise",
+      "asset": "exercises/ex_one-arm-dumbbell-row.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "rhomboids"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "rear_deltoid",
+        "erector_spinae"
+      ],
+      "equipment": [
+        "dumbbell",
+        "bench"
+      ],
+      "illustrationKey": "media/illustrations/one-arm-dumbbell-row"
+    },
+    {
+      "id": "overhead-press-barbell",
+      "kind": "exercise",
+      "asset": "exercises/ex_overhead-press-barbell.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "front_deltoid",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "trapezius",
+        "pectoralis_major",
+        "rectus_abdominis"
+      ],
+      "equipment": [
+        "barbell",
+        "plates"
+      ],
+      "illustrationKey": "media/illustrations/overhead-press-barbell"
+    },
+    {
+      "id": "overhead-press-dumbbell",
+      "kind": "exercise",
+      "asset": "exercises/ex_overhead-press-dumbbell.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "front_deltoid",
+        "lateral_deltoid",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "trapezius"
+      ],
+      "equipment": [
+        "dumbbell"
+      ],
+      "illustrationKey": "media/illustrations/overhead-press-dumbbell"
+    },
+    {
+      "id": "paddle-freestyle",
+      "kind": "exercise",
+      "asset": "exercises/ex_paddle-freestyle.svg",
+      "movementPattern": "swim_drill",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "rear_deltoid"
+      ],
+      "equipment": [
+        "pool",
+        "paddle",
+        "pull_buoy"
+      ],
+      "illustrationKey": "media/illustrations/paddle-freestyle"
+    },
+    {
+      "id": "pallof-press",
+      "kind": "exercise",
+      "asset": "exercises/ex_pallof-press.svg",
+      "movementPattern": "rotation",
+      "primaryMuscles": [
+        "obliques",
+        "transverse_abdominis"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "cable",
+        "bands"
+      ],
+      "illustrationKey": "media/illustrations/pallof-press"
+    },
+    {
+      "id": "pause-back-squat",
+      "kind": "exercise",
+      "asset": "exercises/ex_pause-back-squat.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings",
+        "erector_spinae"
+      ],
+      "equipment": [
+        "barbell"
+      ],
+      "illustrationKey": "media/illustrations/pause-back-squat"
+    },
+    {
+      "id": "pause-bench-press",
+      "kind": "exercise",
+      "asset": "exercises/ex_pause-bench-press.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "barbell",
+        "bench"
+      ],
+      "illustrationKey": "media/illustrations/pause-bench-press"
+    },
+    {
+      "id": "pause-deadlift",
+      "kind": "exercise",
+      "asset": "exercises/ex_pause-deadlift.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "hamstrings",
+        "erector_spinae",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "quadriceps",
+        "forearms"
+      ],
+      "equipment": [
+        "barbell"
+      ],
+      "illustrationKey": "media/illustrations/pause-deadlift"
+    },
+    {
+      "id": "pause-front-squat",
+      "kind": "exercise",
+      "asset": "exercises/ex_pause-front-squat.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus",
+        "erector_spinae"
+      ],
+      "equipment": [
+        "barbell"
+      ],
+      "illustrationKey": "media/illustrations/pause-front-squat"
+    },
+    {
+      "id": "pec-deck",
+      "kind": "exercise",
+      "asset": "exercises/ex_pec-deck.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "machine"
+      ],
+      "illustrationKey": "media/illustrations/pec-deck"
+    },
+    {
+      "id": "pigeon-pose",
+      "kind": "exercise",
+      "asset": "exercises/ex_pigeon-pose.svg",
+      "movementPattern": "mobility",
+      "primaryMuscles": [
+        "gluteus_maximus",
+        "hip_flexors"
+      ],
+      "secondaryMuscles": [
+        "adductors"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/pigeon-pose"
+    },
+    {
+      "id": "pike-push-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_pike-push-up.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "front_deltoid",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "pectoralis_major",
+        "serratus_anterior"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/pike-push-up"
+    },
+    {
+      "id": "pilates-double-leg-stretch",
+      "kind": "exercise",
+      "asset": "exercises/ex_pilates-double-leg-stretch.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "rectus_abdominis",
+        "transverse_abdominis"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "pilates_mat",
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/pilates-double-leg-stretch"
+    },
+    {
+      "id": "pilates-hundred",
+      "kind": "exercise",
+      "asset": "exercises/ex_pilates-hundred.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "rectus_abdominis",
+        "transverse_abdominis"
+      ],
+      "secondaryMuscles": [
+        "hip_flexors"
+      ],
+      "equipment": [
+        "pilates_mat",
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/pilates-hundred"
+    },
+    {
+      "id": "pilates-leg-circles",
+      "kind": "exercise",
+      "asset": "exercises/ex_pilates-leg-circles.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "hip_flexors",
+        "gluteus_medius",
+        "transverse_abdominis"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "pilates_mat",
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/pilates-leg-circles"
+    },
+    {
+      "id": "pilates-plank-variations",
+      "kind": "exercise",
+      "asset": "exercises/ex_pilates-plank-variations.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "transverse_abdominis",
+        "rectus_abdominis",
+        "front_deltoid"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus"
+      ],
+      "equipment": [
+        "pilates_mat",
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/pilates-plank-variations"
+    },
+    {
+      "id": "pilates-roll-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_pilates-roll-up.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "rectus_abdominis"
+      ],
+      "secondaryMuscles": [
+        "hip_flexors"
+      ],
+      "equipment": [
+        "pilates_mat",
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/pilates-roll-up"
+    },
+    {
+      "id": "pilates-saw",
+      "kind": "exercise",
+      "asset": "exercises/ex_pilates-saw.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "obliques",
+        "hamstrings"
+      ],
+      "secondaryMuscles": [
+        "erector_spinae"
+      ],
+      "equipment": [
+        "pilates_mat",
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/pilates-saw"
+    },
+    {
+      "id": "pilates-shoulder-bridge",
+      "kind": "exercise",
+      "asset": "exercises/ex_pilates-shoulder-bridge.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "gluteus_maximus",
+        "hamstrings"
+      ],
+      "secondaryMuscles": [
+        "erector_spinae"
+      ],
+      "equipment": [
+        "pilates_mat",
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/pilates-shoulder-bridge"
+    },
+    {
+      "id": "pilates-side-kick",
+      "kind": "exercise",
+      "asset": "exercises/ex_pilates-side-kick.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "gluteus_medius",
+        "obliques"
+      ],
+      "secondaryMuscles": [
+        "quadriceps"
+      ],
+      "equipment": [
+        "pilates_mat",
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/pilates-side-kick"
+    },
+    {
+      "id": "pilates-single-leg-stretch",
+      "kind": "exercise",
+      "asset": "exercises/ex_pilates-single-leg-stretch.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "rectus_abdominis",
+        "transverse_abdominis"
+      ],
+      "secondaryMuscles": [
+        "hip_flexors"
+      ],
+      "equipment": [
+        "pilates_mat",
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/pilates-single-leg-stretch"
+    },
+    {
+      "id": "pilates-swan",
+      "kind": "exercise",
+      "asset": "exercises/ex_pilates-swan.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "erector_spinae",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings"
+      ],
+      "equipment": [
+        "pilates_mat",
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/pilates-swan"
+    },
+    {
+      "id": "plank",
+      "kind": "exercise",
+      "asset": "exercises/ex_plank.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "transverse_abdominis",
+        "rectus_abdominis"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid",
+        "gluteus_maximus"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/plank"
+    },
+    {
+      "id": "pull-buoy-pull",
+      "kind": "exercise",
+      "asset": "exercises/ex_pull-buoy-pull.svg",
+      "movementPattern": "swim_drill",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "pool",
+        "pull_buoy"
+      ],
+      "illustrationKey": "media/illustrations/pull-buoy-pull"
+    },
+    {
+      "id": "pull-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_pull-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "trapezius",
+        "rhomboids",
+        "rear_deltoid",
+        "forearms"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/pull-up"
+    },
+    {
+      "id": "push-press",
+      "kind": "exercise",
+      "asset": "exercises/ex_push-press.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "front_deltoid",
+        "triceps",
+        "quadriceps"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus",
+        "trapezius"
+      ],
+      "equipment": [
+        "barbell"
+      ],
+      "illustrationKey": "media/illustrations/push-press"
+    },
+    {
+      "id": "push-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_push-up.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps",
+        "front_deltoid"
+      ],
+      "secondaryMuscles": [
+        "serratus_anterior",
+        "rectus_abdominis"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/push-up"
+    },
+    {
+      "id": "reverse-lunge-bodyweight",
+      "kind": "exercise",
+      "asset": "exercises/ex_reverse-lunge-bodyweight.svg",
+      "movementPattern": "lunge",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings",
+        "adductors"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/reverse-lunge-bodyweight"
+    },
+    {
+      "id": "reverse-lunge-dumbbell",
+      "kind": "exercise",
+      "asset": "exercises/ex_reverse-lunge-dumbbell.svg",
+      "movementPattern": "lunge",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings",
+        "gluteus_medius"
+      ],
+      "equipment": [
+        "dumbbell"
+      ],
+      "illustrationKey": "media/illustrations/reverse-lunge-dumbbell"
+    },
+    {
+      "id": "ring-dip",
+      "kind": "exercise",
+      "asset": "exercises/ex_ring-dip.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "serratus_anterior",
+        "rectus_abdominis",
+        "front_deltoid",
+        "rotator_cuff"
+      ],
+      "equipment": [
+        "suspension",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/ring-dip"
+    },
+    {
+      "id": "romanian-deadlift-barbell",
+      "kind": "exercise",
+      "asset": "exercises/ex_romanian-deadlift-barbell.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "hamstrings",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "erector_spinae",
+        "forearms"
+      ],
+      "equipment": [
+        "barbell",
+        "plates"
+      ],
+      "illustrationKey": "media/illustrations/romanian-deadlift-barbell"
+    },
+    {
+      "id": "romanian-deadlift-dumbbell",
+      "kind": "exercise",
+      "asset": "exercises/ex_romanian-deadlift-dumbbell.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "hamstrings",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "erector_spinae",
+        "forearms"
+      ],
+      "equipment": [
+        "dumbbell"
+      ],
+      "illustrationKey": "media/illustrations/romanian-deadlift-dumbbell"
+    },
+    {
+      "id": "russian-twist",
+      "kind": "exercise",
+      "asset": "exercises/ex_russian-twist.svg",
+      "movementPattern": "rotation",
+      "primaryMuscles": [
+        "obliques",
+        "rectus_abdominis"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/russian-twist"
+    },
+    {
+      "id": "scapular-pull-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_scapular-pull-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "trapezius",
+        "latissimus_dorsi"
+      ],
+      "secondaryMuscles": [
+        "rhomboids",
+        "rotator_cuff",
+        "forearms"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/scapular-pull-up"
+    },
+    {
+      "id": "seated-cable-row",
+      "kind": "exercise",
+      "asset": "exercises/ex_seated-cable-row.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "rhomboids"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "rear_deltoid"
+      ],
+      "equipment": [
+        "cable",
+        "machine"
+      ],
+      "illustrationKey": "media/illustrations/seated-cable-row"
+    },
+    {
+      "id": "seated-forward-fold",
+      "kind": "exercise",
+      "asset": "exercises/ex_seated-forward-fold.svg",
+      "movementPattern": "mobility",
+      "primaryMuscles": [
+        "hamstrings",
+        "erector_spinae"
+      ],
+      "secondaryMuscles": [
+        "calves"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/seated-forward-fold"
+    },
+    {
+      "id": "shrug-dumbbell",
+      "kind": "exercise",
+      "asset": "exercises/ex_shrug-dumbbell.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "trapezius"
+      ],
+      "secondaryMuscles": [
+        "forearms"
+      ],
+      "equipment": [
+        "dumbbell"
+      ],
+      "illustrationKey": "media/illustrations/shrug-dumbbell"
+    },
+    {
+      "id": "side-plank",
+      "kind": "exercise",
+      "asset": "exercises/ex_side-plank.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "obliques",
+        "gluteus_medius"
+      ],
+      "secondaryMuscles": [
+        "transverse_abdominis"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/side-plank"
+    },
+    {
+      "id": "side-plank-hip-abduction",
+      "kind": "exercise",
+      "asset": "exercises/ex_side-plank-hip-abduction.svg",
+      "movementPattern": "core_brace",
+      "primaryMuscles": [
+        "obliques",
+        "gluteus_medius"
+      ],
+      "secondaryMuscles": [
+        "transverse_abdominis",
+        "quadriceps"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/side-plank-hip-abduction"
+    },
+    {
+      "id": "single-leg-hip-thrust",
+      "kind": "exercise",
+      "asset": "exercises/ex_single-leg-hip-thrust.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "gluteus_maximus",
+        "gluteus_medius"
+      ],
+      "secondaryMuscles": [
+        "hamstrings"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/single-leg-hip-thrust"
+    },
+    {
+      "id": "single-leg-rdl",
+      "kind": "exercise",
+      "asset": "exercises/ex_single-leg-rdl.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "hamstrings",
+        "gluteus_maximus",
+        "gluteus_medius"
+      ],
+      "secondaryMuscles": [
+        "erector_spinae"
+      ],
+      "equipment": [
+        "dumbbell",
+        "kettlebell"
+      ],
+      "illustrationKey": "media/illustrations/single-leg-rdl"
+    },
+    {
+      "id": "sit-to-stand",
+      "kind": "exercise",
+      "asset": "exercises/ex_sit-to-stand.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/sit-to-stand"
+    },
+    {
+      "id": "smith-machine-squat",
+      "kind": "exercise",
+      "asset": "exercises/ex_smith-machine-squat.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings"
+      ],
+      "equipment": [
+        "smith_machine"
+      ],
+      "illustrationKey": "media/illustrations/smith-machine-squat"
+    },
+    {
+      "id": "split-squat-bodyweight",
+      "kind": "exercise",
+      "asset": "exercises/ex_split-squat-bodyweight.svg",
+      "movementPattern": "lunge",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "gluteus_medius"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/split-squat-bodyweight"
+    },
+    {
+      "id": "step-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_step-up.svg",
+      "movementPattern": "lunge",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "gluteus_medius",
+        "calves"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/step-up"
+    },
+    {
+      "id": "straight-bar-dip",
+      "kind": "exercise",
+      "asset": "exercises/ex_straight-bar-dip.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid",
+        "rectus_abdominis"
+      ],
+      "equipment": [
+        "pull_up_bar",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/straight-bar-dip"
+    },
+    {
+      "id": "suitcase-carry",
+      "kind": "exercise",
+      "asset": "exercises/ex_suitcase-carry.svg",
+      "movementPattern": "carry",
+      "primaryMuscles": [
+        "obliques",
+        "gluteus_medius",
+        "forearms"
+      ],
+      "secondaryMuscles": [
+        "trapezius"
+      ],
+      "equipment": [
+        "dumbbell",
+        "kettlebell"
+      ],
+      "illustrationKey": "media/illustrations/suitcase-carry"
+    },
+    {
+      "id": "sumo-deadlift",
+      "kind": "exercise",
+      "asset": "exercises/ex_sumo-deadlift.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "gluteus_maximus",
+        "adductors",
+        "quadriceps"
+      ],
+      "secondaryMuscles": [
+        "hamstrings",
+        "erector_spinae",
+        "forearms"
+      ],
+      "equipment": [
+        "barbell"
+      ],
+      "illustrationKey": "media/illustrations/sumo-deadlift"
+    },
+    {
+      "id": "tempo-run",
+      "kind": "exercise",
+      "asset": "exercises/ex_tempo-run.svg",
+      "movementPattern": "gait",
+      "primaryMuscles": [
+        "quadriceps",
+        "hamstrings",
+        "calves"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus"
+      ],
+      "equipment": [
+        "road"
+      ],
+      "illustrationKey": "media/illustrations/tempo-run"
+    },
+    {
+      "id": "three-legged-dog",
+      "kind": "exercise",
+      "asset": "exercises/ex_three-legged-dog.svg",
+      "movementPattern": "balance",
+      "primaryMuscles": [
+        "hamstrings",
+        "gluteus_maximus",
+        "front_deltoid"
+      ],
+      "secondaryMuscles": [
+        "calves"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/three-legged-dog"
+    },
+    {
+      "id": "trap-bar-deadlift",
+      "kind": "exercise",
+      "asset": "exercises/ex_trap-bar-deadlift.svg",
+      "movementPattern": "hinge",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus",
+        "hamstrings"
+      ],
+      "secondaryMuscles": [
+        "erector_spinae",
+        "trapezius",
+        "forearms"
+      ],
+      "equipment": [
+        "trap_bar"
+      ],
+      "illustrationKey": "media/illustrations/trap-bar-deadlift"
+    },
+    {
+      "id": "tree-pose",
+      "kind": "exercise",
+      "asset": "exercises/ex_tree-pose.svg",
+      "movementPattern": "balance",
+      "primaryMuscles": [
+        "gluteus_medius",
+        "calves"
+      ],
+      "secondaryMuscles": [
+        "full_body"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/tree-pose"
+    },
+    {
+      "id": "triangle-pose",
+      "kind": "exercise",
+      "asset": "exercises/ex_triangle-pose.svg",
+      "movementPattern": "mobility",
+      "primaryMuscles": [
+        "hamstrings",
+        "adductors",
+        "obliques"
+      ],
+      "secondaryMuscles": [
+        "calves"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/triangle-pose"
+    },
+    {
+      "id": "tricep-pushdown",
+      "kind": "exercise",
+      "asset": "exercises/ex_tricep-pushdown.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "triceps"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "cable"
+      ],
+      "illustrationKey": "media/illustrations/tricep-pushdown"
+    },
+    {
+      "id": "typewriter-pull-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_typewriter-pull-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "rhomboids",
+        "forearms",
+        "obliques"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/typewriter-pull-up"
+    },
+    {
+      "id": "walking-lunge",
+      "kind": "exercise",
+      "asset": "exercises/ex_walking-lunge.svg",
+      "movementPattern": "lunge",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus"
+      ],
+      "secondaryMuscles": [
+        "hamstrings",
+        "gluteus_medius",
+        "calves"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/walking-lunge"
+    },
+    {
+      "id": "wall-sit",
+      "kind": "exercise",
+      "asset": "exercises/ex_wall-sit.svg",
+      "movementPattern": "squat",
+      "primaryMuscles": [
+        "quadriceps"
+      ],
+      "secondaryMuscles": [
+        "gluteus_maximus"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/wall-sit"
+    },
+    {
+      "id": "warrior-i",
+      "kind": "exercise",
+      "asset": "exercises/ex_warrior-i.svg",
+      "movementPattern": "lunge",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_maximus",
+        "hip_flexors"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/warrior-i"
+    },
+    {
+      "id": "warrior-ii",
+      "kind": "exercise",
+      "asset": "exercises/ex_warrior-ii.svg",
+      "movementPattern": "lunge",
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteus_medius",
+        "adductors"
+      ],
+      "secondaryMuscles": [
+        "lateral_deltoid"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/warrior-ii"
+    },
+    {
+      "id": "weighted-dip",
+      "kind": "exercise",
+      "asset": "exercises/ex_weighted-dip.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid"
+      ],
+      "equipment": [
+        "dip_bars"
+      ],
+      "illustrationKey": "media/illustrations/weighted-dip"
+    },
+    {
+      "id": "weighted-pull-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_weighted-pull-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi",
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "forearms",
+        "rhomboids",
+        "trapezius"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/weighted-pull-up"
+    },
+    {
+      "id": "wheel-pose",
+      "kind": "exercise",
+      "asset": "exercises/ex_wheel-pose.svg",
+      "movementPattern": "mobility",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "hip_flexors",
+        "erector_spinae"
+      ],
+      "secondaryMuscles": [
+        "triceps",
+        "gluteus_maximus"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/wheel-pose"
+    },
+    {
+      "id": "wide-grip-pull-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_wide-grip-pull-up.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "latissimus_dorsi"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "trapezius",
+        "rear_deltoid",
+        "rhomboids",
+        "forearms"
+      ],
+      "equipment": [
+        "pull_up_bar"
+      ],
+      "illustrationKey": "media/illustrations/wide-grip-pull-up"
+    },
+    {
+      "id": "wide-push-up",
+      "kind": "exercise",
+      "asset": "exercises/ex_wide-push-up.svg",
+      "movementPattern": "push",
+      "primaryMuscles": [
+        "pectoralis_major",
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "front_deltoid",
+        "serratus_anterior"
+      ],
+      "equipment": [
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/wide-push-up"
+    },
+    {
+      "id": "worlds-greatest-stretch",
+      "kind": "exercise",
+      "asset": "exercises/ex_worlds-greatest-stretch.svg",
+      "movementPattern": "mobility",
+      "primaryMuscles": [
+        "hip_flexors",
+        "hamstrings",
+        "obliques",
+        "erector_spinae"
+      ],
+      "secondaryMuscles": [
+        "adductors"
+      ],
+      "equipment": [
+        "yoga_mat",
+        "bodyweight"
+      ],
+      "illustrationKey": "media/illustrations/worlds-greatest-stretch"
+    },
+    {
+      "id": "wrist-curl",
+      "kind": "exercise",
+      "asset": "exercises/ex_wrist-curl.svg",
+      "movementPattern": "pull",
+      "primaryMuscles": [
+        "forearms"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "dumbbell",
+        "barbell"
+      ],
+      "illustrationKey": "media/illustrations/wrist-curl"
+    }
+  ]
+}

@@ -43,8 +43,16 @@ struct StrengthLoggingView: View {
 
     var body: some View {
         content
-            .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
-                handleTimerTick()
+            // Only tick while a session is live. A always-on Timer.publish keeps the
+            // main run loop busy and XCTest never reaches quiescence — so tab-bar
+            // queries (Food UITest on iPad) time out even though phone_shell exists.
+            .task(id: sessionId) {
+                guard sessionId != nil else { return }
+                while !Task.isCancelled {
+                    try? await Task.sleep(nanoseconds: 1_000_000_000)
+                    if Task.isCancelled { break }
+                    handleTimerTick()
+                }
             }
             .sheet(isPresented: Binding(
                 get: { noteSetId != nil },

@@ -261,12 +261,20 @@ jobs:
           OMNIGART_SKIP_XCODE_GRADLE: "1"
         run: |
           set -euo pipefail
+          # Prefer iPhone: first listed destination is often iPad, where the iOS 18
+          # floating tab bar is flakier for XCUITest tab-bar queries.
           IOS_DEST=$(
-            xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart -showdestinations 2>/dev/null \
-              | grep 'platform:iOS Simulator' \
-              | grep 'arch:arm64' \
-              | grep -v 'placeholder' \
-              | head -1 \
+            {
+              xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart -showdestinations 2>/dev/null \
+                | grep 'platform:iOS Simulator' \
+                | grep 'arch:arm64' \
+                | grep -v 'placeholder' \
+                | grep -i 'iPhone' || true
+              xcodebuild -project iosApp/OmniGart.xcodeproj -scheme OmniGart -showdestinations 2>/dev/null \
+                | grep 'platform:iOS Simulator' \
+                | grep 'arch:arm64' \
+                | grep -v 'placeholder' || true
+            } | head -1 \
               | sed -n 's/.*name:\([^,}]*\).*/\1/p' \
               | xargs
           )

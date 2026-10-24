@@ -69,13 +69,17 @@ struct OnboardingFlowView: View {
     private func requestHealthAccess() {
         guard HKHealthStore.isHealthDataAvailable() else { return }
         requestingHealth = true
-        let types = OnboardingHealthAuth.authorizationSets()
+        let base = OnboardingHealthAuth.authorizationSets()
+        // Insights / Health tabs: extend read-only coverage (never write/delete these).
+        var read = base.read
+        read.formUnion(HealthMetricsReadTypes.allReadTypes())
+        let write = base.write
         Task {
             defer { requestingHealth = false }
             do {
                 try await HealthKitPlatformBridge.shared.requestAuthorization(
-                    readTypes: types.read,
-                    writeTypes: types.write
+                    readTypes: read,
+                    writeTypes: write
                 )
             } catch {
                 // Declined or unavailable — onboarding still completes.

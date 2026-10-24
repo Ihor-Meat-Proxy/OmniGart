@@ -32,6 +32,8 @@ import androidx.compose.ui.res.stringResource
 import com.omnigart.android.compliance.WellnessInfoSheet
 import com.omnigart.android.debug.MaybeDebugMenu
 import com.omnigart.android.food.FoodLoggingSection
+import com.omnigart.android.insights.HealthTabSection
+import com.omnigart.android.insights.InsightsTabSection
 import com.omnigart.android.nutrition.FoodTabNutritionSection
 import com.omnigart.android.nutrition.NutritionGoalSettingsSection
 import com.omnigart.android.nutrition.NutritionPrefsStore
@@ -87,6 +89,8 @@ fun OmniGartTheme(content: @Composable () -> Unit) {
 private enum class PhoneTab(val labelRes: Int, val testTag: String, val icon: ImageVector) {
     Food(R.string.tab_food, "tab_food", OmniGartIcons.food),
     Workouts(R.string.tab_workouts, "tab_workouts", OmniGartIcons.workouts),
+    Insights(R.string.tab_insights, "tab_insights", OmniGartIcons.insights),
+    Health(R.string.tab_health, "tab_health", OmniGartIcons.health),
     Recovery(R.string.tab_recovery, "tab_recovery", OmniGartIcons.recovery),
     Planner(R.string.tab_planner, "tab_planner", OmniGartIcons.planner),
     Profile(R.string.tab_profile, "tab_profile", OmniGartIcons.profile)
@@ -156,6 +160,12 @@ fun OmniGartPhoneShell(core: OmniGartCore, profileId: String) {
                 StrengthProgramSection(core = core, profileId = profileId)
                 StrengthLoggingSection(core = core, profileId = profileId)
                 com.omnigart.android.treadmill.TreadmillRunSection(core = core, profileId = profileId)
+            }
+            if (selected == PhoneTab.Insights.ordinal) {
+                InsightsTabSection(core = core, profileId = profileId)
+            }
+            if (selected == PhoneTab.Health.ordinal) {
+                HealthTabSection()
             }
             if (selected == PhoneTab.Profile.ordinal) {
                 ProfileNutritionBlocks(core, profileId) { formulaEpoch += 1 }

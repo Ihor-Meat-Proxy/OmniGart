@@ -1,7 +1,7 @@
 import SwiftUI
 import Shared
 
-/// Phone shell: Food / Workouts / Recovery / Planner / Profile.
+/// Phone shell: Food / Workouts / Insights / Health / Recovery / Planner / Profile.
 /// Colours and tab icons come from design/generated (DTCG → Swift / asset catalog).
 struct PhoneRootView: View {
     let core: OmniGartCore
@@ -56,6 +56,10 @@ struct PhoneRootView: View {
             FoodTabView(core: core, profileId: profileId)
         case .workouts:
             WorkoutsTabView(core: core, profileId: profileId)
+        case .insights:
+            InsightsTabView(core: core, profileId: profileId)
+        case .health:
+            HealthTabView(core: core, profileId: profileId)
         case .recovery:
             RecoveryTabView(core: core, profileId: profileId, showInfoSheet: $showInfoSheet)
         case .planner:
@@ -69,6 +73,8 @@ struct PhoneRootView: View {
 enum PhoneTab: String, CaseIterable, Identifiable {
     case food
     case workouts
+    case insights
+    case health
     case recovery
     case planner
     case profile
@@ -79,6 +85,8 @@ enum PhoneTab: String, CaseIterable, Identifiable {
         switch self {
         case .food: "tab_food"
         case .workouts: "tab_workouts"
+        case .insights: "tab_insights"
+        case .health: "tab_health"
         case .recovery: "tab_recovery"
         case .planner: "tab_planner"
         case .profile: "tab_profile"
@@ -90,6 +98,8 @@ enum PhoneTab: String, CaseIterable, Identifiable {
         switch self {
         case .food: "food"
         case .workouts: "workouts"
+        case .insights: "insights"
+        case .health: "health"
         case .recovery: "recovery"
         case .planner: "planner"
         case .profile: "profile"

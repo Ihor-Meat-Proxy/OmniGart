@@ -306,6 +306,14 @@
     <string name="workouts_ready_title">Ready-made workouts</string>
     <string name="workouts_ready_intro">Browse fixed sessions filtered by your equipment. Start one directly, or adjust kit and swaps update.</string>
     <string name="workouts_ready_clear">Clear ready workout</string>
+    <string name="wear_strength_start">Strength</string>
+    <string name="wear_strength_stop">End</string>
+    <string name="wear_strength_rest">Rest %1$ds</string>
+    <string name="wear_strength_weight">kg</string>
+    <string name="wear_strength_reps">Reps</string>
+    <string name="wear_strength_set">Set %1$d</string>
+    <string name="wear_strength_hr">HR %1$d</string>
+    <string name="wear_strength_kcal">%1$s kcal</string>
     <string name="explore_title">Explore</string>
     <string name="explore_open">Browse programmes and routines</string>
     <string name="equipment_catalogue_open">Equipment catalogue</string>

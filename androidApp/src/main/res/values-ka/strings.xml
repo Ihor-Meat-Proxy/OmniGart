@@ -301,6 +301,14 @@
     <string name="workouts_ready_title">მზა ვარჯიშები</string>
     <string name="workouts_ready_intro">ნახეთ ფიქსირებული სესიები თქვენი აღჭურვილობის მიხედვით. დაიწყეთ პირდაპირ, ან მოარგეთ ინვენტარი — ჩანაცვლებები განახლდება.</string>
     <string name="workouts_ready_clear">მზა ვარჯიშის გასუფთავება</string>
+    <string name="wear_strength_start">ძალა</string>
+    <string name="wear_strength_stop">დასრულება</string>
+    <string name="wear_strength_rest">დასვენება %1$d წმ</string>
+    <string name="wear_strength_weight">კგ</string>
+    <string name="wear_strength_reps">გამეორება</string>
+    <string name="wear_strength_set">სეტი %1$d</string>
+    <string name="wear_strength_hr">გსს %1$d</string>
+    <string name="wear_strength_kcal">%1$s კკალ</string>
     <string name="explore_title">გაცნობა</string>
     <string name="explore_open">პროგრამებისა და რუტინების ნახვა</string>
     <string name="equipment_catalogue_open">აღჭურვილობის კატალოგი</string>

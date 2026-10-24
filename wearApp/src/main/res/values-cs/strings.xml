@@ -96,4 +96,12 @@
     <string name="equipment_item_box">Box</string>
     <string name="equipment_item_landmine">Landmine</string>
     <string name="equipment_item_yoga_mat">Podložka na jógu</string>
+    <string name="wear_strength_start">Síla</string>
+    <string name="wear_strength_stop">Konec</string>
+    <string name="wear_strength_rest">Odpočinek %1$d s</string>
+    <string name="wear_strength_weight">kg</string>
+    <string name="wear_strength_reps">Opakování</string>
+    <string name="wear_strength_set">Série %1$d</string>
+    <string name="wear_strength_hr">TF %1$d</string>
+    <string name="wear_strength_kcal">%1$s kcal</string>
 </resources>

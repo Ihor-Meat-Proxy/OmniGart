@@ -507,6 +507,134 @@ t(
     },
 )
 t(
+    "wear_strength_start",
+    **{
+        "en-GB": "Strength",
+        "uk": "Сила",
+        "pl": "Siła",
+        "be": "Сіла",
+        "kk": "Күш",
+        "ka": "ძალა",
+        "es": "Fuerza",
+        "fr": "Force",
+        "de": "Kraft",
+        "cs": "Síla",
+        "zh-Hans": "力量",
+    },
+)
+t(
+    "wear_strength_stop",
+    **{
+        "en-GB": "End",
+        "uk": "Кінець",
+        "pl": "Koniec",
+        "be": "Канец",
+        "kk": "Аяқтау",
+        "ka": "დასრულება",
+        "es": "Fin",
+        "fr": "Fin",
+        "de": "Ende",
+        "cs": "Konec",
+        "zh-Hans": "结束",
+    },
+)
+t(
+    "wear_strength_rest",
+    **{
+        "en-GB": "Rest %1$ds",
+        "uk": "Відпочинок %1$d с",
+        "pl": "Odpoczynek %1$d s",
+        "be": "Адпачынак %1$d с",
+        "kk": "Демалыс %1$d с",
+        "ka": "დასვენება %1$d წმ",
+        "es": "Descanso %1$d s",
+        "fr": "Repos %1$d s",
+        "de": "Pause %1$d s",
+        "cs": "Odpočinek %1$d s",
+        "zh-Hans": "休息 %1$d 秒",
+    },
+)
+t(
+    "wear_strength_weight",
+    **{
+        "en-GB": "kg",
+        "uk": "кг",
+        "pl": "kg",
+        "be": "кг",
+        "kk": "кг",
+        "ka": "კგ",
+        "es": "kg",
+        "fr": "kg",
+        "de": "kg",
+        "cs": "kg",
+        "zh-Hans": "公斤",
+    },
+)
+t(
+    "wear_strength_reps",
+    **{
+        "en-GB": "Reps",
+        "uk": "Повтори",
+        "pl": "Powtórzenia",
+        "be": "Паўторы",
+        "kk": "Қайталау",
+        "ka": "გამეორება",
+        "es": "Reps",
+        "fr": "Répétitions",
+        "de": "Wdh.",
+        "cs": "Opakování",
+        "zh-Hans": "次数",
+    },
+)
+t(
+    "wear_strength_set",
+    **{
+        "en-GB": "Set %1$d",
+        "uk": "Підхід %1$d",
+        "pl": "Seria %1$d",
+        "be": "Падыход %1$d",
+        "kk": "Жиын %1$d",
+        "ka": "სეტი %1$d",
+        "es": "Serie %1$d",
+        "fr": "Série %1$d",
+        "de": "Satz %1$d",
+        "cs": "Série %1$d",
+        "zh-Hans": "第 %1$d 组",
+    },
+)
+t(
+    "wear_strength_hr",
+    **{
+        "en-GB": "HR %1$d",
+        "uk": "ЧСС %1$d",
+        "pl": "HR %1$d",
+        "be": "ЧСС %1$d",
+        "kk": "ЖСЖ %1$d",
+        "ka": "გსს %1$d",
+        "es": "FC %1$d",
+        "fr": "FC %1$d",
+        "de": "HF %1$d",
+        "cs": "TF %1$d",
+        "zh-Hans": "心率 %1$d",
+    },
+)
+t(
+    "wear_strength_kcal",
+    **{
+        "en-GB": "%1$s kcal",
+        "uk": "%1$s ккал",
+        "pl": "%1$s kcal",
+        "be": "%1$s ккал",
+        "kk": "%1$s ккал",
+        "ka": "%1$s კკალ",
+        "es": "%1$s kcal",
+        "fr": "%1$s kcal",
+        "de": "%1$s kcal",
+        "cs": "%1$s kcal",
+        "zh-Hans": "%1$s 千卡",
+    },
+)
+t(
     "watch.strength.done",
     **{
         "en-GB": "Done",

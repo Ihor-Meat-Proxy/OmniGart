@@ -301,6 +301,14 @@
     <string name="workouts_ready_title">Entrenamientos listos</string>
     <string name="workouts_ready_intro">Explora sesiones fijas filtradas por tu material. Empieza una directamente o ajusta el equipo y se actualizan los cambios.</string>
     <string name="workouts_ready_clear">Quitar entrenamiento listo</string>
+    <string name="wear_strength_start">Fuerza</string>
+    <string name="wear_strength_stop">Fin</string>
+    <string name="wear_strength_rest">Descanso %1$d s</string>
+    <string name="wear_strength_weight">kg</string>
+    <string name="wear_strength_reps">Reps</string>
+    <string name="wear_strength_set">Serie %1$d</string>
+    <string name="wear_strength_hr">FC %1$d</string>
+    <string name="wear_strength_kcal">%1$s kcal</string>
     <string name="explore_title">Explorar</string>
     <string name="explore_open">Explorar programas y rutinas</string>
     <string name="equipment_catalogue_open">Catálogo de material</string>

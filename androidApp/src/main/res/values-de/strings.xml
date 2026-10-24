@@ -301,6 +301,14 @@
     <string name="workouts_ready_title">Fertige Workouts</string>
     <string name="workouts_ready_intro">Durchsuchen Sie feste Einheiten, gefiltert nach Ihrem Gerät. Starten Sie direkt oder passen Sie das Equipment an — Ersatzübungen aktualisieren sich.</string>
     <string name="workouts_ready_clear">Fertiges Workout leeren</string>
+    <string name="wear_strength_start">Kraft</string>
+    <string name="wear_strength_stop">Ende</string>
+    <string name="wear_strength_rest">Pause %1$d s</string>
+    <string name="wear_strength_weight">kg</string>
+    <string name="wear_strength_reps">Wdh.</string>
+    <string name="wear_strength_set">Satz %1$d</string>
+    <string name="wear_strength_hr">HF %1$d</string>
+    <string name="wear_strength_kcal">%1$s kcal</string>
     <string name="explore_title">Entdecken</string>
     <string name="explore_open">Programme und Routinen durchsuchen</string>
     <string name="equipment_catalogue_open">Gerätekatalog</string>

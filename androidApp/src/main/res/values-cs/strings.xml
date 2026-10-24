@@ -301,6 +301,14 @@
     <string name="workouts_ready_title">Hotové tréninky</string>
     <string name="workouts_ready_intro">Procházejte pevné jednotky filtrované podle vybavení. Spusťte rovnou, nebo upravte výbavu — náhrady se aktualizují.</string>
     <string name="workouts_ready_clear">Zrušit hotový trénink</string>
+    <string name="wear_strength_start">Síla</string>
+    <string name="wear_strength_stop">Konec</string>
+    <string name="wear_strength_rest">Odpočinek %1$d s</string>
+    <string name="wear_strength_weight">kg</string>
+    <string name="wear_strength_reps">Opakování</string>
+    <string name="wear_strength_set">Série %1$d</string>
+    <string name="wear_strength_hr">TF %1$d</string>
+    <string name="wear_strength_kcal">%1$s kcal</string>
     <string name="explore_title">Procházet</string>
     <string name="explore_open">Procházet programy a rutiny</string>
     <string name="equipment_catalogue_open">Katalog vybavení</string>

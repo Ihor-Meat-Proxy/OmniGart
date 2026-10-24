@@ -301,6 +301,14 @@
     <string name="workouts_ready_title">Séances prêtes</string>
     <string name="workouts_ready_intro">Parcourez des séances fixes filtrées selon votre matériel. Lancez-en une directement, ou ajustez l’équipement et les remplacements se mettent à jour.</string>
     <string name="workouts_ready_clear">Effacer la séance prête</string>
+    <string name="wear_strength_start">Force</string>
+    <string name="wear_strength_stop">Fin</string>
+    <string name="wear_strength_rest">Repos %1$d s</string>
+    <string name="wear_strength_weight">kg</string>
+    <string name="wear_strength_reps">Répétitions</string>
+    <string name="wear_strength_set">Série %1$d</string>
+    <string name="wear_strength_hr">FC %1$d</string>
+    <string name="wear_strength_kcal">%1$s kcal</string>
     <string name="explore_title">Explorer</string>
     <string name="explore_open">Parcourir programmes et routines</string>
     <string name="equipment_catalogue_open">Catalogue de matériel</string>

@@ -245,7 +245,10 @@ extension StrengthWorkoutHealthSave {
             ),
             setIsDrop: KotlinPrimitiveArrays.booleanArray(input.sets.map(\.isDropSet)),
             setIsFailure: KotlinPrimitiveArrays.booleanArray(input.sets.map(\.isFailure)),
-            syncVersion: 1
+            syncVersion: 1,
+            notes: nil,
+            steps: nil,
+            sourceName: "OmniGart"
         )
     }
 

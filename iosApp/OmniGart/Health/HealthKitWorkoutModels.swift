@@ -41,6 +41,8 @@ extension HealthKitWorkoutWriter {
         var saveMindfulMinutes: Bool = false
         var estimatedEffortScore: Double?
         var heartRateRecoveryBpm: Double?
+        /// Walking/running distance (metres). Prefer treadmill belt distance when linked.
+        var distanceMetres: Double?
         /// `HKMetadataKeySyncVersion`: 1 on first insert; bump only for user-initiated restore.
         var syncVersion: Int = 1
     }

@@ -37,6 +37,9 @@ project(":shared:bodymap").projectDir = file("shared/bodymap")
 include(":shared:sensors")
 project(":shared:sensors").projectDir = file("shared/sensors")
 
+include(":shared:treadmill")
+project(":shared:treadmill").projectDir = file("shared/treadmill")
+
 include(":shared:hydration")
 project(":shared:hydration").projectDir = file("shared/hydration")
 
@@ -65,9 +68,11 @@ val androidSdk =
 if (!androidSdk.isNullOrBlank() && file(androidSdk).resolve("platforms").exists()) {
     include(":android:sensors")
     project(":android:sensors").projectDir = file("android/sensors")
+    include(":android:treadmill")
+    project(":android:treadmill").projectDir = file("android/treadmill")
 } else {
     logger.lifecycle(
-        "Skipping :android:sensors (no Android SDK platforms under ANDROID_HOME). " +
-            "KMP :shared:sensors still builds; set ANDROID_HOME to enable the Android module."
+        "Skipping :android:sensors / :android:treadmill (no Android SDK platforms under ANDROID_HOME). " +
+            "KMP :shared:sensors and :shared:treadmill still build; set ANDROID_HOME to enable Android modules."
     )
 }

@@ -15,6 +15,10 @@ enum HealthKitWorkoutWriter {
         HKQuantityType.quantityType(forIdentifier: .basalEnergyBurned)
     }
 
+    static func distanceWalkingRunningType() -> HKQuantityType? {
+        HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)
+    }
+
     static func mindfulType() -> HKCategoryType? {
         HKObjectType.categoryType(forIdentifier: .mindfulSession)
     }
@@ -36,12 +40,18 @@ enum HealthKitWorkoutWriter {
         )
     }
 
-    /// Read + write types needed for workouts, energy, HR, recovery, effort, mindful.
+    /// Read + write types needed for workouts, energy, HR, distance, recovery, effort, mindful.
     static func authorizationTypes() -> (read: Set<HKObjectType>, write: Set<HKSampleType>) {
         var read: Set<HKObjectType> = [HealthKitPlatformBridge.workoutType()]
         var write: Set<HKSampleType> = [HealthKitPlatformBridge.workoutType()]
-        for type in [activeEnergyType(), basalEnergyType(), HealthKitPlatformBridge.heartRateType(),
-                     heartRateRecoveryType(), workoutEffortType()] {
+        for type in [
+            activeEnergyType(),
+            basalEnergyType(),
+            HealthKitPlatformBridge.heartRateType(),
+            distanceWalkingRunningType(),
+            heartRateRecoveryType(),
+            workoutEffortType()
+        ] {
             if let type {
                 read.insert(type)
                 write.insert(type)

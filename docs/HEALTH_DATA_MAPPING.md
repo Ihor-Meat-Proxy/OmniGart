@@ -59,7 +59,7 @@ Also stored: `omnigart.origin`, `omnigart.healthSchemaVersion` (= 1).
 | OmniGart | HealthKit | Health Connect |
 | --- | --- | --- |
 | STRENGTH | `traditionalStrengthTraining` | `EXERCISE_TYPE_STRENGTH_TRAINING` |
-| RUNNING | `running` | `EXERCISE_TYPE_RUNNING` |
+| RUNNING | `running` (indoor location for treadmill sessions) | `EXERCISE_TYPE_RUNNING` (outdoor / Zone 2) or `EXERCISE_TYPE_RUNNING_TREADMILL` when notes mark a treadmill run |
 | CYCLING | `cycling` | `EXERCISE_TYPE_BIKING` |
 | SWIMMING | `swimming` | `EXERCISE_TYPE_SWIMMING_POOL` |
 | WALKING | `walking` | `EXERCISE_TYPE_WALKING` |

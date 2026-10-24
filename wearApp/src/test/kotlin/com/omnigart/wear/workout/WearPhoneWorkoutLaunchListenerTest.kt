@@ -3,8 +3,8 @@ package com.omnigart.wear.workout
 import com.omnigart.shared.health.store.device.PhoneWorkoutKindIds
 import com.omnigart.shared.health.store.device.PhoneWorkoutSelection
 import com.omnigart.shared.health.store.device.PhoneWorkoutSelectionCodec
-import kotlin.test.Test
-import kotlin.test.assertEquals
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
 class WearPhoneWorkoutLaunchListenerTest {
     @Test

@@ -93,7 +93,8 @@ struct FoodToolsPanel: View {
     private func copyYesterday() {
         let endMs = Int64(Date().timeIntervalSince1970 * 1000)
         let startMs = endMs - 86_400_000
-        _ = core.copyFoodDayMs(
+        // Avoid Kotlin/Native `copy*` exports — ObjC/Swift remaps them away.
+        _ = core.duplicateFoodDayMs(
             profileId: profileId,
             fromStartEpochMs: startMs - 86_400_000,
             fromEndEpochMs: startMs,

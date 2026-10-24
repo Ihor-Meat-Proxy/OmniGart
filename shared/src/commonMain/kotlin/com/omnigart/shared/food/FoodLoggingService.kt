@@ -223,10 +223,10 @@ class FoodLoggingService(
     )
 
     /**
-     * Swift-friendly copy-day: epoch millis only, returns count (avoids Instant List bridging).
-     * Prefer this from SwiftUI; Kotlin callers may use [copyDay].
+     * Duplicate a day's diary entries using epoch millis; returns count.
+     * From Swift prefer OmniGartCore.duplicateFoodDayMs (avoid Kotlin `copy*` ObjC names).
      */
-    fun copyDayByEpochMs(profileId: String, fromStartEpochMs: Long, fromEndEpochMs: Long, toStartEpochMs: Long): Int {
+    fun duplicateDayByEpochMs(profileId: String, fromStartEpochMs: Long, fromEndEpochMs: Long, toStartEpochMs: Long): Int {
         val copied =
             copyDay(
                 profileId = profileId,
@@ -237,9 +237,13 @@ class FoodLoggingService(
         return copied.size
     }
 
-    /** @deprecated Prefer [copyDayByEpochMs] from Swift. */
+    /** JVM/Android alias; prefer [duplicateDayByEpochMs] for new call sites. */
+    fun copyDayByEpochMs(profileId: String, fromStartEpochMs: Long, fromEndEpochMs: Long, toStartEpochMs: Long): Int =
+        duplicateDayByEpochMs(profileId, fromStartEpochMs, fromEndEpochMs, toStartEpochMs)
+
+    /** JVM/Android alias for [duplicateDayByEpochMs]. */
     fun copyDayEpoch(profileId: String, fromStartEpochMs: Long, fromEndEpochMs: Long, toStartEpochMs: Long): Int =
-        copyDayByEpochMs(profileId, fromStartEpochMs, fromEndEpochMs, toStartEpochMs)
+        duplicateDayByEpochMs(profileId, fromStartEpochMs, fromEndEpochMs, toStartEpochMs)
 
     fun exportJson(profileId: String): String = FoodImportExport.exportJson(
         profileId = profileId,

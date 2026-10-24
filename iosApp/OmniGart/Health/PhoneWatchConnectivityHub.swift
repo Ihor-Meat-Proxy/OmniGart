@@ -82,7 +82,8 @@ final class PhoneWatchConnectivityHub: NSObject, WCSessionDelegate {
     }
 
     nonisolated func session(_ session: WCSession, didReceiveUserInfo userInfo: [String: Any] = [:]) {
-        if let json = userInfo[Self.transferPayloadKey] as? String {
+        // Literal matches DeviceWorkoutTransfer.PAYLOAD_KEY (avoid MainActor-isolated static).
+        if let json = userInfo["omnigart.workout.transfer.json"] as? String {
             Task { @MainActor in
                 PhoneWatchConnectivityHub.shared.ingestTransfer(json: json)
             }
@@ -90,7 +91,7 @@ final class PhoneWatchConnectivityHub: NSObject, WCSessionDelegate {
     }
 
     nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
-        if let json = message[Self.transferPayloadKey] as? String {
+        if let json = message["omnigart.workout.transfer.json"] as? String {
             Task { @MainActor in
                 PhoneWatchConnectivityHub.shared.ingestTransfer(json: json)
             }

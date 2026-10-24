@@ -7,6 +7,7 @@ import Shared
 enum PhoneEquipmentBridge {
     static let shared = PhoneEquipmentBridgeProxy()
 
+    @MainActor
     final class PhoneEquipmentBridgeProxy {
         func publish(from profile: UserEquipmentProfile) {
             PhoneWatchConnectivityHub.shared.publishEquipment(from: profile)

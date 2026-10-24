@@ -48,7 +48,12 @@ import kotlinx.coroutines.withContext
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun TreadmillRunSection(core: OmniGartCore, profileId: String, modifier: Modifier = Modifier) {
+fun TreadmillRunSection(
+    core: OmniGartCore,
+    profileId: String,
+    modifier: Modifier = Modifier,
+    initialWalking: Boolean = false
+) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val client = remember { TreadmillBleClient(context, scope) }
@@ -56,7 +61,7 @@ fun TreadmillRunSection(core: OmniGartCore, profileId: String, modifier: Modifie
     val discovered by client.discovered.collectAsState()
     val metrics by client.metrics.collectAsState()
     var allowControl by remember { mutableStateOf(false) }
-    var walking by remember { mutableStateOf(false) }
+    var walking by remember { mutableStateOf(initialWalking) }
     var running by remember { mutableStateOf(false) }
     var startedAtMs by remember { mutableStateOf<Long?>(null) }
     var status by remember { mutableStateOf<String?>(null) }

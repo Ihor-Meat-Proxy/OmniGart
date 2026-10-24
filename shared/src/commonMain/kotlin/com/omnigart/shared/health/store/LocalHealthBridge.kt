@@ -555,6 +555,27 @@ class LocalHealthBridge(
 
     fun latestWorkoutId(): String? = store.listWorkouts().firstOrNull()?.id
 
+    /**
+     * Recent local workout ids for category history, newest first.
+     * [activityTypeNames] are [WorkoutActivityType] names (e.g. RUNNING, YOGA).
+     * Empty [activityTypeNames] returns an empty list (callers must pass types).
+     */
+    fun listRecentWorkoutIds(activityTypeNames: List<String>, limit: Int = 20): List<String> {
+        if (activityTypeNames.isEmpty() || limit <= 0) return emptyList()
+        val wanted =
+            activityTypeNames.mapNotNull { name ->
+                runCatching { WorkoutActivityType.valueOf(name.uppercase()) }.getOrNull()
+            }.toSet()
+        if (wanted.isEmpty()) return emptyList()
+        return store
+            .listWorkouts()
+            .asSequence()
+            .filter { it.activityType in wanted }
+            .take(limit)
+            .map { it.id }
+            .toList()
+    }
+
     private fun parseStrengthExtras(raw: String?): WorkoutPdfBuilder.StrengthExtras? {
         if (raw.isNullOrBlank()) return null
         val parts = raw.split('|')

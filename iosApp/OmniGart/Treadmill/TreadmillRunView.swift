@@ -9,11 +9,13 @@ import UIKit
 struct TreadmillRunView: View {
     let core: OmniGartCore
     let profileId: String
+    var initialKind: TreadmillSessionKindSwift = .run
 
     @StateObject private var ble = TreadmillBleManager()
     @StateObject private var chestHr = TreadmillChestStrapHr()
     @State private var sessionKind: TreadmillSessionKindSwift = .run
     @State private var selectedProgramId: String = "easy_run"
+    @State private var didApplyInitialKind = false
     @State private var running = false
     @State private var startedAt: Date?
     @State private var allowControl = false
@@ -39,6 +41,12 @@ struct TreadmillRunView: View {
         }
         .navigationTitle(Text(LocalizedStringKey(sessionKind.titleKey)))
         .sheet(isPresented: $showDiagnostics) { diagnosticsSheet }
+        .onAppear {
+            guard !didApplyInitialKind else { return }
+            didApplyInitialKind = true
+            sessionKind = initialKind
+            selectedProgramId = initialKind == .walk ? "recovery_walk" : "easy_run"
+        }
         // Do not start CBCentralManager on appear — NavigationLink may preload this
         // destination and a Bluetooth permission alert would block UITests / other tabs.
         // Scan / reconnect / strap buttons call start() when the user opts in.

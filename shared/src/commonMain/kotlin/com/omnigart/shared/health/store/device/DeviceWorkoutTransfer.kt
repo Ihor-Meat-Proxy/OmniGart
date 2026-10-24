@@ -6,6 +6,7 @@ import com.omnigart.shared.health.store.HealthRecordOrigin
 import com.omnigart.shared.health.store.HealthSyncIdentity
 import com.omnigart.shared.health.store.LocalHealthWorkout
 import com.omnigart.shared.health.store.LocalHeartRatePoint
+import com.omnigart.shared.health.store.LocalWorkoutSet
 import kotlin.time.Clock
 import kotlin.time.Instant
 import kotlinx.serialization.Serializable
@@ -19,6 +20,9 @@ import kotlinx.serialization.json.Json
  * - Wear OS → phone: Wearable Data Layer (`DataClient`) + ack via `MessageClient`
  *
  * Documented in `docs/HEALTH_DATA_MAPPING.md` § Device transfer.
+ *
+ * Schema v2 adds optional [sets] for per-set strength logging. v1 payloads (no sets)
+ * remain accepted by [isSupportedSchemaVersion].
  */
 @Serializable
 data class DeviceWorkoutTransferDocument(
@@ -38,6 +42,8 @@ data class DeviceWorkoutTransferDocument(
     val averageCadenceSpm: Double? = null,
     val heartRateEpochMs: List<Long> = emptyList(),
     val heartRateBpm: List<Double> = emptyList(),
+    /** Per-set strength log (schema ≥ 2). */
+    val sets: List<DeviceWorkoutTransferSet> = emptyList(),
     /** `APPLE_WATCH` or `WEAR_OS`. */
     val sourceDevice: String,
     val sourceBundle: String = HealthDataMapper.SOURCE_BUNDLE_OMNIGART,
@@ -50,11 +56,17 @@ data class DeviceWorkoutTransferDocument(
         require(endEpochMs >= startEpochMs)
         require(heartRateEpochMs.size == heartRateBpm.size)
         require(sourceDevice == SOURCE_APPLE_WATCH || sourceDevice == SOURCE_WEAR_OS)
+        require(isSupportedSchemaVersion(schemaVersion)) {
+            "Unsupported schemaVersion $schemaVersion"
+        }
     }
 
     companion object {
         const val SCHEMA_ID = "omnigart.device.workout.transfer"
-        const val SCHEMA_VERSION = 1
+
+        /** Current writer version (includes sets). */
+        const val SCHEMA_VERSION = 2
+        const val MIN_SUPPORTED_SCHEMA_VERSION = 1
         const val SOURCE_APPLE_WATCH = "APPLE_WATCH"
         const val SOURCE_WEAR_OS = "WEAR_OS"
 
@@ -66,8 +78,27 @@ data class DeviceWorkoutTransferDocument(
 
         /** Message path for phone → Wear ack. */
         const val ACK_PATH = "/omnigart/workout/ack"
+
+        fun isSupportedSchemaVersion(version: Int): Boolean = version in MIN_SUPPORTED_SCHEMA_VERSION..SCHEMA_VERSION
     }
 }
+
+@Serializable
+data class DeviceWorkoutTransferSet(
+    val id: String,
+    val exerciseKey: String,
+    val setIndex: Int,
+    val reps: Int? = null,
+    val loadKg: Double? = null,
+    val durationSeconds: Int? = null,
+    val distanceMetres: Double? = null,
+    val rir: Double? = null,
+    val rpe: Double? = null,
+    val isWarmup: Boolean = false,
+    val isDropSet: Boolean = false,
+    val isFailure: Boolean = false,
+    val note: String? = null
+)
 
 enum class DeviceTransferIngestResult {
     /** Inserted into the phone local store. */
@@ -108,7 +139,7 @@ object DeviceWorkoutTransferCodec {
 
     fun toLocalWorkout(document: DeviceWorkoutTransferDocument, clock: Clock = Clock.System): LocalHealthWorkout {
         require(document.schema == DeviceWorkoutTransferDocument.SCHEMA_ID)
-        require(document.schemaVersion == DeviceWorkoutTransferDocument.SCHEMA_VERSION)
+        require(DeviceWorkoutTransferDocument.isSupportedSchemaVersion(document.schemaVersion))
         val activity =
             runCatching { WorkoutActivityType.valueOf(document.activityTypeName) }
                 .getOrDefault(WorkoutActivityType.OTHER)
@@ -117,6 +148,24 @@ object DeviceWorkoutTransferCodec {
                 LocalHeartRatePoint(
                     recordedAt = Instant.fromEpochMilliseconds(document.heartRateEpochMs[i]),
                     beatsPerMinute = document.heartRateBpm[i]
+                )
+            }
+        val sets =
+            document.sets.map { s ->
+                LocalWorkoutSet(
+                    id = s.id,
+                    exerciseKey = s.exerciseKey,
+                    setIndex = s.setIndex,
+                    reps = s.reps,
+                    loadKg = s.loadKg,
+                    durationSeconds = s.durationSeconds,
+                    distanceMetres = s.distanceMetres,
+                    rir = s.rir,
+                    rpe = s.rpe,
+                    isWarmup = s.isWarmup,
+                    isDropSet = s.isDropSet,
+                    isFailure = s.isFailure,
+                    note = s.note
                 )
             }
         return LocalHealthWorkout(
@@ -139,7 +188,8 @@ object DeviceWorkoutTransferCodec {
             sourceBundle = document.sourceBundle,
             sourceName = document.sourceName,
             updatedAt = clock.now(),
-            heartRateSeries = hr
+            heartRateSeries = hr,
+            sets = sets
         )
     }
 
@@ -158,6 +208,24 @@ object DeviceWorkoutTransferCodec {
         averageCadenceSpm = workout.averageCadenceSpm,
         heartRateEpochMs = workout.heartRateSeries.map { it.recordedAt.toEpochMilliseconds() },
         heartRateBpm = workout.heartRateSeries.map { it.beatsPerMinute },
+        sets =
+        workout.sets.map { s ->
+            DeviceWorkoutTransferSet(
+                id = s.id,
+                exerciseKey = s.exerciseKey,
+                setIndex = s.setIndex,
+                reps = s.reps,
+                loadKg = s.loadKg,
+                durationSeconds = s.durationSeconds,
+                distanceMetres = s.distanceMetres,
+                rir = s.rir,
+                rpe = s.rpe,
+                isWarmup = s.isWarmup,
+                isDropSet = s.isDropSet,
+                isFailure = s.isFailure,
+                note = s.note
+            )
+        },
         sourceDevice = sourceDevice,
         sourceBundle = workout.sourceBundle ?: HealthDataMapper.SOURCE_BUNDLE_OMNIGART,
         sourceName = workout.sourceName ?: "OmniGart"

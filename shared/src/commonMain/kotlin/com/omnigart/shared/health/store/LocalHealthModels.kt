@@ -116,7 +116,11 @@ data class LocalWorkoutSet(
     val durationSeconds: Int? = null,
     val distanceMetres: Double? = null,
     val rir: Double? = null,
-    val isWarmup: Boolean = false
+    val rpe: Double? = null,
+    val isWarmup: Boolean = false,
+    val isDropSet: Boolean = false,
+    val isFailure: Boolean = false,
+    val note: String? = null
 )
 
 /**

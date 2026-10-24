@@ -5,13 +5,16 @@ import com.omnigart.shared.domain.BiologicalSex
 /**
  * Wellness energy estimates for workouts when HealthKit has no measured samples.
  *
- * Active kcal uses the Compendium MET model: `MET × body mass (kg) × duration (h)`.
+ * Cardio / yoga / pilates still use Compendium MET: `MET × body mass (kg) × duration (h)`.
+ * Strength prefers [ResistanceWorkoutEnergy] (Keytel HR or work-based); [strengthBreakdown]
+ * without sets keeps a MET fallback for empty sessions.
  * Basal kcal is the Mifflin–St Jeor daily BMR prorated over the same window.
  *
  * These figures are coaching aids for Apple Fitness / Health — not medical advice.
+ * See `docs/CALORIE_MODEL.md`.
  */
 object WorkoutEnergyEstimate {
-    /** Compendium MET for general / traditional strength training (moderate effort). */
+    /** Compendium MET for general / traditional strength training (moderate effort). Flat fallback only. */
     const val STRENGTH_MET: Double = 5.0
 
     /** Hatha / general yoga (Compendium ~2.5). */
@@ -64,6 +67,10 @@ object WorkoutEnergyEstimate {
         )
     }
 
+    /**
+     * Strength energy. Prefer [ResistanceWorkoutEnergy.estimate] when sets / HR are available.
+     * Flat [met] remains for empty sessions and backward-compatible call sites.
+     */
     fun strengthBreakdown(
         weightKg: Double,
         heightCm: Double,
@@ -79,6 +86,9 @@ object WorkoutEnergyEstimate {
         sex = sex,
         durationHours = durationHours
     )
+
+    /** Resistance-aware strength estimate (HR or work-based + EPOC + basal). */
+    fun strengthResistanceBreakdown(input: ResistanceEnergyInput): WorkoutEnergyBreakdown = ResistanceWorkoutEnergy.estimate(input)
 
     fun yogaBreakdown(
         weightKg: Double,

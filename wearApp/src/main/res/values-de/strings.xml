@@ -96,4 +96,12 @@
     <string name="equipment_item_box">Sprungbox</string>
     <string name="equipment_item_landmine">Landmine</string>
     <string name="equipment_item_yoga_mat">Yogamatte</string>
+    <string name="wear_strength_start">Kraft</string>
+    <string name="wear_strength_stop">Ende</string>
+    <string name="wear_strength_rest">Pause %1$d s</string>
+    <string name="wear_strength_weight">kg</string>
+    <string name="wear_strength_reps">Wdh.</string>
+    <string name="wear_strength_set">Satz %1$d</string>
+    <string name="wear_strength_hr">HF %1$d</string>
+    <string name="wear_strength_kcal">%1$s kcal</string>
 </resources>

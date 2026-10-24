@@ -152,7 +152,7 @@
   "watch.zone2.summary.total_kcal": "Celkem kcal",
   "watch.zone2.summary.avg_hr": "Prům. tep",
   "watch.zone2.summary.max_hr": "Max. tep",
-  "workout_summary_energy_estimate": "Energie je wellness odhad (MET × hmotnost).",
+  "workout_summary_energy_estimate": "Energie je wellness odhad (tep nebo práce), ne lékařské měření.",
   "workout_summary_effort": "Skóre úsilí",
   "workout_summary_hr_recovery": "Regenerace tepu",
   "workout_start_on_watch": "Spustit na Apple Watch",
@@ -337,5 +337,13 @@
   "equipment_item_yoga_mat": "Podložka na jógu",
   "workouts_ready_title": "Hotové tréninky",
   "workouts_ready_intro": "Procházejte pevné jednotky filtrované podle vybavení. Spusťte rovnou, nebo upravte výbavu — náhrady se aktualizují.",
-  "workouts_ready_clear": "Zrušit hotový trénink"
+  "workouts_ready_clear": "Zrušit hotový trénink",
+  "wear_strength_start": "Síla",
+  "wear_strength_stop": "Konec",
+  "wear_strength_rest": "Odpočinek %1$d s",
+  "wear_strength_weight": "kg",
+  "wear_strength_reps": "Opakování",
+  "wear_strength_set": "Série %1$d",
+  "wear_strength_hr": "TF %1$d",
+  "wear_strength_kcal": "%1$s kcal"
 }

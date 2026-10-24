@@ -96,4 +96,12 @@
     <string name="equipment_item_box">Box</string>
     <string name="equipment_item_landmine">Landmine</string>
     <string name="equipment_item_yoga_mat">Tapis de yoga</string>
+    <string name="wear_strength_start">Force</string>
+    <string name="wear_strength_stop">Fin</string>
+    <string name="wear_strength_rest">Repos %1$d s</string>
+    <string name="wear_strength_weight">kg</string>
+    <string name="wear_strength_reps">Répétitions</string>
+    <string name="wear_strength_set">Série %1$d</string>
+    <string name="wear_strength_hr">FC %1$d</string>
+    <string name="wear_strength_kcal">%1$s kcal</string>
 </resources>

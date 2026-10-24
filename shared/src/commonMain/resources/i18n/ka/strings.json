@@ -152,7 +152,7 @@
   "watch.zone2.summary.total_kcal": "სულ კკალ",
   "watch.zone2.summary.avg_hr": "საშ. გც",
   "watch.zone2.summary.max_hr": "მაქს. გც",
-  "workout_summary_energy_estimate": "ენერგია კეთილდღეობის შეფასებაა (MET × სხეულის მასა).",
+  "workout_summary_energy_estimate": "ენერგია კეთილდღეობის შეფასებაა (პულსი ან სამუშაო), არა სამედიცინო გაზომვა.",
   "workout_summary_effort": "ძალისხმევის ქულა",
   "workout_summary_hr_recovery": "გულისცემის აღდგენა",
   "workout_start_on_watch": "დაწყება Apple Watch-ზე",
@@ -337,5 +337,13 @@
   "equipment_item_yoga_mat": "იოგას საგები",
   "workouts_ready_title": "მზა ვარჯიშები",
   "workouts_ready_intro": "ნახეთ ფიქსირებული სესიები თქვენი აღჭურვილობის მიხედვით. დაიწყეთ პირდაპირ, ან მოარგეთ ინვენტარი — ჩანაცვლებები განახლდება.",
-  "workouts_ready_clear": "მზა ვარჯიშის გასუფთავება"
+  "workouts_ready_clear": "მზა ვარჯიშის გასუფთავება",
+  "wear_strength_start": "ძალა",
+  "wear_strength_stop": "დასრულება",
+  "wear_strength_rest": "დასვენება %1$d წმ",
+  "wear_strength_weight": "კგ",
+  "wear_strength_reps": "გამეორება",
+  "wear_strength_set": "სეტი %1$d",
+  "wear_strength_hr": "გსს %1$d",
+  "wear_strength_kcal": "%1$s კკალ"
 }

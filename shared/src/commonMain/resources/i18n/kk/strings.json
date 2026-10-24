@@ -152,7 +152,7 @@
   "watch.zone2.summary.total_kcal": "Барлық ккал",
   "watch.zone2.summary.avg_hr": "Орт. ЖС",
   "watch.zone2.summary.max_hr": "Макс. ЖС",
-  "workout_summary_energy_estimate": "Энергия — сауықтыру бағалауы (MET × дене салмағы).",
+  "workout_summary_energy_estimate": "Энергия — сауықтыру бағалауы (жүрек соғысы немесе жұмыс), медициналық өлшем емес.",
   "workout_summary_effort": "Күш-жігер бағасы",
   "workout_summary_hr_recovery": "Жүрек соғысының қалпына келуі",
   "workout_start_on_watch": "Apple Watch-та бастау",
@@ -337,5 +337,13 @@
   "equipment_item_yoga_mat": "Йога төсеніші",
   "workouts_ready_title": "Дайын жаттығулар",
   "workouts_ready_intro": "Жабдығыңызға сай дайын сессияларды қараңыз. Бірден бастаңыз немесе жабдықты бейімдеңіз — алмастырулар жаңарады.",
-  "workouts_ready_clear": "Дайын жаттығуды тазалау"
+  "workouts_ready_clear": "Дайын жаттығуды тазалау",
+  "wear_strength_start": "Күш",
+  "wear_strength_stop": "Аяқтау",
+  "wear_strength_rest": "Демалыс %1$d с",
+  "wear_strength_weight": "кг",
+  "wear_strength_reps": "Қайталау",
+  "wear_strength_set": "Жиын %1$d",
+  "wear_strength_hr": "ЖСЖ %1$d",
+  "wear_strength_kcal": "%1$s ккал"
 }

@@ -152,7 +152,7 @@
   "watch.zone2.summary.total_kcal": "Kcal totales",
   "watch.zone2.summary.avg_hr": "FC moy.",
   "watch.zone2.summary.max_hr": "FC max.",
-  "workout_summary_energy_estimate": "L’énergie est une estimation bien-être (MET × masse).",
+  "workout_summary_energy_estimate": "L’énergie est une estimation bien-être (fréquence ou travail), pas une mesure médicale.",
   "workout_summary_effort": "Score d’effort",
   "workout_summary_hr_recovery": "Récupération cardiaque",
   "workout_start_on_watch": "Démarrer sur Apple Watch",
@@ -337,5 +337,13 @@
   "equipment_item_yoga_mat": "Tapis de yoga",
   "workouts_ready_title": "Séances prêtes",
   "workouts_ready_intro": "Parcourez des séances fixes filtrées selon votre matériel. Lancez-en une directement, ou ajustez l’équipement et les remplacements se mettent à jour.",
-  "workouts_ready_clear": "Effacer la séance prête"
+  "workouts_ready_clear": "Effacer la séance prête",
+  "wear_strength_start": "Force",
+  "wear_strength_stop": "Fin",
+  "wear_strength_rest": "Repos %1$d s",
+  "wear_strength_weight": "kg",
+  "wear_strength_reps": "Répétitions",
+  "wear_strength_set": "Série %1$d",
+  "wear_strength_hr": "FC %1$d",
+  "wear_strength_kcal": "%1$s kcal"
 }

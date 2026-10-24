@@ -152,7 +152,7 @@
   "watch.zone2.summary.total_kcal": "Suma kcal",
   "watch.zone2.summary.avg_hr": "Śr. tętno",
   "watch.zone2.summary.max_hr": "Maks. tętno",
-  "workout_summary_energy_estimate": "Energia to szacunek wellness (MET × masa ciała).",
+  "workout_summary_energy_estimate": "Energia to szacunek wellness (tętno lub praca), nie pomiar medyczny.",
   "workout_summary_effort": "Wskaźnik wysiłku",
   "workout_summary_hr_recovery": "Regeneracja tętna",
   "workout_start_on_watch": "Start na Apple Watch",
@@ -337,5 +337,13 @@
   "equipment_item_yoga_mat": "Mata do jogi",
   "workouts_ready_title": "Gotowe treningi",
   "workouts_ready_intro": "Przeglądaj gotowe sesje dopasowane do sprzętu. Uruchom od razu albo dostosuj ekwipunek — zamiany się zaktualizują.",
-  "workouts_ready_clear": "Wyczyść gotowy trening"
+  "workouts_ready_clear": "Wyczyść gotowy trening",
+  "wear_strength_start": "Siła",
+  "wear_strength_stop": "Koniec",
+  "wear_strength_rest": "Odpoczynek %1$d s",
+  "wear_strength_weight": "kg",
+  "wear_strength_reps": "Powtórzenia",
+  "wear_strength_set": "Seria %1$d",
+  "wear_strength_hr": "HR %1$d",
+  "wear_strength_kcal": "%1$s kcal"
 }

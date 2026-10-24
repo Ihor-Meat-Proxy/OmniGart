@@ -139,7 +139,7 @@
     <string name="workout_summary_total_kcal">Total kcal</string>
     <string name="workout_summary_avg_hr">Average heart rate</string>
     <string name="workout_summary_max_hr">Max heart rate</string>
-    <string name="workout_summary_energy_estimate">Energy is a wellness estimate (MET × body weight).</string>
+    <string name="workout_summary_energy_estimate">Energy is a wellness estimate (heart rate or work-based), not a medical measurement.</string>
     <string name="workout_summary_effort">Effort score</string>
     <string name="workout_summary_hr_recovery">Heart-rate recovery</string>
     <string name="workout_start_on_watch">Start on Apple Watch</string>
@@ -306,4 +306,12 @@
     <string name="workouts_ready_title">Ready-made workouts</string>
     <string name="workouts_ready_intro">Browse fixed sessions filtered by your equipment. Start one directly, or adjust kit and swaps update.</string>
     <string name="workouts_ready_clear">Clear ready workout</string>
+    <string name="wear_strength_start">Strength</string>
+    <string name="wear_strength_stop">End</string>
+    <string name="wear_strength_rest">Rest %1$ds</string>
+    <string name="wear_strength_weight">kg</string>
+    <string name="wear_strength_reps">Reps</string>
+    <string name="wear_strength_set">Set %1$d</string>
+    <string name="wear_strength_hr">HR %1$d</string>
+    <string name="wear_strength_kcal">%1$s kcal</string>
 </resources>

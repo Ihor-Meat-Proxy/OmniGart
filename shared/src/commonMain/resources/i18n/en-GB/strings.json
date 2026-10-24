@@ -152,7 +152,7 @@
   "watch.zone2.summary.total_kcal": "Total kcal",
   "watch.zone2.summary.avg_hr": "Avg HR",
   "watch.zone2.summary.max_hr": "Max HR",
-  "workout_summary_energy_estimate": "Energy is a wellness estimate (MET × body weight).",
+  "workout_summary_energy_estimate": "Energy is a wellness estimate (heart rate or work-based), not a medical measurement.",
   "workout_summary_effort": "Effort score",
   "workout_summary_hr_recovery": "Heart-rate recovery",
   "workout_start_on_watch": "Start on Apple Watch",
@@ -337,5 +337,13 @@
   "equipment_item_yoga_mat": "Yoga mat",
   "workouts_ready_title": "Ready-made workouts",
   "workouts_ready_intro": "Browse fixed sessions filtered by your equipment. Start one directly, or adjust kit and swaps update.",
-  "workouts_ready_clear": "Clear ready workout"
+  "workouts_ready_clear": "Clear ready workout",
+  "wear_strength_start": "Strength",
+  "wear_strength_stop": "End",
+  "wear_strength_rest": "Rest %1$ds",
+  "wear_strength_weight": "kg",
+  "wear_strength_reps": "Reps",
+  "wear_strength_set": "Set %1$d",
+  "wear_strength_hr": "HR %1$d",
+  "wear_strength_kcal": "%1$s kcal"
 }

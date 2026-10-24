@@ -152,7 +152,7 @@
   "watch.zone2.summary.total_kcal": "Усяго ккал",
   "watch.zone2.summary.avg_hr": "Сяр. пульс",
   "watch.zone2.summary.max_hr": "Макс. пульс",
-  "workout_summary_energy_estimate": "Энергія — ацэнка самаадчування (MET × маса цела).",
+  "workout_summary_energy_estimate": "Энергія — ацэнка самаадчування (пульс або праца), не медыцынскае вымярэнне.",
   "workout_summary_effort": "Ацэнка намаганняў",
   "workout_summary_hr_recovery": "Аднаўленне пульсу",
   "workout_start_on_watch": "Пачаць на Apple Watch",
@@ -337,5 +337,13 @@
   "equipment_item_yoga_mat": "Дыванок для ёгі",
   "workouts_ready_title": "Гатовыя трэніроўкі",
   "workouts_ready_intro": "Праглядайце фіксаваныя сесіі па вашым абсталяванні. Запусціце адразу або падладзьце інвентар — замены абновяцца.",
-  "workouts_ready_clear": "Скінуць гатовую трэніроўку"
+  "workouts_ready_clear": "Скінуць гатовую трэніроўку",
+  "wear_strength_start": "Сіла",
+  "wear_strength_stop": "Канец",
+  "wear_strength_rest": "Адпачынак %1$d с",
+  "wear_strength_weight": "кг",
+  "wear_strength_reps": "Паўторы",
+  "wear_strength_set": "Падыход %1$d",
+  "wear_strength_hr": "ЧСС %1$d",
+  "wear_strength_kcal": "%1$s ккал"
 }

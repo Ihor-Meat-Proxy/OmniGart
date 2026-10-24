@@ -7,6 +7,7 @@ enum OnboardingStep: Int, CaseIterable {
     case birthDate
     case height
     case weight
+    case energyGoal
     case experience
     case units
     case activity
@@ -20,6 +21,7 @@ enum OnboardingStep: Int, CaseIterable {
         case .birthDate: "onboarding_birth_title"
         case .height: "onboarding_height_title"
         case .weight: "onboarding_weight_title"
+        case .energyGoal: "onboarding_energy_goal_title"
         case .experience: "onboarding_experience_title"
         case .units: "onboarding_units_title"
         case .activity: "onboarding_activity_title"

@@ -5,6 +5,10 @@ import Shared
 struct OnboardingAnswers {
     var biologicalSex: BiologicalSex = .female
     var primaryGoal: ProfileGoal = .generalFitness
+    /// Nutrition energy direction (lose / maintain / gain) — separate from training ProfileGoal.
+    var energyGoalKind: String = "MAINTAIN"
+    var energyTargetWeightKg: Double?
+    var energyRatePercent: Double = 0.5
     var strengthLevel: StrengthLevel = .beginner
     var activityLevel: ActivityLevel = .moderate
     var preferredUnits: UnitSystem = .metric

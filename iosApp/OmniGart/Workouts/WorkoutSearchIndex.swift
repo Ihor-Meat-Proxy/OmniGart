@@ -20,6 +20,7 @@ struct WorkoutSearchHit: Identifiable {
         case pilates
     }
 
+    @MainActor
     @ViewBuilder
     func destination(core: OmniGartCore, profileId: String) -> some View {
         switch kind {

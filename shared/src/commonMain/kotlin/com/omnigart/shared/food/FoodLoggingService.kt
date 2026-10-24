@@ -162,6 +162,14 @@ class FoodLoggingService(
     fun entriesForDay(profileId: String, dayStart: Instant, dayEnd: Instant): List<FoodLogEntry> =
         store.entriesForRange(profileId, dayStart, dayEnd)
 
+    /** Swift-friendly overload (epoch millis; avoids Instant bridging). */
+    fun entriesForDayEpoch(profileId: String, dayStartEpochMs: Long, dayEndEpochMs: Long): List<FoodLogEntry> =
+        entriesForDay(
+            profileId,
+            Instant.fromEpochMilliseconds(dayStartEpochMs),
+            Instant.fromEpochMilliseconds(dayEndEpochMs)
+        )
+
     fun totalsForDay(profileId: String, dayStart: Instant, dayEnd: Instant): FoodLogDayTotals =
         FoodDiaryOps.dayTotals(entriesForDay(profileId, dayStart, dayEnd))
 

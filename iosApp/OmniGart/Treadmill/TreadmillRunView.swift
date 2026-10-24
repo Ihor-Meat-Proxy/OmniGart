@@ -69,7 +69,7 @@ struct TreadmillRunView: View {
             if let hrAlertMessage {
                 Text(LocalizedStringKey(hrAlertMessage))
                     .font(.callout)
-                    .foregroundStyle(Color.OmniGart.colorAccent)
+                    .foregroundStyle(Color.OmniGart.colorBrandAccent)
             }
         }
     }

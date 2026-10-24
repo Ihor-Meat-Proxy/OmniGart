@@ -49,7 +49,6 @@ extension WorkoutPdfDrawing {
         document: WorkoutPdfDocument
     ) -> CGFloat {
         guard let heartRate else { return startY }
-        let body = sectionFonts(document: document).body
         var cursorY = startY + 8
         cursorY = drawHeartRateChart(
             heartRate,

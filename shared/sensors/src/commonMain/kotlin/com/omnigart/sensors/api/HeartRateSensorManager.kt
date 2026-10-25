@@ -1,6 +1,7 @@
 package com.omnigart.sensors.api
 
 import com.omnigart.sensors.model.AccSample
+import com.omnigart.sensors.model.BleHrResult
 import com.omnigart.sensors.model.EcgSample
 import com.omnigart.sensors.model.HeartRateMeasurement
 import com.omnigart.sensors.model.OfflineRecordingEntry
@@ -16,6 +17,9 @@ import kotlinx.coroutines.flow.StateFlow
  * Android (`android/sensors`) and iOS (`ios/Packages/OmniGartSensors`) provide
  * implementations. Standard BLE Heart Rate Profile devices and Polar devices both
  * surface through this API; Polar-only capabilities hang off [PolarSensorFeatures].
+ *
+ * Scan / connect return [BleHrResult] for expected BLE failures (permissions off,
+ * adapter off, device lost, GATT errors) instead of throwing.
  */
 interface HeartRateSensorManager {
     val sessionState: StateFlow<SensorSessionState>
@@ -24,10 +28,10 @@ interface HeartRateSensorManager {
     val rememberedDevices: StateFlow<List<SensorDevice>>
 
     /** Scan filtered to Heart Rate Service (0x180D) and known Polar advertisements. */
-    suspend fun startScan()
+    suspend fun startScan(): BleHrResult
     suspend fun stopScan()
 
-    suspend fun connect(deviceId: String)
+    suspend fun connect(deviceId: String): BleHrResult
     suspend fun disconnect()
 
     /** Persist pairing preference for auto-reconnect. */

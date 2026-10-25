@@ -69,8 +69,12 @@ class MainActivity : ComponentActivity() {
     override fun onDestroy() {
         launchListener.stop()
         transfer.stop()
+        recorder.destroy()
         super.onDestroy()
     }
+
+    /** Test hook: assert lifecycle cancel after [onDestroy]. */
+    internal fun recorderForTest(): WearExerciseRecorder = recorder
 }
 
 @Composable

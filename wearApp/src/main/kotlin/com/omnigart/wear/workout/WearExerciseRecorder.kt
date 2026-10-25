@@ -25,7 +25,10 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 
@@ -59,9 +62,10 @@ class WearExerciseRecorder(
     private val core: OmniGartCore,
     private val transfer: WearPhoneWorkoutTransfer,
     private val exerciseClient: ExerciseClient =
-        HealthServices.getClient(context.applicationContext).exerciseClient
+        HealthServices.getClient(context.applicationContext).exerciseClient,
+    private val lifecycleJob: Job = SupervisorJob()
 ) {
-    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+    private val scope = CoroutineScope(lifecycleJob + Dispatchers.Main.immediate)
     private val directExecutor = Executor { it.run() }
     private val running = AtomicBoolean(false)
     private val paused = AtomicBoolean(false)
@@ -147,6 +151,18 @@ class WearExerciseRecorder(
     fun activeEnergyKcal(): Double = activeEnergyKcal.get()
 
     fun uiEpoch(): Int = uiEpoch.get()
+
+    /** True while [destroy] has not cancelled the recorder coroutine scope. */
+    fun isLifecycleActive(): Boolean = lifecycleJob.isActive
+
+    /**
+     * Cancel outstanding Health Services work. Call from the host Activity
+     * [android.app.Activity.onDestroy] (or equivalent stop) so the supervisor
+     * scope cannot leak after the UI is gone.
+     */
+    fun destroy() {
+        scope.cancel()
+    }
 
     fun setCurrentExercise(name: String, key: String = name.lowercase().replace(' ', '-')) {
         currentExerciseName.set(name)

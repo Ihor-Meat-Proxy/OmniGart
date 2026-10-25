@@ -32,6 +32,8 @@ import com.omnigart.shared.health.store.LocalHealthStore
 import com.omnigart.shared.health.store.SqlDelightLocalHealthStore
 import com.omnigart.shared.health.store.export.HealthExportService
 import com.omnigart.shared.logging.StrengthLoggingService
+import com.omnigart.shared.planner.PlannedWorkoutRepository
+import com.omnigart.shared.planner.PlannerService
 import com.omnigart.shared.strength.EquipmentProfileService
 import com.omnigart.shared.strength.RoutineLibraryService
 import com.omnigart.shared.strength.StrengthProgramService
@@ -117,6 +119,13 @@ class OmniGartCore private constructor(database: OmniGartDatabase, contentStore:
     val healthSync: HealthSyncEngine = HealthSyncEngine(localHealthStore)
     val healthExport: HealthExportService = HealthExportService(localHealthStore)
     val localHealth: LocalHealthBridge = LocalHealthBridge(localHealthStore, healthSync, healthExport)
+
+    /** App-local planner (calendar, suggested scheme, adaptive suggestions). Never mutates Health. */
+    val planner: PlannerService =
+        PlannerService(
+            planned = PlannedWorkoutRepository(database),
+            localHealth = localHealthStore
+        )
 
     /** True when a completed local profile exists (first-launch onboarding finished). */
     fun needsOnboarding(): Boolean {

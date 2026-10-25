@@ -113,7 +113,7 @@
     <string name="recovery_intro">Wellness recovery estimates from your profile and recent inputs. Not medical advice.</string>
     <string name="recovery_estimates_title">Today’s estimates</string>
     <string name="recovery_empty">Complete your profile to see wellness estimates.</string>
-    <string name="planner_intro">Plan workouts on-device and optionally schedule a Zone 2 run into Workout.</string>
+    <string name="planner_intro">Plan workouts on-device: calendar, weekly scheme, and adaptive suggestions. Health data is never deleted.</string>
     <string name="planner_planned_title">Planned workouts</string>
     <string name="planner_empty">No planned workouts yet.</string>
     <string name="planner_seed_demo">Add Zone 2 plan</string>
@@ -958,4 +958,33 @@
     <string name="workout_cat_empty_title">No sessions yet</string>
     <string name="workout_cat_swimming_intro">Start a pool or open-water swim on your watch when linked. Saved sessions show in history below — no sample data.</string>
     <string name="workout_cat_search_results_title">Matching workouts</string>
+    <string name="planner_add_session">Add planned session</string>
+    <string name="planner_calendar_month">Month</string>
+    <string name="planner_calendar_week">This week</string>
+    <string name="planner_completed_marker">Completed workouts from local or imported Health data appear as filled markers.</string>
+    <string name="planner_delete">Delete</string>
+    <string name="planner_kind_functional">Functional</string>
+    <string name="planner_kind_rest">Rest</string>
+    <string name="planner_kind_run">Run</string>
+    <string name="planner_kind_treadmill">Treadmill</string>
+    <string name="planner_kind_zone2">Zone 2 easy</string>
+    <string name="planner_move_tomorrow">Move to tomorrow</string>
+    <string name="planner_scheme_generate">Generate week from goals</string>
+    <string name="planner_scheme_replace_hint">Builds guided strength, free strength, functional, runs, treadmill and Zone 2 days from your goals and equipment. Edits stay on-device.</string>
+    <string name="planner_scheme_title">Suggested weekly scheme</string>
+    <string name="planner_selected_day">Selected day</string>
+    <string name="planner_suggest_accept">Accept</string>
+    <string name="planner_suggest_action_move">Suggested move to a later day</string>
+    <string name="planner_suggest_action_skip">Suggested skip for recovery</string>
+    <string name="planner_suggest_action_swap">Suggested swap to easy Zone 2 or rest</string>
+    <string name="planner_suggest_dismiss">Dismiss</string>
+    <string name="planner_suggest_reason_back_to_back">Yesterday was hard — today’s hard plan could become easy Zone 2.</string>
+    <string name="planner_suggest_reason_load_elevated">Recent training load looks elevated versus your usual week.</string>
+    <string name="planner_suggest_reason_muscle_recovery">A recent session still overlaps these muscle groups — consider moving.</string>
+    <string name="planner_suggest_reason_readiness_low">Readiness is softer today — swap a hard session for easy Zone 2.</string>
+    <string name="planner_suggest_reason_readiness_rest">Readiness looks low — consider a rest day for recovery.</string>
+    <string name="planner_suggest_reason_recovery_signals">HRV, resting heart rate or sleep suggest an easier day.</string>
+    <string name="planner_suggestions_title">Adaptive suggestions</string>
+    <string name="planner_wellness_note">Suggestions are wellness guides only, not medical advice. Plans stay in the app.</string>
 </resources>
+

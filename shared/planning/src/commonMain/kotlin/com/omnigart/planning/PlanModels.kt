@@ -6,14 +6,16 @@ import com.omnigart.content.Muscle
 import com.omnigart.content.TrainingGoal
 import com.omnigart.filter.EquipmentProfile
 
-enum class BiologicalSex { FEMALE, MALE, UNSPECIFIED }
+/** Prefixed to avoid Shared.framework clash with domain BiologicalSex. */
+enum class PlanBiologicalSex { FEMALE, MALE, UNSPECIFIED }
 
-enum class ReadinessBand { VERY_LOW, LOW, NORMAL, HIGH }
+/** Prefixed to avoid Shared.framework clash with calc ReadinessBand. */
+enum class PlanReadinessBand { VERY_LOW, LOW, NORMAL, HIGH }
 
 data class DisciplineLevel(val discipline: Discipline, val level: Level)
 
 data class UserTrainingProfile(
-    val sex: BiologicalSex = BiologicalSex.UNSPECIFIED,
+    val sex: PlanBiologicalSex = PlanBiologicalSex.UNSPECIFIED,
     val ageYears: Int,
     val heightCm: Double? = null,
     val bodyMassKg: Double? = null,
@@ -25,7 +27,7 @@ data class UserTrainingProfile(
     val injuries: Set<String> = emptySet(),
     val hrZonesConfigured: Boolean = false,
     val recentWeeklyHardSets: Map<Muscle, Int> = emptyMap(),
-    val readiness: ReadinessBand = ReadinessBand.NORMAL,
+    val readiness: PlanReadinessBand = PlanReadinessBand.NORMAL,
     val hardWeeksSinceDeload: Int = 0
 )
 

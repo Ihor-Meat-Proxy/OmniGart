@@ -1,0 +1,19 @@
+CREATE TABLE planned_workout (
+  id TEXT NOT NULL PRIMARY KEY,
+  profile_id TEXT NOT NULL,
+  scheduled_date TEXT NOT NULL,
+  title_key TEXT NOT NULL,
+  session_kind TEXT NOT NULL,
+  intensity TEXT NOT NULL DEFAULT 'MODERATE',
+  muscle_groups TEXT NOT NULL DEFAULT '',
+  notes TEXT,
+  source TEXT NOT NULL DEFAULT 'USER',
+  updated_at TEXT NOT NULL
+);
+
+CREATE TABLE planner_suggestion_decision (
+  id TEXT NOT NULL PRIMARY KEY,
+  suggestion_id TEXT NOT NULL,
+  decision TEXT NOT NULL,
+  decided_at TEXT NOT NULL
+);

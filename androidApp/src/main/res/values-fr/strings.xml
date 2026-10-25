@@ -113,7 +113,7 @@
     <string name="recovery_intro">Estimations de récupération bien-être à partir de votre profil et des entrées récentes. Pas un avis médical.</string>
     <string name="recovery_estimates_title">Estimations du jour</string>
     <string name="recovery_empty">Complétez votre profil pour voir les estimations de bien-être.</string>
-    <string name="planner_intro">Planifiez des séances sur l’appareil et, en option, une course zone 2 dans Workout.</string>
+    <string name="planner_intro">Planifiez des séances sur l’appareil : calendrier, schéma hebdomadaire et suggestions adaptatives. Les données Health ne sont jamais effacées.</string>
     <string name="planner_planned_title">Séances planifiées</string>
     <string name="planner_empty">Aucune séance planifiée pour l’instant.</string>
     <string name="planner_seed_demo">Ajouter un plan zone 2</string>
@@ -958,4 +958,33 @@
     <string name="workout_cat_empty_title">Pas encore de séances</string>
     <string name="workout_cat_swimming_intro">Démarrez une nage piscine ou eau libre sur la montre si elle est liée. Les séances enregistrées apparaissent ci-dessous — pas de données fictives.</string>
     <string name="workout_cat_search_results_title">Séances correspondantes</string>
+    <string name="planner_add_session">Ajouter une séance planifiée</string>
+    <string name="planner_calendar_month">Mois</string>
+    <string name="planner_calendar_week">Cette semaine</string>
+    <string name="planner_completed_marker">Les séances terminées issues des données Health locales ou importées apparaissent en marqueurs pleins.</string>
+    <string name="planner_delete">Supprimer</string>
+    <string name="planner_kind_functional">Fonctionnel</string>
+    <string name="planner_kind_rest">Repos</string>
+    <string name="planner_kind_run">Course</string>
+    <string name="planner_kind_treadmill">Tapis de course</string>
+    <string name="planner_kind_zone2">Zone 2 facile</string>
+    <string name="planner_move_tomorrow">Décaler à demain</string>
+    <string name="planner_scheme_generate">Générer la semaine depuis les objectifs</string>
+    <string name="planner_scheme_replace_hint">Crée force guidée, libre et fonctionnelle, courses, tapis et Zone 2 selon objectifs et matériel. Les modifs restent sur l’appareil.</string>
+    <string name="planner_scheme_title">Schéma hebdomadaire suggéré</string>
+    <string name="planner_selected_day">Jour sélectionné</string>
+    <string name="planner_suggest_accept">Accepter</string>
+    <string name="planner_suggest_action_move">Décalage suggéré vers un jour plus tard</string>
+    <string name="planner_suggest_action_skip">Saut suggéré pour la récupération</string>
+    <string name="planner_suggest_action_swap">Échange suggéré vers Zone 2 facile ou repos</string>
+    <string name="planner_suggest_dismiss">Ignorer</string>
+    <string name="planner_suggest_reason_back_to_back">Hier était dur — le plan dur d’aujourd’hui pourrait devenir une Zone 2 facile.</string>
+    <string name="planner_suggest_reason_load_elevated">La charge récente paraît élevée par rapport à votre semaine habituelle.</string>
+    <string name="planner_suggest_reason_muscle_recovery">Une séance récente chevauche encore ces groupes musculaires — envisagez de décaler.</string>
+    <string name="planner_suggest_reason_readiness_low">La disposition est plus douce aujourd’hui — remplacez une séance dure par une Zone 2 facile.</string>
+    <string name="planner_suggest_reason_readiness_rest">La disposition semble basse — envisagez un jour de repos.</string>
+    <string name="planner_suggest_reason_recovery_signals">HRV, FC de repos ou sommeil suggèrent une journée plus facile.</string>
+    <string name="planner_suggestions_title">Suggestions adaptatives</string>
+    <string name="planner_wellness_note">Les suggestions sont des guides bien-être, pas un avis médical. Les plans restent dans l’app.</string>
 </resources>
+

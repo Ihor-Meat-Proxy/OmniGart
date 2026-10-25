@@ -401,17 +401,17 @@ t(
 t(
     "planner_intro",
     **{
-        "en-GB": "Plan workouts on-device and optionally schedule a Zone 2 run into Workout.",
-        "uk": "Плануйте тренування на пристрої та за бажанням додайте біг у зоні 2 до Workout.",
-        "pl": "Planuj treningi na urządzeniu i opcjonalnie zaplanuj bieg w strefie 2 w Workout.",
-        "be": "Плануйце трэніроўкі на прыладзе і пры жаданні дадайце бег у зоне 2 у Workout.",
-        "kk": "Құрылғыда жаттығуларды жоспарлаңыз және қаласаңыз 2-аймақ жүгіруін Workout-қа қосыңыз.",
-        "ka": "დაგეგმეთ ვარჯიშები მოწყობილობაზე და სურვილისამებრ დაამატეთ ზონა 2 სირბილი Workout-ში.",
-        "es": "Planifica entrenamientos en el dispositivo y, si quieres, programa una carrera zona 2 en Workout.",
-        "fr": "Planifiez des séances sur l’appareil et, en option, une course zone 2 dans Workout.",
-        "de": "Planen Sie Workouts auf dem Gerät und optional einen Zone-2-Lauf in Workout.",
-        "cs": "Plánujte tréninky na zařízení a volitelně naplánujte běh v zóně 2 do Workout.",
-        "zh-Hans": "在设备上规划训练，并可选择将二区跑安排到 Workout。",
+        "en-GB": "Plan workouts on-device: calendar, weekly scheme, and adaptive suggestions. Health data is never deleted.",
+        "uk": "Плануйте тренування на пристрої: календар, тижнева схема та адаптивні підказки. Дані Health ніколи не видаляються.",
+        "pl": "Planuj treningi na urządzeniu: kalendarz, tygodniowy schemat i adaptacyjne podpowiedzi. Dane Health nigdy nie są usuwane.",
+        "be": "Плануйце трэніроўкі на прыладзе: каляндар, тыднёвая схема і адаптыўныя падказкі. Даныя Health ніколі не выдаляюцца.",
+        "kk": "Жаттығуларды құрылғыда жоспарлаңыз: күнтізбе, апталық схема және бейімделгіш ұсыныстар. Health деректері ешқашан жойылмайды.",
+        "ka": "დაგეგმეთ ვარჯიშები მოწყობილობაზე: კალენდარი, ყოველკვირეული სქემა და ადაპტური რჩევები. Health მონაცემები არასდროს იშლება.",
+        "es": "Planifica entrenamientos en el dispositivo: calendario, esquema semanal y sugerencias adaptativas. Los datos de Health nunca se borran.",
+        "fr": "Planifiez des séances sur l’appareil : calendrier, schéma hebdomadaire et suggestions adaptatives. Les données Health ne sont jamais effacées.",
+        "de": "Workouts auf dem Gerät planen: Kalender, Wochenschema und adaptive Vorschläge. Health-Daten werden nie gelöscht.",
+        "cs": "Plánujte tréninky na zařízení: kalendář, týdenní schéma a adaptivní tipy. Data Health se nikdy nemažou.",
+        "zh-Hans": "在设备上规划训练：日历、每周方案与自适应建议。永不删除 Health 数据。",
     },
 )
 t(
@@ -2111,6 +2111,458 @@ def main() -> None:
         xc_path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Synced {len(STRINGS)} tab keys × {len(LOCALES)} locales")
 
+
+# --- Planner tab ---
+
+t(
+    "planner_add_session",
+    **{
+        "en-GB": "Add planned session",
+        "uk": "Додати заплановану сесію",
+        "pl": "Dodaj zaplanowaną sesję",
+        "be": "Дадаць запланаваную сесію",
+        "kk": "Жоспарланған сессия қосу",
+        "ka": "დაგეგმილი სესიის დამატება",
+        "es": "Añadir sesión planificada",
+        "fr": "Ajouter une séance planifiée",
+        "de": "Geplante Einheit hinzufügen",
+        "cs": "Přidat naplánovanou jednotku",
+        "zh-Hans": "添加计划课程",
+    },
+)
+t(
+    "planner_calendar_month",
+    **{
+        "en-GB": "Month",
+        "uk": "Місяць",
+        "pl": "Miesiąc",
+        "be": "Месяц",
+        "kk": "Ай",
+        "ka": "თვე",
+        "es": "Mes",
+        "fr": "Mois",
+        "de": "Monat",
+        "cs": "Měsíc",
+        "zh-Hans": "月",
+    },
+)
+t(
+    "planner_calendar_week",
+    **{
+        "en-GB": "This week",
+        "uk": "Цей тиждень",
+        "pl": "Ten tydzień",
+        "be": "Гэты тыдзень",
+        "kk": "Осы апта",
+        "ka": "ეს კვირა",
+        "es": "Esta semana",
+        "fr": "Cette semaine",
+        "de": "Diese Woche",
+        "cs": "Tento týden",
+        "zh-Hans": "本周",
+    },
+)
+t(
+    "planner_completed_marker",
+    **{
+        "en-GB": "Completed workouts from local or imported Health data appear as filled markers.",
+        "uk": "Завершені тренування з локальних або імпортованих даних Health — заповнені позначки.",
+        "pl": "Ukończone treningi z lokalnych lub zaimportowanych danych Health to wypełnione znaczniki.",
+        "be": "Завершаныя трэніроўкі з лакальных або імпартаваных даных Health — запоўненыя пазнакі.",
+        "kk": "Жергілікті немесе импортталған Health деректерінен аяқталған жаттығулар — толық белгілер.",
+        "ka": "ადგილობრივი ან იმპორტირებული Health მონაცემების დასრულებული ვარჯიშები — შევსებული ნიშნები.",
+        "es": "Los entrenamientos completados de datos Health locales o importados aparecen como marcadores rellenos.",
+        "fr": "Les séances terminées issues des données Health locales ou importées apparaissent en marqueurs pleins.",
+        "de": "Abgeschlossene Workouts aus lokalen oder importierten Health-Daten erscheinen als gefüllte Marker.",
+        "cs": "Dokončené tréninky z místních nebo importovaných dat Health se ukazují jako plné značky.",
+        "zh-Hans": "来自本地或已导入 Health 数据的已完成训练显示为实心标记。",
+    },
+)
+t(
+    "planner_delete",
+    **{
+        "en-GB": "Delete",
+        "uk": "Видалити",
+        "pl": "Usuń",
+        "be": "Выдаліць",
+        "kk": "Жою",
+        "ka": "წაშლა",
+        "es": "Eliminar",
+        "fr": "Supprimer",
+        "de": "Löschen",
+        "cs": "Smazat",
+        "zh-Hans": "删除",
+    },
+)
+t(
+    "planner_kind_functional",
+    **{
+        # Align with PR #84 watch.workout.strength_functional label.
+        "en-GB": "Functional",
+        "uk": "Функціональна",
+        "pl": "Funkcjonalna",
+        "be": "Функцыянальная",
+        "kk": "Функционалдық",
+        "ka": "ფუნქციური",
+        "es": "Funcional",
+        "fr": "Fonctionnel",
+        "de": "Functional",
+        "cs": "Funkční",
+        "zh-Hans": "功能性",
+    },
+)
+t(
+    "planner_kind_rest",
+    **{
+        "en-GB": "Rest",
+        "uk": "Відпочинок",
+        "pl": "Odpoczynek",
+        "be": "Адпачынак",
+        "kk": "Демалыс",
+        "ka": "დასვენება",
+        "es": "Descanso",
+        "fr": "Repos",
+        "de": "Ruhe",
+        "cs": "Odpočinek",
+        "zh-Hans": "休息",
+    },
+)
+t(
+    "planner_kind_run",
+    **{
+        "en-GB": "Run",
+        "uk": "Біг",
+        "pl": "Bieg",
+        "be": "Бег",
+        "kk": "Жүгіру",
+        "ka": "სირბილი",
+        "es": "Carrera",
+        "fr": "Course",
+        "de": "Lauf",
+        "cs": "Běh",
+        "zh-Hans": "跑步",
+    },
+)
+t(
+    "planner_kind_treadmill",
+    **{
+        "en-GB": "Treadmill",
+        "uk": "Бігова доріжка",
+        "pl": "Bieżnia",
+        "be": "Бяговая дарожка",
+        "kk": "Жүгіру жолы",
+        "ka": "სარბენი ბილიკი",
+        "es": "Cinta",
+        "fr": "Tapis de course",
+        "de": "Laufband",
+        "cs": "Běžecký pás",
+        "zh-Hans": "跑步机",
+    },
+)
+t(
+    "planner_kind_zone2",
+    **{
+        "en-GB": "Zone 2 easy",
+        "uk": "Zone 2 легкий",
+        "pl": "Zone 2 łatwy",
+        "be": "Zone 2 лёгкі",
+        "kk": "Zone 2 жеңіл",
+        "ka": "Zone 2 მსუბუქი",
+        "es": "Zone 2 fácil",
+        "fr": "Zone 2 facile",
+        "de": "Zone 2 easy",
+        "cs": "Zone 2 lehký",
+        "zh-Hans": "二区轻松",
+    },
+)
+t(
+    "planner_move_tomorrow",
+    **{
+        "en-GB": "Move to tomorrow",
+        "uk": "Перенести на завтра",
+        "pl": "Przenieś na jutro",
+        "be": "Перанесці на заўтра",
+        "kk": "Ертеңге жылжыту",
+        "ka": "ხვალზე გადატანა",
+        "es": "Mover a mañana",
+        "fr": "Décaler à demain",
+        "de": "Auf morgen verschieben",
+        "cs": "Přesunout na zítra",
+        "zh-Hans": "改到明天",
+    },
+)
+t(
+    "planner_scheme_generate",
+    **{
+        "en-GB": "Generate week from goals",
+        "uk": "Згенерувати тиждень з цілей",
+        "pl": "Wygeneruj tydzień z celów",
+        "be": "Згенераваць тыдзень з мэтаў",
+        "kk": "Мақсаттардан апта жасау",
+        "ka": "კვირის გენერაცია მიზნებიდან",
+        "es": "Generar semana desde objetivos",
+        "fr": "Générer la semaine depuis les objectifs",
+        "de": "Woche aus Zielen erzeugen",
+        "cs": "Vygenerovat týden z cílů",
+        "zh-Hans": "根据目标生成一周",
+    },
+)
+t(
+    "planner_scheme_replace_hint",
+    **{
+        "en-GB": "Builds guided strength, free strength, functional, runs, treadmill and Zone 2 days from your goals and equipment. Edits stay on-device.",
+        "uk": "Будує силові (за планом / вільні / функціональні), біг, бігову доріжку та Zone 2 з ваших цілей і обладнання. Зміни лишаються на пристрої.",
+        "pl": "Buduje siłę z planem, wolną i funkcjonalną, biegi, bieżnię i Zone 2 z celów i sprzętu. Edycje zostają na urządzeniu.",
+        "be": "Будзе сілу па плане, вольную і функцыянальную, бег, бяговую дарожку і Zone 2 з мэтаў і абсталявання. Змены застаюцца на прыладзе.",
+        "kk": "Мақсаттар мен жабдықтан жоспарлы/еркін/функционалдық күш, жүгіру, жүгіру жолы және Zone 2 жасайды. Өңдеулер құрылғыда қалады.",
+        "ka": "მიზნებისა და აღჭურვილობიდან აგებს გეგმიურ/თავისუფალ/ფუნქციურ ძალას, სირბილს, სარბენს და Zone 2-ს. ცვლილებები მოწყობილობაზე რჩება.",
+        "es": "Crea fuerza guiada, libre y funcional, carreras, cinta y Zone 2 según objetivos y equipo. Los cambios quedan en el dispositivo.",
+        "fr": "Crée force guidée, libre et fonctionnelle, courses, tapis et Zone 2 selon objectifs et matériel. Les modifs restent sur l’appareil.",
+        "de": "Erstellt geführte, freie und Functional-Kraft, Läufe, Laufband und Zone 2 aus Zielen und Equipment. Änderungen bleiben auf dem Gerät.",
+        "cs": "Sestaví řízenou, volnou a funkční sílu, běhy, pás a Zone 2 z cílů a vybavení. Úpravy zůstanou v zařízení.",
+        "zh-Hans": "根据目标与器械生成引导力量、自由力量、功能性、跑步、跑步机与二区日。编辑仅留在设备上。",
+    },
+)
+t(
+    "planner_scheme_title",
+    **{
+        "en-GB": "Suggested weekly scheme",
+        "uk": "Запропонована тижнева схема",
+        "pl": "Sugerowany schemat tygodnia",
+        "be": "Прапанаваная тыднёвая схема",
+        "kk": "Ұсынылған апталық схема",
+        "ka": "შემოთავაზებული ყოველკვირეული სქემა",
+        "es": "Esquema semanal sugerido",
+        "fr": "Schéma hebdomadaire suggéré",
+        "de": "Vorgeschlagenes Wochenschema",
+        "cs": "Navržené týdenní schéma",
+        "zh-Hans": "建议的每周方案",
+    },
+)
+t(
+    "planner_selected_day",
+    **{
+        "en-GB": "Selected day",
+        "uk": "Обраний день",
+        "pl": "Wybrany dzień",
+        "be": "Абраны дзень",
+        "kk": "Таңдалған күн",
+        "ka": "არჩეული დღე",
+        "es": "Día seleccionado",
+        "fr": "Jour sélectionné",
+        "de": "Ausgewählter Tag",
+        "cs": "Vybraný den",
+        "zh-Hans": "所选日期",
+    },
+)
+t(
+    "planner_suggest_accept",
+    **{
+        "en-GB": "Accept",
+        "uk": "Прийняти",
+        "pl": "Zaakceptuj",
+        "be": "Прыняць",
+        "kk": "Қабылдау",
+        "ka": "მიღება",
+        "es": "Aceptar",
+        "fr": "Accepter",
+        "de": "Annehmen",
+        "cs": "Přijmout",
+        "zh-Hans": "接受",
+    },
+)
+t(
+    "planner_suggest_action_move",
+    **{
+        "en-GB": "Suggested move to a later day",
+        "uk": "Пропонуємо перенести на пізніший день",
+        "pl": "Sugerowane przeniesienie na późniejszy dzień",
+        "be": "Прапануем перанесці на пазнейшы дзень",
+        "kk": "Кейінірек күнге жылжыту ұсынылады",
+        "ka": "შემოთავაზებულია უფრო გვიან დღეზე გადატანა",
+        "es": "Mover sugerido a un día posterior",
+        "fr": "Décalage suggéré vers un jour plus tard",
+        "de": "Vorgeschlagenes Verschieben auf einen späteren Tag",
+        "cs": "Navrhovaný přesun na pozdější den",
+        "zh-Hans": "建议改到更晚的一天",
+    },
+)
+t(
+    "planner_suggest_action_skip",
+    **{
+        "en-GB": "Suggested skip for recovery",
+        "uk": "Пропонуємо пропустити для відновлення",
+        "pl": "Sugerowane pominięcie dla regeneracji",
+        "be": "Прапануем прапусціць для аднаўлення",
+        "kk": "Қалпына келу үшін өткізіп жіберу ұсынылады",
+        "ka": "შემოთავაზებულია გამოტოვება აღდგენისთვის",
+        "es": "Omitir sugerido para recuperación",
+        "fr": "Saut suggéré pour la récupération",
+        "de": "Vorgeschlagenes Auslassen zur Erholung",
+        "cs": "Navrhované vynechání pro regeneraci",
+        "zh-Hans": "建议跳过以利恢复",
+    },
+)
+t(
+    "planner_suggest_action_swap",
+    **{
+        "en-GB": "Suggested swap to easy Zone 2 or rest",
+        "uk": "Пропонуємо замінити на легкий Zone 2 або відпочинок",
+        "pl": "Sugerowana zamiana na łatwy Zone 2 lub odpoczynek",
+        "be": "Прапануем замяніць на лёгкі Zone 2 або адпачынак",
+        "kk": "Жеңіл Zone 2 немесе демалысқа ауыстыру ұсынылады",
+        "ka": "შემოთავაზებულია მსუბუქი Zone 2 ან დასვენება",
+        "es": "Cambio sugerido a Zone 2 fácil o descanso",
+        "fr": "Échange suggéré vers Zone 2 facile ou repos",
+        "de": "Vorgeschlagener Tausch zu easy Zone 2 oder Ruhe",
+        "cs": "Navrhovaná výměna za lehký Zone 2 nebo odpočinek",
+        "zh-Hans": "建议换成轻松二区或休息",
+    },
+)
+t(
+    "planner_suggest_dismiss",
+    **{
+        "en-GB": "Dismiss",
+        "uk": "Відхилити",
+        "pl": "Odrzuć",
+        "be": "Адхіліць",
+        "kk": "Жабу",
+        "ka": "უარყოფა",
+        "es": "Descartar",
+        "fr": "Ignorer",
+        "de": "Verwerfen",
+        "cs": "Zavřít",
+        "zh-Hans": "忽略",
+    },
+)
+t(
+    "planner_suggest_reason_back_to_back",
+    **{
+        "en-GB": "Yesterday was hard — today’s hard plan could become easy Zone 2.",
+        "uk": "Учора було важко — сьогоднішній важкий план можна зробити легким Zone 2.",
+        "pl": "Wczoraj było ciężko — dzisiejszy ciężki plan może stać się łatwym Zone 2.",
+        "be": "Учора было цяжка — сённяшні цяжкі план можна зрабіць лёгкім Zone 2.",
+        "kk": "Кеше ауыр болды — бүгінгі ауыр жоспарды жеңіл Zone 2 ету алады.",
+        "ka": "გუშინ მძიმე იყო — დღევანდელი მძიმე გეგმა შეიძლება მსუბუქ Zone 2 გახდეს.",
+        "es": "Ayer fue duro — el plan duro de hoy podría pasar a Zone 2 fácil.",
+        "fr": "Hier était dur — le plan dur d’aujourd’hui pourrait devenir une Zone 2 facile.",
+        "de": "Gestern war hart — der heutige harte Plan könnte easy Zone 2 werden.",
+        "cs": "Včera bylo těžké — dnešní těžký plán by mohl být lehký Zone 2.",
+        "zh-Hans": "昨天偏硬——今天的硬课可改为轻松二区。",
+    },
+)
+t(
+    "planner_suggest_reason_load_elevated",
+    **{
+        "en-GB": "Recent training load looks elevated versus your usual week.",
+        "uk": "Нещодавнє навантаження виглядає підвищеним проти звичного тижня.",
+        "pl": "Ostatnie obciążenie wygląda podwyższone względem zwykłego tygodnia.",
+        "be": "Нядаўняе нагружанне выглядае павышаным супраць звыклага тыдня.",
+        "kk": "Соңғы жүктеме әдеттегі аптамен салыстырғанда жоғары көрінеді.",
+        "ka": "ბოლო დატვირთვა ჩვეულ კვირასთან შედარებით მომატებულია.",
+        "es": "La carga reciente parece elevada frente a tu semana habitual.",
+        "fr": "La charge récente paraît élevée par rapport à votre semaine habituelle.",
+        "de": "Die jüngste Trainingslast wirkt gegenüber Ihrer üblichen Woche erhöht.",
+        "cs": "Nedávné zatížení vypadá vyšší než váš obvyklý týden.",
+        "zh-Hans": "近期训练负荷相对平时偏高。",
+    },
+)
+t(
+    "planner_suggest_reason_muscle_recovery",
+    **{
+        "en-GB": "A recent session still overlaps these muscle groups — consider moving.",
+        "uk": "Нещодавня сесія ще перекриває ці групи м’язів — варто перенести.",
+        "pl": "Niedawna sesja nadal obejmuje te grupy mięśni — rozważ przesunięcie.",
+        "be": "Нядаўняя сесія яшчэ перакрывае гэтыя групы мышцаў — варта перанесці.",
+        "kk": "Жақындағы сессия әлі осы бұлшықет топтарын қамтиды — жылжытуды қарастырыңыз.",
+        "ka": "ბოლო სესია ჯერ კიდევ ფარავს ამ კუნთების ჯგუფებს — განიხილეთ გადატანა.",
+        "es": "Una sesión reciente aún solapa estos grupos musculares — valora moverla.",
+        "fr": "Une séance récente chevauche encore ces groupes musculaires — envisagez de décaler.",
+        "de": "Eine kürzliche Einheit überschneidet diese Muskelgruppen noch — Verschieben erwägen.",
+        "cs": "Nedávná jednotka stále překrývá tyto svalové skupiny — zvažte přesun.",
+        "zh-Hans": "近期训练仍涉及这些肌群——可考虑改期。",
+    },
+)
+t(
+    "planner_suggest_reason_readiness_low",
+    **{
+        "en-GB": "Readiness is softer today — swap a hard session for easy Zone 2.",
+        "uk": "Готовність сьогодні м’якша — замініть важку сесію на легкий Zone 2.",
+        "pl": "Gotowość jest dziś niższa — zamień ciężką sesję na łatwy Zone 2.",
+        "be": "Гатоўнасць сёння мякчэйшая — заменіце цяжкую сесію на лёгкі Zone 2.",
+        "kk": "Бүгін дайындық жұмсағырақ — ауыр сессияны жеңіл Zone 2-ге ауыстырыңыз.",
+        "ka": "დღეს მზადყოფნა რბილდება — მძიმე სესია შეცვალეთ მსუბუქი Zone 2-ით.",
+        "es": "La disposición es más suave hoy — cambia una sesión dura por Zone 2 fácil.",
+        "fr": "La disposition est plus douce aujourd’hui — remplacez une séance dure par une Zone 2 facile.",
+        "de": "Die Bereitschaft ist heute weicher — tauschen Sie eine harte Einheit gegen easy Zone 2.",
+        "cs": "Připravenost je dnes měkčí — vyměňte těžkou jednotku za lehký Zone 2.",
+        "zh-Hans": "今日准备度偏弱——可将硬课换成轻松二区。",
+    },
+)
+t(
+    "planner_suggest_reason_readiness_rest",
+    **{
+        "en-GB": "Readiness looks low — consider a rest day for recovery.",
+        "uk": "Готовність виглядає низькою — варто розглянути день відпочинку.",
+        "pl": "Gotowość wygląda nisko — rozważ dzień odpoczynku.",
+        "be": "Гатоўнасць выглядае нізкай — варта разгледзець дзень адпачынку.",
+        "kk": "Дайындық төмен көрінеді — демалыс күнін қарастырыңыз.",
+        "ka": "მზადყოფნა დაბალია — განიხილეთ დასვენების დღე.",
+        "es": "La disposición parece baja — valora un día de descanso.",
+        "fr": "La disposition semble basse — envisagez un jour de repos.",
+        "de": "Die Bereitschaft wirkt niedrig — erwägen Sie einen Ruhetag.",
+        "cs": "Připravenost vypadá nízko — zvažte den odpočinku.",
+        "zh-Hans": "准备度偏低——可考虑休息一天以利恢复。",
+    },
+)
+t(
+    "planner_suggest_reason_recovery_signals",
+    **{
+        "en-GB": "HRV, resting heart rate or sleep suggest an easier day.",
+        "uk": "HRV, пульс спокою або сон підказують легший день.",
+        "pl": "HRV, tętno spoczynkowe lub sen sugerują łatwiejszy dzień.",
+        "be": "HRV, пульс спакою або сон падказваюць лягчэйшы дзень.",
+        "kk": "HRV, тыныш жүрек соғысы немесе ұйқы жеңілірек күнді ұсынады.",
+        "ka": "HRV, მოსვენების პულსი ან ძილი უფრო მსუბუქ დღეს გვთავაზობს.",
+        "es": "HRV, FC en reposo o sueño sugieren un día más fácil.",
+        "fr": "HRV, FC de repos ou sommeil suggèrent une journée plus facile.",
+        "de": "HRV, Ruheherzfrequenz oder Schlaf legen einen leichteren Tag nahe.",
+        "cs": "HRV, klidová tepová frekvence nebo spánek naznačují lehčí den.",
+        "zh-Hans": "HRV、静息心率或睡眠提示今天宜轻松一些。",
+    },
+)
+t(
+    "planner_suggestions_title",
+    **{
+        "en-GB": "Adaptive suggestions",
+        "uk": "Адаптивні підказки",
+        "pl": "Adaptacyjne podpowiedzi",
+        "be": "Адаптыўныя падказкі",
+        "kk": "Бейімделгіш ұсыныстар",
+        "ka": "ადაპტური რჩევები",
+        "es": "Sugerencias adaptativas",
+        "fr": "Suggestions adaptatives",
+        "de": "Adaptive Vorschläge",
+        "cs": "Adaptivní tipy",
+        "zh-Hans": "自适应建议",
+    },
+)
+t(
+    "planner_wellness_note",
+    **{
+        "en-GB": "Suggestions are wellness guides only, not medical advice. Plans stay in the app.",
+        "uk": "Підказки — лише wellness-орієнтири, не медична порада. Плани лишаються в застосунку.",
+        "pl": "Podpowiedzi to tylko wskazówki wellness, nie porada medyczna. Plany zostają w aplikacji.",
+        "be": "Падказкі — толькі wellness-арыенціры, не медыцынская парада. Планы застаюцца ў праграме.",
+        "kk": "Ұсыныстар тек сауықтыру бағдары, медициналық кеңес емес. Жоспарлар қолданбада қалады.",
+        "ka": "რჩევები მხოლოდ კეთილდღეობის სახელმძღვანელოა, არა სამედიცინო კონსულტაცია. გეგმები აპში რჩება.",
+        "es": "Las sugerencias son guías de bienestar, no consejo médico. Los planes se quedan en la app.",
+        "fr": "Les suggestions sont des guides bien-être, pas un avis médical. Les plans restent dans l’app.",
+        "de": "Vorschläge sind nur Wellness-Hinweise, keine medizinische Beratung. Pläne bleiben in der App.",
+        "cs": "Tipy jsou jen wellness vodítka, ne lékařská rada. Plány zůstávají v aplikaci.",
+        "zh-Hans": "建议仅为健康参考，不是医疗意见。计划仅保存在应用内。",
+    },
+)
 
 if __name__ == "__main__":
     main()

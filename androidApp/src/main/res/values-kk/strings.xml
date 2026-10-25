@@ -113,7 +113,7 @@
     <string name="recovery_intro">Профиль мен соңғы деректерден сауықтыру қалпына келу бағалаулары. Медициналық кеңес емес.</string>
     <string name="recovery_estimates_title">Бүгінгі бағалаулар</string>
     <string name="recovery_empty">Сауықтыру бағалауларын көру үшін профильді толтырыңыз.</string>
-    <string name="planner_intro">Құрылғыда жаттығуларды жоспарлаңыз және қаласаңыз 2-аймақ жүгіруін Workout-қа қосыңыз.</string>
+    <string name="planner_intro">Жаттығуларды құрылғыда жоспарлаңыз: күнтізбе, апталық схема және бейімделгіш ұсыныстар. Health деректері ешқашан жойылмайды.</string>
     <string name="planner_planned_title">Жоспарланған жаттығулар</string>
     <string name="planner_empty">Әлі жоспарланған жаттығулар жоқ.</string>
     <string name="planner_seed_demo">2-аймақ жоспарын қосу</string>
@@ -958,4 +958,33 @@
     <string name="workout_cat_empty_title">Әзірге сеанс жоқ</string>
     <string name="workout_cat_swimming_intro">Қосылған сағатта бассейнде немесе ашық суда жүзуді бастаңыз. Сақталған сеанстар төмендегі тарихта көрінеді — үлгі дерек жоқ.</string>
     <string name="workout_cat_search_results_title">Сәйкес жаттығулар</string>
+    <string name="planner_add_session">Жоспарланған сессия қосу</string>
+    <string name="planner_calendar_month">Ай</string>
+    <string name="planner_calendar_week">Осы апта</string>
+    <string name="planner_completed_marker">Жергілікті немесе импортталған Health деректерінен аяқталған жаттығулар — толық белгілер.</string>
+    <string name="planner_delete">Жою</string>
+    <string name="planner_kind_functional">Функционалдық</string>
+    <string name="planner_kind_rest">Демалыс</string>
+    <string name="planner_kind_run">Жүгіру</string>
+    <string name="planner_kind_treadmill">Жүгіру жолы</string>
+    <string name="planner_kind_zone2">Zone 2 жеңіл</string>
+    <string name="planner_move_tomorrow">Ертеңге жылжыту</string>
+    <string name="planner_scheme_generate">Мақсаттардан апта жасау</string>
+    <string name="planner_scheme_replace_hint">Мақсаттар мен жабдықтан жоспарлы/еркін/функционалдық күш, жүгіру, жүгіру жолы және Zone 2 жасайды. Өңдеулер құрылғыда қалады.</string>
+    <string name="planner_scheme_title">Ұсынылған апталық схема</string>
+    <string name="planner_selected_day">Таңдалған күн</string>
+    <string name="planner_suggest_accept">Қабылдау</string>
+    <string name="planner_suggest_action_move">Кейінірек күнге жылжыту ұсынылады</string>
+    <string name="planner_suggest_action_skip">Қалпына келу үшін өткізіп жіберу ұсынылады</string>
+    <string name="planner_suggest_action_swap">Жеңіл Zone 2 немесе демалысқа ауыстыру ұсынылады</string>
+    <string name="planner_suggest_dismiss">Жабу</string>
+    <string name="planner_suggest_reason_back_to_back">Кеше ауыр болды — бүгінгі ауыр жоспарды жеңіл Zone 2 ету алады.</string>
+    <string name="planner_suggest_reason_load_elevated">Соңғы жүктеме әдеттегі аптамен салыстырғанда жоғары көрінеді.</string>
+    <string name="planner_suggest_reason_muscle_recovery">Жақындағы сессия әлі осы бұлшықет топтарын қамтиды — жылжытуды қарастырыңыз.</string>
+    <string name="planner_suggest_reason_readiness_low">Бүгін дайындық жұмсағырақ — ауыр сессияны жеңіл Zone 2-ге ауыстырыңыз.</string>
+    <string name="planner_suggest_reason_readiness_rest">Дайындық төмен көрінеді — демалыс күнін қарастырыңыз.</string>
+    <string name="planner_suggest_reason_recovery_signals">HRV, тыныш жүрек соғысы немесе ұйқы жеңілірек күнді ұсынады.</string>
+    <string name="planner_suggestions_title">Бейімделгіш ұсыныстар</string>
+    <string name="planner_wellness_note">Ұсыныстар тек сауықтыру бағдары, медициналық кеңес емес. Жоспарлар қолданбада қалады.</string>
 </resources>
+

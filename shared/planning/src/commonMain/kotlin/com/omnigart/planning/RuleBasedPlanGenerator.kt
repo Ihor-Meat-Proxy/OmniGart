@@ -14,7 +14,7 @@ class RuleBasedPlanGenerator : PlanGenerator {
         val level = profile.levels.firstOrNull()?.level ?: Level.BEGINNER
         val primaryGoal = profile.goals.firstOrNull() ?: TrainingGoal.GENERAL_FITNESS
         val deload = profile.hardWeeksSinceDeload >= 6 ||
-            profile.readiness == ReadinessBand.VERY_LOW
+            profile.readiness == PlanReadinessBand.VERY_LOW
 
         val rawTargets = VolumeLandmarks.defaultTargets(level, primaryGoal)
         val volumeTargets = rawTargets.map {
@@ -89,8 +89,8 @@ class RuleBasedPlanGenerator : PlanGenerator {
         )
     }
 
-    private fun rirBand(goal: TrainingGoal, deload: Boolean, readiness: ReadinessBand): String {
-        if (deload || readiness == ReadinessBand.LOW || readiness == ReadinessBand.VERY_LOW) return "3-5"
+    private fun rirBand(goal: TrainingGoal, deload: Boolean, readiness: PlanReadinessBand): String {
+        if (deload || readiness == PlanReadinessBand.LOW || readiness == PlanReadinessBand.VERY_LOW) return "3-5"
         return when (goal) {
             TrainingGoal.HYPERTROPHY, TrainingGoal.FAT_LOSS_SUPPORT -> "1-3"
             TrainingGoal.STRENGTH -> "2-4"

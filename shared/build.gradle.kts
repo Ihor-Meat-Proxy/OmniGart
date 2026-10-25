@@ -34,6 +34,7 @@ kotlin {
             // Re-export so Swift can see NutritionFacade / NutritionCardSnapshot.
             export(project(":shared:nutrition"))
             export(project(":shared:treadmill"))
+            export(project(":shared:planning"))
         }
     }
 
@@ -47,6 +48,7 @@ kotlin {
             isStatic = true
             export(project(":shared:nutrition"))
             export(project(":shared:treadmill"))
+            export(project(":shared:planning"))
         }
     }
 
@@ -66,6 +68,8 @@ kotlin {
             api(project(":shared:nutrition"))
             // Treadmill FTMS / RSC / iConsole parsers (exported into Shared.framework).
             api(project(":shared:treadmill"))
+            // Rule-based planner / adaptive suggestions (exported for phone Planner tab).
+            api(project(":shared:planning"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

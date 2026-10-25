@@ -7,15 +7,22 @@ plugins {
 
 kotlin {
     jvm()
+    // Same Apple targets as :shared so Planner engines ship in Shared.framework.
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+    watchosArm64()
+    watchosSimulatorArm64()
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlinx.serialization.json)
-            api(project(":shared:evidence"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
         jvmMain.dependencies {
+            // Content validators / evidence tooling stay JVM-only.
+            implementation(project(":shared:evidence"))
             implementation(libs.json.schema.validator)
             implementation(libs.jackson.databind)
         }

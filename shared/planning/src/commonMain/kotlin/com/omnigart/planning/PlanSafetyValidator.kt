@@ -49,7 +49,7 @@ class PlanSafetyValidator(private val maxSetsPerSessionExercise: Int = 6, privat
     }
 
     private fun normalizeRir(rir: String, profile: UserTrainingProfile): String {
-        if (profile.readiness == ReadinessBand.LOW || profile.readiness == ReadinessBand.VERY_LOW) {
+        if (profile.readiness == PlanReadinessBand.LOW || profile.readiness == PlanReadinessBand.VERY_LOW) {
             return "3-5"
         }
         return rir.ifBlank { "2-3" }

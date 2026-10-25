@@ -79,13 +79,7 @@ object HealthConnectWorkoutRestorer {
         }
     }
 
-    private fun buildWorkout(
-        core: OmniGartCore,
-        localId: String,
-        syncId: String,
-        start: Instant,
-        end: Instant
-    ): HealthWorkout {
+    private fun buildWorkout(core: OmniGartCore, localId: String, syncId: String, start: Instant, end: Instant): HealthWorkout {
         val platformLocalId = syncId.removePrefix("omnigart.workout.").ifBlank { localId }
         val activity =
             runCatching {

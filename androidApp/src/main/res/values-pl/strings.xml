@@ -113,7 +113,7 @@
     <string name="recovery_intro">Szacunki regeneracji wellness z profilu i ostatnich danych. To nie porada medyczna.</string>
     <string name="recovery_estimates_title">Dzisiejsze szacunki</string>
     <string name="recovery_empty">Uzupełnij profil, aby zobaczyć szacunki wellness.</string>
-    <string name="planner_intro">Planuj treningi na urządzeniu i opcjonalnie zaplanuj bieg w strefie 2 w Workout.</string>
+    <string name="planner_intro">Planuj treningi na urządzeniu: kalendarz, tygodniowy schemat i adaptacyjne podpowiedzi. Dane Health nigdy nie są usuwane.</string>
     <string name="planner_planned_title">Zaplanowane treningi</string>
     <string name="planner_empty">Brak zaplanowanych treningów.</string>
     <string name="planner_seed_demo">Dodaj plan strefy 2</string>
@@ -958,4 +958,33 @@
     <string name="workout_cat_empty_title">Brak sesji</string>
     <string name="workout_cat_swimming_intro">Zacznij pływanie w basenie lub wodzie otwartej na zegarku, gdy jest sparowany. Zapisane sesje zobaczysz w historii poniżej — bez przykładowych danych.</string>
     <string name="workout_cat_search_results_title">Pasujące treningi</string>
+    <string name="planner_add_session">Dodaj zaplanowaną sesję</string>
+    <string name="planner_calendar_month">Miesiąc</string>
+    <string name="planner_calendar_week">Ten tydzień</string>
+    <string name="planner_completed_marker">Ukończone treningi z lokalnych lub zaimportowanych danych Health to wypełnione znaczniki.</string>
+    <string name="planner_delete">Usuń</string>
+    <string name="planner_kind_functional">Funkcjonalna</string>
+    <string name="planner_kind_rest">Odpoczynek</string>
+    <string name="planner_kind_run">Bieg</string>
+    <string name="planner_kind_treadmill">Bieżnia</string>
+    <string name="planner_kind_zone2">Zone 2 łatwy</string>
+    <string name="planner_move_tomorrow">Przenieś na jutro</string>
+    <string name="planner_scheme_generate">Wygeneruj tydzień z celów</string>
+    <string name="planner_scheme_replace_hint">Buduje siłę z planem, wolną i funkcjonalną, biegi, bieżnię i Zone 2 z celów i sprzętu. Edycje zostają na urządzeniu.</string>
+    <string name="planner_scheme_title">Sugerowany schemat tygodnia</string>
+    <string name="planner_selected_day">Wybrany dzień</string>
+    <string name="planner_suggest_accept">Zaakceptuj</string>
+    <string name="planner_suggest_action_move">Sugerowane przeniesienie na późniejszy dzień</string>
+    <string name="planner_suggest_action_skip">Sugerowane pominięcie dla regeneracji</string>
+    <string name="planner_suggest_action_swap">Sugerowana zamiana na łatwy Zone 2 lub odpoczynek</string>
+    <string name="planner_suggest_dismiss">Odrzuć</string>
+    <string name="planner_suggest_reason_back_to_back">Wczoraj było ciężko — dzisiejszy ciężki plan może stać się łatwym Zone 2.</string>
+    <string name="planner_suggest_reason_load_elevated">Ostatnie obciążenie wygląda podwyższone względem zwykłego tygodnia.</string>
+    <string name="planner_suggest_reason_muscle_recovery">Niedawna sesja nadal obejmuje te grupy mięśni — rozważ przesunięcie.</string>
+    <string name="planner_suggest_reason_readiness_low">Gotowość jest dziś niższa — zamień ciężką sesję na łatwy Zone 2.</string>
+    <string name="planner_suggest_reason_readiness_rest">Gotowość wygląda nisko — rozważ dzień odpoczynku.</string>
+    <string name="planner_suggest_reason_recovery_signals">HRV, tętno spoczynkowe lub sen sugerują łatwiejszy dzień.</string>
+    <string name="planner_suggestions_title">Adaptacyjne podpowiedzi</string>
+    <string name="planner_wellness_note">Podpowiedzi to tylko wskazówki wellness, nie porada medyczna. Plany zostają w aplikacji.</string>
 </resources>
+

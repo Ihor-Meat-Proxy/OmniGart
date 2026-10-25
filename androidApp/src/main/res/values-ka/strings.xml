@@ -113,7 +113,7 @@
     <string name="recovery_intro">კეთილდღეობის აღდგენის შეფასებები პროფილიდან და ბოლო მონაცემებიდან. სამედიცინო რჩევა არ არის.</string>
     <string name="recovery_estimates_title">დღევანდელი შეფასებები</string>
     <string name="recovery_empty">კეთილდღეობის შეფასებების სანახავად შეავსეთ პროფილი.</string>
-    <string name="planner_intro">დაგეგმეთ ვარჯიშები მოწყობილობაზე და სურვილისამებრ დაამატეთ ზონა 2 სირბილი Workout-ში.</string>
+    <string name="planner_intro">დაგეგმეთ ვარჯიშები მოწყობილობაზე: კალენდარი, ყოველკვირეული სქემა და ადაპტური რჩევები. Health მონაცემები არასდროს იშლება.</string>
     <string name="planner_planned_title">დაგეგმილი ვარჯიშები</string>
     <string name="planner_empty">დაგეგმილი ვარჯიშები ჯერ არ არის.</string>
     <string name="planner_seed_demo">ზონა 2 გეგმის დამატება</string>
@@ -958,4 +958,33 @@
     <string name="workout_cat_empty_title">ჯერ სესიები არ არის</string>
     <string name="workout_cat_swimming_intro">დაკავშირებულ საათზე დაიწყეთ ცურვა აუზში ან ღია წყალში. შენახული სესიები გამოჩნდება ქვემოთ ისტორიაში — საცდელი მონაცემები არ არის.</string>
     <string name="workout_cat_search_results_title">შესაბამისი ვარჯიშები</string>
+    <string name="planner_add_session">დაგეგმილი სესიის დამატება</string>
+    <string name="planner_calendar_month">თვე</string>
+    <string name="planner_calendar_week">ეს კვირა</string>
+    <string name="planner_completed_marker">ადგილობრივი ან იმპორტირებული Health მონაცემების დასრულებული ვარჯიშები — შევსებული ნიშნები.</string>
+    <string name="planner_delete">წაშლა</string>
+    <string name="planner_kind_functional">ფუნქციური</string>
+    <string name="planner_kind_rest">დასვენება</string>
+    <string name="planner_kind_run">სირბილი</string>
+    <string name="planner_kind_treadmill">სარბენი ბილიკი</string>
+    <string name="planner_kind_zone2">Zone 2 მსუბუქი</string>
+    <string name="planner_move_tomorrow">ხვალზე გადატანა</string>
+    <string name="planner_scheme_generate">კვირის გენერაცია მიზნებიდან</string>
+    <string name="planner_scheme_replace_hint">მიზნებისა და აღჭურვილობიდან აგებს გეგმიურ/თავისუფალ/ფუნქციურ ძალას, სირბილს, სარბენს და Zone 2-ს. ცვლილებები მოწყობილობაზე რჩება.</string>
+    <string name="planner_scheme_title">შემოთავაზებული ყოველკვირეული სქემა</string>
+    <string name="planner_selected_day">არჩეული დღე</string>
+    <string name="planner_suggest_accept">მიღება</string>
+    <string name="planner_suggest_action_move">შემოთავაზებულია უფრო გვიან დღეზე გადატანა</string>
+    <string name="planner_suggest_action_skip">შემოთავაზებულია გამოტოვება აღდგენისთვის</string>
+    <string name="planner_suggest_action_swap">შემოთავაზებულია მსუბუქი Zone 2 ან დასვენება</string>
+    <string name="planner_suggest_dismiss">უარყოფა</string>
+    <string name="planner_suggest_reason_back_to_back">გუშინ მძიმე იყო — დღევანდელი მძიმე გეგმა შეიძლება მსუბუქ Zone 2 გახდეს.</string>
+    <string name="planner_suggest_reason_load_elevated">ბოლო დატვირთვა ჩვეულ კვირასთან შედარებით მომატებულია.</string>
+    <string name="planner_suggest_reason_muscle_recovery">ბოლო სესია ჯერ კიდევ ფარავს ამ კუნთების ჯგუფებს — განიხილეთ გადატანა.</string>
+    <string name="planner_suggest_reason_readiness_low">დღეს მზადყოფნა რბილდება — მძიმე სესია შეცვალეთ მსუბუქი Zone 2-ით.</string>
+    <string name="planner_suggest_reason_readiness_rest">მზადყოფნა დაბალია — განიხილეთ დასვენების დღე.</string>
+    <string name="planner_suggest_reason_recovery_signals">HRV, მოსვენების პულსი ან ძილი უფრო მსუბუქ დღეს გვთავაზობს.</string>
+    <string name="planner_suggestions_title">ადაპტური რჩევები</string>
+    <string name="planner_wellness_note">რჩევები მხოლოდ კეთილდღეობის სახელმძღვანელოა, არა სამედიცინო კონსულტაცია. გეგმები აპში რჩება.</string>
 </resources>
+

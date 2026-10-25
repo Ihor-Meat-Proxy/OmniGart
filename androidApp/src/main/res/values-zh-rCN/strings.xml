@@ -113,7 +113,7 @@
     <string name="recovery_intro">根据个人资料与近期输入得出的恢复健康估算。不是医疗建议。</string>
     <string name="recovery_estimates_title">今日估算</string>
     <string name="recovery_empty">完善个人资料以查看健康估算。</string>
-    <string name="planner_intro">在设备上规划训练，并可选择将二区跑安排到 Workout。</string>
+    <string name="planner_intro">在设备上规划训练：日历、每周方案与自适应建议。永不删除 Health 数据。</string>
     <string name="planner_planned_title">已计划训练</string>
     <string name="planner_empty">尚无已计划的训练。</string>
     <string name="planner_seed_demo">添加二区计划</string>
@@ -958,4 +958,33 @@
     <string name="workout_cat_empty_title">暂无课程</string>
     <string name="workout_cat_swimming_intro">手表已连接时可开始泳池或开放水域游泳。保存的课程会显示在下方记录中——无示例数据。</string>
     <string name="workout_cat_search_results_title">匹配的训练</string>
+    <string name="planner_add_session">添加计划课程</string>
+    <string name="planner_calendar_month">月</string>
+    <string name="planner_calendar_week">本周</string>
+    <string name="planner_completed_marker">来自本地或已导入 Health 数据的已完成训练显示为实心标记。</string>
+    <string name="planner_delete">删除</string>
+    <string name="planner_kind_functional">功能性</string>
+    <string name="planner_kind_rest">休息</string>
+    <string name="planner_kind_run">跑步</string>
+    <string name="planner_kind_treadmill">跑步机</string>
+    <string name="planner_kind_zone2">二区轻松</string>
+    <string name="planner_move_tomorrow">改到明天</string>
+    <string name="planner_scheme_generate">根据目标生成一周</string>
+    <string name="planner_scheme_replace_hint">根据目标与器械生成引导力量、自由力量、功能性、跑步、跑步机与二区日。编辑仅留在设备上。</string>
+    <string name="planner_scheme_title">建议的每周方案</string>
+    <string name="planner_selected_day">所选日期</string>
+    <string name="planner_suggest_accept">接受</string>
+    <string name="planner_suggest_action_move">建议改到更晚的一天</string>
+    <string name="planner_suggest_action_skip">建议跳过以利恢复</string>
+    <string name="planner_suggest_action_swap">建议换成轻松二区或休息</string>
+    <string name="planner_suggest_dismiss">忽略</string>
+    <string name="planner_suggest_reason_back_to_back">昨天偏硬——今天的硬课可改为轻松二区。</string>
+    <string name="planner_suggest_reason_load_elevated">近期训练负荷相对平时偏高。</string>
+    <string name="planner_suggest_reason_muscle_recovery">近期训练仍涉及这些肌群——可考虑改期。</string>
+    <string name="planner_suggest_reason_readiness_low">今日准备度偏弱——可将硬课换成轻松二区。</string>
+    <string name="planner_suggest_reason_readiness_rest">准备度偏低——可考虑休息一天以利恢复。</string>
+    <string name="planner_suggest_reason_recovery_signals">HRV、静息心率或睡眠提示今天宜轻松一些。</string>
+    <string name="planner_suggestions_title">自适应建议</string>
+    <string name="planner_wellness_note">建议仅为健康参考，不是医疗意见。计划仅保存在应用内。</string>
 </resources>
+

@@ -113,7 +113,7 @@
     <string name="recovery_intro">Wellness odhady regenerace z profilu a nedávných vstupů. Nejde o lékařskou radu.</string>
     <string name="recovery_estimates_title">Dnešní odhady</string>
     <string name="recovery_empty">Vyplňte profil, abyste viděli wellness odhady.</string>
-    <string name="planner_intro">Plánujte tréninky na zařízení a volitelně naplánujte běh v zóně 2 do Workout.</string>
+    <string name="planner_intro">Plánujte tréninky na zařízení: kalendář, týdenní schéma a adaptivní tipy. Data Health se nikdy nemažou.</string>
     <string name="planner_planned_title">Naplánované tréninky</string>
     <string name="planner_empty">Zatím žádné naplánované tréninky.</string>
     <string name="planner_seed_demo">Přidat plán zóny 2</string>
@@ -958,4 +958,33 @@
     <string name="workout_cat_empty_title">Zatím žádné jednotky</string>
     <string name="workout_cat_swimming_intro">Spusťte plavání v bazénu nebo otevřené vodě na hodinkách, pokud jsou propojené. Uložené jednotky se zobrazí níže — bez ukázkových dat.</string>
     <string name="workout_cat_search_results_title">Odpovídající tréninky</string>
+    <string name="planner_add_session">Přidat naplánovanou jednotku</string>
+    <string name="planner_calendar_month">Měsíc</string>
+    <string name="planner_calendar_week">Tento týden</string>
+    <string name="planner_completed_marker">Dokončené tréninky z místních nebo importovaných dat Health se ukazují jako plné značky.</string>
+    <string name="planner_delete">Smazat</string>
+    <string name="planner_kind_functional">Funkční</string>
+    <string name="planner_kind_rest">Odpočinek</string>
+    <string name="planner_kind_run">Běh</string>
+    <string name="planner_kind_treadmill">Běžecký pás</string>
+    <string name="planner_kind_zone2">Zone 2 lehký</string>
+    <string name="planner_move_tomorrow">Přesunout na zítra</string>
+    <string name="planner_scheme_generate">Vygenerovat týden z cílů</string>
+    <string name="planner_scheme_replace_hint">Sestaví řízenou, volnou a funkční sílu, běhy, pás a Zone 2 z cílů a vybavení. Úpravy zůstanou v zařízení.</string>
+    <string name="planner_scheme_title">Navržené týdenní schéma</string>
+    <string name="planner_selected_day">Vybraný den</string>
+    <string name="planner_suggest_accept">Přijmout</string>
+    <string name="planner_suggest_action_move">Navrhovaný přesun na pozdější den</string>
+    <string name="planner_suggest_action_skip">Navrhované vynechání pro regeneraci</string>
+    <string name="planner_suggest_action_swap">Navrhovaná výměna za lehký Zone 2 nebo odpočinek</string>
+    <string name="planner_suggest_dismiss">Zavřít</string>
+    <string name="planner_suggest_reason_back_to_back">Včera bylo těžké — dnešní těžký plán by mohl být lehký Zone 2.</string>
+    <string name="planner_suggest_reason_load_elevated">Nedávné zatížení vypadá vyšší než váš obvyklý týden.</string>
+    <string name="planner_suggest_reason_muscle_recovery">Nedávná jednotka stále překrývá tyto svalové skupiny — zvažte přesun.</string>
+    <string name="planner_suggest_reason_readiness_low">Připravenost je dnes měkčí — vyměňte těžkou jednotku za lehký Zone 2.</string>
+    <string name="planner_suggest_reason_readiness_rest">Připravenost vypadá nízko — zvažte den odpočinku.</string>
+    <string name="planner_suggest_reason_recovery_signals">HRV, klidová tepová frekvence nebo spánek naznačují lehčí den.</string>
+    <string name="planner_suggestions_title">Adaptivní tipy</string>
+    <string name="planner_wellness_note">Tipy jsou jen wellness vodítka, ne lékařská rada. Plány zůstávají v aplikaci.</string>
 </resources>
+

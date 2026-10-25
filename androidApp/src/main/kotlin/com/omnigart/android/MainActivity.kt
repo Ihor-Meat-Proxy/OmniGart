@@ -38,6 +38,7 @@ import com.omnigart.android.nutrition.NutritionGoalSettingsSection
 import com.omnigart.android.nutrition.NutritionPrefsStore
 import com.omnigart.android.nutrition.NutritionReminderScheduler
 import com.omnigart.android.nutrition.NutritionReminderSettingsSection
+import com.omnigart.android.planner.PlannerTabSection
 import com.omnigart.design.icons.OmniGartIcons
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.design.theme.OmniGartSpacing
@@ -203,6 +204,9 @@ private fun PhoneShellTabContent(core: OmniGartCore, profileId: String, ui: Phon
     }
     if (ui.selected == PhoneTab.Health.ordinal) {
         HealthTabSection()
+    }
+    if (ui.selected == PhoneTab.Planner.ordinal) {
+        PlannerTabSection(core = core, profileId = profileId)
     }
     if (ui.selected == PhoneTab.Profile.ordinal) {
         ProfileNutritionBlocks(core, profileId) {

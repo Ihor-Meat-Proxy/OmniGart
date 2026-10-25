@@ -113,7 +113,7 @@
     <string name="recovery_intro">Estimaciones de recuperación de bienestar desde tu perfil y entradas recientes. No es consejo médico.</string>
     <string name="recovery_estimates_title">Estimaciones de hoy</string>
     <string name="recovery_empty">Completa tu perfil para ver estimaciones de bienestar.</string>
-    <string name="planner_intro">Planifica entrenamientos en el dispositivo y, si quieres, programa una carrera zona 2 en Workout.</string>
+    <string name="planner_intro">Planifica entrenamientos en el dispositivo: calendario, esquema semanal y sugerencias adaptativas. Los datos de Health nunca se borran.</string>
     <string name="planner_planned_title">Entrenamientos planificados</string>
     <string name="planner_empty">Aún no hay entrenamientos planificados.</string>
     <string name="planner_seed_demo">Añadir plan zona 2</string>
@@ -958,4 +958,33 @@
     <string name="workout_cat_empty_title">Aún no hay sesiones</string>
     <string name="workout_cat_swimming_intro">Inicia una natación en piscina o aguas abiertas en el reloj si está vinculado. Las sesiones guardadas aparecen abajo — sin datos de ejemplo.</string>
     <string name="workout_cat_search_results_title">Entrenamientos coincidentes</string>
+    <string name="planner_add_session">Añadir sesión planificada</string>
+    <string name="planner_calendar_month">Mes</string>
+    <string name="planner_calendar_week">Esta semana</string>
+    <string name="planner_completed_marker">Los entrenamientos completados de datos Health locales o importados aparecen como marcadores rellenos.</string>
+    <string name="planner_delete">Eliminar</string>
+    <string name="planner_kind_functional">Funcional</string>
+    <string name="planner_kind_rest">Descanso</string>
+    <string name="planner_kind_run">Carrera</string>
+    <string name="planner_kind_treadmill">Cinta</string>
+    <string name="planner_kind_zone2">Zone 2 fácil</string>
+    <string name="planner_move_tomorrow">Mover a mañana</string>
+    <string name="planner_scheme_generate">Generar semana desde objetivos</string>
+    <string name="planner_scheme_replace_hint">Crea fuerza guiada, libre y funcional, carreras, cinta y Zone 2 según objetivos y equipo. Los cambios quedan en el dispositivo.</string>
+    <string name="planner_scheme_title">Esquema semanal sugerido</string>
+    <string name="planner_selected_day">Día seleccionado</string>
+    <string name="planner_suggest_accept">Aceptar</string>
+    <string name="planner_suggest_action_move">Mover sugerido a un día posterior</string>
+    <string name="planner_suggest_action_skip">Omitir sugerido para recuperación</string>
+    <string name="planner_suggest_action_swap">Cambio sugerido a Zone 2 fácil o descanso</string>
+    <string name="planner_suggest_dismiss">Descartar</string>
+    <string name="planner_suggest_reason_back_to_back">Ayer fue duro — el plan duro de hoy podría pasar a Zone 2 fácil.</string>
+    <string name="planner_suggest_reason_load_elevated">La carga reciente parece elevada frente a tu semana habitual.</string>
+    <string name="planner_suggest_reason_muscle_recovery">Una sesión reciente aún solapa estos grupos musculares — valora moverla.</string>
+    <string name="planner_suggest_reason_readiness_low">La disposición es más suave hoy — cambia una sesión dura por Zone 2 fácil.</string>
+    <string name="planner_suggest_reason_readiness_rest">La disposición parece baja — valora un día de descanso.</string>
+    <string name="planner_suggest_reason_recovery_signals">HRV, FC en reposo o sueño sugieren un día más fácil.</string>
+    <string name="planner_suggestions_title">Sugerencias adaptativas</string>
+    <string name="planner_wellness_note">Las sugerencias son guías de bienestar, no consejo médico. Los planes se quedan en la app.</string>
 </resources>
+

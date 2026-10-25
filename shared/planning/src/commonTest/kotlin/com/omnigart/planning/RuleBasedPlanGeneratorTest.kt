@@ -13,7 +13,7 @@ class RuleBasedPlanGeneratorTest {
     private fun profile(
         days: Int = 3,
         goal: TrainingGoal = TrainingGoal.HYPERTROPHY,
-        readiness: ReadinessBand = ReadinessBand.NORMAL,
+        readiness: PlanReadinessBand = PlanReadinessBand.NORMAL,
         hardWeeks: Int = 1
     ) = UserTrainingProfile(
         ageYears = 30,
@@ -44,7 +44,7 @@ class RuleBasedPlanGeneratorTest {
     @Test
     fun readinessLowRaisesRir() {
         val plan = RuleBasedPlanGenerator().generate(
-            PlanGenerationInput(profile(readiness = ReadinessBand.LOW, hardWeeks = 1))
+            PlanGenerationInput(profile(readiness = PlanReadinessBand.LOW, hardWeeks = 1))
         )
         assertTrue(plan.sessions.first().prescriptions.first().rir.contains("3-5"))
     }

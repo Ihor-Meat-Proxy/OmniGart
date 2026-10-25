@@ -113,7 +113,7 @@
     <string name="recovery_intro">Оцінки відновлення самопочуття з вашого профілю та недавніх даних. Не медична консультація.</string>
     <string name="recovery_estimates_title">Сьогоднішні оцінки</string>
     <string name="recovery_empty">Заповніть профіль, щоб бачити оцінки самопочуття.</string>
-    <string name="planner_intro">Плануйте тренування на пристрої та за бажанням додайте біг у зоні 2 до Workout.</string>
+    <string name="planner_intro">Плануйте тренування на пристрої: календар, тижнева схема та адаптивні підказки. Дані Health ніколи не видаляються.</string>
     <string name="planner_planned_title">Заплановані тренування</string>
     <string name="planner_empty">Ще немає запланованих тренувань.</string>
     <string name="planner_seed_demo">Додати план зони 2</string>
@@ -958,4 +958,33 @@
     <string name="workout_cat_empty_title">Ще немає сесій</string>
     <string name="workout_cat_swimming_intro">Почніть плавання в басейні або на відкритій воді на годиннику, якщо він підключений. Збережені сесії з’являться в історії нижче — без зразкових даних.</string>
     <string name="workout_cat_search_results_title">Знайдені тренування</string>
+    <string name="planner_add_session">Додати заплановану сесію</string>
+    <string name="planner_calendar_month">Місяць</string>
+    <string name="planner_calendar_week">Цей тиждень</string>
+    <string name="planner_completed_marker">Завершені тренування з локальних або імпортованих даних Health — заповнені позначки.</string>
+    <string name="planner_delete">Видалити</string>
+    <string name="planner_kind_functional">Функціональна</string>
+    <string name="planner_kind_rest">Відпочинок</string>
+    <string name="planner_kind_run">Біг</string>
+    <string name="planner_kind_treadmill">Бігова доріжка</string>
+    <string name="planner_kind_zone2">Zone 2 легкий</string>
+    <string name="planner_move_tomorrow">Перенести на завтра</string>
+    <string name="planner_scheme_generate">Згенерувати тиждень з цілей</string>
+    <string name="planner_scheme_replace_hint">Будує силові (за планом / вільні / функціональні), біг, бігову доріжку та Zone 2 з ваших цілей і обладнання. Зміни лишаються на пристрої.</string>
+    <string name="planner_scheme_title">Запропонована тижнева схема</string>
+    <string name="planner_selected_day">Обраний день</string>
+    <string name="planner_suggest_accept">Прийняти</string>
+    <string name="planner_suggest_action_move">Пропонуємо перенести на пізніший день</string>
+    <string name="planner_suggest_action_skip">Пропонуємо пропустити для відновлення</string>
+    <string name="planner_suggest_action_swap">Пропонуємо замінити на легкий Zone 2 або відпочинок</string>
+    <string name="planner_suggest_dismiss">Відхилити</string>
+    <string name="planner_suggest_reason_back_to_back">Учора було важко — сьогоднішній важкий план можна зробити легким Zone 2.</string>
+    <string name="planner_suggest_reason_load_elevated">Нещодавнє навантаження виглядає підвищеним проти звичного тижня.</string>
+    <string name="planner_suggest_reason_muscle_recovery">Нещодавня сесія ще перекриває ці групи м’язів — варто перенести.</string>
+    <string name="planner_suggest_reason_readiness_low">Готовність сьогодні м’якша — замініть важку сесію на легкий Zone 2.</string>
+    <string name="planner_suggest_reason_readiness_rest">Готовність виглядає низькою — варто розглянути день відпочинку.</string>
+    <string name="planner_suggest_reason_recovery_signals">HRV, пульс спокою або сон підказують легший день.</string>
+    <string name="planner_suggestions_title">Адаптивні підказки</string>
+    <string name="planner_wellness_note">Підказки — лише wellness-орієнтири, не медична порада. Плани лишаються в застосунку.</string>
 </resources>
+

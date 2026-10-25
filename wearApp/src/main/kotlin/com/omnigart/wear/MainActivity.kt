@@ -53,7 +53,7 @@ class MainActivity : ComponentActivity() {
         recorder = WearExerciseRecorder(applicationContext, core, transfer)
         launchListener =
             WearPhoneWorkoutLaunchListener(Wearable.getMessageClient(applicationContext)).also { it.start() }
-        val profile = core.ensureDemoProfile()
+        val profile = core.activeProfile()
         val headline = core.summaryLines(profile).take(2)
         setContent {
             MaterialTheme {

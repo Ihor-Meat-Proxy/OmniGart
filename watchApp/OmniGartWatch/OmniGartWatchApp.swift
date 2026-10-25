@@ -10,7 +10,7 @@ struct OmniGartWatchApp: App {
 
     init() {
         let core = OmniGartCore(driverFactory: DatabaseDriverFactory())
-        let profile = core.ensureDemoProfile()
+        let profile = core.activeProfile()
         self.core = core
         profileId = profile.id
         let lines = core.summaryLines(profile: profile)

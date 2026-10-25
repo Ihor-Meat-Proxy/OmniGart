@@ -6,7 +6,7 @@ import UIKit
 @MainActor
 enum WorkoutPdfExport {
     static func localeTag() -> String {
-        Locale.current.identifier.replacingOccurrences(of: "_", with: "-")
+        AppLocale.tag
     }
 
     static func shareSingle(

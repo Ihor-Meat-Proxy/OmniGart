@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import com.omnigart.android.R
+import com.omnigart.android.appLocaleTag
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.shared.OmniGartCore
 import com.omnigart.shared.food.models.CustomFood
@@ -153,7 +154,7 @@ private fun FoodBarcodeLabelFields(core: OmniGartCore, profileId: String, onLogg
         onClick = {
             val code = FoodLabelBarcodeHelpers.validateBarcode(barcode) ?: return@Button
             val food = core.foodLogging.findBarcode(profileId, code) ?: return@Button
-            core.foodLogging.logQuickServing(profileId, food.id, QuickServing.PER_100_G, MealGroup.SNACKS, "en-GB")
+            core.foodLogging.logQuickServing(profileId, food.id, QuickServing.PER_100_G, MealGroup.SNACKS, appLocaleTag())
             onLogged()
         },
         modifier = Modifier.testTag("food_barcode_lookup")

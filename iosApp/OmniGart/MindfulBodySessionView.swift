@@ -211,6 +211,6 @@ struct MindfulBodySessionView: View {
     }
 
     private func catalog(_ key: String) -> String {
-        StringCatalog.shared.t(key: key, locale: StringCatalog.shared.SOURCE_LOCALE)
+        StringCatalog.shared.t(key: key, locale: AppLocale.tag)
     }
 }

@@ -2,7 +2,7 @@ import Foundation
 import Shared
 
 func strengthCatalog(_ key: String) -> String {
-    StringCatalog.shared.t(key: key, locale: StringCatalog.shared.SOURCE_LOCALE)
+    StringCatalog.shared.t(key: key, locale: AppLocale.tag)
 }
 
 /// Field overrides applied to an existing `WorkoutSet` when it is re-saved.

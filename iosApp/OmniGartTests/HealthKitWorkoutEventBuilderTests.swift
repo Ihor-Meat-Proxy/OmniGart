@@ -143,6 +143,17 @@ final class HealthKitWorkoutEventBuilderTests: XCTestCase {
         XCTAssertGreaterThan(sanitized[0].dateInterval.duration, 0)
     }
 
+    func testDateIntervalForcesZeroEvenWhenEndPassedForPause() {
+        let interval = HealthKitWorkoutEventBuilder.dateInterval(
+            for: .pause,
+            start: at,
+            end: at.addingTimeInterval(45)
+        )
+        XCTAssertEqual(interval.duration, 0, accuracy: 0.000_1)
+        XCTAssertEqual(interval.start, at)
+        XCTAssertEqual(interval.end, at)
+    }
+
     func testBuildEventsDropsOutOfRangePausePairs() {
         let start = at
         let end = at.addingTimeInterval(120)

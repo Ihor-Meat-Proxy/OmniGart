@@ -113,11 +113,13 @@ enum HealthKitWorkoutWriter {
         try await builder.beginCollection(at: options.start)
         let samples = buildSamples(for: options)
         if !samples.isEmpty { try await builder.addSamples(samples) }
+        // Events must be added before endCollection / finishWorkout.
         let events = buildEvents(for: options)
         if !events.isEmpty { try await builder.addWorkoutEvents(events) }
         try await builder.addMetadata(buildMetadata(for: options))
         try await builder.endCollection(at: options.end)
         guard let workout = try await builder.finishWorkout() else { return nil }
+        // Append-only: never delete/update; do not add further events after finish.
         return makeResult(options: options, workoutUUID: workout.uuid, skipped: false)
     }
 

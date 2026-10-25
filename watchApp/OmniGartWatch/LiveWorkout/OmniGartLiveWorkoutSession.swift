@@ -59,6 +59,8 @@ final class OmniGartLiveWorkoutSession: NSObject, ObservableObject {
     private var restWasActive: Bool = false
     private let hapticsDevice: WKInterfaceDevice
     private var syncIdentifier: String = ""
+    /// Once the builder is discarded or finished, never add more events/samples.
+    private var builderEnded: Bool = false
 
     init(kind: OmniGartWorkoutKind, hapticsDevice: WKInterfaceDevice = .current()) {
         self.kind = kind
@@ -185,7 +187,7 @@ extension OmniGartLiveWorkoutSession {
     }
 
     func pause() {
-        guard isRunning, !isPaused else { return }
+        guard isRunning, !isPaused, !builderEnded else { return }
         // HKWorkoutSession.pause() records a zero-duration pause event on the builder.
         // Do not append a manual pause event — duplicates crash and duration must be 0.
         session?.pause()
@@ -194,7 +196,7 @@ extension OmniGartLiveWorkoutSession {
     }
 
     func resume() {
-        guard isRunning, isPaused else { return }
+        guard isRunning, isPaused, !builderEnded else { return }
         // HKWorkoutSession.resume() records the matching resume event automatically.
         session?.resume()
         if let began = pauseBeganAt {
@@ -206,7 +208,7 @@ extension OmniGartLiveWorkoutSession {
 
     /// Marks a segment boundary (exercise / pose block).
     func addSegment(label: String) {
-        guard isRunning else { return }
+        guard isRunning, !builderEnded else { return }
         let at = Date()
         let metadata: [String: Any] = [
             "OmniGartSegmentLabel": label
@@ -251,18 +253,28 @@ extension OmniGartLiveWorkoutSession {
 
     /// Returns `false` when the sync id already exists (builder discarded; skip phone transfer).
     private func finishBuilderIfNeeded(endedAt end: Date) async throws -> Bool {
-        guard let builder else { return true }
+        guard let builder, !builderEnded else { return true }
         // Append-only: never finish a second copy for the same sync id.
         if await OmniGartWatchHealthSync.workoutExists(
             syncIdentifier: syncIdentifier,
             store: store
         ) {
             builder.discardWorkout()
+            builderEnded = true
+            events = []
             return false
         }
-        if !events.isEmpty {
-            try await builder.addWorkoutEvents(events)
+        let workoutStart = startedAt ?? end
+        let sanitized = OmniGartWorkoutEventBuilder.sanitize(
+            events,
+            workoutStart: workoutStart,
+            workoutEnd: end
+        )
+        // Must add events before endCollection / finishWorkout.
+        if !sanitized.isEmpty {
+            try await builder.addWorkoutEvents(sanitized)
         }
+        events = []
         var metadata = OmniGartWatchHealthSync.syncMetadata(
             syncIdentifier: syncIdentifier,
             indoor: kind.isIndoor
@@ -273,6 +285,7 @@ extension OmniGartLiveWorkoutSession {
         try await builder.addMetadata(metadata)
         try await builder.endCollection(at: end)
         _ = try await builder.finishWorkout()
+        builderEnded = true
         return true
     }
 
@@ -321,6 +334,7 @@ extension OmniGartLiveWorkoutSession {
         startedAt = nil
         accumulatedPause = 0
         pauseBeganAt = nil
+        builderEnded = false
         loggedSets = []
         restRemaining = 0
         restWasActive = false

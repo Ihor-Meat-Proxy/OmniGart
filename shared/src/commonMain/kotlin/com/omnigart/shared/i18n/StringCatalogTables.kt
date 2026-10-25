@@ -2,7 +2,7 @@ package com.omnigart.shared.i18n
 
 /**
  * Locale string tables for [StringCatalog], sourced from
- * `shared/src/commonMain/resources/i18n/*/strings.json` (StringKeys subset).
+ * `shared/src/commonMain/resources/i18n/<locale>/strings.json` (StringKeys subset).
  * Do not hand-edit translations here — update the JSON and regenerate.
  */
 internal object StringCatalogTables {
@@ -18,12 +18,15 @@ internal object StringCatalogTables {
                 "shell_intro" to "Wellness estimates from your shared OmniGart profile",
                 "watch_start" to "Start",
                 "watch_subtitle" to "Wellness estimates on your wrist",
-                "wellness_disclaimer" to "OmniGart provides wellness estimates only. Readiness, stress, HRV, Baevsky index, body-fat estimates, hydration targets, and training plans are not medical advice. Consult a qualified professional for health concerns.",
+                "wellness_disclaimer" to
+                    "OmniGart provides wellness estimates only. Readiness, stress, HRV, Baevsky index, body-fat estimates, hydration targets, and training plans are not medical advice. Consult a qualified professional for health concerns.",
                 "info_sheet_not_medical_advice" to "Not medical advice. Consult a professional.",
-                "health_warning_chest_pain" to "Stop and seek emergency help if you feel chest pain, severe dizziness, or unusual shortness of breath during activity.",
+                "health_warning_chest_pain" to
+                    "Stop and seek emergency help if you feel chest pain, severe dizziness, or unusual shortness of breath during activity.",
                 "onboarding_wellness_title" to "Wellness, not medical care",
                 "onboarding_welcome_title" to "Welcome to OmniGart",
-                "onboarding_welcome_body" to "A few questions so we can personalise wellness estimates on your device. You can change these later in Profile.",
+                "onboarding_welcome_body" to
+                    "A few questions so we can personalise wellness estimates on your device. You can change these later in Profile.",
                 "onboarding_next" to "Next",
                 "onboarding_back" to "Back",
                 "onboarding_skip" to "Skip",
@@ -37,13 +40,16 @@ internal object StringCatalogTables {
                 "onboarding_units_title" to "Preferred units",
                 "onboarding_activity_title" to "Typical daily activity",
                 "perm_explainer_health_title" to "Apple Health / Health Connect",
-                "perm_explainer_health_body" to "OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, active and resting energy, heart-rate recovery, workout effort, optional mindful minutes, body mass, and hydration — so sessions can appear in Apple Fitness with duration and calories. Platform writes are append-only: OmniGart never deletes or rewrites Apple Health or Health Connect data, including its own. Data is not used for ads or sent to unrelated third parties. You can continue without granting access.",
+                "perm_explainer_health_body" to
+                    "OmniGart can read and write wellness samples — heart rate, HRV, sleep, workouts, active and resting energy, heart-rate recovery, workout effort, optional mindful minutes, body mass, and hydration — so sessions can appear in Apple Fitness with duration and calories. Platform writes are append-only: OmniGart never deletes or rewrites Apple Health or Health Connect data, including its own. Data is not used for ads or sent to unrelated third parties. You can continue without granting access.",
                 "perm_continue" to "Continue",
                 "perm_not_now" to "Not now",
                 "info_sheet_title" to "About this estimate",
-                "info_sheet_body" to "Figures such as readiness, stress, HRV, Baevsky index, body fat, and hydration are wellness estimates based on your inputs and device samples. Plans are coaching suggestions, not prescriptions.",
+                "info_sheet_body" to
+                    "Figures such as readiness, stress, HRV, Baevsky index, body fat, and hydration are wellness estimates based on your inputs and device samples. Plans are coaching suggestions, not prescriptions.",
                 "calc_settings_title" to "Calculations",
-                "calc_settings_intro" to "Choose how OmniGart estimates wellness figures such as energy use, heart-rate zones, body fat, and strength.",
+                "calc_settings_intro" to
+                    "Choose how OmniGart estimates wellness figures such as energy use, heart-rate zones, body fat, and strength.",
                 "calc_mode_simple" to "Simple",
                 "calc_mode_advanced" to "Advanced",
                 "calc_domain_bmr" to "BMR",
@@ -52,9 +58,11 @@ internal object StringCatalogTables {
                 "calc_domain_one_rm" to "One-rep max",
                 "calc_domain_hr_zones" to "Heart-rate zones",
                 "formula.bmr.mifflin_st_jeor.title" to "Mifflin–St Jeor",
-                "formula.bmr.mifflin_st_jeor.explain" to "Widely used resting energy estimate from weight, height, age, and sex.",
+                "formula.bmr.mifflin_st_jeor.explain" to
+                    "Widely used resting energy estimate from weight, height, age, and sex.",
                 "formula.bmr.harris_benedict.title" to "Harris–Benedict (revised)",
-                "formula.bmr.harris_benedict.explain" to "Classic resting energy estimate; useful as an alternate wellness check.",
+                "formula.bmr.harris_benedict.explain" to
+                    "Classic resting energy estimate; useful as an alternate wellness check.",
                 "formula.hr_max.tanaka.title" to "Tanaka",
                 "formula.hr_max.tanaka.explain" to "Age-based max heart-rate estimate (208 − 0.7×age).",
                 "formula.hr_max.fox.title" to "Fox (220 − age)",
@@ -64,9 +72,11 @@ internal object StringCatalogTables {
                 "formula.one_rm.epley.title" to "Epley",
                 "formula.one_rm.epley.explain" to "Estimates one-rep max from a submaximal lift and rep count.",
                 "formula.one_rm.brzycki.title" to "Brzycki",
-                "formula.one_rm.brzycki.explain" to "Alternate one-rep max estimate that weights higher-rep sets differently.",
+                "formula.one_rm.brzycki.explain" to
+                    "Alternate one-rep max estimate that weights higher-rep sets differently.",
                 "formula.hr_zones.karvonen_5.title" to "Karvonen (5 zones)",
-                "formula.hr_zones.karvonen_5.explain" to "Five training zones from heart-rate reserve (resting to max).",
+                "formula.hr_zones.karvonen_5.explain" to
+                    "Five training zones from heart-rate reserve (resting to max).",
                 "formula.hr_zones.karvonen_3.title" to "Karvonen (3 zones)",
                 "formula.hr_zones.karvonen_3.explain" to "Simpler three-zone heart-rate reserve layout.",
                 "formula.hr_zones.percent_hrmax_5.title" to "% HRmax (5 zones)",
@@ -87,7 +97,8 @@ internal object StringCatalogTables {
                 "workout_total_weight_lifted" to "Total weight lifted",
                 "workout_hard_sets" to "Hard sets",
                 "workout_per_exercise" to "Per exercise",
-                "workout_intro" to "Log strength sets for wellness training estimates. Figures are coaching aids, not medical advice.",
+                "workout_intro" to
+                    "Log strength sets for wellness training estimates. Figures are coaching aids, not medical advice.",
                 "workout_summary_duration" to "Duration",
                 "workout_summary_active_kcal" to "Active kcal",
                 "workout_summary_total_kcal" to "Total kcal",
@@ -102,9 +113,11 @@ internal object StringCatalogTables {
                 "workout_start_iphone_estimate" to "Log on iPhone (estimate)",
                 "workout_yoga_title" to "Yoga",
                 "workout_pilates_title" to "Pilates",
-                "workout_mindful_body_intro" to "Prefer a live watch session for heart rate and energy. On iPhone alone, OmniGart saves a MET wellness estimate labelled as such.",
+                "workout_mindful_body_intro" to
+                    "Prefer a live watch session for heart rate and energy. On iPhone alone, OmniGart saves a MET wellness estimate labelled as such.",
                 "workout_mindful_minutes_toggle" to "Save mindful minutes for yoga",
-                "workout_mindful_minutes_body" to "Optional. Off by default. Writes a mindful session only when you enable this.",
+                "workout_mindful_minutes_body" to
+                    "Optional. Off by default. Writes a mindful session only when you enable this.",
                 "workout_mindful_settings_title" to "Yoga mindful minutes",
                 "workout_finish" to "Finish",
                 "workout_rest_timer" to "Rest",
@@ -126,13 +139,15 @@ internal object StringCatalogTables {
                 "workout_weight_lb" to "Weight (lb)",
                 "workout_body_map" to "Muscles",
                 "workout_export_workoutkit" to "Add to Apple Workout",
-                "workout_workoutkit_limit" to "Apple’s Workout app cannot accept weight or rep entry from other apps. OmniGart exports each set as a work step and each rest as recovery so you can follow the routine there; log load × reps in OmniGart on iPhone or Apple Watch.",
+                "workout_workoutkit_limit" to
+                    "Apple’s Workout app cannot accept weight or rep entry from other apps. OmniGart exports each set as a work step and each rest as recovery so you can follow the routine there; log load × reps in OmniGart on iPhone or Apple Watch.",
                 "workout_sets_count" to "Sets",
                 "workout_volume_short" to "Volume",
                 "data_privacy_title" to "Data and privacy",
-                "data_privacy_intro" to "OmniGart keeps a full local copy of your workouts and samples on this device. Export stays on-device. Platform sync is optional and never required for logging.",
+                "data_privacy_intro" to
+                    "OmniGart keeps a full local copy of your workouts and samples on this device. Export stays on-device. Platform sync is optional and never required for logging.",
                 "data_privacy_export" to "Export health data",
-                "data_privacy_import_json" to "Import OmniGart JSON",
+                "data_privacy_import_json" to "Import OmniGart JSON"
             ),
             "uk" to mapOf(
                 "app_name" to "OmniGart",
@@ -144,12 +159,15 @@ internal object StringCatalogTables {
                 "shell_intro" to "Оцінки самопочуття з вашого спільного профілю OmniGart",
                 "watch_start" to "Старт",
                 "watch_subtitle" to "Оцінки самопочуття на зап’ясті",
-                "wellness_disclaimer" to "OmniGart надає лише оцінки самопочуття. Готовність, стрес, ВСР, індекс Баєвського, оцінка жиру в тілі, цілі гідратації та плани тренувань не є медичною консультацією. Звертайтеся до кваліфікованого фахівця щодо питань здоров’я.",
+                "wellness_disclaimer" to
+                    "OmniGart надає лише оцінки самопочуття. Готовність, стрес, ВСР, індекс Баєвського, оцінка жиру в тілі, цілі гідратації та плани тренувань не є медичною консультацією. Звертайтеся до кваліфікованого фахівця щодо питань здоров’я.",
                 "info_sheet_not_medical_advice" to "Це не медична консультація. Зверніться до фахівця.",
-                "health_warning_chest_pain" to "Зупиніться і зверніться по екстрену допомогу, якщо під час активності відчуваєте біль у грудях, сильне запаморочення або незвичну задишку.",
+                "health_warning_chest_pain" to
+                    "Зупиніться і зверніться по екстрену допомогу, якщо під час активності відчуваєте біль у грудях, сильне запаморочення або незвичну задишку.",
                 "onboarding_wellness_title" to "Самопочуття, не медицина",
                 "onboarding_welcome_title" to "Ласкаво просимо до OmniGart",
-                "onboarding_welcome_body" to "Кілька запитань, щоб налаштувати оцінки самопочуття на вашому пристрої. Пізніше можна змінити в Профілі.",
+                "onboarding_welcome_body" to
+                    "Кілька запитань, щоб налаштувати оцінки самопочуття на вашому пристрої. Пізніше можна змінити в Профілі.",
                 "onboarding_next" to "Далі",
                 "onboarding_back" to "Назад",
                 "onboarding_skip" to "Пропустити",
@@ -163,13 +181,16 @@ internal object StringCatalogTables {
                 "onboarding_units_title" to "Зручні одиниці",
                 "onboarding_activity_title" to "Типова щоденна активність",
                 "perm_explainer_health_title" to "Apple Health / Health Connect",
-                "perm_explainer_health_body" to "OmniGart може читати й записувати зразки самопочуття — пульс, ВСР, сон, тренування, активну й базальну енергію, відновлення пульсу, оцінку зусилля, за бажанням хвилини усвідомленості, масу тіла та гідратацію — щоб сесії з’являлися в Apple Fitness. Запис на платформу лише додає: OmniGart ніколи не видаляє й не перезаписує дані Apple Health чи Health Connect, навіть свої. Дані не для реклами. Можна продовжити без доступу.",
+                "perm_explainer_health_body" to
+                    "OmniGart може читати й записувати зразки самопочуття — пульс, ВСР, сон, тренування, активну й базальну енергію, відновлення пульсу, оцінку зусилля, за бажанням хвилини усвідомленості, масу тіла та гідратацію — щоб сесії з’являлися в Apple Fitness. Запис на платформу лише додає: OmniGart ніколи не видаляє й не перезаписує дані Apple Health чи Health Connect, навіть свої. Дані не для реклами. Можна продовжити без доступу.",
                 "perm_continue" to "Продовжити",
                 "perm_not_now" to "Не зараз",
                 "info_sheet_title" to "Про цю оцінку",
-                "info_sheet_body" to "Показники на кшталт готовності, стресу, ВСР, індексу Баєвського, жиру в тілі та гідратації — це оцінки самопочуття на основі ваших даних і зразків із пристрою. Плани — тренерські пропозиції, а не приписи лікаря.",
+                "info_sheet_body" to
+                    "Показники на кшталт готовності, стресу, ВСР, індексу Баєвського, жиру в тілі та гідратації — це оцінки самопочуття на основі ваших даних і зразків із пристрою. Плани — тренерські пропозиції, а не приписи лікаря.",
                 "calc_settings_title" to "Розрахунки",
-                "calc_settings_intro" to "Оберіть, як OmniGart оцінює показники самопочуття: енергію, зони пульсу, жир у тілі та силу.",
+                "calc_settings_intro" to
+                    "Оберіть, як OmniGart оцінює показники самопочуття: енергію, зони пульсу, жир у тілі та силу.",
                 "calc_mode_simple" to "Простий",
                 "calc_mode_advanced" to "Розширений",
                 "calc_domain_bmr" to "BMR",
@@ -178,9 +199,11 @@ internal object StringCatalogTables {
                 "calc_domain_one_rm" to "Одноповторений максимум",
                 "calc_domain_hr_zones" to "Зони пульсу",
                 "formula.bmr.mifflin_st_jeor.title" to "Mifflin–St Jeor",
-                "formula.bmr.mifflin_st_jeor.explain" to "Поширена оцінка енергії в спокої з ваги, зросту, віку та статі.",
+                "formula.bmr.mifflin_st_jeor.explain" to
+                    "Поширена оцінка енергії в спокої з ваги, зросту, віку та статі.",
                 "formula.bmr.harris_benedict.title" to "Harris–Benedict (оновлена)",
-                "formula.bmr.harris_benedict.explain" to "Класична оцінка енергії в спокої; корисна як альтернативна перевірка.",
+                "formula.bmr.harris_benedict.explain" to
+                    "Класична оцінка енергії в спокої; корисна як альтернативна перевірка.",
                 "formula.hr_max.tanaka.title" to "Tanaka",
                 "formula.hr_max.tanaka.explain" to "Оцінка макс. пульсу за віком (208 − 0,7×вік).",
                 "formula.hr_max.fox.title" to "Fox (220 − вік)",
@@ -188,11 +211,14 @@ internal object StringCatalogTables {
                 "formula.body_fat.cun_bae.title" to "CUN-BAE",
                 "formula.body_fat.cun_bae.explain" to "Оцінка відсотка жиру в тілі з ваги, зросту, віку та статі.",
                 "formula.one_rm.epley.title" to "Epley",
-                "formula.one_rm.epley.explain" to "Оцінює одноповторений максимум із субмаксимальної ваги та кількості повторень.",
+                "formula.one_rm.epley.explain" to
+                    "Оцінює одноповторений максимум із субмаксимальної ваги та кількості повторень.",
                 "formula.one_rm.brzycki.title" to "Brzycki",
-                "formula.one_rm.brzycki.explain" to "Альтернативна оцінка одноповтореного максимуму з іншою вагою для багатоповторних сетів.",
+                "formula.one_rm.brzycki.explain" to
+                    "Альтернативна оцінка одноповтореного максимуму з іншою вагою для багатоповторних сетів.",
                 "formula.hr_zones.karvonen_5.title" to "Karvonen (5 зон)",
-                "formula.hr_zones.karvonen_5.explain" to "П’ять тренувальних зон із резерву пульсу (від спокою до максимуму).",
+                "formula.hr_zones.karvonen_5.explain" to
+                    "П’ять тренувальних зон із резерву пульсу (від спокою до максимуму).",
                 "formula.hr_zones.karvonen_3.title" to "Karvonen (3 зони)",
                 "formula.hr_zones.karvonen_3.explain" to "Простіша розкладка з трьох зон резерву пульсу.",
                 "formula.hr_zones.percent_hrmax_5.title" to "% HRmax (5 зон)",
@@ -213,7 +239,8 @@ internal object StringCatalogTables {
                 "workout_total_weight_lifted" to "Загальна піднята вага",
                 "workout_hard_sets" to "Важкі сети",
                 "workout_per_exercise" to "За вправами",
-                "workout_intro" to "Записуйте силові сети для оцінок тренувань. Показники — тренерські підказки, а не медична консультація.",
+                "workout_intro" to
+                    "Записуйте силові сети для оцінок тренувань. Показники — тренерські підказки, а не медична консультація.",
                 "workout_summary_duration" to "Тривалість",
                 "workout_summary_active_kcal" to "Активні ккал",
                 "workout_summary_total_kcal" to "Усього ккал",
@@ -228,9 +255,11 @@ internal object StringCatalogTables {
                 "workout_start_iphone_estimate" to "Запис на iPhone (оцінка)",
                 "workout_yoga_title" to "Йога",
                 "workout_pilates_title" to "Пілатес",
-                "workout_mindful_body_intro" to "Краще жива сесія на годиннику для пульсу й енергії. Лише на iPhone OmniGart зберігає оцінку MET із відповідною позначкою.",
+                "workout_mindful_body_intro" to
+                    "Краще жива сесія на годиннику для пульсу й енергії. Лише на iPhone OmniGart зберігає оцінку MET із відповідною позначкою.",
                 "workout_mindful_minutes_toggle" to "Зберігати хвилини усвідомленості для йоги",
-                "workout_mindful_minutes_body" to "За бажанням. Типово вимкнено. Записує mindful-сесію лише коли ви це вмикаєте.",
+                "workout_mindful_minutes_body" to
+                    "За бажанням. Типово вимкнено. Записує mindful-сесію лише коли ви це вмикаєте.",
                 "workout_mindful_settings_title" to "Усвідомленість у йозі",
                 "workout_finish" to "Завершити",
                 "workout_rest_timer" to "Відпочинок",
@@ -252,13 +281,15 @@ internal object StringCatalogTables {
                 "workout_weight_lb" to "Вага (фунт)",
                 "workout_body_map" to "М’язи",
                 "workout_export_workoutkit" to "Додати до Apple Workout",
-                "workout_workoutkit_limit" to "Додаток Workout від Apple не приймає вагу чи повторення з інших програм. OmniGart експортує кожен підхід як роботу, а відпочинок як відновлення; вагу × повторення записуйте в OmniGart на iPhone або Apple Watch.",
+                "workout_workoutkit_limit" to
+                    "Додаток Workout від Apple не приймає вагу чи повторення з інших програм. OmniGart експортує кожен підхід як роботу, а відпочинок як відновлення; вагу × повторення записуйте в OmniGart на iPhone або Apple Watch.",
                 "workout_sets_count" to "Підходи",
                 "workout_volume_short" to "Об’єм",
                 "data_privacy_title" to "Дані та приватність",
-                "data_privacy_intro" to "OmniGart зберігає повну локальну копію тренувань і зразків на цьому пристрої. Експорт лишається на пристрої. Синхронізація з платформою необов’язкова.",
+                "data_privacy_intro" to
+                    "OmniGart зберігає повну локальну копію тренувань і зразків на цьому пристрої. Експорт лишається на пристрої. Синхронізація з платформою необов’язкова.",
                 "data_privacy_export" to "Експортувати дані самопочуття",
-                "data_privacy_import_json" to "Імпортувати OmniGart JSON",
+                "data_privacy_import_json" to "Імпортувати OmniGart JSON"
             ),
             "pl" to mapOf(
                 "app_name" to "OmniGart",
@@ -270,12 +301,15 @@ internal object StringCatalogTables {
                 "shell_intro" to "Szacunki wellness z Twojego wspólnego profilu OmniGart",
                 "watch_start" to "Start",
                 "watch_subtitle" to "Szacunki wellness na nadgarstku",
-                "wellness_disclaimer" to "OmniGart dostarcza wyłącznie szacunki wellness. Gotowość, stres, HRV, indeks Bajewskiego, szacunki tkanki tłuszczowej, cele nawodnienia i plany treningowe nie są poradą medyczną. W sprawach zdrowia skonsultuj się z wykwalifikowanym specjalistą.",
+                "wellness_disclaimer" to
+                    "OmniGart dostarcza wyłącznie szacunki wellness. Gotowość, stres, HRV, indeks Bajewskiego, szacunki tkanki tłuszczowej, cele nawodnienia i plany treningowe nie są poradą medyczną. W sprawach zdrowia skonsultuj się z wykwalifikowanym specjalistą.",
                 "info_sheet_not_medical_advice" to "To nie jest porada medyczna. Skonsultuj się ze specjalistą.",
-                "health_warning_chest_pain" to "Zatrzymaj się i wezwij pomoc w nagłych wypadkach, jeśli podczas aktywności odczuwasz ból w klatce piersiowej, silne zawroty głowy lub nietypową duszność.",
+                "health_warning_chest_pain" to
+                    "Zatrzymaj się i wezwij pomoc w nagłych wypadkach, jeśli podczas aktywności odczuwasz ból w klatce piersiowej, silne zawroty głowy lub nietypową duszność.",
                 "onboarding_wellness_title" to "Wellness, nie opieka medyczna",
                 "onboarding_welcome_title" to "Witamy w OmniGart",
-                "onboarding_welcome_body" to "Kilka pytań, by spersonalizować szacunki wellness na urządzeniu. Zmieńisz je później w Profilu.",
+                "onboarding_welcome_body" to
+                    "Kilka pytań, by spersonalizować szacunki wellness na urządzeniu. Zmieńisz je później w Profilu.",
                 "onboarding_next" to "Dalej",
                 "onboarding_back" to "Wstecz",
                 "onboarding_skip" to "Pomiń",
@@ -289,13 +323,16 @@ internal object StringCatalogTables {
                 "onboarding_units_title" to "Preferowane jednostki",
                 "onboarding_activity_title" to "Typowa dzienna aktywność",
                 "perm_explainer_health_title" to "Apple Health / Health Connect",
-                "perm_explainer_health_body" to "OmniGart może czytać i zapisywać próbki wellness — tętno, HRV, sen, treningi, energię aktywną i spoczynkową, masę ciała i nawodnienie — aby sesje pojawiały się w Apple Fitness z czasem i kaloriami. Zapis na platformę tylko dopisuje: OmniGart nigdy nie usuwa ani nie nadpisuje danych Apple Health ani Health Connect, także własnych. Dane nie służą reklamom. Możesz kontynuować bez dostępu.",
+                "perm_explainer_health_body" to
+                    "OmniGart może czytać i zapisywać próbki wellness — tętno, HRV, sen, treningi, energię aktywną i spoczynkową, masę ciała i nawodnienie — aby sesje pojawiały się w Apple Fitness z czasem i kaloriami. Zapis na platformę tylko dopisuje: OmniGart nigdy nie usuwa ani nie nadpisuje danych Apple Health ani Health Connect, także własnych. Dane nie służą reklamom. Możesz kontynuować bez dostępu.",
                 "perm_continue" to "Kontynuuj",
                 "perm_not_now" to "Nie teraz",
                 "info_sheet_title" to "O tym szacunku",
-                "info_sheet_body" to "Wskaźniki takie jak gotowość, stres, HRV, indeks Bajewskiego, tkanka tłuszczowa i nawodnienie to szacunki wellness oparte na Twoich danych i próbkach z urządzenia. Plany to sugestie coachingowe, nie recepty.",
+                "info_sheet_body" to
+                    "Wskaźniki takie jak gotowość, stres, HRV, indeks Bajewskiego, tkanka tłuszczowa i nawodnienie to szacunki wellness oparte na Twoich danych i próbkach z urządzenia. Plany to sugestie coachingowe, nie recepty.",
                 "calc_settings_title" to "Obliczenia",
-                "calc_settings_intro" to "Wybierz, jak OmniGart szacuje wskaźniki wellness: zużycie energii, strefy tętna, tkankę tłuszczową i siłę.",
+                "calc_settings_intro" to
+                    "Wybierz, jak OmniGart szacuje wskaźniki wellness: zużycie energii, strefy tętna, tkankę tłuszczową i siłę.",
                 "calc_mode_simple" to "Prosty",
                 "calc_mode_advanced" to "Zaawansowany",
                 "calc_domain_bmr" to "BMR",
@@ -304,25 +341,32 @@ internal object StringCatalogTables {
                 "calc_domain_one_rm" to "Maksimum na jedno powtórzenie",
                 "calc_domain_hr_zones" to "Strefy tętna",
                 "formula.bmr.mifflin_st_jeor.title" to "Mifflin–St Jeor",
-                "formula.bmr.mifflin_st_jeor.explain" to "Powszechnie stosowany szacunek energii spoczynkowej z masy, wzrostu, wieku i płci.",
+                "formula.bmr.mifflin_st_jeor.explain" to
+                    "Powszechnie stosowany szacunek energii spoczynkowej z masy, wzrostu, wieku i płci.",
                 "formula.bmr.harris_benedict.title" to "Harris–Benedict (zrewidowany)",
-                "formula.bmr.harris_benedict.explain" to "Klasyczny szacunek energii spoczynkowej; przydatny jako alternatywna kontrola wellness.",
+                "formula.bmr.harris_benedict.explain" to
+                    "Klasyczny szacunek energii spoczynkowej; przydatny jako alternatywna kontrola wellness.",
                 "formula.hr_max.tanaka.title" to "Tanaka",
                 "formula.hr_max.tanaka.explain" to "Szacunek maksymalnego tętna na podstawie wieku (208 − 0,7×wiek).",
                 "formula.hr_max.fox.title" to "Fox (220 − wiek)",
                 "formula.hr_max.fox.explain" to "Tradycyjna reguła maksymalnego tętna wyłącznie na podstawie wieku.",
                 "formula.body_fat.cun_bae.title" to "CUN-BAE",
-                "formula.body_fat.cun_bae.explain" to "Szacunek procentu tkanki tłuszczowej z masy, wzrostu, wieku i płci.",
+                "formula.body_fat.cun_bae.explain" to
+                    "Szacunek procentu tkanki tłuszczowej z masy, wzrostu, wieku i płci.",
                 "formula.one_rm.epley.title" to "Epley",
-                "formula.one_rm.epley.explain" to "Szacuje maksimum na jedno powtórzenie z obciążenia submaksymalnego i liczby powtórzeń.",
+                "formula.one_rm.epley.explain" to
+                    "Szacuje maksimum na jedno powtórzenie z obciążenia submaksymalnego i liczby powtórzeń.",
                 "formula.one_rm.brzycki.title" to "Brzycki",
-                "formula.one_rm.brzycki.explain" to "Alternatywny szacunek maksimum na jedno powtórzenie, inaczej ważący serie o większej liczbie powtórzeń.",
+                "formula.one_rm.brzycki.explain" to
+                    "Alternatywny szacunek maksimum na jedno powtórzenie, inaczej ważący serie o większej liczbie powtórzeń.",
                 "formula.hr_zones.karvonen_5.title" to "Karvonen (5 stref)",
-                "formula.hr_zones.karvonen_5.explain" to "Pięć stref treningowych z rezerwy tętna (od spoczynku do maksimum).",
+                "formula.hr_zones.karvonen_5.explain" to
+                    "Pięć stref treningowych z rezerwy tętna (od spoczynku do maksimum).",
                 "formula.hr_zones.karvonen_3.title" to "Karvonen (3 strefy)",
                 "formula.hr_zones.karvonen_3.explain" to "Prostszy układ trzech stref rezerwy tętna.",
                 "formula.hr_zones.percent_hrmax_5.title" to "% HRmax (5 stref)",
-                "formula.hr_zones.percent_hrmax_5.explain" to "Pięć stref jako procenty szacowanego maksymalnego tętna.",
+                "formula.hr_zones.percent_hrmax_5.explain" to
+                    "Pięć stref jako procenty szacowanego maksymalnego tętna.",
                 "workout_start" to "Rozpocznij trening",
                 "workout_end" to "Zakończ trening",
                 "workout_add_set" to "Dodaj serię",
@@ -339,7 +383,8 @@ internal object StringCatalogTables {
                 "workout_total_weight_lifted" to "Łączny podniesiony ciężar",
                 "workout_hard_sets" to "Ciężkie serie",
                 "workout_per_exercise" to "Według ćwiczeń",
-                "workout_intro" to "Zapisuj serie siłowe na potrzeby szacunków treningu wellness. Wskaźniki to pomoce coachingowe, nie porada medyczna.",
+                "workout_intro" to
+                    "Zapisuj serie siłowe na potrzeby szacunków treningu wellness. Wskaźniki to pomoce coachingowe, nie porada medyczna.",
                 "workout_summary_duration" to "Czas trwania",
                 "workout_summary_active_kcal" to "Aktywne kcal",
                 "workout_summary_total_kcal" to "Suma kcal",
@@ -354,9 +399,11 @@ internal object StringCatalogTables {
                 "workout_start_iphone_estimate" to "Zapis na iPhonie (szacunek)",
                 "workout_yoga_title" to "Joga",
                 "workout_pilates_title" to "Pilates",
-                "workout_mindful_body_intro" to "Preferuj żywą sesję na zegarku dla tętna i energii. Na samym iPhonie OmniGart zapisuje szacunek MET z etykietą.",
+                "workout_mindful_body_intro" to
+                    "Preferuj żywą sesję na zegarku dla tętna i energii. Na samym iPhonie OmniGart zapisuje szacunek MET z etykietą.",
                 "workout_mindful_minutes_toggle" to "Zapisuj minuty uważności dla jogi",
-                "workout_mindful_minutes_body" to "Opcjonalne. Domyślnie wyłączone. Zapisuje sesję uważności tylko po włączeniu.",
+                "workout_mindful_minutes_body" to
+                    "Opcjonalne. Domyślnie wyłączone. Zapisuje sesję uważności tylko po włączeniu.",
                 "workout_mindful_settings_title" to "Uważność w jodze",
                 "workout_finish" to "Zakończ",
                 "workout_rest_timer" to "Odpoczynek",
@@ -378,13 +425,15 @@ internal object StringCatalogTables {
                 "workout_weight_lb" to "Ciężar (lb)",
                 "workout_body_map" to "Mięśnie",
                 "workout_export_workoutkit" to "Dodaj do Apple Workout",
-                "workout_workoutkit_limit" to "Aplikacja Workout Apple nie przyjmuje ciężaru ani powtórzeń z innych aplikacji. OmniGart eksportuje każdą serię jako pracę, a odpoczynek jako regenerację; obciążenie × powtórzenia zapisuj w OmniGart na iPhonie lub Apple Watch.",
+                "workout_workoutkit_limit" to
+                    "Aplikacja Workout Apple nie przyjmuje ciężaru ani powtórzeń z innych aplikacji. OmniGart eksportuje każdą serię jako pracę, a odpoczynek jako regenerację; obciążenie × powtórzenia zapisuj w OmniGart na iPhonie lub Apple Watch.",
                 "workout_sets_count" to "Serie",
                 "workout_volume_short" to "Objętość",
                 "data_privacy_title" to "Dane i prywatność",
-                "data_privacy_intro" to "OmniGart przechowuje pełną lokalną kopię treningów i próbek na tym urządzeniu. Eksport pozostaje na urządzeniu. Synchronizacja z platformą jest opcjonalna.",
+                "data_privacy_intro" to
+                    "OmniGart przechowuje pełną lokalną kopię treningów i próbek na tym urządzeniu. Eksport pozostaje na urządzeniu. Synchronizacja z platformą jest opcjonalna.",
                 "data_privacy_export" to "Eksportuj dane wellness",
-                "data_privacy_import_json" to "Importuj JSON OmniGart",
+                "data_privacy_import_json" to "Importuj JSON OmniGart"
             ),
             "be" to mapOf(
                 "app_name" to "OmniGart",
@@ -396,12 +445,15 @@ internal object StringCatalogTables {
                 "shell_intro" to "Ацэнкі самаадчування з вашага агульнага профілю OmniGart",
                 "watch_start" to "Старт",
                 "watch_subtitle" to "Ацэнкі самаадчування на запясці",
-                "wellness_disclaimer" to "OmniGart дае толькі ацэнкі самаадчування. Гатоўнасць, стрэс, ВСР, індэкс Баеўскага, ацэнкі тлушчу ў целе, мэты гідратацыі і планы трэніровак не з’яўляюцца медыцынскай кансультацыяй. Звяртайцеся да кваліфікаванага спецыяліста па пытаннях здароўя.",
+                "wellness_disclaimer" to
+                    "OmniGart дае толькі ацэнкі самаадчування. Гатоўнасць, стрэс, ВСР, індэкс Баеўскага, ацэнкі тлушчу ў целе, мэты гідратацыі і планы трэніровак не з’яўляюцца медыцынскай кансультацыяй. Звяртайцеся да кваліфікаванага спецыяліста па пытаннях здароўя.",
                 "info_sheet_not_medical_advice" to "Гэта не медыцынская кансультацыя. Звярніцеся да спецыяліста.",
-                "health_warning_chest_pain" to "Спыніцеся і звярніцеся па экстраную дапамогу, калі падчас актыўнасці адчуваеце боль у грудзях, моцнае галавакружэнне або незвычайную дыхавіцу.",
+                "health_warning_chest_pain" to
+                    "Спыніцеся і звярніцеся па экстраную дапамогу, калі падчас актыўнасці адчуваеце боль у грудзях, моцнае галавакружэнне або незвычайную дыхавіцу.",
                 "onboarding_wellness_title" to "Самаадчуванне, не медыцына",
                 "onboarding_welcome_title" to "Сардэчна запрашаем у OmniGart",
-                "onboarding_welcome_body" to "Некалькі пытанняў, каб наладзіць ацэнкі самаадчування на вашай прыладзе. Пазней можна змяніць у Профілі.",
+                "onboarding_welcome_body" to
+                    "Некалькі пытанняў, каб наладзіць ацэнкі самаадчування на вашай прыладзе. Пазней можна змяніць у Профілі.",
                 "onboarding_next" to "Далей",
                 "onboarding_back" to "Назад",
                 "onboarding_skip" to "Прапусціць",
@@ -415,13 +467,16 @@ internal object StringCatalogTables {
                 "onboarding_units_title" to "Зручныя адзінкі",
                 "onboarding_activity_title" to "Тыповая штодзённая актыўнасць",
                 "perm_explainer_health_title" to "Apple Health / Health Connect",
-                "perm_explainer_health_body" to "OmniGart можа чытаць і запісваць узоры самаадчування — пульс, ВСР, сон, трэніроўкі, актыўную і базальную энергію, масу цела і гідратацыю — каб сесіі з’яўляліся ў Apple Fitness. Запіс на платформу толькі дадае: OmniGart ніколі не выдаляе і не перазапісвае дадзеныя Apple Health ці Health Connect, нават свае. Дадзеныя не для рэкламы. Можна працягнуць без доступу.",
+                "perm_explainer_health_body" to
+                    "OmniGart можа чытаць і запісваць узоры самаадчування — пульс, ВСР, сон, трэніроўкі, актыўную і базальную энергію, масу цела і гідратацыю — каб сесіі з’яўляліся ў Apple Fitness. Запіс на платформу толькі дадае: OmniGart ніколі не выдаляе і не перазапісвае дадзеныя Apple Health ці Health Connect, нават свае. Дадзеныя не для рэкламы. Можна працягнуць без доступу.",
                 "perm_continue" to "Працягнуць",
                 "perm_not_now" to "Не зараз",
                 "info_sheet_title" to "Пра гэтую ацэнку",
-                "info_sheet_body" to "Паказчыкі накшталт гатоўнасці, стрэсу, ВСР, індэкса Баеўскага, тлушчу ў целе і гідратацыі — гэта ацэнкі самаадчування на аснове вашых даных і ўзораў з прылады. Планы — трэнерскія прапановы, а не прыпісы лекара.",
+                "info_sheet_body" to
+                    "Паказчыкі накшталт гатоўнасці, стрэсу, ВСР, індэкса Баеўскага, тлушчу ў целе і гідратацыі — гэта ацэнкі самаадчування на аснове вашых даных і ўзораў з прылады. Планы — трэнерскія прапановы, а не прыпісы лекара.",
                 "calc_settings_title" to "Разлікі",
-                "calc_settings_intro" to "Абярыце, як OmniGart ацэньвае паказчыкі самаадчування: энергію, зоны пульсу, тлушч у целе і сілу.",
+                "calc_settings_intro" to
+                    "Абярыце, як OmniGart ацэньвае паказчыкі самаадчування: энергію, зоны пульсу, тлушч у целе і сілу.",
                 "calc_mode_simple" to "Просты",
                 "calc_mode_advanced" to "Пашыраны",
                 "calc_domain_bmr" to "BMR",
@@ -430,9 +485,11 @@ internal object StringCatalogTables {
                 "calc_domain_one_rm" to "Аднапаўторны максімум",
                 "calc_domain_hr_zones" to "Зоны пульсу",
                 "formula.bmr.mifflin_st_jeor.title" to "Mifflin–St Jeor",
-                "formula.bmr.mifflin_st_jeor.explain" to "Пашыраная ацэнка энергіі ў спакоі з вагі, росту, ўзросту і полу.",
+                "formula.bmr.mifflin_st_jeor.explain" to
+                    "Пашыраная ацэнка энергіі ў спакоі з вагі, росту, ўзросту і полу.",
                 "formula.bmr.harris_benedict.title" to "Harris–Benedict (абноўленая)",
-                "formula.bmr.harris_benedict.explain" to "Класічная ацэнка энергіі ў спакоі; карысная як альтэрнатыўная праверка.",
+                "formula.bmr.harris_benedict.explain" to
+                    "Класічная ацэнка энергіі ў спакоі; карысная як альтэрнатыўная праверка.",
                 "formula.hr_max.tanaka.title" to "Tanaka",
                 "formula.hr_max.tanaka.explain" to "Ацэнка макс. пульсу па ўзросту (208 − 0,7×ўзрост).",
                 "formula.hr_max.fox.title" to "Fox (220 − ўзрост)",
@@ -440,11 +497,14 @@ internal object StringCatalogTables {
                 "formula.body_fat.cun_bae.title" to "CUN-BAE",
                 "formula.body_fat.cun_bae.explain" to "Ацэнка адсотка тлушчу ў целе з вагі, росту, ўзросту і полу.",
                 "formula.one_rm.epley.title" to "Epley",
-                "formula.one_rm.epley.explain" to "Ацэньвае аднапаўторны максімум з субмаксімальнай вагі і колькасці паўтораў.",
+                "formula.one_rm.epley.explain" to
+                    "Ацэньвае аднапаўторны максімум з субмаксімальнай вагі і колькасці паўтораў.",
                 "formula.one_rm.brzycki.title" to "Brzycki",
-                "formula.one_rm.brzycki.explain" to "Альтэрнатыўная ацэнка аднапаўторнага максімуму з іншай вагой для шматпаўторных сетаў.",
+                "formula.one_rm.brzycki.explain" to
+                    "Альтэрнатыўная ацэнка аднапаўторнага максімуму з іншай вагой для шматпаўторных сетаў.",
                 "formula.hr_zones.karvonen_5.title" to "Karvonen (5 зон)",
-                "formula.hr_zones.karvonen_5.explain" to "Пяць трэніровачных зон з рэзерву пульсу (ад спакою да максімуму).",
+                "formula.hr_zones.karvonen_5.explain" to
+                    "Пяць трэніровачных зон з рэзерву пульсу (ад спакою да максімуму).",
                 "formula.hr_zones.karvonen_3.title" to "Karvonen (3 зоны)",
                 "formula.hr_zones.karvonen_3.explain" to "Прасьцейшая раскладка з трох зон рэзерву пульсу.",
                 "formula.hr_zones.percent_hrmax_5.title" to "% HRmax (5 зон)",
@@ -465,7 +525,8 @@ internal object StringCatalogTables {
                 "workout_total_weight_lifted" to "Агульная паднятая вага",
                 "workout_hard_sets" to "Цяжкія сеты",
                 "workout_per_exercise" to "Па практыкаваннях",
-                "workout_intro" to "Запісвайце сілавыя сеты для ацэнак трэніровак. Паказчыкі — трэнерскія падказкі, а не медыцынская кансультацыя.",
+                "workout_intro" to
+                    "Запісвайце сілавыя сеты для ацэнак трэніровак. Паказчыкі — трэнерскія падказкі, а не медыцынская кансультацыя.",
                 "workout_summary_duration" to "Працягласць",
                 "workout_summary_active_kcal" to "Актыўныя ккал",
                 "workout_summary_total_kcal" to "Усяго ккал",
@@ -480,9 +541,11 @@ internal object StringCatalogTables {
                 "workout_start_iphone_estimate" to "Запіс на iPhone (ацэнка)",
                 "workout_yoga_title" to "Йога",
                 "workout_pilates_title" to "Пілатэс",
-                "workout_mindful_body_intro" to "Лепш жывая сесія на гадзінніку для пульсу й энергіі. Толькі на iPhone OmniGart захоўвае ацэнку MET з пазнакай.",
+                "workout_mindful_body_intro" to
+                    "Лепш жывая сесія на гадзінніку для пульсу й энергіі. Толькі на iPhone OmniGart захоўвае ацэнку MET з пазнакай.",
                 "workout_mindful_minutes_toggle" to "Захоўваць хвіліны ўсвядомленасці для йогі",
-                "workout_mindful_minutes_body" to "Па жаданні. Па змаўчанні выключана. Запісвае mindful-сесію толькі калі ўключана.",
+                "workout_mindful_minutes_body" to
+                    "Па жаданні. Па змаўчанні выключана. Запісвае mindful-сесію толькі калі ўключана.",
                 "workout_mindful_settings_title" to "Усвядомленасць у йозе",
                 "workout_finish" to "Завяршыць",
                 "workout_rest_timer" to "Адпачынак",
@@ -504,13 +567,15 @@ internal object StringCatalogTables {
                 "workout_weight_lb" to "Вага (фунт)",
                 "workout_body_map" to "Мышцы",
                 "workout_export_workoutkit" to "Дадаць у Apple Workout",
-                "workout_workoutkit_limit" to "Праграма Workout ад Apple не прымае вагу ці паўторы з іншых праграм. OmniGart экспартуе кожны падыход як працу, а адпачынак як аднаўленне; вагу × паўторы запісвайце ў OmniGart на iPhone або Apple Watch.",
+                "workout_workoutkit_limit" to
+                    "Праграма Workout ад Apple не прымае вагу ці паўторы з іншых праграм. OmniGart экспартуе кожны падыход як працу, а адпачынак як аднаўленне; вагу × паўторы запісвайце ў OmniGart на iPhone або Apple Watch.",
                 "workout_sets_count" to "Падыходы",
                 "workout_volume_short" to "Аб’ём",
                 "data_privacy_title" to "Дадзеныя і прыватнасць",
-                "data_privacy_intro" to "OmniGart захоўвае поўную лакальную копію трэніровак і ўзораў на гэтай прыладзе. Экспарт застаецца на прыладзе. Сінхранізацыя з платформай неабавязковая.",
+                "data_privacy_intro" to
+                    "OmniGart захоўвае поўную лакальную копію трэніровак і ўзораў на гэтай прыладзе. Экспарт застаецца на прыладзе. Сінхранізацыя з платформай неабавязковая.",
                 "data_privacy_export" to "Экспартаваць дадзеныя самаадчування",
-                "data_privacy_import_json" to "Імпартаваць OmniGart JSON",
+                "data_privacy_import_json" to "Імпартаваць OmniGart JSON"
             ),
             "kk" to mapOf(
                 "app_name" to "OmniGart",
@@ -522,12 +587,15 @@ internal object StringCatalogTables {
                 "shell_intro" to "Ортақ OmniGart профиліңізден алынған сауықтыру бағалаулары",
                 "watch_start" to "Бастау",
                 "watch_subtitle" to "Білегіңіздегі сауықтыру бағалаулары",
-                "wellness_disclaimer" to "OmniGart тек сауықтыру бағалауларын береді. Дайындық, стресс, ЖЖВ, Баевский индексі, дене майы бағалаулары, су ішу мақсаттары және жаттығу жоспарлары медициналық кеңес емес. Денсаулық мәселелері бойынша білікті маманға жүгініңіз.",
+                "wellness_disclaimer" to
+                    "OmniGart тек сауықтыру бағалауларын береді. Дайындық, стресс, ЖЖВ, Баевский индексі, дене майы бағалаулары, су ішу мақсаттары және жаттығу жоспарлары медициналық кеңес емес. Денсаулық мәселелері бойынша білікті маманға жүгініңіз.",
                 "info_sheet_not_medical_advice" to "Бұл медициналық кеңес емес. Маманға жүгініңіз.",
-                "health_warning_chest_pain" to "Белсенділік кезінде кеуде ауруы, қатты бас айналу немесе әдеттен тыс тыныс тарылуын сезсеңіз, тоқтап, жедел жәрдемге жүгініңіз.",
+                "health_warning_chest_pain" to
+                    "Белсенділік кезінде кеуде ауруы, қатты бас айналу немесе әдеттен тыс тыныс тарылуын сезсеңіз, тоқтап, жедел жәрдемге жүгініңіз.",
                 "onboarding_wellness_title" to "Сауықтыру, медициналық күтім емес",
                 "onboarding_welcome_title" to "OmniGart-қа қош келдіңіз",
-                "onboarding_welcome_body" to "Құрылғыдағы сауықтыру бағалауларын жекелендіру үшін бірнеше сұрақ. Кейін Профильден өзгерте аласыз.",
+                "onboarding_welcome_body" to
+                    "Құрылғыдағы сауықтыру бағалауларын жекелендіру үшін бірнеше сұрақ. Кейін Профильден өзгерте аласыз.",
                 "onboarding_next" to "Келесі",
                 "onboarding_back" to "Артқа",
                 "onboarding_skip" to "Өткізіп жіберу",
@@ -541,13 +609,16 @@ internal object StringCatalogTables {
                 "onboarding_units_title" to "Қалаулы бірліктер",
                 "onboarding_activity_title" to "Әдеттегі күнделікті белсенділік",
                 "perm_explainer_health_title" to "Apple Health / Health Connect",
-                "perm_explainer_health_body" to "OmniGart сауықтыру үлгілерін оқи және жаза алады — жүрек соғысы, HRV, ұйқы, жаттығулар, белсенді және базалық энергия, дене салмағы және су ішу — сеанстар Apple Fitness-те көрінуі үшін. Платформаға жазу тек қосу: OmniGart Apple Health / Health Connect деректерін — өзінкін де — жоймайды және қайта жазбайды. Деректер жарнамаға берілмейді. Рұқсатсыз жалғастыруға болады.",
+                "perm_explainer_health_body" to
+                    "OmniGart сауықтыру үлгілерін оқи және жаза алады — жүрек соғысы, HRV, ұйқы, жаттығулар, белсенді және базалық энергия, дене салмағы және су ішу — сеанстар Apple Fitness-те көрінуі үшін. Платформаға жазу тек қосу: OmniGart Apple Health / Health Connect деректерін — өзінкін де — жоймайды және қайта жазбайды. Деректер жарнамаға берілмейді. Рұқсатсыз жалғастыруға болады.",
                 "perm_continue" to "Жалғастыру",
                 "perm_not_now" to "Қазір емес",
                 "info_sheet_title" to "Осы бағалау туралы",
-                "info_sheet_body" to "Дайындық, стресс, ЖЖВ, Баевский индексі, дене майы және су балансы сияқты көрсеткіштер — сіздің деректеріңіз бен құрылғы үлгілеріне негізделген сауықтыру бағалаулары. Жоспарлар — жаттықтырушы ұсыныстары, рецепт емес.",
+                "info_sheet_body" to
+                    "Дайындық, стресс, ЖЖВ, Баевский индексі, дене майы және су балансы сияқты көрсеткіштер — сіздің деректеріңіз бен құрылғы үлгілеріне негізделген сауықтыру бағалаулары. Жоспарлар — жаттықтырушы ұсыныстары, рецепт емес.",
                 "calc_settings_title" to "Есептеулер",
-                "calc_settings_intro" to "OmniGart энергия шығыны, жүрек соғу аймақтары, дене майы және күш сияқты сауықтыру көрсеткіштерін қалай бағалайтынын таңдаңыз.",
+                "calc_settings_intro" to
+                    "OmniGart энергия шығыны, жүрек соғу аймақтары, дене майы және күш сияқты сауықтыру көрсеткіштерін қалай бағалайтынын таңдаңыз.",
                 "calc_mode_simple" to "Қарапайым",
                 "calc_mode_advanced" to "Кеңейтілген",
                 "calc_domain_bmr" to "BMR",
@@ -556,9 +627,11 @@ internal object StringCatalogTables {
                 "calc_domain_one_rm" to "Бір қайталау максимумы",
                 "calc_domain_hr_zones" to "Жүрек соғу аймақтары",
                 "formula.bmr.mifflin_st_jeor.title" to "Mifflin–St Jeor",
-                "formula.bmr.mifflin_st_jeor.explain" to "Салмақ, бой, жас және жыныстан алынған кең таралған тыныштық энергия бағалауы.",
+                "formula.bmr.mifflin_st_jeor.explain" to
+                    "Салмақ, бой, жас және жыныстан алынған кең таралған тыныштық энергия бағалауы.",
                 "formula.bmr.harris_benedict.title" to "Harris–Benedict (жаңартылған)",
-                "formula.bmr.harris_benedict.explain" to "Классикалық тыныштық энергия бағалауы; балама сауықтыру тексеруі ретінде пайдалы.",
+                "formula.bmr.harris_benedict.explain" to
+                    "Классикалық тыныштық энергия бағалауы; балама сауықтыру тексеруі ретінде пайдалы.",
                 "formula.hr_max.tanaka.title" to "Tanaka",
                 "formula.hr_max.tanaka.explain" to "Жасқа негізделген макс. жүрек соғу бағалауы (208 − 0,7×жас).",
                 "formula.hr_max.fox.title" to "Fox (220 − жас)",
@@ -566,15 +639,19 @@ internal object StringCatalogTables {
                 "formula.body_fat.cun_bae.title" to "CUN-BAE",
                 "formula.body_fat.cun_bae.explain" to "Салмақ, бой, жас және жыныстан дене майы пайызының бағалауы.",
                 "formula.one_rm.epley.title" to "Epley",
-                "formula.one_rm.epley.explain" to "Субмаксималды көтеру мен қайталау санынан бір қайталау максимумын бағалайды.",
+                "formula.one_rm.epley.explain" to
+                    "Субмаксималды көтеру мен қайталау санынан бір қайталау максимумын бағалайды.",
                 "formula.one_rm.brzycki.title" to "Brzycki",
-                "formula.one_rm.brzycki.explain" to "Көп қайталаулы жиынтықтарды басқаша өлшейтін балама бір қайталау максимумы бағалауы.",
+                "formula.one_rm.brzycki.explain" to
+                    "Көп қайталаулы жиынтықтарды басқаша өлшейтін балама бір қайталау максимумы бағалауы.",
                 "formula.hr_zones.karvonen_5.title" to "Karvonen (5 аймақ)",
-                "formula.hr_zones.karvonen_5.explain" to "Жүрек соғу резервінен (тыныштықтан максимумға дейін) бес жаттығу аймағы.",
+                "formula.hr_zones.karvonen_5.explain" to
+                    "Жүрек соғу резервінен (тыныштықтан максимумға дейін) бес жаттығу аймағы.",
                 "formula.hr_zones.karvonen_3.title" to "Karvonen (3 аймақ)",
                 "formula.hr_zones.karvonen_3.explain" to "Жүрек соғу резервінің қарапайымырақ үш аймақтық орналасуы.",
                 "formula.hr_zones.percent_hrmax_5.title" to "% HRmax (5 аймақ)",
-                "formula.hr_zones.percent_hrmax_5.explain" to "Бағаланған макс. жүрек соғуының пайыздары ретінде бес аймақ.",
+                "formula.hr_zones.percent_hrmax_5.explain" to
+                    "Бағаланған макс. жүрек соғуының пайыздары ретінде бес аймақ.",
                 "workout_start" to "Жаттығуды бастау",
                 "workout_end" to "Жаттығуды аяқтау",
                 "workout_add_set" to "Жиынтық қосу",
@@ -591,7 +668,8 @@ internal object StringCatalogTables {
                 "workout_total_weight_lifted" to "Жалпы көтерілген салмақ",
                 "workout_hard_sets" to "Ауыр жиынтықтар",
                 "workout_per_exercise" to "Жаттығу бойынша",
-                "workout_intro" to "Сауықтыру жаттығу бағалаулары үшін күш жиынтықтарын жазыңыз. Көрсеткіштер — жаттықтырушы көмектері, медициналық кеңес емес.",
+                "workout_intro" to
+                    "Сауықтыру жаттығу бағалаулары үшін күш жиынтықтарын жазыңыз. Көрсеткіштер — жаттықтырушы көмектері, медициналық кеңес емес.",
                 "workout_summary_duration" to "Ұзақтық",
                 "workout_summary_active_kcal" to "Белсенді ккал",
                 "workout_summary_total_kcal" to "Барлық ккал",
@@ -606,7 +684,8 @@ internal object StringCatalogTables {
                 "workout_start_iphone_estimate" to "iPhone-да жазу (бағалау)",
                 "workout_yoga_title" to "Йога",
                 "workout_pilates_title" to "Пилатес",
-                "workout_mindful_body_intro" to "Жүрек соғысы мен энергия үшін сағаттағы тірі сеансты таңдаңыз. Тек iPhone-да OmniGart MET бағалауын белгілеп сақтайды.",
+                "workout_mindful_body_intro" to
+                    "Жүрек соғысы мен энергия үшін сағаттағы тірі сеансты таңдаңыз. Тек iPhone-да OmniGart MET бағалауын белгілеп сақтайды.",
                 "workout_mindful_minutes_toggle" to "Йога үшін mindful минуттарды сақтау",
                 "workout_mindful_minutes_body" to "Қосымша. Әдепкі өшірулі. Тек қосқанда mindful сеансын жазады.",
                 "workout_mindful_settings_title" to "Йога mindful минуттары",
@@ -630,13 +709,15 @@ internal object StringCatalogTables {
                 "workout_weight_lb" to "Салмақ (фунт)",
                 "workout_body_map" to "Бұлшықеттер",
                 "workout_export_workoutkit" to "Apple Workout-қа қосу",
-                "workout_workoutkit_limit" to "Apple Workout басқа қолданбалардан салмақ немесе қайталауды қабылдамайды. OmniGart әр жиынды жұмыс, демалысты қалпына келтіру қадамы ретінде экспорттайды; салмақ × қайталауды OmniGart-та iPhone немесе Apple Watch-та жазыңыз.",
+                "workout_workoutkit_limit" to
+                    "Apple Workout басқа қолданбалардан салмақ немесе қайталауды қабылдамайды. OmniGart әр жиынды жұмыс, демалысты қалпына келтіру қадамы ретінде экспорттайды; салмақ × қайталауды OmniGart-та iPhone немесе Apple Watch-та жазыңыз.",
                 "workout_sets_count" to "Жиындар",
                 "workout_volume_short" to "Көлем",
                 "data_privacy_title" to "Деректер және құпиялылық",
-                "data_privacy_intro" to "OmniGart жаттығулар мен үлгілердің толық жергілікті көшірмесін осы құрылғыда сақтайды. Экспорт құрылғыда қалады. Платформамен синхрондау міндетті емес.",
+                "data_privacy_intro" to
+                    "OmniGart жаттығулар мен үлгілердің толық жергілікті көшірмесін осы құрылғыда сақтайды. Экспорт құрылғыда қалады. Платформамен синхрондау міндетті емес.",
                 "data_privacy_export" to "Сауықтыру деректерін экспорттау",
-                "data_privacy_import_json" to "OmniGart JSON импорттау",
+                "data_privacy_import_json" to "OmniGart JSON импорттау"
             ),
             "ka" to mapOf(
                 "app_name" to "OmniGart",
@@ -648,12 +729,15 @@ internal object StringCatalogTables {
                 "shell_intro" to "კეთილდღეობის შეფასებები თქვენი საერთო OmniGart პროფილიდან",
                 "watch_start" to "დაწყება",
                 "watch_subtitle" to "კეთილდღეობის შეფასებები მაჯაზე",
-                "wellness_disclaimer" to "OmniGart იძლევა მხოლოდ კეთილდღეობის შეფასებებს. მზადყოფნა, სტრესი, HRV, ბაევსკის ინდექსი, სხეულის ცხიმის შეფასებები, ჰიდრატაციის მიზნები და ვარჯიშის გეგმები არ არის სამედიცინო რჩევა. ჯანმრთელობის საკითხებზე მიმართეთ კვალიფიციურ სპეციალისტს.",
+                "wellness_disclaimer" to
+                    "OmniGart იძლევა მხოლოდ კეთილდღეობის შეფასებებს. მზადყოფნა, სტრესი, HRV, ბაევსკის ინდექსი, სხეულის ცხიმის შეფასებები, ჰიდრატაციის მიზნები და ვარჯიშის გეგმები არ არის სამედიცინო რჩევა. ჯანმრთელობის საკითხებზე მიმართეთ კვალიფიციურ სპეციალისტს.",
                 "info_sheet_not_medical_advice" to "ეს არ არის სამედიცინო რჩევა. მიმართეთ სპეციალისტს.",
-                "health_warning_chest_pain" to "შეწყვიტეთ და მიმართეთ გადაუდებელ დახმარებას, თუ აქტივობისას გრძნობთ გულმკერდის ტკივილს, ძლიერ თავბრუსხვევას ან უჩვეულო სუნთქვის გაძნელებას.",
+                "health_warning_chest_pain" to
+                    "შეწყვიტეთ და მიმართეთ გადაუდებელ დახმარებას, თუ აქტივობისას გრძნობთ გულმკერდის ტკივილს, ძლიერ თავბრუსხვევას ან უჩვეულო სუნთქვის გაძნელებას.",
                 "onboarding_wellness_title" to "კეთილდღეობა, არა სამედიცინო მოვლა",
                 "onboarding_welcome_title" to "კეთილი იყოს თქვენი მობრძანება OmniGart-ში",
-                "onboarding_welcome_body" to "რამდენიმე კითხვა, რომ მოწყობილობაზე კეთილდღეობის შეფასებები მოვარგოთ. მოგვიანებით პროფილში შეცვლით.",
+                "onboarding_welcome_body" to
+                    "რამდენიმე კითხვა, რომ მოწყობილობაზე კეთილდღეობის შეფასებები მოვარგოთ. მოგვიანებით პროფილში შეცვლით.",
                 "onboarding_next" to "შემდეგი",
                 "onboarding_back" to "უკან",
                 "onboarding_skip" to "გამოტოვება",
@@ -667,13 +751,16 @@ internal object StringCatalogTables {
                 "onboarding_units_title" to "სასურველი ერთეულები",
                 "onboarding_activity_title" to "ჩვეულებრივი ყოველდღიური აქტივობა",
                 "perm_explainer_health_title" to "Apple Health / Health Connect",
-                "perm_explainer_health_body" to "OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები — გულისცემა, HRV, ძილი, ვარჯიშები, აქტიური და საბაზისო ენერგია, სხეულის მასა და ჰიდრატაცია — რომ სესიები გამოჩნდეს Apple Fitness-ში. პლატფორმაზე ჩაწერა მხოლოდ დამატებითია: OmniGart არ შლის და არ გადააწერს Apple Health ან Health Connect მონაცემებს, მათ შორის საკუთარს. შეგიძლიათ გააგრძელოთ წვდომის გარეშე.",
+                "perm_explainer_health_body" to
+                    "OmniGart-ს შეუძლია წაიკითხოს და ჩაწეროს კეთილდღეობის ნიმუშები — გულისცემა, HRV, ძილი, ვარჯიშები, აქტიური და საბაზისო ენერგია, სხეულის მასა და ჰიდრატაცია — რომ სესიები გამოჩნდეს Apple Fitness-ში. პლატფორმაზე ჩაწერა მხოლოდ დამატებითია: OmniGart არ შლის და არ გადააწერს Apple Health ან Health Connect მონაცემებს, მათ შორის საკუთარს. შეგიძლიათ გააგრძელოთ წვდომის გარეშე.",
                 "perm_continue" to "გაგრძელება",
                 "perm_not_now" to "ახლა არა",
                 "info_sheet_title" to "ამ შეფასების შესახებ",
-                "info_sheet_body" to "მაჩვენებლები, როგორიცაა მზადყოფნა, სტრესი, HRV, ბაევსკის ინდექსი, სხეულის ცხიმი და ჰიდრატაცია, არის კეთილდღეობის შეფასებები თქვენს მონაცემებსა და მოწყობილობის ნიმუშებზე დაყრდნობით. გეგმები — მწვრთნელის შეთავაზებებია, არა რეცეპტები.",
+                "info_sheet_body" to
+                    "მაჩვენებლები, როგორიცაა მზადყოფნა, სტრესი, HRV, ბაევსკის ინდექსი, სხეულის ცხიმი და ჰიდრატაცია, არის კეთილდღეობის შეფასებები თქვენს მონაცემებსა და მოწყობილობის ნიმუშებზე დაყრდნობით. გეგმები — მწვრთნელის შეთავაზებებია, არა რეცეპტები.",
                 "calc_settings_title" to "გამოთვლები",
-                "calc_settings_intro" to "აირჩიეთ, როგორ აფასებს OmniGart კეთილდღეობის მაჩვენებლებს: ენერგიას, გულისცემის ზონებს, სხეულის ცხიმს და ძალას.",
+                "calc_settings_intro" to
+                    "აირჩიეთ, როგორ აფასებს OmniGart კეთილდღეობის მაჩვენებლებს: ენერგიას, გულისცემის ზონებს, სხეულის ცხიმს და ძალას.",
                 "calc_mode_simple" to "მარტივი",
                 "calc_mode_advanced" to "გაფართოებული",
                 "calc_domain_bmr" to "BMR",
@@ -682,21 +769,27 @@ internal object StringCatalogTables {
                 "calc_domain_one_rm" to "ერთგანმეორებიანი მაქსიმუმი",
                 "calc_domain_hr_zones" to "გულისცემის ზონები",
                 "formula.bmr.mifflin_st_jeor.title" to "Mifflin–St Jeor",
-                "formula.bmr.mifflin_st_jeor.explain" to "ფართოდ გამოყენებული დასვენების ენერგიის შეფასება წონის, სიმაღლის, ასაკისა და სქესის მიხედვით.",
+                "formula.bmr.mifflin_st_jeor.explain" to
+                    "ფართოდ გამოყენებული დასვენების ენერგიის შეფასება წონის, სიმაღლის, ასაკისა და სქესის მიხედვით.",
                 "formula.bmr.harris_benedict.title" to "Harris–Benedict (განახლებული)",
-                "formula.bmr.harris_benedict.explain" to "კლასიკური დასვენების ენერგიის შეფასება; სასარგებლოა როგორც ალტერნატიული შემოწმება.",
+                "formula.bmr.harris_benedict.explain" to
+                    "კლასიკური დასვენების ენერგიის შეფასება; სასარგებლოა როგორც ალტერნატიული შემოწმება.",
                 "formula.hr_max.tanaka.title" to "Tanaka",
                 "formula.hr_max.tanaka.explain" to "ასაკზე დაფუძნებული მაქს. გულისცემის შეფასება (208 − 0.7×ასაკი).",
                 "formula.hr_max.fox.title" to "Fox (220 − ასაკი)",
                 "formula.hr_max.fox.explain" to "ტრადიციული მაქს. გულისცემის წესი მხოლოდ ასაკის მიხედვით.",
                 "formula.body_fat.cun_bae.title" to "CUN-BAE",
-                "formula.body_fat.cun_bae.explain" to "სხეულის ცხიმის პროცენტის შეფასება წონის, სიმაღლის, ასაკისა და სქესის მიხედვით.",
+                "formula.body_fat.cun_bae.explain" to
+                    "სხეულის ცხიმის პროცენტის შეფასება წონის, სიმაღლის, ასაკისა და სქესის მიხედვით.",
                 "formula.one_rm.epley.title" to "Epley",
-                "formula.one_rm.epley.explain" to "აფასებს ერთგანმეორებიან მაქსიმუმს სუბმაქსიმალური აწევისა და განმეორებების რაოდენობიდან.",
+                "formula.one_rm.epley.explain" to
+                    "აფასებს ერთგანმეორებიან მაქსიმუმს სუბმაქსიმალური აწევისა და განმეორებების რაოდენობიდან.",
                 "formula.one_rm.brzycki.title" to "Brzycki",
-                "formula.one_rm.brzycki.explain" to "ალტერნატიული ერთგანმეორებიანი მაქსიმუმის შეფასება, რომელიც სხვაგვარად იწონის მაღალგანმეორებიან სეტებს.",
+                "formula.one_rm.brzycki.explain" to
+                    "ალტერნატიული ერთგანმეორებიანი მაქსიმუმის შეფასება, რომელიც სხვაგვარად იწონის მაღალგანმეორებიან სეტებს.",
                 "formula.hr_zones.karvonen_5.title" to "Karvonen (5 ზონა)",
-                "formula.hr_zones.karvonen_5.explain" to "ხუთი სავარჯიშო ზონა გულისცემის რეზერვიდან (დასვენებიდან მაქსიმუმამდე).",
+                "formula.hr_zones.karvonen_5.explain" to
+                    "ხუთი სავარჯიშო ზონა გულისცემის რეზერვიდან (დასვენებიდან მაქსიმუმამდე).",
                 "formula.hr_zones.karvonen_3.title" to "Karvonen (3 ზონა)",
                 "formula.hr_zones.karvonen_3.explain" to "გულისცემის რეზერვის უფრო მარტივი სამზონიანი განლაგება.",
                 "formula.hr_zones.percent_hrmax_5.title" to "% HRmax (5 ზონა)",
@@ -717,7 +810,8 @@ internal object StringCatalogTables {
                 "workout_total_weight_lifted" to "საერთო აწეული წონა",
                 "workout_hard_sets" to "მძიმე სეტები",
                 "workout_per_exercise" to "ვარჯიშების მიხედვით",
-                "workout_intro" to "ჩაიწერეთ ძალის სეტები კეთილდღეობის ვარჯიშის შეფასებებისთვის. მაჩვენებლები — მწვრთნელის დახმარებაა, არა სამედიცინო რჩევა.",
+                "workout_intro" to
+                    "ჩაიწერეთ ძალის სეტები კეთილდღეობის ვარჯიშის შეფასებებისთვის. მაჩვენებლები — მწვრთნელის დახმარებაა, არა სამედიცინო რჩევა.",
                 "workout_summary_duration" to "ხანგრძლივობა",
                 "workout_summary_active_kcal" to "აქტიური კკალ",
                 "workout_summary_total_kcal" to "სულ კკალ",
@@ -732,7 +826,8 @@ internal object StringCatalogTables {
                 "workout_start_iphone_estimate" to "ჩაწერა iPhone-ზე (შეფასება)",
                 "workout_yoga_title" to "იოგა",
                 "workout_pilates_title" to "პილატესი",
-                "workout_mindful_body_intro" to "გულისცემისა და ენერგიისთვის უპირატესობა მიანიჭეთ საათის ცოცხალ სესიას. მხოლოდ iPhone-ზე OmniGart ინახავს MET შეფასებას შესაბამისი ნიშნით.",
+                "workout_mindful_body_intro" to
+                    "გულისცემისა და ენერგიისთვის უპირატესობა მიანიჭეთ საათის ცოცხალ სესიას. მხოლოდ iPhone-ზე OmniGart ინახავს MET შეფასებას შესაბამისი ნიშნით.",
                 "workout_mindful_minutes_toggle" to "იოგისთვის mindful წუთების შენახვა",
                 "workout_mindful_minutes_body" to "სურვილისამებრ. ნაგულისხმევად გამორთულია. იწერს მხოლოდ ჩართვისას.",
                 "workout_mindful_settings_title" to "იოგის mindful წუთები",
@@ -756,13 +851,15 @@ internal object StringCatalogTables {
                 "workout_weight_lb" to "წონა (ფუნტი)",
                 "workout_body_map" to "კუნთები",
                 "workout_export_workoutkit" to "Apple Workout-ში დამატება",
-                "workout_workoutkit_limit" to "Apple-ის Workout აპი სხვა აპებიდან წონას ან გამეორებებს არ იღებს. OmniGart თითოეულ სეტს სამუშაო, დასვენებას კი აღდგენის ნაბიჯად აქცევს; დატვირთვა × გამეორებები ჩაწერეთ OmniGart-ში iPhone-ზე ან Apple Watch-ზე.",
+                "workout_workoutkit_limit" to
+                    "Apple-ის Workout აპი სხვა აპებიდან წონას ან გამეორებებს არ იღებს. OmniGart თითოეულ სეტს სამუშაო, დასვენებას კი აღდგენის ნაბიჯად აქცევს; დატვირთვა × გამეორებები ჩაწერეთ OmniGart-ში iPhone-ზე ან Apple Watch-ზე.",
                 "workout_sets_count" to "სეტები",
                 "workout_volume_short" to "მოცულობა",
                 "data_privacy_title" to "მონაცემები და კონფიდენციალობა",
-                "data_privacy_intro" to "OmniGart ინახავს ვარჯიშებისა და ნიმუშების სრულ ლოკალურ ასლს ამ მოწყობილობაზე. ექსპორტი რჩება მოწყობილობაზე. პლატფორმასთან სინქრონიზაცია არასავალდებულოა.",
+                "data_privacy_intro" to
+                    "OmniGart ინახავს ვარჯიშებისა და ნიმუშების სრულ ლოკალურ ასლს ამ მოწყობილობაზე. ექსპორტი რჩება მოწყობილობაზე. პლატფორმასთან სინქრონიზაცია არასავალდებულოა.",
                 "data_privacy_export" to "კეთილდღეობის მონაცემების ექსპორტი",
-                "data_privacy_import_json" to "OmniGart JSON-ის იმპორტი",
+                "data_privacy_import_json" to "OmniGart JSON-ის იმპორტი"
             ),
             "es" to mapOf(
                 "app_name" to "OmniGart",
@@ -774,12 +871,15 @@ internal object StringCatalogTables {
                 "shell_intro" to "Estimaciones de bienestar desde tu perfil compartido de OmniGart",
                 "watch_start" to "Inicio",
                 "watch_subtitle" to "Estimaciones de bienestar en tu muñeca",
-                "wellness_disclaimer" to "OmniGart ofrece solo estimaciones de bienestar. La preparación, el estrés, la VFC, el índice de Baevsky, las estimaciones de grasa corporal, los objetivos de hidratación y los planes de entrenamiento no son consejo médico. Consulta a un profesional cualificado ante dudas de salud.",
+                "wellness_disclaimer" to
+                    "OmniGart ofrece solo estimaciones de bienestar. La preparación, el estrés, la VFC, el índice de Baevsky, las estimaciones de grasa corporal, los objetivos de hidratación y los planes de entrenamiento no son consejo médico. Consulta a un profesional cualificado ante dudas de salud.",
                 "info_sheet_not_medical_advice" to "No es consejo médico. Consulta a un profesional.",
-                "health_warning_chest_pain" to "Detente y busca ayuda de emergencia si sientes dolor en el pecho, mareo intenso o falta de aire inusual durante la actividad.",
+                "health_warning_chest_pain" to
+                    "Detente y busca ayuda de emergencia si sientes dolor en el pecho, mareo intenso o falta de aire inusual durante la actividad.",
                 "onboarding_wellness_title" to "Bienestar, no atención médica",
                 "onboarding_welcome_title" to "Bienvenido a OmniGart",
-                "onboarding_welcome_body" to "Unas preguntas para personalizar las estimaciones de bienestar en tu dispositivo. Puedes cambiarlas después en Perfil.",
+                "onboarding_welcome_body" to
+                    "Unas preguntas para personalizar las estimaciones de bienestar en tu dispositivo. Puedes cambiarlas después en Perfil.",
                 "onboarding_next" to "Siguiente",
                 "onboarding_back" to "Atrás",
                 "onboarding_skip" to "Omitir",
@@ -793,13 +893,16 @@ internal object StringCatalogTables {
                 "onboarding_units_title" to "Unidades preferidas",
                 "onboarding_activity_title" to "Actividad diaria habitual",
                 "perm_explainer_health_title" to "Apple Health / Health Connect",
-                "perm_explainer_health_body" to "OmniGart puede leer y escribir muestras de bienestar — frecuencia cardiaca, VFC, sueño, entrenamientos, energía activa y en reposo, masa corporal e hidratación — para que las sesiones aparezcan en Apple Fitness. Las escrituras solo añaden: OmniGart nunca elimina ni reescribe datos de Apple Health o Health Connect, ni siquiera los propios. Puedes continuar sin conceder acceso.",
+                "perm_explainer_health_body" to
+                    "OmniGart puede leer y escribir muestras de bienestar — frecuencia cardiaca, VFC, sueño, entrenamientos, energía activa y en reposo, masa corporal e hidratación — para que las sesiones aparezcan en Apple Fitness. Las escrituras solo añaden: OmniGart nunca elimina ni reescribe datos de Apple Health o Health Connect, ni siquiera los propios. Puedes continuar sin conceder acceso.",
                 "perm_continue" to "Continuar",
                 "perm_not_now" to "Ahora no",
                 "info_sheet_title" to "Sobre esta estimación",
-                "info_sheet_body" to "Cifras como preparación, estrés, VFC, índice de Baevsky, grasa corporal e hidratación son estimaciones de bienestar basadas en tus datos y muestras del dispositivo. Los planes son sugerencias de coaching, no prescripciones.",
+                "info_sheet_body" to
+                    "Cifras como preparación, estrés, VFC, índice de Baevsky, grasa corporal e hidratación son estimaciones de bienestar basadas en tus datos y muestras del dispositivo. Los planes son sugerencias de coaching, no prescripciones.",
                 "calc_settings_title" to "Cálculos",
-                "calc_settings_intro" to "Elige cómo OmniGart estima cifras de bienestar como el gasto energético, las zonas de frecuencia cardíaca, la grasa corporal y la fuerza.",
+                "calc_settings_intro" to
+                    "Elige cómo OmniGart estima cifras de bienestar como el gasto energético, las zonas de frecuencia cardíaca, la grasa corporal y la fuerza.",
                 "calc_mode_simple" to "Simple",
                 "calc_mode_advanced" to "Avanzado",
                 "calc_domain_bmr" to "BMR",
@@ -808,23 +911,30 @@ internal object StringCatalogTables {
                 "calc_domain_one_rm" to "Máximo de una repetición",
                 "calc_domain_hr_zones" to "Zonas de frecuencia cardíaca",
                 "formula.bmr.mifflin_st_jeor.title" to "Mifflin–St Jeor",
-                "formula.bmr.mifflin_st_jeor.explain" to "Estimación habitual de energía en reposo a partir del peso, la altura, la edad y el sexo.",
+                "formula.bmr.mifflin_st_jeor.explain" to
+                    "Estimación habitual de energía en reposo a partir del peso, la altura, la edad y el sexo.",
                 "formula.bmr.harris_benedict.title" to "Harris–Benedict (revisada)",
-                "formula.bmr.harris_benedict.explain" to "Estimación clásica de energía en reposo; útil como comprobación alternativa de bienestar.",
+                "formula.bmr.harris_benedict.explain" to
+                    "Estimación clásica de energía en reposo; útil como comprobación alternativa de bienestar.",
                 "formula.hr_max.tanaka.title" to "Tanaka",
                 "formula.hr_max.tanaka.explain" to "Estimación de la FC máxima según la edad (208 − 0,7×edad).",
                 "formula.hr_max.fox.title" to "Fox (220 − edad)",
                 "formula.hr_max.fox.explain" to "Regla tradicional de FC máxima solo a partir de la edad.",
                 "formula.body_fat.cun_bae.title" to "CUN-BAE",
-                "formula.body_fat.cun_bae.explain" to "Estimación del porcentaje de grasa corporal a partir del peso, la altura, la edad y el sexo.",
+                "formula.body_fat.cun_bae.explain" to
+                    "Estimación del porcentaje de grasa corporal a partir del peso, la altura, la edad y el sexo.",
                 "formula.one_rm.epley.title" to "Epley",
-                "formula.one_rm.epley.explain" to "Estima el máximo de una repetición a partir de una carga submáxima y el número de repeticiones.",
+                "formula.one_rm.epley.explain" to
+                    "Estima el máximo de una repetición a partir de una carga submáxima y el número de repeticiones.",
                 "formula.one_rm.brzycki.title" to "Brzycki",
-                "formula.one_rm.brzycki.explain" to "Estimación alternativa del máximo de una repetición que pondera de otro modo las series de más repeticiones.",
+                "formula.one_rm.brzycki.explain" to
+                    "Estimación alternativa del máximo de una repetición que pondera de otro modo las series de más repeticiones.",
                 "formula.hr_zones.karvonen_5.title" to "Karvonen (5 zonas)",
-                "formula.hr_zones.karvonen_5.explain" to "Cinco zonas de entrenamiento a partir de la reserva de frecuencia cardíaca (reposo a máximo).",
+                "formula.hr_zones.karvonen_5.explain" to
+                    "Cinco zonas de entrenamiento a partir de la reserva de frecuencia cardíaca (reposo a máximo).",
                 "formula.hr_zones.karvonen_3.title" to "Karvonen (3 zonas)",
-                "formula.hr_zones.karvonen_3.explain" to "Disposición más sencilla de tres zonas de reserva de frecuencia cardíaca.",
+                "formula.hr_zones.karvonen_3.explain" to
+                    "Disposición más sencilla de tres zonas de reserva de frecuencia cardíaca.",
                 "formula.hr_zones.percent_hrmax_5.title" to "% HRmax (5 zonas)",
                 "formula.hr_zones.percent_hrmax_5.explain" to "Cinco zonas como porcentajes de la FC máxima estimada.",
                 "workout_start" to "Empezar entrenamiento",
@@ -843,7 +953,8 @@ internal object StringCatalogTables {
                 "workout_total_weight_lifted" to "Peso total levantado",
                 "workout_hard_sets" to "Series duras",
                 "workout_per_exercise" to "Por ejercicio",
-                "workout_intro" to "Registra series de fuerza para estimaciones de entrenamiento de bienestar. Las cifras son ayudas de coaching, no consejo médico.",
+                "workout_intro" to
+                    "Registra series de fuerza para estimaciones de entrenamiento de bienestar. Las cifras son ayudas de coaching, no consejo médico.",
                 "workout_summary_duration" to "Duración",
                 "workout_summary_active_kcal" to "Kcal activas",
                 "workout_summary_total_kcal" to "Kcal totales",
@@ -858,7 +969,8 @@ internal object StringCatalogTables {
                 "workout_start_iphone_estimate" to "Registrar en iPhone (estimación)",
                 "workout_yoga_title" to "Yoga",
                 "workout_pilates_title" to "Pilates",
-                "workout_mindful_body_intro" to "Prefiere una sesión en vivo en el reloj para frecuencia y energía. Solo en iPhone, OmniGart guarda una estimación MET etiquetada.",
+                "workout_mindful_body_intro" to
+                    "Prefiere una sesión en vivo en el reloj para frecuencia y energía. Solo en iPhone, OmniGart guarda una estimación MET etiquetada.",
                 "workout_mindful_minutes_toggle" to "Guardar minutos mindful en yoga",
                 "workout_mindful_minutes_body" to "Opcional. Desactivado por defecto. Solo escribe si lo activas.",
                 "workout_mindful_settings_title" to "Minutos mindful de yoga",
@@ -882,13 +994,15 @@ internal object StringCatalogTables {
                 "workout_weight_lb" to "Peso (lb)",
                 "workout_body_map" to "Músculos",
                 "workout_export_workoutkit" to "Añadir a Apple Workout",
-                "workout_workoutkit_limit" to "La app Workout de Apple no acepta peso ni repeticiones de otras apps. OmniGart exporta cada serie como trabajo y cada descanso como recuperación; registra carga × reps en OmniGart en el iPhone o el Apple Watch.",
+                "workout_workoutkit_limit" to
+                    "La app Workout de Apple no acepta peso ni repeticiones de otras apps. OmniGart exporta cada serie como trabajo y cada descanso como recuperación; registra carga × reps en OmniGart en el iPhone o el Apple Watch.",
                 "workout_sets_count" to "Series",
                 "workout_volume_short" to "Volumen",
                 "data_privacy_title" to "Datos y privacidad",
-                "data_privacy_intro" to "OmniGart guarda una copia local completa de tus entrenamientos y muestras en este dispositivo. La exportación permanece en el dispositivo. La sincronización es opcional.",
+                "data_privacy_intro" to
+                    "OmniGart guarda una copia local completa de tus entrenamientos y muestras en este dispositivo. La exportación permanece en el dispositivo. La sincronización es opcional.",
                 "data_privacy_export" to "Exportar datos de bienestar",
-                "data_privacy_import_json" to "Importar JSON de OmniGart",
+                "data_privacy_import_json" to "Importar JSON de OmniGart"
             ),
             "fr" to mapOf(
                 "app_name" to "OmniGart",
@@ -900,12 +1014,15 @@ internal object StringCatalogTables {
                 "shell_intro" to "Estimations de bien-être depuis votre profil OmniGart partagé",
                 "watch_start" to "Démarrer",
                 "watch_subtitle" to "Estimations de bien-être au poignet",
-                "wellness_disclaimer" to "OmniGart fournit uniquement des estimations de bien-être. La préparation, le stress, la VRC, l’indice de Baevsky, les estimations de masse grasse, les objectifs d’hydratation et les plans d’entraînement ne constituent pas un avis médical. Consultez un professionnel qualifié pour toute question de santé.",
+                "wellness_disclaimer" to
+                    "OmniGart fournit uniquement des estimations de bien-être. La préparation, le stress, la VRC, l’indice de Baevsky, les estimations de masse grasse, les objectifs d’hydratation et les plans d’entraînement ne constituent pas un avis médical. Consultez un professionnel qualifié pour toute question de santé.",
                 "info_sheet_not_medical_advice" to "Ceci n’est pas un avis médical. Consultez un professionnel.",
-                "health_warning_chest_pain" to "Arrêtez-vous et demandez une aide d’urgence si vous ressentez une douleur thoracique, des vertiges sévères ou un essoufflement inhabituel pendant l’activité.",
+                "health_warning_chest_pain" to
+                    "Arrêtez-vous et demandez une aide d’urgence si vous ressentez une douleur thoracique, des vertiges sévères ou un essoufflement inhabituel pendant l’activité.",
                 "onboarding_wellness_title" to "Bien-être, pas soins médicaux",
                 "onboarding_welcome_title" to "Bienvenue sur OmniGart",
-                "onboarding_welcome_body" to "Quelques questions pour personnaliser les estimations de bien-être sur votre appareil. Modifiables plus tard dans Profil.",
+                "onboarding_welcome_body" to
+                    "Quelques questions pour personnaliser les estimations de bien-être sur votre appareil. Modifiables plus tard dans Profil.",
                 "onboarding_next" to "Suivant",
                 "onboarding_back" to "Retour",
                 "onboarding_skip" to "Ignorer",
@@ -919,13 +1036,16 @@ internal object StringCatalogTables {
                 "onboarding_units_title" to "Unités préférées",
                 "onboarding_activity_title" to "Activité quotidienne typique",
                 "perm_explainer_health_title" to "Apple Health / Health Connect",
-                "perm_explainer_health_body" to "OmniGart peut lire et écrire des échantillons bien-être — fréquence cardiaque, VRC, sommeil, séances, énergie active et basale, masse corporelle et hydratation — pour afficher les séances dans Apple Fitness. Écritures en ajout seul : OmniGart ne supprime ni ne réécrit jamais les données Apple Health ou Health Connect, y compris les siennes. Vous pouvez continuer sans accorder l’accès.",
+                "perm_explainer_health_body" to
+                    "OmniGart peut lire et écrire des échantillons bien-être — fréquence cardiaque, VRC, sommeil, séances, énergie active et basale, masse corporelle et hydratation — pour afficher les séances dans Apple Fitness. Écritures en ajout seul : OmniGart ne supprime ni ne réécrit jamais les données Apple Health ou Health Connect, y compris les siennes. Vous pouvez continuer sans accorder l’accès.",
                 "perm_continue" to "Continuer",
                 "perm_not_now" to "Pas maintenant",
                 "info_sheet_title" to "À propos de cette estimation",
-                "info_sheet_body" to "Des indicateurs tels que la préparation, le stress, la VRC, l’indice de Baevsky, la masse grasse et l’hydratation sont des estimations de bien-être basées sur vos saisies et les échantillons de l’appareil. Les plans sont des suggestions de coaching, pas des prescriptions.",
+                "info_sheet_body" to
+                    "Des indicateurs tels que la préparation, le stress, la VRC, l’indice de Baevsky, la masse grasse et l’hydratation sont des estimations de bien-être basées sur vos saisies et les échantillons de l’appareil. Les plans sont des suggestions de coaching, pas des prescriptions.",
                 "calc_settings_title" to "Calculs",
-                "calc_settings_intro" to "Choisissez comment OmniGart estime les indicateurs de bien-être : dépense énergétique, zones de fréquence cardiaque, masse grasse et force.",
+                "calc_settings_intro" to
+                    "Choisissez comment OmniGart estime les indicateurs de bien-être : dépense énergétique, zones de fréquence cardiaque, masse grasse et force.",
                 "calc_mode_simple" to "Simple",
                 "calc_mode_advanced" to "Avancé",
                 "calc_domain_bmr" to "BMR",
@@ -934,23 +1054,30 @@ internal object StringCatalogTables {
                 "calc_domain_one_rm" to "Maximum sur une répétition",
                 "calc_domain_hr_zones" to "Zones de fréquence cardiaque",
                 "formula.bmr.mifflin_st_jeor.title" to "Mifflin–St Jeor",
-                "formula.bmr.mifflin_st_jeor.explain" to "Estimation courante de l’énergie au repos à partir du poids, de la taille, de l’âge et du sexe.",
+                "formula.bmr.mifflin_st_jeor.explain" to
+                    "Estimation courante de l’énergie au repos à partir du poids, de la taille, de l’âge et du sexe.",
                 "formula.bmr.harris_benedict.title" to "Harris–Benedict (révisée)",
-                "formula.bmr.harris_benedict.explain" to "Estimation classique de l’énergie au repos ; utile comme contrôle alternatif de bien-être.",
+                "formula.bmr.harris_benedict.explain" to
+                    "Estimation classique de l’énergie au repos ; utile comme contrôle alternatif de bien-être.",
                 "formula.hr_max.tanaka.title" to "Tanaka",
                 "formula.hr_max.tanaka.explain" to "Estimation de la FC max selon l’âge (208 − 0,7×âge).",
                 "formula.hr_max.fox.title" to "Fox (220 − âge)",
                 "formula.hr_max.fox.explain" to "Règle traditionnelle de FC max basée uniquement sur l’âge.",
                 "formula.body_fat.cun_bae.title" to "CUN-BAE",
-                "formula.body_fat.cun_bae.explain" to "Estimation du pourcentage de masse grasse à partir du poids, de la taille, de l’âge et du sexe.",
+                "formula.body_fat.cun_bae.explain" to
+                    "Estimation du pourcentage de masse grasse à partir du poids, de la taille, de l’âge et du sexe.",
                 "formula.one_rm.epley.title" to "Epley",
-                "formula.one_rm.epley.explain" to "Estime le maximum sur une répétition à partir d’une charge sous-maximale et du nombre de répétitions.",
+                "formula.one_rm.epley.explain" to
+                    "Estime le maximum sur une répétition à partir d’une charge sous-maximale et du nombre de répétitions.",
                 "formula.one_rm.brzycki.title" to "Brzycki",
-                "formula.one_rm.brzycki.explain" to "Estimation alternative du maximum sur une répétition qui pondère autrement les séries à plus de répétitions.",
+                "formula.one_rm.brzycki.explain" to
+                    "Estimation alternative du maximum sur une répétition qui pondère autrement les séries à plus de répétitions.",
                 "formula.hr_zones.karvonen_5.title" to "Karvonen (5 zones)",
-                "formula.hr_zones.karvonen_5.explain" to "Cinq zones d’entraînement à partir de la réserve de fréquence cardiaque (repos à maximum).",
+                "formula.hr_zones.karvonen_5.explain" to
+                    "Cinq zones d’entraînement à partir de la réserve de fréquence cardiaque (repos à maximum).",
                 "formula.hr_zones.karvonen_3.title" to "Karvonen (3 zones)",
-                "formula.hr_zones.karvonen_3.explain" to "Disposition plus simple en trois zones de réserve de fréquence cardiaque.",
+                "formula.hr_zones.karvonen_3.explain" to
+                    "Disposition plus simple en trois zones de réserve de fréquence cardiaque.",
                 "formula.hr_zones.percent_hrmax_5.title" to "% HRmax (5 zones)",
                 "formula.hr_zones.percent_hrmax_5.explain" to "Cinq zones en pourcentages de la FC max estimée.",
                 "workout_start" to "Démarrer l’entraînement",
@@ -969,7 +1096,8 @@ internal object StringCatalogTables {
                 "workout_total_weight_lifted" to "Charge totale soulevée",
                 "workout_hard_sets" to "Séries difficiles",
                 "workout_per_exercise" to "Par exercice",
-                "workout_intro" to "Enregistrez des séries de force pour les estimations d’entraînement bien-être. Les chiffres sont des aides de coaching, pas un avis médical.",
+                "workout_intro" to
+                    "Enregistrez des séries de force pour les estimations d’entraînement bien-être. Les chiffres sont des aides de coaching, pas un avis médical.",
                 "workout_summary_duration" to "Durée",
                 "workout_summary_active_kcal" to "Kcal actives",
                 "workout_summary_total_kcal" to "Kcal totales",
@@ -984,7 +1112,8 @@ internal object StringCatalogTables {
                 "workout_start_iphone_estimate" to "Journal iPhone (estimation)",
                 "workout_yoga_title" to "Yoga",
                 "workout_pilates_title" to "Pilates",
-                "workout_mindful_body_intro" to "Préférez une séance live sur la montre pour le pouls et l’énergie. Sur iPhone seul, OmniGart enregistre une estimation MET étiquetée.",
+                "workout_mindful_body_intro" to
+                    "Préférez une séance live sur la montre pour le pouls et l’énergie. Sur iPhone seul, OmniGart enregistre une estimation MET étiquetée.",
                 "workout_mindful_minutes_toggle" to "Enregistrer les minutes mindful pour le yoga",
                 "workout_mindful_minutes_body" to "Optionnel. Désactivé par défaut. N’écrit que si vous l’activez.",
                 "workout_mindful_settings_title" to "Minutes mindful du yoga",
@@ -1008,13 +1137,15 @@ internal object StringCatalogTables {
                 "workout_weight_lb" to "Charge (lb)",
                 "workout_body_map" to "Muscles",
                 "workout_export_workoutkit" to "Ajouter à Apple Workout",
-                "workout_workoutkit_limit" to "L’app Workout d’Apple n’accepte pas le poids ni les répétitions d’autres apps. OmniGart exporte chaque série en travail et chaque repos en récupération ; enregistrez charge × reps dans OmniGart sur iPhone ou Apple Watch.",
+                "workout_workoutkit_limit" to
+                    "L’app Workout d’Apple n’accepte pas le poids ni les répétitions d’autres apps. OmniGart exporte chaque série en travail et chaque repos en récupération ; enregistrez charge × reps dans OmniGart sur iPhone ou Apple Watch.",
                 "workout_sets_count" to "Séries",
                 "workout_volume_short" to "Volume",
                 "data_privacy_title" to "Données et confidentialité",
-                "data_privacy_intro" to "OmniGart conserve une copie locale complète de vos séances et échantillons sur cet appareil. L’export reste sur l’appareil. La synchronisation est facultative.",
+                "data_privacy_intro" to
+                    "OmniGart conserve une copie locale complète de vos séances et échantillons sur cet appareil. L’export reste sur l’appareil. La synchronisation est facultative.",
                 "data_privacy_export" to "Exporter les données de bien-être",
-                "data_privacy_import_json" to "Importer le JSON OmniGart",
+                "data_privacy_import_json" to "Importer le JSON OmniGart"
             ),
             "de" to mapOf(
                 "app_name" to "OmniGart",
@@ -1026,12 +1157,15 @@ internal object StringCatalogTables {
                 "shell_intro" to "Wellness-Schätzungen aus Ihrem gemeinsamen OmniGart-Profil",
                 "watch_start" to "Start",
                 "watch_subtitle" to "Wellness-Schätzungen am Handgelenk",
-                "wellness_disclaimer" to "OmniGart liefert ausschließlich Wellness-Schätzungen. Bereitschaft, Stress, HRV, Baevsky-Index, Körperfett-Schätzungen, Hydrationsziele und Trainingspläne sind keine medizinische Beratung. Bei Gesundheitsfragen wenden Sie sich an eine qualifizierte Fachkraft.",
+                "wellness_disclaimer" to
+                    "OmniGart liefert ausschließlich Wellness-Schätzungen. Bereitschaft, Stress, HRV, Baevsky-Index, Körperfett-Schätzungen, Hydrationsziele und Trainingspläne sind keine medizinische Beratung. Bei Gesundheitsfragen wenden Sie sich an eine qualifizierte Fachkraft.",
                 "info_sheet_not_medical_advice" to "Keine medizinische Beratung. Konsultieren Sie eine Fachkraft.",
-                "health_warning_chest_pain" to "Stoppen Sie und suchen Sie Notfallhilfe, wenn Sie während der Aktivität Brustschmerzen, starken Schwindel oder ungewöhnliche Atemnot spüren.",
+                "health_warning_chest_pain" to
+                    "Stoppen Sie und suchen Sie Notfallhilfe, wenn Sie während der Aktivität Brustschmerzen, starken Schwindel oder ungewöhnliche Atemnot spüren.",
                 "onboarding_wellness_title" to "Wellness, keine medizinische Versorgung",
                 "onboarding_welcome_title" to "Willkommen bei OmniGart",
-                "onboarding_welcome_body" to "Einige Fragen, um Wellness-Schätzungen auf Ihrem Gerät anzupassen. Später unter Profil änderbar.",
+                "onboarding_welcome_body" to
+                    "Einige Fragen, um Wellness-Schätzungen auf Ihrem Gerät anzupassen. Später unter Profil änderbar.",
                 "onboarding_next" to "Weiter",
                 "onboarding_back" to "Zurück",
                 "onboarding_skip" to "Überspringen",
@@ -1045,13 +1179,16 @@ internal object StringCatalogTables {
                 "onboarding_units_title" to "Bevorzugte Einheiten",
                 "onboarding_activity_title" to "Typische tägliche Aktivität",
                 "perm_explainer_health_title" to "Apple Health / Health Connect",
-                "perm_explainer_health_body" to "OmniGart kann Wellness-Proben lesen und schreiben — Herzfrequenz, HRV, Schlaf, Workouts, aktive und Ruheenergie, Körpermasse und Hydration — damit Sitzungen in Apple Fitness erscheinen. Plattformschreibungen nur anfügend: OmniGart löscht oder überschreibt keine Apple-Health- oder Health-Connect-Daten, auch keine eigenen. Sie können ohne Zugriff fortfahren.",
+                "perm_explainer_health_body" to
+                    "OmniGart kann Wellness-Proben lesen und schreiben — Herzfrequenz, HRV, Schlaf, Workouts, aktive und Ruheenergie, Körpermasse und Hydration — damit Sitzungen in Apple Fitness erscheinen. Plattformschreibungen nur anfügend: OmniGart löscht oder überschreibt keine Apple-Health- oder Health-Connect-Daten, auch keine eigenen. Sie können ohne Zugriff fortfahren.",
                 "perm_continue" to "Weiter",
                 "perm_not_now" to "Nicht jetzt",
                 "info_sheet_title" to "Über diese Schätzung",
-                "info_sheet_body" to "Kennzahlen wie Bereitschaft, Stress, HRV, Baevsky-Index, Körperfett und Hydration sind Wellness-Schätzungen auf Basis Ihrer Eingaben und Geräteproben. Pläne sind Coaching-Vorschläge, keine Verordnungen.",
+                "info_sheet_body" to
+                    "Kennzahlen wie Bereitschaft, Stress, HRV, Baevsky-Index, Körperfett und Hydration sind Wellness-Schätzungen auf Basis Ihrer Eingaben und Geräteproben. Pläne sind Coaching-Vorschläge, keine Verordnungen.",
                 "calc_settings_title" to "Berechnungen",
-                "calc_settings_intro" to "Wählen Sie, wie OmniGart Wellness-Kennzahlen wie Energieverbrauch, Herzfrequenzzonen, Körperfett und Kraft schätzt.",
+                "calc_settings_intro" to
+                    "Wählen Sie, wie OmniGart Wellness-Kennzahlen wie Energieverbrauch, Herzfrequenzzonen, Körperfett und Kraft schätzt.",
                 "calc_mode_simple" to "Einfach",
                 "calc_mode_advanced" to "Erweitert",
                 "calc_domain_bmr" to "BMR",
@@ -1060,25 +1197,34 @@ internal object StringCatalogTables {
                 "calc_domain_one_rm" to "Einwiederholungsmaximum",
                 "calc_domain_hr_zones" to "Herzfrequenzzonen",
                 "formula.bmr.mifflin_st_jeor.title" to "Mifflin–St Jeor",
-                "formula.bmr.mifflin_st_jeor.explain" to "Weithin genutzte Schätzung des Ruheenergiebedarfs aus Gewicht, Größe, Alter und Geschlecht.",
+                "formula.bmr.mifflin_st_jeor.explain" to
+                    "Weithin genutzte Schätzung des Ruheenergiebedarfs aus Gewicht, Größe, Alter und Geschlecht.",
                 "formula.bmr.harris_benedict.title" to "Harris–Benedict (revidiert)",
-                "formula.bmr.harris_benedict.explain" to "Klassische Schätzung des Ruheenergiebedarfs; nützlich als alternative Wellness-Kontrolle.",
+                "formula.bmr.harris_benedict.explain" to
+                    "Klassische Schätzung des Ruheenergiebedarfs; nützlich als alternative Wellness-Kontrolle.",
                 "formula.hr_max.tanaka.title" to "Tanaka",
-                "formula.hr_max.tanaka.explain" to "Altersbasierte Schätzung der maximalen Herzfrequenz (208 − 0,7×Alter).",
+                "formula.hr_max.tanaka.explain" to
+                    "Altersbasierte Schätzung der maximalen Herzfrequenz (208 − 0,7×Alter).",
                 "formula.hr_max.fox.title" to "Fox (220 − Alter)",
-                "formula.hr_max.fox.explain" to "Traditionelle Faustregel für die maximale Herzfrequenz allein aus dem Alter.",
+                "formula.hr_max.fox.explain" to
+                    "Traditionelle Faustregel für die maximale Herzfrequenz allein aus dem Alter.",
                 "formula.body_fat.cun_bae.title" to "CUN-BAE",
-                "formula.body_fat.cun_bae.explain" to "Schätzung des Körperfettanteils aus Gewicht, Größe, Alter und Geschlecht.",
+                "formula.body_fat.cun_bae.explain" to
+                    "Schätzung des Körperfettanteils aus Gewicht, Größe, Alter und Geschlecht.",
                 "formula.one_rm.epley.title" to "Epley",
-                "formula.one_rm.epley.explain" to "Schätzt das Einwiederholungsmaximum aus einer submaximalen Last und der Wiederholungszahl.",
+                "formula.one_rm.epley.explain" to
+                    "Schätzt das Einwiederholungsmaximum aus einer submaximalen Last und der Wiederholungszahl.",
                 "formula.one_rm.brzycki.title" to "Brzycki",
-                "formula.one_rm.brzycki.explain" to "Alternative Schätzung des Einwiederholungsmaximums, die Sätze mit mehr Wiederholungen anders gewichtet.",
+                "formula.one_rm.brzycki.explain" to
+                    "Alternative Schätzung des Einwiederholungsmaximums, die Sätze mit mehr Wiederholungen anders gewichtet.",
                 "formula.hr_zones.karvonen_5.title" to "Karvonen (5 Zonen)",
-                "formula.hr_zones.karvonen_5.explain" to "Fünf Trainingszonen aus der Herzfrequenzreserve (Ruhe bis Maximum).",
+                "formula.hr_zones.karvonen_5.explain" to
+                    "Fünf Trainingszonen aus der Herzfrequenzreserve (Ruhe bis Maximum).",
                 "formula.hr_zones.karvonen_3.title" to "Karvonen (3 Zonen)",
                 "formula.hr_zones.karvonen_3.explain" to "Einfachere Dreizonen-Anordnung der Herzfrequenzreserve.",
                 "formula.hr_zones.percent_hrmax_5.title" to "% HRmax (5 Zonen)",
-                "formula.hr_zones.percent_hrmax_5.explain" to "Fünf Zonen als Prozentsätze der geschätzten maximalen Herzfrequenz.",
+                "formula.hr_zones.percent_hrmax_5.explain" to
+                    "Fünf Zonen als Prozentsätze der geschätzten maximalen Herzfrequenz.",
                 "workout_start" to "Workout starten",
                 "workout_end" to "Workout beenden",
                 "workout_add_set" to "Satz hinzufügen",
@@ -1095,7 +1241,8 @@ internal object StringCatalogTables {
                 "workout_total_weight_lifted" to "Gesamtgewicht gehoben",
                 "workout_hard_sets" to "Harte Sätze",
                 "workout_per_exercise" to "Pro Übung",
-                "workout_intro" to "Protokollieren Sie Kraftsätze für Wellness-Trainingsschätzungen. Kennzahlen sind Coaching-Hilfen, keine medizinische Beratung.",
+                "workout_intro" to
+                    "Protokollieren Sie Kraftsätze für Wellness-Trainingsschätzungen. Kennzahlen sind Coaching-Hilfen, keine medizinische Beratung.",
                 "workout_summary_duration" to "Dauer",
                 "workout_summary_active_kcal" to "Aktive kcal",
                 "workout_summary_total_kcal" to "Gesamt-kcal",
@@ -1110,7 +1257,8 @@ internal object StringCatalogTables {
                 "workout_start_iphone_estimate" to "Auf iPhone protokollieren (Schätzung)",
                 "workout_yoga_title" to "Yoga",
                 "workout_pilates_title" to "Pilates",
-                "workout_mindful_body_intro" to "Bevorzugen Sie eine Live-Session auf der Watch für Puls und Energie. Nur auf dem iPhone speichert OmniGart eine gekennzeichnete MET-Schätzung.",
+                "workout_mindful_body_intro" to
+                    "Bevorzugen Sie eine Live-Session auf der Watch für Puls und Energie. Nur auf dem iPhone speichert OmniGart eine gekennzeichnete MET-Schätzung.",
                 "workout_mindful_minutes_toggle" to "Achtsamkeitsminuten für Yoga speichern",
                 "workout_mindful_minutes_body" to "Optional. Standardmäßig aus. Schreibt nur, wenn Sie es aktivieren.",
                 "workout_mindful_settings_title" to "Yoga-Achtsamkeitsminuten",
@@ -1134,13 +1282,15 @@ internal object StringCatalogTables {
                 "workout_weight_lb" to "Gewicht (lb)",
                 "workout_body_map" to "Muskeln",
                 "workout_export_workoutkit" to "Zu Apple Workout hinzufügen",
-                "workout_workoutkit_limit" to "Apples Workout-App übernimmt keine Gewichte oder Wiederholungen von anderen Apps. OmniGart exportiert jeden Satz als Arbeit und jede Pause als Erholung; Last × Wdh. in OmniGart auf iPhone oder Apple Watch erfassen.",
+                "workout_workoutkit_limit" to
+                    "Apples Workout-App übernimmt keine Gewichte oder Wiederholungen von anderen Apps. OmniGart exportiert jeden Satz als Arbeit und jede Pause als Erholung; Last × Wdh. in OmniGart auf iPhone oder Apple Watch erfassen.",
                 "workout_sets_count" to "Sätze",
                 "workout_volume_short" to "Volumen",
                 "data_privacy_title" to "Daten und Datenschutz",
-                "data_privacy_intro" to "OmniGart speichert eine vollständige lokale Kopie Ihrer Workouts und Messwerte auf diesem Gerät. Der Export bleibt auf dem Gerät. Die Synchronisierung ist optional.",
+                "data_privacy_intro" to
+                    "OmniGart speichert eine vollständige lokale Kopie Ihrer Workouts und Messwerte auf diesem Gerät. Der Export bleibt auf dem Gerät. Die Synchronisierung ist optional.",
                 "data_privacy_export" to "Wellness-Daten exportieren",
-                "data_privacy_import_json" to "OmniGart-JSON importieren",
+                "data_privacy_import_json" to "OmniGart-JSON importieren"
             ),
             "cs" to mapOf(
                 "app_name" to "OmniGart",
@@ -1152,12 +1302,15 @@ internal object StringCatalogTables {
                 "shell_intro" to "Wellness odhady z vašeho sdíleného profilu OmniGart",
                 "watch_start" to "Start",
                 "watch_subtitle" to "Wellness odhady na zápěstí",
-                "wellness_disclaimer" to "OmniGart poskytuje pouze wellness odhady. Připravenost, stres, HRV, Bajevského index, odhady tělesného tuku, cíle hydratace a tréninkové plány nejsou lékařskou radou. V otázkách zdraví se obraťte na kvalifikovaného odborníka.",
+                "wellness_disclaimer" to
+                    "OmniGart poskytuje pouze wellness odhady. Připravenost, stres, HRV, Bajevského index, odhady tělesného tuku, cíle hydratace a tréninkové plány nejsou lékařskou radou. V otázkách zdraví se obraťte na kvalifikovaného odborníka.",
                 "info_sheet_not_medical_advice" to "Nejde o lékařskou radu. Obraťte se na odborníka.",
-                "health_warning_chest_pain" to "Zastavte se a vyhledejte pohotovostní pomoc, pokud při aktivitě cítíte bolest na hrudi, silné závratě nebo neobvyklou dušnost.",
+                "health_warning_chest_pain" to
+                    "Zastavte se a vyhledejte pohotovostní pomoc, pokud při aktivitě cítíte bolest na hrudi, silné závratě nebo neobvyklou dušnost.",
                 "onboarding_wellness_title" to "Wellness, ne lékařská péče",
                 "onboarding_welcome_title" to "Vítejte v OmniGart",
-                "onboarding_welcome_body" to "Pár otázek pro personalizaci wellness odhadů na zařízení. Později změníte v Profilu.",
+                "onboarding_welcome_body" to
+                    "Pár otázek pro personalizaci wellness odhadů na zařízení. Později změníte v Profilu.",
                 "onboarding_next" to "Další",
                 "onboarding_back" to "Zpět",
                 "onboarding_skip" to "Přeskočit",
@@ -1171,13 +1324,16 @@ internal object StringCatalogTables {
                 "onboarding_units_title" to "Preferované jednotky",
                 "onboarding_activity_title" to "Typická denní aktivita",
                 "perm_explainer_health_title" to "Apple Health / Health Connect",
-                "perm_explainer_health_body" to "OmniGart může číst a zapisovat wellness vzorky — tep, HRV, spánek, tréninky, aktivní a bazální energii, tělesnou hmotnost a hydrataci — aby se sezení zobrazila v Apple Fitness. Zápis na platformu jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Apple Health ani Health Connect, ani vlastní. Můžete pokračovat bez přístupu.",
+                "perm_explainer_health_body" to
+                    "OmniGart může číst a zapisovat wellness vzorky — tep, HRV, spánek, tréninky, aktivní a bazální energii, tělesnou hmotnost a hydrataci — aby se sezení zobrazila v Apple Fitness. Zápis na platformu jen přidává: OmniGart nikdy nemaže ani nepřepisuje data Apple Health ani Health Connect, ani vlastní. Můžete pokračovat bez přístupu.",
                 "perm_continue" to "Pokračovat",
                 "perm_not_now" to "Teď ne",
                 "info_sheet_title" to "O tomto odhadu",
-                "info_sheet_body" to "Údaje jako připravenost, stres, HRV, Bajevského index, tělesný tuk a hydratace jsou wellness odhady založené na vašich vstupech a vzorcích ze zařízení. Plány jsou koučovací návrhy, nikoli předpisy.",
+                "info_sheet_body" to
+                    "Údaje jako připravenost, stres, HRV, Bajevského index, tělesný tuk a hydratace jsou wellness odhady založené na vašich vstupech a vzorcích ze zařízení. Plány jsou koučovací návrhy, nikoli předpisy.",
                 "calc_settings_title" to "Výpočty",
-                "calc_settings_intro" to "Zvolte, jak OmniGart odhaduje wellness ukazatele, jako je spotřeba energie, tepové zóny, tělesný tuk a síla.",
+                "calc_settings_intro" to
+                    "Zvolte, jak OmniGart odhaduje wellness ukazatele, jako je spotřeba energie, tepové zóny, tělesný tuk a síla.",
                 "calc_mode_simple" to "Jednoduchý",
                 "calc_mode_advanced" to "Pokročilý",
                 "calc_domain_bmr" to "BMR",
@@ -1186,19 +1342,24 @@ internal object StringCatalogTables {
                 "calc_domain_one_rm" to "Maximum na jedno opakování",
                 "calc_domain_hr_zones" to "Tepové zóny",
                 "formula.bmr.mifflin_st_jeor.title" to "Mifflin–St Jeor",
-                "formula.bmr.mifflin_st_jeor.explain" to "Široce používaný odhad energie v klidu z hmotnosti, výšky, věku a pohlaví.",
+                "formula.bmr.mifflin_st_jeor.explain" to
+                    "Široce používaný odhad energie v klidu z hmotnosti, výšky, věku a pohlaví.",
                 "formula.bmr.harris_benedict.title" to "Harris–Benedict (revidovaný)",
-                "formula.bmr.harris_benedict.explain" to "Klasický odhad energie v klidu; užitečný jako alternativní wellness kontrola.",
+                "formula.bmr.harris_benedict.explain" to
+                    "Klasický odhad energie v klidu; užitečný jako alternativní wellness kontrola.",
                 "formula.hr_max.tanaka.title" to "Tanaka",
                 "formula.hr_max.tanaka.explain" to "Odhad maximálního tepu podle věku (208 − 0,7×věk).",
                 "formula.hr_max.fox.title" to "Fox (220 − věk)",
                 "formula.hr_max.fox.explain" to "Tradiční pravidlo maximálního tepu pouze podle věku.",
                 "formula.body_fat.cun_bae.title" to "CUN-BAE",
-                "formula.body_fat.cun_bae.explain" to "Odhad procenta tělesného tuku z hmotnosti, výšky, věku a pohlaví.",
+                "formula.body_fat.cun_bae.explain" to
+                    "Odhad procenta tělesného tuku z hmotnosti, výšky, věku a pohlaví.",
                 "formula.one_rm.epley.title" to "Epley",
-                "formula.one_rm.epley.explain" to "Odhaduje maximum na jedno opakování ze submaximální zátěže a počtu opakování.",
+                "formula.one_rm.epley.explain" to
+                    "Odhaduje maximum na jedno opakování ze submaximální zátěže a počtu opakování.",
                 "formula.one_rm.brzycki.title" to "Brzycki",
-                "formula.one_rm.brzycki.explain" to "Alternativní odhad maxima na jedno opakování, který jinak váží série s vyšším počtem opakování.",
+                "formula.one_rm.brzycki.explain" to
+                    "Alternativní odhad maxima na jedno opakování, který jinak váží série s vyšším počtem opakování.",
                 "formula.hr_zones.karvonen_5.title" to "Karvonen (5 zón)",
                 "formula.hr_zones.karvonen_5.explain" to "Pět tréninkových zón z tepové rezervy (od klidu po maximum).",
                 "formula.hr_zones.karvonen_3.title" to "Karvonen (3 zóny)",
@@ -1221,7 +1382,8 @@ internal object StringCatalogTables {
                 "workout_total_weight_lifted" to "Celková zvednutá váha",
                 "workout_hard_sets" to "Těžké série",
                 "workout_per_exercise" to "Podle cviků",
-                "workout_intro" to "Zaznamenávejte silové série pro wellness tréninkové odhady. Údaje jsou koučovací pomůcky, nikoli lékařská rada.",
+                "workout_intro" to
+                    "Zaznamenávejte silové série pro wellness tréninkové odhady. Údaje jsou koučovací pomůcky, nikoli lékařská rada.",
                 "workout_summary_duration" to "Trvání",
                 "workout_summary_active_kcal" to "Aktivní kcal",
                 "workout_summary_total_kcal" to "Celkem kcal",
@@ -1236,7 +1398,8 @@ internal object StringCatalogTables {
                 "workout_start_iphone_estimate" to "Záznam na iPhonu (odhad)",
                 "workout_yoga_title" to "Jóga",
                 "workout_pilates_title" to "Pilates",
-                "workout_mindful_body_intro" to "Preferujte živou relaci na hodinkách pro tep a energii. Jen na iPhonu OmniGart uloží označený odhad MET.",
+                "workout_mindful_body_intro" to
+                    "Preferujte živou relaci na hodinkách pro tep a energii. Jen na iPhonu OmniGart uloží označený odhad MET.",
                 "workout_mindful_minutes_toggle" to "Ukládat mindful minuty pro jógu",
                 "workout_mindful_minutes_body" to "Volitelné. Ve výchozím stavu vypnuto. Zapisuje jen po zapnutí.",
                 "workout_mindful_settings_title" to "Mindful minuty jógy",
@@ -1260,13 +1423,15 @@ internal object StringCatalogTables {
                 "workout_weight_lb" to "Váha (lb)",
                 "workout_body_map" to "Svaly",
                 "workout_export_workoutkit" to "Přidat do Apple Workout",
-                "workout_workoutkit_limit" to "Apple Workout nepřijímá váhu ani opakování z jiných aplikací. OmniGart exportuje každou sérii jako práci a odpočinek jako regeneraci; zátěž × opakování zapisujte v OmniGart na iPhonu nebo Apple Watch.",
+                "workout_workoutkit_limit" to
+                    "Apple Workout nepřijímá váhu ani opakování z jiných aplikací. OmniGart exportuje každou sérii jako práci a odpočinek jako regeneraci; zátěž × opakování zapisujte v OmniGart na iPhonu nebo Apple Watch.",
                 "workout_sets_count" to "Série",
                 "workout_volume_short" to "Objem",
                 "data_privacy_title" to "Data a soukromí",
-                "data_privacy_intro" to "OmniGart uchovává úplnou místní kopii tréninků a vzorků na tomto zařízení. Export zůstává v zařízení. Synchronizace s platformou je volitelná.",
+                "data_privacy_intro" to
+                    "OmniGart uchovává úplnou místní kopii tréninků a vzorků na tomto zařízení. Export zůstává v zařízení. Synchronizace s platformou je volitelná.",
                 "data_privacy_export" to "Exportovat wellness data",
-                "data_privacy_import_json" to "Importovat OmniGart JSON",
+                "data_privacy_import_json" to "Importovat OmniGart JSON"
             ),
             "zh-Hans" to mapOf(
                 "app_name" to "OmniGart",
@@ -1278,7 +1443,8 @@ internal object StringCatalogTables {
                 "shell_intro" to "来自共享 OmniGart 个人资料的健康估算",
                 "watch_start" to "开始",
                 "watch_subtitle" to "腕上的健康估算",
-                "wellness_disclaimer" to "OmniGart 仅提供健康估算。准备度、压力、心率变异、Baevsky 指数、体脂估算、补水目标和训练计划均非医疗建议。如有健康顾虑，请咨询合格专业人士。",
+                "wellness_disclaimer" to
+                    "OmniGart 仅提供健康估算。准备度、压力、心率变异、Baevsky 指数、体脂估算、补水目标和训练计划均非医疗建议。如有健康顾虑，请咨询合格专业人士。",
                 "info_sheet_not_medical_advice" to "非医疗建议。请咨询专业人士。",
                 "health_warning_chest_pain" to "活动期间如感到胸痛、严重眩晕或异常气短，请立即停止并寻求紧急救助。",
                 "onboarding_wellness_title" to "健康管理，而非医疗护理",
@@ -1297,7 +1463,8 @@ internal object StringCatalogTables {
                 "onboarding_units_title" to "首选单位",
                 "onboarding_activity_title" to "日常活动水平",
                 "perm_explainer_health_title" to "Apple Health / Health Connect",
-                "perm_explainer_health_body" to "OmniGart 可读写健康样本——心率、心率变异、睡眠、训练、活动与基础能量、体重和补水——以便会话出现在 Apple Fitness 中。写入平台仅为追加：从不删除或改写 Apple Health / Health Connect 数据（包括本应用创建的）。您也可不授予权限并继续。",
+                "perm_explainer_health_body" to
+                    "OmniGart 可读写健康样本——心率、心率变异、睡眠、训练、活动与基础能量、体重和补水——以便会话出现在 Apple Fitness 中。写入平台仅为追加：从不删除或改写 Apple Health / Health Connect 数据（包括本应用创建的）。您也可不授予权限并继续。",
                 "perm_continue" to "继续",
                 "perm_not_now" to "暂时不要",
                 "info_sheet_title" to "关于此估算",
@@ -1386,13 +1553,14 @@ internal object StringCatalogTables {
                 "workout_weight_lb" to "重量（磅）",
                 "workout_body_map" to "肌肉",
                 "workout_export_workoutkit" to "添加到 Apple 体能训练",
-                "workout_workoutkit_limit" to "Apple 体能训练无法从其他应用接收重量或次数。OmniGart 会将每组导出为工作步骤、休息导出为恢复步骤以便跟随；请在 iPhone 或 Apple Watch 的 OmniGart 中记录重量×次数。",
+                "workout_workoutkit_limit" to
+                    "Apple 体能训练无法从其他应用接收重量或次数。OmniGart 会将每组导出为工作步骤、休息导出为恢复步骤以便跟随；请在 iPhone 或 Apple Watch 的 OmniGart 中记录重量×次数。",
                 "workout_sets_count" to "组数",
                 "workout_volume_short" to "容量",
                 "data_privacy_title" to "数据与隐私",
                 "data_privacy_intro" to "OmniGart 会在本机保存训练与采样的完整本地副本。导出仅留在本机。平台同步为可选，记录训练无需授权。",
                 "data_privacy_export" to "导出健康数据",
-                "data_privacy_import_json" to "导入 OmniGart JSON",
-            ),
+                "data_privacy_import_json" to "导入 OmniGart JSON"
+            )
         )
 }

@@ -25,7 +25,7 @@ class StringCatalogTest {
                 "fr" to "Alimentation",
                 "de" to "Ernährung",
                 "cs" to "Jídlo",
-                "zh-Hans" to "饮食",
+                "zh-Hans" to "饮食"
             )
         for ((locale, label) in expected) {
             assertEquals(label, StringCatalog.t(StringKeys.TAB_FOOD, locale), locale)

@@ -22,7 +22,7 @@ object OmniLocales {
             "fr",
             "de",
             "cs",
-            "zh-Hans",
+            "zh-Hans"
         )
 
     private val requiredSet: Set<String> = REQUIRED.toSet()
@@ -41,7 +41,7 @@ object OmniLocales {
             "de" to "de",
             "cs" to "cs",
             // Only Simplified Chinese ships; map any zh* tag here.
-            "zh" to "zh-Hans",
+            "zh" to "zh-Hans"
         )
 
     /**

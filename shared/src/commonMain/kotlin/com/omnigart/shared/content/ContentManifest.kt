@@ -37,7 +37,7 @@ data class LocalePolicy(
             "fr",
             "de",
             "cs",
-            "zh-Hans",
+            "zh-Hans"
         ),
     val forbidden: List<String> = listOf("ru")
 )

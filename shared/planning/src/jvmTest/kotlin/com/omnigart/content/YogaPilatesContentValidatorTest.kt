@@ -48,12 +48,13 @@ class YogaPilatesContentValidatorTest {
     }
 
     @Test
-    fun noRussianLocales() {
+    fun allRequiredLocalesPresentAndNeverRussian() {
         listOf(yogaRoot(), pilatesRoot()).forEach { root ->
             val names = root.resolve("locales").toFile().list()?.toList().orEmpty()
             assertTrue(names.none { it.startsWith("ru") }, names.toString())
-            assertTrue("en-GB.json" in names)
-            assertTrue("uk.json" in names)
+            for (loc in ContentValidator.REQUIRED_LOCALES) {
+                assertTrue("$loc.json" in names, "${root.fileName} missing $loc.json")
+            }
         }
     }
 

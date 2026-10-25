@@ -120,9 +120,9 @@ private fun DomainPicker(domain: FormulaDomain, selection: FormulaSelection, onS
             Text(
                 text =
                 if (selected) {
-                    "● ${StringCatalog.t(option.titleKey)}"
+                    "● ${StringCatalog.t(option.titleKey, appLocaleTag())}"
                 } else {
-                    "○ ${StringCatalog.t(option.titleKey)}"
+                    "○ ${StringCatalog.t(option.titleKey, appLocaleTag())}"
                 },
                 style = MaterialTheme.typography.bodyMedium,
                 color =
@@ -139,7 +139,7 @@ private fun DomainPicker(domain: FormulaDomain, selection: FormulaSelection, onS
             )
             if (selected) {
                 Text(
-                    text = "ⓘ ${StringCatalog.t(option.explanationKey)}",
+                    text = "ⓘ ${StringCatalog.t(option.explanationKey, appLocaleTag())}",
                     style = MaterialTheme.typography.bodySmall,
                     color = OmniGartColors.colorTextLightSecondary
                 )

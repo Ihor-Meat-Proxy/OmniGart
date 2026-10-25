@@ -24,7 +24,7 @@ class PhoneShellSmokeTest {
     fun shellShowsBrandAndTabs() {
         val context = ApplicationProvider.getApplicationContext<android.content.Context>()
         val core = OmniGartCore(DatabaseDriverFactory(context))
-        val profile = core.ensureDemoProfile()
+        val profile = core.activeProfile()
         composeRule.setContent {
             OmniGartTheme {
                 OmniGartPhoneShell(core = core, profileId = profile.id)

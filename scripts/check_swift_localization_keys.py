@@ -103,7 +103,29 @@ WATCH_SMOKE_KEYS = (
     "watch.workout.pause",
     "watch.workout.resume",
     "watch.workout.summary.wellness",
+    # Equipment toggles (dynamic equipment_item_<id> — sample HOME ids)
+    "equipment_item_chair",
+    "equipment_item_sturdy_table",
+    "equipment_item_stool",
+    "workouts_adjust_equipment",
+    "watch_equipment_sync_hint",
 )
+
+EQUIPMENT_DEFS = (
+    ROOT
+    / "shared"
+    / "src"
+    / "commonMain"
+    / "kotlin"
+    / "com"
+    / "omnigart"
+    / "shared"
+    / "strength"
+    / "EquipmentDefinitions.kt"
+)
+# Watch builds LocalizedStringKey("equipment_item_\(id)") — static grep cannot see ids.
+EQUIPMENT_ITEM_PREFIX = re.compile(r'equipment_item_\\?\(')
+EQUIP_ID_FROM_DEFS = re.compile(r'EquipmentDefinition\.of\("([a-z0-9_]+)"')
 
 
 def catalog_keys(path: Path) -> set[str]:
@@ -164,6 +186,25 @@ def iter_swift_files(roots: list[Path]) -> list[Path]:
     return files
 
 
+def equipment_item_keys_from_defs() -> set[str]:
+    """Keys the watch/phone build as equipment_item_<EquipmentDefinitions id>."""
+    if not EQUIPMENT_DEFS.is_file():
+        return set()
+    ids = EQUIP_ID_FROM_DEFS.findall(EQUIPMENT_DEFS.read_text(encoding="utf-8"))
+    # "none" is catalogue-internal; bodyweight stays selectable for labels.
+    return {f"equipment_item_{eid}" for eid in ids if eid != "none"}
+
+
+def swift_uses_dynamic_equipment_keys(roots: list[Path]) -> bool:
+    for swift in iter_swift_files(roots):
+        text = swift.read_text(encoding="utf-8")
+        if EQUIPMENT_ITEM_PREFIX.search(text) or 'equipment_item_\\(' in text:
+            return True
+        if re.search(r'LocalizedStringKey\(\s*"equipment_item_\\\(id\)"', text):
+            return True
+    return False
+
+
 def check_target(target: dict) -> list[str]:
     errors: list[str] = []
     catalog: Path = target["catalog"]
@@ -179,6 +220,10 @@ def check_target(target: dict) -> list[str]:
     used: set[str] = set()
     for swift in iter_swift_files(target["sources"]):
         used |= extract_keys_from_swift(swift.read_text(encoding="utf-8"))
+
+    # Dynamic equipment_item_<id> lookups (watch strength toggles, iOS picker).
+    if swift_uses_dynamic_equipment_keys(target["sources"]):
+        used |= equipment_item_keys_from_defs()
 
     missing = sorted(used - present)
     for key in missing:
@@ -287,6 +332,8 @@ def main() -> int:
         used: set[str] = set()
         for swift in iter_swift_files(target["sources"]):
             used |= extract_keys_from_swift(swift.read_text(encoding="utf-8"))
+        if swift_uses_dynamic_equipment_keys(target["sources"]):
+            used |= equipment_item_keys_from_defs()
         present = catalog_keys(catalog)
         print(
             f"  {target['name']}: {len(used)} keys referenced, "

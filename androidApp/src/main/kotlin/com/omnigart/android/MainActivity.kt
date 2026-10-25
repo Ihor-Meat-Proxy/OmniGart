@@ -68,7 +68,7 @@ class MainActivity : ComponentActivity() {
                 contentStore = AssetContentStore(applicationContext.assets)
             )
         attachFoodDiary(core)
-        val profile = core.ensureDemoProfile()
+        val profile = core.activeProfile()
         setContent {
             OmniGartTheme {
                 OmniGartPhoneShell(core = core, profileId = profile.id)

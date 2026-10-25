@@ -9,6 +9,7 @@ import androidx.health.connect.client.records.metadata.Metadata
 import androidx.health.connect.client.request.ReadRecordsRequest
 import androidx.health.connect.client.time.TimeRangeFilter
 import androidx.health.connect.client.units.Mass
+import com.omnigart.shared.health.store.PlatformAppendOnlyPolicy
 import java.time.Instant
 
 /**
@@ -45,7 +46,7 @@ object NutritionHealthConnectBridge {
                 metadata =
                 Metadata.manualEntry(
                     clientRecordId = syncId,
-                    clientRecordVersion = 1L
+                    clientRecordVersion = PlatformAppendOnlyPolicy.HEALTH_CONNECT_CLIENT_RECORD_VERSION
                 )
             )
         // Insert only — never updateRecords / deleteRecords.

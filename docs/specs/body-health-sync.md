@@ -1,12 +1,12 @@
 # Body measurements ↔ Health sync specification
 
-Status: Phase 0 contract (`shared/body` interfaces + fakes). No app-shell wiring in this PR.
+Status: Phase 0 contract (`shared/body` interfaces + fakes). No app-shell wiring yet.
 
 ## Goals
 
 1. Sync weight, height, waist, and estimated body-fat % to Apple HealthKit and Android Health Connect.
 2. Keep **progress photos local-only** (metadata + on-device URI; never Health, never remote by default).
-3. Idempotent upsert/delete via `clientRecordId` + monotonic `clientRecordVersion`.
+3. Append-only first writes via stable `clientRecordId` (exist-check, insert if absent — never upsert/delete).
 
 ## Mapping
 
@@ -22,13 +22,19 @@ Status: Phase 0 contract (`shared/body` interfaces + fakes). No app-shell wiring
 ### Metadata
 
 - `omnigart.clientRecordId`
-- `omnigart.clientRecordVersion`
+- `omnigart.clientRecordVersion` (= 1 always; never bump)
 - `omnigart.schemaVersion` (= `BODY_SYNC_SCHEMA_VERSION`)
 - `omnigart.bodyFatMethod` when writing %fat (e.g. `cun_bae`, `us_navy`)
 
 ### Units
 
 Write Health-native units: kilograms, metres, percent (0–100). Convert from centimetres at the platform boundary.
+
+### Append-only writer API
+
+`BodyHealthWriter` exposes `appendBodyMass` / `appendHeight` / `appendBodyFat` / `appendWaist` only.
+Implementations must exist-check `clientRecordId` (Health Connect: read from EPOCH, same as weigh-ins) and skip if present.
+Never call HealthKit delete APIs or Health Connect `deleteRecords` / `updateRecords`.
 
 ## Read filtering
 

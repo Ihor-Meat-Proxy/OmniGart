@@ -2,10 +2,9 @@
 """Sync equipment_item_* labels (11 locales) into shared JSON, xcstrings, Android, Wear.
 
 Source of truth: scripts/data/equipment_item_i18n.json (ids from EquipmentDefinitions.kt).
-Keeps phone, watch, Wear, and shared i18n from drifting on equipment names.
 
-The watch UI builds keys dynamically as equipment_item_<id>; those must exist in
-watchApp/OmniGartWatch/Localizable.xcstrings or SwiftUI shows the raw key.
+Updates are surgical: existing key order / surrounding formatting is preserved;
+new keys are appended. This avoids full-file JSON re-sort churn.
 """
 from __future__ import annotations
 
@@ -83,37 +82,117 @@ def escape_android(value: str) -> str:
     )
 
 
-def upsert_android_xml(path: Path, pairs: dict[str, str]) -> None:
+def escape_json_string(value: str) -> str:
+    return json.dumps(value, ensure_ascii=False)[1:-1]
+
+
+def upsert_android_xml(path: Path, pairs: dict[str, str]) -> tuple[int, int]:
     if not path.exists():
         path.parent.mkdir(parents=True, exist_ok=True)
         text = "<resources>\n</resources>\n"
     else:
         text = path.read_text(encoding="utf-8")
+    updated = added = 0
+    missing: list[str] = []
     for key, value in pairs.items():
-        line = f'    <string name="{key}">{escape_android(value)}</string>'
+        esc = escape_android(value)
+        line = f'    <string name="{key}">{esc}</string>'
         pattern = re.compile(
             rf'    <string name="{re.escape(key)}">.*?</string>', re.DOTALL
         )
-        if pattern.search(text):
-            text = pattern.sub(line, text)
+        m = pattern.search(text)
+        if m:
+            if m.group(0) != line:
+                text = text[: m.start()] + line + text[m.end() :]
+                updated += 1
         else:
-            text = text.replace("</resources>", f"{line}\n</resources>")
+            missing.append(line)
+            added += 1
+    if missing:
+        block = "\n".join(missing) + "\n"
+        text = text.replace("</resources>", block + "</resources>")
     path.write_text(text, encoding="utf-8")
+    return updated, added
 
 
-def upsert_xcstrings(path: Path, pairs_by_locale: dict[str, dict[str, str]]) -> None:
+def upsert_flat_json(path: Path, pairs: dict[str, str]) -> tuple[int, int]:
+    """In-place value replace for existing keys; append new keys before closing brace."""
+    text = path.read_text(encoding="utf-8")
+    data = json.loads(text)
+    updated = added = 0
+    for key, value in pairs.items():
+        if key in data:
+            if data[key] == value:
+                continue
+            # Replace only the JSON string value for this key (first occurrence).
+            pattern = re.compile(
+                rf'("{re.escape(key)}"\s*:\s*)"(?:\\.|[^"\\])*"',
+            )
+            repl = rf'\1"{escape_json_string(value)}"'
+            new_text, n = pattern.subn(repl, text, count=1)
+            if n != 1:
+                raise SystemExit(f"{path}: failed to rewrite {key}")
+            text = new_text
+            data[key] = value
+            updated += 1
+        else:
+            data[key] = value
+            added += 1
+
+    if added:
+        # Re-serialize preserving prior key order + append new keys sorted.
+        original_order = list(json.loads(path.read_text(encoding="utf-8")).keys())
+        # After in-place edits, re-load from text for updated values.
+        data = json.loads(text)
+        new_keys = sorted(k for k in pairs if k not in original_order)
+        ordered = {k: data[k] for k in original_order}
+        for k in new_keys:
+            ordered[k] = pairs[k]
+        text = json.dumps(ordered, ensure_ascii=False, indent=2) + "\n"
+    path.write_text(text, encoding="utf-8")
+    return updated, added
+
+
+def upsert_xcstrings(path: Path, pairs_by_locale: dict[str, dict[str, str]]) -> tuple[int, int]:
     catalog = json.loads(path.read_text(encoding="utf-8"))
     strings = catalog.setdefault("strings", {})
+    original_keys = list(strings.keys())
+    updated = added = 0
     for key, locales in pairs_by_locale.items():
-        entry = strings.setdefault(
-            key, {"extractionState": "manual", "localizations": {}}
-        )
-        locs = entry.setdefault("localizations", {})
-        for locale, value in locales.items():
-            locs[locale] = {"stringUnit": {"state": "translated", "value": value}}
+        if key in strings:
+            entry = strings[key]
+            locs = entry.setdefault("localizations", {})
+            changed = False
+            for locale, value in locales.items():
+                cur = (
+                    (locs.get(locale) or {})
+                    .get("stringUnit", {})
+                    .get("value")
+                )
+                if cur != value:
+                    locs[locale] = {
+                        "stringUnit": {"state": "translated", "value": value}
+                    }
+                    changed = True
+            if changed:
+                updated += 1
+        else:
+            strings[key] = {
+                "extractionState": "manual",
+                "localizations": {
+                    locale: {"stringUnit": {"state": "translated", "value": value}}
+                    for locale, value in locales.items()
+                },
+            }
+            added += 1
+    new_order = {k: strings[k] for k in original_keys if k in strings}
+    for k in sorted(k for k in strings if k not in original_keys):
+        new_order[k] = strings[k]
+    catalog["strings"] = new_order
     path.write_text(
         json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+    return updated, added
 
 
 def main() -> int:
@@ -123,11 +202,7 @@ def main() -> int:
     if missing:
         print(f"Missing translations for: {missing[:20]}…", file=sys.stderr)
         return 1
-    extra = sorted(set(xl) - set(ids))
-    if extra:
-        print(f"Warning: extra ids in data not in defs: {extra[:10]}", file=sys.stderr)
 
-    # Validate locale coverage + no empty + no ru
     for eid in ids:
         entry = xl[eid]
         for loc in LOCALES:
@@ -143,18 +218,11 @@ def main() -> int:
         f"equipment_item_{eid}": {loc: xl[eid][loc] for loc in LOCALES} for eid in ids
     }
 
-    # Shared JSON
     for loc in LOCALES:
         path = ROOT / "shared/src/commonMain/resources/i18n" / loc / "strings.json"
-        data = json.loads(path.read_text(encoding="utf-8"))
-        for key, locales in by_key.items():
-            data[key] = locales[loc]
-        path.write_text(
-            json.dumps(dict(sorted(data.items())), ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
-        )
+        pairs = {key: locales[loc] for key, locales in by_key.items()}
+        upsert_flat_json(path, pairs)
 
-    # Android + Wear XML (full catalogue — Wear previously only had the legacy 22)
     for loc in LOCALES:
         folder = ANDROID_FOLDERS[loc]
         pairs = {key: locales[loc] for key, locales in by_key.items()}
@@ -170,16 +238,21 @@ def main() -> int:
                 ]
             )
         for target in targets:
-            upsert_android_xml(target, pairs)
+            use = (
+                {k: by_key[k]["en-GB"] for k in by_key}
+                if target.name == "strings.xml"
+                and target.parent.name == "values"
+                else pairs
+            )
+            upsert_android_xml(target, use)
 
-    # iOS + watch String Catalogs
     for xc in XCSTRINGS:
         if xc.exists():
             upsert_xcstrings(xc, by_key)
 
     print(
         f"Synced {len(by_key)} equipment_item_* keys × {len(LOCALES)} locales "
-        f"→ shared JSON, Android, Wear, iOS + watch xcstrings"
+        f"(order-preserving) → shared JSON, Android, Wear, iOS + watch xcstrings"
     )
     return 0
 

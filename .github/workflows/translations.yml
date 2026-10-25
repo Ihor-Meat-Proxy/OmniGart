@@ -22,6 +22,9 @@ on:
       - 'scripts/check_no_ru_locale.sh'
       - 'scripts/content_i18n/**'
       - 'scripts/check_swift_localization_keys.py'
+      - 'scripts/sync_equipment_item_i18n.py'
+      - 'scripts/data/equipment_item_i18n.json'
+      - 'wearApp/**/res/values*/**'
       - 'i18n/locales.yml'
       - '.github/workflows/translations.yml'
   pull_request:
@@ -43,6 +46,9 @@ on:
       - 'scripts/check_no_ru_locale.sh'
       - 'scripts/content_i18n/**'
       - 'scripts/check_swift_localization_keys.py'
+      - 'scripts/sync_equipment_item_i18n.py'
+      - 'scripts/data/equipment_item_i18n.json'
+      - 'wearApp/**/res/values*/**'
       - 'i18n/locales.yml'
       - '.github/workflows/translations.yml'
   workflow_dispatch:

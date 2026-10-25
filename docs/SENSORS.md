@@ -36,6 +36,7 @@ Parser: `HeartRateMeasurementParser` (flags: uint8/uint16 HR, sensor contact, en
   - **Android 12+:** `BLUETOOTH_SCAN` (`neverForLocation`) + `BLUETOOTH_CONNECT`; legacy location ≤ API 30.
   - **iOS:** `NSBluetoothAlwaysUsageDescription`; `UIBackgroundModes` → `bluetooth-central` for phone workouts.
 - Battery-friendly: Android `SCAN_MODE_LOW_POWER`; stop scan after connect; backoff reconnect; close GATT on disconnect.
+- Expected BLE failures (missing permissions, adapter off, scanner unavailable, unknown device, scan/GATT errors) return typed `BleHrResult` / `BleHrFailure` and set `SensorSessionState` to `Failed` — they must not throw into the sensors UI.
 
 ### Watch / Wear limits
 
@@ -95,7 +96,7 @@ Runs on Ubuntu:
 
 Covers: BLE parser flag matrix + malformed packets, RR correction / HRV / Baevsky / quality, reconnect backoff, offline merge helpers.
 
-Android unit tests (`:android:sensors:testDebugUnitTest`) when Android SDK is present: remembered store, permission list (Robolectric). **Not** live BLE.
+Android unit tests (`:android:sensors:testDebugUnitTest`) when Android SDK is present: remembered store, permission list, typed BLE failure results (Robolectric). **Not** live BLE.
 
 Swift package tests (macOS / Xcode): UUID expansion, reconnect backoff, watch limitation string. CoreBluetooth / Polar need a **physical** iPhone.
 

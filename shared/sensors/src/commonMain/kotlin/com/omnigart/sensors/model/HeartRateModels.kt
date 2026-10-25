@@ -82,6 +82,7 @@ data class SensorSessionState(
     val bodySensorLocation: String? = null,
     val deviceInformation: DeviceInformation? = null,
     val lastError: String? = null,
+    val lastFailure: BleHrFailure? = null,
 )
 
 /**

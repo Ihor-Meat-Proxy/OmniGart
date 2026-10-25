@@ -110,6 +110,8 @@ ktlint {
         exclude("**/generated/**")
         exclude("**/build/**")
         exclude { it.file.path.contains("/build/generated/") }
+        // Large locale tables sourced from i18n JSON (line length / trailing commas).
+        exclude("**/com/omnigart/shared/i18n/StringCatalogTables.kt")
     }
 }
 
@@ -122,6 +124,7 @@ tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
     exclude("**/build/generated/**")
     exclude("**/com/omnigart/shared/strength/BundledStrengthLibrary.kt")
     exclude("**/com/omnigart/shared/strength/ReadyMadeWorkoutCatalog.kt")
+    exclude("**/com/omnigart/shared/i18n/StringCatalogTables.kt")
 }
 
 /**

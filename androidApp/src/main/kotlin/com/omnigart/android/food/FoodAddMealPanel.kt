@@ -19,6 +19,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import com.omnigart.android.R
+import com.omnigart.android.appLocaleTag
 import com.omnigart.design.theme.OmniGartColors
 import com.omnigart.shared.OmniGartCore
 import com.omnigart.shared.food.models.CatalogueFood
@@ -35,7 +36,7 @@ internal fun FoodAddMealPanel(core: OmniGartCore, profileId: String, meal: MealG
     var barcode by remember { mutableStateOf("") }
     val results =
         remember(query) {
-            if (query.isBlank()) emptyList() else core.foodLogging.search(profileId, query, "en-GB")
+            if (query.isBlank()) emptyList() else core.foodLogging.search(profileId, query, appLocaleTag())
         }
 
     Text(text = foodMealTitle(meal), style = MaterialTheme.typography.titleMedium)
@@ -115,7 +116,7 @@ private fun FoodAddBarcodeFields(
             val code = FoodLabelBarcodeHelpers.validateBarcode(barcode) ?: return@Button
             val food = core.foodLogging.findBarcode(profileId, code) ?: return@Button
             val grams = portion.toDoubleOrNull() ?: 100.0
-            core.foodLogging.logFromCatalogue(profileId, food.id, grams, meal, "en-GB")
+            core.foodLogging.logFromCatalogue(profileId, food.id, grams, meal, appLocaleTag())
             core.logFood(
                 profileId,
                 food.name,
@@ -146,7 +147,7 @@ private fun CatalogueResultRow(
         Row {
             TextButton(
                 onClick = {
-                    core.foodLogging.logQuickServing(profileId, food.id, QuickServing.PER_100_G, meal, "en-GB")
+                    core.foodLogging.logQuickServing(profileId, food.id, QuickServing.PER_100_G, meal, appLocaleTag())
                     core.logFood(
                         profileId,
                         food.name,
@@ -161,7 +162,7 @@ private fun CatalogueResultRow(
             TextButton(
                 onClick = {
                     val grams = portion.toDoubleOrNull() ?: 100.0
-                    core.foodLogging.logFromCatalogue(profileId, food.id, grams, meal, "en-GB")
+                    core.foodLogging.logFromCatalogue(profileId, food.id, grams, meal, appLocaleTag())
                     core.logFood(
                         profileId,
                         food.name,

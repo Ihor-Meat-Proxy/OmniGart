@@ -82,6 +82,6 @@ struct CalculationsSettingsView: View {
     }
 
     private func catalog(_ key: String) -> String {
-        StringCatalog.shared.t(key: key, locale: "en-GB")
+        StringCatalog.shared.t(key: key, locale: AppLocale.tag)
     }
 }

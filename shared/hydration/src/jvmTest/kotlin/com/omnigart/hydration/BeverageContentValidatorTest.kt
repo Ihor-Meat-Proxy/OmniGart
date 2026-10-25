@@ -42,11 +42,12 @@ class BeverageContentValidatorTest {
     }
 
     @Test
-    fun localesAreEnGbAndUkOnly() {
+    fun localesIncludeAllRequiredAndNeverRussian() {
         val locales = root.resolve("locales")
         val names = Files.list(locales).use { it.map { p -> p.fileName.toString() }.toList() }
-        assertTrue("en-GB.json" in names)
-        assertTrue("uk.json" in names)
+        for (loc in BeverageContentValidator.REQUIRED_LOCALES) {
+            assertTrue("$loc.json" in names, "missing $loc.json")
+        }
         assertFalse(names.any { it.startsWith("ru") })
     }
 

@@ -30,12 +30,13 @@ class ContentValidatorTest {
     }
 
     @Test
-    fun noRussianLocaleFilePresent() {
+    fun allRequiredLocalesPresentAndNeverRussian() {
         val locales = contentRoot().resolve("locales")
         val names = locales.toFile().list()?.toList().orEmpty()
         assertTrue(names.none { it.startsWith("ru") }, "found ru locale: $names")
-        assertTrue("en-GB.json" in names)
-        assertTrue("uk.json" in names)
+        for (loc in ContentValidator.REQUIRED_LOCALES) {
+            assertTrue("$loc.json" in names, "missing $loc.json")
+        }
     }
 
     @Test

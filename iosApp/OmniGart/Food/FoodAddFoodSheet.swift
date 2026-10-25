@@ -87,7 +87,7 @@ struct FoodAddFoodSheet: View {
     private var searchResults: [CatalogueFood] {
         _ = tick
         guard !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return [] }
-        return Array(core.foodLogging.search(profileId: profileId, query: query, locale: "en-GB"))
+        return Array(core.foodLogging.search(profileId: profileId, query: query, locale: AppLocale.tag))
     }
 
     private func logServing(food: CatalogueFood, serving: QuickServing) {
@@ -96,7 +96,7 @@ struct FoodAddFoodSheet: View {
             foodId: food.id,
             serving: serving,
             mealGroup: meal,
-            locale: "en-GB"
+            locale: AppLocale.tag
         ) {
             dualWrite(
                 name: entry.name,
@@ -115,7 +115,7 @@ struct FoodAddFoodSheet: View {
             foodId: food.id,
             grams: grams,
             mealGroup: meal,
-            locale: "en-GB"
+            locale: AppLocale.tag
         ) {
             dualWrite(
                 name: entry.name,

@@ -25,6 +25,7 @@ import androidx.health.connect.client.units.Length
 import androidx.health.connect.client.units.Mass
 import androidx.health.connect.client.units.Velocity
 import androidx.health.connect.client.units.Volume
+import com.omnigart.shared.health.store.PlatformAppendOnlyPolicy
 import java.time.Instant as JavaInstant
 import kotlin.time.Instant
 import kotlinx.coroutines.Dispatchers
@@ -309,15 +310,16 @@ class SdkHealthConnectGateway(
     override suspend fun writeWorkouts(workouts: List<HealthWorkout>) {
         withContext(Dispatchers.IO) {
             // Append-only: never HC record delete/update APIs. Skip when clientRecordId exists.
-            // Restore uses a bumped clientRecordVersion after platform deletion.
+            // Always stamp clientRecordVersion = 1 (same as weigh-ins). A higher version would
+            // let insertRecords silently rewrite an existing row — restores are insert-if-absent only.
             val toWrite = mutableListOf<Record>()
             for (workout in workouts) {
                 val syncId = "omnigart.workout.${workout.id}"
-                if (clientRecordIdExists(syncId, workout.start, workout.end)) continue
+                if (clientRecordIdExists(syncId)) continue
                 val meta =
                     Metadata.manualEntry(
                         clientRecordId = syncId,
-                        clientRecordVersion = workout.clientRecordVersion.coerceAtLeast(1L)
+                        clientRecordVersion = PlatformAppendOnlyPolicy.HEALTH_CONNECT_CLIENT_RECORD_VERSION
                     )
                 val start = workout.start.toJava()
                 val end = workout.end.toJava()
@@ -405,17 +407,15 @@ class SdkHealthConnectGateway(
 
     /**
      * True when Health Connect already has an [ExerciseSessionRecord] with [clientRecordId].
-     * Used to skip inserts (append-only; never HC update APIs).
+     * Reads from [Instant.EPOCH] (same as weigh-in dedupe) so a time-window miss cannot
+     * cause a duplicate insert or a version-bumped rewrite.
      */
-    suspend fun clientRecordIdExists(clientRecordId: String, start: Instant, end: Instant): Boolean {
-        val padMs = 60_000L
-        val from = JavaInstant.ofEpochMilli((start.toEpochMilliseconds() - padMs).coerceAtLeast(0))
-        val to = JavaInstant.ofEpochMilli(end.toEpochMilliseconds() + padMs)
+    suspend fun clientRecordIdExists(clientRecordId: String): Boolean {
         val records =
             client.readRecords(
                 ReadRecordsRequest(
                     ExerciseSessionRecord::class,
-                    TimeRangeFilter.between(from, to)
+                    TimeRangeFilter.after(JavaInstant.EPOCH)
                 )
             ).records
         return records.any { it.metadata.clientRecordId == clientRecordId }
@@ -475,6 +475,10 @@ class SdkHealthConnectGateway(
     }
 
     companion object {
+        /** @see PlatformAppendOnlyPolicy.HEALTH_CONNECT_CLIENT_RECORD_VERSION */
+        const val HEALTH_CONNECT_CLIENT_RECORD_VERSION =
+            PlatformAppendOnlyPolicy.HEALTH_CONNECT_CLIENT_RECORD_VERSION
+
         fun isAvailable(context: Context): Boolean = HcSdk.getSdkStatus(context) == HcSdk.SDK_AVAILABLE
     }
 }

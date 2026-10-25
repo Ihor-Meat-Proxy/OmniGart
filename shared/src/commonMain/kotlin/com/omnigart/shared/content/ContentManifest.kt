@@ -25,7 +25,20 @@ data class ContentSectionMeta(val fileCount: Int, val sha256: String)
 @Serializable
 data class LocalePolicy(
     val source: String = "en-GB",
-    val included: List<String> = listOf("en-GB", "uk"),
+    val included: List<String> =
+        listOf(
+            "en-GB",
+            "uk",
+            "pl",
+            "be",
+            "kk",
+            "ka",
+            "es",
+            "fr",
+            "de",
+            "cs",
+            "zh-Hans"
+        ),
     val forbidden: List<String> = listOf("ru")
 )
 

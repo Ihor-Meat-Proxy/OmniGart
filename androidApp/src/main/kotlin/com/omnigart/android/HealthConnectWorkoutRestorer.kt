@@ -19,7 +19,8 @@ import kotlinx.coroutines.withContext
 
 /**
  * User-initiated restore of a local workout removed from Health Connect.
- * Append-only: exist-check → [insertRecords] with bumped clientRecordVersion → never update/delete.
+ * Append-only: exist-check by stable clientRecordId (EPOCH read) → [insertRecords] only when
+ * absent → never update/delete and never bump clientRecordVersion (always 1, same as weigh-ins).
  */
 object HealthConnectWorkoutRestorer {
     enum class Outcome {
@@ -61,15 +62,14 @@ object HealthConnectWorkoutRestorer {
         return withContext(Dispatchers.IO) {
             val syncId =
                 core.localHealth.restoreSyncIdentifier(localId) ?: return@withContext Outcome.SKIPPED
-            val version = core.localHealth.restoreSyncVersion(localId)
             val start = Instant.fromEpochMilliseconds(core.localHealth.workoutStartEpochMs(localId))
             val end = Instant.fromEpochMilliseconds(core.localHealth.workoutEndEpochMs(localId))
             val gateway = SdkHealthConnectGateway(context)
-            if (gateway.clientRecordIdExists(syncId, start, end)) {
+            if (gateway.clientRecordIdExists(syncId)) {
                 core.localHealth.reconcileAlreadyOnPlatform(localId, null)
                 return@withContext Outcome.ALREADY_PRESENT
             }
-            val workout = buildWorkout(core, localId, syncId, version, start, end)
+            val workout = buildWorkout(core, localId, syncId, start, end)
             gateway.writeWorkouts(listOf(workout))
             val written =
                 gateway.readWorkouts(TimeRange(start, end))
@@ -83,7 +83,6 @@ object HealthConnectWorkoutRestorer {
         core: OmniGartCore,
         localId: String,
         syncId: String,
-        version: Long,
         start: Instant,
         end: Instant
     ): HealthWorkout {
@@ -110,7 +109,7 @@ object HealthConnectWorkoutRestorer {
             distanceMetres = core.localHealth.workoutDistanceMetres(localId),
             averageHeartRateBpm = core.localHealth.workoutAverageHeartRateBpm(localId),
             sourceName = core.localHealth.workoutSourceName(localId) ?: "OmniGart",
-            clientRecordVersion = version,
+            clientRecordVersion = SdkHealthConnectGateway.HEALTH_CONNECT_CLIENT_RECORD_VERSION,
             heartRateSamples = hr
         )
     }

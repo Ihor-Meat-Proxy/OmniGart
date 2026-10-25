@@ -1,11 +1,11 @@
 # Hydration ↔ Health sync specification
 
-Status: Phase 0 contract (Kotlin interfaces + fakes in `shared/hydration`). No app-shell wiring in this PR.
+Status: Phase 0 contract (Kotlin interfaces + fakes in `shared/hydration`). No app-shell wiring yet.
 
 ## Goals
 
 1. Write OmniGart drink logs to Apple HealthKit and Android Health Connect without corrupting system totals.
-2. Support idempotent create / edit / delete via a client sync identifier and version.
+2. Support append-only first writes via a stable client sync identifier (exist-check, insert if absent).
 3. Avoid double-counting samples written by other apps when computing OmniGart progress.
 
 ## Decision: write **raw** volume to Health
@@ -20,14 +20,16 @@ The Beverage Hydration Index (Maughan et al. 2016, DOI `10.3945/ajcn.115.114769`
 
 **Rule:** platforms receive raw millilitres/litres. OmniGart keeps BHI-adjusted progress as an internal metric only (`HydrationCountingMode.HYDRATION_ADJUSTED`).
 
-## Identity & versioning
+## Identity & append-only writes
 
 | Field | Purpose |
 | --- | --- |
-| `clientRecordId` | Stable UUID/string for one OmniGart `DrinkLogEntry` |
-| `clientRecordVersion` | Monotonic long; higher wins on upsert; delete requires `≥` stored version |
+| `clientRecordId` | Stable UUID/string for one OmniGart `DrinkLogEntry` (dedupe key) |
+| `clientRecordVersion` | Always `1` on platform stamps — **never bump** (HC rewrite risk) |
 | `schemaVersion` | `HYDRATION_SYNC_SCHEMA_VERSION` in Kotlin (currently `1`) |
 | Source id | `com.omnigart.hydration` |
+
+**Hard rule (same as workouts / weigh-ins):** never delete or rewrite platform health data. Writer API is `appendWater` / `appendCaffeine` / `appendCaloricDrink` only — no upsert or delete contracts. Exist-check by `clientRecordId` (Health Connect: read from EPOCH); if present, skip; else `insertRecords` / HealthKit save once.
 
 ### HealthKit
 
@@ -35,17 +37,17 @@ The Beverage Hydration Index (Maughan et al. 2016, DOI `10.3945/ajcn.115.114769`
 - Caffeine → `HKQuantitySample` dietaryCaffeine (mg).
 - Caloric drinks → `HKCorrelation` of type food, containing energy / macro quantity samples, plus metadata:
   - `omnigart.clientRecordId`
-  - `omnigart.clientRecordVersion`
+  - `omnigart.clientRecordVersion` (= 1)
   - `omnigart.schemaVersion`
   - `omnigart.beverageId`
-- Upsert: fetch by metadata id; replace if incoming version is newer.
-- Delete: delete correlation/samples matching `clientRecordId` when version allows.
+- Append: fetch by metadata id; if present, skip; else insert. Never call `deleteObjects`.
 
 ### Health Connect
 
-- Water → `HydrationRecord` with `metadata.clientRecordId` + `clientRecordVersion`.
+- Water → `HydrationRecord` with `metadata.clientRecordId` + `clientRecordVersion` (= 1).
 - Caffeine / macros → `NutritionRecord` (caffeine, energy, protein, carbs, fat, sugars, sodium as available) with the same client id/version.
 - Prefer a single `NutritionRecord` per caloric drink; plain water may be hydration-only (no empty nutrition row).
+- Exist-check with `TimeRangeFilter.after(Instant.EPOCH)` by `clientRecordId`; never `updateRecords` / `deleteRecords`.
 
 ## Read path & double-counting
 
@@ -71,7 +73,7 @@ When importing historical Health water to seed OmniGart, mark imported rows with
 
 ## Test doubles
 
-`FakeHydrationHealthStore` implements writer + reader with version checks, delete flags, and injectable foreign totals for double-count tests.
+`FakeHydrationHealthStore` implements writer + reader with append-only skip-if-present behaviour and injectable foreign totals for double-count tests.
 
 ## Citations
 

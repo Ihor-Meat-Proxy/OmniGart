@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import com.omnigart.android.R
+import com.omnigart.android.appLocaleTag
 import com.omnigart.android.nutrition.BodyMeasurementsSection
 import com.omnigart.android.nutrition.NutritionGoalSettingsSection
 import com.omnigart.design.theme.OmniGartColors
@@ -153,7 +154,7 @@ private fun runMorningReview(core: OmniGartCore, profileId: String): String {
         dayKey = dayKey,
         dayStart = start,
         dayEnd = end,
-        locale = "en-GB",
+        locale = appLocaleTag(),
         ageYears = age,
         sex = BiologicalSexBand.UNSPECIFIED,
         availability = FoodGeminiNanoAvailability.check()

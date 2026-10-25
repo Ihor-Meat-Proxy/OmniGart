@@ -87,9 +87,19 @@ required_usage_description_keys:
   - NSUserNotificationsUsageDescription
 
 # Locales that must carry usage descriptions (InfoPlist.strings) and string catalogs.
+# Keep in sync with i18n/locales.yml (never ru).
 required_locales:
   - en-GB
   - uk
+  - pl
+  - be
+  - kk
+  - ka
+  - es
+  - fr
+  - de
+  - cs
+  - zh-Hans
 
 # Paths relative to repo root scanned for user-facing copy.
 scan_globs:

@@ -10,20 +10,22 @@ import androidx.health.connect.client.units.Mass
 import com.omnigart.shared.food.health.DietaryNutritionSample
 import com.omnigart.shared.food.health.FoodHealthWriteResult
 import com.omnigart.shared.food.health.FoodNutritionHealthWriter
+import com.omnigart.shared.health.SdkHealthConnectGateway
 import java.time.Instant
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 /**
  * Append-only Health Connect nutrition writer.
- * Exist-check by [Metadata.clientRecordId]; never calls deleteRecords/updateRecords.
+ * Exist-check by [Metadata.clientRecordId] from EPOCH (weigh-in pattern); never calls
+ * deleteRecords/updateRecords; always stamps [SdkHealthConnectGateway.HEALTH_CONNECT_CLIENT_RECORD_VERSION].
  */
 class FoodNutritionHealthConnectWriter(private val client: HealthConnectClient) : FoodNutritionHealthWriter {
     override suspend fun appendDietary(sample: DietaryNutritionSample): FoodHealthWriteResult = withContext(Dispatchers.IO) {
         val syncId = sample.identity.syncIdentifier
         val start = Instant.ofEpochMilli(sample.startEpochMs)
         val end = Instant.ofEpochMilli(sample.endEpochMs).plusMillis(1)
-        if (clientRecordIdExists(syncId, start, end)) {
+        if (clientRecordIdExists(syncId)) {
             return@withContext FoodHealthWriteResult(
                 syncIdentifier = syncId,
                 platformRecordId = null,
@@ -34,7 +36,7 @@ class FoodNutritionHealthConnectWriter(private val client: HealthConnectClient) 
         val meta =
             Metadata.manualEntry(
                 clientRecordId = syncId,
-                clientRecordVersion = sample.identity.syncVersion.coerceAtLeast(1L)
+                clientRecordVersion = SdkHealthConnectGateway.HEALTH_CONNECT_CLIENT_RECORD_VERSION
             )
         val record =
             NutritionRecord(
@@ -74,12 +76,12 @@ class FoodNutritionHealthConnectWriter(private val client: HealthConnectClient) 
         errorMessage = message
     )
 
-    private suspend fun clientRecordIdExists(clientRecordId: String, start: Instant, end: Instant): Boolean {
+    private suspend fun clientRecordIdExists(clientRecordId: String): Boolean {
         val response =
             client.readRecords(
                 ReadRecordsRequest(
                     recordType = NutritionRecord::class,
-                    timeRangeFilter = TimeRangeFilter.between(start.minusSeconds(1), end.plusSeconds(1))
+                    timeRangeFilter = TimeRangeFilter.after(Instant.EPOCH)
                 )
             )
         return response.records.any { it.metadata.clientRecordId == clientRecordId }

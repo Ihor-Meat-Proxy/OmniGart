@@ -169,4 +169,25 @@ class PlatformAppendOnlyPolicyTest {
         assertTrue(PlatformAppendOnlyPolicy.FORBIDDEN_HEALTH_CONNECT_TOKENS.contains(deleteRecords))
         assertTrue(PlatformAppendOnlyPolicy.FORBIDDEN_HEALTH_CONNECT_TOKENS.contains(updateRecords))
     }
+
+    @Test
+    fun healthConnectClientRecordVersion_isFixedAtOne_neverBumpForRestore() {
+        // Health Connect treats a higher clientRecordVersion as a rewrite of the same
+        // clientRecordId. Restores must insert-if-absent with version 1 (weigh-in pattern).
+        assertEquals(1L, PlatformAppendOnlyPolicy.HEALTH_CONNECT_CLIENT_RECORD_VERSION)
+        val recorded = engine.recordLocally(sample())
+        engine.markPlatformLinked(recorded.id, "uuid-old")
+        engine.applyPlatformDeletion(
+            platform = HealthSyncPlatform.HEALTH_CONNECT,
+            platformRecordId = "uuid-old"
+        )
+        val prepared = checkNotNull(engine.prepareRestore(recorded.id))
+        // Local syncVersion may bump for Apple Health metadata; HC writers ignore it and
+        // always stamp HEALTH_CONNECT_CLIENT_RECORD_VERSION.
+        assertTrue(prepared.identity.syncVersion >= 1L)
+        assertEquals(
+            PlatformAppendOnlyPolicy.HEALTH_CONNECT_CLIENT_RECORD_VERSION,
+            1L
+        )
+    }
 }

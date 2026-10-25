@@ -5,14 +5,20 @@ package com.omnigart.body.health
  * See `docs/specs/body-health-sync.md`.
  *
  * Progress photos are **never** written to Health — local metadata only.
+ * Platform writes are **append-only**: exist-check by [BodySyncIdentity.clientRecordId],
+ * insert only when absent — never upsert, update, or delete platform records.
  */
 
 const val BODY_SYNC_SCHEMA_VERSION = 1
 const val OMNIGART_BODY_SOURCE_ID = "com.omnigart.body"
 
+/** Fixed platform metadata version — never bump; bumping enables silent Health Connect rewrites. */
+const val BODY_CLIENT_RECORD_VERSION = 1L
+
 data class BodySyncIdentity(
     val clientRecordId: String,
-    val clientRecordVersion: Long,
+    /** Always [BODY_CLIENT_RECORD_VERSION] for platform stamps; not used for upsert. */
+    val clientRecordVersion: Long = BODY_CLIENT_RECORD_VERSION,
     val schemaVersion: Int = BODY_SYNC_SCHEMA_VERSION,
 )
 
@@ -50,6 +56,7 @@ data class BodyWriteResult(
     val clientRecordId: String,
     val platformRecordId: String?,
     val ok: Boolean,
+    val skippedAlreadyPresent: Boolean = false,
     val errorMessage: String? = null,
 )
 
@@ -58,16 +65,18 @@ enum class BodyReadSourceFilter {
     ALL_SOURCES,
 }
 
+/**
+ * Append-only platform writer. Implementations must exist-check [BodySyncIdentity.clientRecordId]
+ * and skip if present. Never call HealthKit delete APIs or Health Connect deleteRecords/updateRecords.
+ */
 interface BodyHealthWriter {
-    suspend fun upsertBodyMass(sample: BodyMassSample): BodyWriteResult
+    suspend fun appendBodyMass(sample: BodyMassSample): BodyWriteResult
 
-    suspend fun upsertHeight(sample: HeightSample): BodyWriteResult
+    suspend fun appendHeight(sample: HeightSample): BodyWriteResult
 
-    suspend fun upsertBodyFat(sample: BodyFatSample): BodyWriteResult
+    suspend fun appendBodyFat(sample: BodyFatSample): BodyWriteResult
 
-    suspend fun upsertWaist(sample: WaistCircumferenceSample): BodyWriteResult
-
-    suspend fun deleteByClientRecordId(clientRecordId: String, clientRecordVersion: Long): BodyWriteResult
+    suspend fun appendWaist(sample: WaistCircumferenceSample): BodyWriteResult
 }
 
 interface BodyHealthReader {

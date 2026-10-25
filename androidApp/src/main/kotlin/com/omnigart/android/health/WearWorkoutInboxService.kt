@@ -70,8 +70,8 @@ class WearWorkoutInboxService : WearableListenerService() {
         val start = Instant.fromEpochMilliseconds(doc.startEpochMs)
         val end = Instant.fromEpochMilliseconds(doc.endEpochMs)
         val gateway = SdkHealthConnectGateway(applicationContext)
-        // Append-only: exist-check clientRecordId, then insertRecords at most once.
-        if (gateway.clientRecordIdExists(doc.syncIdentifier, start, end)) {
+        // Append-only: exist-check clientRecordId from EPOCH, then insertRecords at most once.
+        if (gateway.clientRecordIdExists(doc.syncIdentifier)) {
             core.localHealth.markPlatformLinked(localId, doc.syncIdentifier)
             return
         }
@@ -97,7 +97,7 @@ class WearWorkoutInboxService : WearableListenerService() {
                 averageHeartRateBpm = doc.averageHeartRateBpm,
                 heartRateSamples = hr,
                 sourceName = doc.sourceName,
-                clientRecordVersion = doc.syncVersion
+                clientRecordVersion = SdkHealthConnectGateway.HEALTH_CONNECT_CLIENT_RECORD_VERSION
             )
         gateway.writeWorkouts(listOf(hw))
         core.localHealth.markPlatformLinked(localId, doc.syncIdentifier)

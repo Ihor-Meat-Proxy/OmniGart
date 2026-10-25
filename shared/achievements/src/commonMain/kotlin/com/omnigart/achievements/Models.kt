@@ -116,7 +116,20 @@ data class HealthyByDesignFlags(
 @Serializable
 data class AchievementCatalog(
     val version: Int,
-    val localePolicy: List<String> = listOf("en-GB", "uk"),
+    val localePolicy: List<String> =
+        listOf(
+            "en-GB",
+            "uk",
+            "pl",
+            "be",
+            "kk",
+            "ka",
+            "es",
+            "fr",
+            "de",
+            "cs",
+            "zh-Hans",
+        ),
     val healthyByDesign: HealthyByDesignFlags = HealthyByDesignFlags(),
     val achievements: List<AchievementDefinition>,
 ) {

@@ -68,15 +68,15 @@ final class OmniGartWorkoutEventBuilderTests: XCTestCase {
     func testSanitizeEnforcesZeroDurationAndMonotonicOrder() {
         let start = at
         let end = at.addingTimeInterval(200)
-        // Intentionally out of order and with a bogus non-zero pause interval.
+        // HealthKit throws if pause is constructed with non-zero duration, so inputs
+        // must come from the factory. Sanitize still reorders and drops out-of-range.
         let resume = OmniGartWorkoutEventBuilder.makeEvent(
             type: .resume,
             at: start.addingTimeInterval(90)
         )
-        let badPause = HKWorkoutEvent(
+        let pause = OmniGartWorkoutEventBuilder.makeEvent(
             type: .pause,
-            dateInterval: DateInterval(start: start.addingTimeInterval(30), duration: 1),
-            metadata: nil
+            at: start.addingTimeInterval(30)
         )
         let lateSegment = OmniGartWorkoutEventBuilder.makeEvent(
             type: .segment,
@@ -85,7 +85,7 @@ final class OmniGartWorkoutEventBuilderTests: XCTestCase {
             metadata: ["OmniGartSegmentLabel": "TooLate"]
         )
         let sanitized = OmniGartWorkoutEventBuilder.sanitize(
-            [resume, badPause, lateSegment],
+            [resume, pause, lateSegment],
             workoutStart: start,
             workoutEnd: end
         )
@@ -95,6 +95,18 @@ final class OmniGartWorkoutEventBuilderTests: XCTestCase {
         XCTAssertEqual(sanitized[0].dateInterval.start, start.addingTimeInterval(30))
         XCTAssertEqual(sanitized[1].type, .resume)
         XCTAssertEqual(sanitized[1].dateInterval.duration, 0, accuracy: 0.000_1)
+    }
+
+    func testDateIntervalForcesZeroEvenWhenEndPassedForPause() {
+        // Callers may pass an end for a pause span; HealthKit still requires duration 0.
+        let interval = OmniGartWorkoutEventBuilder.dateInterval(
+            for: .pause,
+            start: at,
+            end: at.addingTimeInterval(45)
+        )
+        XCTAssertEqual(interval.duration, 0, accuracy: 0.000_1)
+        XCTAssertEqual(interval.start, at)
+        XCTAssertEqual(interval.end, at)
     }
 
     func testSanitizeClampsSegmentEndToWorkoutEnd() {

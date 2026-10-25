@@ -8,16 +8,21 @@ package com.omnigart.hydration.health
  * - Write **raw** water/fluid volume to Health platforms.
  * - Keep BHI-adjusted totals internal to OmniGart.
  * - Filter foreign sources on read to avoid double counting.
+ * - Platform writes are **append-only**: exist-check by [HealthSyncIdentity.clientRecordId],
+ *   insert only when absent — never upsert, update, or delete platform records.
  */
 
 const val HYDRATION_SYNC_SCHEMA_VERSION = 1
 const val OMNIGART_HEALTH_SOURCE_ID = "com.omnigart.hydration"
 
+/** Fixed platform metadata version — never bump; bumping enables silent Health Connect rewrites. */
+const val HYDRATION_CLIENT_RECORD_VERSION = 1L
+
 data class HealthSyncIdentity(
     /** Stable id for this OmniGart drink log (maps to HK metadata / clientRecordId). */
     val clientRecordId: String,
-    /** Monotonic version for idempotent upsert/delete. */
-    val clientRecordVersion: Long,
+    /** Always [HYDRATION_CLIENT_RECORD_VERSION] for platform stamps; not used for upsert. */
+    val clientRecordVersion: Long = HYDRATION_CLIENT_RECORD_VERSION,
     val schemaVersion: Int = HYDRATION_SYNC_SCHEMA_VERSION,
 )
 
@@ -67,6 +72,7 @@ data class HealthWriteResult(
     val clientRecordId: String,
     val platformRecordId: String?,
     val ok: Boolean,
+    val skippedAlreadyPresent: Boolean = false,
     val errorMessage: String? = null,
 )
 
@@ -78,14 +84,16 @@ enum class HealthReadSourceFilter {
     ALL_SOURCES,
 }
 
+/**
+ * Append-only platform writer. Implementations must exist-check [HealthSyncIdentity.clientRecordId]
+ * and skip if present. Never call HealthKit delete APIs or Health Connect deleteRecords/updateRecords.
+ */
 interface HydrationHealthWriter {
-    suspend fun upsertWater(sample: WaterSample): HealthWriteResult
+    suspend fun appendWater(sample: WaterSample): HealthWriteResult
 
-    suspend fun upsertCaffeine(sample: CaffeineSample): HealthWriteResult
+    suspend fun appendCaffeine(sample: CaffeineSample): HealthWriteResult
 
-    suspend fun upsertCaloricDrink(sample: CaloricDrinkSample): HealthWriteResult
-
-    suspend fun deleteByClientRecordId(clientRecordId: String, clientRecordVersion: Long): HealthWriteResult
+    suspend fun appendCaloricDrink(sample: CaloricDrinkSample): HealthWriteResult
 }
 
 interface HydrationHealthReader {

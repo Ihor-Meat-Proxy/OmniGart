@@ -6,11 +6,11 @@ Canonical storage is always OmniGart’s SQLDelight DB. Platform sync is optiona
 ## Principles
 
 1. **Local-first.** Every workout and sample OmniGart records or receives is stored locally, even when Health permission is denied.
-2. **One canonical record.** Stable `syncIdentifier` (dedupe key). `syncVersion` is stamped at 1 on first platform insert; bumped only for user-initiated **restore** after platform deletion.
-3. **Append-only platform writes (hard rule).** OmniGart must **never delete or rewrite** any data in Apple Health or Health Connect — **not even records OmniGart created**. Before writing, exist-check `HKMetadataKeySyncIdentifier` / `clientRecordId`; if present, **skip**. Never call HealthKit `delete` / `deleteObjects` or Health Connect `deleteRecords` / `updateRecords`.
+2. **One canonical record.** Stable `syncIdentifier` / `clientRecordId` (dedupe key). Platform stamps use version **1**; Health Connect **never** bumps `clientRecordVersion` (a higher version lets `insertRecords` silently rewrite an existing row).
+3. **Append-only platform writes (hard rule).** OmniGart must **never delete or rewrite** any data in Apple Health or Health Connect — **not even records OmniGart created**. Before writing, exist-check `HKMetadataKeySyncIdentifier` / `clientRecordId` (Health Connect: read from `Instant.EPOCH`, not a narrow time window); if present, **skip**. Never call HealthKit `delete` / `deleteObjects` or Health Connect `deleteRecords` / `updateRecords`.
 4. **Local edits stay in OmniGart.** Changing a workout after the first successful platform insert updates the local DB only.
 5. **Platform deletion → keep local.** If Apple Health / Health Connect deletes a sample, mark the OmniGart row `removedFromPlatform` and keep all data. Do not auto re-insert.
-6. **User restore (optional).** From the workout detail screen or Data privacy → **Restore all removed**, the user can re-insert the local copy. Still append-only: bump `syncVersion` / `clientRecordVersion`, exist-check, then insert (HKWorkout save / `insertRecords`). On success, clear `removedFromPlatform`. If the sync id is already present, clear the flag and skip. Ask for write permission when missing. Deleting again on the platform re-enters the same flow.
+6. **User restore (optional).** From the workout detail screen or Data privacy → **Restore all removed**, the user can re-insert the local copy. Still append-only: exist-check by stable sync id / `clientRecordId`, then insert only if absent (HKWorkout save / `insertRecords` with HC `clientRecordVersion = 1`). On success, clear `removedFromPlatform`. If the sync id is already present, clear the flag and skip. Ask for write permission when missing. Deleting again on the platform re-enters the same flow.
 7. **Never corrupt foreign data.** Do not write back foreign-app data. Restore is OmniGart-origin only.
 8. **Richest local copy.** Prefer full-resolution series over averages; merge without silent overwrite.
 9. **Conflict policy.** Prefer original source, keep both values with provenance, show the user (`health_conflict` table).
@@ -19,15 +19,15 @@ Canonical storage is always OmniGart’s SQLDelight DB. Platform sync is optiona
 
 | Layer | Identifier | Version |
 | --- | --- | --- |
-| OmniGart | `HealthSyncIdentity.syncIdentifier` (`omnigart.workout.<localId>`) | `syncVersion` (Long, starts at 1; bump only for restore) |
-| Apple Health | `HKMetadataKeySyncIdentifier` | `HKMetadataKeySyncVersion` (first insert = 1; restore bumps; never overwrite existing) |
-| Health Connect | `Metadata.clientRecordId` | `Metadata.clientRecordVersion` (first insert = 1; restore bumps; never `updateRecords`) |
+| OmniGart | `HealthSyncIdentity.syncIdentifier` (`omnigart.workout.<localId>`) | `syncVersion` (Long, starts at 1; local tracking may bump on restore prepare) |
+| Apple Health | `HKMetadataKeySyncIdentifier` | `HKMetadataKeySyncVersion` (prefer 1; never overwrite an existing sync id) |
+| Health Connect | `Metadata.clientRecordId` | `Metadata.clientRecordVersion` **always 1** (never bump; never `updateRecords`) |
 
 Also stored: `omnigart.origin`, `omnigart.healthSchemaVersion` (= 1).
 
 **First-write path:** `PlatformAppendOnlyPolicy.shouldAttemptPlatformWrite` → exist-check sync id → `insert` only → `markPlatformLinked`.
 
-**Restore path:** `shouldAttemptPlatformRestore` → `prepareRestore` (bump version) → exist-check → if present, `reconcileAlreadyOnPlatform`; else insert with HR/energy/distance/events as available → `completeRestore` (clear `removedFromPlatform`). UI: workout detail + Data privacy bulk restore (`Restore to Apple Health` / `Restore to Health Connect`).
+**Restore path:** `shouldAttemptPlatformRestore` → `prepareRestore` → exist-check by sync id / `clientRecordId` (HC: EPOCH read) → if present, `reconcileAlreadyOnPlatform`; else append-only insert with HR/energy/distance/events as available (HC version stays 1) → `completeRestore` (clear `removedFromPlatform`). UI: workout detail + Data privacy bulk restore (`Restore to Apple Health` / `Restore to Health Connect`).
 
 ## Workout field matrix
 
@@ -35,7 +35,7 @@ Also stored: `omnigart.origin`, `omnigart.healthSchemaVersion` (= 1).
 | --- | --- | --- | --- | --- |
 | `id` | string | local only (UUID also in `platformRecordId`) | local only (`metadata.id` mirrored) | Stable OmniGart primary key |
 | `identity.syncIdentifier` | string | `HKMetadataKeySyncIdentifier` | `clientRecordId` | Dedupe / first-write key; skip write if exists |
-| `identity.syncVersion` | long | `HKMetadataKeySyncVersion` | `clientRecordVersion` | First insert = 1; bump only for user restore after platform deletion |
+| `identity.syncVersion` | long | `HKMetadataKeySyncVersion` | `clientRecordVersion` | First insert = 1; HC always stamps 1 (never bump) |
 | `activityType` | enum | `HKWorkoutActivityType` | `ExerciseSessionRecord.exerciseType` | See activity map below |
 | `startAt` / `endAt` | Instant (UTC) | `HKWorkout.start/end` | session start/end + zone offset | Convert TZ at platform boundary |
 | `activeEnergyKcal` | kcal | `activeEnergyBurned` (kcal) | `ActiveCaloriesBurnedRecord` (kcal) | Never fold basal into active |
@@ -94,16 +94,16 @@ Unmapped platform types import as `OTHER` and keep the raw platform type in `not
 | HC basal often not session-scoped | Prefer OmniGart basal estimate for OmniGart-origin sessions; import HC basal only when session-linked |
 | User edits a synced workout in OmniGart | Local DB only; platform object unchanged |
 | User deletes a workout in Apple Health / HC | Local row kept with `removedFromPlatform=true` |
-| User taps Restore | Bump sync version, exist-check, insert; clear flag on success |
+| User taps Restore | Exist-check sync id / clientRecordId, insert if absent (HC version 1); clear flag on success |
 | Route on restore | Best-effort; HK route builder needs location permission (may stay empty) |
 
 ## Restore flow
 
 1. Platform deletion → `HealthSyncEngine.applyPlatformDeletion` sets `removedFromPlatform` (local data kept).
 2. UI shows **Restore to Apple Health** (iOS) or **Restore to Health Connect** (Android) on the workout detail screen, plus **Restore all removed** in Data and privacy.
-3. `prepareRestore` bumps `syncVersion` / `clientRecordVersion` and clears stale `platformRecordId`.
-4. Writer exist-checks sync id / `clientRecordId`. If present → `reconcileAlreadyOnPlatform` (clear flag, no write).
-5. Else append-only insert: iOS `HKWorkoutBuilder` / Android `insertRecords` (session + HR + active energy + distance when present). **Never** platform delete/update APIs.
+3. `prepareRestore` clears stale `platformRecordId` (local `syncVersion` may bump for tracking; Health Connect writers still stamp `clientRecordVersion = 1`).
+4. Writer exist-checks sync id / `clientRecordId` (Health Connect: from EPOCH). If present → `reconcileAlreadyOnPlatform` (clear flag, no write).
+5. Else append-only insert: iOS `HKWorkoutBuilder` / Android `insertRecords` (session + HR + active energy + distance when present). **Never** platform delete/update APIs; **never** bump HC `clientRecordVersion`.
 6. `completeRestore` clears `removedFromPlatform` and stores the new platform record id.
 7. If the user deletes the sample on the platform again, step 1 repeats.
 
@@ -162,7 +162,9 @@ Deletions on the platform **never** delete OmniGart data and **never** trigger p
 - HealthKit: `deleteObjects(`, `healthStore.delete(`, `HKHealthStore().delete(`, `.delete(object` / `.delete(objects`
 - Health Connect: `deleteRecords(`, `updateRecords(`
 
-Unit/contract coverage: `PlatformAppendOnlyPolicyTest` + `PlatformAppendOnlyPolicy`.
+Scan paths include `shared/` core, `shared/hydration`, `shared/body`, `androidApp`, and `wearApp` main sources.
+
+Unit/contract coverage: `PlatformAppendOnlyPolicyTest` + `PlatformAppendOnlyPolicy` + hydration/body append-only fake tests.
 
 ## Conflict policy (per record)
 
@@ -199,6 +201,6 @@ Shared tests (`HealthDataRoundTripTest`, `PlatformAppendOnlyPolicyTest`, `Device
 - full HR series order and values
 - route points, events, sets
 - sync identity (identifier + version)
-- append-only eligibility (no platform rewrite after link; platform deletion keeps local; restore bumps version and clears flag)
+- append-only eligibility (no platform rewrite after link; platform deletion keeps local; restore exist-checks and clears flag; HC clientRecordVersion stays 1)
 
 Floating-point: energy to 0.001 kcal, distance to 0.001 m, HR to 0.1 bpm.

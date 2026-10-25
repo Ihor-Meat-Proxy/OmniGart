@@ -13,6 +13,13 @@ package com.omnigart.shared.health.store
  */
 object PlatformAppendOnlyPolicy {
     /**
+     * Health Connect [Metadata.clientRecordVersion] for every OmniGart insert.
+     * Always 1 — never bump. A higher version lets Health Connect treat insertRecords as a
+     * silent rewrite of an existing clientRecordId (same rule as weigh-ins).
+     */
+    const val HEALTH_CONNECT_CLIENT_RECORD_VERSION = 1L
+
+    /**
      * HealthKit symbols that must never appear in production OmniGart sources.
      * Built with concatenation so this file itself does not trip the CI grep gate.
      */
@@ -48,7 +55,8 @@ object PlatformAppendOnlyPolicy {
 
     /**
      * Whether the user may restore this local copy to the platform after a platform deletion.
-     * OmniGart-origin only. Writers bump sync version, exist-check, then insert (never update/delete).
+     * OmniGart-origin only. Writers exist-check by sync id / clientRecordId, then insert
+     * if absent (never update/delete; Health Connect always stamps version 1).
      */
     fun shouldAttemptPlatformRestore(workout: LocalHealthWorkout): Boolean = HealthDataMapper.mayWriteToPlatform(workout) &&
         !workout.deleted &&

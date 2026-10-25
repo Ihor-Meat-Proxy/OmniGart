@@ -120,7 +120,7 @@ private suspend fun writePlatformWorkout(
             val gateway = SdkHealthConnectGateway(context)
             val start = Instant.fromEpochMilliseconds(window.startMs)
             val end = Instant.fromEpochMilliseconds(window.endMs)
-            if (!gateway.clientRecordIdExists(syncId, start, end)) {
+            if (!gateway.clientRecordIdExists(syncId)) {
                 gateway.writeWorkouts(
                     listOf(
                         HealthWorkout(

@@ -22,11 +22,13 @@ if rg -n --glob '*.swift' --glob '!*Tests*' --glob '!*Test*' \
 fi
 
 echo "Checking for forbidden Health Connect delete/update APIs..."
-# Production Kotlin main sources only.
+# Production Kotlin main sources only (shared core + hydration/body domain modules + apps).
 if rg -n \
   -e '\bdeleteRecords\s*\(' \
   -e '\bupdateRecords\s*\(' \
   shared/src/commonMain shared/src/androidMain shared/src/appleMain \
+  shared/hydration/src/commonMain shared/hydration/src/jvmMain \
+  shared/body/src/commonMain \
   androidApp/src/main wearApp/src/main 2>/dev/null; then
   echo "ERROR: Health Connect deleteRecords/updateRecords are forbidden (append-only)." >&2
   fail=1

@@ -14,7 +14,7 @@ const val OMNIGART_FOOD_SOURCE_ID = "com.omnigart.food"
 data class FoodSyncIdentity(
     /** Stable id, e.g. `omnigart.food.<localId>`. */
     val syncIdentifier: String,
-    /** First insert = 1; bump only for user restore after platform deletion. */
+    /** Always 1 on Health Connect stamps — never bump (rewrite risk). */
     val syncVersion: Long = 1L,
     val schemaVersion: Int = FOOD_NUTRITION_SYNC_SCHEMA_VERSION
 )

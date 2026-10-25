@@ -115,39 +115,37 @@ extension HealthKitWorkoutWriter {
     static func buildEvents(for options: SaveOptions) -> [HKWorkoutEvent] {
         var events: [HKWorkoutEvent] = []
         for pair in options.pauseResumeDates {
-            // HealthKit requires zero-duration intervals for pause / resume.
+            // Model paused spans as pause + resume pairs (each duration 0).
+            // Skip pairs that cannot sit inside the workout window.
+            guard pair.pause <= options.end else { continue }
+            let pauseAt = max(pair.pause, options.start)
+            guard pauseAt <= options.end else { continue }
             events.append(
-                HKWorkoutEvent(
-                    type: .pause,
-                    dateInterval: DateInterval(start: pair.pause, duration: 0),
-                    metadata: nil
-                )
+                HealthKitWorkoutEventBuilder.makeEvent(type: .pause, at: pauseAt)
             )
             if let resume = pair.resume {
+                guard resume >= pauseAt, resume <= options.end else { continue }
                 events.append(
-                    HKWorkoutEvent(
-                        type: .resume,
-                        dateInterval: DateInterval(start: resume, duration: 0),
-                        metadata: nil
-                    )
+                    HealthKitWorkoutEventBuilder.makeEvent(type: .resume, at: resume)
                 )
             }
         }
         for segment in options.segments {
-            // Segments require a non-zero interval; fall back to 1s when start == end.
-            let end = segment.end > segment.start
-                ? segment.end
-                : segment.start.addingTimeInterval(1)
-            let interval = DateInterval(start: segment.start, end: end)
             events.append(
-                HKWorkoutEvent(
+                HealthKitWorkoutEventBuilder.makeEvent(
                     type: .segment,
-                    dateInterval: interval,
+                    at: segment.start,
+                    end: segment.end > segment.start ? segment.end : nil,
                     metadata: ["OmniGartSegmentLabel": segment.label]
                 )
             )
         }
-        return events
+        // Clamp, drop out-of-range, enforce duration rules, keep monotonic order.
+        return HealthKitWorkoutEventBuilder.sanitize(
+            events,
+            workoutStart: options.start,
+            workoutEnd: options.end
+        )
     }
 
     static func buildMetadata(for options: SaveOptions) -> [String: Any] {

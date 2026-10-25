@@ -64,4 +64,67 @@ final class OmniGartWorkoutEventBuilderTests: XCTestCase {
             accuracy: 0.000_1
         )
     }
+
+    func testSanitizeEnforcesZeroDurationAndMonotonicOrder() {
+        let start = at
+        let end = at.addingTimeInterval(200)
+        // HealthKit throws if pause is constructed with non-zero duration, so inputs
+        // must come from the factory. Sanitize still reorders and drops out-of-range.
+        let resume = OmniGartWorkoutEventBuilder.makeEvent(
+            type: .resume,
+            at: start.addingTimeInterval(90)
+        )
+        let pause = OmniGartWorkoutEventBuilder.makeEvent(
+            type: .pause,
+            at: start.addingTimeInterval(30)
+        )
+        let lateSegment = OmniGartWorkoutEventBuilder.makeEvent(
+            type: .segment,
+            at: end.addingTimeInterval(10),
+            end: end.addingTimeInterval(20),
+            metadata: ["OmniGartSegmentLabel": "TooLate"]
+        )
+        let sanitized = OmniGartWorkoutEventBuilder.sanitize(
+            [resume, pause, lateSegment],
+            workoutStart: start,
+            workoutEnd: end
+        )
+        XCTAssertEqual(sanitized.count, 2)
+        XCTAssertEqual(sanitized[0].type, .pause)
+        XCTAssertEqual(sanitized[0].dateInterval.duration, 0, accuracy: 0.000_1)
+        XCTAssertEqual(sanitized[0].dateInterval.start, start.addingTimeInterval(30))
+        XCTAssertEqual(sanitized[1].type, .resume)
+        XCTAssertEqual(sanitized[1].dateInterval.duration, 0, accuracy: 0.000_1)
+    }
+
+    func testDateIntervalForcesZeroEvenWhenEndPassedForPause() {
+        // Callers may pass an end for a pause span; HealthKit still requires duration 0.
+        let interval = OmniGartWorkoutEventBuilder.dateInterval(
+            for: .pause,
+            start: at,
+            end: at.addingTimeInterval(45)
+        )
+        XCTAssertEqual(interval.duration, 0, accuracy: 0.000_1)
+        XCTAssertEqual(interval.start, at)
+        XCTAssertEqual(interval.end, at)
+    }
+
+    func testSanitizeClampsSegmentEndToWorkoutEnd() {
+        let start = at
+        let end = at.addingTimeInterval(50)
+        let segment = OmniGartWorkoutEventBuilder.makeEvent(
+            type: .segment,
+            at: start.addingTimeInterval(40),
+            end: end.addingTimeInterval(25),
+            metadata: ["OmniGartSegmentLabel": "Clamp"]
+        )
+        let sanitized = OmniGartWorkoutEventBuilder.sanitize(
+            [segment],
+            workoutStart: start,
+            workoutEnd: end
+        )
+        XCTAssertEqual(sanitized.count, 1)
+        XCTAssertEqual(sanitized[0].dateInterval.end, end)
+        XCTAssertGreaterThan(sanitized[0].dateInterval.duration, 0)
+    }
 }

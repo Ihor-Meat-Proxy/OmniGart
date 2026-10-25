@@ -223,10 +223,7 @@ class YogaPilatesContentValidator(
         return registry.getSchema(text)
     }
 
-    private fun loadRequiredLocales(
-        root: Path,
-        issues: MutableList<ValidationIssue>
-    ): Map<String, Map<String, String>> {
+    private fun loadRequiredLocales(root: Path, issues: MutableList<ValidationIssue>): Map<String, Map<String, String>> {
         val out = linkedMapOf<String, Map<String, String>>()
         for (loc in ContentValidator.REQUIRED_LOCALES) {
             val relative = "locales/$loc.json"

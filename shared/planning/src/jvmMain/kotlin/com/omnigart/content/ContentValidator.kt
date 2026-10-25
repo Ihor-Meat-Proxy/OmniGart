@@ -155,12 +155,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         }
     }
 
-    private fun checkNameKeys(
-        node: JsonNode,
-        locales: Map<String, Map<String, String>>,
-        file: Path,
-        issues: MutableList<ValidationIssue>
-    ) {
+    private fun checkNameKeys(node: JsonNode, locales: Map<String, Map<String, String>>, file: Path, issues: MutableList<ValidationIssue>) {
         val keys =
             buildSet {
                 val nameKeys = node.path("nameKeys")
@@ -302,7 +297,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
                 "fr",
                 "de",
                 "cs",
-                "zh-Hans",
+                "zh-Hans"
             )
     }
 }

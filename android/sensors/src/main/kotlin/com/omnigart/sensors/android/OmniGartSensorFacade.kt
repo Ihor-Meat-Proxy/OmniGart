@@ -6,6 +6,7 @@ import com.omnigart.sensors.android.polar.PolarBleSensorAdapter
 import com.omnigart.sensors.android.store.RememberedDevicesStore
 import com.omnigart.sensors.api.HeartRateSensorManager
 import com.omnigart.sensors.api.PolarSensorFeatures
+import com.omnigart.sensors.model.BleHrResult
 import com.omnigart.sensors.model.HeartRateMeasurement
 import com.omnigart.sensors.model.SensorDevice
 import com.omnigart.sensors.model.SensorKind
@@ -47,14 +48,14 @@ class OmniGartSensorFacade(
     override val measurements: Flow<HeartRateMeasurement> = mergedMeasurements
     override val rememberedDevices: StateFlow<List<SensorDevice>> = store.devices
 
-    override suspend fun startScan() = standard.startScan()
+    override suspend fun startScan(): BleHrResult = standard.startScan()
     override suspend fun stopScan() = standard.stopScan()
 
-    override suspend fun connect(deviceId: String) {
+    override suspend fun connect(deviceId: String): BleHrResult {
         val kind = discoveredDevices.value.find { it.id == deviceId }?.kind
             ?: rememberedDevices.value.find { it.id == deviceId }?.kind
             ?: SensorKind.Unknown
-        when (kind) {
+        return when (kind) {
             SensorKind.PolarH10,
             SensorKind.PolarVeritySense,
             SensorKind.PolarOther,
@@ -62,6 +63,7 @@ class OmniGartSensorFacade(
                 // Polar device IDs are often the 8-char sensor id; BLE address also accepted by SDK.
                 polar.connect(deviceId)
                 polar.startHrStream()
+                BleHrResult.success()
             }
             else -> standard.connect(deviceId)
         }

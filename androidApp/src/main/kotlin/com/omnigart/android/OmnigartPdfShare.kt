@@ -5,12 +5,11 @@ import android.content.Intent
 import androidx.core.content.FileProvider
 import com.omnigart.shared.OmniGartCore
 import java.util.Calendar
-import java.util.Locale
 
 /** Builds and shares OmniGart workout PDFs via the system share sheet / SAF. */
 object OmnigartPdfShare {
     fun shareWorkout(context: Context, core: OmniGartCore, workoutId: String, strengthJson: String? = null) {
-        val locale = Locale.getDefault().toLanguageTag()
+        val locale = appLocaleTag()
         val document =
             core.localHealth.buildWorkoutPdf(
                 workoutId = workoutId,
@@ -40,7 +39,7 @@ object OmnigartPdfShare {
                 timeInMillis = end
                 add(Calendar.DAY_OF_YEAR, -30)
             }.timeInMillis
-        val locale = Locale.getDefault().toLanguageTag()
+        val locale = appLocaleTag()
         val document =
             core.localHealth.buildRangePdf(
                 startEpochMs = start,

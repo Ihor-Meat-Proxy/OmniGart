@@ -54,8 +54,9 @@ enum class HealthSyncPlatform {
  * Platform writes are append-only: never call platform delete/update APIs.
  * - First insert stamps version 1.
  * - Local edits do **not** bump version (stay in OmniGart only).
- * - User-initiated **restore** after platform deletion bumps version and inserts again
- *   with the same sync id (HealthKit/HC allow reusing a deleted sync id with a higher version).
+ * - User-initiated **restore** after platform deletion re-inserts with the same sync id
+ *   only when absent. Health Connect always stamps `clientRecordVersion = 1` (never bump —
+ *   a higher version would silently rewrite an existing HC row).
  * - If the sync id already exists on the platform, skip the write.
  */
 @Serializable

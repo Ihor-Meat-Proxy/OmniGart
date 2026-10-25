@@ -25,7 +25,8 @@ data class BeverageValidationReport(
 }
 
 /**
- * Validates on-disk beverage JSON: schema, unique ids, en-GB + uk locale keys, no `ru` locale.
+ * Validates on-disk beverage JSON: schema, unique ids, locale keys for all required locales
+ * (mirrors `i18n/locales.yml`), no `ru` locale.
  */
 class BeverageContentValidator(
     private val contentRoot: Path,
@@ -37,8 +38,7 @@ class BeverageContentValidator(
     fun validate(): BeverageValidationReport {
         val issues = mutableListOf<BeverageValidationIssue>()
         val schema = loadSchema("schema/beverage.schema.json")
-        val localeEn = loadLocale("locales/en-GB.json")
-        val localeUk = loadLocale("locales/uk.json")
+        val locales = loadRequiredLocales(issues)
         assertNoRuLocale(issues)
 
         val dataDir = contentRoot.resolve("data")
@@ -60,7 +60,7 @@ class BeverageContentValidator(
             if (file.name != "$id.json") {
                 issues += BeverageValidationIssue(file.toString(), "Filename must match id.json")
             }
-            checkNameKeys(node, localeEn, localeUk, file, issues)
+            checkNameKeys(node, locales, file, issues)
             checkEvidence(node, file, issues)
             val factor = node.path("hydrationFactor").asDouble()
             if (factor <= 0.0) {
@@ -74,6 +74,23 @@ class BeverageContentValidator(
     private fun loadSchema(relative: String): Schema {
         val text = contentRoot.resolve(relative).readText()
         return registry.getSchema(text)
+    }
+
+    private fun loadRequiredLocales(
+        issues: MutableList<BeverageValidationIssue>,
+    ): Map<String, Map<String, String>> {
+        val out = linkedMapOf<String, Map<String, String>>()
+        for (loc in REQUIRED_LOCALES) {
+            val relative = "locales/$loc.json"
+            val file = contentRoot.resolve(relative)
+            if (!Files.isRegularFile(file)) {
+                issues += BeverageValidationIssue(file.toString(), "Missing required locale file for $loc")
+                out[loc] = emptyMap()
+                continue
+            }
+            out[loc] = loadLocale(relative)
+        }
+        return out
     }
 
     private fun loadLocale(relative: String): Map<String, String> {
@@ -97,18 +114,24 @@ class BeverageContentValidator(
 
     private fun checkNameKeys(
         node: JsonNode,
-        en: Map<String, String>,
-        uk: Map<String, String>,
+        locales: Map<String, Map<String, String>>,
         file: Path,
         issues: MutableList<BeverageValidationIssue>,
     ) {
-        val enKey = node.path("nameKeys").path("enGB").asText()
-        val ukKey = node.path("nameKeys").path("uk").asText()
-        if (enKey.isNotBlank() && enKey !in en) {
-            issues += BeverageValidationIssue(file.toString(), "Missing en-GB locale key: $enKey")
-        }
-        if (ukKey.isNotBlank() && ukKey !in uk) {
-            issues += BeverageValidationIssue(file.toString(), "Missing uk locale key: $ukKey")
+        val keys =
+            buildSet {
+                val nameKeys = node.path("nameKeys")
+                for (field in listOf("enGB", "uk")) {
+                    val key = nameKeys.path(field).asText()
+                    if (key.isNotBlank()) add(key)
+                }
+            }
+        for (key in keys) {
+            for ((loc, table) in locales) {
+                if (key !in table) {
+                    issues += BeverageValidationIssue(file.toString(), "Missing $loc locale key: $key")
+                }
+            }
         }
     }
 
@@ -124,5 +147,23 @@ class BeverageContentValidator(
                 issues += BeverageValidationIssue(file.toString(), "DOI looks malformed: $id")
             }
         }
+    }
+
+    companion object {
+        /** Mirrors `i18n/locales.yml` required list. Never include `ru`. */
+        val REQUIRED_LOCALES: List<String> =
+            listOf(
+                "en-GB",
+                "uk",
+                "pl",
+                "be",
+                "kk",
+                "ka",
+                "es",
+                "fr",
+                "de",
+                "cs",
+                "zh-Hans",
+            )
     }
 }

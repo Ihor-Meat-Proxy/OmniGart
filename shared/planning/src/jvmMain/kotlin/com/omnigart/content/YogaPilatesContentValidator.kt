@@ -24,8 +24,9 @@ data class MovementValidationReport(
 }
 
 /**
- * Validates bundled yoga + pilates content packs: schema, unique ids, locale keys (en-GB + uk only),
- * cross-refs, evidence registry entry ids (against allowlist and optional content/evidence/entries).
+ * Validates bundled yoga + pilates content packs: schema, unique ids, locale keys for all
+ * required locales (mirrors `i18n/locales.yml`; never ru), cross-refs, evidence registry
+ * entry ids (against allowlist and optional content/evidence/entries).
  */
 class YogaPilatesContentValidator(
     private val yogaRoot: Path,
@@ -41,10 +42,8 @@ class YogaPilatesContentValidator(
         assertNoRu(yogaRoot, issues)
         assertNoRu(pilatesRoot, issues)
 
-        val yogaEn = loadLocale(yogaRoot, "locales/en-GB.json")
-        val yogaUk = loadLocale(yogaRoot, "locales/uk.json")
-        val pilatesEn = loadLocale(pilatesRoot, "locales/en-GB.json")
-        val pilatesUk = loadLocale(pilatesRoot, "locales/uk.json")
+        val yogaLocales = loadRequiredLocales(yogaRoot, issues)
+        val pilatesLocales = loadRequiredLocales(pilatesRoot, issues)
 
         val yogaEvidenceAllow = loadAllowlist(yogaRoot.resolve("known-evidence-ids.json"))
         val pilatesEvidenceAllow = loadAllowlist(pilatesRoot.resolve("known-evidence-ids.json"))
@@ -66,7 +65,7 @@ class YogaPilatesContentValidator(
             if (node.path("bundled").asBoolean(false) != true) {
                 issues += ValidationIssue(file.toString(), "bundled must be true (bundle-first)")
             }
-            checkKeys(node, listOf("englishNameKeys", "sanskritNameKeys"), yogaEn, yogaUk, file, issues)
+            checkKeys(node, listOf("englishNameKeys", "sanskritNameKeys"), yogaLocales, file, issues)
             checkEvidenceIds(node, yogaEvidenceAllow, onDiskEvidence, file, issues)
             checkContraindicationFraming(node, file, issues)
         }
@@ -80,7 +79,7 @@ class YogaPilatesContentValidator(
             if (node.path("bundled").asBoolean(false) != true) {
                 issues += ValidationIssue(file.toString(), "bundled must be true (bundle-first)")
             }
-            checkKeys(node, listOf("nameKeys", "descriptionKeys"), yogaEn, yogaUk, file, issues)
+            checkKeys(node, listOf("nameKeys", "descriptionKeys"), yogaLocales, file, issues)
             checkEvidenceIds(node, yogaEvidenceAllow, onDiskEvidence, file, issues)
             node.path("poseIds").forEach { ref ->
                 val pid = ref.asString()
@@ -105,7 +104,7 @@ class YogaPilatesContentValidator(
             if (node.path("bundled").asBoolean(false) != true) {
                 issues += ValidationIssue(file.toString(), "bundled must be true (bundle-first)")
             }
-            checkKeys(node, listOf("nameKeys"), pilatesEn, pilatesUk, file, issues)
+            checkKeys(node, listOf("nameKeys"), pilatesLocales, file, issues)
             checkEvidenceIds(node, pilatesEvidenceAllow, onDiskEvidence, file, issues)
             checkContraindicationFraming(node, file, issues)
         }
@@ -119,7 +118,7 @@ class YogaPilatesContentValidator(
             if (node.path("bundled").asBoolean(false) != true) {
                 issues += ValidationIssue(file.toString(), "bundled must be true (bundle-first)")
             }
-            checkKeys(node, listOf("nameKeys", "descriptionKeys"), pilatesEn, pilatesUk, file, issues)
+            checkKeys(node, listOf("nameKeys", "descriptionKeys"), pilatesLocales, file, issues)
             checkEvidenceIds(node, pilatesEvidenceAllow, onDiskEvidence, file, issues)
             node.path("exerciseIds").forEach { ref ->
                 val eid = ref.asString()
@@ -129,11 +128,12 @@ class YogaPilatesContentValidator(
             }
             node.path("blocks").forEach { block ->
                 val titleKey = block.path("titleKey").asString()
-                if (titleKey.isNotBlank() && titleKey !in pilatesEn) {
-                    issues += ValidationIssue(file.toString(), "Missing en-GB block title $titleKey")
-                }
-                if (titleKey.isNotBlank() && titleKey !in pilatesUk) {
-                    issues += ValidationIssue(file.toString(), "Missing uk block title $titleKey")
+                if (titleKey.isNotBlank()) {
+                    for ((loc, table) in pilatesLocales) {
+                        if (titleKey !in table) {
+                            issues += ValidationIssue(file.toString(), "Missing $loc block title $titleKey")
+                        }
+                    }
                 }
                 block.path("items").forEach { item ->
                     val eid = item.path("exerciseId").asString()
@@ -194,19 +194,26 @@ class YogaPilatesContentValidator(
     private fun checkKeys(
         node: JsonNode,
         fields: List<String>,
-        en: Map<String, String>,
-        uk: Map<String, String>,
+        locales: Map<String, Map<String, String>>,
         file: Path,
         issues: MutableList<ValidationIssue>
     ) {
-        for (field in fields) {
-            val obj = node.path(field)
-            if (obj.isMissingNode || obj.isNull) continue
-            listOf("enGB", "uk").forEach { localeField ->
-                val key = obj.path(localeField).asString()
-                if (key.isBlank()) return@forEach
-                if (key !in en) issues += ValidationIssue(file.toString(), "Missing en-GB string for $key")
-                if (key !in uk) issues += ValidationIssue(file.toString(), "Missing uk string for $key")
+        val keys =
+            buildSet {
+                for (field in fields) {
+                    val obj = node.path(field)
+                    if (obj.isMissingNode || obj.isNull) continue
+                    for (localeField in listOf("enGB", "uk")) {
+                        val key = obj.path(localeField).asString()
+                        if (key.isNotBlank()) add(key)
+                    }
+                }
+            }
+        for (key in keys) {
+            for ((loc, table) in locales) {
+                if (key !in table) {
+                    issues += ValidationIssue(file.toString(), "Missing $loc string for $key")
+                }
             }
         }
     }
@@ -214,6 +221,21 @@ class YogaPilatesContentValidator(
     private fun loadSchema(root: Path, relative: String): Schema {
         val text = root.resolve(relative).readText()
         return registry.getSchema(text)
+    }
+
+    private fun loadRequiredLocales(root: Path, issues: MutableList<ValidationIssue>): Map<String, Map<String, String>> {
+        val out = linkedMapOf<String, Map<String, String>>()
+        for (loc in ContentValidator.REQUIRED_LOCALES) {
+            val relative = "locales/$loc.json"
+            val file = root.resolve(relative)
+            if (!file.isRegularFile()) {
+                issues += ValidationIssue(file.toString(), "Missing required locale file for $loc")
+                out[loc] = emptyMap()
+                continue
+            }
+            out[loc] = loadLocale(root, relative)
+        }
+        return out
     }
 
     private fun loadLocale(root: Path, relative: String): Map<String, String> {

@@ -115,10 +115,11 @@ extension HealthKitWorkoutWriter {
     static func buildEvents(for options: SaveOptions) -> [HKWorkoutEvent] {
         var events: [HKWorkoutEvent] = []
         for pair in options.pauseResumeDates {
+            // HealthKit requires zero-duration intervals for pause / resume.
             events.append(
                 HKWorkoutEvent(
                     type: .pause,
-                    dateInterval: DateInterval(start: pair.pause, duration: 1),
+                    dateInterval: DateInterval(start: pair.pause, duration: 0),
                     metadata: nil
                 )
             )
@@ -126,14 +127,18 @@ extension HealthKitWorkoutWriter {
                 events.append(
                     HKWorkoutEvent(
                         type: .resume,
-                        dateInterval: DateInterval(start: resume, duration: 1),
+                        dateInterval: DateInterval(start: resume, duration: 0),
                         metadata: nil
                     )
                 )
             }
         }
         for segment in options.segments {
-            let interval = DateInterval(start: segment.start, end: max(segment.end, segment.start))
+            // Segments require a non-zero interval; fall back to 1s when start == end.
+            let end = segment.end > segment.start
+                ? segment.end
+                : segment.start.addingTimeInterval(1)
+            let interval = DateInterval(start: segment.start, end: end)
             events.append(
                 HKWorkoutEvent(
                     type: .segment,

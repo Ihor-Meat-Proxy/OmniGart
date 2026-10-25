@@ -63,7 +63,7 @@ struct FoodToolsPanel: View {
                         foodId: food.id,
                         grams: 100.0,
                         mealGroup: .snacks,
-                        locale: "en-GB"
+                        locale: AppLocale.tag
                     )
                     tick += 1
                 }

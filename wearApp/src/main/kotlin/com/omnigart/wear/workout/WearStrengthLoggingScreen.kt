@@ -38,7 +38,9 @@ fun WearStrengthLoggingScreen(recorder: WearExerciseRecorder, onFinished: () -> 
     LaunchedEffect(Unit) {
         while (true) {
             delay(500)
-            recorder.tickRest()
+            if (!recorder.isPaused()) {
+                recorder.tickRest()
+            }
             epoch = recorder.uiEpoch()
         }
     }
@@ -116,6 +118,18 @@ private fun StrengthSteppers(recorder: WearExerciseRecorder) {
 
 @Composable
 private fun StrengthMetrics(recorder: WearExerciseRecorder) {
+    val activeSec = (recorder.elapsedActiveMs() / 1000L).toInt()
+    Text(
+        text =
+        String.format(
+            Locale.US,
+            "%d:%02d",
+            activeSec / 60,
+            activeSec % 60
+        ),
+        style = MaterialTheme.typography.bodySmall,
+        modifier = Modifier.testTag("wear_strength_elapsed")
+    )
     Text(
         text = stringResource(R.string.wear_strength_hr, recorder.heartRateBpm()),
         style = MaterialTheme.typography.bodySmall,
@@ -135,15 +149,38 @@ private fun StrengthMetrics(recorder: WearExerciseRecorder) {
 @Composable
 private fun StrengthActions(recorder: WearExerciseRecorder, onFinished: () -> Unit) {
     val resting = recorder.isRestRunning()
+    val paused = recorder.isPaused()
     Button(
         onClick = { recorder.logSet() },
-        enabled = !resting,
+        enabled = !resting && !paused,
         modifier =
         Modifier
             .fillMaxWidth()
             .testTag("wear_strength_done")
     ) {
         Text(text = stringResource(R.string.wear_strength_done))
+    }
+    if (recorder.isRunning()) {
+        Button(
+            onClick = {
+                if (paused) {
+                    recorder.resume()
+                } else {
+                    recorder.pause()
+                }
+            },
+            modifier =
+            Modifier
+                .fillMaxWidth()
+                .testTag("wear_strength_pause")
+        ) {
+            Text(
+                text =
+                stringResource(
+                    if (paused) R.string.treadmill_resume else R.string.treadmill_pause
+                )
+            )
+        }
     }
     Button(
         onClick = {

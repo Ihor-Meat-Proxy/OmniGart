@@ -1366,7 +1366,19 @@ def main() -> None:
 
     catalog = {
         "version": 1,
-        "localePolicy": ["en-GB", "uk"],
+        "localePolicy": [
+            "en-GB",
+            "uk",
+            "pl",
+            "be",
+            "kk",
+            "ka",
+            "es",
+            "fr",
+            "de",
+            "cs",
+            "zh-Hans",
+        ],
         "healthyByDesign": {
             "rewardConsistency": True,
             "forbidCalorieRestrictionRewards": True,

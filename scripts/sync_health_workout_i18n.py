@@ -301,6 +301,86 @@ t(
     },
 )
 t(
+    "workout_watch_phone_only_notice",
+    **{
+        "en-GB": "No watch nearby — continuing on phone only.",
+        "uk": "Годинник поруч немає — лише на телефоні.",
+        "pl": "Brak zegarka w pobliżu — tylko telefon.",
+        "be": "Гадзінніка побач няма — толькі тэлефон.",
+        "kk": "Жақын сағат жоқ — тек телефон.",
+        "ka": "საათი ახლოს არ არის — მხოლოდ ტელეფონი.",
+        "es": "Sin reloj cerca — solo en el teléfono.",
+        "fr": "Pas de montre à proximité — téléphone seul.",
+        "de": "Keine Watch in der Nähe — nur Telefon.",
+        "cs": "Hodinky nejsou nablízku — jen telefon.",
+        "zh-Hans": "附近无手表 — 仅在手机上继续。",
+    },
+)
+t(
+    "workout_watch_mirroring",
+    **{
+        "en-GB": "Live from watch",
+        "uk": "Наживо з годинника",
+        "pl": "Na żywo z zegarka",
+        "be": "Нажыва з гадзінніка",
+        "kk": "Сағаттан тікелей",
+        "ka": "პირდაპირ საათიდან",
+        "es": "En directo del reloj",
+        "fr": "En direct depuis la montre",
+        "de": "Live von der Watch",
+        "cs": "Živě z hodinek",
+        "zh-Hans": "来自手表的实时数据",
+    },
+)
+t(
+    "workout_watch_settings_title",
+    **{
+        "en-GB": "Watch workouts",
+        "uk": "Тренування на годиннику",
+        "pl": "Treningi na zegarku",
+        "be": "Трэніроўкі на гадзінніку",
+        "kk": "Сағаттағы жаттығулар",
+        "ka": "ვარჯიშები საათზე",
+        "es": "Entrenamientos en el reloj",
+        "fr": "Séances sur la montre",
+        "de": "Watch-Workouts",
+        "cs": "Tréninky na hodinkách",
+        "zh-Hans": "手表训练",
+    },
+)
+t(
+    "workout_start_on_watch_toggle",
+    **{
+        "en-GB": "Start workouts on watch",
+        "uk": "Починати тренування на годиннику",
+        "pl": "Uruchamiaj treningi na zegarku",
+        "be": "Пачынаць трэніроўкі на гадзінніку",
+        "kk": "Жаттығуларды сағатта бастау",
+        "ka": "ვარჯიშების დაწყება საათზე",
+        "es": "Empezar entrenamientos en el reloj",
+        "fr": "Démarrer les séances sur la montre",
+        "de": "Workouts auf der Watch starten",
+        "cs": "Spouštět tréninky na hodinkách",
+        "zh-Hans": "在手表上开始训练",
+    },
+)
+t(
+    "workout_start_on_watch_toggle_body",
+    **{
+        "en-GB": "When you start on the phone, open the same session on a paired watch. Off keeps phone-only logging. On by default.",
+        "uk": "Коли починаєте на телефоні, відкриває ту саму сесію на парному годиннику. Вимкнено — лише телефон. Увімкнено за замовчуванням.",
+        "pl": "Gdy zaczynasz na telefonie, otwiera tę samą sesję na sparowanym zegarku. Wyłączone = tylko telefon. Domyślnie włączone.",
+        "be": "Калі пачынаеце на тэлефоне, адкрывае тую ж сесію на парным гадзінніку. Выключана — толькі тэлефон. Уключана па змаўчанні.",
+        "kk": "Телефонда бастағанда жұпталған сағатта сол сеансты ашады. Өшірулі = тек телефон. Әдепкі бойынша қосулы.",
+        "ka": "ტელეფონზე დაწყებისას იგივე სესიას ხსნის დაწყვილებულ საათზე. გამორთული = მხოლოდ ტელეფონი. ნაგულისხმევად ჩართული.",
+        "es": "Al empezar en el teléfono, abre la misma sesión en el reloj emparejado. Desactivado = solo teléfono. Activado por defecto.",
+        "fr": "Quand vous démarrez sur le téléphone, ouvre la même séance sur la montre associée. Désactivé = téléphone seul. Activé par défaut.",
+        "de": "Beim Start am Telefon öffnet dieselbe Sitzung auf der gekoppelten Watch. Aus = nur Telefon. Standardmäßig an.",
+        "cs": "Při startu v telefonu otevře stejnou relaci na párovaných hodinkách. Vypnuto = jen telefon. Ve výchozím stavu zapnuto.",
+        "zh-Hans": "在手机上开始时，在已配对的手表上打开同一训练。关闭则仅手机记录。默认开启。",
+    },
+)
+t(
     "workout_start_iphone_estimate",
     **{
         "en-GB": "Log on iPhone (estimate)",

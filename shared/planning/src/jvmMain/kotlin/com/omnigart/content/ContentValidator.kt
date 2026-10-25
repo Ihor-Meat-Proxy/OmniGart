@@ -20,7 +20,8 @@ data class ValidationReport(val exerciseCount: Int, val templateCount: Int, val 
 
 /**
  * Validates on-disk exercise/template JSON against schemas and content rules:
- * unique ids, locale keys present (en-GB + uk only — no ru), cross-refs, evidence refs.
+ * unique ids, locale keys present for all required locales (see [REQUIRED_LOCALES] — no ru),
+ * cross-refs, evidence refs.
  */
 class ContentValidator(private val contentRoot: Path, private val mapper: ObjectMapper = ObjectMapper()) {
     private val registry: SchemaRegistry =
@@ -31,8 +32,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         val exerciseSchema = loadSchema("schema/exercise.schema.json")
         val templateSchema = loadSchema("schema/workout-template.schema.json")
 
-        val localeEn = loadLocale("locales/en-GB.json")
-        val localeUk = loadLocale("locales/uk.json")
+        val locales = loadRequiredLocales(issues)
         assertNoRuLocale(issues)
 
         val dataDir = contentRoot.resolve("data")
@@ -55,7 +55,7 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
             if (file.name != "$id.json") {
                 issues += ValidationIssue(file.toString(), "Filename must match id.json")
             }
-            checkNameKeys(node, localeEn, localeUk, file, issues)
+            checkNameKeys(node, locales, file, issues)
             checkEvidence(node, file, issues)
             checkLoadModel(node, file, issues)
         }
@@ -119,6 +119,21 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         return registry.getSchema(mapper.readTree(text))
     }
 
+    private fun loadRequiredLocales(issues: MutableList<ValidationIssue>): Map<String, Map<String, String>> {
+        val out = linkedMapOf<String, Map<String, String>>()
+        for (loc in REQUIRED_LOCALES) {
+            val relative = "locales/$loc.json"
+            val file = contentRoot.resolve(relative)
+            if (!Files.isRegularFile(file)) {
+                issues += ValidationIssue(file.toString(), "Missing required locale file for $loc")
+                out[loc] = emptyMap()
+                continue
+            }
+            out[loc] = loadLocale(relative)
+        }
+        return out
+    }
+
     private fun loadLocale(relative: String): Map<String, String> {
         val file = contentRoot.resolve(relative)
         if (!Files.exists(file)) return emptyMap()
@@ -140,20 +155,21 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
         }
     }
 
-    private fun checkNameKeys(
-        node: JsonNode,
-        en: Map<String, String>,
-        uk: Map<String, String>,
-        file: Path,
-        issues: MutableList<ValidationIssue>
-    ) {
-        val enKey = node.path("nameKeys").path("enGB").asString()
-        val ukKey = node.path("nameKeys").path("uk").asString()
-        if (enKey.isNotBlank() && enKey !in en) {
-            issues += ValidationIssue(file.toString(), "Missing en-GB string for $enKey")
-        }
-        if (ukKey.isNotBlank() && ukKey !in uk) {
-            issues += ValidationIssue(file.toString(), "Missing uk string for $ukKey")
+    private fun checkNameKeys(node: JsonNode, locales: Map<String, Map<String, String>>, file: Path, issues: MutableList<ValidationIssue>) {
+        val keys =
+            buildSet {
+                val nameKeys = node.path("nameKeys")
+                for (field in listOf("enGB", "uk")) {
+                    val key = nameKeys.path(field).asString()
+                    if (key.isNotBlank()) add(key)
+                }
+            }
+        for (key in keys) {
+            for ((loc, table) in locales) {
+                if (key !in table) {
+                    issues += ValidationIssue(file.toString(), "Missing $loc string for $key")
+                }
+            }
         }
     }
 
@@ -265,5 +281,23 @@ class ContentValidator(private val contentRoot: Path, private val mapper: Object
                 }
             }
         }
+    }
+
+    companion object {
+        /** Mirrors `i18n/locales.yml` required list. Never include `ru`. */
+        val REQUIRED_LOCALES: List<String> =
+            listOf(
+                "en-GB",
+                "uk",
+                "pl",
+                "be",
+                "kk",
+                "ka",
+                "es",
+                "fr",
+                "de",
+                "cs",
+                "zh-Hans"
+            )
     }
 }

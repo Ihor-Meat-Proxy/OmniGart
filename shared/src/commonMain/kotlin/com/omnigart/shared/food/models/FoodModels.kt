@@ -1,5 +1,6 @@
 package com.omnigart.shared.food.models
 
+import com.omnigart.shared.i18n.OmniLocales
 import kotlin.time.Instant
 import kotlinx.serialization.Serializable
 
@@ -128,7 +129,13 @@ data class CatalogueFood(
     /** Localised display names keyed by BCP-47 (en-GB, uk, …). */
     val namesByLocale: Map<String, String> = emptyMap()
 ) {
-    fun displayName(locale: String): String = namesByLocale[locale] ?: namesByLocale["en-GB"] ?: name
+    fun displayName(locale: String): String {
+        val resolved = OmniLocales.resolve(locale)
+        return namesByLocale[resolved]
+            ?: namesByLocale[resolved.substringBefore('-')]
+            ?: namesByLocale["en-GB"]
+            ?: name
+    }
 
     fun forGrams(grams: Double): ServingNutrients {
         val f = grams / 100.0

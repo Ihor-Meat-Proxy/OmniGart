@@ -187,8 +187,22 @@ class HealthDataRoundTripTest {
         val artifacts = export.exportAll()
         assertTrue(artifacts.any { it.format.name.startsWith("CSV") && it.utf8Content!!.contains("w1") })
         assertTrue(artifacts.any { it.format.name == "GPX" && it.utf8Content!!.contains("trkpt") })
-        assertTrue(artifacts.any { it.format.name == "TCX" && it.utf8Content!!.contains("Activity") })
-        assertTrue(artifacts.any { it.format.name == "FIT_UNAVAILABLE" })
+        val tcx = artifacts.first { it.format.name == "TCX" }
+        assertTrue(tcx.utf8Content!!.contains("Activity"))
+        // Required TCX schema namespace URL (IANA / Training Center Database) stays in XML.
+        assertTrue(
+            tcx.utf8Content!!.contains(
+                "http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+            )
+        )
+        assertEquals("application/vnd.garmin.tcx+xml", tcx.mimeType)
+        val fitNote = artifacts.first { it.format.name == "FIT_UNAVAILABLE" }
+        assertEquals(
+            "FIT export is not available: no AGPL-compatible FOSS FIT writer " +
+                "is included. Use TCX/GPX/JSON instead.",
+            fitNote.utf8Content
+        )
+        assertEquals("FIT unavailable (AGPL / FOSS library gap)", fitNote.note)
     }
 
     @Test

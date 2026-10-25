@@ -910,6 +910,11 @@
     <string name="treadmill_diag_log">Raw log</string>
     <string name="treadmill_diag_capture_sim">Capture simulator frame</string>
     <string name="treadmill_diag_captured">Frame captured.</string>
+    <string name="workout_watch_phone_only_notice">No watch nearby — continuing on phone only.</string>
+    <string name="workout_watch_mirroring">Live from watch</string>
+    <string name="workout_watch_settings_title">Watch workouts</string>
+    <string name="workout_start_on_watch_toggle">Start workouts on watch</string>
+    <string name="workout_start_on_watch_toggle_body">When you start on the phone, open the same session on a paired watch. Off keeps phone-only logging. On by default.</string>
     <string name="food_day_today">Today</string>
     <string name="food_day_previous">Previous day</string>
     <string name="food_day_next">Next day</string>

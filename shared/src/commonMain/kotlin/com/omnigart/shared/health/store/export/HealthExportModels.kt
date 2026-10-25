@@ -31,7 +31,7 @@ enum class HealthExportFormat {
 
     /**
      * FIT binary. Not produced in-tree: no AGPL-compatible FOSS FIT writer
-     * is vendored yet (Garmin FIT SDK is proprietary). See mapping doc.
+     * is vendored yet. See mapping doc.
      */
     FIT_UNAVAILABLE
 }

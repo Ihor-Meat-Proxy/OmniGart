@@ -24,6 +24,8 @@ import com.omnigart.sensors.ble.BleUuids
 import com.omnigart.sensors.ble.BodySensorLocation
 import com.omnigart.sensors.ble.DeviceInformationParser
 import com.omnigart.sensors.ble.HeartRateMeasurementParser
+import com.omnigart.sensors.model.BleHrFailure
+import com.omnigart.sensors.model.BleHrResult
 import com.omnigart.sensors.model.DeviceInformation
 import com.omnigart.sensors.model.HeartRateMeasurement
 import com.omnigart.sensors.model.SensorConnectionState
@@ -98,10 +100,12 @@ class StandardBleHeartRateManager(
 
     override fun polarFeatures(): PolarSensorFeatures? = polarFeaturesProvider?.invoke()
 
-    override suspend fun startScan() = withContext(Dispatchers.Main) {
-        ensurePermissions()
+    override suspend fun startScan(): BleHrResult = withContext(Dispatchers.Main) {
+        readinessFailure()?.let { return@withContext failResult(it) }
         val scanner = adapter?.bluetoothLeScanner
-            ?: error("Bluetooth LE scanner unavailable")
+        if (scanner == null) {
+            return@withContext failResult(BleHrFailure.ScannerUnavailable)
+        }
         stopScanInternal()
         discovered.clear()
         _discovered.value = emptyList()
@@ -121,14 +125,12 @@ class StandardBleHeartRateManager(
             }
 
             override fun onScanFailed(errorCode: Int) {
-                updateSession(
-                    connection = SensorConnectionState.Failed,
-                    error = "Scan failed: $errorCode",
-                )
+                failSession(BleHrFailure.ScanFailed(errorCode))
             }
         }
         scanCallback = callback
         scanner.startScan(listOf(filter), settings, callback)
+        BleHrResult.success()
     }
 
     override suspend fun stopScan() = withContext(Dispatchers.Main) {
@@ -138,19 +140,27 @@ class StandardBleHeartRateManager(
         }
     }
 
-    override suspend fun connect(deviceId: String) = withContext(Dispatchers.Main) {
-        ensurePermissions()
+    override suspend fun connect(deviceId: String): BleHrResult = withContext(Dispatchers.Main) {
+        readinessFailure()?.let { return@withContext failResult(it) }
         stopScanInternal()
         reconnectJob?.cancel()
         preferredDeviceId = deviceId
-        val remote = adapter?.getRemoteDevice(deviceId)
-            ?: error("Unknown device $deviceId")
+        val remote =
+            try {
+                adapter?.getRemoteDevice(deviceId)
+            } catch (_: IllegalArgumentException) {
+                null
+            }
+        if (remote == null) {
+            return@withContext failResult(BleHrFailure.DeviceNotFound(deviceId))
+        }
         updateSession(
             device = discovered[deviceId] ?: SensorDevice(deviceId, remote.name, SensorKind.Unknown),
             connection = SensorConnectionState.Connecting,
         )
         gatt?.close()
         gatt = remote.connectGatt(appContext, false, gattCallback, BluetoothDevice.TRANSPORT_LE)
+        BleHrResult.success()
     }
 
     override suspend fun disconnect() = withContext(Dispatchers.Main) {
@@ -187,13 +197,24 @@ class StandardBleHeartRateManager(
             scope.launch {
                 when (newState) {
                     BluetoothProfile.STATE_CONNECTED -> {
+                        if (status != BluetoothGatt.GATT_SUCCESS) {
+                            gatt.close()
+                            this@StandardBleHeartRateManager.gatt = null
+                            failSession(BleHrFailure.GattError(status, "connect"))
+                            maybeReconnect()
+                            return@launch
+                        }
                         updateSession(connection = SensorConnectionState.Connected)
                         gatt.discoverServices()
                     }
                     BluetoothProfile.STATE_DISCONNECTED -> {
                         gatt.close()
                         this@StandardBleHeartRateManager.gatt = null
-                        updateSession(connection = SensorConnectionState.Disconnected)
+                        if (status != BluetoothGatt.GATT_SUCCESS) {
+                            failSession(BleHrFailure.GattError(status, "disconnect"))
+                        } else {
+                            updateSession(connection = SensorConnectionState.Disconnected)
+                        }
                         maybeReconnect()
                     }
                 }
@@ -201,7 +222,12 @@ class StandardBleHeartRateManager(
         }
 
         override fun onServicesDiscovered(gatt: BluetoothGatt, status: Int) {
-            if (status != BluetoothGatt.GATT_SUCCESS) return
+            if (status != BluetoothGatt.GATT_SUCCESS) {
+                scope.launch {
+                    failSession(BleHrFailure.GattError(status, "discoverServices"))
+                }
+                return
+            }
             scope.launch {
                 enableHrNotifications(gatt)
                 readOptionalCharacteristics(gatt)
@@ -330,16 +356,13 @@ class StandardBleHeartRateManager(
                 updateSession(connection = SensorConnectionState.Reconnecting)
                 val delayMs = backoff.delayMsForAttempt(attempt)
                 if (delayMs < 0) {
-                    updateSession(
-                        connection = SensorConnectionState.Failed,
-                        error = "Reconnect attempts exhausted",
-                    )
+                    failSession(BleHrFailure.ReconnectExhausted)
                     return@launch
                 }
                 delay(delayMs)
                 attempt += 1
-                runCatching { connect(id) }
                 // connect() replaces session; exit loop and let disconnect restart if needed
+                connect(id)
                 return@launch
             }
         }
@@ -351,11 +374,30 @@ class StandardBleHeartRateManager(
         scanCallback = null
     }
 
-    private fun ensurePermissions() {
-        check(BlePermissionRequirements.hasAll(appContext)) {
-            "Missing BLE permissions: ${BlePermissionRequirements.requiredPermissions().joinToString()}"
+    /** Expected BLE precondition failures — never throw into the sensors UI. */
+    private fun readinessFailure(): BleHrFailure? {
+        if (!BlePermissionRequirements.hasAll(appContext)) {
+            return BleHrFailure.MissingPermissions(
+                BlePermissionRequirements.requiredPermissions().toList(),
+            )
         }
-        check(adapter?.isEnabled == true) { "Bluetooth adapter disabled" }
+        if (adapter?.isEnabled != true) {
+            return BleHrFailure.AdapterDisabled
+        }
+        return null
+    }
+
+    private fun failSession(failure: BleHrFailure) {
+        updateSession(
+            connection = SensorConnectionState.Failed,
+            error = failure.message,
+            failure = failure,
+        )
+    }
+
+    private fun failResult(failure: BleHrFailure): BleHrResult {
+        failSession(failure)
+        return BleHrResult.failure(failure)
     }
 
     private fun updateSession(
@@ -365,6 +407,7 @@ class StandardBleHeartRateManager(
         location: String? = _session.value.bodySensorLocation,
         info: DeviceInformation? = _session.value.deviceInformation,
         error: String? = null,
+        failure: BleHrFailure? = null,
     ) {
         _session.value = SensorSessionState(
             device = device,
@@ -373,6 +416,7 @@ class StandardBleHeartRateManager(
             bodySensorLocation = location,
             deviceInformation = info,
             lastError = error,
+            lastFailure = failure,
         )
     }
 

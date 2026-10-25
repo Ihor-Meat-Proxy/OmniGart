@@ -10,7 +10,7 @@ struct FoodSearchPanel: View {
 
     private var results: [CatalogueFood] {
         _ = tick
-        return Array(core.foodLogging.search(profileId: profileId, query: query, locale: "en-GB"))
+        return Array(core.foodLogging.search(profileId: profileId, query: query, locale: AppLocale.tag))
     }
 
     var body: some View {
@@ -60,7 +60,7 @@ struct FoodCatalogueRow: View {
                 foodId: food.id,
                 serving: serving,
                 mealGroup: meal,
-                locale: "en-GB"
+                locale: AppLocale.tag
             )
             _ = core.logFood(
                 profileId: profileId,
@@ -240,7 +240,7 @@ struct FoodMorningReviewPanel: View {
             dayKey: dayKey,
             dayStartEpochMs: startMs,
             dayEndEpochMs: endMs,
-            locale: "en-GB",
+            locale: AppLocale.tag,
             ageYears: age,
             sex: .unspecified,
             availability: FoodMorningReviewSupport.checkAvailability()

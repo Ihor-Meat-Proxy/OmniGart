@@ -59,6 +59,7 @@ extension OmniGartLiveWorkoutSession: HKLiveWorkoutBuilderDelegate {
                         stats.sumQuantity()?.doubleValue(for: .kilocalorie()) ?? basalEnergyKcal
                 }
             }
+            sendMirrorMetricsIfNeeded()
         }
     }
 }

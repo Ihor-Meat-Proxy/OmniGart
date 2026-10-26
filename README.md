@@ -18,20 +18,33 @@ Open-source (**AGPL-3.0**) wellness app for strength, endurance, hydration, and 
 | Evidence registry + insights | **Done** | Claims with verified DOI/PMID links |
 | Yoga + Pilates libraries | **Done** | Content packs + locales |
 | Running + swimming content | **Done** | Workout types, plans, locales |
-| Translations (all required locales) | **Done** | en-GB source; uk, pl, be, kk, ka, es, fr, de, cs, zh-Hans — **never Russian** |
-| Health integrations (HealthKit, Health Connect, Google Health API) | **Done** | Shared contracts; product sync UI still feature-flagged |
+| Translations (all required locales) | **Done** | en-GB source; uk, pl, be, kk, ka, es, fr, de, cs, zh-Hans — **never Russian** (some strings still English placeholders pending native review) |
+| Health integrations (HealthKit, Health Connect, Google Health API) | **Done** | Save workouts to Apple Health ([#69](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/69)); local-first store with append-only sync/restore + watch/Wear transfer ([#71](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/71)); Health Connect append-only writes ([#93](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/93)); HealthKit pause-event duration fix ([#96](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/96)). Product sync UI / workers still behind `FeatureFlags.healthSyncEnabled` (**false** by default); see [docs/HEALTH_DATA_MAPPING.md](docs/HEALTH_DATA_MAPPING.md) |
 | Nutrition offline packs | **Done** | `shared/nutrition-data` + pack tooling |
 | WorkoutKit (system Workout scheduling) | **Done** | Bridge + flags; see [docs/WORKOUTKIT.md](docs/WORKOUTKIT.md) |
-| Zone 2 watch live workout + program | **Planned** | Next focus — [docs/plans/watch-workoutkit-zone2.md](docs/plans/watch-workoutkit-zone2.md) |
-| Device install guide | **Planned** | [docs/INSTALL_DEVICE.md](docs/INSTALL_DEVICE.md) (landing soon) |
-| Encrypted cloud backup | **Planned** | iCloud / Google Drive / Nextcloud |
-| Food barcode camera flow | **Planned** | Flagged off |
-| Morning readiness check-in UI | **Planned** | Scoring helpers exist |
-| Wear OS deep workout parity | **Planned** | Shell exists; no system WorkoutKit equivalent |
+| Zone 2 watch live workout + program | **Done** | Zone math + evidence ([#57](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/57), [#58](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/58)); glanceable watchOS session, haptics, summary, WorkoutKit path ([#60](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/60)–[#65](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/65)); `watchApp/OmniGartWatch/LiveWorkout/` — [docs/ZONE2.md](docs/ZONE2.md) |
+| Device install guide | **Done** | [docs/INSTALL_DEVICE.md](docs/INSTALL_DEVICE.md) ([#59](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/59)) |
+| Onboarding + local profile + real tabs | **Done** | First-launch onboarding + persisted profile ([#66](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/66)); real tab screens ([#67](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/67)); `activeProfile()` ([#95](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/95)) |
+| Planner (calendar, weekly scheme, adaptive suggestions) | **Done** | On-device planner calendar + weekly scheme + adaptive suggestions ([#86](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/86)); see [docs/PLANNING_ENGINE.md](docs/PLANNING_ENGINE.md) |
+| Food logging (catalogue, diary, encrypted store, morning review) | **Done** | USDA/OFF catalogue, diary UX, encrypted store, rule-based morning review ([#78](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/78), [#87](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/87)); see [docs/FOOD_LOGGING.md](docs/FOOD_LOGGING.md). `FeatureFlags.morningFoodReviewEnabled` remains off |
+| Adaptive calorie & macro targets | **Done** | Nutrition target model ([#77](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/77)); see [docs/NUTRITION_MODEL.md](docs/NUTRITION_MODEL.md) |
+| Insights & Health tabs | **Done** | Phone Insights + Health tabs over local store + read-only HK/HC ([#76](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/76)); see [docs/INSIGHTS_METRICS.md](docs/INSIGHTS_METRICS.md) |
+| Watch / Wear set logging + resistance calories | **Done** | In-workout set logging on watch/Wear with resistance energy estimates ([#75](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/75)) |
+| Treadmill (FTMS / RSC / iConsole) + simulator | **Done** | Live treadmill run + parsers ([#73](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/73)); simulator + diagnostics ([#80](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/80)); see [docs/TREADMILL.md](docs/TREADMILL.md) |
+| Equipment programmes, ready workouts, Explore library | **Done** | Equipment programmes + ready workouts ([#70](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/70)); Explore routine library + 150+ equipment catalogue ([#79](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/79)) |
+| Illustrations (equipment + exercises) | **Done** | Cartoon illustrations for equipment and exercises ([#72](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/72)); `design/illustrations/` |
+| Workout category tile grid | **Done** | Category tiles on iPhone and Android ([#85](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/85)) |
+| Phone starts watch / Wear workout | **Done** | Phone → watch HealthKit launch + Wear launch listener ([#88](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/88)) |
+| Calculation settings (Simple / Advanced) | **Done** | Formula domains + recalc ([#35](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/35)) |
+| Activity algorithms | **Done** | Pace, HR zones, swim detection, SWOLF, VO₂max estimates ([#20](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/20)); `shared/activity-algorithms` |
+| Wear OS deep workout parity | **Partial** | Set logging ([#75](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/75)); recorder lifecycle + typed BLE HR failures ([#91](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/91)); phone launch listener ([#88](https://github.com/Ihor-Meat-Proxy/OmniGart/pull/88)). No system WorkoutKit equivalent; Zone 2 live path still iOS/watchOS-first |
+| Encrypted cloud backup | **Planned** | iCloud / Google Drive / Nextcloud — `FeatureFlags.encryptedBackupEnabled` off |
+| Food barcode camera flow | **Planned** | `FeatureFlags.foodBarcodeEnabled` off |
+| Morning readiness check-in UI | **Planned** | Scoring helpers exist; `FeatureFlags.readinessCheckInEnabled` off |
 
 ## Roadmap
 
-Immediate: **Zone 2** running (zone math + evidence, glanceable watchOS session + haptics, summary, WorkoutKit Zone 2 path) and the personal-device install guide. Longer phase list: [docs/plans/README.md](docs/plans/README.md).
+Immediate: watch-to-phone sync race hardening, dedupe iOS/watchOS treadmill parsers into shared KMP, Wear OS workout parity, and replace remaining English placeholder translations with reviewed locale copy. Longer phase list: [docs/plans/README.md](docs/plans/README.md).
 
 ## Architecture
 

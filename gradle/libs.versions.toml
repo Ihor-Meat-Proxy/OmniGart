@@ -1,7 +1,7 @@
 [versions]
 # Verified Oct 2026 against Maven Central / Google Maven / services.gradle.org
 # (latest stable non-alpha/rc unless noted in docs/OPEN_QUESTIONS.md)
-agp = "9.4.1"
+agp = "9.5.0"
 kotlin = "2.4.21"
 sqldelight = "2.4.1"
 coroutines = "1.11.0"

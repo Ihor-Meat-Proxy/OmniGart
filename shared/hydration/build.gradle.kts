@@ -15,7 +15,7 @@ kotlin {
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
         }
         jvmMain.dependencies {
-            implementation("com.networknt:json-schema-validator:3.0.8")
+            implementation("com.networknt:json-schema-validator:3.0.9")
             implementation("tools.jackson.core:jackson-databind:3.2.4")
         }
         jvmTest.dependencies {
